@@ -1,0 +1,13 @@
+{
+  "source": "rowmax_scalar_presets_stable_heads_plus_partial_offset_m10.txt header captured from Wan2.2 artifacts",
+  "note": "These values describe QK rowmax preset coverage/scale regularity and are not BCCB or circulant-attention measurements.",
+  "metrics": {
+    "total_slots": 256000,
+    "old_preset_slots": 168160,
+    "added_slots": 73757,
+    "new_preset_slots": 241917,
+    "old_coverage_percent": 65.6875,
+    "new_coverage_percent": 94.498828,
+    "dynamic_reduction_among_previously_dynamic_percent": 83.967441
+  }
+}

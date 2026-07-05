@@ -1,0 +1,254 @@
+{
+  "argv": [
+    "scripts/structured_attention_visual_export.py",
+    "--map-id",
+    "vit:s0:l0:h0",
+    "--map-id",
+    "vit:s0:l5:h0",
+    "--out-npz",
+    "outputs/structured_attention_visual_vit_examples_hybrid_20260704.npz",
+    "--out-json",
+    "outputs/structured_attention_visual_vit_examples_hybrid_20260704.json"
+  ],
+  "items": [
+    {
+      "attention_entropy_mean": 0.4841949939727783,
+      "attention_entropy_std": 0.8665573000907898,
+      "grid_shape": [
+        8,
+        8
+      ],
+      "key": "ex0",
+      "label": "ViT L0 H0",
+      "map_id": "vit:s0:l0:h0",
+      "metrics": {
+        "flat_block_circulant": {
+          "block_size": 4,
+          "method": "flat_block_circulant",
+          "output_relative_error": 0.9455305933952332,
+          "permutation": "identity",
+          "relative_fro_error": 0.8642424941062927
+        },
+        "grid_cyclic_bccb": {
+          "block_size": "grid",
+          "method": "grid_cyclic_bccb",
+          "output_relative_error": 1.0982468128204346,
+          "permutation": "identity",
+          "relative_fro_error": 0.9849249124526978
+        },
+        "hybrid_balanced": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.08891011563646246,
+          "global_svd_numeric_rank_after_clipping": 37,
+          "local_mass": 0.015574774577595542,
+          "method": "hybrid_balanced",
+          "nominal_budget_params": 651,
+          "nominal_budget_ratio": 6.291858678955453,
+          "output_relative_error": 0.031958602368831635,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 1,
+          "rank": 2,
+          "relative_fro_error": 0.037832554429769516,
+          "sink_k": 2,
+          "sink_mass": 0.8813108782749235,
+          "sparse_k": 2,
+          "sparse_mass": 0.00839552040500436
+        },
+        "hybrid_plus": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.08051028401739795,
+          "global_svd_numeric_rank_after_clipping": 38,
+          "local_mass": 0.03478006156834553,
+          "method": "hybrid_plus",
+          "nominal_budget_params": 1117,
+          "nominal_budget_ratio": 3.666965085049239,
+          "output_relative_error": 0.037216916680336,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 2,
+          "rank": 4,
+          "relative_fro_error": 0.03231106698513031,
+          "sink_k": 3,
+          "sink_mass": 0.9099645197429347,
+          "sparse_k": 3,
+          "sparse_mass": 0.002738517749897721
+        },
+        "hybrid_small": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.08891011563646246,
+          "global_svd_numeric_rank_after_clipping": 37,
+          "local_mass": 0.015574774577595542,
+          "method": "hybrid_small",
+          "nominal_budget_params": 651,
+          "nominal_budget_ratio": 6.291858678955453,
+          "output_relative_error": 0.031958602368831635,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 1,
+          "rank": 2,
+          "relative_fro_error": 0.037832554429769516,
+          "sink_k": 2,
+          "sink_mass": 0.8813108782749235,
+          "sparse_k": 2,
+          "sparse_mass": 0.00839552040500436
+        },
+        "hybrid_tiny": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.3664676034209537,
+          "global_svd_numeric_rank_after_clipping": 11,
+          "local_mass": 0.08678742645770714,
+          "method": "hybrid_tiny",
+          "nominal_budget_params": 330,
+          "nominal_budget_ratio": 12.412121212121212,
+          "output_relative_error": 0.15710236132144928,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 1,
+          "rank": 1,
+          "relative_fro_error": 0.14921925961971283,
+          "sink_k": 1,
+          "sink_mass": 0.5194084926922609,
+          "sparse_k": 1,
+          "sparse_mass": 0.034077931603090306
+        },
+        "monarch_like_mask_proxy": {
+          "block_size": 16,
+          "method": "monarch_like_mask_proxy",
+          "output_relative_error": 0.689335286617279,
+          "permutation": "row=identity;col=interleave_groups32",
+          "relative_fro_error": 0.6653580069541931
+        },
+        "permuted_flat_block_circulant": {
+          "block_size": 4,
+          "method": "permuted_flat_block_circulant",
+          "output_relative_error": 0.8485501408576965,
+          "permutation": "row=identity;col=bit_reverse_padded",
+          "relative_fro_error": 0.8618378043174744
+        }
+      },
+      "note": "Input source=cifar10_test_local; SCTM checkpoint, layer0 exact, later layers attention-only rollout.",
+      "row_argmax_unique_fraction": 0.03125
+    },
+    {
+      "attention_entropy_mean": 3.2457149028778076,
+      "attention_entropy_std": 0.22682660818099976,
+      "grid_shape": [
+        8,
+        8
+      ],
+      "key": "ex1",
+      "label": "ViT L5 H0",
+      "map_id": "vit:s0:l5:h0",
+      "metrics": {
+        "flat_block_circulant": {
+          "block_size": 4,
+          "method": "flat_block_circulant",
+          "output_relative_error": 0.056104809045791626,
+          "permutation": "identity",
+          "relative_fro_error": 0.42794761061668396
+        },
+        "grid_cyclic_bccb": {
+          "block_size": "grid",
+          "method": "grid_cyclic_bccb",
+          "output_relative_error": 0.3301636278629303,
+          "permutation": "identity",
+          "relative_fro_error": 0.842901349067688
+        },
+        "hybrid_balanced": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.7115590290936673,
+          "global_svd_numeric_rank_after_clipping": 62,
+          "local_mass": 0.1125574838329294,
+          "method": "hybrid_balanced",
+          "nominal_budget_params": 651,
+          "nominal_budget_ratio": 6.291858678955453,
+          "output_relative_error": 0.05220114067196846,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 1,
+          "rank": 2,
+          "relative_fro_error": 0.13417299091815948,
+          "sink_k": 2,
+          "sink_mass": 0.18261841354903438,
+          "sparse_k": 2,
+          "sparse_mass": 0.011841821564796082
+        },
+        "hybrid_plus": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.5573470888873827,
+          "global_svd_numeric_rank_after_clipping": 61,
+          "local_mass": 0.28898948085493487,
+          "method": "hybrid_plus",
+          "nominal_budget_params": 1117,
+          "nominal_budget_ratio": 3.666965085049239,
+          "output_relative_error": 0.09213428944349289,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 2,
+          "rank": 4,
+          "relative_fro_error": 0.1958899199962616,
+          "sink_k": 3,
+          "sink_mass": 0.25938060321124795,
+          "sparse_k": 3,
+          "sparse_mass": 0.01804505039173851
+        },
+        "hybrid_small": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.7115590290936673,
+          "global_svd_numeric_rank_after_clipping": 62,
+          "local_mass": 0.1125574838329294,
+          "method": "hybrid_small",
+          "nominal_budget_params": 651,
+          "nominal_budget_ratio": 6.291858678955453,
+          "output_relative_error": 0.05220114067196846,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 1,
+          "rank": 2,
+          "relative_fro_error": 0.13417299091815948,
+          "sink_k": 2,
+          "sink_mass": 0.18261841354903438,
+          "sparse_k": 2,
+          "sparse_mass": 0.011841821564796082
+        },
+        "hybrid_tiny": {
+          "budget_note": "Nominal budget only. The clipped/capped SVD-derived global component is not a strict rank-constrained matrix representation.",
+          "dense_params": 4096,
+          "global_svd_mass": 0.7043053057027463,
+          "global_svd_numeric_rank_after_clipping": 63,
+          "local_mass": 0.12556380419893154,
+          "method": "hybrid_tiny",
+          "nominal_budget_params": 330,
+          "nominal_budget_ratio": 12.412121212121212,
+          "output_relative_error": 0.06769023090600967,
+          "proxy_definition": "oracle sink/global-SVD + local-cyclic + sparse-routing decomposition; sinks and sparse routes are selected from observed A; nominal budget is not a strict compressed representation cost",
+          "radius": 1,
+          "rank": 1,
+          "relative_fro_error": 0.2008245885372162,
+          "sink_k": 1,
+          "sink_mass": 0.0951404238768436,
+          "sparse_k": 1,
+          "sparse_mass": 0.03238341664907304
+        },
+        "monarch_like_mask_proxy": {
+          "block_size": 16,
+          "method": "monarch_like_mask_proxy",
+          "output_relative_error": 0.03754137456417084,
+          "permutation": "row=identity;col=bit_reverse_padded",
+          "relative_fro_error": 1.226486325263977
+        },
+        "permuted_flat_block_circulant": {
+          "block_size": 4,
+          "method": "permuted_flat_block_circulant",
+          "output_relative_error": 0.05702045559883118,
+          "permutation": "row=interleave_groups32;col=identity",
+          "relative_fro_error": 0.4284037947654724
+        }
+      },
+      "note": "Input source=cifar10_test_local; SCTM checkpoint, layer0 exact, later layers attention-only rollout.",
+      "row_argmax_unique_fraction": 0.046875
+    }
+  ],
+  "npz": "outputs/structured_attention_visual_vit_examples_hybrid_20260704.npz"
+}

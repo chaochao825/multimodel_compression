@@ -1,0 +1,461 @@
+{
+  "frames": 4,
+  "grid_thw": [
+    [
+      2,
+      8,
+      8
+    ]
+  ],
+  "load_info": {
+    "missing": [],
+    "unexpected": []
+  },
+  "metadata": {
+    "args": {
+      "device": "cuda:0",
+      "frames": 4,
+      "heads": 4,
+      "layers": "0,8,16,26",
+      "model_dir": "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+      "out": "/home/wangmeiqi/video_circulant_analysis_20260701/results/qwen3vl_visual_circulant_probe.json",
+      "size": 128,
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/fFYNmVb3NCQ.mp4"
+    },
+    "argv": [
+      "qwen3vl_visual_circulant_probe.py",
+      "--model-dir",
+      "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+      "--video",
+      "/home/wangmeiqi/.cache/huggingface/videomme/data/fFYNmVb3NCQ.mp4",
+      "--frames",
+      "4",
+      "--size",
+      "128",
+      "--layers",
+      "0,8,16,26",
+      "--heads",
+      "4",
+      "--device",
+      "cuda:0",
+      "--out",
+      "/home/wangmeiqi/video_circulant_analysis_20260701/results/qwen3vl_visual_circulant_probe.json"
+    ],
+    "cuda_available": true,
+    "cuda_device_count": 4,
+    "cv2": "4.12.0",
+    "device_requested": "cuda:0",
+    "grid_thw": [
+      [
+        2,
+        8,
+        8
+      ]
+    ],
+    "head_limit": 4,
+    "layers": [
+      0,
+      8,
+      16,
+      26
+    ],
+    "load_info": {
+      "missing": [],
+      "unexpected": []
+    },
+    "metric_scope": "per-temporal-slice 2D spatial BCCB/cyclic-offset attention",
+    "model_index_sha256": "63d9c0cf07b794e290164ba140c4d719ad2a129966f95d7921599eb0047d1dd3",
+    "numpy": "1.26.4",
+    "safetensors": "0.6.2",
+    "script_sha256": "aeab0981f1f483e6509539175a4a91a9daffd976b906c86ab4bf5654cb29eeef",
+    "token_order_assumption": "Manual patchification uses temporal-major, raster H/W order and Qwen3-VL vision forward does not reorder tokens before qkv; this is not an official processor byte-for-byte validation.",
+    "torch": "2.2.2+cu121",
+    "transformers": "4.57.3",
+    "video_sha256": "098ad59c550ced3302200233efdb7505ed8c77cce35e0a4202524236a0281a9f",
+    "video_size_bytes": 24898700
+  },
+  "model_dir": "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+  "rows": [
+    {
+      "circulant_r2": 0.006519604594471984,
+      "diag_mean": 0.022620046511292458,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.12617997064792297,
+      "layer": 0,
+      "relative_fro_error": 0.8598593367892784,
+      "row_entropy_mean": 3.606959342956543,
+      "row_entropy_std": 0.18353527784347534
+    },
+    {
+      "circulant_r2": 0.0021101740778042277,
+      "diag_mean": 0.015171865001320839,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.12516596540956515,
+      "layer": 0,
+      "relative_fro_error": 0.7457870385847848,
+      "row_entropy_mean": 3.7386257648468018,
+      "row_entropy_std": 0.08771727234125137
+    },
+    {
+      "circulant_r2": 0.20606121703834823,
+      "diag_mean": 0.11287176609039307,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.16630892994560853,
+      "layer": 0,
+      "relative_fro_error": 0.7914245631500388,
+      "row_entropy_mean": 3.440530300140381,
+      "row_entropy_std": 0.5996219515800476
+    },
+    {
+      "circulant_r2": 0.013627859147401167,
+      "diag_mean": 0.03082992322742939,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.12834953645615904,
+      "layer": 0,
+      "relative_fro_error": 0.8879830482278229,
+      "row_entropy_mean": 3.532235860824585,
+      "row_entropy_std": 0.6239197254180908
+    },
+    {
+      "circulant_r2": 0.0239187935436721,
+      "diag_mean": 0.027902647852897644,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.12711578935392598,
+      "layer": 0,
+      "relative_fro_error": 0.7575970056915722,
+      "row_entropy_mean": 3.807074785232544,
+      "row_entropy_std": 0.2228223830461502
+    },
+    {
+      "circulant_r2": 0.0015972321498470832,
+      "diag_mean": 0.015675514936447144,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.1252210546785486,
+      "layer": 0,
+      "relative_fro_error": 0.8294492003711802,
+      "row_entropy_mean": 3.5094432830810547,
+      "row_entropy_std": 0.15833644568920135
+    },
+    {
+      "circulant_r2": 0.14384510034380293,
+      "diag_mean": 0.08303198218345642,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.14853645055696155,
+      "layer": 0,
+      "relative_fro_error": 0.7966232297803693,
+      "row_entropy_mean": 3.5751044750213623,
+      "row_entropy_std": 0.4407174289226532
+    },
+    {
+      "circulant_r2": 0.01062797279423,
+      "diag_mean": 0.026373371481895447,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.1279599149316804,
+      "layer": 0,
+      "relative_fro_error": 0.899874480162852,
+      "row_entropy_mean": 3.440070867538452,
+      "row_entropy_std": 0.627734899520874
+    },
+    {
+      "circulant_r2": 0.33986293967713,
+      "diag_mean": 0.14784112572669983,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.19112067638563476,
+      "layer": 8,
+      "relative_fro_error": 0.7255346535017436,
+      "row_entropy_mean": 3.266143798828125,
+      "row_entropy_std": 0.36530357599258423
+    },
+    {
+      "circulant_r2": 0.29079813313969627,
+      "diag_mean": 0.0966448187828064,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.3562238795327369,
+      "layer": 8,
+      "relative_fro_error": 0.8254561854681721,
+      "row_entropy_mean": 1.4601207971572876,
+      "row_entropy_std": 0.44385603070259094
+    },
+    {
+      "circulant_r2": 0.016985387164976107,
+      "diag_mean": 0.024069953709840775,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.12622552813125737,
+      "layer": 8,
+      "relative_fro_error": 0.7265909536439715,
+      "row_entropy_mean": 3.846068859100342,
+      "row_entropy_std": 0.20307449996471405
+    },
+    {
+      "circulant_r2": 0.08861569446861739,
+      "diag_mean": 0.056860681623220444,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.13321018998477263,
+      "layer": 8,
+      "relative_fro_error": 0.7424999005853856,
+      "row_entropy_mean": 3.748967170715332,
+      "row_entropy_std": 0.30311328172683716
+    },
+    {
+      "circulant_r2": 0.3486983223686634,
+      "diag_mean": 0.12361353635787964,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.17701509222670586,
+      "layer": 8,
+      "relative_fro_error": 0.6954010288194264,
+      "row_entropy_mean": 3.4239590167999268,
+      "row_entropy_std": 0.24563418328762054
+    },
+    {
+      "circulant_r2": 0.2788716309698953,
+      "diag_mean": 0.12448064982891083,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.3663597469022448,
+      "layer": 8,
+      "relative_fro_error": 0.8340094995777365,
+      "row_entropy_mean": 1.3277788162231445,
+      "row_entropy_std": 0.476523220539093
+    },
+    {
+      "circulant_r2": 0.013128928478054025,
+      "diag_mean": 0.027220092713832855,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.1261372993598569,
+      "layer": 8,
+      "relative_fro_error": 0.7578605580781007,
+      "row_entropy_mean": 3.795915126800537,
+      "row_entropy_std": 0.18197211623191833
+    },
+    {
+      "circulant_r2": 0.08214939993044934,
+      "diag_mean": 0.05442323535680771,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.13381603759836563,
+      "layer": 8,
+      "relative_fro_error": 0.7664244585101,
+      "row_entropy_mean": 3.679703712463379,
+      "row_entropy_std": 0.2811763286590576
+    },
+    {
+      "circulant_r2": 0.07545321474724864,
+      "diag_mean": 0.13445816934108734,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.18183190502993377,
+      "layer": 16,
+      "relative_fro_error": 0.9305898436383409,
+      "row_entropy_mean": 2.2030436992645264,
+      "row_entropy_std": 0.7992680668830872
+    },
+    {
+      "circulant_r2": 0.010671797011758133,
+      "diag_mean": 0.06051788479089737,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.13458039970278252,
+      "layer": 16,
+      "relative_fro_error": 0.9628923174900477,
+      "row_entropy_mean": 2.077866554260254,
+      "row_entropy_std": 0.2944032847881317
+    },
+    {
+      "circulant_r2": 0.01075051885830991,
+      "diag_mean": 0.03774202987551689,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.12962502137520843,
+      "layer": 16,
+      "relative_fro_error": 0.9304618321170578,
+      "row_entropy_mean": 2.942725896835327,
+      "row_entropy_std": 0.5418553948402405
+    },
+    {
+      "circulant_r2": 0.01885415229304721,
+      "diag_mean": 0.06241195648908615,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.1357417050249982,
+      "layer": 16,
+      "relative_fro_error": 0.9422143934728734,
+      "row_entropy_mean": 2.56669282913208,
+      "row_entropy_std": 0.3309074640274048
+    },
+    {
+      "circulant_r2": 0.034037193676998756,
+      "diag_mean": 0.09113120287656784,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.15603230958675432,
+      "layer": 16,
+      "relative_fro_error": 0.9541709307650285,
+      "row_entropy_mean": 2.0902955532073975,
+      "row_entropy_std": 0.7874037027359009
+    },
+    {
+      "circulant_r2": 0.013569432637426826,
+      "diag_mean": 0.06290218979120255,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.13629782918763333,
+      "layer": 16,
+      "relative_fro_error": 0.9593391018353591,
+      "row_entropy_mean": 2.1892991065979004,
+      "row_entropy_std": 0.3304137587547302
+    },
+    {
+      "circulant_r2": 0.013684500793085808,
+      "diag_mean": 0.03781686723232269,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.13012810524653115,
+      "layer": 16,
+      "relative_fro_error": 0.9207416151095715,
+      "row_entropy_mean": 3.024718761444092,
+      "row_entropy_std": 0.5054226517677307
+    },
+    {
+      "circulant_r2": 0.013462845003402668,
+      "diag_mean": 0.06294864416122437,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.1358328298628819,
+      "layer": 16,
+      "relative_fro_error": 0.9582174743583598,
+      "row_entropy_mean": 2.3020849227905273,
+      "row_entropy_std": 0.4019727110862732
+    },
+    {
+      "circulant_r2": 0.041680590589065925,
+      "diag_mean": 0.09338463842868805,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.1572726725833372,
+      "layer": 26,
+      "relative_fro_error": 0.9457164860023152,
+      "row_entropy_mean": 2.329200029373169,
+      "row_entropy_std": 0.7440080046653748
+    },
+    {
+      "circulant_r2": 0.07173246302611747,
+      "diag_mean": 0.13692882657051086,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.18194400475221634,
+      "layer": 26,
+      "relative_fro_error": 0.9339857491482486,
+      "row_entropy_mean": 2.0120444297790527,
+      "row_entropy_std": 0.6927655339241028
+    },
+    {
+      "circulant_r2": 0.021966182865787,
+      "diag_mean": 0.051126688718795776,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.13235998111790934,
+      "layer": 26,
+      "relative_fro_error": 0.9099453736161927,
+      "row_entropy_mean": 3.022198438644409,
+      "row_entropy_std": 0.33322200179100037
+    },
+    {
+      "circulant_r2": 0.012916790339044137,
+      "diag_mean": 0.03287128359079361,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.12923730641107653,
+      "layer": 26,
+      "relative_fro_error": 0.9117763539017427,
+      "row_entropy_mean": 3.113771438598633,
+      "row_entropy_std": 0.5394029021263123
+    },
+    {
+      "circulant_r2": 0.05783271262238787,
+      "diag_mean": 0.09396477788686752,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.1607907721676434,
+      "layer": 26,
+      "relative_fro_error": 0.9304243506730482,
+      "row_entropy_mean": 2.493471622467041,
+      "row_entropy_std": 0.6620039343833923
+    },
+    {
+      "circulant_r2": 0.06962502886694577,
+      "diag_mean": 0.15426276624202728,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.19283149955790244,
+      "layer": 26,
+      "relative_fro_error": 0.9411070429560603,
+      "row_entropy_mean": 1.8813683986663818,
+      "row_entropy_std": 0.8521096706390381
+    },
+    {
+      "circulant_r2": 0.011961595330249208,
+      "diag_mean": 0.04560007154941559,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.1303969691373108,
+      "layer": 26,
+      "relative_fro_error": 0.932771201415686,
+      "row_entropy_mean": 2.799858570098877,
+      "row_entropy_std": 0.35388484597206116
+    },
+    {
+      "circulant_r2": 0.01745667752292901,
+      "diag_mean": 0.03740299493074417,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.13122756441583663,
+      "layer": 26,
+      "relative_fro_error": 0.9160284982549894,
+      "row_entropy_mean": 3.096627712249756,
+      "row_entropy_std": 0.5359907746315002
+    }
+  ],
+  "size": 128,
+  "summary": {
+    "layers": {
+      "0": {
+        "mean_circulant_r2": 0.051038494211197216,
+        "mean_relative_fro_error": 0.8210747378447374,
+        "num_maps": 8
+      },
+      "16": {
+        "mean_circulant_r2": 0.023810456877659744,
+        "mean_relative_fro_error": 0.9448284385983298,
+        "num_maps": 8
+      },
+      "26": {
+        "mean_circulant_r2": 0.0381465051453158,
+        "mean_relative_fro_error": 0.9277193819960354,
+        "num_maps": 8
+      },
+      "8": {
+        "mean_circulant_r2": 0.18238880452468523,
+        "mean_relative_fro_error": 0.7592221547730795,
+        "num_maps": 8
+      }
+    },
+    "mean_circulant_r2": 0.0738460651897145,
+    "mean_relative_fro_error": 0.8632111783030455,
+    "num_maps": 32
+  },
+  "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/fFYNmVb3NCQ.mp4"
+}

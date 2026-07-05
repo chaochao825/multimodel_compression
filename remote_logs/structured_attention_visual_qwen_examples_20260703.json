@@ -1,0 +1,112 @@
+{
+  "argv": [
+    "scripts/structured_attention_visual_export.py",
+    "--device",
+    "cuda:1",
+    "--map-id",
+    "qwen:v0:f1:l8:h0",
+    "--map-id",
+    "qwen:v2:f0:l26:h0",
+    "--qwen-video",
+    "/home/wangmeiqi/.cache/huggingface/videomme/data/fFYNmVb3NCQ.mp4@128",
+    "--qwen-video",
+    "/home/wangmeiqi/.cache/huggingface/videomme/data/VP4GtrEsefk.mp4@224",
+    "--qwen-video",
+    "/home/wangmeiqi/.cache/huggingface/videomme/data/HProiNnmGwI.mp4@224",
+    "--qwen-frames",
+    "4",
+    "--out-npz",
+    "outputs/structured_attention_visual_qwen_examples_20260703.npz",
+    "--out-json",
+    "outputs/structured_attention_visual_qwen_examples_20260703.json"
+  ],
+  "items": [
+    {
+      "attention_entropy_mean": 3.423959255218506,
+      "attention_entropy_std": 0.24757598340511322,
+      "grid_shape": [
+        8,
+        8
+      ],
+      "key": "ex0",
+      "label": "Qwen L8 H0 F1",
+      "map_id": "qwen:v0:f1:l8:h0",
+      "metrics": {
+        "flat_block_circulant": {
+          "block_size": 4,
+          "method": "flat_block_circulant",
+          "output_relative_error": 0.38585373759269714,
+          "permutation": "identity",
+          "relative_fro_error": 0.5980809330940247
+        },
+        "grid_cyclic_bccb": {
+          "block_size": "grid",
+          "method": "grid_cyclic_bccb",
+          "output_relative_error": 0.46782854199409485,
+          "permutation": "identity",
+          "relative_fro_error": 0.6954010725021362
+        },
+        "monarch_like_mask_proxy": {
+          "block_size": 32,
+          "method": "monarch_like_mask_proxy",
+          "output_relative_error": 0.17709119617938995,
+          "permutation": "row=identity;col=interleave_groups16",
+          "relative_fro_error": 0.2441105842590332
+        },
+        "permuted_flat_block_circulant": {
+          "block_size": 4,
+          "method": "permuted_flat_block_circulant",
+          "output_relative_error": 0.3863019347190857,
+          "permutation": "row=interleave_groups4;col=interleave_groups4",
+          "relative_fro_error": 0.5995753407478333
+        }
+      },
+      "note": "Video=fFYNmVb3NCQ.mp4@128; true Qwen3-VL visual forward, per-temporal-slice 2D attention.",
+      "row_argmax_unique_fraction": 0.5
+    },
+    {
+      "attention_entropy_mean": 2.5281898975372314,
+      "attention_entropy_std": 1.044877290725708,
+      "grid_shape": [
+        14,
+        14
+      ],
+      "key": "ex1",
+      "label": "Qwen L26 H0 F0",
+      "map_id": "qwen:v2:f0:l26:h0",
+      "metrics": {
+        "flat_block_circulant": {
+          "block_size": 4,
+          "method": "flat_block_circulant",
+          "output_relative_error": 0.577287495136261,
+          "permutation": "identity",
+          "relative_fro_error": 0.8498204946517944
+        },
+        "grid_cyclic_bccb": {
+          "block_size": "grid",
+          "method": "grid_cyclic_bccb",
+          "output_relative_error": 0.7165727019309998,
+          "permutation": "identity",
+          "relative_fro_error": 0.9813426733016968
+        },
+        "monarch_like_mask_proxy": {
+          "block_size": 28,
+          "method": "monarch_like_mask_proxy",
+          "output_relative_error": 0.5075314044952393,
+          "permutation": "row=interleave_groups7;col=interleave_groups7",
+          "relative_fro_error": 0.8348357677459717
+        },
+        "permuted_flat_block_circulant": {
+          "block_size": 4,
+          "method": "permuted_flat_block_circulant",
+          "output_relative_error": 0.5556290745735168,
+          "permutation": "row=interleave_groups14;col=interleave_groups14",
+          "relative_fro_error": 0.8520459532737732
+        }
+      },
+      "note": "Video=HProiNnmGwI.mp4@224; true Qwen3-VL visual forward, per-temporal-slice 2D attention.",
+      "row_argmax_unique_fraction": 0.14285714285714285
+    }
+  ],
+  "npz": "outputs/structured_attention_visual_qwen_examples_20260703.npz"
+}

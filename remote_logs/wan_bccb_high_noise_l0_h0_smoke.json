@@ -1,0 +1,64 @@
+{
+  "branch": "high_noise",
+  "ckpt_name": "Wan2.2-T2V",
+  "dtype": "bfloat16",
+  "frame_num": 5,
+  "heads": [
+    0
+  ],
+  "latent_shape": [
+    16,
+    2,
+    60,
+    104
+  ],
+  "layers": [
+    0
+  ],
+  "mean_attention_cyclic_r2": 0.5110325959080013,
+  "mean_attention_relative_fro_error": 0.6975444359462012,
+  "mean_logits_cyclic_r2": 0.5067291263808931,
+  "mean_logits_relative_fro_error": 0.49657194942986277,
+  "patch_grid": [
+    2,
+    30,
+    52
+  ],
+  "records": [
+    {
+      "attention": {
+        "cyclic_r2": 0.5110325959080013,
+        "kernel_std": 0.0032629590295390463,
+        "matrix_mean": 0.0003205128207583678,
+        "matrix_std": 0.0045644380766308055,
+        "relative_fro_error": 0.6975444359462012
+      },
+      "attention_rowsum_std": 5.730604613063406e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 0,
+      "layer": 0,
+      "logit_rowmax_mean": 17.382539749145508,
+      "logit_rowmax_std": 1.5773440599441528,
+      "logits": {
+        "cyclic_r2": 0.5067291263808931,
+        "kernel_std": 2.820438474968952,
+        "matrix_mean": 3.9629609866359026,
+        "matrix_std": 3.9621297774051514,
+        "relative_fro_error": 0.49657194942986277
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    }
+  ],
+  "repo_name": "Wan2.2_SA3_hif4_edges8_fp16_noscale_norowmax_baseline_para01",
+  "seed": 1234,
+  "seq_len": 3120,
+  "size": "832*480",
+  "timestep": 999.0
+}

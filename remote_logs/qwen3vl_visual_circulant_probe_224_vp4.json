@@ -1,0 +1,813 @@
+{
+  "frames": 4,
+  "grid_thw": [
+    [
+      2,
+      14,
+      14
+    ]
+  ],
+  "load_info": {
+    "missing": [],
+    "unexpected": []
+  },
+  "metadata": {
+    "args": {
+      "device": "cuda:1",
+      "frames": 4,
+      "heads": 8,
+      "layers": "0,8,16,26",
+      "model_dir": "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+      "out": "/home/wangmeiqi/video_circulant_analysis_20260701/results/qwen3vl_visual_circulant_probe_224_vp4.json",
+      "size": 224,
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/VP4GtrEsefk.mp4"
+    },
+    "argv": [
+      "qwen3vl_visual_circulant_probe.py",
+      "--model-dir",
+      "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+      "--video",
+      "/home/wangmeiqi/.cache/huggingface/videomme/data/VP4GtrEsefk.mp4",
+      "--frames",
+      "4",
+      "--size",
+      "224",
+      "--layers",
+      "0,8,16,26",
+      "--heads",
+      "8",
+      "--device",
+      "cuda:1",
+      "--out",
+      "/home/wangmeiqi/video_circulant_analysis_20260701/results/qwen3vl_visual_circulant_probe_224_vp4.json"
+    ],
+    "cuda_available": true,
+    "cuda_device_count": 4,
+    "cv2": "4.12.0",
+    "device_requested": "cuda:1",
+    "grid_thw": [
+      [
+        2,
+        14,
+        14
+      ]
+    ],
+    "head_limit": 8,
+    "layers": [
+      0,
+      8,
+      16,
+      26
+    ],
+    "load_info": {
+      "missing": [],
+      "unexpected": []
+    },
+    "metric_scope": "per-temporal-slice 2D spatial BCCB/cyclic-offset attention",
+    "model_index_sha256": "63d9c0cf07b794e290164ba140c4d719ad2a129966f95d7921599eb0047d1dd3",
+    "numpy": "1.26.4",
+    "safetensors": "0.6.2",
+    "script_sha256": "aeab0981f1f483e6509539175a4a91a9daffd976b906c86ab4bf5654cb29eeef",
+    "token_order_assumption": "Manual patchification uses temporal-major, raster H/W order and Qwen3-VL vision forward does not reorder tokens before qkv; this is not an official processor byte-for-byte validation.",
+    "torch": "2.2.2+cu121",
+    "transformers": "4.57.3",
+    "video_sha256": "dbd26f4b8d956fdf776590f901b17932a6e85ae75f8b9970e97ccd4359fa9a8a",
+    "video_size_bytes": 53695693
+  },
+  "model_dir": "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+  "rows": [
+    {
+      "circulant_r2": 0.014329052969160982,
+      "diag_mean": 0.007223572116345167,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.07245396925247735,
+      "layer": 0,
+      "relative_fro_error": 0.8118395784520143,
+      "row_entropy_mean": 4.871635913848877,
+      "row_entropy_std": 0.12981738150119781
+    },
+    {
+      "circulant_r2": 0.06876748052968018,
+      "diag_mean": 0.01253440696746111,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.08046288736668537,
+      "layer": 0,
+      "relative_fro_error": 0.8611711425701369,
+      "row_entropy_mean": 4.312378406524658,
+      "row_entropy_std": 0.4380362629890442
+    },
+    {
+      "circulant_r2": 0.20926617609153297,
+      "diag_mean": 0.09380149841308594,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.12007818833106146,
+      "layer": 0,
+      "relative_fro_error": 0.8422788508354343,
+      "row_entropy_mean": 4.532491683959961,
+      "row_entropy_std": 0.8123459815979004
+    },
+    {
+      "circulant_r2": 0.006670183755799974,
+      "diag_mean": 0.00863579846918583,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.07356791997507688,
+      "layer": 0,
+      "relative_fro_error": 0.9461107962983345,
+      "row_entropy_mean": 4.507993698120117,
+      "row_entropy_std": 0.7642775177955627
+    },
+    {
+      "circulant_r2": 0.13566831221607223,
+      "diag_mean": 0.012882374227046967,
+      "frame": 0,
+      "head": 4,
+      "kernel_l2": 0.07493811310885172,
+      "layer": 0,
+      "relative_fro_error": 0.6067883117688219,
+      "row_entropy_mean": 5.018143653869629,
+      "row_entropy_std": 0.07163771241903305
+    },
+    {
+      "circulant_r2": 0.01994569189654183,
+      "diag_mean": 0.009403149597346783,
+      "frame": 0,
+      "head": 5,
+      "kernel_l2": 0.07243059058451641,
+      "layer": 0,
+      "relative_fro_error": 0.7579506594324323,
+      "row_entropy_mean": 4.983400821685791,
+      "row_entropy_std": 0.299957811832428
+    },
+    {
+      "circulant_r2": 0.001652906040831681,
+      "diag_mean": 0.0027391102630645037,
+      "frame": 0,
+      "head": 6,
+      "kernel_l2": 0.07207499595596295,
+      "layer": 0,
+      "relative_fro_error": 0.9566346771251222,
+      "row_entropy_mean": 3.9049324989318848,
+      "row_entropy_std": 0.4847632348537445
+    },
+    {
+      "circulant_r2": 0.06108458727926003,
+      "diag_mean": 0.002403202699497342,
+      "frame": 0,
+      "head": 7,
+      "kernel_l2": 0.0736533853259006,
+      "layer": 0,
+      "relative_fro_error": 0.691150461467405,
+      "row_entropy_mean": 4.921228408813477,
+      "row_entropy_std": 0.1719135344028473
+    },
+    {
+      "circulant_r2": 0.034226941131929145,
+      "diag_mean": 0.00800425186753273,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.0736772283810157,
+      "layer": 0,
+      "relative_fro_error": 0.793153120361972,
+      "row_entropy_mean": 4.873476505279541,
+      "row_entropy_std": 0.2444496601819992
+    },
+    {
+      "circulant_r2": 0.02724093003229322,
+      "diag_mean": 0.008599957451224327,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.07318837800991516,
+      "layer": 0,
+      "relative_fro_error": 0.7931988469855726,
+      "row_entropy_mean": 4.805989742279053,
+      "row_entropy_std": 0.28954511880874634
+    },
+    {
+      "circulant_r2": 0.1521946776298987,
+      "diag_mean": 0.07620704174041748,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.1071405994317995,
+      "layer": 0,
+      "relative_fro_error": 0.8693551218091463,
+      "row_entropy_mean": 4.4882941246032715,
+      "row_entropy_std": 0.8522434234619141
+    },
+    {
+      "circulant_r2": 0.006392031635973461,
+      "diag_mean": 0.009290441870689392,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.07279504004066967,
+      "layer": 0,
+      "relative_fro_error": 0.9233256115362524,
+      "row_entropy_mean": 4.668152332305908,
+      "row_entropy_std": 0.6266149282455444
+    },
+    {
+      "circulant_r2": 0.19734728946164282,
+      "diag_mean": 0.014152638614177704,
+      "frame": 1,
+      "head": 4,
+      "kernel_l2": 0.07578314670692679,
+      "layer": 0,
+      "relative_fro_error": 0.5587790521143886,
+      "row_entropy_mean": 5.031857967376709,
+      "row_entropy_std": 0.07463199645280838
+    },
+    {
+      "circulant_r2": 0.010715689724437483,
+      "diag_mean": 0.01482369750738144,
+      "frame": 1,
+      "head": 5,
+      "kernel_l2": 0.07316175565783987,
+      "layer": 0,
+      "relative_fro_error": 0.9011722699292768,
+      "row_entropy_mean": 4.351688385009766,
+      "row_entropy_std": 0.7254956960678101
+    },
+    {
+      "circulant_r2": 0.003755292936316157,
+      "diag_mean": 0.0026477815117686987,
+      "frame": 1,
+      "head": 6,
+      "kernel_l2": 0.0727430986094669,
+      "layer": 0,
+      "relative_fro_error": 0.9511965976708859,
+      "row_entropy_mean": 3.9599497318267822,
+      "row_entropy_std": 0.6019258499145508
+    },
+    {
+      "circulant_r2": 0.035904412934113394,
+      "diag_mean": 0.002131459768861532,
+      "frame": 1,
+      "head": 7,
+      "kernel_l2": 0.07335430732118858,
+      "layer": 0,
+      "relative_fro_error": 0.7627752853839398,
+      "row_entropy_mean": 4.907830715179443,
+      "row_entropy_std": 0.37649276852607727
+    },
+    {
+      "circulant_r2": 0.40389517868911684,
+      "diag_mean": 0.14659953117370605,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.17113354418615676,
+      "layer": 8,
+      "relative_fro_error": 0.7411483902341365,
+      "row_entropy_mean": 3.856178045272827,
+      "row_entropy_std": 0.5015944242477417
+    },
+    {
+      "circulant_r2": 0.19387480895607934,
+      "diag_mean": 0.0780576691031456,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.27096589532206083,
+      "layer": 8,
+      "relative_fro_error": 0.8914150903262473,
+      "row_entropy_mean": 1.6415907144546509,
+      "row_entropy_std": 0.5439670085906982
+    },
+    {
+      "circulant_r2": 0.01821677644581865,
+      "diag_mean": 0.009824685752391815,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.07228543482725021,
+      "layer": 8,
+      "relative_fro_error": 0.7479968590499739,
+      "row_entropy_mean": 4.937728404998779,
+      "row_entropy_std": 0.16632452607154846
+    },
+    {
+      "circulant_r2": 0.06042583828485282,
+      "diag_mean": 0.025036893784999847,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.07614926818236314,
+      "layer": 8,
+      "relative_fro_error": 0.8070558241170862,
+      "row_entropy_mean": 4.792527675628662,
+      "row_entropy_std": 0.25347912311553955
+    },
+    {
+      "circulant_r2": 0.30060456754006426,
+      "diag_mean": 0.11230061948299408,
+      "frame": 0,
+      "head": 4,
+      "kernel_l2": 0.15636025493409447,
+      "layer": 8,
+      "relative_fro_error": 0.8049990597586913,
+      "row_entropy_mean": 3.504669427871704,
+      "row_entropy_std": 0.39154568314552307
+    },
+    {
+      "circulant_r2": 0.26127705775845755,
+      "diag_mean": 0.10535027831792831,
+      "frame": 0,
+      "head": 5,
+      "kernel_l2": 0.13229213362167683,
+      "layer": 8,
+      "relative_fro_error": 0.8167080413777275,
+      "row_entropy_mean": 4.010766983032227,
+      "row_entropy_std": 0.5931282043457031
+    },
+    {
+      "circulant_r2": 0.23876734611570705,
+      "diag_mean": 0.07931236177682877,
+      "frame": 0,
+      "head": 6,
+      "kernel_l2": 0.11542546607571115,
+      "layer": 8,
+      "relative_fro_error": 0.8142418244120158,
+      "row_entropy_mean": 4.243329048156738,
+      "row_entropy_std": 0.5705088973045349
+    },
+    {
+      "circulant_r2": 0.22253923506083984,
+      "diag_mean": 0.03744499385356903,
+      "frame": 0,
+      "head": 7,
+      "kernel_l2": 0.2783310123468446,
+      "layer": 8,
+      "relative_fro_error": 0.8749007109803415,
+      "row_entropy_mean": 1.7572031021118164,
+      "row_entropy_std": 0.5698913931846619
+    },
+    {
+      "circulant_r2": 0.4120079374238458,
+      "diag_mean": 0.155010387301445,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.17866293137370243,
+      "layer": 8,
+      "relative_fro_error": 0.7384132010893107,
+      "row_entropy_mean": 3.767465353012085,
+      "row_entropy_std": 0.4692978858947754
+    },
+    {
+      "circulant_r2": 0.2474094048889267,
+      "diag_mean": 0.0901530385017395,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.3070510195146625,
+      "layer": 8,
+      "relative_fro_error": 0.8614445729787353,
+      "row_entropy_mean": 1.618327260017395,
+      "row_entropy_std": 0.5178223252296448
+    },
+    {
+      "circulant_r2": 0.010451654745010641,
+      "diag_mean": 0.009876852855086327,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.07195552665460477,
+      "layer": 8,
+      "relative_fro_error": 0.7616582684960164,
+      "row_entropy_mean": 4.937503814697266,
+      "row_entropy_std": 0.17478297650814056
+    },
+    {
+      "circulant_r2": 0.06825753435533688,
+      "diag_mean": 0.026544464752078056,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.07674277609705676,
+      "layer": 8,
+      "relative_fro_error": 0.8037556144744186,
+      "row_entropy_mean": 4.781631946563721,
+      "row_entropy_std": 0.2711648643016815
+    },
+    {
+      "circulant_r2": 0.3113152619411269,
+      "diag_mean": 0.10308270901441574,
+      "frame": 1,
+      "head": 4,
+      "kernel_l2": 0.15369392037863938,
+      "layer": 8,
+      "relative_fro_error": 0.7964205712892032,
+      "row_entropy_mean": 3.5253446102142334,
+      "row_entropy_std": 0.4803600311279297
+    },
+    {
+      "circulant_r2": 0.24171287810427466,
+      "diag_mean": 0.09393946081399918,
+      "frame": 1,
+      "head": 5,
+      "kernel_l2": 0.12585190093532947,
+      "layer": 8,
+      "relative_fro_error": 0.824719825548844,
+      "row_entropy_mean": 3.9998667240142822,
+      "row_entropy_std": 0.6083454489707947
+    },
+    {
+      "circulant_r2": 0.19957937728787223,
+      "diag_mean": 0.06594278663396835,
+      "frame": 1,
+      "head": 6,
+      "kernel_l2": 0.10694730695097372,
+      "layer": 8,
+      "relative_fro_error": 0.8304159701673379,
+      "row_entropy_mean": 4.29530143737793,
+      "row_entropy_std": 0.5940343737602234
+    },
+    {
+      "circulant_r2": 0.2842064493274826,
+      "diag_mean": 0.04746924713253975,
+      "frame": 1,
+      "head": 7,
+      "kernel_l2": 0.31920515781976383,
+      "layer": 8,
+      "relative_fro_error": 0.8397788019694439,
+      "row_entropy_mean": 1.73201584815979,
+      "row_entropy_std": 0.6162967681884766
+    },
+    {
+      "circulant_r2": 0.03668016160461551,
+      "diag_mean": 0.07662283629179001,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.11040567060322677,
+      "layer": 16,
+      "relative_fro_error": 0.9687817024922698,
+      "row_entropy_mean": 2.7080726623535156,
+      "row_entropy_std": 0.9200888276100159
+    },
+    {
+      "circulant_r2": 0.09842678557295803,
+      "diag_mean": 0.11054053902626038,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.1334291598568651,
+      "layer": 16,
+      "relative_fro_error": 0.9312805385535396,
+      "row_entropy_mean": 2.9599342346191406,
+      "row_entropy_std": 0.5351542830467224
+    },
+    {
+      "circulant_r2": 0.00560806597920549,
+      "diag_mean": 0.015775738283991814,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.0732699107350172,
+      "layer": 16,
+      "relative_fro_error": 0.9476082088362786,
+      "row_entropy_mean": 4.056862831115723,
+      "row_entropy_std": 0.5723699331283569
+    },
+    {
+      "circulant_r2": 0.01698950068031524,
+      "diag_mean": 0.048870112746953964,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.08594092707568067,
+      "layer": 16,
+      "relative_fro_error": 0.973172768931494,
+      "row_entropy_mean": 2.928910970687866,
+      "row_entropy_std": 0.5170702338218689
+    },
+    {
+      "circulant_r2": 0.019929866417603415,
+      "diag_mean": 0.03981376066803932,
+      "frame": 0,
+      "head": 4,
+      "kernel_l2": 0.0853361435919368,
+      "layer": 16,
+      "relative_fro_error": 0.9676765901520997,
+      "row_entropy_mean": 3.211146831512451,
+      "row_entropy_std": 0.7043226957321167
+    },
+    {
+      "circulant_r2": 0.013273910084970031,
+      "diag_mean": 0.04246910288929939,
+      "frame": 0,
+      "head": 5,
+      "kernel_l2": 0.08958013926017398,
+      "layer": 16,
+      "relative_fro_error": 0.9820283583239205,
+      "row_entropy_mean": 2.2745280265808105,
+      "row_entropy_std": 0.7347935438156128
+    },
+    {
+      "circulant_r2": 0.006160856689831351,
+      "diag_mean": 0.029198437929153442,
+      "frame": 0,
+      "head": 6,
+      "kernel_l2": 0.07691148678127885,
+      "layer": 16,
+      "relative_fro_error": 0.9781919967376016,
+      "row_entropy_mean": 2.9691946506500244,
+      "row_entropy_std": 0.4669382572174072
+    },
+    {
+      "circulant_r2": 0.06304602017466165,
+      "diag_mean": 0.07410581409931183,
+      "frame": 0,
+      "head": 7,
+      "kernel_l2": 0.10650365354043793,
+      "layer": 16,
+      "relative_fro_error": 0.9439438909742408,
+      "row_entropy_mean": 3.2282931804656982,
+      "row_entropy_std": 0.5556228160858154
+    },
+    {
+      "circulant_r2": 0.04624929355428309,
+      "diag_mean": 0.07894345372915268,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.11707942051543971,
+      "layer": 16,
+      "relative_fro_error": 0.9634818084197476,
+      "row_entropy_mean": 2.718071222305298,
+      "row_entropy_std": 0.9078497290611267
+    },
+    {
+      "circulant_r2": 0.09497516226584057,
+      "diag_mean": 0.10398972034454346,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.13044807751903964,
+      "layer": 16,
+      "relative_fro_error": 0.9325537480774713,
+      "row_entropy_mean": 2.940838575363159,
+      "row_entropy_std": 0.5010878443717957
+    },
+    {
+      "circulant_r2": 0.01055562182036629,
+      "diag_mean": 0.017094969749450684,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.07400570465822472,
+      "layer": 16,
+      "relative_fro_error": 0.9301259246109986,
+      "row_entropy_mean": 4.189605236053467,
+      "row_entropy_std": 0.4917922616004944
+    },
+    {
+      "circulant_r2": 0.037800151399533966,
+      "diag_mean": 0.06784333288669586,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.09866722065179465,
+      "layer": 16,
+      "relative_fro_error": 0.9611185382374281,
+      "row_entropy_mean": 2.9862327575683594,
+      "row_entropy_std": 0.44060030579566956
+    },
+    {
+      "circulant_r2": 0.021243467363434076,
+      "diag_mean": 0.03608999028801918,
+      "frame": 1,
+      "head": 4,
+      "kernel_l2": 0.0876847870679159,
+      "layer": 16,
+      "relative_fro_error": 0.9692234097274158,
+      "row_entropy_mean": 3.041790723800659,
+      "row_entropy_std": 0.7691634893417358
+    },
+    {
+      "circulant_r2": 0.03646854099191066,
+      "diag_mean": 0.06549036502838135,
+      "frame": 1,
+      "head": 5,
+      "kernel_l2": 0.1108486637519621,
+      "layer": 16,
+      "relative_fro_error": 0.9691292997480965,
+      "row_entropy_mean": 2.550692558288574,
+      "row_entropy_std": 0.8290383815765381
+    },
+    {
+      "circulant_r2": 0.0073834400146034485,
+      "diag_mean": 0.024275586009025574,
+      "frame": 1,
+      "head": 6,
+      "kernel_l2": 0.077289507148758,
+      "layer": 16,
+      "relative_fro_error": 0.9754462233287328,
+      "row_entropy_mean": 3.07777738571167,
+      "row_entropy_std": 0.4774210751056671
+    },
+    {
+      "circulant_r2": 0.031401595204543775,
+      "diag_mean": 0.04763786122202873,
+      "frame": 1,
+      "head": 7,
+      "kernel_l2": 0.09057206913149654,
+      "layer": 16,
+      "relative_fro_error": 0.9596969599269357,
+      "row_entropy_mean": 3.2188832759857178,
+      "row_entropy_std": 0.5490238666534424
+    },
+    {
+      "circulant_r2": 0.05251325253962824,
+      "diag_mean": 0.07027196884155273,
+      "frame": 0,
+      "head": 0,
+      "kernel_l2": 0.10907317042109455,
+      "layer": 26,
+      "relative_fro_error": 0.9547486774532516,
+      "row_entropy_mean": 3.0690090656280518,
+      "row_entropy_std": 0.6810156106948853
+    },
+    {
+      "circulant_r2": 0.05633327840349733,
+      "diag_mean": 0.10380707681179047,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.1265541339158464,
+      "layer": 26,
+      "relative_fro_error": 0.9588815668307171,
+      "row_entropy_mean": 2.497195243835449,
+      "row_entropy_std": 0.8128858804702759
+    },
+    {
+      "circulant_r2": 0.022563890973167577,
+      "diag_mean": 0.037754278630018234,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.08044566198860308,
+      "layer": 26,
+      "relative_fro_error": 0.9495479184030464,
+      "row_entropy_mean": 3.6839704513549805,
+      "row_entropy_std": 0.37209585309028625
+    },
+    {
+      "circulant_r2": 0.007733452355206283,
+      "diag_mean": 0.014933522790670395,
+      "frame": 0,
+      "head": 3,
+      "kernel_l2": 0.07368559438674382,
+      "layer": 26,
+      "relative_fro_error": 0.9410540580181193,
+      "row_entropy_mean": 4.073983192443848,
+      "row_entropy_std": 0.5834155678749084
+    },
+    {
+      "circulant_r2": 0.029173735590731886,
+      "diag_mean": 0.08590467274188995,
+      "frame": 0,
+      "head": 4,
+      "kernel_l2": 0.11322820861085434,
+      "layer": 26,
+      "relative_fro_error": 0.9759402718449833,
+      "row_entropy_mean": 2.005058765411377,
+      "row_entropy_std": 0.7925158143043518
+    },
+    {
+      "circulant_r2": 0.11917721523882108,
+      "diag_mean": 0.08912990242242813,
+      "frame": 0,
+      "head": 5,
+      "kernel_l2": 0.11381821071153594,
+      "layer": 26,
+      "relative_fro_error": 0.9041679892557223,
+      "row_entropy_mean": 3.8434815406799316,
+      "row_entropy_std": 0.5780131220817566
+    },
+    {
+      "circulant_r2": 0.0033022065960264246,
+      "diag_mean": 0.015984833240509033,
+      "frame": 0,
+      "head": 6,
+      "kernel_l2": 0.07556802826816726,
+      "layer": 26,
+      "relative_fro_error": 0.9848073463943121,
+      "row_entropy_mean": 2.597052574157715,
+      "row_entropy_std": 0.6545477509498596
+    },
+    {
+      "circulant_r2": 0.0009956722943129659,
+      "diag_mean": 0.004722280893474817,
+      "frame": 0,
+      "head": 7,
+      "kernel_l2": 0.07199151468285847,
+      "layer": 26,
+      "relative_fro_error": 0.9694684973980292,
+      "row_entropy_mean": 3.597170114517212,
+      "row_entropy_std": 0.5684087872505188
+    },
+    {
+      "circulant_r2": 0.052995136082692795,
+      "diag_mean": 0.06626305729150772,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.10960258807233386,
+      "layer": 26,
+      "relative_fro_error": 0.9546457801112366,
+      "row_entropy_mean": 2.899266242980957,
+      "row_entropy_std": 0.5952836871147156
+    },
+    {
+      "circulant_r2": 0.058559814860064674,
+      "diag_mean": 0.10760470479726791,
+      "frame": 1,
+      "head": 1,
+      "kernel_l2": 0.13553210267360988,
+      "layer": 26,
+      "relative_fro_error": 0.959534206699838,
+      "row_entropy_mean": 2.3712313175201416,
+      "row_entropy_std": 0.9841222167015076
+    },
+    {
+      "circulant_r2": 0.027292289607715015,
+      "diag_mean": 0.03263738378882408,
+      "frame": 1,
+      "head": 2,
+      "kernel_l2": 0.07992261727435614,
+      "layer": 26,
+      "relative_fro_error": 0.93682811770168,
+      "row_entropy_mean": 3.844484806060791,
+      "row_entropy_std": 0.3681662082672119
+    },
+    {
+      "circulant_r2": 0.009531107849372833,
+      "diag_mean": 0.016634896397590637,
+      "frame": 1,
+      "head": 3,
+      "kernel_l2": 0.0740179592821775,
+      "layer": 26,
+      "relative_fro_error": 0.9365929419723943,
+      "row_entropy_mean": 4.037979602813721,
+      "row_entropy_std": 0.537618100643158
+    },
+    {
+      "circulant_r2": 0.03975609092412802,
+      "diag_mean": 0.0934455543756485,
+      "frame": 1,
+      "head": 4,
+      "kernel_l2": 0.1209425641625758,
+      "layer": 26,
+      "relative_fro_error": 0.9696504965533891,
+      "row_entropy_mean": 2.0380899906158447,
+      "row_entropy_std": 0.7020231485366821
+    },
+    {
+      "circulant_r2": 0.10998964112850218,
+      "diag_mean": 0.11742248386144638,
+      "frame": 1,
+      "head": 5,
+      "kernel_l2": 0.1383782714274873,
+      "layer": 26,
+      "relative_fro_error": 0.9251052462052495,
+      "row_entropy_mean": 3.3693909645080566,
+      "row_entropy_std": 0.8964319825172424
+    },
+    {
+      "circulant_r2": 0.004639102846314858,
+      "diag_mean": 0.012693662196397781,
+      "frame": 1,
+      "head": 6,
+      "kernel_l2": 0.07636779204312938,
+      "layer": 26,
+      "relative_fro_error": 0.9818872719050062,
+      "row_entropy_mean": 2.540815591812134,
+      "row_entropy_std": 0.6768239140510559
+    },
+    {
+      "circulant_r2": 0.0010962592974825824,
+      "diag_mean": 0.00585607485845685,
+      "frame": 1,
+      "head": 7,
+      "kernel_l2": 0.07197990722599817,
+      "layer": 26,
+      "relative_fro_error": 0.9658717542318978,
+      "row_entropy_mean": 3.626540422439575,
+      "row_entropy_std": 0.5660450458526611
+    }
+  ],
+  "size": 224,
+  "summary": {
+    "layers": {
+      "0": {
+        "mean_circulant_r2": 0.061572603516592765,
+        "mean_relative_fro_error": 0.8141800239838209,
+        "num_maps": 16
+      },
+      "16": {
+        "mean_circulant_r2": 0.03413702748866729,
+        "mean_relative_fro_error": 0.959591247942392,
+        "num_maps": 16
+      },
+      "26": {
+        "mean_circulant_r2": 0.037228259161729046,
+        "mean_relative_fro_error": 0.9542957588111796,
+        "num_maps": 16
+      },
+      "8": {
+        "mean_circulant_r2": 0.21715883168280078,
+        "mean_relative_fro_error": 0.8096920391418456,
+        "num_maps": 16
+      }
+    },
+    "mean_circulant_r2": 0.08752418046244748,
+    "mean_relative_fro_error": 0.8844397674698096,
+    "num_maps": 64
+  },
+  "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/VP4GtrEsefk.mp4"
+}

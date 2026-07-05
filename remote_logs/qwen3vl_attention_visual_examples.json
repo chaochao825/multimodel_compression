@@ -1,0 +1,68 @@
+{
+  "frames": 4,
+  "grid_thw": [
+    [
+      2,
+      14,
+      14
+    ]
+  ],
+  "items": [
+    {
+      "circulant_r2": 0.20926617609153297,
+      "diag_mean": 0.09380149841308594,
+      "frame": 0,
+      "head": 2,
+      "kernel_l2": 0.12007818833106146,
+      "key": "layer0_head2_frame0",
+      "layer": 0,
+      "relative_fro_error": 0.8422788508354343,
+      "row_entropy_mean": 4.532491683959961,
+      "row_entropy_std": 0.8123459815979004
+    },
+    {
+      "circulant_r2": 0.4120079374238458,
+      "diag_mean": 0.155010387301445,
+      "frame": 1,
+      "head": 0,
+      "kernel_l2": 0.17866293137370243,
+      "key": "layer8_head0_frame1",
+      "layer": 8,
+      "relative_fro_error": 0.7384132010893107,
+      "row_entropy_mean": 3.767465353012085,
+      "row_entropy_std": 0.4692978858947754
+    },
+    {
+      "circulant_r2": 0.09842678557295803,
+      "diag_mean": 0.11054053902626038,
+      "frame": 0,
+      "head": 1,
+      "kernel_l2": 0.1334291598568651,
+      "key": "layer16_head1_frame0",
+      "layer": 16,
+      "relative_fro_error": 0.9312805385535396,
+      "row_entropy_mean": 2.9599342346191406,
+      "row_entropy_std": 0.5351542830467224
+    },
+    {
+      "circulant_r2": 0.11917721523882108,
+      "diag_mean": 0.08912990242242813,
+      "frame": 0,
+      "head": 5,
+      "kernel_l2": 0.11381821071153594,
+      "key": "layer26_head5_frame0",
+      "layer": 26,
+      "relative_fro_error": 0.9041679892557223,
+      "row_entropy_mean": 3.8434815406799316,
+      "row_entropy_std": 0.5780131220817566
+    }
+  ],
+  "load_info": {
+    "missing": [],
+    "unexpected": []
+  },
+  "metric_scope": "per-temporal-slice 2D attention map and nearest BCCB projection",
+  "model_name": "Qwen3-VL-30B-A3B-FP8",
+  "size": 224,
+  "video_name": "VP4GtrEsefk.mp4"
+}

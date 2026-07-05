@@ -1,0 +1,520 @@
+{
+  "branch": "high_noise",
+  "ckpt_name": "Wan2.2-T2V",
+  "dtype": "bfloat16",
+  "frame_num": 5,
+  "heads": [
+    0,
+    10,
+    20,
+    30
+  ],
+  "latent_shape": [
+    16,
+    2,
+    60,
+    104
+  ],
+  "layers": [
+    0,
+    8,
+    20,
+    39
+  ],
+  "mean_attention_cyclic_r2": 0.6075261155719132,
+  "mean_attention_relative_fro_error": 0.3486308407265794,
+  "mean_logits_cyclic_r2": 0.5682970285753216,
+  "mean_logits_relative_fro_error": 0.3428484745308412,
+  "patch_grid": [
+    2,
+    30,
+    52
+  ],
+  "records": [
+    {
+      "attention": {
+        "cyclic_r2": 0.5110325959080013,
+        "kernel_std": 0.0032629590295390463,
+        "matrix_mean": 0.0003205128207583678,
+        "matrix_std": 0.0045644380766308055,
+        "relative_fro_error": 0.6975444359462012
+      },
+      "attention_rowsum_std": 5.730604613063406e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 0,
+      "layer": 0,
+      "logit_rowmax_mean": 17.382539749145508,
+      "logit_rowmax_std": 1.5773440599441528,
+      "logits": {
+        "cyclic_r2": 0.5067291263808931,
+        "kernel_std": 2.820438474968952,
+        "matrix_mean": 3.9629609866359026,
+        "matrix_std": 3.9621297774051514,
+        "relative_fro_error": 0.49657194942986277
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.7534608523987504,
+        "kernel_std": 0.0011165316077701892,
+        "matrix_mean": 0.00032051282112420233,
+        "matrix_std": 0.0012862952790209513,
+        "relative_fro_error": 0.4817953916514305
+      },
+      "attention_rowsum_std": 4.5922263325337553e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 10,
+      "layer": 0,
+      "logit_rowmax_mean": 8.249957084655762,
+      "logit_rowmax_std": 0.8570973873138428,
+      "logits": {
+        "cyclic_r2": 0.7552943702162103,
+        "kernel_std": 1.6281568739890995,
+        "matrix_mean": 2.1549793720572725,
+        "matrix_std": 1.8734328162367855,
+        "relative_fro_error": 0.32455110807590914
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.0919302323347857,
+        "kernel_std": 3.3981831064993006e-05,
+        "matrix_mean": 0.00032051282047361386,
+        "matrix_std": 0.00011207728391064868,
+        "relative_fro_error": 0.31454427880746105
+      },
+      "attention_rowsum_std": 4.3227199597595245e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 20,
+      "layer": 0,
+      "logit_rowmax_mean": 1.4625508785247803,
+      "logit_rowmax_std": 0.18756307661533356,
+      "logits": {
+        "cyclic_r2": 0.08390641739666149,
+        "kernel_std": 0.0961619716456155,
+        "matrix_mean": 0.07778285629862942,
+        "matrix_std": 0.33197529857874825,
+        "relative_fro_error": 0.9318900902893599
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.9215702250169923,
+        "kernel_std": 0.006786364340516079,
+        "matrix_mean": 0.00032051282164917807,
+        "matrix_std": 0.007069243718588648,
+        "relative_fro_error": 0.2797657647641996
+      },
+      "attention_rowsum_std": 7.941791579924029e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 30,
+      "layer": 0,
+      "logit_rowmax_mean": 22.08160972595215,
+      "logit_rowmax_std": 1.315269947052002,
+      "logits": {
+        "cyclic_r2": 0.7420705914888642,
+        "kernel_std": 3.4622004802293804,
+        "matrix_mean": 6.218748614330156,
+        "matrix_std": 4.019107309460455,
+        "relative_fro_error": 0.2756681062973564
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.6504766713613463,
+        "kernel_std": 0.00019579216867951274,
+        "matrix_mean": 0.00032051282075572,
+        "matrix_std": 0.0002427612997281344,
+        "relative_fro_error": 0.3569556110065195
+      },
+      "attention_rowsum_std": 4.40750014263358e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 0,
+      "layer": 8,
+      "logit_rowmax_mean": 6.9708147048950195,
+      "logit_rowmax_std": 0.37070542573928833,
+      "logits": {
+        "cyclic_r2": 0.611393556369842,
+        "kernel_std": 0.565048241299135,
+        "matrix_mean": 4.959932404993608,
+        "matrix_std": 0.7226451610054286,
+        "relative_fro_error": 0.08987586659841185
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.43904407569879156,
+        "kernel_std": 8.913963326738055e-05,
+        "matrix_mean": 0.0003205128210186866,
+        "matrix_std": 0.00013452926900010448,
+        "relative_fro_error": 0.2898677421038366
+      },
+      "attention_rowsum_std": 4.670899755865321e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 10,
+      "layer": 8,
+      "logit_rowmax_mean": -0.6078260540962219,
+      "logit_rowmax_std": 0.21758633852005005,
+      "logits": {
+        "cyclic_r2": 0.34729883893095415,
+        "kernel_std": 0.27180407876555834,
+        "matrix_mean": -1.7041466025086665,
+        "matrix_std": 0.4612159351453783,
+        "relative_fro_error": 0.21105932069927377
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.5573058232917001,
+        "kernel_std": 0.00016685155618339378,
+        "matrix_mean": 0.0003205128200738811,
+        "matrix_std": 0.00022350305875572682,
+        "relative_fro_error": 0.38057594507880993
+      },
+      "attention_rowsum_std": 4.620654081577413e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 20,
+      "layer": 8,
+      "logit_rowmax_mean": 4.1351776123046875,
+      "logit_rowmax_std": 0.3868846595287323,
+      "logits": {
+        "cyclic_r2": 0.43139676742628963,
+        "kernel_std": 0.44135121859064025,
+        "matrix_mean": 2.1665545774852224,
+        "matrix_std": 0.6719638145323038,
+        "relative_fro_error": 0.22337625548539472
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.6043777582211064,
+        "kernel_std": 9.962282879359593e-05,
+        "matrix_mean": 0.00032051282068266984,
+        "matrix_std": 0.00012814587553115642,
+        "relative_fro_error": 0.23350611716606282
+      },
+      "attention_rowsum_std": 4.963996147466787e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 30,
+      "layer": 8,
+      "logit_rowmax_mean": 2.0306413173675537,
+      "logit_rowmax_std": 0.1795164793729782,
+      "logits": {
+        "cyclic_r2": 0.533661316145716,
+        "kernel_std": 0.3061304186130051,
+        "matrix_mean": 0.955772933971284,
+        "matrix_std": 0.41905750590556523,
+        "relative_fro_error": 0.2742131351162971
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.5149186781762775,
+        "kernel_std": 0.00011880199634109821,
+        "matrix_mean": 0.0003205128207297082,
+        "matrix_std": 0.00016555961801133708,
+        "relative_fro_error": 0.3196383410709401
+      },
+      "attention_rowsum_std": 4.775768758236154e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 0,
+      "layer": 20,
+      "logit_rowmax_mean": 3.439183235168457,
+      "logit_rowmax_std": 0.2644489109516144,
+      "logits": {
+        "cyclic_r2": 0.5004912939408513,
+        "kernel_std": 0.42857858386838715,
+        "matrix_mean": 2.2549448479047594,
+        "matrix_std": 0.6058040910455444,
+        "relative_fro_error": 0.18337274085501795
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.46938880563482144,
+        "kernel_std": 0.00018351198624186237,
+        "matrix_mean": 0.00032051282043968403,
+        "matrix_std": 0.000267853960245025,
+        "relative_fro_error": 0.4671116005967009
+      },
+      "attention_rowsum_std": 4.61202063206656e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 10,
+      "layer": 20,
+      "logit_rowmax_mean": 4.149734020233154,
+      "logit_rowmax_std": 0.3965616524219513,
+      "logits": {
+        "cyclic_r2": 0.5733877001097836,
+        "kernel_std": 0.6045606329204778,
+        "matrix_mean": 2.1473046232915634,
+        "matrix_std": 0.7983910826470466,
+        "relative_fro_error": 0.22762562791767105
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.635242943393231,
+        "kernel_std": 0.00036713918138305424,
+        "matrix_mean": 0.00032051282052678336,
+        "matrix_std": 0.000460639112228367,
+        "relative_fro_error": 0.49575226337284306
+      },
+      "attention_rowsum_std": 4.1902989522668577e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 20,
+      "layer": 20,
+      "logit_rowmax_mean": 11.207831382751465,
+      "logit_rowmax_std": 0.24929581582546234,
+      "logits": {
+        "cyclic_r2": 0.69558983972428,
+        "kernel_std": 1.0514554060965244,
+        "matrix_mean": 7.870632840844384,
+        "matrix_std": 1.2607072298296789,
+        "relative_fro_error": 0.08726358409563294
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.5661411898151092,
+        "kernel_std": 0.0003299411630695391,
+        "matrix_mean": 0.00032051282031826103,
+        "matrix_std": 0.0004385045705013322,
+        "relative_fro_error": 0.5317732500958929
+      },
+      "attention_rowsum_std": 4.792429919575625e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 30,
+      "layer": 20,
+      "logit_rowmax_mean": 2.574925422668457,
+      "logit_rowmax_std": 0.22859276831150055,
+      "logits": {
+        "cyclic_r2": 0.6745353303610895,
+        "kernel_std": 1.035047109317088,
+        "matrix_mean": -0.5938335086206876,
+        "matrix_std": 1.260253075347059,
+        "relative_fro_error": 0.5160725875224719
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.6346847589129728,
+        "kernel_std": 6.215797059904597e-05,
+        "matrix_mean": 0.00032051282027624576,
+        "matrix_std": 7.802212813646267e-05,
+        "relative_fro_error": 0.14295701381635575
+      },
+      "attention_rowsum_std": 3.9062065582129435e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 0,
+      "layer": 39,
+      "logit_rowmax_mean": 0.5773965716362,
+      "logit_rowmax_std": 0.10036608576774597,
+      "logits": {
+        "cyclic_r2": 0.6072260684305952,
+        "kernel_std": 0.2013825127679991,
+        "matrix_mean": -0.07057180648986872,
+        "matrix_std": 0.2584321565361949,
+        "relative_fro_error": 0.6045800203568115
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.7999536456045688,
+        "kernel_std": 8.634804182175914e-05,
+        "matrix_mean": 0.0003205128198601489,
+        "matrix_std": 9.654284264993191e-05,
+        "relative_fro_error": 0.1289975414893139
+      },
+      "attention_rowsum_std": 5.138699066264962e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 10,
+      "layer": 39,
+      "logit_rowmax_mean": 1.0062730312347412,
+      "logit_rowmax_std": 0.10312655568122864,
+      "logits": {
+        "cyclic_r2": 0.6741447318460532,
+        "kernel_std": 0.24624628254416842,
+        "matrix_mean": 0.0482674053947566,
+        "matrix_std": 0.29991149407931805,
+        "relative_fro_error": 0.5635852024342135
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.7584676094966701,
+        "kernel_std": 5.9696219480069473e-05,
+        "matrix_mean": 0.0003205128204165178,
+        "matrix_std": 6.85453990324119e-05,
+        "relative_fro_error": 0.1027801853768789
+      },
+      "attention_rowsum_std": 3.808794346582545e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 20,
+      "layer": 39,
+      "logit_rowmax_mean": 1.9960428476333618,
+      "logit_rowmax_std": 0.06399352103471756,
+      "logits": {
+        "cyclic_r2": 0.7287683716595666,
+        "kernel_std": 0.18423878115076733,
+        "matrix_mean": 1.3980709054201772,
+        "matrix_std": 0.21581731929672485,
+        "relative_fro_error": 0.07945357640197344
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.8124219838854858,
+        "kernel_std": 0.0004117027294189192,
+        "matrix_mean": 0.00032051282061082914,
+        "matrix_std": 0.0004567650993710476,
+        "relative_fro_error": 0.35452796928182406
+      },
+      "attention_rowsum_std": 4.504604333988027e-08,
+      "branch": "high_noise",
+      "grid": [
+        2,
+        30,
+        52
+      ],
+      "head": 30,
+      "layer": 39,
+      "logit_rowmax_mean": 4.6317925453186035,
+      "logit_rowmax_std": 0.10556347668170929,
+      "logits": {
+        "cyclic_r2": 0.626858136777495,
+        "kernel_std": 0.8989380965534475,
+        "matrix_mean": 1.3311170744736642,
+        "matrix_std": 1.1353902285501574,
+        "relative_fro_error": 0.3964164209178023
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 3120,
+      "timestep": 999.0
+    }
+  ],
+  "repo_name": "Wan2.2_SA3_hif4_edges8_fp16_noscale_norowmax_baseline_para01",
+  "seed": 1234,
+  "seq_len": 3120,
+  "size": "832*480",
+  "timestep": 999.0
+}
