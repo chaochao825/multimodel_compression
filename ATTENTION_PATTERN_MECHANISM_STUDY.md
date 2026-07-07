@@ -759,6 +759,51 @@ Interpretation:
   bias claim for Wan's 3D RoPE/global attention, but final deployment evidence
   still requires actual denoising latents and quality/loss probes.
 
+## Wan Noise-Branch Stability Probe
+
+Script:
+
+- `scripts/wan_noise_branch_stability.py`
+
+Outputs:
+
+- `remote_logs/wan_noise_branch_stability_20260708.json/csv`
+- `figures/fig18_wan_noise_branch_stability.png/pdf`
+
+Method:
+
+- Reuse saved small-grid Wan Q/K probes, with no new model forward pass.
+- Pair overlapping high-noise and low-noise records for layers `0/8` and heads
+  `0/10/20/30`.
+- Compare true F-H-W cyclic R2, coordinate-perturbation R2 drops, and
+  high/low rank correlation.
+
+Results:
+
+| Metric | Value |
+|---|---:|
+| overlap records | 8 |
+| mean high-noise attention R2 | 0.433 |
+| mean low-noise attention R2 | 0.603 |
+| mean low-minus-high R2 delta | 0.170 |
+| Pearson high/low R2 | 0.548 |
+| Spearman high/low R2 | 0.214 |
+| high random-coordinate R2 drop | 0.415 |
+| low random-coordinate R2 drop | 0.524 |
+| high axis-mean R2 drop | 0.116 |
+| low axis-mean R2 drop | 0.142 |
+
+Mechanistic interpretation:
+
+- The 3D cyclic component is not a one-off artifact of the high-noise branch:
+  random-coordinate reassignment destroys R2 in both branches.
+- The component is not universal either. Layer 0 head 20 is near zero in both
+  branches, while layer 0 head 30 is high in both branches.
+- Several layer 8 heads become much stronger at low noise. This suggests that
+  the geometric relative-offset component can sharpen with denoising regime.
+- Therefore the current mechanism picture is "head/layer/timestep-gated
+  inductive bias", not "all Wan attention is BCCB".
+
 ## Current Status
 
 This study now has:
@@ -770,7 +815,7 @@ This study now has:
 - head-output keep/drop intervention probes for sink/local/sparse/union masks;
 - Wan coordinate perturbation showing the 3D cyclic signal depends on coherent
   F-H-W geometry;
-- Wan high/low timestep cyclic-stability evidence;
+- Wan high/low noise-branch cyclic-stability evidence;
 - concrete intervention experiment designs;
 - a first matrix-level component-intervention probe over the saved hybrid
   decomposition;

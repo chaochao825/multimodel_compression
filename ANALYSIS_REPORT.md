@@ -185,6 +185,8 @@ Each figure is saved as both PNG and PDF:
   small-grid latent.
 - `fig17_hybrid_transfer_probe`: source-to-target transfer test for saved
   hybrid supports/templates.
+- `fig18_wan_noise_branch_stability`: high/low noise branch stability of Wan
+  3D cyclic R2 on overlapping layer/head records.
 
 ## Wan2.2 Generation-Side Assessment
 
@@ -255,9 +257,36 @@ Current conclusion for Wan2.2:
   random-coordinate R2 drops to `0.079`. Axis reinterpretations also reduce R2.
   Reverse-coordinate is not destructive because cyclic offset grouping is close
   to invariant under global coordinate reversal.
+- A high/low noise-branch stability check over the overlapping small-grid
+  layer/head records (`layers 0/8`, `heads 0/10/20/30`) shows mean high-noise
+  R2 `0.433`, mean low-noise R2 `0.603`, Pearson high/low R2 correlation
+  `0.548`, and Spearman `0.214`. Random-coordinate R2 drop remains large in
+  both branches (`0.415` high, `0.524` low). This says the geometry-dependent
+  signal is not a one-branch accident, but it is still strongly head/layer and
+  denoising-regime dependent.
 - The next probe should run on actual denoising latents from several prompts and
   timesteps, then test whether a hybrid policy can route only high-R2 heads to a
   circulant/FFT attention path.
+
+Noise-branch stability details:
+
+| Metric | Value |
+|---|---:|
+| overlap records | 8 |
+| mean high-noise attention R2 | 0.433 |
+| mean low-noise attention R2 | 0.603 |
+| mean low-minus-high R2 delta | 0.170 |
+| Pearson high/low R2 | 0.548 |
+| Spearman high/low R2 | 0.214 |
+| high random-coordinate R2 drop | 0.415 |
+| low random-coordinate R2 drop | 0.524 |
+| high axis-mean R2 drop | 0.116 |
+| low axis-mean R2 drop | 0.142 |
+
+Interpretation: low-noise layer 8 heads strengthen substantially, layer 0 head
+20 is near-zero in both branches, and layer 0 head 30 is high in both branches.
+This supports a gated-head/timestep policy rather than a universal circulant
+replacement.
 
 ## 210 Attention-Replacement Probe
 
@@ -764,3 +793,10 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
     source hybrid template reaches `2.007`. Sink-column overlap is zero and
     sparse-route overlap is near zero. The current hybrid result is therefore a
     mechanism diagnostic, not a static reusable attention layout.
+12. The 2026-07-08 Wan noise-branch stability probe adds a partial answer to
+    "is it constant or occasional": over overlapping layers 0/8 and heads
+    0/10/20/30, high/low R2 has moderate Pearson correlation (`0.548`) but low
+    Spearman (`0.214`), low-noise is stronger on average (`0.603` vs `0.433`),
+    and random-coordinate destruction remains strong in both branches. The
+    cyclic structure is real and geometry-dependent, but not universal across
+    all heads or timesteps.

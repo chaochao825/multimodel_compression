@@ -1005,6 +1005,82 @@ def figure_hybrid_transfer_probe() -> None:
     save(fig, "fig17_hybrid_transfer_probe")
 
 
+def figure_wan_noise_branch_stability() -> None:
+    data = json.loads((LOG_DIR / "wan_noise_branch_stability_20260708.json").read_text(encoding="utf-8"))
+    rows = data["rows"]
+    summary = data["summary"][0]
+    labels = [f"L{int(row['layer'])}\nH{int(row['head'])}" for row in rows]
+    high_r2 = np.array([float(row["high_attention_r2"]) for row in rows])
+    low_r2 = np.array([float(row["low_attention_r2"]) for row in rows])
+    high_drop = np.array([float(row["high_random_coord_r2_drop"]) for row in rows])
+    low_drop = np.array([float(row["low_random_coord_r2_drop"]) for row in rows])
+    high_axis_drop = np.array([float(row["high_axis_mean_r2_drop"]) for row in rows])
+    low_axis_drop = np.array([float(row["low_axis_mean_r2_drop"]) for row in rows])
+
+    fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.1), constrained_layout=True)
+    axes[0].scatter(high_r2, low_r2, s=34, color="#4C78A8", alpha=0.86)
+    axes[0].plot([0, 1], [0, 1], color="#999999", lw=0.8, ls="--")
+    for label, x_val, y_val in zip(labels, high_r2, low_r2):
+        axes[0].text(x_val + 0.012, y_val + 0.012, label.replace("\n", " "), fontsize=5.8)
+    axes[0].set_title("High/low noise head stability")
+    axes[0].set_xlabel("High-noise attention R2")
+    axes[0].set_ylabel("Low-noise attention R2")
+    axes[0].set_xlim(-0.03, 0.98)
+    axes[0].set_ylim(-0.03, 0.98)
+    axes[0].grid(True, color="#e6e6e6", lw=0.6)
+    axes[0].text(
+        0.02,
+        0.93,
+        f"Pearson={float(summary['pearson_high_low_attention_r2']):.2f}",
+        fontsize=7,
+        transform=axes[0].transAxes,
+    )
+
+    x = np.arange(len(rows))
+    width = 0.36
+    axes[1].bar(x - width / 2, high_r2, width=width, color="#4C78A8", alpha=0.78, label="High noise")
+    axes[1].bar(x + width / 2, low_r2, width=width, color="#F58518", alpha=0.78, label="Low noise")
+    axes[1].set_title("Per-head cyclic R2")
+    axes[1].set_ylabel("Attention R2")
+    axes[1].set_xticks(x)
+    axes[1].set_xticklabels(labels)
+    axes[1].set_ylim(0, 1.02)
+    axes[1].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[1].legend(frameon=False, fontsize=7)
+
+    drop_labels = ["Random\ncoord", "Axis\nmean"]
+    drop_vals = [
+        [float(high_drop.mean()), float(high_axis_drop.mean())],
+        [float(low_drop.mean()), float(low_axis_drop.mean())],
+    ]
+    dx = np.arange(len(drop_labels))
+    axes[2].bar(dx - width / 2, drop_vals[0], width=width, color="#4C78A8", alpha=0.78, label="High noise")
+    axes[2].bar(dx + width / 2, drop_vals[1], width=width, color="#F58518", alpha=0.78, label="Low noise")
+    for branch_idx, vals in enumerate(drop_vals):
+        offset = (branch_idx - 0.5) * width
+        for xi, val in zip(dx + offset, vals):
+            axes[2].text(xi, val + 0.015, f"{val:.2f}", ha="center", va="bottom", fontsize=6.5)
+    axes[2].set_title("Coordinate perturbation drop")
+    axes[2].set_ylabel("R2 drop from true F-H-W")
+    axes[2].set_xticks(dx)
+    axes[2].set_xticklabels(drop_labels)
+    axes[2].set_ylim(0, 0.62)
+    axes[2].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[2].legend(frameon=False, fontsize=7)
+
+    fig.text(
+        0.5,
+        -0.05,
+        "Overlap: layers 0/8, heads 0/10/20/30, patch grid 2x15x26. "
+        "The cyclic signal is head-dependent and stronger at low noise, but random-coordinate destruction persists across noise branches.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(r)", weight="bold", fontsize=9)
+    save(fig, "fig18_wan_noise_branch_stability")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -1024,6 +1100,7 @@ def main() -> int:
     figure_head_output_intervention()
     figure_wan_delta_perturbation()
     figure_hybrid_transfer_probe()
+    figure_wan_noise_branch_stability()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

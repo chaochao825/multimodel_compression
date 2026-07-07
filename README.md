@@ -79,3 +79,18 @@
   but its non-local sink/sparse routing is target-specific. A deployable
   replacement needs a learned/calibrated sink/global path and content-aware
   sparse router, not a static BCCB/BCM/Monarch-like layout.
+
+## 2026-07-08 Update: Wan Noise-Branch Stability
+
+- New script: `scripts/wan_noise_branch_stability.py`.
+- New outputs: `remote_logs/wan_noise_branch_stability_20260708.json/csv`.
+- New figure: `figures/fig18_wan_noise_branch_stability.png/pdf`.
+- Overlapping Wan small-grid records: layers `0/8`, heads `0/10/20/30`.
+- Mean high-noise attention R2 is `0.433`; mean low-noise attention R2 is
+  `0.603`.
+- High/low R2 Pearson correlation is `0.548`, but Spearman is only `0.214`.
+- Random-coordinate R2 drop remains strong in both branches: `0.415` high and
+  `0.524` low.
+- Interpretation: Wan's 3D cyclic signal is geometry-dependent and appears in
+  both noise branches, but it is still head/layer/timestep dependent. This
+  supports a gated hybrid policy rather than universal circulant attention.
