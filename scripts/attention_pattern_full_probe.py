@@ -69,6 +69,10 @@ def row_normalize_masked(attn: torch.Tensor, mask: torch.Tensor) -> torch.Tensor
     return out / out.sum(dim=-1, keepdim=True).clamp_min(1e-12)
 
 
+def row_normalize_complement(attn: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+    return row_normalize_masked(attn, ~mask.bool())
+
+
 def rel_error(target: torch.Tensor, approx: torch.Tensor) -> float:
     denom = torch.linalg.norm(target.float()).clamp_min(1e-12)
     return stable_float(torch.linalg.norm(target.float() - approx.float()) / denom)
@@ -79,6 +83,13 @@ def output_error(attn: torch.Tensor, approx: torch.Tensor, value: torch.Tensor) 
     repl = approx.float() @ value.float()
     denom = torch.linalg.norm(base).clamp_min(1e-12)
     return stable_float(torch.linalg.norm(base - repl) / denom)
+
+
+def component_output_norm_ratio(attn: torch.Tensor, mask: torch.Tensor, value: torch.Tensor) -> float:
+    base = attn.float() @ value.float()
+    component = (attn.float() * mask.float()) @ value.float()
+    denom = torch.linalg.norm(base).clamp_min(1e-12)
+    return stable_float(torch.linalg.norm(component) / denom)
 
 
 def deterministic_cpu_generator(key: str) -> torch.Generator:
@@ -144,10 +155,14 @@ def attention_pattern_metrics(
     sink4_mask, sink4_cols = topk_col_mask(attn, 4)
     row_top4_mask = topk_row_mask(attn, 4)
     local1_approx = row_normalize_masked(attn, local1_mask)
+    drop_local1_approx = row_normalize_complement(attn, local1_mask)
     sink2_approx = row_normalize_masked(attn, sink2_mask)
+    drop_sink2_approx = row_normalize_complement(attn, sink2_mask)
     top4_approx = row_normalize_masked(attn, row_top4_mask)
+    drop_top4_approx = row_normalize_complement(attn, row_top4_mask)
     union_mask = local1_mask | sink2_mask | row_top4_mask
     union_approx = row_normalize_masked(attn, union_mask)
+    drop_union_approx = row_normalize_complement(attn, union_mask)
     stress_values = {
         "random_v": deterministic_randn_like(value, f"{map_id}:random_v"),
         "permuted_v": deterministic_row_permute(value, f"{map_id}:permuted_v"),
@@ -177,10 +192,24 @@ def attention_pattern_metrics(
         "local1_matrix_error": rel_error(attn, local1_approx),
         "row_top4_matrix_error": rel_error(attn, top4_approx),
         "union_sink_local_top4_matrix_error": rel_error(attn, union_approx),
+        "drop_sink2_matrix_error": rel_error(attn, drop_sink2_approx),
+        "drop_local1_matrix_error": rel_error(attn, drop_local1_approx),
+        "drop_row_top4_matrix_error": rel_error(attn, drop_top4_approx),
+        "drop_union_sink_local_top4_matrix_error": rel_error(attn, drop_union_approx),
         "sink2_output_error": output_error(attn, sink2_approx, value),
         "local1_output_error": output_error(attn, local1_approx, value),
         "row_top4_output_error": output_error(attn, top4_approx, value),
         "union_sink_local_top4_output_error": output_error(attn, union_approx, value),
+        "drop_sink2_output_error": output_error(attn, drop_sink2_approx, value),
+        "drop_local1_output_error": output_error(attn, drop_local1_approx, value),
+        "drop_row_top4_output_error": output_error(attn, drop_top4_approx, value),
+        "drop_union_sink_local_top4_output_error": output_error(attn, drop_union_approx, value),
+        "sink2_raw_component_norm_ratio": component_output_norm_ratio(attn, sink2_mask, value),
+        "local1_raw_component_norm_ratio": component_output_norm_ratio(attn, local1_mask, value),
+        "row_top4_raw_component_norm_ratio": component_output_norm_ratio(attn, row_top4_mask, value),
+        "union_raw_component_norm_ratio": component_output_norm_ratio(attn, union_mask, value),
+        "base_output_norm": stable_float(torch.linalg.norm(attn.float() @ value.float())),
+        "value_norm": stable_float(torch.linalg.norm(value.float())),
     }
     approx_by_name = {
         "sink2": sink2_approx,
@@ -246,6 +275,14 @@ def summarize(rows: List[Dict[str, object]]) -> List[Dict[str, object]]:
                 "mean_union_random_v_output_error": mean_float(items, "union_random_v_output_error"),
                 "mean_union_permuted_v_output_error": mean_float(items, "union_permuted_v_output_error"),
                 "mean_union_orthogonalized_v_output_error": mean_float(items, "union_orthogonalized_v_output_error"),
+                "mean_drop_sink2_output_error": mean_float(items, "drop_sink2_output_error"),
+                "mean_drop_local1_output_error": mean_float(items, "drop_local1_output_error"),
+                "mean_drop_row_top4_output_error": mean_float(items, "drop_row_top4_output_error"),
+                "mean_drop_union_output_error": mean_float(items, "drop_union_sink_local_top4_output_error"),
+                "mean_sink2_component_norm_ratio": mean_float(items, "sink2_raw_component_norm_ratio"),
+                "mean_local1_component_norm_ratio": mean_float(items, "local1_raw_component_norm_ratio"),
+                "mean_row_top4_component_norm_ratio": mean_float(items, "row_top4_raw_component_norm_ratio"),
+                "mean_union_component_norm_ratio": mean_float(items, "union_raw_component_norm_ratio"),
                 "sink2_pairwise_jaccard": pairwise_jaccard(sink2_sets),
             }
         )
@@ -437,6 +474,8 @@ def main() -> int:
             "random_v": "same attention masks evaluated against deterministic random value vectors to stress-test value-subspace effects",
             "permuted_v": "same attention masks evaluated after deterministically permuting value rows, preserving value vectors but breaking token-value alignment",
             "orthogonalized_v": "same attention masks evaluated against column-orthogonalized values from the observed value matrix, preserving the row count while removing feature covariance",
+            "drop_interventions": "drop_* metrics zero a mask, row-renormalize the remaining attention, and measure head-output A@V error under true V",
+            "component_norm": "*_raw_component_norm_ratio measures the norm of the unrenormalized masked component output divided by the original head-output norm",
         },
     }
     output_json = Path(args.output_json)

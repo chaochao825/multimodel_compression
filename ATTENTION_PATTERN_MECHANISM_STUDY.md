@@ -642,6 +642,71 @@ Updated value-subspace judgment:
   true-`V` result suggests; Qwen still needs content-dependent routing even
   before considering `V` stress.
 
+## Head-Output Intervention Probe
+
+Script:
+
+- `scripts/attention_pattern_full_probe.py`
+
+Outputs:
+
+- `remote_logs/attention_head_intervention_vit_20260707.json/csv`
+- `remote_logs/attention_head_intervention_qwen_20260707.json/csv`
+- `figures/fig15_head_output_intervention.png/pdf`
+
+Method:
+
+- Reuse the same sampled maps as the full-sweep probe.
+- For each head map, construct masks from observed dense attention `A`:
+  sink-2 columns, local radius-1, row top-4, and their union.
+- `keep-only` intervention: keep the mask, row-renormalize, and measure
+  relative head-output error against original `A @ V`.
+- `drop+renorm` intervention: zero the mask, row-renormalize the remaining
+  attention, and measure relative head-output error.
+- `raw component norm`: compute `||(A * mask) @ V|| / ||A @ V||` without
+  renormalization.
+
+Aggregate results:
+
+| Family | Keep sink-2 | Drop sink-2 | Keep local | Drop local | Keep row-top4 | Drop row-top4 | Keep union | Drop union |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| ViT | 0.488 | 0.385 | 0.554 | 0.159 | 0.129 | 0.479 | 0.093 | 0.486 |
+| Qwen3-VL visual | 1.378 | 0.372 | 1.195 | 0.279 | 0.810 | 0.685 | 0.600 | 0.702 |
+
+Raw component norm ratio:
+
+| Family | Sink-2 | Local r1 | Row top-4 | Union |
+|---|---:|---:|---:|---:|
+| ViT | 0.568 | 0.254 | 0.745 | 0.779 |
+| Qwen3-VL visual | 0.282 | 0.326 | 0.640 | 0.671 |
+
+Layer-wise highlights:
+
+- ViT layer 0 is strongly route-dependent: keeping row top-4 gives error
+  `0.194`, but dropping row top-4 gives `0.971`; keeping union gives `0.134`,
+  while dropping union gives `0.987`.
+- Later ViT layers are easier to approximate in true `V`: keeping union stays
+  `0.071-0.085`, and dropping union is `0.270-0.417`. This fits the earlier
+  finding that output success there is value-subspace dependent.
+- Qwen layer 8 is not explained by fixed sink/local routes: keep sink-2 error
+  is `1.611`, keep local is `1.202`, and keep union is still `0.672`.
+- Qwen layers 16/26 are more row-sparse/consolidated: keep row-top4 errors are
+  `0.562` and `0.524`, but dropping row-top4 remains costly (`0.952` and
+  `0.660`).
+
+Interpretation:
+
+- **ViT**: sampled heads are largely sufficient under an oracle row-top4/union
+  route, especially for true `V`. This supports a no-op/scratch plus sparse
+  routing explanation more than a geometric BCCB explanation.
+- **Qwen3-VL visual**: fixed sink/local masks are neither sufficient nor
+  uniquely necessary. Row-top4 and union matter, but still leave high error.
+  This is stronger evidence for dynamic content routing.
+- **Causality scope**: this is causal at the `A @ V` head-output level only.
+  It does not prove task-level loss or video-quality causality. The next
+  required step is to inject these interventions into real model forward passes
+  and measure classification/VQA/generation-quality proxies.
+
 ## Current Status
 
 This study now has:
@@ -650,6 +715,7 @@ This study now has:
 - representative-matrix diagnostics;
 - full-sweep ViT/Qwen sink/local/sparse/value-subspace metrics;
 - true/permuted/orthogonalized/random `V` stress tests;
+- head-output keep/drop intervention probes for sink/local/sparse/union masks;
 - Wan high/low timestep cyclic-stability evidence;
 - concrete intervention experiment designs;
 - a first matrix-level component-intervention probe over the saved hybrid

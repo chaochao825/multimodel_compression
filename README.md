@@ -23,6 +23,7 @@
 6. Full-sweep pattern probe：统计 ViT/Qwen 全量采样中的 sink mass、row-argmax collapse、local mass、row top-k sparsity、effective rank，以及 true-`V` / random-`V` stress test。
 7. Matrix-level component intervention：在已保存的 hybrid 分解上分别去掉 sink/global、local-cyclic、sparse-routing 分量，分析当前结构化替换为什么失败。
 8. Value-subspace stress：在同一批 ViT/Qwen attention 上测试 true/permuted/orthogonalized/random `V`，检验低 `A @ V` error 是否依赖当前 value 子空间。
+9. Head-output intervention：对 sink/local/row-topk/union mask 做 keep-only 和 drop+renorm，测量 head-level `A @ V` 输出变化。
 
 ## 关键结果
 
@@ -49,6 +50,9 @@
   - ViT union-mask output error：true/permuted/orthogonalized/random `V` 为 `0.093/0.184/0.371/0.419`。
   - Qwen3-VL visual 对应为 `0.600/0.502/1.113/1.128`。
   - 结论是 `A @ V` 单点低误差不可靠；ViT 后层明显依赖当前 value 子空间，Qwen 还缺动态 routing。
+- Head-output intervention：
+  - ViT keep-only union error `0.093`、drop-union error `0.486`，row-top4/union 对 head output 近似充分且被 drop 后影响明显。
+  - Qwen keep-only union error `0.600`、drop-union error `0.702`，sink/local/row-topk 都不能单独解释，支持动态 content routing。
 
 ## 注意事项
 

@@ -819,6 +819,61 @@ def figure_value_subspace_stress() -> None:
     save(fig, "fig14_value_subspace_stress")
 
 
+def figure_head_output_intervention() -> None:
+    sources = [
+        ("ViT", json.loads((LOG_DIR / "attention_head_intervention_vit_20260707.json").read_text(encoding="utf-8"))),
+        ("Qwen3-VL", json.loads((LOG_DIR / "attention_head_intervention_qwen_20260707.json").read_text(encoding="utf-8"))),
+    ]
+    components = [
+        ("sink2", "Sink-2", "sink2_output_error", "drop_sink2_output_error", "sink2_raw_component_norm_ratio", "#4C78A8"),
+        ("local1", "Local r1", "local1_output_error", "drop_local1_output_error", "local1_raw_component_norm_ratio", "#F58518"),
+        ("top4", "Row top-4", "row_top4_output_error", "drop_row_top4_output_error", "row_top4_raw_component_norm_ratio", "#54A24B"),
+        ("union", "Union", "union_sink_local_top4_output_error", "drop_union_sink_local_top4_output_error", "union_raw_component_norm_ratio", "#B279A2"),
+    ]
+
+    fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.0), constrained_layout=True)
+    x = np.arange(len(components))
+    width = 0.32
+    panels = [
+        ("Keep-only A@V error", 2, "keep"),
+        ("Drop + renorm A@V error", 3, "drop"),
+        ("Raw component norm / base", 4, "ratio"),
+    ]
+    for ax, (title, idx, _kind) in zip(axes, panels):
+        for family_idx, (family_label, data) in enumerate(sources):
+            rows = data["rows"]
+            vals = [float(np.mean([row[component[idx]] for row in rows])) for component in components]
+            bars = ax.bar(x + (family_idx - 0.5) * width, vals, width=width, label=family_label, color=[c[5] for c in components], alpha=0.65 + 0.25 * family_idx)
+            for bar, val in zip(bars, vals):
+                ax.text(bar.get_x() + bar.get_width() / 2, val + 0.035, f"{val:.2f}", ha="center", va="bottom", fontsize=6.3)
+        ax.set_title(title)
+        ax.set_xticks(x)
+        ax.set_xticklabels([component[1] for component in components], rotation=15)
+        ax.grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[0].set_ylabel("Relative error")
+    axes[1].set_ylabel("Relative error")
+    axes[2].set_ylabel("Norm ratio")
+    axes[0].set_ylim(0, 2.2)
+    axes[1].set_ylim(0, 1.7)
+    axes[2].set_ylim(0, 1.45)
+    handles = [
+        mpatches.Patch(facecolor="#888888", alpha=0.65, label="ViT"),
+        mpatches.Patch(facecolor="#888888", alpha=0.90, label="Qwen3-VL"),
+    ]
+    axes[0].legend(handles=handles, frameon=False, fontsize=7, loc="upper left")
+    fig.text(
+        0.5,
+        -0.04,
+        "Head-output intervention only: masks are selected from observed A. "
+        "Keep-only tests sufficiency; drop+renorm tests whether remaining attention can compensate.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(o)", weight="bold", fontsize=9)
+    save(fig, "fig15_head_output_intervention")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -835,6 +890,7 @@ def main() -> int:
     figure_attention_pattern_full_sweep()
     figure_attention_component_intervention()
     figure_value_subspace_stress()
+    figure_head_output_intervention()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

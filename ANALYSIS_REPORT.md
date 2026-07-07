@@ -668,9 +668,15 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
    from `0.600` to `0.502`, `1.113`, and `1.128`. A low output error on the
    observed value vectors is therefore not sufficient evidence of faithful
    attention replacement.
-7. The projection-weight fit is only a supplement; it should not be used as the
+7. Head-output keep/drop interventions sharpen the mechanism split. ViT
+   keep-only union error is `0.093` and drop-union error is `0.486`, so the
+   oracle sparse/union route is close to sufficient and functionally important
+   at the head-output level. Qwen3-VL visual keep-only union error remains
+   `0.600` and drop-union is `0.702`, so fixed sink/local/top-k routes are not
+   enough; dynamic content routing remains the missing term.
+8. The projection-weight fit is only a supplement; it should not be used as the
    main evidence for or against replacing attention.
-8. This is partial BCCB-like structure, not strict BCCB. Do not replace all Wan
+9. This is partial BCCB-like structure, not strict BCCB. Do not replace all Wan
    attention with circulant attention; a plausible next direction is a
    head/layer/timestep-gated hybrid path for consistently high-R2 heads and a
    learned or calibrated router for sink/sparse residuals.
