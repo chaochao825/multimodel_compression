@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 import matplotlib as mpl
+import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -760,6 +761,64 @@ def figure_attention_component_intervention() -> None:
     save(fig, "fig13_attention_component_intervention")
 
 
+def figure_value_subspace_stress() -> None:
+    sources = [
+        ("ViT", json.loads((LOG_DIR / "attention_pattern_vstress_vit_20260707.json").read_text(encoding="utf-8"))),
+        ("Qwen3-VL", json.loads((LOG_DIR / "attention_pattern_vstress_qwen_20260707.json").read_text(encoding="utf-8"))),
+    ]
+    stress_keys = [
+        ("union_sink_local_top4_output_error", "True V", "#4C78A8"),
+        ("union_permuted_v_output_error", "Permuted V", "#F58518"),
+        ("union_orthogonalized_v_output_error", "Orthogonalized V", "#54A24B"),
+        ("union_random_v_output_error", "Random V", "#B279A2"),
+    ]
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.8, 3.0), constrained_layout=True)
+    x = np.arange(len(stress_keys))
+    for family_idx, (label, data) in enumerate(sources):
+        rows = data["rows"]
+        vals = [float(np.mean([row[key] for row in rows])) for key, _name, _color in stress_keys]
+        colors = [color for _key, _name, color in stress_keys]
+        axes[0].bar(x + (family_idx - 0.5) * 0.32, vals, width=0.30, label=label, color=colors, alpha=0.65 + 0.25 * family_idx)
+        for xi, val in zip(x + (family_idx - 0.5) * 0.32, vals):
+            axes[0].text(xi, val + 0.035, f"{val:.2f}", ha="center", va="bottom", fontsize=6.5)
+
+        layers = sorted({int(row["layer"]) for row in rows})
+        for key, name, color in stress_keys:
+            y = [float(np.mean([row[key] for row in rows if int(row["layer"]) == layer])) for layer in layers]
+            axes[1].plot(layers, y, marker="o" if label == "ViT" else "s", lw=1.3, color=color, ls="-" if label == "ViT" else "--", label=f"{label} {name}")
+
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels([name for _key, name, _color in stress_keys])
+    axes[0].set_ylabel("Union-mask A@V relative error")
+    axes[0].set_title("Aggregate value-subspace stress")
+    axes[0].set_ylim(0, 1.85)
+    axes[0].grid(axis="y", color="#e6e6e6", lw=0.6)
+    handles = [
+        mpatches.Patch(facecolor="#888888", alpha=0.65, label="ViT"),
+        mpatches.Patch(facecolor="#888888", alpha=0.90, label="Qwen3-VL"),
+    ]
+    axes[0].legend(handles=handles, frameon=False, fontsize=7, loc="upper left")
+
+    axes[1].set_xlabel("Layer")
+    axes[1].set_ylabel("Relative error")
+    axes[1].set_title("Layer-wise stress")
+    axes[1].set_ylim(0, 2.05)
+    axes[1].grid(True, color="#e6e6e6", lw=0.6)
+    axes[1].legend(frameon=False, fontsize=5.8, ncol=2)
+    fig.text(
+        0.5,
+        -0.04,
+        "Union mask = oracle sink-2 + radius-1 local + row top-4. "
+        "Permuted V breaks token-value alignment; orthogonalized V removes feature covariance; random V changes the value subspace.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(n)", weight="bold", fontsize=9)
+    save(fig, "fig14_value_subspace_stress")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -775,6 +834,7 @@ def main() -> int:
     figure_hybrid_attention_tradeoff()
     figure_attention_pattern_full_sweep()
     figure_attention_component_intervention()
+    figure_value_subspace_stress()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

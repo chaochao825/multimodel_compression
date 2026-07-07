@@ -22,6 +22,7 @@
 5. Hybrid diagnostic：将代表 attention matrix 分解为 oracle `sink/global-SVD + local-cyclic + sparse-routing`，用于解释为什么单一 BCCB/BCM/固定 proxy 表现差。
 6. Full-sweep pattern probe：统计 ViT/Qwen 全量采样中的 sink mass、row-argmax collapse、local mass、row top-k sparsity、effective rank，以及 true-`V` / random-`V` stress test。
 7. Matrix-level component intervention：在已保存的 hybrid 分解上分别去掉 sink/global、local-cyclic、sparse-routing 分量，分析当前结构化替换为什么失败。
+8. Value-subspace stress：在同一批 ViT/Qwen attention 上测试 true/permuted/orthogonalized/random `V`，检验低 `A @ V` error 是否依赖当前 value 子空间。
 
 ## 关键结果
 
@@ -44,6 +45,10 @@
   - 四个代表矩阵上 full hybrid 平均 matrix error `0.147`，Grid BCCB `0.876`，Monarch-like proxy `0.743`。
   - 去掉 sink/global 后平均 error 升至 `1.233`，去掉 local-cyclic 为 `0.202`，去掉 sparse-routing 为 `0.236`。
   - 这说明当前 BCCB/BCM 替换差的主因是缺少显式 sink/global 低秩通道；Qwen L8/L26 还需要 local/sparse routing。
+- Value-subspace stress：
+  - ViT union-mask output error：true/permuted/orthogonalized/random `V` 为 `0.093/0.184/0.371/0.419`。
+  - Qwen3-VL visual 对应为 `0.600/0.502/1.113/1.128`。
+  - 结论是 `A @ V` 单点低误差不可靠；ViT 后层明显依赖当前 value 子空间，Qwen 还缺动态 routing。
 
 ## 注意事项
 

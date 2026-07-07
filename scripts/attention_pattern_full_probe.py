@@ -5,7 +5,9 @@ This probe reuses the existing ViT/Qwen attention extraction paths, but instead
 of testing BCCB/BCM replacements it measures mechanism-oriented quantities:
 sink strength, row-argmax collapse, local/cyclic mass, sparse top-k mass,
 effective rank, and simple oracle-mask output errors under original and random
-value vectors.
+value vectors. It also stress-tests whether low output error depends on the
+observed value subspace by evaluating deterministic random, row-permuted, and
+column-orthogonalized value matrices.
 """
 
 from __future__ import annotations
@@ -79,12 +81,31 @@ def output_error(attn: torch.Tensor, approx: torch.Tensor, value: torch.Tensor) 
     return stable_float(torch.linalg.norm(base - repl) / denom)
 
 
-def deterministic_randn_like(value: torch.Tensor, key: str) -> torch.Tensor:
+def deterministic_cpu_generator(key: str) -> torch.Generator:
     digest = hashlib.sha256(key.encode("utf-8")).digest()
     seed = int.from_bytes(digest[:8], "little") % (2**31 - 1)
     gen = torch.Generator(device="cpu")
     gen.manual_seed(seed)
+    return gen
+
+
+def deterministic_randn_like(value: torch.Tensor, key: str) -> torch.Tensor:
+    gen = deterministic_cpu_generator(key)
     return torch.randn(value.shape, generator=gen, dtype=torch.float32)
+
+
+def deterministic_row_permute(value: torch.Tensor, key: str) -> torch.Tensor:
+    gen = deterministic_cpu_generator(key)
+    perm = torch.randperm(value.shape[0], generator=gen)
+    return value.float()[perm]
+
+
+def column_orthogonalize(value: torch.Tensor) -> torch.Tensor:
+    centered = value.float() - value.float().mean(dim=0, keepdim=True)
+    if stable_float(torch.linalg.norm(centered)) < 1e-12:
+        return value.float()
+    q, _r = torch.linalg.qr(centered, mode="reduced")
+    return q * (centered.shape[0] ** 0.5)
 
 
 def topk_row_mask(attn: torch.Tensor, k: int) -> torch.Tensor:
@@ -127,7 +148,11 @@ def attention_pattern_metrics(
     top4_approx = row_normalize_masked(attn, row_top4_mask)
     union_mask = local1_mask | sink2_mask | row_top4_mask
     union_approx = row_normalize_masked(attn, union_mask)
-    random_value = deterministic_randn_like(value, map_id)
+    stress_values = {
+        "random_v": deterministic_randn_like(value, f"{map_id}:random_v"),
+        "permuted_v": deterministic_row_permute(value, f"{map_id}:permuted_v"),
+        "orthogonalized_v": column_orthogonalize(value),
+    }
 
     mass_total = col_mass.sum().clamp_min(1e-12)
     row_argmax_unique_fraction = torch.unique(attn.argmax(dim=-1)).numel() / n
@@ -156,11 +181,16 @@ def attention_pattern_metrics(
         "local1_output_error": output_error(attn, local1_approx, value),
         "row_top4_output_error": output_error(attn, top4_approx, value),
         "union_sink_local_top4_output_error": output_error(attn, union_approx, value),
-        "sink2_random_v_output_error": output_error(attn, sink2_approx, random_value),
-        "local1_random_v_output_error": output_error(attn, local1_approx, random_value),
-        "row_top4_random_v_output_error": output_error(attn, top4_approx, random_value),
-        "union_random_v_output_error": output_error(attn, union_approx, random_value),
     }
+    approx_by_name = {
+        "sink2": sink2_approx,
+        "local1": local1_approx,
+        "row_top4": top4_approx,
+        "union": union_approx,
+    }
+    for value_name, stress_value in stress_values.items():
+        for approx_name, approx in approx_by_name.items():
+            out[f"{approx_name}_{value_name}_output_error"] = output_error(attn, approx, stress_value)
     return out
 
 
@@ -214,6 +244,8 @@ def summarize(rows: List[Dict[str, object]]) -> List[Dict[str, object]]:
                 "mean_union_matrix_error": mean_float(items, "union_sink_local_top4_matrix_error"),
                 "mean_union_output_error": mean_float(items, "union_sink_local_top4_output_error"),
                 "mean_union_random_v_output_error": mean_float(items, "union_random_v_output_error"),
+                "mean_union_permuted_v_output_error": mean_float(items, "union_permuted_v_output_error"),
+                "mean_union_orthogonalized_v_output_error": mean_float(items, "union_orthogonalized_v_output_error"),
                 "sink2_pairwise_jaccard": pairwise_jaccard(sink2_sets),
             }
         )
@@ -403,6 +435,8 @@ def main() -> int:
             "row_topk": "oracle per-row top-k retained attention mass",
             "union": "oracle mask union of sink2 columns, radius-1 local mask, and row top-4 entries",
             "random_v": "same attention masks evaluated against deterministic random value vectors to stress-test value-subspace effects",
+            "permuted_v": "same attention masks evaluated after deterministically permuting value rows, preserving value vectors but breaking token-value alignment",
+            "orthogonalized_v": "same attention masks evaluated against column-orthogonalized values from the observed value matrix, preserving the row count while removing feature covariance",
         },
     }
     output_json = Path(args.output_json)

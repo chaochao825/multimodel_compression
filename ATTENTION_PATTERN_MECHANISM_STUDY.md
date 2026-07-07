@@ -573,6 +573,75 @@ The practical compression implication is unchanged but sharper:
 - `A @ V` metrics must be reported with random/permuted/whitened-V stress tests
   before claiming a replacement is faithful.
 
+## Value-Subspace Stress Extension
+
+Script:
+
+- `scripts/attention_pattern_full_probe.py`
+
+Outputs:
+
+- `remote_logs/attention_pattern_vstress_vit_20260707.json/csv`
+- `remote_logs/attention_pattern_vstress_qwen_20260707.json/csv`
+- `figures/fig14_value_subspace_stress.png/pdf`
+
+Method:
+
+- Reuse the same ViT/Qwen layers, heads, samples, and videos as the full-sweep
+  probe.
+- Evaluate the same oracle union mask:
+  `sink-2 columns + local radius-1 + row top-4`.
+- Compare output error under four value matrices:
+  true `V`, deterministic row-permuted `V`, column-orthogonalized `V`, and
+  deterministic random `V`.
+
+Aggregate union-mask `A @ V` error:
+
+| Family | True V | Permuted V | Orthogonalized V | Random V |
+|---|---:|---:|---:|---:|
+| ViT | 0.093 | 0.184 | 0.371 | 0.419 |
+| Qwen3-VL visual | 0.600 | 0.502 | 1.113 | 1.128 |
+
+Layer-wise values:
+
+| Family | Layer | True V | Permuted V | Orthogonalized V | Random V |
+|---|---:|---:|---:|---:|---:|
+| ViT | 0 | 0.134 | 0.137 | 0.150 | 0.152 |
+| ViT | 1 | 0.071 | 0.196 | 0.284 | 0.328 |
+| ViT | 2 | 0.085 | 0.227 | 0.497 | 0.581 |
+| ViT | 5 | 0.084 | 0.176 | 0.553 | 0.613 |
+| Qwen3-VL visual | 0 | 0.886 | 0.794 | 1.743 | 1.803 |
+| Qwen3-VL visual | 8 | 0.672 | 0.539 | 1.476 | 1.356 |
+| Qwen3-VL visual | 16 | 0.432 | 0.329 | 0.557 | 0.601 |
+| Qwen3-VL visual | 26 | 0.409 | 0.344 | 0.674 | 0.750 |
+
+Interpretation:
+
+- ViT layer 0 remains low-error under all `V` stresses, consistent with a very
+  strong sink/top-k structure. Later ViT layers are value-subspace dependent:
+  true-`V` error stays around `0.07-0.09`, while orthogonalized/random `V`
+  rises to `0.50-0.61` by layers 2/5.
+- Qwen true-`V` error is already high, especially layers 0/8. Orthogonalized
+  and random `V` roughly double the error, so the union mask is not a faithful
+  attention replacement. It misses dynamic routes that matter under generic
+  value directions.
+- Qwen permuted-`V` being lower than true-`V` should not be read as an
+  improvement. It means this proxy metric is sensitive to the norm and
+  alignment of `A @ V`; permuting values can reduce the denominator/target
+  structure in a way that makes the relative error smaller. It reinforces that
+  output-only metrics require stress tests and cannot replace matrix-level or
+  task-level evidence.
+
+Updated value-subspace judgment:
+
+- Low `A @ V` error on one checkpoint/head can be an artifact of the current
+  value subspace.
+- A deployable replacement should be required to survive true, permuted,
+  orthogonalized, and random `V` probes, plus actual task/generation metrics.
+- The current ViT approximation is more value-subspace dependent than the raw
+  true-`V` result suggests; Qwen still needs content-dependent routing even
+  before considering `V` stress.
+
 ## Current Status
 
 This study now has:
@@ -580,6 +649,7 @@ This study now has:
 - literature-backed mechanism hypotheses;
 - representative-matrix diagnostics;
 - full-sweep ViT/Qwen sink/local/sparse/value-subspace metrics;
+- true/permuted/orthogonalized/random `V` stress tests;
 - Wan high/low timestep cyclic-stability evidence;
 - concrete intervention experiment designs;
 - a first matrix-level component-intervention probe over the saved hybrid

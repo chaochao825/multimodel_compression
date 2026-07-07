@@ -662,9 +662,15 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
    while removing local-cyclic raises it to `0.202` and removing sparse-routing
    to `0.236`. Thus the biggest missing term in plain BCCB/BCM is an explicit
    sink/global low-rank path; Qwen L8/L26 also need local and sparse routing.
-6. The projection-weight fit is only a supplement; it should not be used as the
+6. The value-subspace stress test makes the `A @ V` caveat concrete. ViT
+   union-mask error changes from `0.093` on true `V` to `0.184`, `0.371`, and
+   `0.419` on permuted, orthogonalized, and random `V`; Qwen3-VL visual changes
+   from `0.600` to `0.502`, `1.113`, and `1.128`. A low output error on the
+   observed value vectors is therefore not sufficient evidence of faithful
+   attention replacement.
+7. The projection-weight fit is only a supplement; it should not be used as the
    main evidence for or against replacing attention.
-7. This is partial BCCB-like structure, not strict BCCB. Do not replace all Wan
+8. This is partial BCCB-like structure, not strict BCCB. Do not replace all Wan
    attention with circulant attention; a plausible next direction is a
    head/layer/timestep-gated hybrid path for consistently high-R2 heads and a
    learned or calibrated router for sink/sparse residuals.
