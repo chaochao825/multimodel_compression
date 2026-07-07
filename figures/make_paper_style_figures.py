@@ -942,6 +942,69 @@ def figure_wan_delta_perturbation() -> None:
     save(fig, "fig16_wan_delta_perturbation")
 
 
+def figure_hybrid_transfer_probe() -> None:
+    data = json.loads((LOG_DIR / "hybrid_transfer_probe_20260708.json").read_text(encoding="utf-8"))
+    summary_by_scope = {row["scope"]: row for row in data["summary"]}
+    scopes = ["all_same_grid_pairs", "same_family_pairs", "cross_family_pairs"]
+    labels = ["All same-grid", "Same family", "Cross family"]
+    error_keys = [
+        ("target_oracle_hybrid_error", "Target\noracle\nhybrid", "#4C78A8"),
+        ("target_support_mask_error", "Target\nsupport\nonly", "#72B7B2"),
+        ("source_support_transfer_error", "Source\nsupport\ntransfer", "#F58518"),
+        ("source_hybrid_template_error", "Source\nhybrid\ntemplate", "#E45756"),
+    ]
+    jaccard_keys = [
+        ("support_jaccard", "Union support", "#72B7B2"),
+        ("sink_jaccard", "Sink cols", "#4C78A8"),
+        ("sparse_route_jaccard", "Sparse routes", "#E45756"),
+    ]
+    x = np.arange(len(scopes))
+    fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.2), constrained_layout=True)
+
+    width = 0.18
+    for idx, (key, label, color) in enumerate(error_keys):
+        vals = [float(summary_by_scope[scope][f"mean_{key}"]) for scope in scopes]
+        offset = (idx - 1.5) * width
+        axes[0].bar(x + offset, vals, width=width, color=color, alpha=0.82, label=label.replace("\n", " "))
+        for xi, val in zip(x + offset, vals):
+            axes[0].text(xi, val + 0.04, f"{val:.2f}", ha="center", va="bottom", fontsize=6.1)
+    axes[0].set_title("Oracle hybrid does not transfer as a fixed template")
+    axes[0].set_ylabel("Relative Frobenius error")
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels(labels)
+    axes[0].set_ylim(0, 2.75)
+    axes[0].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[0].legend(frameon=False, fontsize=6.4, ncol=2)
+
+    width = 0.22
+    for idx, (key, label, color) in enumerate(jaccard_keys):
+        vals = [float(summary_by_scope[scope][f"mean_{key}"]) for scope in scopes]
+        offset = (idx - 1.0) * width
+        axes[1].bar(x + offset, vals, width=width, color=color, alpha=0.82, label=label)
+        for xi, val in zip(x + offset, vals):
+            axes[1].text(xi, val + 0.015, f"{val:.2f}", ha="center", va="bottom", fontsize=6.3)
+    axes[1].set_title("Sink and sparse routes are target-specific")
+    axes[1].set_ylabel("Source/target Jaccard")
+    axes[1].set_xticks(x)
+    axes[1].set_xticklabels(labels)
+    axes[1].set_ylim(0, 0.72)
+    axes[1].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[1].legend(frameon=False, fontsize=7)
+
+    fig.text(
+        0.5,
+        -0.05,
+        "Transfer probe over saved representative 8x8 matrices. Source support/template uses another map; "
+        "target support is a semi-oracle support-only baseline. Low oracle error but high transfer error indicates "
+        "content- and layer-specific routing rather than a reusable fixed BCCB/Monarch template.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(q)", weight="bold", fontsize=9)
+    save(fig, "fig17_hybrid_transfer_probe")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -960,6 +1023,7 @@ def main() -> int:
     figure_value_subspace_stress()
     figure_head_output_intervention()
     figure_wan_delta_perturbation()
+    figure_hybrid_transfer_probe()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

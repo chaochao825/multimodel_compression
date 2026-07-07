@@ -183,6 +183,8 @@ Each figure is saved as both PNG and PDF:
 - `fig15_head_output_intervention`: head-output keep/drop intervention.
 - `fig16_wan_delta_perturbation`: Wan coordinate perturbation over a bounded
   small-grid latent.
+- `fig17_hybrid_transfer_probe`: source-to-target transfer test for saved
+  hybrid supports/templates.
 
 ## Wan2.2 Generation-Side Assessment
 
@@ -553,6 +555,61 @@ Current bottlenecks and defects:
   circulant attention", but "gate attention heads into sink/global,
   local-cyclic, and sparse-routing paths, and train/calibrate the router".
 
+## Hybrid Transfer Probe
+
+Script:
+
+- `scripts/hybrid_transfer_probe.py`
+
+Outputs:
+
+- `remote_logs/hybrid_transfer_probe_20260708.json/csv`
+- `figures/fig17_hybrid_transfer_probe.png/pdf`
+
+Question:
+
+The oracle hybrid decomposition fits representative matrices well, but it
+selects sink columns and sparse routes from the target dense attention matrix.
+This transfer probe asks whether those supports/templates behave like reusable
+structure or like target-specific routing.
+
+Method:
+
+- Load the four saved representative matrices from
+  `hybrid_attention_decomposition_20260704`.
+- For same-grid source/target pairs, compare:
+  - target oracle hybrid error;
+  - target support-only error using the target's own sink/local/sparse support
+    but target attention values;
+  - source-support transfer error using another map's support on the target
+    attention values;
+  - source hybrid template error using another map's fixed hybrid matrix.
+- Measure support, sink-column, and sparse-route Jaccard overlap.
+
+Aggregate results over the six same-grid ordered pairs:
+
+| Scope | Oracle hybrid | Target support only | Source support transfer | Source hybrid template | Sink Jaccard | Sparse-route Jaccard |
+|---|---:|---:|---:|---:|---:|---:|
+| all same-grid | 0.154 | 0.825 | 1.569 | 2.007 | 0.000 | 0.009 |
+| same family | 0.086 | 0.761 | 1.565 | 2.461 | 0.000 | 0.015 |
+| cross family | 0.188 | 0.857 | 1.571 | 1.780 | 0.000 | 0.006 |
+
+Interpretation:
+
+- The gap between target oracle hybrid (`0.154`) and source-support transfer
+  (`1.569`) is large. The successful hybrid decomposition is not a reusable
+  fixed mask/template in this saved example set.
+- Sink columns do not overlap across the same-grid pairs, and sparse route
+  overlap is near zero. This supports the dynamic-routing bottleneck rather
+  than a hidden fixed permutation explanation.
+- Target support-only error is also much higher than oracle hybrid, especially
+  for ViT L5 H0. The low-rank/global component is not just a binary support;
+  the fitted weights/profiles matter.
+- Scope caveat: this is a transfer diagnostic over saved representative
+  matrices, not a full train/test sweep. It is strong evidence against directly
+  deploying the current oracle hybrid as a static replacement, but it does not
+  rule out a learned router or calibrated sink/global module.
+
 ## 210 Structured Weight-Fit Probe (Supplement Only)
 
 This is a separate weight-space experiment and does not answer the attention
@@ -701,3 +758,9 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
     than arbitrary token coordinates. It still needs actual denoising-latent and
     quality/loss validation before being treated as a deployable replacement
     criterion.
+11. The 2026-07-08 hybrid transfer probe explains an additional deployment
+    bottleneck: target oracle hybrid error is low (`0.154` mean), but using a
+    different same-grid map's support raises mean error to `1.569`, and a fixed
+    source hybrid template reaches `2.007`. Sink-column overlap is zero and
+    sparse-route overlap is near zero. The current hybrid result is therefore a
+    mechanism diagnostic, not a static reusable attention layout.

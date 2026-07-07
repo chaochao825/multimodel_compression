@@ -773,7 +773,9 @@ This study now has:
 - Wan high/low timestep cyclic-stability evidence;
 - concrete intervention experiment designs;
 - a first matrix-level component-intervention probe over the saved hybrid
-  decomposition.
+  decomposition;
+- a hybrid support/template transfer probe showing that the oracle hybrid
+  structure does not behave like a reusable fixed attention layout.
 
 ## Matrix-Level Component Intervention
 
@@ -831,6 +833,45 @@ Why current replacement results are poor:
 - The hybrid diagnostic works because it is oracle: sink columns and sparse
   routes are selected from known dense `A`. This explains the failure modes but
   does not yet provide a deployable kernel.
+
+## Hybrid Transfer Probe
+
+Script:
+
+- `scripts/hybrid_transfer_probe.py`
+
+Outputs:
+
+- `remote_logs/hybrid_transfer_probe_20260708.json/csv`
+- `figures/fig17_hybrid_transfer_probe.png/pdf`
+
+This probe directly tests the main deployment caveat of the oracle hybrid
+result: if the selected sink columns, sparse routes, or complete hybrid template
+were mostly stable, a source map should transfer to another same-grid target.
+
+Results over the six same-grid ordered source-target pairs:
+
+| Scope | Oracle hybrid | Target support only | Source support transfer | Source hybrid template | Support Jaccard | Sink Jaccard | Sparse-route Jaccard |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| all same-grid | 0.154 | 0.825 | 1.569 | 2.007 | 0.591 | 0.000 | 0.009 |
+| same family | 0.086 | 0.761 | 1.565 | 2.461 | 0.595 | 0.000 | 0.015 |
+| cross family | 0.188 | 0.857 | 1.571 | 1.780 | 0.589 | 0.000 | 0.006 |
+
+Mechanistic interpretation:
+
+- The union support has moderate overlap because local neighborhoods dominate
+  the binary support size, but the decisive non-local parts do not transfer:
+  sink Jaccard is `0.000` and sparse-route Jaccard is near zero.
+- Source support transfer is far worse than target oracle hybrid. This is the
+  concrete failure mode for fixed BCCB/BCM/simple-permutation/Monarch-like
+  layouts: they may preserve a broad support family, but they do not predict
+  the target-specific global/sparse routes.
+- Target support-only error is much higher than oracle hybrid, so even knowing
+  the right support is not enough. The low-rank/global values or profiles must
+  also be represented.
+- This strengthens the current replacement recommendation: a viable method
+  needs a learned/calibrated sink/global path plus a content-aware sparse router,
+  not just a static circulant or static Monarch mask.
 
 Remaining gap:
 

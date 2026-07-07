@@ -65,3 +65,17 @@
 - `global_svd` 经过 clipping/capping，nominal budget ratio 不是实际低秩压缩率。
 - ViT 后续层结果来自 dense attention-only rollout，不是完整 SCTM+FFN forward。
 - Qwen3-VL visual tower 是 per-temporal-slice 2D spatial attention，不是全局 3D video attention。
+
+## 2026-07-08 Update: Hybrid Transfer Probe
+
+- New script: `scripts/hybrid_transfer_probe.py`.
+- New outputs: `remote_logs/hybrid_transfer_probe_20260708.json/csv`.
+- New figure: `figures/fig17_hybrid_transfer_probe.png/pdf`.
+- Result over six same-grid source-target pairs: target oracle hybrid mean
+  error is `0.154`, but source-support transfer error is `1.569` and fixed
+  source-hybrid-template error is `2.007`.
+- Sink-column Jaccard is `0.000`; sparse-route Jaccard is about `0.009`.
+- Interpretation: the hybrid decomposition is a useful mechanism diagnostic,
+  but its non-local sink/sparse routing is target-specific. A deployable
+  replacement needs a learned/calibrated sink/global path and content-aware
+  sparse router, not a static BCCB/BCM/Monarch-like layout.
