@@ -627,6 +627,69 @@ def figure_hybrid_attention_tradeoff() -> None:
     save(fig, "fig10_hybrid_attention_tradeoff")
 
 
+def figure_attention_pattern_full_sweep() -> None:
+    sources = [
+        ("ViT", json.loads((LOG_DIR / "attention_pattern_full_vit_20260707.json").read_text(encoding="utf-8"))),
+        ("Qwen3-VL", json.loads((LOG_DIR / "attention_pattern_full_qwen_20260707.json").read_text(encoding="utf-8"))),
+    ]
+
+    layer_rows = {}
+    for label, data in sources:
+        rows = data["rows"]
+        layers = sorted({int(row["layer"]) for row in rows})
+        layer_rows[label] = []
+        for layer in layers:
+            subset = [row for row in rows if int(row["layer"]) == layer]
+            layer_rows[label].append(
+                {
+                    "layer": layer,
+                    "top2": float(np.mean([row["top2_col_mass_fraction"] for row in subset])),
+                    "arguniq": float(np.mean([row["row_argmax_unique_fraction"] for row in subset])),
+                    "local1": float(np.mean([row["local_radius1_mass"] for row in subset])),
+                    "top4row": float(np.mean([row["top4_per_row_mass_mean"] for row in subset])),
+                    "union_v": float(np.mean([row["union_sink_local_top4_output_error"] for row in subset])),
+                    "union_rand": float(np.mean([row["union_random_v_output_error"] for row in subset])),
+                }
+            )
+
+    fig, axes = plt.subplots(1, 3, figsize=(9.2, 2.8), constrained_layout=True)
+    colors = {"ViT": "#4C78A8", "Qwen3-VL": "#F58518"}
+    markers = {"ViT": "o", "Qwen3-VL": "s"}
+
+    for label, points in layer_rows.items():
+        xs = [p["layer"] for p in points]
+        axes[0].plot(xs, [p["top2"] for p in points], marker=markers[label], lw=1.6, color=colors[label], label=f"{label} top-2")
+        axes[0].plot(xs, [p["arguniq"] for p in points], marker=markers[label], lw=1.2, color=colors[label], ls="--", label=f"{label} argmax")
+        axes[1].plot(xs, [p["local1"] for p in points], marker=markers[label], lw=1.6, color=colors[label], label=f"{label} local r1")
+        axes[1].plot(xs, [p["top4row"] for p in points], marker=markers[label], lw=1.2, color=colors[label], ls="--", label=f"{label} row top-4")
+        axes[2].plot(xs, [p["union_v"] for p in points], marker=markers[label], lw=1.6, color=colors[label], label=f"{label} true V")
+        axes[2].plot(xs, [p["union_rand"] for p in points], marker=markers[label], lw=1.2, color=colors[label], ls="--", label=f"{label} random V")
+
+    axes[0].set_title("Sink / collapse by layer")
+    axes[0].set_ylabel("Mean fraction")
+    axes[1].set_title("Local vs row-sparse mass")
+    axes[2].set_title("Union-mask output error")
+    axes[2].set_ylabel("Relative error")
+    for ax in axes:
+        ax.set_xlabel("Layer")
+        ax.grid(True, color="#e6e6e6", lw=0.6)
+        ax.legend(frameon=False, fontsize=6.5)
+    axes[0].set_ylim(0, 0.72)
+    axes[1].set_ylim(0, 0.92)
+    axes[2].set_ylim(0, 1.9)
+    fig.text(
+        0.5,
+        -0.04,
+        "Union mask = oracle sink-2 columns + local radius-1 + row top-4. "
+        "Random-V stress exposes value-subspace dependence.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(l)", weight="bold", fontsize=9)
+    save(fig, "fig12_attention_pattern_full_sweep")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -640,6 +703,7 @@ def main() -> int:
     figure_attention_matrix_failure_modes()
     figure_hybrid_attention_decomposition()
     figure_hybrid_attention_tradeoff()
+    figure_attention_pattern_full_sweep()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 
