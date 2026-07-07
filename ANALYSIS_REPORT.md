@@ -187,6 +187,8 @@ Each figure is saved as both PNG and PDF:
   hybrid supports/templates.
 - `fig18_wan_noise_branch_stability`: high/low noise branch stability of Wan
   3D cyclic R2 on overlapping layer/head records.
+- `fig19_sink_noop_correlation`: sink-strength correlations with entropy,
+  drop-sink intervention, and value-subspace stress.
 
 ## Wan2.2 Generation-Side Assessment
 
@@ -809,3 +811,10 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
     and random-coordinate destruction remains strong in both branches. The
     cyclic structure is real and geometry-dependent, but not universal across
     all heads or timesteps.
+13. The sink/no-op correlation probe strengthens the sink mechanism reading.
+    In ViT, top-2 sink-column mass correlates strongly with lower entropy
+    (`r=-0.952`), drop-sink output error (`r=0.772`), and sink raw component
+    norm (`r=0.946`). In Qwen3-VL visual, drop-sink correlation remains high
+    (`r=0.775`), but true-`V` vs random-`V` union error also correlates strongly
+    (`r=0.852`), consistent with additional value-subspace and dynamic-routing
+    effects. This is correlation evidence, not task-loss causality.

@@ -1081,6 +1081,92 @@ def figure_wan_noise_branch_stability() -> None:
     save(fig, "fig18_wan_noise_branch_stability")
 
 
+def figure_sink_noop_correlation() -> None:
+    data = json.loads((LOG_DIR / "sink_noop_correlation_20260708.json").read_text(encoding="utf-8"))
+    corr = data["correlations"]
+    quartiles = data["quartiles"]
+    families = ["vit", "qwen3vl_visual"]
+    family_labels = {"vit": "ViT", "qwen3vl_visual": "Qwen3-VL"}
+    colors = {"vit": "#4C78A8", "qwen3vl_visual": "#F58518"}
+    corr_pairs = [
+        ("sink_vs_entropy", "sink vs\nentropy"),
+        ("sink_vs_drop_sink_error", "sink vs\ndrop-sink"),
+        ("sink_vs_sink_component_norm", "sink vs\nsink output"),
+        ("true_v_vs_random_v_union_error", "true vs random\nunion error"),
+    ]
+    corr_lookup = {(row["family"], row["pair"]): float(row["pearson"]) for row in corr}
+    quart_lookup = {(row["family"], row["bucket"]): row for row in quartiles}
+
+    fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.1), constrained_layout=True)
+    x = np.arange(len(corr_pairs))
+    width = 0.34
+    for idx, family in enumerate(families):
+        vals = [corr_lookup[(family, pair)] for pair, _label in corr_pairs]
+        offset = (idx - 0.5) * width
+        axes[0].bar(x + offset, vals, width=width, color=colors[family], alpha=0.8, label=family_labels[family])
+        for xi, val in zip(x + offset, vals):
+            axes[0].text(xi, val + (0.035 if val >= 0 else -0.08), f"{val:.2f}", ha="center", va="bottom" if val >= 0 else "top", fontsize=6.3)
+    axes[0].axhline(0, color="#777777", lw=0.7)
+    axes[0].set_title("Sink-strength correlations")
+    axes[0].set_ylabel("Pearson correlation")
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels([label for _pair, label in corr_pairs])
+    axes[0].set_ylim(-1.08, 1.08)
+    axes[0].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[0].legend(frameon=False, fontsize=7)
+
+    metrics = [
+        ("mean_entropy_mean", "Entropy"),
+        ("mean_drop_sink2_output_error", "Drop sink"),
+        ("mean_drop_union_sink_local_top4_output_error", "Drop union"),
+    ]
+    x2 = np.arange(len(metrics))
+    ratio_max = 0.0
+    for idx, family in enumerate(families):
+        low = quart_lookup[(family, "low_sink_q1")]
+        high = quart_lookup[(family, "high_sink_q4")]
+        vals = [float(high[key]) / max(float(low[key]), 1e-12) for key, _label in metrics]
+        ratio_max = max(ratio_max, max(vals))
+        offset = (idx - 0.5) * width
+        axes[1].bar(x2 + offset, vals, width=width, color=colors[family], alpha=0.8, label=family_labels[family])
+        for xi, val in zip(x2 + offset, vals):
+            axes[1].text(xi, val + 0.06, f"{val:.1f}x", ha="center", va="bottom", fontsize=6.3)
+    axes[1].axhline(1, color="#777777", lw=0.7, ls="--")
+    axes[1].set_title("High-sink / low-sink quartile ratio")
+    axes[1].set_ylabel("Ratio")
+    axes[1].set_xticks(x2)
+    axes[1].set_xticklabels([label for _key, label in metrics])
+    axes[1].set_ylim(0, max(8.0, ratio_max * 1.16))
+    axes[1].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[1].legend(frameon=False, fontsize=7)
+
+    for family in families:
+        path = LOG_DIR / f"attention_head_intervention_{'qwen' if family == 'qwen3vl_visual' else 'vit'}_20260707.json"
+        rows = json.loads(path.read_text(encoding="utf-8"))["rows"]
+        sink = np.array([float(row["top2_col_mass_fraction"]) for row in rows])
+        drop = np.array([float(row["drop_sink2_output_error"]) for row in rows])
+        axes[2].scatter(sink, drop, s=14, alpha=0.55, color=colors[family], label=family_labels[family], edgecolors="none")
+    axes[2].set_title("Dropping sink hurts high-sink heads")
+    axes[2].set_xlabel("Top-2 column mass")
+    axes[2].set_ylabel("Drop-sink output error")
+    axes[2].set_xlim(0, 1.02)
+    axes[2].set_ylim(0, 1.65)
+    axes[2].grid(True, color="#e6e6e6", lw=0.6)
+    axes[2].legend(frameon=False, fontsize=7)
+
+    fig.text(
+        0.5,
+        -0.05,
+        "Correlation probe over saved head-output intervention logs. High sink mass aligns with low entropy and high drop-sink error, "
+        "so sinks are functional routes in these heads; Qwen's stronger true/random-V coupling indicates additional value-subspace and dynamic-routing effects.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(s)", weight="bold", fontsize=9)
+    save(fig, "fig19_sink_noop_correlation")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -1101,6 +1187,7 @@ def main() -> int:
     figure_wan_delta_perturbation()
     figure_hybrid_transfer_probe()
     figure_wan_noise_branch_stability()
+    figure_sink_noop_correlation()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

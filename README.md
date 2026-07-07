@@ -107,3 +107,19 @@
 - Main conclusion is unchanged: current evidence favors learned/calibrated
   `sink/global + local-cyclic + sparse routing`, not a static universal
   circulant or Monarch-like mask.
+
+## 2026-07-08 Update: Sink/No-op Correlation
+
+- New script: `scripts/sink_noop_correlation_probe.py`.
+- New outputs: `remote_logs/sink_noop_correlation_20260708.json/csv` and
+  `remote_logs/sink_noop_quartiles_20260708.csv`.
+- New figure: `figures/fig19_sink_noop_correlation.png/pdf`.
+- ViT sink strength strongly anti-correlates with entropy (`r=-0.952`) and
+  correlates with drop-sink output error (`r=0.772`) and raw sink component
+  output norm (`r=0.946`).
+- Qwen3-VL visual also shows high sink-vs-drop-sink correlation (`r=0.775`),
+  but true-`V` vs random-`V` union error is strongly coupled (`r=0.852`),
+  indicating stronger value-subspace/dynamic-routing effects.
+- Interpretation: sinks are functional partial-update/scratch routes in these
+  heads, not pure noise; causal task-loss masking remains the next missing
+  test.

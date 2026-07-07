@@ -841,6 +841,8 @@ This study now has:
 - full-sweep ViT/Qwen sink/local/sparse/value-subspace metrics;
 - true/permuted/orthogonalized/random `V` stress tests;
 - head-output keep/drop intervention probes for sink/local/sparse/union masks;
+- sink/no-op correlation analysis connecting sink strength with entropy,
+  output intervention error, and value-subspace stress;
 - Wan coordinate perturbation showing the 3D cyclic signal depends on coherent
   F-H-W geometry;
 - Wan high/low noise-branch cyclic-stability evidence;
@@ -849,6 +851,57 @@ This study now has:
   decomposition;
 - a hybrid support/template transfer probe showing that the oracle hybrid
   structure does not behave like a reusable fixed attention layout.
+
+## Sink/No-op Correlation Probe
+
+Script:
+
+- `scripts/sink_noop_correlation_probe.py`
+
+Outputs:
+
+- `remote_logs/sink_noop_correlation_20260708.json`
+- `remote_logs/sink_noop_correlation_20260708.csv`
+- `remote_logs/sink_noop_quartiles_20260708.csv`
+- `figures/fig19_sink_noop_correlation.png/pdf`
+
+Method:
+
+- Reuse the saved ViT/Qwen head-output intervention logs.
+- Correlate top-2 column mass, used as a sink-strength proxy, with entropy,
+  effective rank, drop-sink output error, raw sink-component output norm, and
+  true/random-`V` stress behavior.
+- Compare high-sink and low-sink quartiles per model family.
+
+Key correlations:
+
+| Family | Sink vs entropy | Sink vs drop-sink output error | Sink vs sink output norm | True-`V` vs random-`V` union error |
+|---|---:|---:|---:|---:|
+| ViT | -0.952 | 0.772 | 0.946 | 0.000 |
+| Qwen3-VL visual | -0.617 | 0.775 | 0.426 | 0.852 |
+
+High-sink / low-sink quartile comparison:
+
+| Family | Entropy ratio | Drop-sink error ratio | Drop-union error ratio |
+|---|---:|---:|---:|
+| ViT | 0.4x | 10.9x | 6.7x |
+| Qwen3-VL visual | 0.6x | 3.2x | 2.2x |
+
+Mechanistic interpretation:
+
+- In ViT, sink strength almost perfectly tracks lower entropy and stronger raw
+  sink output. Dropping sink columns is much more damaging for high-sink heads,
+  which supports the view that sinks are functional routes rather than random
+  artifacts.
+- The same drop-sink relationship exists in Qwen3-VL visual, but the strong
+  true/random-`V` union-error correlation indicates additional value-subspace
+  and content-routing effects.
+- The base output norm does not collapse to zero in high-sink heads, so the
+  best reading is "partial-update / scratch route" rather than a literal
+  all-zero no-op.
+- This is correlation evidence over saved head outputs, not a task-loss causal
+  test. The next causal version should mask sink columns during a real forward
+  pass and compare loss or task metrics.
 
 ## Matrix-Level Component Intervention
 
