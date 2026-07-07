@@ -656,9 +656,15 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
    family. On representative matrices, hybrid balanced reduces matrix error to
    `0.0378`, `0.1342`, `0.2905`, and `0.1249`, but it still needs dense `A` to
    choose routes and is not deployable yet.
-5. The projection-weight fit is only a supplement; it should not be used as the
+5. The 2026-07-07 matrix-level component intervention explains why the
+   replacement is poor. Across the same four representative matrices, the full
+   hybrid mean error is `0.147`; removing sink/global raises it to `1.233`,
+   while removing local-cyclic raises it to `0.202` and removing sparse-routing
+   to `0.236`. Thus the biggest missing term in plain BCCB/BCM is an explicit
+   sink/global low-rank path; Qwen L8/L26 also need local and sparse routing.
+6. The projection-weight fit is only a supplement; it should not be used as the
    main evidence for or against replacing attention.
-6. This is partial BCCB-like structure, not strict BCCB. Do not replace all Wan
+7. This is partial BCCB-like structure, not strict BCCB. Do not replace all Wan
    attention with circulant attention; a plausible next direction is a
    head/layer/timestep-gated hybrid path for consistently high-R2 heads and a
    learned or calibrated router for sink/sparse residuals.

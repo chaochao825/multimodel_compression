@@ -690,6 +690,76 @@ def figure_attention_pattern_full_sweep() -> None:
     save(fig, "fig12_attention_pattern_full_sweep")
 
 
+def figure_attention_component_intervention() -> None:
+    data = json.loads((LOG_DIR / "attention_component_intervention_20260707.json").read_text(encoding="utf-8"))
+    rows = data["rows"]
+    labels = [row["label"].replace(" ", "\n", 1) for row in rows]
+    x = np.arange(len(rows))
+
+    fig, axes = plt.subplots(1, 2, figsize=(9.0, 3.0), constrained_layout=True)
+
+    error_methods = [
+        ("grid_bccb_error", "Grid BCCB", "#4C78A8"),
+        ("monarch_proxy_error", "Monarch proxy", "#54A24B"),
+        ("full_hybrid_error", "Hybrid full", "#E45756"),
+        ("no_sink_global_error", "No sink/global", "#B279A2"),
+        ("no_local_cyclic_error", "No local", "#F58518"),
+        ("no_sparse_routing_error", "No sparse", "#72B7B2"),
+    ]
+    width = 0.12
+    for idx, (key, label, color) in enumerate(error_methods):
+        vals = [float(row[key]) for row in rows]
+        axes[0].bar(x + (idx - 2.5) * width, vals, width=width, label=label, color=color)
+
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels(labels)
+    axes[0].set_ylabel("Relative Frobenius error")
+    axes[0].set_title("Component ablation on representative A")
+    axes[0].set_ylim(0, 1.58)
+    axes[0].grid(axis="y", color="#e6e6e6", lw=0.6)
+
+    mass_keys = [
+        ("sink_global_mass", "Sink/global", "#B279A2"),
+        ("local_cyclic_mass", "Local cyclic", "#F58518"),
+        ("sparse_routing_mass", "Sparse routing", "#72B7B2"),
+    ]
+    bottom = np.zeros(len(rows))
+    for key, label, color in mass_keys:
+        vals = np.array([float(row[key]) for row in rows])
+        axes[1].bar(x, vals, bottom=bottom, label=label, color=color, width=0.55)
+        bottom += vals
+    axes[1].set_xticks(x)
+    axes[1].set_xticklabels(labels)
+    axes[1].set_ylabel("Component mass / attention mass")
+    axes[1].set_title("Oracle decomposition mass")
+    axes[1].set_ylim(0, 1.12)
+    axes[1].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[1].text(
+        0.98,
+        0.96,
+        "Sink/global includes selected sink columns\nand clipped low-rank global SVD.",
+        transform=axes[1].transAxes,
+        ha="right",
+        va="top",
+        fontsize=7,
+        color="#444444",
+    )
+
+    handles0, labels0 = axes[0].get_legend_handles_labels()
+    handles1, labels1 = axes[1].get_legend_handles_labels()
+    fig.legend(handles0 + handles1, labels0 + labels1, loc="upper center", bbox_to_anchor=(0.5, 1.14), ncol=5, frameon=False)
+    fig.text(
+        0.5,
+        -0.04,
+        "Matrix-level diagnostic only: components are selected from observed dense attention A, so this is not a deployable router or task-loss ablation.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(m)", weight="bold", fontsize=9)
+    save(fig, "fig13_attention_component_intervention")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -704,6 +774,7 @@ def main() -> int:
     figure_hybrid_attention_decomposition()
     figure_hybrid_attention_tradeoff()
     figure_attention_pattern_full_sweep()
+    figure_attention_component_intervention()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

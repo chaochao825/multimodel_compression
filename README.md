@@ -21,6 +21,7 @@
 4. 210 structured weight-fit probe：补充性分析 projection weight 是否天然接近 block-circulant/Monarch-like 结构。
 5. Hybrid diagnostic：将代表 attention matrix 分解为 oracle `sink/global-SVD + local-cyclic + sparse-routing`，用于解释为什么单一 BCCB/BCM/固定 proxy 表现差。
 6. Full-sweep pattern probe：统计 ViT/Qwen 全量采样中的 sink mass、row-argmax collapse、local mass、row top-k sparsity、effective rank，以及 true-`V` / random-`V` stress test。
+7. Matrix-level component intervention：在已保存的 hybrid 分解上分别去掉 sink/global、local-cyclic、sparse-routing 分量，分析当前结构化替换为什么失败。
 
 ## 关键结果
 
@@ -39,6 +40,10 @@
   - ViT top-2 column mass mean `0.448`，row-argmax unique mean `0.081`，更像 sink/no-op/scratch 主导。
   - Qwen3-VL top-2 column mass mean `0.204`，row-argmax unique mean `0.210`，更动态，layer 8 的 dynamic/local routing 最明显。
   - random-`V` stress 明显放大 union-mask output error，说明低 `A @ V` error 不能单独证明 attention 替换忠实。
+- Component intervention：
+  - 四个代表矩阵上 full hybrid 平均 matrix error `0.147`，Grid BCCB `0.876`，Monarch-like proxy `0.743`。
+  - 去掉 sink/global 后平均 error 升至 `1.233`，去掉 local-cyclic 为 `0.202`，去掉 sparse-routing 为 `0.236`。
+  - 这说明当前 BCCB/BCM 替换差的主因是缺少显式 sink/global 低秩通道；Qwen L8/L26 还需要 local/sparse routing。
 
 ## 注意事项
 
