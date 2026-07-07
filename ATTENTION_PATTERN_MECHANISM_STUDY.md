@@ -707,6 +707,58 @@ Interpretation:
   required step is to inject these interventions into real model forward passes
   and measure classification/VQA/generation-quality proxies.
 
+## Wan Coordinate Perturbation Probe
+
+Script:
+
+- `scripts/wan_bccb_activation_probe.py`
+
+Outputs:
+
+- `remote_logs/wan_bccb_high_noise_delta_perturb_smallgrid_layers0_8_20_39_heads0_10_20_30.json`
+- `remote_logs/wan_bccb_low_noise_delta_perturb_smallgrid_layers0_8_heads0_10_20_30.json`
+- `figures/fig16_wan_delta_perturbation.png/pdf`
+
+Method:
+
+- Reuse the direct Wan Q/K capture path: true Wan DiT blocks, synthetic latent
+  and text context, RoPE-applied self-attention Q/K.
+- Use a bounded small-grid latent (`416x240`, patch grid `2x15x26`) to keep the
+  perturbation sweep tractable. The original larger-grid evidence remains the
+  `2x30x52` probe reported earlier.
+- Compute the normal cyclic projection under true flattened `F-H-W`
+  coordinates.
+- Recompute the cyclic projection after coordinate perturbations:
+  `axis_hfw`, `axis_fwh`, `axis_whf`, `reverse_coord`, and `random_coord`.
+
+Results:
+
+| Branch | True F-H-W R2 | Axis H-F-W | Axis F-W-H | Axis W-H-F | Reverse coord | Random coord |
+|---|---:|---:|---:|---:|---:|---:|
+| high noise | 0.515 | 0.456 | 0.350 | 0.382 | 0.515 | 0.012 |
+| low noise | 0.603 | 0.493 | 0.433 | 0.456 | 0.603 | 0.079 |
+
+Relative Frobenius error:
+
+| Branch | True F-H-W | Axis H-F-W | Axis F-W-H | Axis W-H-F | Reverse coord | Random coord |
+|---|---:|---:|---:|---:|---:|---:|
+| high noise | 0.361 | 0.398 | 0.436 | 0.419 | 0.361 | 0.545 |
+| low noise | 0.434 | 0.528 | 0.565 | 0.545 | 0.434 | 0.746 |
+
+Interpretation:
+
+- Random coordinate assignment nearly destroys the cyclic R2 in both branches.
+  This is strong evidence that the Wan cyclic signal is tied to coherent 3D
+  latent-grid coordinates, not just a generic low-rank/sink statistic.
+- Axis reinterpretations also reduce R2 and increase error, especially F-W-H
+  and W-H-F. This supports a geometry-aligned 3D relative-offset component.
+- `reverse_coord` is not a valid destructive perturbation here: cyclic
+  relative-offset grouping is nearly invariant under global coordinate
+  reversal/sign flip, so its unchanged R2 is expected.
+- Scope remains synthetic-latent and small-grid. It strengthens the inductive
+  bias claim for Wan's 3D RoPE/global attention, but final deployment evidence
+  still requires actual denoising latents and quality/loss probes.
+
 ## Current Status
 
 This study now has:
@@ -716,6 +768,8 @@ This study now has:
 - full-sweep ViT/Qwen sink/local/sparse/value-subspace metrics;
 - true/permuted/orthogonalized/random `V` stress tests;
 - head-output keep/drop intervention probes for sink/local/sparse/union masks;
+- Wan coordinate perturbation showing the 3D cyclic signal depends on coherent
+  F-H-W geometry;
 - Wan high/low timestep cyclic-stability evidence;
 - concrete intervention experiment designs;
 - a first matrix-level component-intervention probe over the saved hybrid

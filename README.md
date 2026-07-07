@@ -24,6 +24,7 @@
 7. Matrix-level component intervention：在已保存的 hybrid 分解上分别去掉 sink/global、local-cyclic、sparse-routing 分量，分析当前结构化替换为什么失败。
 8. Value-subspace stress：在同一批 ViT/Qwen attention 上测试 true/permuted/orthogonalized/random `V`，检验低 `A @ V` error 是否依赖当前 value 子空间。
 9. Head-output intervention：对 sink/local/row-topk/union mask 做 keep-only 和 drop+renorm，测量 head-level `A @ V` 输出变化。
+10. Wan coordinate perturbation：在 Wan2.2 small-grid latent 上重解释/打乱 3D token 坐标，验证 cyclic R2 是否依赖真实 F-H-W 几何对齐。
 
 ## 关键结果
 
@@ -53,6 +54,10 @@
 - Head-output intervention：
   - ViT keep-only union error `0.093`、drop-union error `0.486`，row-top4/union 对 head output 近似充分且被 drop 后影响明显。
   - Qwen keep-only union error `0.600`、drop-union error `0.702`，sink/local/row-topk 都不能单独解释，支持动态 content routing。
+- Wan coordinate perturbation：
+  - small-grid patch grid `2x15x26` 上，high-noise true F-H-W attention R2 `0.515`，random-coordinate R2 `0.012`。
+  - low-noise true F-H-W R2 `0.603`，random-coordinate R2 `0.079`。
+  - 轴重解释也降低 R2，说明 Wan 的 cyclic 成分依赖 3D latent/RoPE 坐标对齐；reverse-coordinate 近似不变，不能作为破坏性对照。
 
 ## 注意事项
 

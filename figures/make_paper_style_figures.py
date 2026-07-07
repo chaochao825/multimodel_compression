@@ -874,6 +874,74 @@ def figure_head_output_intervention() -> None:
     save(fig, "fig15_head_output_intervention")
 
 
+def figure_wan_delta_perturbation() -> None:
+    files = [
+        ("High noise", "wan_bccb_high_noise_delta_perturb_smallgrid_layers0_8_20_39_heads0_10_20_30.json"),
+        ("Low noise", "wan_bccb_low_noise_delta_perturb_smallgrid_layers0_8_heads0_10_20_30.json"),
+    ]
+    rows = []
+    for branch_label, file_name in files:
+        data = json.loads((LOG_DIR / file_name).read_text(encoding="utf-8"))
+        rows.append(
+            {
+                "branch": branch_label,
+                "variant": "true F-H-W",
+                "attention_r2": float(data["mean_attention_cyclic_r2"]),
+                "attention_error": float(data["mean_attention_relative_fro_error"]),
+            }
+        )
+        for variant, value in data["delta_perturbation_mean_attention_cyclic_r2"].items():
+            rows.append(
+                {
+                    "branch": branch_label,
+                    "variant": variant.replace("_", "\n"),
+                    "attention_r2": float(value),
+                    "attention_error": float(data["delta_perturbation_mean_attention_relative_fro_error"][variant]),
+                }
+            )
+
+    variants = ["true F-H-W", "axis\nhfw", "axis\nfwh", "axis\nwhf", "reverse\ncoord", "random\ncoord"]
+    branches = ["High noise", "Low noise"]
+    colors = {"High noise": "#4C78A8", "Low noise": "#F58518"}
+    x = np.arange(len(variants))
+    width = 0.34
+    fig, axes = plt.subplots(1, 2, figsize=(9.0, 3.0), constrained_layout=True)
+    for branch_idx, branch in enumerate(branches):
+        subset = [row for row in rows if row["branch"] == branch]
+        r2_vals = [next(row["attention_r2"] for row in subset if row["variant"] == variant) for variant in variants]
+        err_vals = [next(row["attention_error"] for row in subset if row["variant"] == variant) for variant in variants]
+        offset = (branch_idx - 0.5) * width
+        axes[0].bar(x + offset, r2_vals, width=width, label=branch, color=colors[branch], alpha=0.78)
+        axes[1].bar(x + offset, err_vals, width=width, label=branch, color=colors[branch], alpha=0.78)
+        for ax, vals in zip(axes, [r2_vals, err_vals]):
+            for xi, val in zip(x + offset, vals):
+                ax.text(xi, val + 0.015, f"{val:.2f}", ha="center", va="bottom", fontsize=6.3)
+
+    axes[0].set_title("Wan 3D cyclic R2 under coordinate perturbation")
+    axes[0].set_ylabel("Mean attention R2")
+    axes[0].set_ylim(0, 0.82)
+    axes[1].set_title("Relative error")
+    axes[1].set_ylabel("Mean relative Frobenius error")
+    max_err = max(row["attention_error"] for row in rows)
+    axes[1].set_ylim(0, max(0.72, max_err * 1.16))
+    for ax in axes:
+        ax.set_xticks(x)
+        ax.set_xticklabels(variants)
+        ax.grid(axis="y", color="#e6e6e6", lw=0.6)
+        ax.legend(frameon=False, fontsize=7)
+    fig.text(
+        0.5,
+        -0.04,
+        "Small-grid Wan probe, patch grid 2x15x26. Perturbations reinterpret or shuffle token coordinates after the same RoPE-applied Q/K capture. "
+        "A large drop from true F-H-W supports geometry-aligned 3D relative-offset structure.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(p)", weight="bold", fontsize=9)
+    save(fig, "fig16_wan_delta_perturbation")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -891,6 +959,7 @@ def main() -> int:
     figure_attention_component_intervention()
     figure_value_subspace_stress()
     figure_head_output_intervention()
+    figure_wan_delta_perturbation()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

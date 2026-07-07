@@ -173,6 +173,16 @@ Each figure is saved as both PNG and PDF:
   attention matrices.
 - `fig10_hybrid_attention_tradeoff`: representative matrix-error comparison
   between the previous structured baselines and the hybrid oracle diagnostic.
+- `fig11_attention_pattern_stability`: method/layer/head stability summaries.
+- `fig12_attention_pattern_full_sweep`: full ViT/Qwen sink/local/sparse/value
+  metrics.
+- `fig13_attention_component_intervention`: matrix-level hybrid component
+  ablation.
+- `fig14_value_subspace_stress`: true/permuted/orthogonalized/random `V`
+  stress.
+- `fig15_head_output_intervention`: head-output keep/drop intervention.
+- `fig16_wan_delta_perturbation`: Wan coordinate perturbation over a bounded
+  small-grid latent.
 
 ## Wan2.2 Generation-Side Assessment
 
@@ -237,6 +247,12 @@ Current conclusion for Wan2.2:
 - The component is substantially stronger than in the Qwen3-VL visual tower.
 - The measured structure is head- and layer-dependent, not a universal strict
   BCCB property.
+- A small-grid coordinate perturbation (`2 x 15 x 26` patch grid) supports the
+  geometry interpretation: high-noise true F-H-W attention R2 is `0.515` and
+  random-coordinate R2 drops to `0.012`; low-noise true F-H-W R2 is `0.603` and
+  random-coordinate R2 drops to `0.079`. Axis reinterpretations also reduce R2.
+  Reverse-coordinate is not destructive because cyclic offset grouping is close
+  to invariant under global coordinate reversal.
 - The next probe should run on actual denoising latents from several prompts and
   timesteps, then test whether a hybrid policy can route only high-R2 heads to a
   circulant/FFT attention path.
@@ -680,3 +696,8 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
    attention with circulant attention; a plausible next direction is a
    head/layer/timestep-gated hybrid path for consistently high-R2 heads and a
    learned or calibrated router for sink/sparse residuals.
+10. Wan coordinate perturbation strengthens the inductive-bias interpretation:
+    the measured 3D cyclic component depends on coherent F-H-W geometry rather
+    than arbitrary token coordinates. It still needs actual denoising-latent and
+    quality/loss validation before being treated as a deployable replacement
+    criterion.

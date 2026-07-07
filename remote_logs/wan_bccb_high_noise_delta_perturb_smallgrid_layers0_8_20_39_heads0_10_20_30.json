@@ -1,0 +1,1949 @@
+{
+  "branch": "high_noise",
+  "ckpt_name": "Wan2.2-T2V",
+  "delta_perturbation_descriptions": {
+    "axis_fwh": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+    "axis_hfw": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+    "axis_whf": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+    "random_coord": "assign deterministic random F x H x W coordinates to token positions",
+    "reverse_coord": "assign reversed F x H x W coordinates to token positions"
+  },
+  "delta_perturbation_mean_attention_cyclic_r2": {
+    "axis_fwh": 0.3497690865472667,
+    "axis_hfw": 0.45612752615070096,
+    "axis_whf": 0.3817350233429102,
+    "random_coord": 0.012314050206199662,
+    "reverse_coord": 0.5147520489502437
+  },
+  "delta_perturbation_mean_attention_relative_fro_error": {
+    "axis_fwh": 0.4356080312780909,
+    "axis_hfw": 0.3976458359464166,
+    "axis_whf": 0.41920819819714816,
+    "random_coord": 0.5450973311073726,
+    "reverse_coord": 0.36133633200531023
+  },
+  "delta_perturbation_mean_logits_cyclic_r2": {
+    "axis_fwh": 0.3144967339491713,
+    "axis_hfw": 0.4252266905866182,
+    "axis_whf": 0.3396682448094881,
+    "random_coord": 0.0034327783795602973,
+    "reverse_coord": 0.4581485472250461
+  },
+  "delta_perturbation_mean_logits_relative_fro_error": {
+    "axis_fwh": 0.3762505547103481,
+    "axis_hfw": 0.3457231498305815,
+    "axis_whf": 0.36954746526232946,
+    "random_coord": 0.4614302278271174,
+    "reverse_coord": 0.33384078621679725
+  },
+  "delta_perturbations": "default",
+  "dtype": "bfloat16",
+  "frame_num": 5,
+  "heads": [
+    0,
+    10,
+    20,
+    30
+  ],
+  "latent_shape": [
+    16,
+    2,
+    30,
+    52
+  ],
+  "layers": [
+    0,
+    8,
+    20,
+    39
+  ],
+  "mean_attention_cyclic_r2": 0.5147520489502437,
+  "mean_attention_relative_fro_error": 0.36133633200531023,
+  "mean_logits_cyclic_r2": 0.4581485472250461,
+  "mean_logits_relative_fro_error": 0.33384078621679725,
+  "patch_grid": [
+    2,
+    15,
+    26
+  ],
+  "perturbation_seed": 20260707,
+  "records": [
+    {
+      "attention": {
+        "cyclic_r2": 0.4851552164677143,
+        "kernel_std": 0.007025835914615738,
+        "matrix_mean": 0.0012820512816846198,
+        "matrix_std": 0.010086898486131507,
+        "relative_fro_error": 0.7118004698248708
+      },
+      "attention_rowsum_std": 5.879680031739554e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.37832247327533786,
+            "kernel_std": 0.0062042418695364854,
+            "matrix_mean": 0.0012820512816846198,
+            "matrix_std": 0.010086898486131507,
+            "relative_fro_error": 0.7821727760399592
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3221392774203613,
+            "kernel_std": 2.337710534137301,
+            "matrix_mean": 5.766196186007688,
+            "matrix_std": 4.118782831213387,
+            "relative_fro_error": 0.47855224247189004
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.42712150637147184,
+            "kernel_std": 0.006592245461583223,
+            "matrix_mean": 0.0012820512816846198,
+            "matrix_std": 0.010086898486131507,
+            "relative_fro_error": 0.7508468641528319
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.50374198830148,
+            "kernel_std": 2.9232971944287613,
+            "matrix_mean": 5.766196186007688,
+            "matrix_std": 4.118782831213387,
+            "relative_fro_error": 0.4094613237442505
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.39837029017750925,
+            "kernel_std": 0.006366505537005946,
+            "matrix_mean": 0.0012820512816846198,
+            "matrix_std": 0.010086898486131507,
+            "relative_fro_error": 0.7694576985755786
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3494993096495792,
+            "kernel_std": 2.434961253568044,
+            "matrix_mean": 5.766196186007688,
+            "matrix_std": 4.118782831213387,
+            "relative_fro_error": 0.4687950328510535
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.1048924626509975,
+            "kernel_std": 0.003266854491508786,
+            "matrix_mean": 0.0012820512816846198,
+            "matrix_std": 0.010086898486131507,
+            "relative_fro_error": 0.938550659103129
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.009018516527407927,
+            "kernel_std": 0.39114379626369694,
+            "matrix_mean": 5.766196186007688,
+            "matrix_std": 4.118782831213387,
+            "relative_fro_error": 0.5786179341797503
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.4851552164677143,
+            "kernel_std": 0.007025835914615738,
+            "matrix_mean": 0.0012820512816846198,
+            "matrix_std": 0.010086898486131507,
+            "relative_fro_error": 0.7118004698248708
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.5213051570210596,
+            "kernel_std": 2.97382155059793,
+            "matrix_mean": 5.766196186007688,
+            "matrix_std": 4.118782831213387,
+            "relative_fro_error": 0.4021503906811257
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 0,
+      "layer": 0,
+      "logit_rowmax_mean": 17.372819900512695,
+      "logit_rowmax_std": 1.5884120464324951,
+      "logits": {
+        "cyclic_r2": 0.5213051570210596,
+        "kernel_std": 2.97382155059793,
+        "matrix_mean": 5.766196186007688,
+        "matrix_std": 4.118782831213387,
+        "relative_fro_error": 0.4021503906811257
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.6705764340271874,
+        "kernel_std": 0.002649899873936142,
+        "matrix_mean": 0.0012820512848135152,
+        "matrix_std": 0.0032359762163394895,
+        "relative_fro_error": 0.5336019433780739
+      },
+      "attention_rowsum_std": 4.8807169861220245e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.4421890739469201,
+            "kernel_std": 0.002151836771674373,
+            "matrix_mean": 0.0012820512848135152,
+            "matrix_std": 0.0032359762163394895,
+            "relative_fro_error": 0.6943582164265772
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3698813831207276,
+            "kernel_std": 1.2363040452279999,
+            "matrix_mean": 3.455312293324795,
+            "matrix_std": 2.0327971998137717,
+            "relative_fro_error": 0.40251096190786506
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.6210464214101892,
+            "kernel_std": 0.002550159550088148,
+            "matrix_mean": 0.0012820512848135152,
+            "matrix_std": 0.0032359762163394895,
+            "relative_fro_error": 0.572312296207642
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5891081398874578,
+            "kernel_std": 1.5602405670102033,
+            "matrix_mean": 3.455312293324795,
+            "matrix_std": 2.0327971998137717,
+            "relative_fro_error": 0.3250351475294203
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.5468558484930515,
+            "kernel_std": 0.002392994781692004,
+            "matrix_mean": 0.0012820512848135152,
+            "matrix_std": 0.0032359762163394895,
+            "relative_fro_error": 0.6258327125337197
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5291456968633593,
+            "kernel_std": 1.4787054997418028,
+            "matrix_mean": 3.455312293324795,
+            "matrix_std": 2.0327971998137717,
+            "relative_fro_error": 0.3479443820574482
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.02603023872659671,
+            "kernel_std": 0.0005220888238493244,
+            "matrix_mean": 0.0012820512848135152,
+            "matrix_std": 0.0032359762163394895,
+            "relative_fro_error": 0.9175142274607777
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.00631812903182194,
+            "kernel_std": 0.16158025876915222,
+            "matrix_mean": 3.455312293324795,
+            "matrix_std": 2.0327971998137717,
+            "relative_fro_error": 0.5054640119154769
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.6705764340271874,
+            "kernel_std": 0.002649899873936142,
+            "matrix_mean": 0.0012820512848135152,
+            "matrix_std": 0.0032359762163394895,
+            "relative_fro_error": 0.5336019433780739
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.6092581398139243,
+            "kernel_std": 1.586699642471823,
+            "matrix_mean": 3.455312293324795,
+            "matrix_std": 2.0327971998137717,
+            "relative_fro_error": 0.3169651588172818
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 10,
+      "layer": 0,
+      "logit_rowmax_mean": 8.253178596496582,
+      "logit_rowmax_std": 0.8546545505523682,
+      "logits": {
+        "cyclic_r2": 0.6092581398139243,
+        "kernel_std": 1.586699642471823,
+        "matrix_mean": 3.455312293324795,
+        "matrix_std": 2.0327971998137717,
+        "relative_fro_error": 0.3169651588172818
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.04082849906324226,
+        "kernel_std": 8.808164556874527e-05,
+        "matrix_mean": 0.0012820512816053965,
+        "matrix_std": 0.00043591690589733686,
+        "relative_fro_error": 0.31527547265671424
+      },
+      "attention_rowsum_std": 4.899345995568183e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.032682567753680614,
+            "kernel_std": 7.88064560171965e-05,
+            "matrix_mean": 0.0012820512816053965,
+            "matrix_std": 0.00043591690589733686,
+            "relative_fro_error": 0.3166114082143982
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.02584047600840489,
+            "kernel_std": 0.05297448175450155,
+            "matrix_mean": 0.17056813905719587,
+            "matrix_std": 0.32954631670813656,
+            "relative_fro_error": 0.8765437075409985
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.0383330634875908,
+            "kernel_std": 8.534743559178269e-05,
+            "matrix_mean": 0.0012820512816053965,
+            "matrix_std": 0.00043591690589733686,
+            "relative_fro_error": 0.3156853256293907
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.028420121233716955,
+            "kernel_std": 0.05555580246455099,
+            "matrix_mean": 0.17056813905719587,
+            "matrix_std": 0.32954631670813656,
+            "relative_fro_error": 0.8753823624756841
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.03837445389369698,
+            "kernel_std": 8.539350041982159e-05,
+            "matrix_mean": 0.0012820512816053965,
+            "matrix_std": 0.00043591690589733686,
+            "relative_fro_error": 0.31567853196521695
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.029344479623078512,
+            "kernel_std": 0.05645204358399621,
+            "matrix_mean": 0.17056813905719587,
+            "matrix_std": 0.32954631670813656,
+            "relative_fro_error": 0.8749658452135609
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.000702507219648707,
+            "kernel_std": 1.1553913404917275e-05,
+            "matrix_mean": 0.0012820512816053965,
+            "matrix_std": 0.00043591690589733686,
+            "relative_fro_error": 0.32180252772363493
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0005879735259408658,
+            "kernel_std": 0.007990893599085832,
+            "matrix_mean": 0.17056813905719587,
+            "matrix_std": 0.32954631670813656,
+            "relative_fro_error": 0.8878320561007557
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.04082849906324226,
+            "kernel_std": 8.808164556874527e-05,
+            "matrix_mean": 0.0012820512816053965,
+            "matrix_std": 0.00043591690589733686,
+            "relative_fro_error": 0.31527547265671424
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.030868098362402563,
+            "kernel_std": 0.05789904490131985,
+            "matrix_mean": 0.17056813905719587,
+            "matrix_std": 0.32954631670813656,
+            "relative_fro_error": 0.8742788672477312
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 20,
+      "layer": 0,
+      "logit_rowmax_mean": 1.2663013935089111,
+      "logit_rowmax_std": 0.12197913229465485,
+      "logits": {
+        "cyclic_r2": 0.030868098362402563,
+        "kernel_std": 0.057899044901319856,
+        "matrix_mean": 0.17056813905719587,
+        "matrix_std": 0.32954631670813656,
+        "relative_fro_error": 0.8742788672477312
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.8434216692532622,
+        "kernel_std": 0.013704609441355257,
+        "matrix_mean": 0.0012820513161201307,
+        "matrix_std": 0.014922592719605329,
+        "relative_fro_error": 0.3942474798667715
+      },
+      "attention_rowsum_std": 8.60054214513184e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.4941310192876974,
+            "kernel_std": 0.010489755000291482,
+            "matrix_mean": 0.0012820513161201307,
+            "matrix_std": 0.014922592719605329,
+            "relative_fro_error": 0.7086342212401096
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5178085079522667,
+            "kernel_std": 3.0473450070619785,
+            "matrix_mean": 7.902797161212816,
+            "matrix_std": 4.2348402772348965,
+            "relative_fro_error": 0.327982741518731
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.5164463553823007,
+            "kernel_std": 0.010724002201326433,
+            "matrix_mean": 0.0012820513161201307,
+            "matrix_std": 0.014922592719605329,
+            "relative_fro_error": 0.692827993611356
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.668508158158492,
+            "kernel_std": 3.4625048527740656,
+            "matrix_mean": 7.902797161212816,
+            "matrix_std": 4.2348402772348965,
+            "relative_fro_error": 0.2719428485642369
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.595351445276616,
+            "kernel_std": 0.011514126383626403,
+            "matrix_mean": 0.0012820513161201307,
+            "matrix_std": 0.014922592719605329,
+            "relative_fro_error": 0.6337851997500856
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5239802131730089,
+            "kernel_std": 3.0654517064517695,
+            "matrix_mean": 7.902797161212816,
+            "matrix_std": 4.2348402772348965,
+            "relative_fro_error": 0.3258770099417346
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.010844217864982797,
+            "kernel_std": 0.0015539727650643437,
+            "matrix_mean": 0.0012820513161201307,
+            "matrix_std": 0.014922592719605329,
+            "relative_fro_error": 0.9909128116132796
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.01082232608333078,
+            "kernel_std": 0.4405521678535475,
+            "matrix_mean": 7.902797161212816,
+            "matrix_std": 4.2348402772348965,
+            "relative_fro_error": 0.4697625299888235
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.8434216692532622,
+            "kernel_std": 0.013704609441355257,
+            "matrix_mean": 0.0012820513161201307,
+            "matrix_std": 0.014922592719605329,
+            "relative_fro_error": 0.3942474798667715
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.7592505342820055,
+            "kernel_std": 3.6900273751857218,
+            "matrix_mean": 7.902797161212816,
+            "matrix_std": 4.2348402772348965,
+            "relative_fro_error": 0.231752210945214
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 30,
+      "layer": 0,
+      "logit_rowmax_mean": 22.050806045532227,
+      "logit_rowmax_std": 1.4337921142578125,
+      "logits": {
+        "cyclic_r2": 0.7592505342820055,
+        "kernel_std": 3.6900273751857218,
+        "matrix_mean": 7.902797161212816,
+        "matrix_std": 4.2348402772348965,
+        "relative_fro_error": 0.231752210945214
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.3247962244275121,
+        "kernel_std": 0.00042858324477736755,
+        "matrix_mean": 0.0012820512828700785,
+        "matrix_std": 0.0007520205396136799,
+        "relative_fro_error": 0.415748375963091
+      },
+      "attention_rowsum_std": 4.404915543432253e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.20512348543100822,
+            "kernel_std": 0.00034059431613000124,
+            "matrix_mean": 0.0012820512828700785,
+            "matrix_std": 0.0007520205396136799,
+            "relative_fro_error": 0.4510897544378796
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.2064917301929764,
+            "kernel_std": 0.283338054955961,
+            "matrix_mean": 5.1279247342874,
+            "matrix_std": 0.6235245773237351,
+            "relative_fro_error": 0.10752281479309646
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.2854498048218216,
+            "kernel_std": 0.0004017857943501398,
+            "matrix_mean": 0.0012820512828700785,
+            "matrix_std": 0.0007520205396136799,
+            "relative_fro_error": 0.42769039933904107
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.26781379424150586,
+            "kernel_std": 0.32267851367988093,
+            "matrix_mean": 5.1279247342874,
+            "matrix_std": 0.6235245773237351,
+            "relative_fro_error": 0.10328462278740054
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.1901988920608253,
+            "kernel_std": 0.0003279696782940464,
+            "matrix_mean": 0.0012820512828700785,
+            "matrix_std": 0.0007520205396136799,
+            "relative_fro_error": 0.45530488894558874
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.19055243289207635,
+            "kernel_std": 0.2721828928884106,
+            "matrix_mean": 5.1279247342874,
+            "matrix_std": 0.6235245773237351,
+            "relative_fro_error": 0.10859735744607275
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.001431228336887691,
+            "kernel_std": 2.8450124128558937e-05,
+            "matrix_mean": 0.0012820512828700785,
+            "matrix_std": 0.0007520205396136799,
+            "relative_fro_error": 0.5055942433496352
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0010914982054790467,
+            "kernel_std": 0.020599898933311718,
+            "matrix_mean": 5.1279247342874,
+            "matrix_std": 0.6235245773237351,
+            "relative_fro_error": 0.12063900627172833
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.3247962244275121,
+            "kernel_std": 0.00042858324477736755,
+            "matrix_mean": 0.0012820512828700785,
+            "matrix_std": 0.0007520205396136799,
+            "relative_fro_error": 0.415748375963091
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.31195578671089796,
+            "kernel_std": 0.3482571965798454,
+            "matrix_mean": 5.1279247342874,
+            "matrix_std": 0.6235245773237351,
+            "relative_fro_error": 0.10012281920667142
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 0,
+      "layer": 8,
+      "logit_rowmax_mean": 6.568209171295166,
+      "logit_rowmax_std": 0.39282751083374023,
+      "logits": {
+        "cyclic_r2": 0.31195578671089796,
+        "kernel_std": 0.3482571965798454,
+        "matrix_mean": 5.1279247342874,
+        "matrix_std": 0.6235245773237351,
+        "relative_fro_error": 0.10012281920667142
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.2982842537219742,
+        "kernel_std": 0.00024490027010225316,
+        "matrix_mean": 0.001282051282559212,
+        "matrix_std": 0.0004484087723387079,
+        "relative_fro_error": 0.2765596306045007
+      },
+      "attention_rowsum_std": 4.685503895984766e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.2000143213095903,
+            "kernel_std": 0.00020054167899441147,
+            "matrix_mean": 0.001282051282559212,
+            "matrix_std": 0.0004484087723387079,
+            "relative_fro_error": 0.29529036836366745
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.15080573204951087,
+            "kernel_std": 0.16072320657429512,
+            "matrix_mean": -1.6635997492040677,
+            "matrix_std": 0.4138754479557134,
+            "relative_fro_error": 0.22247640732577975
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.2882090126283672,
+            "kernel_std": 0.00024072870469934757,
+            "matrix_mean": 0.001282051282559212,
+            "matrix_std": 0.0004484087723387079,
+            "relative_fro_error": 0.2785379774835325
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.21339791052055146,
+            "kernel_std": 0.19118981157263043,
+            "matrix_mean": -1.6635997492040677,
+            "matrix_std": 0.4138754479557134,
+            "relative_fro_error": 0.21412036918686042
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.1908193241880175,
+            "kernel_std": 0.0001958778267578666,
+            "matrix_mean": 0.001282051282559212,
+            "matrix_std": 0.0004484087723387079,
+            "relative_fro_error": 0.2969825464865585
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.14027671406731235,
+            "kernel_std": 0.15501097783763257,
+            "matrix_mean": -1.6635997492040677,
+            "matrix_std": 0.4138754479557134,
+            "relative_fro_error": 0.22385138235358323
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0006389997273728021,
+            "kernel_std": 1.1335076007959006e-05,
+            "matrix_mean": 0.001282051282559212,
+            "matrix_std": 0.0004484087723387079,
+            "relative_fro_error": 0.33004212450888865
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0004251029755506508,
+            "kernel_std": 0.008533294540095647,
+            "matrix_mean": -1.6635997492040677,
+            "matrix_std": 0.4138754479557134,
+            "relative_fro_error": 0.24137267644471244
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.2982842537219742,
+            "kernel_std": 0.00024490027010225316,
+            "matrix_mean": 0.001282051282559212,
+            "matrix_std": 0.0004484087723387079,
+            "relative_fro_error": 0.2765596306045007
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.22099736409769255,
+            "kernel_std": 0.19456432455007092,
+            "matrix_mean": -1.6635997492040677,
+            "matrix_std": 0.4138754479557134,
+            "relative_fro_error": 0.2130835380723804
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 10,
+      "layer": 8,
+      "logit_rowmax_mean": -0.805982232093811,
+      "logit_rowmax_std": 0.23536363244056702,
+      "logits": {
+        "cyclic_r2": 0.22099736409769255,
+        "kernel_std": 0.19456432455007092,
+        "matrix_mean": -1.6635997492040677,
+        "matrix_std": 0.4138754479557134,
+        "relative_fro_error": 0.2130835380723804
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.3626577280540213,
+        "kernel_std": 0.00048313334502738927,
+        "matrix_mean": 0.0012820512823517203,
+        "matrix_std": 0.0008022662906103373,
+        "relative_fro_error": 0.42349140945550856
+      },
+      "attention_rowsum_std": 4.626810579111407e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.2210228039404427,
+            "kernel_std": 0.0003771699520899731,
+            "matrix_mean": 0.0012820512823517203,
+            "matrix_std": 0.0008022662906103373,
+            "relative_fro_error": 0.4681883631760057
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.20298531785342178,
+            "kernel_std": 0.2874326284899875,
+            "matrix_mean": 2.153349188231893,
+            "matrix_std": 0.6379751363136119,
+            "relative_fro_error": 0.25360195904420535
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.34689860463094124,
+            "kernel_std": 0.0004725195927589324,
+            "matrix_mean": 0.0012820512823517203,
+            "matrix_std": 0.0008022662906103373,
+            "relative_fro_error": 0.4286951288941486
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3173690669581837,
+            "kernel_std": 0.35940660235428196,
+            "matrix_mean": 2.153349188231893,
+            "matrix_std": 0.6379751363136119,
+            "relative_fro_error": 0.23469964100160887
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.2161600778274525,
+            "kernel_std": 0.0003729978156920938,
+            "matrix_mean": 0.0012820512823517203,
+            "matrix_std": 0.0008022662906103373,
+            "relative_fro_error": 0.4696474109088392
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.20728114355562632,
+            "kernel_std": 0.2904582064786716,
+            "matrix_mean": 2.153349188231893,
+            "matrix_std": 0.6379751363136119,
+            "relative_fro_error": 0.25291759162545346
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0013618480006880596,
+            "kernel_std": 2.9606213272385894e-05,
+            "matrix_mean": 0.0012820512823517203,
+            "matrix_std": 0.0008022662906103373,
+            "relative_fro_error": 0.5301055118671252
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.001264039413594431,
+            "kernel_std": 0.02268214180480665,
+            "matrix_mean": 2.153349188231893,
+            "matrix_std": 0.6379751363136119,
+            "relative_fro_error": 0.2838865303427306
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.3626577280540213,
+            "kernel_std": 0.00048313334502738927,
+            "matrix_mean": 0.0012820512823517203,
+            "matrix_std": 0.0008022662906103373,
+            "relative_fro_error": 0.42349140945550856
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.33411500160785323,
+            "kernel_std": 0.3687667376094945,
+            "matrix_mean": 2.153349188231893,
+            "matrix_std": 0.6379751363136119,
+            "relative_fro_error": 0.23180300336961554
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 20,
+      "layer": 8,
+      "logit_rowmax_mean": 3.713533878326416,
+      "logit_rowmax_std": 0.43985140323638916,
+      "logits": {
+        "cyclic_r2": 0.33411500160785323,
+        "kernel_std": 0.3687667376094945,
+        "matrix_mean": 2.153349188231893,
+        "matrix_std": 0.6379751363136119,
+        "relative_fro_error": 0.23180300336961554
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.44004300349006076,
+        "kernel_std": 0.000288856454555732,
+        "matrix_mean": 0.0012820512842159392,
+        "matrix_std": 0.0004354462113229326,
+        "relative_fro_error": 0.2406571496700196
+      },
+      "attention_rowsum_std": 4.5922263325337553e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.2601380335151521,
+            "kernel_std": 0.00022209380399497628,
+            "matrix_mean": 0.0012820512842159392,
+            "matrix_std": 0.0004354462113229326,
+            "relative_fro_error": 0.27662841104464947
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.22507071528659472,
+            "kernel_std": 0.17662149153362494,
+            "matrix_mean": 0.9428739078919205,
+            "matrix_std": 0.3722922986807937,
+            "relative_fro_error": 0.3232960098100207
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.43443620582152787,
+            "kernel_std": 0.0002870103262130027,
+            "matrix_mean": 0.0012820512842159392,
+            "matrix_std": 0.0004354462113229326,
+            "relative_fro_error": 0.2418589875924243
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3767576157380038,
+            "kernel_std": 0.2285151890945558,
+            "matrix_mean": 0.9428739078919205,
+            "matrix_std": 0.3722922986807937,
+            "relative_fro_error": 0.2899330992792503
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.2453535888603957,
+            "kernel_std": 0.00021569035423765095,
+            "matrix_mean": 0.0012820512842159392,
+            "matrix_std": 0.0004354462113229326,
+            "relative_fro_error": 0.2793786319870602
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.21382751286680413,
+            "kernel_std": 0.17215349524657497,
+            "matrix_mean": 0.9428739078919205,
+            "matrix_std": 0.3722922986807937,
+            "relative_fro_error": 0.32563286363528327
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0009826696207456687,
+            "kernel_std": 1.3650176950156372e-05,
+            "matrix_mean": 0.0012820512842159392,
+            "matrix_std": 0.0004354462113229326,
+            "relative_fro_error": 0.32144593794021037
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.000862091196974335,
+            "kernel_std": 0.010931019212262834,
+            "matrix_mean": 0.9428739078919205,
+            "matrix_std": 0.3722922986807937,
+            "relative_fro_error": 0.3670980067413088
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.44004300349006076,
+            "kernel_std": 0.000288856454555732,
+            "matrix_mean": 0.0012820512842159392,
+            "matrix_std": 0.0004354462113229326,
+            "relative_fro_error": 0.2406571496700196
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.38165291485630215,
+            "kernel_std": 0.22999497324968482,
+            "matrix_mean": 0.9428739078919205,
+            "matrix_std": 0.3722922986807937,
+            "relative_fro_error": 0.28879220506575815
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 30,
+      "layer": 8,
+      "logit_rowmax_mean": 1.7849606275558472,
+      "logit_rowmax_std": 0.22413043677806854,
+      "logits": {
+        "cyclic_r2": 0.38165291485630215,
+        "kernel_std": 0.2299949732496848,
+        "matrix_mean": 0.9428739078919205,
+        "matrix_std": 0.3722922986807937,
+        "relative_fro_error": 0.28879220506575815
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.49645198439176974,
+        "kernel_std": 0.0003889566610936163,
+        "matrix_mean": 0.0012820512818965783,
+        "matrix_std": 0.0005520298829081264,
+        "relative_fro_error": 0.2806369229487261
+      },
+      "attention_rowsum_std": 4.394563646314964e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.2150734043375886,
+            "kernel_std": 0.0002560094182175222,
+            "matrix_mean": 0.0012820512818965783,
+            "matrix_std": 0.0005520298829081264,
+            "relative_fro_error": 0.35037966069825766
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.14078236162492774,
+            "kernel_std": 0.21597351652816993,
+            "matrix_mean": 2.3352563927213392,
+            "matrix_std": 0.5756074105039114,
+            "relative_fro_error": 0.22183793275926256
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.48796878828001,
+            "kernel_std": 0.0003856191651703063,
+            "matrix_mean": 0.0012820512818965783,
+            "matrix_std": 0.0005520298829081264,
+            "relative_fro_error": 0.28299097335463036
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3318899507237064,
+            "kernel_std": 0.33160680009092647,
+            "matrix_mean": 2.3352563927213392,
+            "matrix_std": 0.5756074105039114,
+            "relative_fro_error": 0.1956177321509005
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.3834494431604566,
+            "kernel_std": 0.0003418350914526574,
+            "matrix_mean": 0.0012820512818965783,
+            "matrix_std": 0.0005520298829081264,
+            "relative_fro_error": 0.3105336818972717
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.2643008806657252,
+            "kernel_std": 0.2959209289388563,
+            "matrix_mean": 2.3352563927213392,
+            "matrix_std": 0.5756074105039114,
+            "relative_fro_error": 0.2052741846113225
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.003005947618381244,
+            "kernel_std": 3.0265879042306728e-05,
+            "matrix_mean": 0.0012820512818965783,
+            "matrix_std": 0.0005520298829081264,
+            "relative_fro_error": 0.39488501106400564
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0015518299539157843,
+            "kernel_std": 0.022675059835499386,
+            "matrix_mean": 2.3352563927213392,
+            "matrix_std": 0.5756074105039114,
+            "relative_fro_error": 0.23913711211935998
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.49645198439176974,
+            "kernel_std": 0.00038895666109361635,
+            "matrix_mean": 0.0012820512818965783,
+            "matrix_std": 0.0005520298829081264,
+            "relative_fro_error": 0.2806369229487261
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.3363376834127997,
+            "kernel_std": 0.33382137434164133,
+            "matrix_mean": 2.3352563927213392,
+            "matrix_std": 0.5756074105039114,
+            "relative_fro_error": 0.19496551306445076
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 0,
+      "layer": 20,
+      "logit_rowmax_mean": 3.152118444442749,
+      "logit_rowmax_std": 0.18690861761569977,
+      "logits": {
+        "cyclic_r2": 0.3363376834127997,
+        "kernel_std": 0.33382137434164133,
+        "matrix_mean": 2.3352563927213392,
+        "matrix_std": 0.5756074105039114,
+        "relative_fro_error": 0.19496551306445076
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.4449952695937849,
+        "kernel_std": 0.0005052116150653721,
+        "matrix_mean": 0.0012820512815313453,
+        "matrix_std": 0.0007573482556450631,
+        "relative_fro_error": 0.3789120491164657
+      },
+      "attention_rowsum_std": 4.5872646126099426e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.3823319779733224,
+            "kernel_std": 0.0004682911402213586,
+            "matrix_mean": 0.0012820512815313453,
+            "matrix_std": 0.0007573482556450631,
+            "relative_fro_error": 0.3997308178752509
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.47479208943753215,
+            "kernel_std": 0.3974051121593813,
+            "matrix_mean": 1.5575668788749424,
+            "matrix_std": 0.5767421767875348,
+            "relative_fro_error": 0.2516513967647795
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.42956161042892815,
+            "kernel_std": 0.0004963732402516852,
+            "matrix_mean": 0.0012820512815313453,
+            "matrix_std": 0.0007573482556450631,
+            "relative_fro_error": 0.3841443464455786
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.517209462475779,
+            "kernel_std": 0.41477726459226405,
+            "matrix_mean": 1.5575668788749424,
+            "matrix_std": 0.5767421767875348,
+            "relative_fro_error": 0.24127542575826438
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.2896269206292986,
+            "kernel_std": 0.0004075820908483071,
+            "matrix_mean": 0.0012820512815313453,
+            "matrix_std": 0.0007573482556450631,
+            "relative_fro_error": 0.4286800974867433
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.36709622935041075,
+            "kernel_std": 0.3494392415586702,
+            "matrix_mean": 1.5575668788749424,
+            "matrix_std": 0.5767421767875348,
+            "relative_fro_error": 0.2762501722121458
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0029333715258373916,
+            "kernel_std": 4.1018442461272623e-05,
+            "matrix_mean": 0.0012820512815313453,
+            "matrix_std": 0.0007573482556450631,
+            "relative_fro_error": 0.5078695369847569
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.005252488484449258,
+            "kernel_std": 0.041798843589990524,
+            "matrix_mean": 1.5575668788749424,
+            "matrix_std": 0.5767421767875348,
+            "relative_fro_error": 0.34633002686580905
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.4449952695937849,
+            "kernel_std": 0.0005052116150653721,
+            "matrix_mean": 0.0012820512815313453,
+            "matrix_std": 0.0007573482556450631,
+            "relative_fro_error": 0.3789120491164657
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.5394975156987798,
+            "kernel_std": 0.4236199814173751,
+            "matrix_mean": 1.5575668788749424,
+            "matrix_std": 0.5767421767875348,
+            "relative_fro_error": 0.2356403746815603
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 10,
+      "layer": 20,
+      "logit_rowmax_mean": 2.974870443344116,
+      "logit_rowmax_std": 0.33371487259864807,
+      "logits": {
+        "cyclic_r2": 0.5394975156987798,
+        "kernel_std": 0.4236199814173751,
+        "matrix_mean": 1.5575668788749424,
+        "matrix_std": 0.5767421767875348,
+        "relative_fro_error": 0.2356403746815603
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.5760942267006711,
+        "kernel_std": 0.0010293543775151295,
+        "matrix_mean": 0.0012820512799130487,
+        "matrix_std": 0.00135618255709717,
+        "relative_fro_error": 0.47313290390621193
+      },
+      "attention_rowsum_std": 4.973163214572196e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.36714309145543655,
+            "kernel_std": 0.0008217426618468218,
+            "matrix_mean": 0.0012820512799130487,
+            "matrix_std": 0.00135618255709717,
+            "relative_fro_error": 0.5780977099793925
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.37882829119015715,
+            "kernel_std": 0.7039980836671555,
+            "matrix_mean": 7.966273841023602,
+            "matrix_std": 1.143800480010579,
+            "relative_fro_error": 0.1120133627759988
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.47397287256520615,
+            "kernel_std": 0.000933673208961395,
+            "matrix_mean": 0.0012820512799130487,
+            "matrix_std": 0.00135618255709717,
+            "relative_fro_error": 0.5270508972829256
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.4728585152332051,
+            "kernel_std": 0.7865310673348593,
+            "matrix_mean": 7.966273841023602,
+            "matrix_std": 1.143800480010579,
+            "relative_fro_error": 0.1031876208901672
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.4169894551493356,
+            "kernel_std": 0.0008757510982186847,
+            "matrix_mean": 0.0012820512799130487,
+            "matrix_std": 0.00135618255709717,
+            "relative_fro_error": 0.5548641825254186
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.41435869465758446,
+            "kernel_std": 0.7362723691969705,
+            "matrix_mean": 7.966273841023602,
+            "matrix_std": 1.143800480010579,
+            "relative_fro_error": 0.10876266778684048
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0011311703923296834,
+            "kernel_std": 4.561232066932663e-05,
+            "matrix_mean": 0.0012820512799130487,
+            "matrix_std": 0.00135618255709717,
+            "relative_fro_error": 0.7262777119948974
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0015169381531331405,
+            "kernel_std": 0.044548615537019755,
+            "matrix_mean": 7.966273841023602,
+            "matrix_std": 1.143800480010579,
+            "relative_fro_error": 0.14201504398108625
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.5760942267006711,
+            "kernel_std": 0.0010293543775151297,
+            "matrix_mean": 0.0012820512799130487,
+            "matrix_std": 0.00135618255709717,
+            "relative_fro_error": 0.47313290390621193
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.5469976628731541,
+            "kernel_std": 0.8459467180091129,
+            "matrix_mean": 7.966273841023602,
+            "matrix_std": 1.143800480010579,
+            "relative_fro_error": 0.09565644199769396
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 20,
+      "layer": 20,
+      "logit_rowmax_mean": 10.255359649658203,
+      "logit_rowmax_std": 0.2853690981864929,
+      "logits": {
+        "cyclic_r2": 0.5469976628731541,
+        "kernel_std": 0.8459467180091129,
+        "matrix_mean": 7.966273841023602,
+        "matrix_std": 1.143800480010579,
+        "relative_fro_error": 0.09565644199769396
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.4888834708455958,
+        "kernel_std": 0.0012403482555461787,
+        "matrix_mean": 0.001282051277385981,
+        "matrix_std": 0.0017739483187442853,
+        "relative_fro_error": 0.5794398008258436
+      },
+      "attention_rowsum_std": 4.6757730132185316e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.341013615804833,
+            "kernel_std": 0.0010359214433967906,
+            "matrix_mean": 0.001282051277385981,
+            "matrix_std": 0.0017739483187442853,
+            "relative_fro_error": 0.6579404395568961
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3237791644514839,
+            "kernel_std": 0.6896934136550471,
+            "matrix_mean": -0.6422307116949184,
+            "matrix_std": 1.2120809613610477,
+            "relative_fro_error": 0.7266280998151629
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.4264751326100372,
+            "kernel_std": 0.0011584780770129567,
+            "matrix_mean": 0.001282051277385981,
+            "matrix_std": 0.0017739483187442853,
+            "relative_fro_error": 0.6137966114363398
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.38338525058456463,
+            "kernel_std": 0.7504976385926522,
+            "matrix_mean": -0.6422307116949184,
+            "matrix_std": 1.2120809613610477,
+            "relative_fro_error": 0.693864820691625
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.31788235688554045,
+            "kernel_std": 0.0010001708096611854,
+            "matrix_mean": 0.001282051277385981,
+            "matrix_std": 0.0017739483187442853,
+            "relative_fro_error": 0.6693881213838039
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3108588895117885,
+            "kernel_std": 0.67579235627159,
+            "matrix_mean": -0.6422307116949184,
+            "matrix_std": 1.2120809613610477,
+            "relative_fro_error": 0.7335369477896859
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0016176510443167702,
+            "kernel_std": 7.134825969515291e-05,
+            "matrix_mean": 0.001282051277385981,
+            "matrix_std": 0.0017739483187442853,
+            "relative_fro_error": 0.8098354933522243
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0016661760575100715,
+            "kernel_std": 0.04947571445830961,
+            "matrix_mean": -0.6422307116949184,
+            "matrix_std": 1.2120809613610477,
+            "relative_fro_error": 0.8828883930798451
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.4888834708455958,
+            "kernel_std": 0.001240348255546179,
+            "matrix_mean": 0.001282051277385981,
+            "matrix_std": 0.0017739483187442853,
+            "relative_fro_error": 0.5794398008258436
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.42670644953915604,
+            "kernel_std": 0.7917648785430232,
+            "matrix_mean": -0.6422307116949184,
+            "matrix_std": 1.2120809613610477,
+            "relative_fro_error": 0.6690467150106961
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 30,
+      "layer": 20,
+      "logit_rowmax_mean": 2.3693416118621826,
+      "logit_rowmax_std": 0.3131178915500641,
+      "logits": {
+        "cyclic_r2": 0.42670644953915604,
+        "kernel_std": 0.7917648785430232,
+        "matrix_mean": -0.6422307116949184,
+        "matrix_std": 1.2120809613610477,
+        "relative_fro_error": 0.6690467150106961
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.678213778810703,
+        "kernel_std": 0.00022926823973253043,
+        "matrix_mean": 0.0012820512818933253,
+        "matrix_std": 0.0002783944622670099,
+        "relative_fro_error": 0.12037431320731438
+      },
+      "attention_rowsum_std": 3.68418078267041e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.5534365252748832,
+            "kernel_std": 0.00020710686806046499,
+            "matrix_mean": 0.0012820512818933253,
+            "matrix_std": 0.0002783944622670099,
+            "relative_fro_error": 0.14180505074110042
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5245163067469305,
+            "kernel_std": 0.1639908465613776,
+            "matrix_mean": -0.11578678704458849,
+            "matrix_std": 0.22643320332935318,
+            "relative_fro_error": 0.6139425032545907
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.6199123792739496,
+            "kernel_std": 0.00021919252860006048,
+            "matrix_mean": 0.0012820512818933253,
+            "matrix_std": 0.0002783944622670099,
+            "relative_fro_error": 0.13082536736310285
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5836187013746466,
+            "kernel_std": 0.17298351213756027,
+            "matrix_mean": -0.11578678704458849,
+            "matrix_std": 0.22643320332935318,
+            "relative_fro_error": 0.5745204535172234
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.5448580653242077,
+            "kernel_std": 0.00020549548493235567,
+            "matrix_mean": 0.0012820512818933253,
+            "matrix_std": 0.0002783944622670099,
+            "relative_fro_error": 0.14316060531486352
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5169010541040548,
+            "kernel_std": 0.16279603360078337,
+            "matrix_mean": -0.11578678704458849,
+            "matrix_std": 0.22643320332935318,
+            "relative_fro_error": 0.6188393651027666
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0023061413624172467,
+            "kernel_std": 1.3369142574103179e-05,
+            "matrix_mean": 0.0012820512818933253,
+            "matrix_std": 0.0002783944622670099,
+            "relative_fro_error": 0.21195748116081234
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0021800264240429135,
+            "kernel_std": 0.01057233678786271,
+            "matrix_mean": -0.11578678704458849,
+            "matrix_std": 0.22643320332935318,
+            "relative_fro_error": 0.889377183133458
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.678213778810703,
+            "kernel_std": 0.00022926823973253043,
+            "matrix_mean": 0.0012820512818933253,
+            "matrix_std": 0.0002783944622670099,
+            "relative_fro_error": 0.12037431320731438
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.6370047944490665,
+            "kernel_std": 0.18072218181246133,
+            "matrix_mean": -0.11578678704458849,
+            "matrix_std": 0.22643320332935318,
+            "relative_fro_error": 0.5364266323097093
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 0,
+      "layer": 39,
+      "logit_rowmax_mean": 0.43808412551879883,
+      "logit_rowmax_std": 0.06852146238088608,
+      "logits": {
+        "cyclic_r2": 0.6370047944490665,
+        "kernel_std": 0.18072218181246133,
+        "matrix_mean": -0.11578678704458849,
+        "matrix_std": 0.22643320332935318,
+        "relative_fro_error": 0.5364266323097093
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.6713705525151821,
+        "kernel_std": 0.0002984316648374372,
+        "matrix_mean": 0.0012820512838916545,
+        "matrix_std": 0.0003642199727014686,
+        "relative_fro_error": 0.15665974298130553
+      },
+      "attention_rowsum_std": 4.719404955721984e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.5396266121284591,
+            "kernel_std": 0.00026755337707836806,
+            "matrix_mean": 0.0012820512838916545,
+            "matrix_std": 0.0003642199727014686,
+            "relative_fro_error": 0.18542115282461502
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.4308599043355964,
+            "kernel_std": 0.19076776430292963,
+            "matrix_mean": 0.1964613429962358,
+            "matrix_std": 0.2906276630195881,
+            "relative_fro_error": 0.6250078076596021
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.602220588469275,
+            "kernel_std": 0.0002826451625472984,
+            "matrix_mean": 0.0012820512838916545,
+            "matrix_std": 0.0003642199727014686,
+            "relative_fro_error": 0.17235556952813538
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.4932005604176447,
+            "kernel_std": 0.20410269084358534,
+            "matrix_mean": 0.1964613429962358,
+            "matrix_std": 0.2906276630195881,
+            "relative_fro_error": 0.589785259924093
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.575598748252623,
+            "kernel_std": 0.0002763272264128192,
+            "matrix_mean": 0.0012820512838916545,
+            "matrix_std": 0.0003642199727014686,
+            "relative_fro_error": 0.17802971616919644
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.46494603693195924,
+            "kernel_std": 0.19817014393682827,
+            "matrix_mean": 0.1964613429962358,
+            "matrix_std": 0.2906276630195881,
+            "relative_fro_error": 0.6060028183319276
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.003388939079135178,
+            "kernel_std": 2.1202918227133585e-05,
+            "matrix_mean": 0.0012820512838916545,
+            "matrix_std": 0.0003642199727014686,
+            "relative_fro_error": 0.2728142321527704
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.00283216263532704,
+            "kernel_std": 0.015466642388322668,
+            "matrix_mean": 0.1964613429962358,
+            "matrix_std": 0.2906276630195881,
+            "relative_fro_error": 0.8272942056023088
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.6713705525151821,
+            "kernel_std": 0.0002984316648374372,
+            "matrix_mean": 0.0012820512838916545,
+            "matrix_std": 0.0003642199727014686,
+            "relative_fro_error": 0.15665974298130553
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.5443344233074578,
+            "kernel_std": 0.21442225030892073,
+            "matrix_mean": 0.1964613429962358,
+            "matrix_std": 0.2906276630195881,
+            "relative_fro_error": 0.5592409462226817
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 10,
+      "layer": 39,
+      "logit_rowmax_mean": 0.9772871136665344,
+      "logit_rowmax_std": 0.11404866725206375,
+      "logits": {
+        "cyclic_r2": 0.5443344233074578,
+        "kernel_std": 0.21442225030892073,
+        "matrix_mean": 0.1964613429962358,
+        "matrix_std": 0.2906276630195881,
+        "relative_fro_error": 0.5592409462226817
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.6424933642791051,
+        "kernel_std": 0.00021497155915356655,
+        "matrix_mean": 0.0012820512831463592,
+        "matrix_std": 0.00026819253358796184,
+        "relative_fro_error": 0.12242860586257127
+      },
+      "attention_rowsum_std": 4.486874516373973e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.42203559097706056,
+            "kernel_std": 0.0001742293120031666,
+            "matrix_mean": 0.0012820512831463592,
+            "matrix_std": 0.00026819253358796184,
+            "relative_fro_error": 0.15566515132689673
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.35257428059239915,
+            "kernel_std": 0.14020397121269043,
+            "matrix_mean": 1.3743718633860016,
+            "matrix_std": 0.23612121037528616,
+            "relative_fro_error": 0.1362414044187668
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.6043952539479498,
+            "kernel_std": 0.00020850055037652728,
+            "matrix_mean": 0.0012820512831463592,
+            "matrix_std": 0.00026819253358796184,
+            "relative_fro_error": 0.12878687257549895
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5040659998200481,
+            "kernel_std": 0.16764040563475094,
+            "matrix_mean": 1.3743718633860016,
+            "matrix_std": 0.23612121037528616,
+            "relative_fro_error": 0.1192411290652851
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.4861077849216099,
+            "kernel_std": 0.00018698767049339453,
+            "matrix_mean": 0.0012820512831463592,
+            "matrix_std": 0.00026819253358796184,
+            "relative_fro_error": 0.14678337518048756
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.4073211118880701,
+            "kernel_std": 0.15069660248732564,
+            "matrix_mean": 1.3743718633860016,
+            "matrix_std": 0.23612121037528616,
+            "relative_fro_error": 0.13035385118579748
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.0017625899554414293,
+            "kernel_std": 1.1259583565174599e-05,
+            "matrix_mean": 0.0012820512831463592,
+            "matrix_std": 0.00026819253358796184,
+            "relative_fro_error": 0.204577454832098
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.0013979779511098522,
+            "kernel_std": 0.008828464228617862,
+            "matrix_mean": 1.3743718633860016,
+            "matrix_std": 0.23612121037528616,
+            "relative_fro_error": 0.16920389588413323
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.6424933642791051,
+            "kernel_std": 0.00021497155915356655,
+            "matrix_mean": 0.0012820512831463592,
+            "matrix_std": 0.00026819253358796184,
+            "relative_fro_error": 0.12242860586257127
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.5353306715013331,
+            "kernel_std": 0.1727611411953082,
+            "matrix_mean": 1.3743718633860016,
+            "matrix_std": 0.23612121037528616,
+            "relative_fro_error": 0.11542134777023376
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 20,
+      "layer": 39,
+      "logit_rowmax_mean": 1.871018886566162,
+      "logit_rowmax_std": 0.12911711633205414,
+      "logits": {
+        "cyclic_r2": 0.5353306715013331,
+        "kernel_std": 0.1727611411953082,
+        "matrix_mean": 1.3743718633860016,
+        "matrix_std": 0.23612121037528616,
+        "relative_fro_error": 0.11542134777023376
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    },
+    {
+      "attention": {
+        "cyclic_r2": 0.7717671075621126,
+        "kernel_std": 0.0012780015989940052,
+        "matrix_mean": 0.0012820512814156553,
+        "matrix_std": 0.0014547496608617169,
+        "relative_fro_error": 0.3584150418169742
+      },
+      "attention_rowsum_std": 4.5773248302793945e-08,
+      "branch": "high_noise",
+      "delta_perturbations": {
+        "axis_fwh": {
+          "attention": {
+            "cyclic_r2": 0.5420207883448533,
+            "kernel_std": 0.001071016684451888,
+            "matrix_mean": 0.0012820512814156553,
+            "matrix_std": 0.0014547496608617169,
+            "relative_fro_error": 0.5077149985037983
+          },
+          "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.3847922049234501,
+            "kernel_std": 0.6184142300795954,
+            "matrix_mean": 2.0710388635789605,
+            "matrix_std": 0.9969338483604386,
+            "relative_fro_error": 0.34019952350481897
+          }
+        },
+        "axis_hfw": {
+          "attention": {
+            "cyclic_r2": 0.6955928182816491,
+            "kernel_std": 0.0012132933278744759,
+            "matrix_mean": 0.0012820512814156553,
+            "matrix_std": 0.0014547496608617169,
+            "relative_fro_error": 0.41392776424608785
+          },
+          "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5522818137169063,
+            "kernel_std": 0.7408780239006051,
+            "matrix_mean": 2.0710388635789605,
+            "matrix_std": 0.9969338483604386,
+            "relative_fro_error": 0.2902185407230332
+          }
+        },
+        "axis_whf": {
+          "attention": {
+            "cyclic_r2": 0.6717636783859262,
+            "kernel_std": 0.0011923301440036164,
+            "matrix_mean": 0.0012820512814156553,
+            "matrix_std": 0.0014547496608617169,
+            "relative_fro_error": 0.4298237700439388
+          },
+          "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+          "logits": {
+            "cyclic_r2": 0.5050015171513709,
+            "kernel_std": 0.7084556742347489,
+            "matrix_mean": 2.0710388635789605,
+            "matrix_std": 0.9969338483604386,
+            "relative_fro_error": 0.30515797205259426
+          }
+        },
+        "random_coord": {
+          "attention": {
+            "cyclic_r2": 0.03399482017341571,
+            "kernel_std": 0.0002682221495834428,
+            "matrix_mean": 0.0012820512814156553,
+            "matrix_std": 0.0014547496608617169,
+            "relative_fro_error": 0.7373723326097162
+          },
+          "description": "assign deterministic random F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.00813717745337672,
+            "kernel_std": 0.08992971874373731,
+            "matrix_mean": 2.0710388635789605,
+            "matrix_std": 0.9969338483604386,
+            "relative_fro_error": 0.4319650325825914
+          }
+        },
+        "reverse_coord": {
+          "attention": {
+            "cyclic_r2": 0.7717671075621126,
+            "kernel_std": 0.0012780015989940054,
+            "matrix_mean": 0.0012820512814156553,
+            "matrix_std": 0.0014547496608617169,
+            "relative_fro_error": 0.3584150418169742
+          },
+          "description": "assign reversed F x H x W coordinates to token positions",
+          "logits": {
+            "cyclic_r2": 0.5947645580668531,
+            "kernel_std": 0.7688451553913529,
+            "matrix_mean": 2.0710388635789605,
+            "matrix_std": 0.9969338483604386,
+            "relative_fro_error": 0.2761064150059522
+          }
+        }
+      },
+      "grid": [
+        2,
+        15,
+        26
+      ],
+      "head": 30,
+      "layer": 39,
+      "logit_rowmax_mean": 4.591808795928955,
+      "logit_rowmax_std": 0.10363646596670151,
+      "logits": {
+        "cyclic_r2": 0.5947645580668531,
+        "kernel_std": 0.768845155391353,
+        "matrix_mean": 2.0710388635789605,
+        "matrix_std": 0.9969338483604386,
+        "relative_fro_error": 0.2761064150059522
+      },
+      "metric_scope": "3D cyclic projection over RoPE-applied Wan self-attention QK",
+      "seq_len": 780,
+      "timestep": 999.0
+    }
+  ],
+  "repo_name": "Wan2.2_SA3_hif4_edges8_fp16_noscale_norowmax_baseline_para01",
+  "seed": 1234,
+  "seq_len": 780,
+  "size": "416*240",
+  "timestep": 999.0
+}

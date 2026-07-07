@@ -65,16 +65,64 @@ def parse_size(text: str) -> tuple[int, int]:
     return int(w), int(h)
 
 
+def delta_ids_nd(grid: tuple[int, ...]) -> np.ndarray:
+    shape = tuple(int(v) for v in grid)
+    coords = np.array(list(np.ndindex(shape)), dtype=np.int64)
+    shape_np = np.array(shape, dtype=np.int64)
+    offsets = (coords[None, :, :] - coords[:, None, :]) % shape_np
+    multipliers = np.cumprod((1,) + shape[::-1])[:-1][::-1]
+    return (offsets * multipliers).sum(axis=-1).reshape(-1)
+
+
 def delta_ids_3d(grid: tuple[int, int, int]) -> np.ndarray:
+    return delta_ids_nd(grid)
+
+
+def delta_ids_from_coord_ids(grid: tuple[int, int, int], coord_ids: np.ndarray) -> np.ndarray:
     f, h, w = grid
-    coords = np.arange(f * h * w, dtype=np.int64)
-    cf = coords // (h * w)
-    ch = (coords // w) % h
-    cw = coords % w
+    ids = np.asarray(coord_ids, dtype=np.int64)
+    cf = ids // (h * w)
+    ch = (ids // w) % h
+    cw = ids % w
     df = (cf[None, :] - cf[:, None]) % f
     dh = (ch[None, :] - ch[:, None]) % h
     dw = (cw[None, :] - cw[:, None]) % w
     return (df * h * w + dh * w + dw).reshape(-1)
+
+
+def make_delta_variants(grid: tuple[int, int, int], seed: int) -> dict[str, dict[str, Any]]:
+    f, h, w = grid
+    n = f * h * w
+    rng = np.random.default_rng(int(seed))
+    random_coord = rng.permutation(n)
+    variants = {
+        "axis_hfw": {
+            "delta_flat": delta_ids_nd((h, f, w)),
+            "bins": n,
+            "description": "reinterpret flattened tokens as H x F x W instead of F x H x W",
+        },
+        "axis_fwh": {
+            "delta_flat": delta_ids_nd((f, w, h)),
+            "bins": n,
+            "description": "reinterpret flattened tokens as F x W x H instead of F x H x W",
+        },
+        "axis_whf": {
+            "delta_flat": delta_ids_nd((w, h, f)),
+            "bins": n,
+            "description": "reinterpret flattened tokens as W x H x F instead of F x H x W",
+        },
+        "reverse_coord": {
+            "delta_flat": delta_ids_from_coord_ids(grid, np.arange(n - 1, -1, -1, dtype=np.int64)),
+            "bins": n,
+            "description": "assign reversed F x H x W coordinates to token positions",
+        },
+        "random_coord": {
+            "delta_flat": delta_ids_from_coord_ids(grid, random_coord),
+            "bins": n,
+            "description": "assign deterministic random F x H x W coordinates to token positions",
+        },
+    }
+    return variants
 
 
 def bccb_metrics(matrix: np.ndarray, delta_flat: np.ndarray, bins: int) -> dict[str, float]:
@@ -134,6 +182,7 @@ def probe_head(
     actual_len: int,
     delta_flat: np.ndarray,
     bins: int,
+    delta_variants: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     qh = q[0, :actual_len, head, :].float()
     kh = k[0, :actual_len, head, :].float()
@@ -145,7 +194,7 @@ def probe_head(
     attn_np = attn.detach().cpu().numpy()
     row_max = logits.amax(dim=-1).detach().float().cpu().numpy()
     row_sum = attn.sum(dim=-1).detach().float().cpu().numpy()
-    return {
+    out = {
         "head": int(head),
         "logits": bccb_metrics(logits_np, delta_flat, bins),
         "attention": bccb_metrics(attn_np, delta_flat, bins),
@@ -153,6 +202,17 @@ def probe_head(
         "logit_rowmax_std": float(row_max.std()),
         "attention_rowsum_std": float(row_sum.std()),
     }
+    if delta_variants:
+        out["delta_perturbations"] = {}
+        for name, variant in delta_variants.items():
+            v_delta = variant["delta_flat"]
+            v_bins = int(variant["bins"])
+            out["delta_perturbations"][name] = {
+                "description": str(variant["description"]),
+                "logits": bccb_metrics(logits_np, v_delta, v_bins),
+                "attention": bccb_metrics(attn_np, v_delta, v_bins),
+            }
+    return out
 
 
 def main() -> None:
@@ -167,6 +227,8 @@ def main() -> None:
     parser.add_argument("--heads", default="0,10,20,30")
     parser.add_argument("--timestep", type=float, default=999.0)
     parser.add_argument("--seed", type=int, default=1234)
+    parser.add_argument("--perturbation-seed", type=int, default=20260707)
+    parser.add_argument("--delta-perturbations", choices=("none", "default"), default="none")
     parser.add_argument("--dtype", choices=("bfloat16", "float16", "float32"), default="bfloat16")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
@@ -227,6 +289,7 @@ def main() -> None:
     seq_len = int(np.prod(patch_grid))
     delta_flat = delta_ids_3d(patch_grid)
     bins = seq_len
+    delta_variants = make_delta_variants(patch_grid, args.perturbation_seed) if args.delta_perturbations == "default" else {}
     records: list[dict[str, Any]] = []
 
     def patched_attention(
@@ -255,7 +318,7 @@ def main() -> None:
         if attn_kind == "self" and layer_idx in layers:
             for head in heads:
                 if head < q.shape[2]:
-                    rec = probe_head(q, k, head, actual_len, delta_flat, bins)
+                    rec = probe_head(q, k, head, actual_len, delta_flat, bins, delta_variants)
                     rec.update({
                         "branch": args.branch,
                         "layer": int(layer_idx),
@@ -383,6 +446,11 @@ def main() -> None:
         "heads": heads,
         "timestep": args.timestep,
         "seed": args.seed,
+        "perturbation_seed": args.perturbation_seed,
+        "delta_perturbations": args.delta_perturbations,
+        "delta_perturbation_descriptions": {
+            name: str(variant["description"]) for name, variant in delta_variants.items()
+        },
         "dtype": args.dtype,
         "records": records,
     }
@@ -395,6 +463,23 @@ def main() -> None:
         summary["mean_logits_relative_fro_error"] = float(
             np.mean([r["logits"]["relative_fro_error"] for r in records])
         )
+        if delta_variants:
+            summary["delta_perturbation_mean_attention_cyclic_r2"] = {
+                name: float(np.mean([r["delta_perturbations"][name]["attention"]["cyclic_r2"] for r in records]))
+                for name in delta_variants
+            }
+            summary["delta_perturbation_mean_attention_relative_fro_error"] = {
+                name: float(np.mean([r["delta_perturbations"][name]["attention"]["relative_fro_error"] for r in records]))
+                for name in delta_variants
+            }
+            summary["delta_perturbation_mean_logits_cyclic_r2"] = {
+                name: float(np.mean([r["delta_perturbations"][name]["logits"]["cyclic_r2"] for r in records]))
+                for name in delta_variants
+            }
+            summary["delta_perturbation_mean_logits_relative_fro_error"] = {
+                name: float(np.mean([r["delta_perturbations"][name]["logits"]["relative_fro_error"] for r in records]))
+                for name in delta_variants
+            }
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(summary, indent=2, sort_keys=True), encoding="utf-8")
