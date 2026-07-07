@@ -1,6 +1,6 @@
 # Attention Pattern Mechanism Study
 
-Date: 2026-07-07
+Date: 2026-07-08
 
 This note extends `ANALYSIS_REPORT.md` from "can we replace attention with
 circulant/block-structured attention?" to "why do sink/outlier/local/sparse
@@ -147,9 +147,9 @@ Mechanism hypothesis:
 
 Several newer papers sharpen the mechanism interpretation:
 
-- `Attention Sinks: A 'Catch, Tag, Release' Mechanism for Embeddings` argues
-  that sinks can implement useful residual-stream bookkeeping through a catch,
-  tag, and release mechanism.
+- `Attention Sinks and Outlier Features: A 'Catch, Tag, and Release' Mechanism
+  for Embeddings` argues that sinks can implement useful residual-stream
+  bookkeeping through a catch, tag, and release mechanism.
   Source: <https://arxiv.org/abs/2502.00919>
 - `Attention Sinks Are Provably Necessary in Softmax Transformers` proves that
   softmax normalization can force a stable anchor for trigger/default behavior,
@@ -174,6 +174,24 @@ Several newer papers sharpen the mechanism interpretation:
   generation diagnosis: RoPE geometry supplies distance structure, but the
   useful approximation is sparse plus low-rank rather than pure BCCB.
   Source: <https://arxiv.org/abs/2605.20659>
+- `VMonarch` finds sparse spatio-temporal attention patterns in Video DiTs that
+  can be represented by structured Monarch matrices after minimal tuning.
+  Source: <https://arxiv.org/abs/2601.22275>
+- `MonarchRT` reports that real-time video generation attention combines
+  pronounced periodic structure, dynamic sparse semantic correspondences, and
+  dense mixing, exceeding simple oracle top-k attention. This matches the
+  current hybrid diagnosis better than a pure sparse or pure cyclic model.
+  Source: <https://arxiv.org/abs/2602.12271>
+- `MonarchAttention` gives a zero-shot Monarch-matrix attention approximation
+  for language/vision settings. It is a useful baseline family, but our
+  source-template transfer probe shows that the saved ViT/Qwen examples still
+  require target-specific sink/sparse routing rather than one static template.
+  Source: <https://arxiv.org/abs/2505.18698>
+- `Do All Vision Transformers Need Registers?` reproduces several register-token
+  findings but shows that register behavior is not universal across all ViT
+  families. This is consistent with our evidence that sink/register-like
+  patterns are head/model dependent rather than a single mandatory property.
+  Source: <https://arxiv.org/abs/2603.25803>
 
 Implication for this project:
 
@@ -183,6 +201,16 @@ Implication for this project:
 - For video DiTs, the current literature is converging toward hybrid sparse /
   low-rank / geometry-aware attention. That is more compatible with our Wan
   evidence than a universal circulant-attention replacement.
+
+### Literature-to-Evidence Alignment
+
+| Literature mechanism | Primary-source claim | Our matching evidence | Current judgment |
+|---|---|---|---|
+| Softmax sink / no-op route | StreamingLLM and Quantizable Transformers show that sinks/no-op behavior can arise from softmax and residual-update needs. | ViT top-2 column mass is high (`0.448` mean), row-argmax diversity is low (`0.081`), and dropping union routes hurts ViT head output. | Functional workaround is plausible; test with explicit null/gated/clipped-softmax routes. |
+| Register/scratch tokens | Vision-register work shows high-norm background tokens can store internal computation; 2026 reassessment warns this is not universal. | ViT behaves more sink/register-like than Qwen visual, while Qwen has stronger dynamic routing. | Treat registers as model/head dependent, not an automatic fix. |
+| Massive activations and outliers | 2026 sink/outlier papers separate massive activations from attention sinks but link both to architecture and residual dynamics. | Our current probes measure attention matrices and `A @ V`, not hidden-channel outlier dimensions. | Hidden-state outlier probes remain a missing axis before claiming sink origin. |
+| Geometric cyclic / BCCB | Circulant Attention claims ViT attention often approximates BCCB; RoPeSLR emphasizes 3D RoPE geometry for video DiTs. | Qwen/ViT BCCB fit is weak or replacement-error high; Wan true F-H-W R2 is strong and random-coordinate R2 collapses. | Geometry is strongest in Wan global 3D self-attention, not in Qwen per-frame visual attention. |
+| Sparse/global/low-rank hybrid | BigBird motivates local/global/sparse structure; VMonarch, MonarchRT, and RoPeSLR point to structured sparse + low-rank video attention. | Hybrid diagnostic beats BCCB/BCM, but transfer probe shows source templates fail and routes are target-specific. | Promising method direction is learned/calibrated hybrid routing, not static BCCB or fixed Monarch masks. |
 
 ## Existing Experimental Evidence
 

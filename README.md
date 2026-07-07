@@ -94,3 +94,16 @@
 - Interpretation: Wan's 3D cyclic signal is geometry-dependent and appears in
   both noise branches, but it is still head/layer/timestep dependent. This
   supports a gated hybrid policy rather than universal circulant attention.
+
+## 2026-07-08 Update: Literature Alignment
+
+- Updated `ATTENTION_PATTERN_MECHANISM_STUDY.md` with a source-to-mechanism
+  table connecting attention sinks, outlier features, registers, BCCB geometry,
+  and video DiT sparse/low-rank attention to the current probes.
+- Corrected the 2025 attention-sink title to `Attention Sinks and Outlier
+  Features: A 'Catch, Tag, and Release' Mechanism for Embeddings`.
+- Added recent video structured-attention context: `VMonarch`, `MonarchRT`,
+  `RoPeSLR`, and `MonarchAttention`.
+- Main conclusion is unchanged: current evidence favors learned/calibrated
+  `sink/global + local-cyclic + sparse routing`, not a static universal
+  circulant or Monarch-like mask.

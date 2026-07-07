@@ -561,6 +561,15 @@ Relation to existing work:
   that direction, but the current local hybrid probe is much weaker: it only
   decomposes saved 2D attention examples and does not implement alternating
   minimization, online updates, or video-quality evaluation.
+- MonarchRT and RoPeSLR are also aligned with the current conclusion:
+  video-generation attention has geometry/periodicity, but practical
+  acceleration needs dynamic sparse semantic routing and low-rank/global
+  structure. This supports our `sink/global + local-cyclic + sparse routing`
+  direction over a pure BCCB replacement.
+- Vision-register literature explains why visual sinks can be functional
+  scratch space, while 2026 follow-up work warns that registers are not needed
+  by every ViT family. This matches the measured split between ViT-like
+  sink/register behavior and more dynamic Qwen visual routing.
 
 Current bottlenecks and defects:
 
