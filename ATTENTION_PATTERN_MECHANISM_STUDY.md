@@ -999,10 +999,68 @@ Mechanistic interpretation:
   needs a learned/calibrated sink/global path plus a content-aware sparse router,
   not just a static circulant or static Monarch mask.
 
-Remaining gap:
+Remaining gap after this transfer probe:
 
 This still does not prove the final mechanistic distinction between functional
-inductive bias and architectural workaround. That requires task-level causal
-interventions: sink masking during real forward/loss evaluation,
-register/gate/clipped-softmax variants, RoPE-axis perturbation for Wan, and
-`V` subspace stress tests beyond random `V`.
+inductive bias and architectural workaround. It requires task-level causal
+interventions, register/gate/clipped-softmax variants, RoPE-axis perturbation
+for Wan, and `V` subspace stress tests beyond random `V`. The ViT/SCTM route
+probe below partially closes that gap for one saved ViT checkpoint, but it does
+not yet prove the analogous claim for Wan denoising or Qwen multimodal tasks.
+
+## ViT/SCTM Route Causal Probe
+
+Script:
+
+- `scripts/vit_sctm_route_causal_probe.py`
+
+Outputs:
+
+- `remote_logs/vit_sctm_route_causal_20260708.json/csv`
+- `figures/fig20_vit_sctm_route_causal.png/pdf`
+
+The JSON records the global seed, per-variant seeds, random-control repeats,
+probe-script hash, checkpoint hash, and key original ViT/SCTM source hashes.
+
+This probe is intentionally different from the earlier dense-attention
+diagnostics. It loads the saved ViT-LGN/SCTM checkpoint from the original 210
+workspace and evaluates the real model forward path: SCTM top-k CLS-to-patch
+route selection, selected-value aggregation, auxiliary accumulator, local patch
+path, logic FFN, residual stack, and classifier head. The intervention edits
+the selected-route weights after top-k and before value aggregation, then
+measures CIFAR-10 cross-entropy, accuracy, logit perturbation, confidence drop,
+and prediction flips.
+
+Results on 256 CIFAR-10 test samples:
+
+| Variant | Loss | Accuracy | Loss delta | Accuracy delta | Logit L2 delta | Baseline-pred prob drop | Prediction flip |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Baseline | 1.235 | 0.559 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
+| Drop top-1 selected route | 1.449 | 0.504 | 0.214 | -0.055 | 2.611 | 0.072 | 0.242 |
+| Drop top-2 selected routes | 1.656 | 0.453 | 0.421 | -0.105 | 3.740 | 0.135 | 0.355 |
+| Drop weakest selected route | 1.237 | 0.578 | 0.001 | 0.020 | 0.604 | 0.004 | 0.066 |
+| Drop random selected route, 8-seed mean | 1.258 | 0.547 | 0.023 +/- 0.024 | -0.011 | 1.414 | 0.024 | 0.144 |
+| Zero all selected routes | 4.621 | 0.102 | 3.386 | -0.457 | 9.771 | 0.483 | 0.836 |
+
+Baseline route diagnostics:
+
+- Mean per-block route entropy is high but not uniform (`0.892` normalized),
+  and mean top-patch mass is `0.064`, so the effect is not explained by a
+  single always-selected patch.
+- The selected-route weights are rank-sensitive: the top selected route carries
+  about `0.248` weight on average. Removing this route is much more damaging
+  than removing the weakest selected route or one random selected route.
+
+Mechanistic interpretation:
+
+- The ordered sparse routes in the actual SCTM model are task-functional.
+  Top-ranked routes are not merely visual attention artifacts or replaceable
+  no-op tokens; removing them changes logits and labels.
+- The random-route control is important: deleting one random selected route,
+  averaged over 8 seeds, is much less damaging than deleting the top-ranked
+  route. The route rank produced by the model's score path is carrying useful
+  information.
+- This is still a small-batch intervention on a saved CIFAR-10 ViT/SCTM model.
+  It strengthens the ViT side of the evidence, but the video-generation side
+  still needs a denoising-loss or sample-quality intervention on Wan selected
+  heads/timesteps before recommending a deployable replacement.

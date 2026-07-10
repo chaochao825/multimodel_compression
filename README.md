@@ -123,3 +123,24 @@
 - Interpretation: sinks are functional partial-update/scratch routes in these
   heads, not pure noise; causal task-loss masking remains the next missing
   test.
+
+## 2026-07-10 Update: ViT/SCTM Route Causal Probe
+
+- New script: `scripts/vit_sctm_route_causal_probe.py`.
+- New outputs: `remote_logs/vit_sctm_route_causal_20260708.json/csv`.
+- New figure: `figures/fig20_vit_sctm_route_causal.png/pdf`.
+- This probe uses the actual saved ViT-LGN/SCTM checkpoint forward path rather
+  than the earlier dense-attention proxy: SCTM top-k route selection, value
+  aggregation, auxiliary accumulator, logic FFN, classifier head, and CIFAR-10
+  CE loss are all active.
+- On 256 CIFAR-10 test samples, baseline loss/accuracy are `1.235/0.559`.
+  Dropping the strongest selected route raises loss by `0.214`, drops accuracy
+  by `0.055`, and flips `24.2%` of predictions. Dropping the weakest selected
+  route changes loss by only `0.001`; the one-random-selected-route control,
+  averaged over 8 seeds, changes loss by `0.023 +/- 0.024`.
+- Dropping the top two selected routes raises loss by `0.421`; zeroing all SCTM
+  CLS routes raises loss by `3.386` and reduces accuracy to `0.102`.
+- Interpretation: in this ViT/SCTM model, the ranked selected CLS-to-patch
+  routes are task-functional. This upgrades the ViT evidence from matrix/output
+  proxy diagnostics to a small-batch task-level causal intervention, while Wan
+  denoising-loss and Qwen multimodal task causal probes remain open.

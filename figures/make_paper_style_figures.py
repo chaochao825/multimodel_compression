@@ -1167,6 +1167,95 @@ def figure_sink_noop_correlation() -> None:
     save(fig, "fig19_sink_noop_correlation")
 
 
+def figure_vit_sctm_route_causal() -> None:
+    data = json.loads((LOG_DIR / "vit_sctm_route_causal_20260708.json").read_text(encoding="utf-8"))
+    rows = data["rows"]
+    route_stats = data["route_stats"]
+    variants = [row["variant"] for row in rows if row["variant"] != "baseline"]
+    lookup = {row["variant"]: row for row in rows}
+    label_map = {
+        "drop_top1": "drop\ntop-1",
+        "drop_top2": "drop\ntop-2",
+        "drop_tail1": "drop\nweakest",
+        "drop_random1": "drop\nrandom",
+        "zero_all": "zero\nroutes",
+    }
+    labels = []
+    for name in variants:
+        label = label_map.get(name, name.replace("_", "\n"))
+        repeats = int(lookup[name].get("random_repeats", 1))
+        if name == "drop_random1" and repeats > 1:
+            label = f"{label}\nx{repeats}"
+        labels.append(label)
+    loss_delta = np.array([float(lookup[name]["loss_delta_vs_baseline"]) for name in variants])
+    loss_delta_yerr = np.array([float(lookup[name].get("loss_delta_std_vs_baseline", 0.0)) for name in variants])
+    acc_delta = np.array([float(lookup[name]["acc_delta_vs_baseline"]) for name in variants])
+    logit_delta = np.array([float(lookup[name]["mean_logit_l2_delta"]) for name in variants])
+    prob_drop = np.array([float(lookup[name]["mean_baseline_pred_prob_drop"]) for name in variants])
+    flip = np.array([float(lookup[name]["pred_flip_rate"]) for name in variants])
+
+    blocks = [int(row["block"]) for row in route_stats]
+    top_patch_mass = np.array([float(row["mean_top_patch_mass"]) for row in route_stats])
+    entropy_norm = np.array([float(row["mean_route_entropy_norm"]) for row in route_stats])
+    top1_weight = np.array([float(row["mean_top1_selected_weight"]) for row in route_stats])
+
+    fig, axes = plt.subplots(1, 3, figsize=(10.2, 3.2), constrained_layout=True)
+    x = np.arange(len(variants))
+    colors = ["#4C78A8", "#E45756", "#72B7B2", "#F58518", "#54A24B"][: len(variants)]
+    bars = axes[0].bar(x, loss_delta, yerr=loss_delta_yerr, capsize=2.5, color=colors, alpha=0.82)
+    axes[0].axhline(0, color="#777777", lw=0.7)
+    axes[0].set_title("Task loss after route intervention")
+    axes[0].set_ylabel("CE loss delta vs baseline")
+    axes[0].set_xticks(x)
+    axes[0].set_xticklabels(labels)
+    axes[0].grid(axis="y", color="#e6e6e6", lw=0.6)
+    for bar, val in zip(bars, loss_delta):
+        axes[0].text(bar.get_x() + bar.get_width() / 2, val + 0.004, f"{val:.3f}", ha="center", va="bottom", fontsize=6.2)
+
+    width = 0.25
+    axes[1].bar(x - width, logit_delta, width=width, color="#4C78A8", alpha=0.82, label="logit L2")
+    axes[1].bar(x, prob_drop, width=width, color="#E45756", alpha=0.82, label="baseline-pred prob drop")
+    axes[1].bar(x + width, flip, width=width, color="#72B7B2", alpha=0.82, label="prediction flip")
+    axes[1].set_title("Logit/probability perturbation")
+    axes[1].set_ylabel("Mean per sample")
+    axes[1].set_xticks(x)
+    axes[1].set_xticklabels(labels)
+    axes[1].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[1].legend(frameon=False, fontsize=6.7)
+
+    xb = np.arange(len(blocks))
+    axes[2].bar(xb - width, top_patch_mass, width=width, color="#756BB1", alpha=0.82, label="top patch mass")
+    axes[2].bar(xb, 1.0 - entropy_norm, width=width, color="#F58518", alpha=0.82, label="1 - route entropy")
+    axes[2].bar(xb + width, top1_weight, width=width, color="#54A24B", alpha=0.82, label="top-1 route weight")
+    axes[2].set_title("Baseline SCTM route concentration")
+    axes[2].set_ylabel("Fraction / normalized score")
+    axes[2].set_xticks(xb)
+    axes[2].set_xticklabels([str(block) for block in blocks])
+    axes[2].set_xlabel("Block")
+    axes[2].set_ylim(0, max(0.42, float(max(top_patch_mass.max(), (1.0 - entropy_norm).max(), top1_weight.max())) * 1.18))
+    axes[2].grid(axis="y", color="#e6e6e6", lw=0.6)
+    axes[2].legend(frameon=False, fontsize=6.5)
+
+    baseline = next(row for row in rows if row["variant"] == "baseline")
+    summary = data["summary"]
+    random_std = float(summary.get("drop_random1_loss_delta_std", 0.0))
+    random_repeats = int(summary.get("drop_random1_repeats", 1))
+    fig.text(
+        0.5,
+        -0.06,
+        f"Actual saved ViT/SCTM forward path on {int(baseline['samples'])} CIFAR-10 samples. "
+        f"Baseline acc={float(baseline['acc']):.3f}, loss={float(baseline['loss']):.3f}. "
+        f"Random selected-route control is mean over {random_repeats} seeds (loss-delta std={random_std:.3f}); "
+        f"top-1 minus random mean loss delta={float(summary['drop_top1_minus_random1_loss_delta']):.3f}. "
+        "This is a task-level intervention on selected SCTM routes, not a dense-attention matrix proxy.",
+        ha="center",
+        fontsize=7,
+        color="#444444",
+    )
+    fig.text(0.01, 0.985, "(t)", weight="bold", fontsize=9)
+    save(fig, "fig20_vit_sctm_route_causal")
+
+
 def main() -> int:
     setup_style()
     rows = load_probe_rows()
@@ -1188,6 +1277,7 @@ def main() -> int:
     figure_hybrid_transfer_probe()
     figure_wan_noise_branch_stability()
     figure_sink_noop_correlation()
+    figure_vit_sctm_route_causal()
     print(f"Wrote figures to {OUT_DIR}")
     return 0
 

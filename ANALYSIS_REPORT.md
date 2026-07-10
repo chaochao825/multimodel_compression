@@ -818,3 +818,18 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
     (`r=0.775`), but true-`V` vs random-`V` union error also correlates strongly
     (`r=0.852`), consistent with additional value-subspace and dynamic-routing
     effects. This is correlation evidence, not task-loss causality.
+14. The 2026-07-10 ViT/SCTM route causal probe adds the first task-level
+    intervention evidence for this repository. On the actual saved
+    ViT-LGN/SCTM checkpoint, evaluated through the real SCTM top-k route
+    selection, auxiliary accumulator, logic FFN, and classifier path, baseline
+    CIFAR-10 loss/accuracy over 256 test samples are `1.235/0.559`. Dropping
+    the strongest selected CLS-to-patch route raises loss by `0.214`, reduces
+    accuracy by `0.055`, and flips `24.2%` of predictions; dropping the weakest
+    selected route changes loss by only `0.001`, and the one-random-selected
+    route control averaged over 8 seeds changes loss by `0.023 +/- 0.024`.
+    Dropping the top two selected routes raises loss by `0.421`; zeroing all
+    selected SCTM CLS routes raises loss by `3.386` and reduces accuracy to
+    `0.102`. This supports the mechanism claim that the ranked SCTM sparse
+    routes are functional, not just visualization artifacts. It does not yet
+    close the analogous task-level causal question for Wan denoising or Qwen
+    multimodal understanding.
