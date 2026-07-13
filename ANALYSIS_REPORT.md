@@ -833,3 +833,196 @@ ambiguity, and reproducibility metadata gaps. Actions taken:
     routes are functional, not just visualization artifacts. It does not yet
     close the analogous task-level causal question for Wan denoising or Qwen
     multimodal understanding.
+
+## 2026-07-12: Orthogonality and Compression-Loss Audit
+
+The hybrid decomposition was explicitly tested rather than assumed to be
+orthogonal. Across the four representative matrices, no example satisfies the
+declared near-orthogonality thresholds. The mean pairwise Frobenius cosine is
+`0.086` and the maximum is `0.334`; component mass overlap reaches `0.877` in
+the worst case. Re-fitting all 24 component orders changes relative
+reconstruction error by `0.144` on average and by up to `0.171`. Factorial
+interactions are also non-negligible (mean absolute interaction `0.448`). Thus
+the components are useful explanatory routes, but they are neither geometrically
+nor interventionally independent. Claims should use the measured sequential
+order and should not add isolated component gains as if they were orthogonal.
+
+The block-scale loss landscape provides a more favorable but narrower result.
+For block size four, one shared cyclic kernel has mean relative Frobenius error
+`0.941`; adding a rank-1 field of block scales lowers it to `0.753`, versus
+`0.690` for independent block kernels. The scale field recovers about `75.7%`
+of the shared-to-independent MSE gap while using `6.29%` of dense-FP16 payload,
+compared with about `25%` for independent kernels. The fixed-kernel gamma sweep
+has its minimum near `gamma=1`, and re-optimization gives a broad minimum near
+`gamma=0.75--1.0`. This supports scale as a high-reuse amplitude parameter, but
+does not make the underlying block kernel a faithful standalone approximation.
+
+At a nominal 25% payload cap, order is decisive. With the same block-scale
+backbone, exact FP16 sparse repair gives NRMSE `0.15136` when the backbone is
+fit first and `0.02475` when high-value sparse components are selected first.
+The corresponding low-rank component-first result is `0.09006`. This is why
+the parameter-efficiency conclusion is not simply "add more structured rank":
+protecting rare high-value directions before fitting the diffuse tail is more
+valuable on the sampled matrices.
+
+## 2026-07-12: Small-Parameter Repair for Sparsity and Pruning
+
+The closest pruning analogue of quantization scale is a low-dimensional state
+that preserves the total contribution of many removed values. For a retained
+row support `Omega_i`, write the kept mass as `m_i` and its normalized shape as
+`p_i`. A mass-preserving reconstruction is
+
+\[
+\hat A_i=m_i\hat p_i+(1-m_i)t_i,
+\]
+
+where `t_i` is a uniform or shared-prior distribution over the removed support.
+This separates amplitude/mass error, which a small scale can repair, from
+support/direction error, which it cannot.
+
+The parameter-efficiency comparisons support this distinction:
+
+- At 10% row top-k, plain renormalization gives mean NRMSE `0.42592`. A single
+  FP16 global tail gate reaches `0.06941` for only `0.011%` extra dense-FP16
+  payload. Exact kept values plus a derived uniform tail require no extra
+  stored parameters and reach `0.03746`.
+- A shared FP16 column prior reaches `0.02359 @ 15.31%`; spending nearly the
+  same bits on extra COO nonzeros gives `0.38384`. The diffuse tail has much
+  higher parameter reuse as a template than as isolated coordinates.
+- For a 10% q4 sparse shape, adding per-row mass and a uniform tail improves
+  NRMSE from `0.44362 @ 6.98%` to `0.04345 @ 7.89%`; one shared column prior
+  reaches `0.02959 @ 8.79%`.
+- At 10% block keep, storing one FP16 mass for every pruned 4x4 block improves
+  NRMSE from `0.75157 @ 11.29%` to `0.07451 @ 16.85%`. Using the same added
+  bits to retain more complete blocks only reaches `0.44165`.
+- Under an approximately 25% cap, component-first q4 sparse repair with
+  per-row loss-aware scales reaches `0.00837`; q4 query-block scales with four
+  stages of sequential error feedback reach `0.01100 @ 23.58%` with fewer
+  scale values.
+  Low-bit coding nearly doubles mean sparse support relative to FP16 under the
+  same budget.
+
+Two negative controls delimit the claim. A common row scale is mathematically
+removed by subsequent row normalization (the measured FP16/roundoff loss
+difference is below `6.4e-8`), and scaling only the retained support worsens
+the 10% top-k result to `0.55767` because no missing direction is restored.
+Effective scales must control a sparse branch relative to a backbone/tail
+branch, or must be paired with an explicit missing-mass template. Loss-aware
+scales can also have poor raw-amplitude fidelity even when normalized loss is
+low; they are valid only when deployment executes the same normalization.
+The implementation folds each selected gain into the already counted FP16
+value or group scale and rounds it back to FP16. Multi-stage repair uses
+sequential coordinate updates with gain one retained as a candidate, so the
+represented normalized loss cannot worsen at an update solely because of an
+unrepresentable float64 product or simultaneous scale replacement.
+The loss-aware search is nevertheless bounded to gains in `[0,3]` at `0.05`
+spacing. Of 954 loss-aware result rows, 276 have at least one reported maximum
+gain at the upper boundary; this includes four of eight 25%-cap,
+component-first q4 per-row cases. These are bounded candidates, not
+unconstrained optima. Boundary saturation cannot create a false improvement,
+but can underestimate the best attainable gain and motivates regularized
+calibration over a wider range.
+
+The practical order of preference is therefore: mass-conserving uniform tail;
+row mass plus a shared prior for low-bit sparse attention; component-first q4
+sparse outliers plus query-block scale and two to four error-feedback stages;
+and, for a minimal deployment, one calibrated sparse gain per layer or head.
+Adding nonzeros should be preferred only when the removed residual is itself
+sparse. Full derivations, tables, limitations, and reproduction commands are in
+`SPARSITY_REPAIR_ANALYSIS.md`.
+
+All new sparse-repair results are target-fitted attention-space diagnostics on
+eight hand-picked maps from four source inputs. They do not yet validate static
+model-weight pruning, frozen support prediction, `A @ V`, task loss, serialized
+payload, kernel latency, or end-to-end speedup. Those are required before a
+deployment claim.
+
+## 2026-07-12: Hessian-Orthogonal Combination Compression
+
+The relevant orthogonality object is the compression error
+`delta=C(A)-A`, not the positive fitted component itself. For two fixed
+perturbations, second-order additivity requires
+
+\[
+\rho_H(d_i,d_j)=
+\frac{d_i^T H d_j}
+{\sqrt{d_i^T H d_i}\sqrt{d_j^T H d_j}}
+\approx 0.
+\]
+
+This condition is only meaningful for a declared PSD metric and a fixed local
+path. Discrete masks/codes must be frozen, the first-order term must be small or
+reported separately, and the endpoint must stay inside the range where the
+quadratic Taylor model is accurate.
+
+The representative compression-error Gram shows why the metric matters. Under
+the Frobenius metric (equivalently the constant-Hessian metric of squared
+NRMSE), structured--pruning, pruning--quantization, and
+structured--quantization mean cosines are `0.095`, `0.088`, and `0.797`.
+Under the local KL Hessian with probability floor `1e-8`, they are `0.298`,
+`0.135`, and `0.659`. Structured and quantized block-kernel errors are therefore
+strongly redundant in both metrics, while pruning and quantization are the most
+promising pair. A Frobenius-near-orthogonal result does not imply KL or task
+orthogonality.
+
+For pruning followed by retained-weight quantization, full survivor correction
+has an exact quadratic construction. With pruned coordinates `P` and retained
+coordinates `R`, choose
+
+\[
+d_R^*=H_{RR}^{-1}H_{RP}\theta_P.
+\]
+
+Then `H_RP d_P + H_RR d_R*=0`, so the corrected pruning residual is
+Hessian-orthogonal to every later perturbation supported only on `R`. The
+softmax-logit experiment uses a damped Fisher Hessian and evaluates this
+correction with a diagonal-minus-rank-one solve. Across 1,408 configurations
+per variant, full OBS gives mean `|rho_H|=4.38e-17` and maximum `1.53e-15`,
+compared with `4.00e-3` for naive max-scale quantization. A bounded cross-null
+folded scale reaches mean `9.97e-4` without extra payload, but its maximum is
+`0.0607` and `0.241%` of scales hit a bound, so it is only approximate. The
+total-Hessian-loss-optimal folded scale has larger mean correlation (`0.124`)
+while attaining the lowest mean local loss (`0.0474`).
+Orthogonality removes interference; it does not forbid useful calibrated error
+cancellation and is not by itself the endpoint objective.
+
+Matched-rate results support a narrower conditional comfort-zone advantage.
+The single-method family now contains every integer `q2..q12` codec and
+realizable row-wise `q/(q+1)` mixed precision, and a comparison is reported only
+when a single codec uses at least 99% of the combination's ideal-packed bit
+budget. With both endpoints passing the Taylor-ratio check, the robust point is
+`24.03%` actual payload: combination wins 8/8 maps and 4/4 sources. The equal
+mean of per-map relative Hessian and same-codec endpoint-KL gains is `49.2%`
+and `44.0%`; averaging those per-map gains within each source and then equally
+across sources gives `45.6%` and `41.2%`. At `19.34%`, only 6/8 maps and
+3/4 sources pass the endpoint check. At `28.44%`, the equal mean of per-map
+Hessian relative gains is only `+1.0%`, endpoint KL is `-8.3%`, and both source-balanced gains are
+negative. From `34.61%` onward, the best single method wins decisively.
+
+At the most stable point in this discrete target-fitted grid (without held-out
+selection correction), every single-method winner is dense mixed `q3/q4`,
+whereas the combination prunes `35%..70%` of low-sensitivity coordinates and
+spends `q4..q9` on the survivors. The gain is therefore a parameter-utilization
+effect: support savings buy precision on high-Hessian-energy coordinates, while
+OBS or folded scales repair sensitive residual directions. It is not a claim
+that orthogonality alone guarantees improvement or that 24% is a universal
+knee.
+
+The error-Gram means weight the eight maps equally, and the repair-variant
+means weight all map/configuration rows equally. Because the source counts are
+`2/1/1/4`, those two summaries are not source-balanced; the matched-rate
+headline reports both per-map and source-balanced relative gains.
+
+If the individual rate-distortion curves are locally convex and errors are
+Hessian-orthogonal, optimal allocation equalizes marginal Hessian loss per bit.
+For two identical quadratic curves, splitting log-compression evenly halves
+the second-order loss; with correlation `rho`, the idealized ratio becomes
+`(1+rho)/2`. Strict advantage disappears when the methods damage the same
+curvature direction, when rate-distortion is linear/concave, when metadata
+overhead dominates, or when the endpoint leaves the Taylor trust region.
+
+These results use eight target-fitted attention maps from four source inputs.
+They do not yet measure model-weight Hessians, held-out CE/accuracy, serialized
+payload, or latency. The next required validation is projected GGN on fixed
+`v_proj/out_proj` perturbations plus true-CE mixed finite differences and both
+composition orders on the saved ViT/SCTM checkpoint.

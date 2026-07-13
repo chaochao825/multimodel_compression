@@ -1,0 +1,97 @@
+key,label,map_id,family,source_input_id,left,right,metric,probability_floor,hessian_cosine
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,pruning,frobenius_hessian,,0.0055294201659612
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,pruning,local_kl_hessian,1e-08,0.06062525916173824
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,pruning,local_kl_hessian,1e-06,0.048882753214440106
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,pruning,local_kl_hessian,0.0001,0.04860730473996354
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,quantization,frobenius_hessian,,0.9827174821972704
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,quantization,local_kl_hessian,1e-08,0.951898608373119
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,quantization,local_kl_hessian,1e-06,0.9485442115617232
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,structured,quantization,local_kl_hessian,0.0001,0.9483518580431711
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,pruning,quantization,frobenius_hessian,,0.0032971723099599944
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,pruning,quantization,local_kl_hessian,1e-08,0.060349630320455316
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,pruning,quantization,local_kl_hessian,1e-06,0.04765705202925601
+vit_ex0,ViT L0 H0,vit:s0:l0:h0,vit,vit:s0,pruning,quantization,local_kl_hessian,0.0001,0.049732934534769874
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,pruning,frobenius_hessian,,0.4567502362452214
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,pruning,local_kl_hessian,1e-08,0.7818298879084435
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,pruning,local_kl_hessian,1e-06,0.3822250430801881
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,pruning,local_kl_hessian,0.0001,0.45491819437295783
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,quantization,frobenius_hessian,,0.9762921830240797
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,quantization,local_kl_hessian,1e-08,0.7123069698914533
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,quantization,local_kl_hessian,1e-06,0.930412354787289
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,structured,quantization,local_kl_hessian,0.0001,0.9455921150024016
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,pruning,quantization,frobenius_hessian,,0.4172963667954909
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,pruning,quantization,local_kl_hessian,1e-08,0.3534490549804187
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,pruning,quantization,local_kl_hessian,1e-06,0.2588553746042623
+vit_ex1,ViT L5 H0,vit:s0:l5:h0,vit,vit:s0,pruning,quantization,local_kl_hessian,0.0001,0.34612901409856206
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,pruning,frobenius_hessian,,0.15511799225976547
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,pruning,local_kl_hessian,1e-08,0.4323286983558124
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,pruning,local_kl_hessian,1e-06,0.4323286983558124
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,pruning,local_kl_hessian,0.0001,0.4331522426437974
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,quantization,frobenius_hessian,,0.8454042024275793
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,quantization,local_kl_hessian,1e-08,0.708867446332912
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,quantization,local_kl_hessian,1e-06,0.708867446332912
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,structured,quantization,local_kl_hessian,0.0001,0.7090355361462861
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,pruning,quantization,frobenius_hessian,,0.10364252791016611
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,pruning,quantization,local_kl_hessian,1e-08,0.2661044019528877
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,pruning,quantization,local_kl_hessian,1e-06,0.2661044019528877
+qwen_ex0,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,qwen3vl_visual,qwen:v0,pruning,quantization,local_kl_hessian,0.0001,0.2681707286807391
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,pruning,frobenius_hessian,,0.019084733116783676
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,pruning,local_kl_hessian,1e-08,0.18830858109469933
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,pruning,local_kl_hessian,1e-06,0.15093210121715192
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,pruning,local_kl_hessian,0.0001,0.16352501873248723
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,quantization,frobenius_hessian,,0.899399830973073
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,quantization,local_kl_hessian,1e-08,0.7402399400166072
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,quantization,local_kl_hessian,1e-06,0.7690026329202715
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,structured,quantization,local_kl_hessian,0.0001,0.8051860972748266
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,pruning,quantization,frobenius_hessian,,0.031030887133001492
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,pruning,quantization,local_kl_hessian,1e-08,0.10055821007899524
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,pruning,quantization,local_kl_hessian,1e-06,0.09304021949554338
+qwen_ex1,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,qwen3vl_visual,qwen:v2,pruning,quantization,local_kl_hessian,0.0001,0.10664331210267836
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,pruning,frobenius_hessian,,0.04160410843309884
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-08,0.23818169753131982
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-06,0.23818169753131982
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,0.0001,0.1786401119870234
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,quantization,frobenius_hessian,,0.35863645953528617
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-08,0.2644414249257729
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-06,0.2644414249257729
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,0.0001,0.3002114395678005
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,pruning,quantization,frobenius_hessian,,0.03233880571950226
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-08,-0.013759858406968948
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-06,-0.013759858406968948
+qwen_extra_layer0_head2_frame0,Qwen VP4 L0 H2 F0,qwen:v1:f0:l0:h2,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,0.0001,-0.014701124083473616
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,pruning,frobenius_hessian,,0.011614610406674273
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-08,0.19722592589588656
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-06,0.19722592589588656
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,0.0001,0.19141004538706108
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,quantization,frobenius_hessian,,0.7330711059040744
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-08,0.6151152091809707
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-06,0.6151152091809707
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,0.0001,0.6179793661882279
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,pruning,quantization,frobenius_hessian,,0.021599238907992407
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-08,0.06129392587661078
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-06,0.06129392587661078
+qwen_extra_layer8_head0_frame1,Qwen VP4 L8 H0 F1,qwen:v1:f1:l8:h0,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,0.0001,0.06465078122466693
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,pruning,frobenius_hessian,,-0.005507828531892749
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-08,0.15984579722507988
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-06,0.15975666521717383
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,0.0001,0.16182035203545378
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,quantization,frobenius_hessian,,0.8508527101583996
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-08,0.6756683833033105
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-06,0.6757703135250669
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,0.0001,0.7131631094483537
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,pruning,quantization,frobenius_hessian,,0.01179127722052425
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-08,0.09638631729832745
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-06,0.09639447876453561
+qwen_extra_layer16_head1_frame0,Qwen VP4 L16 H1 F0,qwen:v1:f0:l16:h1,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,0.0001,0.10107861747245929
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,pruning,frobenius_hessian,,0.07905445948505588
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-08,0.32287548745151384
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,1e-06,0.32287548745151384
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,pruning,local_kl_hessian,0.0001,0.33292601956153245
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,quantization,frobenius_hessian,,0.7275136558910265
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-08,0.6030507146341757
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,1e-06,0.6030507146341757
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,structured,quantization,local_kl_hessian,0.0001,0.571013756891634
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,pruning,quantization,frobenius_hessian,,0.08520698289784229
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-08,0.15829759397810306
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,1e-06,0.15829759397810306
+qwen_extra_layer26_head5_frame0,Qwen VP4 L26 H5 F0,qwen:v1:f0:l26:h5,qwen3vl_visual,qwen:v1,pruning,quantization,local_kl_hessian,0.0001,0.1679136741442397

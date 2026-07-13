@@ -1,0 +1,65 @@
+key,label,map_id,subset_mask,subset,component_count,relative_fro_error,utility_one_minus_error
+ex0,ViT L0 H0,vit:s0:l0:h0,0,empty,0,1.0,0.0
+ex0,ViT L0 H0,vit:s0:l0:h0,1,sink,1,0.2859022494300922,0.7140977505699078
+ex0,ViT L0 H0,vit:s0:l0:h0,2,global_svd,1,1.2962435415081035,-0.2962435415081035
+ex0,ViT L0 H0,vit:s0:l0:h0,3,sink+global_svd,2,0.04458168248056865,0.9554183175194313
+ex0,ViT L0 H0,vit:s0:l0:h0,4,local_cyclic,1,1.0689630271655761,-0.06896302716557612
+ex0,ViT L0 H0,vit:s0:l0:h0,5,sink+local_cyclic,2,0.26036879204766405,0.739631207952336
+ex0,ViT L0 H0,vit:s0:l0:h0,6,global_svd+local_cyclic,2,1.101692039389681,-0.10169203938968097
+ex0,ViT L0 H0,vit:s0:l0:h0,7,sink+global_svd+local_cyclic,3,0.04434564412259708,0.9556543558774029
+ex0,ViT L0 H0,vit:s0:l0:h0,8,sparse_routing,1,1.427758119711482,-0.4277581197114819
+ex0,ViT L0 H0,vit:s0:l0:h0,9,sink+sparse_routing,2,0.22906258542618702,0.770937414573813
+ex0,ViT L0 H0,vit:s0:l0:h0,10,global_svd+sparse_routing,2,1.3146268039827842,-0.3146268039827842
+ex0,ViT L0 H0,vit:s0:l0:h0,11,sink+global_svd+sparse_routing,3,0.035637007822530535,0.9643629921774695
+ex0,ViT L0 H0,vit:s0:l0:h0,12,local_cyclic+sparse_routing,2,1.07908790837548,-0.07908790837548008
+ex0,ViT L0 H0,vit:s0:l0:h0,13,sink+local_cyclic+sparse_routing,3,0.21350249770258647,0.7864975022974136
+ex0,ViT L0 H0,vit:s0:l0:h0,14,global_svd+local_cyclic+sparse_routing,3,1.1113205554408545,-0.11132055544085451
+ex0,ViT L0 H0,vit:s0:l0:h0,15,sink+global_svd+local_cyclic+sparse_routing,4,0.03783255766426768,0.9621674423357324
+ex1,ViT L5 H0,vit:s0:l5:h0,0,empty,0,1.0,0.0
+ex1,ViT L5 H0,vit:s0:l5:h0,1,sink,1,2.625824004793856,-1.6258240047938561
+ex1,ViT L5 H0,vit:s0:l5:h0,2,global_svd,1,0.6283894547480781,0.37161054525192194
+ex1,ViT L5 H0,vit:s0:l5:h0,3,sink+global_svd,2,0.13775630450085674,0.8622436954991433
+ex1,ViT L5 H0,vit:s0:l5:h0,4,local_cyclic,1,1.5763566777345706,-0.5763566777345706
+ex1,ViT L5 H0,vit:s0:l5:h0,5,sink+local_cyclic,2,1.6231861547387356,-0.6231861547387356
+ex1,ViT L5 H0,vit:s0:l5:h0,6,global_svd+local_cyclic,2,0.5876786486836764,0.41232135131632364
+ex1,ViT L5 H0,vit:s0:l5:h0,7,sink+global_svd+local_cyclic,3,0.14179517764014293,0.8582048223598571
+ex1,ViT L5 H0,vit:s0:l5:h0,8,sparse_routing,1,2.9627695043966367,-1.9627695043966367
+ex1,ViT L5 H0,vit:s0:l5:h0,9,sink+sparse_routing,2,2.4304517321413805,-1.4304517321413805
+ex1,ViT L5 H0,vit:s0:l5:h0,10,global_svd+sparse_routing,2,0.6285588251094065,0.3714411748905935
+ex1,ViT L5 H0,vit:s0:l5:h0,11,sink+global_svd+sparse_routing,3,0.13198738628578296,0.868012613714217
+ex1,ViT L5 H0,vit:s0:l5:h0,12,local_cyclic+sparse_routing,2,1.4579223387787998,-0.45792233877879984
+ex1,ViT L5 H0,vit:s0:l5:h0,13,sink+local_cyclic+sparse_routing,3,1.5412690194484904,-0.5412690194484904
+ex1,ViT L5 H0,vit:s0:l5:h0,14,global_svd+local_cyclic+sparse_routing,3,0.58668515530116,0.41331484469883994
+ex1,ViT L5 H0,vit:s0:l5:h0,15,sink+global_svd+local_cyclic+sparse_routing,4,0.1341729889786571,0.8658270110213429
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,0,empty,0,1.0,0.0
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,1,sink,1,2.777450308525695,-1.7774503085256952
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,2,global_svd,1,0.7763785126069738,0.22362148739302623
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,3,sink+global_svd,2,0.6477958511339528,0.35220414886604723
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,4,local_cyclic,1,1.6394864401659972,-0.6394864401659972
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,5,sink+local_cyclic,2,1.2910957802418999,-0.29109578024189986
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,6,global_svd+local_cyclic,2,0.6374502139372088,0.3625497860627912
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,7,sink+global_svd+local_cyclic,3,0.4560641932897141,0.543935806710286
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,8,sparse_routing,1,2.629506531175625,-1.629506531175625
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,9,sink+sparse_routing,2,1.8055736002659497,-0.8055736002659497
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,10,global_svd+sparse_routing,2,0.7061747967925395,0.29382520320746053
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,11,sink+global_svd+sparse_routing,3,0.48762468837710676,0.5123753116228933
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,12,local_cyclic+sparse_routing,2,1.2970340651304642,-0.29703406513046415
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,13,sink+local_cyclic+sparse_routing,3,0.9915229632533807,0.00847703674661926
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,14,global_svd+local_cyclic+sparse_routing,3,0.5445584968172696,0.45544150318273036
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,15,sink+global_svd+local_cyclic+sparse_routing,4,0.2904636069237809,0.7095363930762191
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,0,empty,0,1.0,0.0
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,1,sink,1,1.0062769509324287,-0.006276950932428749
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,2,global_svd,1,0.9985584055466352,0.0014415944533647806
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,3,sink+global_svd,2,0.36841893335582715,0.6315810666441728
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,4,local_cyclic,1,1.2550506454838564,-0.25505064548385636
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,5,sink+local_cyclic,2,0.7182284462531877,0.2817715537468123
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,6,global_svd+local_cyclic,2,0.9813145601467107,0.0186854398532893
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,7,sink+global_svd+local_cyclic,3,0.3032026995385852,0.6967973004614147
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,8,sparse_routing,1,1.2909766498969828,-0.2909766498969828
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,9,sink+sparse_routing,2,0.5284358343706727,0.47156416562932735
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,10,global_svd+sparse_routing,2,1.0134705329828717,-0.013470532982871708
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,11,sink+global_svd+sparse_routing,3,0.15410263199572583,0.8458973680042742
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,12,local_cyclic+sparse_routing,2,1.0969225708779957,-0.09692257087799572
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,13,sink+local_cyclic+sparse_routing,3,0.4314856901948525,0.5685143098051475
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,14,global_svd+local_cyclic+sparse_routing,3,0.9620083481859518,0.03799165181404818
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,15,sink+global_svd+local_cyclic+sparse_routing,4,0.12489091364066694,0.875109086359333

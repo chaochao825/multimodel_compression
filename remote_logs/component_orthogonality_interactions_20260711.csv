@@ -1,0 +1,97 @@
+key,label,map_id,left,right,background_mask,background,background_size,interaction,is_empty_context,is_full_context
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,global_svd,0,empty,0,0.537564108457627,True,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,global_svd,4,local_cyclic,1,0.24875216014917179,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,global_svd,8,sparse_routing,1,0.0802942618749587,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,global_svd,12,local_cyclic+sparse_routing,2,0.20790258710369325,False,True
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,local_cyclic,0,empty,0,0.0944964845480043,True,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,local_cyclic,2,global_svd,1,-0.19431546376045095,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,local_cyclic,8,sparse_routing,1,-0.33311012361240133,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,local_cyclic,10,global_svd+sparse_routing,2,-0.20550179838366678,False,True
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,sparse_routing,0,empty,0,0.4845977837153872,True,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,sparse_routing,2,global_svd,1,0.02732793713271886,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,sparse_routing,4,local_cyclic,1,0.056991175554981566,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,sink,sparse_routing,6,global_svd+local_cyclic,2,0.016141602509503028,False,True
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,local_cyclic,0,empty,0,0.26351452928399866,True,False
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,local_cyclic,1,sink,1,-0.02529741902445659,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,local_cyclic,8,sparse_routing,1,-0.14536396279407215,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,local_cyclic,9,sink+sparse_routing,2,-0.0177556375653376,False,True
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,sparse_routing,0,empty,0,0.4093748572368012,True,False
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,sparse_routing,1,sink,1,-0.04789498934586711,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,sparse_routing,4,local_cyclic,1,0.0004963651587304163,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd,sparse_routing,5,sink+local_cyclic,2,-0.04035320788674812,False,True
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic,sparse_routing,0,empty,0,0.41763323850157796,True,False
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic,sparse_routing,1,sink,1,-0.009973369658827669,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic,sparse_routing,2,global_svd,1,0.008754746423507154,False,False
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic,sparse_routing,3,sink+global_svd,2,-0.0024315881997086786,False,True
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,global_svd,0,empty,0,2.116457155041078,True,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,global_svd,4,local_cyclic,1,0.4927129480476984,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,global_svd,8,sparse_routing,1,-0.03574633343163258,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,global_svd,12,local_cyclic+sparse_routing,2,0.5358588469921934,False,True
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,local_cyclic,0,empty,0,1.578994527789691,True,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,local_cyclic,2,global_svd,1,-0.04474967920368789,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,local_cyclic,8,sparse_routing,1,-0.6156644529249466,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,local_cyclic,10,global_svd+sparse_routing,2,-0.04405927250112063,False,True
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,sparse_routing,0,empty,0,2.1581417770491123,True,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,sparse_routing,2,global_svd,1,0.0059382885764022175,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,sparse_routing,4,local_cyclic,1,-0.036517203665525466,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,sink,sparse_routing,6,global_svd+local_cyclic,2,0.006628695278969476,False,True
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,local_cyclic,0,empty,0,0.6170674837989722,True,False
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,local_cyclic,1,sink,1,-1.0066767231944067,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,local_cyclic,8,sparse_routing,1,-1.4629734958095904,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,local_cyclic,9,sink+sparse_routing,2,-0.8913683153857643,False,True
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,sparse_routing,0,empty,0,1.9626001340353083,True,False
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,sparse_routing,1,sink,1,-0.18960335443740184,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,sparse_routing,4,local_cyclic,1,-0.1174408455732544,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd,sparse_routing,5,sink+local_cyclic,2,-0.07429494662875946,False,True
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic,sparse_routing,0,empty,0,2.0812038433524074,True,False
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic,sparse_routing,1,sink,1,-0.11345513736223034,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic,sparse_routing,2,global_svd,1,0.0011628637438447775,False,False
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic,sparse_routing,3,sink+global_svd,2,0.0018532704464120364,False,True
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,global_svd,0,empty,0,1.9060329699987164,True,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,global_svd,4,local_cyclic,1,-0.16700463927660258,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,global_svd,8,sparse_routing,1,-0.6053828224942426,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,global_svd,12,local_cyclic+sparse_routing,2,-0.051416211983594695,False,True
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,local_cyclic,0,empty,0,2.1258409684497925,True,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,local_cyclic,2,global_svd,1,0.05280335917447376,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,local_cyclic,8,sparse_routing,1,-0.5184218290325919,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,local_cyclic,10,global_svd+sparse_routing,2,0.03554478147805595,False,True
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,sparse_routing,0,empty,0,2.6013832394353704,True,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,sparse_routing,2,global_svd,1,0.08996744694241177,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,sparse_routing,4,local_cyclic,1,-0.04287955804701393,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink,sparse_routing,6,global_svd+local_cyclic,2,0.07270886924599396,False,True
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,local_cyclic,0,empty,0,0.7784147388357622,True,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,local_cyclic,1,sink,1,-1.2946228704395566,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,local_cyclic,8,sparse_routing,1,-1.1708561660698908,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,local_cyclic,9,sink+sparse_routing,2,-0.6168895555592432,False,True
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,sparse_routing,0,empty,0,1.6997102469900591,True,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,sparse_routing,1,sink,1,-0.8117055455028994,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,sparse_routing,4,local_cyclic,1,-0.2495606579155939,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd,sparse_routing,5,sink+local_cyclic,2,-0.133972230622586,False,True
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic,sparse_routing,0,empty,0,1.971958906211158,True,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic,sparse_routing,1,sink,1,-0.6723038912712265,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic,sparse_routing,2,global_svd,1,0.022688001305504857,False,False
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic,sparse_routing,3,sink+global_svd,2,0.005429423609087047,False,True
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,global_svd,0,empty,0,0.6364164231232368,True,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,global_svd,4,local_cyclic,1,0.1412896613774568,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,global_svd,8,sparse_routing,1,0.09682708546083574,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,global_svd,12,local_cyclic+sparse_routing,2,0.17168055386214165,False,True
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,local_cyclic,0,empty,0,0.5430991501630974,True,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,local_cyclic,2,global_svd,1,0.047972388417317435,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,local_cyclic,8,sparse_routing,1,-0.09710393484316693,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,local_cyclic,10,global_svd+sparse_routing,2,-0.022250466441861017,False,True
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,sparse_routing,0,empty,0,0.7688177664587389,True,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,sparse_routing,2,global_svd,1,0.22922842879633787,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,sparse_routing,4,local_cyclic,1,0.12861468145247457,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink,sparse_routing,6,global_svd+local_cyclic,2,0.15900557393715942,False,True
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,local_cyclic,0,empty,0,0.2722944908837809,True,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,local_cyclic,1,sink,1,-0.22283227086199908,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,local_cyclic,8,sparse_routing,1,-0.1425918942220672,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,local_cyclic,9,sink+sparse_routing,2,-0.06773842582076128,False,True
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,sparse_routing,0,empty,0,0.2760645224607463,True,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,sparse_routing,1,sink,1,-0.2635248152016547,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,sparse_routing,4,local_cyclic,1,-0.13882186264510177,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd,sparse_routing,5,sink+local_cyclic,2,-0.10843097016041692,False,True
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic,sparse_routing,0,empty,0,0.44910472450284344,True,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic,sparse_routing,1,sink,1,-0.19109836050342088,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic,sparse_routing,2,global_svd,1,0.03421833939699537,False,False
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic,sparse_routing,3,sink+global_svd,2,-0.036004515462183084,False,True

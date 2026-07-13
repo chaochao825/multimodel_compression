@@ -144,3 +144,83 @@
   routes are task-functional. This upgrades the ViT evidence from matrix/output
   proxy diagnostics to a small-batch task-level causal intervention, while Wan
   denoising-loss and Qwen multimodal task causal probes remain open.
+
+## 2026-07-12 Update: Orthogonality, Loss Landscape, and Sparse Repair
+
+- Added `scripts/component_orthogonality_ablation.py` and Figure 21. The four
+  fitted hybrid components are not orthogonal: no representative example passes
+  the declared near-orthogonality criteria, mean pairwise Frobenius cosine is
+  `0.086`, maximum cosine is `0.334`, and changing fit order changes relative
+  error by `0.144` on average. The decomposition remains useful as a sequential
+  oracle diagnostic, but component gains cannot be interpreted independently.
+- Added `scripts/compression_loss_landscape_probe.py` and Figures 22--23. A
+  block-scale rank-1 kernel recovers about `75.7%` of the MSE gap between one
+  shared block kernel and fully independent block kernels at only `6.29%` of
+  dense-FP16 payload. Its gamma landscape has a broad minimum near `0.75--1.0`,
+  while the best 25% budget solutions are component-first sparse/low-rank
+  repairs rather than a larger standalone structured kernel.
+- Added `scripts/sparsity_repair_probe.py`, Figure 24, and the detailed
+  [sparse/pruning repair analysis](SPARSITY_REPAIR_ANALYSIS.md). At 10% row
+  top-k, a zero-incremental-payload mass-conserving uniform tail lowers mean
+  NRMSE from `0.4259` to `0.03746`; one shared column prior reaches `0.02359`,
+  whereas spending the same bits on extra sparse coordinates only reaches
+  `0.38384`.
+- Under an approximately 25% dense-FP16 cap, component-first q4 sparse repair
+  with per-row loss-aware scale reaches `0.00837`; the lower-overhead q4
+  query-block four-stage error-feedback variant reaches `0.01100 @ 23.58%`.
+  A common row scale followed by row normalization is a no-op, and scaling only
+  retained support cannot reconstruct directions removed by pruning.
+- These new numbers use eight hand-picked attention maps from four source
+  inputs and target-fitted support/scale/prior. Payloads are ideal-packed
+  estimates and exclude routing, selection, decoding, and latency. They are
+  parameter-efficiency diagnostics, not yet a deployable weight-pruning or
+  task-loss result.
+
+Reproduce the complete update with:
+
+```powershell
+python scripts/component_orthogonality_ablation.py
+python scripts/compression_loss_landscape_probe.py
+python scripts/sparsity_repair_probe.py
+python figures/component_orthogonality_ablation_plot.py
+python figures/compression_loss_landscape_plot.py
+python figures/sparsity_repair_efficiency_plot.py
+python -m pytest -q
+```
+
+## 2026-07-13 Update: Hessian-Orthogonal Combination Compression
+
+- Added `scripts/hessian_orthogonal_compression_probe.py`, Figure 25, and the
+  detailed [Hessian-orthogonal compression analysis](HESSIAN_ORTHOGONAL_COMPRESSION_ANALYSIS.md).
+- Orthogonality is now measured on codec errors `delta=C(A)-A` in a declared
+  loss metric. Under the Frobenius (squared-NRMSE) metric, map-averaged error cosines are `0.095` for
+  structured--pruning, `0.088` for pruning--quantization, and `0.797` for
+  structured--quantization. Under a local KL Hessian they become
+  `0.298/0.135/0.659`, so ordinary Frobenius orthogonality is not a task-loss
+  guarantee.
+- Full OBS survivor correction makes the pruning residual orthogonal to every
+  retained-only quantization perturbation in the fixed damped-Fisher quadratic
+  model: measured mean `|rho_H|` is `4.38e-17`. One scale only removes one
+  correction direction. A bounded cross-null folded scale reaches mean
+  `9.97e-4`, but has maximum `0.0607` and clips `0.241%` of row scales, so only
+  OBS is called exact.
+- Rate matching now uses all integer `q2..q12` codecs plus realizable row-wise
+  mixed precision and requires a single-method candidate within 1% of the
+  combination payload. With both endpoints inside the Taylor-valid region, the
+  robust point in the sampled target-fitted grid is `24.03%` payload:
+  prune+quantize wins 8/8 maps; the mean per-map relative Hessian gain is
+  `49.2%` and same-codec endpoint-KL gain is `44.0%` (`45.6%/41.2%` after
+  averaging per-map gains equally across sources). At `28.44%` the result is already
+  aggregation-sensitive; from `34.61%` onward dense single-method quantization
+  wins. This is a conditional comfort zone, not a universal threshold.
+- This remains an eight-map, four-source-input, target-fitted diagnostic. A
+  projected-GGN plus CE finite-difference validation on held-out model data is
+  still required before claiming task-level compression or accuracy gains.
+
+Reproduce the Hessian update with:
+
+```powershell
+python scripts/hessian_orthogonal_compression_probe.py
+python figures/hessian_orthogonal_compression_plot.py
+python -m pytest -q tests/test_hessian_orthogonal_compression_probe.py
+```

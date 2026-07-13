@@ -1,0 +1,97 @@
+key,label,map_id,order,is_current_order,relative_fro_error
+ex0,ViT L0 H0,vit:s0:l0:h0,sink>global_svd>local_cyclic>sparse_routing,False,0.03520250392977969
+ex0,ViT L0 H0,vit:s0:l0:h0,sink>global_svd>sparse_routing>local_cyclic,False,0.035191467364151005
+ex0,ViT L0 H0,vit:s0:l0:h0,sink>local_cyclic>global_svd>sparse_routing,True,0.03783255766426768
+ex0,ViT L0 H0,vit:s0:l0:h0,sink>local_cyclic>sparse_routing>global_svd,False,0.021620818241489505
+ex0,ViT L0 H0,vit:s0:l0:h0,sink>sparse_routing>global_svd>local_cyclic,False,0.015685046631624507
+ex0,ViT L0 H0,vit:s0:l0:h0,sink>sparse_routing>local_cyclic>global_svd,False,0.01767894750041199
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd>sink>local_cyclic>sparse_routing,False,0.1171271144707252
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd>sink>sparse_routing>local_cyclic,False,0.11876545690010178
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd>local_cyclic>sink>sparse_routing,False,0.1749873144978521
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd>local_cyclic>sparse_routing>sink,False,0.18214914458122955
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd>sparse_routing>sink>local_cyclic,False,0.15414031205733802
+ex0,ViT L0 H0,vit:s0:l0:h0,global_svd>sparse_routing>local_cyclic>sink,False,0.1541403120573305
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic>sink>global_svd>sparse_routing,False,0.1653848617267161
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic>sink>sparse_routing>global_svd,False,0.16254210644041606
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic>global_svd>sink>sparse_routing,False,0.17580988219610758
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic>global_svd>sparse_routing>sink,False,0.18305036887328854
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic>sparse_routing>sink>global_svd,False,0.16173574977447916
+ex0,ViT L0 H0,vit:s0:l0:h0,local_cyclic>sparse_routing>global_svd>sink,False,0.1617357612793085
+ex0,ViT L0 H0,vit:s0:l0:h0,sparse_routing>sink>global_svd>local_cyclic,False,0.011907357376688903
+ex0,ViT L0 H0,vit:s0:l0:h0,sparse_routing>sink>local_cyclic>global_svd,False,0.013293264348715281
+ex0,ViT L0 H0,vit:s0:l0:h0,sparse_routing>global_svd>sink>local_cyclic,False,0.011907362664033376
+ex0,ViT L0 H0,vit:s0:l0:h0,sparse_routing>global_svd>local_cyclic>sink,False,0.011907362664042997
+ex0,ViT L0 H0,vit:s0:l0:h0,sparse_routing>local_cyclic>sink>global_svd,False,0.013293264348728044
+ex0,ViT L0 H0,vit:s0:l0:h0,sparse_routing>local_cyclic>global_svd>sink,False,0.013293258310768198
+ex1,ViT L5 H0,vit:s0:l5:h0,sink>global_svd>local_cyclic>sparse_routing,False,0.04498228330365478
+ex1,ViT L5 H0,vit:s0:l5:h0,sink>global_svd>sparse_routing>local_cyclic,False,0.045083080749366886
+ex1,ViT L5 H0,vit:s0:l5:h0,sink>local_cyclic>global_svd>sparse_routing,True,0.1341729889786571
+ex1,ViT L5 H0,vit:s0:l5:h0,sink>local_cyclic>sparse_routing>global_svd,False,0.1700130000266387
+ex1,ViT L5 H0,vit:s0:l5:h0,sink>sparse_routing>global_svd>local_cyclic,False,0.12102088021892211
+ex1,ViT L5 H0,vit:s0:l5:h0,sink>sparse_routing>local_cyclic>global_svd,False,0.1606315671025416
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd>sink>local_cyclic>sparse_routing,False,0.04521822882219939
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd>sink>sparse_routing>local_cyclic,False,0.04530844940869205
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd>local_cyclic>sink>sparse_routing,False,0.0596206395714492
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd>local_cyclic>sparse_routing>sink,False,0.06934837662773884
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd>sparse_routing>sink>local_cyclic,False,0.05777170744066303
+ex1,ViT L5 H0,vit:s0:l5:h0,global_svd>sparse_routing>local_cyclic>sink,False,0.05777170744066303
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic>sink>global_svd>sparse_routing,False,0.1609797284547394
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic>sink>sparse_routing>global_svd,False,0.1978502114581448
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic>global_svd>sink>sparse_routing,False,0.16126526930863988
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic>global_svd>sparse_routing>sink,False,0.16770826221501847
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic>sparse_routing>sink>global_svd,False,0.1910012380365747
+ex1,ViT L5 H0,vit:s0:l5:h0,local_cyclic>sparse_routing>global_svd>sink,False,0.20321986502902464
+ex1,ViT L5 H0,vit:s0:l5:h0,sparse_routing>sink>global_svd>local_cyclic,False,0.09878322739292394
+ex1,ViT L5 H0,vit:s0:l5:h0,sparse_routing>sink>local_cyclic>global_svd,False,0.15781542941714025
+ex1,ViT L5 H0,vit:s0:l5:h0,sparse_routing>global_svd>sink>local_cyclic,False,0.11987262306488893
+ex1,ViT L5 H0,vit:s0:l5:h0,sparse_routing>global_svd>local_cyclic>sink,False,0.11987262306488893
+ex1,ViT L5 H0,vit:s0:l5:h0,sparse_routing>local_cyclic>sink>global_svd,False,0.15781542941714025
+ex1,ViT L5 H0,vit:s0:l5:h0,sparse_routing>local_cyclic>global_svd>sink,False,0.17338255791442858
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink>global_svd>local_cyclic>sparse_routing,False,0.24429217007786252
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink>global_svd>sparse_routing>local_cyclic,False,0.22930854562093564
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink>local_cyclic>global_svd>sparse_routing,True,0.2904636069237809
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink>local_cyclic>sparse_routing>global_svd,False,0.3325716837317007
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink>sparse_routing>global_svd>local_cyclic,False,0.29944131699961873
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sink>sparse_routing>local_cyclic>global_svd,False,0.32480766237511716
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd>sink>local_cyclic>sparse_routing,False,0.2698924009622533
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd>sink>sparse_routing>local_cyclic,False,0.26318001669755864
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd>local_cyclic>sink>sparse_routing,False,0.2830608816484718
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd>local_cyclic>sparse_routing>sink,False,0.31032759902663754
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd>sparse_routing>sink>local_cyclic,False,0.2920588280178916
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,global_svd>sparse_routing>local_cyclic>sink,False,0.29035363848977175
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic>sink>global_svd>sparse_routing,False,0.30277399137534283
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic>sink>sparse_routing>global_svd,False,0.34503005998954667
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic>global_svd>sink>sparse_routing,False,0.33384830328511006
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic>global_svd>sparse_routing>sink,False,0.36656403241074575
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic>sparse_routing>sink>global_svd,False,0.3534128212648083
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,local_cyclic>sparse_routing>global_svd>sink,False,0.35819684800175733
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sparse_routing>sink>global_svd>local_cyclic,False,0.31141075713322625
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sparse_routing>sink>local_cyclic>global_svd,False,0.3369905954328665
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sparse_routing>global_svd>sink>local_cyclic,False,0.3126833114495835
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sparse_routing>global_svd>local_cyclic>sink,False,0.31055288607569986
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sparse_routing>local_cyclic>sink>global_svd,False,0.3367471476185041
+ex2,Qwen L8 H0 F1,qwen:v0:f1:l8:h0,sparse_routing>local_cyclic>global_svd>sink,False,0.33924343010192404
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink>global_svd>local_cyclic>sparse_routing,False,0.1203582599983768
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink>global_svd>sparse_routing>local_cyclic,False,0.12968001411305777
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink>local_cyclic>global_svd>sparse_routing,True,0.12489091364066694
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink>local_cyclic>sparse_routing>global_svd,False,0.1152299442014565
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink>sparse_routing>global_svd>local_cyclic,False,0.11763585414850135
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sink>sparse_routing>local_cyclic>global_svd,False,0.11582112431878454
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd>sink>local_cyclic>sparse_routing,False,0.17610916242286678
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd>sink>sparse_routing>local_cyclic,False,0.19246442893068957
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd>local_cyclic>sink>sparse_routing,False,0.18115773063251142
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd>local_cyclic>sparse_routing>sink,False,0.20237802077546105
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd>sparse_routing>sink>local_cyclic,False,0.22471509243195653
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,global_svd>sparse_routing>local_cyclic>sink,False,0.22422301061808833
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic>sink>global_svd>sparse_routing,False,0.15037602953270773
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic>sink>sparse_routing>global_svd,False,0.1421105563073835
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic>global_svd>sink>sparse_routing,False,0.18661036567464234
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic>global_svd>sparse_routing>sink,False,0.2081264740858706
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic>sparse_routing>sink>global_svd,False,0.14971210784126837
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,local_cyclic>sparse_routing>global_svd>sink,False,0.14997061009482376
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sparse_routing>sink>global_svd>local_cyclic,False,0.13139606447270857
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sparse_routing>sink>local_cyclic>global_svd,False,0.1294089398807909
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sparse_routing>global_svd>sink>local_cyclic,False,0.13212947614829296
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sparse_routing>global_svd>local_cyclic>sink,False,0.13168254744130328
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sparse_routing>local_cyclic>sink>global_svd,False,0.1292018014475775
+ex3,Qwen L26 H0 F0,qwen:v2:f0:l26:h0,sparse_routing>local_cyclic>global_svd>sink,False,0.12989844175750132
