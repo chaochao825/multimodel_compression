@@ -1,0 +1,7 @@
+run_name,model_family,method,relative_fro_error,rank,block_size
+mistral_qproj_retry,Mistral,lowrank_svd,0.5853903293609619,8,32
+llama2_qproj_retry,LLaMA,lowrank_svd,0.6321438550949097,16,16
+qwen2_5_qproj_retry,Qwen2.5,lowrank_svd,0.8599575757980347,8,32
+bitnet_qproj_retry,BitNet,bcm_plus_lowrank,0.9112623929977416,8,32
+bitnet_downproj_retry,BitNet,bcm_plus_lowrank,0.9487605690956116,8,32
+qwen3_downproj_retry,Qwen3,lowrank_svd,0.9751105308532716,16,64

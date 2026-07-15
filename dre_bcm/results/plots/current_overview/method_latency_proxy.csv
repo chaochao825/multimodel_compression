@@ -1,0 +1,7 @@
+run_name,model_family,method,extra_latency_proxy,total_ops,stored_params
+mistral_qproj_retry,Mistral,lowrank_svd,0.00390625,65536,65536
+llama2_qproj_retry,LLaMA,lowrank_svd,0.0078125,131072,131072
+qwen2_5_qproj_retry,Qwen2.5,lowrank_svd,0.0104166666666666,24576,24576
+qwen3_downproj_retry,Qwen3,lowrank_svd,0.0208333333333333,65536,65536
+bitnet_downproj_retry,BitNet,bcm_plus_lowrank,1.0071614583333333,6336512,241664
+bitnet_qproj_retry,BitNet,bcm_plus_lowrank,1.0104166666666667,2383872,98304

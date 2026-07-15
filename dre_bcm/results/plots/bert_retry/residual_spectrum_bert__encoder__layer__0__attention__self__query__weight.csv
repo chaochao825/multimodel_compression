@@ -1,0 +1,8 @@
+rank,energy_ratio,block_size,weight_file,layer_key,bcm_relative_fro_error
+1,0.021414661779999733,32,results/matrix_fit/raw_weights/bert_base_uncased/bert__encoder__layer__0__attention__self__query__weight.pt,bert.encoder.layer.0.attention.self.query.weight,0.9985343813896179
+2,0.0389397069811821,32,results/matrix_fit/raw_weights/bert_base_uncased/bert__encoder__layer__0__attention__self__query__weight.pt,bert.encoder.layer.0.attention.self.query.weight,0.9985343813896179
+4,0.07035868614912033,32,results/matrix_fit/raw_weights/bert_base_uncased/bert__encoder__layer__0__attention__self__query__weight.pt,bert.encoder.layer.0.attention.self.query.weight,0.9985343813896179
+8,0.12218355387449265,32,results/matrix_fit/raw_weights/bert_base_uncased/bert__encoder__layer__0__attention__self__query__weight.pt,bert.encoder.layer.0.attention.self.query.weight,0.9985343813896179
+16,0.1950709968805313,32,results/matrix_fit/raw_weights/bert_base_uncased/bert__encoder__layer__0__attention__self__query__weight.pt,bert.encoder.layer.0.attention.self.query.weight,0.9985343813896179
+32,0.2995985448360443,32,results/matrix_fit/raw_weights/bert_base_uncased/bert__encoder__layer__0__attention__self__query__weight.pt,bert.encoder.layer.0.attention.self.query.weight,0.9985343813896179
+64,0.4402707517147064,32,results/matrix_fit/raw_weights/bert_base_uncased/bert__encoder__layer__0__attention__self__query__weight.pt,bert.encoder.layer.0.attention.self.query.weight,0.9985343813896179

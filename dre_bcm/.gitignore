@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+logs/
+pids/
+results_snapshot/
+results/matrix_fit/raw_weights/
+results/peft/*/peft_state.pt
+results/peft/*/tokenizer.json
+results/peft/*/tokenizer_config.json
+results/peft/*/special_tokens_map.json
+results/peft/*/vocab.json
+results/peft/*/merges.txt

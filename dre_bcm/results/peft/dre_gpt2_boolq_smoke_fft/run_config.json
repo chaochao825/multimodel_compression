@@ -1,0 +1,57 @@
+{
+  "config": null,
+  "model_name_or_path": "/home/spco/base-2-bitnet/.hf_cache/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "task_name": "boolq",
+  "method": "dre_bcm",
+  "output_dir": "results/peft/dre_gpt2_boolq_smoke_fft",
+  "cache_dir": "/home/wangmeiqi/.cache/huggingface",
+  "target_modules": [
+    "c_attn",
+    "c_proj"
+  ],
+  "block_size": 32,
+  "rank": 8,
+  "alpha": 16,
+  "freq_rows": 16,
+  "freq_cols": 16,
+  "fourier_scale": 1.0,
+  "num_bases": 2,
+  "batch_size": 1,
+  "eval_batch_size": 1,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0,
+  "warmup_ratio": 0.06,
+  "num_train_epochs": 0.05,
+  "max_length": 64,
+  "max_train_samples": 8,
+  "max_eval_samples": 16,
+  "logging_steps": 20,
+  "dataloader_num_workers": 0,
+  "seed": 42,
+  "train_base": false,
+  "use_fft": true,
+  "use_generator_delta": false,
+  "delta_mode": "horizontal",
+  "fp16": false,
+  "resolved_target_modules": [
+    "c_attn",
+    "c_proj"
+  ],
+  "task_spec": {
+    "name": "boolq",
+    "dataset_path": "super_glue",
+    "dataset_name": "boolq",
+    "text_keys": [
+      "question",
+      "passage"
+    ],
+    "num_labels": 2,
+    "label_key": "label",
+    "train_split": "train",
+    "eval_split": "validation"
+  },
+  "dataset_sizes": {
+    "train": 8,
+    "eval": 16
+  }
+}

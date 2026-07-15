@@ -1,0 +1,9 @@
+method: dre_bcm_delta
+target_modules: [q_proj, v_proj]
+block_size: 32
+rank: 8
+alpha: 16
+delta_mode: horizontal
+batch_size: 8
+learning_rate: 2.0e-4
+num_train_epochs: 3

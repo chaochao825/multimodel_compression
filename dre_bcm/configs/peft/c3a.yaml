@@ -1,0 +1,7 @@
+method: c3a_proxy
+target_modules: [q_proj, v_proj]
+block_size: 32
+num_bases: 2
+batch_size: 8
+learning_rate: 2.0e-4
+num_train_epochs: 3

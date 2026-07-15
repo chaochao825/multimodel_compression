@@ -1,0 +1,7 @@
+method: fourierft
+target_modules: [q_proj, v_proj]
+freq_rows: 16
+freq_cols: 16
+batch_size: 8
+learning_rate: 2.0e-4
+num_train_epochs: 3

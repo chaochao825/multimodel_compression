@@ -1,0 +1,58 @@
+{
+  "config": null,
+  "model_name_or_path": "/home/spco/base-2-bitnet/.hf_cache/hub/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e",
+  "task_name": "sst2",
+  "method": "lora",
+  "output_dir": "results/peft/lora_gpt2_sst2_mvp",
+  "cache_dir": "/home/wangmeiqi/.cache/huggingface",
+  "local_data_dir": "/home/spco/diff_bitnet/dre_bcm/data/glue_data",
+  "target_modules": [
+    "c_attn",
+    "c_proj"
+  ],
+  "block_size": 32,
+  "rank": 8,
+  "alpha": 16.0,
+  "freq_rows": 16,
+  "freq_cols": 16,
+  "fourier_scale": 1.0,
+  "num_bases": 2,
+  "batch_size": 8,
+  "eval_batch_size": 16,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0,
+  "warmup_ratio": 0.06,
+  "num_train_epochs": 1.0,
+  "max_length": 128,
+  "max_train_samples": 1024,
+  "max_eval_samples": 256,
+  "logging_steps": 20,
+  "dataloader_num_workers": 0,
+  "seed": 42,
+  "train_base": false,
+  "use_fft": false,
+  "use_generator_delta": false,
+  "delta_mode": "horizontal",
+  "fp16": true,
+  "resolved_target_modules": [
+    "c_attn",
+    "c_proj"
+  ],
+  "task_spec": {
+    "name": "sst2",
+    "dataset_path": "glue",
+    "dataset_name": "sst2",
+    "text_keys": [
+      "sentence",
+      null
+    ],
+    "num_labels": 2,
+    "label_key": "label",
+    "train_split": "train",
+    "eval_split": "validation"
+  },
+  "dataset_sizes": {
+    "train": 1024,
+    "eval": 256
+  }
+}

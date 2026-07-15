@@ -1,0 +1,31 @@
+{
+  "input_dir": "results/matrix_fit/subsets/qwen3_qproj_only",
+  "methods": [
+    "bcm_only",
+    "bcm_plus_lowrank"
+  ],
+  "block_sizes": [
+    16,
+    32,
+    64
+  ],
+  "ranks": [
+    4,
+    8,
+    16
+  ],
+  "num_bcm_basis": [
+    1,
+    2,
+    4
+  ],
+  "sparse_ratios": [
+    0.01,
+    0.05
+  ],
+  "delta_mode": "horizontal",
+  "steps": 40,
+  "learning_rate": 0.03,
+  "seed": 42,
+  "device": "cpu"
+}

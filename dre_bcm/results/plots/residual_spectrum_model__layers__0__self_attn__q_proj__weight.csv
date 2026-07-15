@@ -1,0 +1,8 @@
+rank,energy_ratio,block_size,weight_file,layer_key,bcm_relative_fro_error
+1,0.1252618134021759,32,results/matrix_fit/raw_weights/llama2_7b_hf/model__layers__0__self_attn__q_proj__weight.pt,model.layers.0.self_attn.q_proj.weight,1.080613136291504
+2,0.1814529448747635,32,results/matrix_fit/raw_weights/llama2_7b_hf/model__layers__0__self_attn__q_proj__weight.pt,model.layers.0.self_attn.q_proj.weight,1.080613136291504
+4,0.2661678194999695,32,results/matrix_fit/raw_weights/llama2_7b_hf/model__layers__0__self_attn__q_proj__weight.pt,model.layers.0.self_attn.q_proj.weight,1.080613136291504
+8,0.37834715843200684,32,results/matrix_fit/raw_weights/llama2_7b_hf/model__layers__0__self_attn__q_proj__weight.pt,model.layers.0.self_attn.q_proj.weight,1.080613136291504
+16,0.4929651618003845,32,results/matrix_fit/raw_weights/llama2_7b_hf/model__layers__0__self_attn__q_proj__weight.pt,model.layers.0.self_attn.q_proj.weight,1.080613136291504
+32,0.6046667695045471,32,results/matrix_fit/raw_weights/llama2_7b_hf/model__layers__0__self_attn__q_proj__weight.pt,model.layers.0.self_attn.q_proj.weight,1.080613136291504
+64,0.7024832963943481,32,results/matrix_fit/raw_weights/llama2_7b_hf/model__layers__0__self_attn__q_proj__weight.pt,model.layers.0.self_attn.q_proj.weight,1.080613136291504
