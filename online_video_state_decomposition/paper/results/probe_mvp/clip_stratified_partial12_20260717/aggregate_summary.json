@@ -1,0 +1,359 @@
+{
+  "analysis_name": "analysis_flow",
+  "display_name": "LLaVA-CLIP-ViT-L-336",
+  "prefix": "clip_stratified_partial12",
+  "rank_rows": 5040,
+  "residual_rows": 13140,
+  "runs": [
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        52018,
+        52022,
+        52026,
+        52030,
+        52034,
+        52038,
+        52042,
+        52046,
+        52050,
+        52054,
+        52058,
+        52062,
+        52066,
+        52070,
+        52074,
+        52078
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "camera_motion_NagvWwLvRik_f0052018",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/NagvWwLvRik.mp4"
+    },
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        5685,
+        5689,
+        5693,
+        5697,
+        5701,
+        5705,
+        5709,
+        5713,
+        5717,
+        5721,
+        5725,
+        5729,
+        5733,
+        5737,
+        5741,
+        5745
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "camera_motion_p9uIBCDhyr0_f0005685",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/p9uIBCDhyr0.mp4"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        1899,
+        1903,
+        1907,
+        1911,
+        1915,
+        1919,
+        1923,
+        1927,
+        1931,
+        1935,
+        1939,
+        1943,
+        1947,
+        1951,
+        1955,
+        1959
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "high_change_8np5YKYx3sU_f0001899",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/8np5YKYx3sU.mp4"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        16195,
+        16199,
+        16203,
+        16207,
+        16211,
+        16215,
+        16219,
+        16223,
+        16227,
+        16231,
+        16235,
+        16239,
+        16243,
+        16247,
+        16251,
+        16255
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "high_change_Huj-zXv4DEw_f0016195",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/Huj-zXv4DEw.mp4"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        338,
+        342,
+        346,
+        350,
+        354,
+        358,
+        362,
+        366,
+        370,
+        374,
+        378,
+        382,
+        386,
+        390,
+        394,
+        398
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "object_motion_fJ-hp5Jlbv0_f0000338",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/fJ-hp5Jlbv0.mp4"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        12311,
+        12315,
+        12319,
+        12323,
+        12327,
+        12331,
+        12335,
+        12339,
+        12343,
+        12347,
+        12351,
+        12355,
+        12359,
+        12363,
+        12367,
+        12371
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "object_motion_ooqdg9Wr-mo_f0012311",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/ooqdg9Wr-mo.mp4"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        22339,
+        22343,
+        22347,
+        22351,
+        22355,
+        22359,
+        22363,
+        22367,
+        22371,
+        22375,
+        22379,
+        22383,
+        22387,
+        22391,
+        22395,
+        22399
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "scene_cut_CxBbw8eT624_f0022339",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/CxBbw8eT624.mp4"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        2285,
+        2289,
+        2293,
+        2297,
+        2301,
+        2305,
+        2309,
+        2313,
+        2317,
+        2321,
+        2325,
+        2329,
+        2333,
+        2337,
+        2341,
+        2345
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "scene_cut__tvmjsKXTu8_f0002285",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/_tvmjsKXTu8.mp4"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        1269,
+        1273,
+        1277,
+        1281,
+        1285,
+        1289,
+        1293,
+        1297,
+        1301,
+        1305,
+        1309,
+        1313,
+        1317,
+        1321,
+        1325,
+        1329
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "scene_cut_dTUaWnvIOp4_f0001269",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/dTUaWnvIOp4.mp4"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        2658,
+        2662,
+        2666,
+        2670,
+        2674,
+        2678,
+        2682,
+        2686,
+        2690,
+        2694,
+        2698,
+        2702,
+        2706,
+        2710,
+        2714,
+        2718
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "static_FcP0mzWFCQU_f0002658",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/FcP0mzWFCQU.mp4"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        674,
+        678,
+        682,
+        686,
+        690,
+        694,
+        698,
+        702,
+        706,
+        710,
+        714,
+        718,
+        722,
+        726,
+        730,
+        734
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "static_M69Sn3OERZo_f0000674",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/M69Sn3OERZo.mp4"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        723,
+        727,
+        731,
+        735,
+        739,
+        743,
+        747,
+        751,
+        755,
+        759,
+        763,
+        767,
+        771,
+        775,
+        779,
+        783
+      ],
+      "grid_thw": [
+        16,
+        24,
+        24
+      ],
+      "model_dir": "/home/spco/models/clip-vit-large-patch14-336",
+      "run": "static_aqTIB_q40bo_f0000723",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/aqTIB_q40bo.mp4"
+    }
+  ],
+  "subspace_rows": 12600,
+  "transport_rows": 660
+}

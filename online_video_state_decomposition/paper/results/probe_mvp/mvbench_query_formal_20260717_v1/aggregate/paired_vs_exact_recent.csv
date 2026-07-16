@@ -1,0 +1,10 @@
+policy,reference,paired_samples,accuracy_gain,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+calibrated_diverse_recent_query_mmr,exact_recent,200,0.015,-0.01,0.04,5,2,193,0.453125
+diverse_recent_query_mmr,exact_recent,200,-0.005,-0.04,0.03,6,7,187,1.0
+diverse_recent_query_topk,exact_recent,200,0.01,-0.025,0.045,8,6,186,0.79052734375
+learned_recent_query_topk,exact_recent,200,0.025,0.0,0.05,6,1,193,0.125
+offline_full_query_mmr,exact_recent,200,0.005,-0.035,0.045,8,7,185,1.0
+offline_uniform,exact_recent,200,0.03,-0.005,0.07,10,4,186,0.1795654296875
+recent_pool_query_mmr,exact_recent,200,0.015,-0.01,0.04,5,2,193,0.453125
+recent_pool_query_topk,exact_recent,200,0.02,0.0,0.045,5,1,194,0.21875
+reservoir_recent_query_mmr,exact_recent,200,0.015,-0.015,0.045,6,3,191,0.5078125

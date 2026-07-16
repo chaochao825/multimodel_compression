@@ -1,0 +1,8 @@
+{
+  "diversity_weight": 0.5,
+  "novelty_weight": 0.0,
+  "option_weight": 0.0,
+  "recency_weight": 0.1,
+  "source": "mvbench_query_formal_20260717_v1/selected_hyperparameters.json",
+  "temporal_weight": 0.0
+}

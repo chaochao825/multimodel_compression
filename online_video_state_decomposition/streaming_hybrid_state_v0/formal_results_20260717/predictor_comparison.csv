@@ -1,0 +1,3 @@
+layer,best_simple,simple_test_nmse,simple_test_cosine,simple_ops_per_scalar,best_fourier,fourier_test_nmse,fourier_test_cosine,fourier_ops_per_scalar,fourier_nmse_change_vs_simple,fourier_win,simple_raw_spectral_entropy,simple_residual_spectral_entropy,simple_spectral_entropy_reduction
+15,ema_050,0.32906185073576577,0.8115216551621133,2.0,fourier_h8_k2,1.2851377551436,0.7085706190554191,96.0,2.905459573238577,False,0.37488938957575585,0.6700410405546924,-0.787303293147201
+22,ema_075,0.32501989951640237,0.824607554434549,2.0,fourier_h8_k2,1.2360660345303889,0.7065342326773498,96.0,2.803047248397817,False,0.3616091639854113,0.6935337680636351,-0.9179098240209833

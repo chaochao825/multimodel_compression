@@ -1,0 +1,5 @@
+layer,mode,method,capacity,hidden_dim,storage_bits,instant_capacity,payload_bytes,metadata_bytes,total_state_bytes,read_flops_per_query_token,update_flops_per_input_token
+8,frame_centered_unit,recent_window,8,1152,16,0,18432,16,18448,18432,0
+8,frame_centered_unit,uniform_reservoir,8,1152,16,0,18432,16,18448,18432,0
+8,frame_centered_unit,instant_adaptive,8,1152,16,4,18432,56,18488,18432,13824
+8,frame_centered_unit,instant_oja,8,1152,16,4,18432,16,18448,27648,27648

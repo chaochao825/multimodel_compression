@@ -1,0 +1,67 @@
+{
+  "best_predictors": {
+    "15": "ema_050",
+    "22": "ema_075"
+  },
+  "combined_rows": 80,
+  "controller_rows": 40,
+  "elapsed_seconds": 267.4375627040863,
+  "layers": [
+    15,
+    22
+  ],
+  "pool_grid": [
+    4,
+    4
+  ],
+  "predictor_rows": 28,
+  "quality_cosine": 0.95,
+  "root": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717",
+  "runs": {
+    "test": [
+      "camera_motion_p9uIBCDhyr0_f0005685",
+      "camera_motion_yU5kPoc7sL4_f0002241",
+      "high_change_M_lwC5zPkyo_f0021996",
+      "high_change_uhYiRmGURwE_f0017868",
+      "object_motion_iZYLeIJwe4w_f0000323",
+      "object_motion_ooqdg9Wr-mo_f0012311",
+      "scene_cut_dTUaWnvIOp4_f0001269",
+      "scene_cut_txdfCHpxzVg_f0011385",
+      "static_QdlP8ai8trw_f0011416",
+      "static_aqTIB_q40bo_f0000723"
+    ],
+    "train": [
+      "camera_motion_A9fQPzZ1-hg_f0007812",
+      "camera_motion_EeTmrsVW8qE_f0043406",
+      "camera_motion_NagvWwLvRik_f0052018",
+      "high_change_0ncLRRLvdfk_f0008218",
+      "high_change_8np5YKYx3sU_f0001899",
+      "high_change_Huj-zXv4DEw_f0016195",
+      "object_motion_40BlVzjxu-I_f0002674",
+      "object_motion_KlbDo9o5SC8_f0011302",
+      "object_motion_QhL6ICNQ_So_f0000662",
+      "scene_cut_CxBbw8eT624_f0022339",
+      "scene_cut_Lyv_2usFQA0_f0002824",
+      "scene_cut_Zjl2vmy02As_f0006737",
+      "static_0w4OTD4L0GQ_f0027140",
+      "static_20gUIdXGuAs_f0016034",
+      "static_FcP0mzWFCQU_f0002658"
+    ],
+    "val": [
+      "camera_motion_VmNBt1tzC6k_f0002270",
+      "high_change_LCfBYE97rFk_f0050015",
+      "object_motion_fJ-hp5Jlbv0_f0000338",
+      "scene_cut__tvmjsKXTu8_f0002285",
+      "static_M69Sn3OERZo_f0000674"
+    ]
+  },
+  "scope": "Representation-level causal comparison on pooled frozen visual hidden states. No end-to-end Video-LLM, PPA, or encoder-speed claim is made.",
+  "torch_controllers": true,
+  "versions": {
+    "numpy": "2.2.6",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+    "torch": "2.6.0+cu124"
+  },
+  "vq_rows": 92
+}

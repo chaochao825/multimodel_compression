@@ -1,0 +1,445 @@
+{
+  "format_version": 1,
+  "hyperparameters": {
+    "diversity_weight": 0.0,
+    "temporal_weight": 0.0
+  },
+  "samples": {
+    "action_sequence_0116": {
+      "policies": {
+        "diverse_recent_query_mmr": [
+          75,
+          88,
+          114,
+          120,
+          127,
+          192,
+          199,
+          205
+        ],
+        "diverse_recent_query_topk": [
+          75,
+          88,
+          114,
+          120,
+          127,
+          192,
+          199,
+          205
+        ],
+        "exact_recent": [
+          160,
+          166,
+          173,
+          179,
+          186,
+          192,
+          199,
+          205
+        ],
+        "offline_full_query_mmr": [
+          81,
+          88,
+          94,
+          101,
+          127,
+          192,
+          199,
+          205
+        ],
+        "offline_uniform": [
+          16,
+          42,
+          68,
+          94,
+          120,
+          146,
+          173,
+          199
+        ],
+        "recent_pool_query_mmr": [
+          107,
+          114,
+          120,
+          127,
+          133,
+          192,
+          199,
+          205
+        ],
+        "recent_pool_query_topk": [
+          107,
+          114,
+          120,
+          127,
+          133,
+          192,
+          199,
+          205
+        ],
+        "reservoir_recent_query_mmr": [
+          35,
+          75,
+          81,
+          94,
+          120,
+          192,
+          199,
+          205
+        ]
+      },
+      "sample_index": 116,
+      "task": "action_sequence",
+      "video": "/home/wangmeiqi/.cache/huggingface/hub/datasets--OpenGVLab--MVBench/snapshots/a776e554280b99b70f00cc3eacd69a65e0727efc/star/Charades_segment/F0ZPW_22.6_31.3.mp4"
+    },
+    "moving_direction_0190": {
+      "policies": {
+        "diverse_recent_query_mmr": [
+          22,
+          42,
+          94,
+          102,
+          114,
+          118,
+          122,
+          126
+        ],
+        "diverse_recent_query_topk": [
+          22,
+          42,
+          94,
+          102,
+          114,
+          118,
+          122,
+          126
+        ],
+        "exact_recent": [
+          98,
+          102,
+          106,
+          110,
+          114,
+          118,
+          122,
+          126
+        ],
+        "offline_full_query_mmr": [
+          98,
+          102,
+          106,
+          110,
+          114,
+          118,
+          122,
+          126
+        ],
+        "offline_uniform": [
+          10,
+          26,
+          42,
+          58,
+          74,
+          90,
+          106,
+          122
+        ],
+        "recent_pool_query_mmr": [
+          98,
+          102,
+          106,
+          110,
+          114,
+          118,
+          122,
+          126
+        ],
+        "recent_pool_query_topk": [
+          98,
+          102,
+          106,
+          110,
+          114,
+          118,
+          122,
+          126
+        ],
+        "reservoir_recent_query_mmr": [
+          18,
+          90,
+          94,
+          98,
+          114,
+          118,
+          122,
+          126
+        ]
+      },
+      "sample_index": 190,
+      "task": "moving_direction",
+      "video": "/home/wangmeiqi/.cache/huggingface/hub/datasets--OpenGVLab--MVBench/snapshots/a776e554280b99b70f00cc3eacd69a65e0727efc/clevrer/video_validation/video_14153.mp4"
+    },
+    "object_existence_0112": {
+      "policies": {
+        "diverse_recent_query_mmr": [
+          6,
+          18,
+          22,
+          26,
+          30,
+          118,
+          122,
+          126
+        ],
+        "diverse_recent_query_topk": [
+          6,
+          18,
+          22,
+          26,
+          30,
+          118,
+          122,
+          126
+        ],
+        "exact_recent": [
+          98,
+          102,
+          106,
+          110,
+          114,
+          118,
+          122,
+          126
+        ],
+        "offline_full_query_mmr": [
+          2,
+          6,
+          18,
+          22,
+          26,
+          118,
+          122,
+          126
+        ],
+        "offline_uniform": [
+          10,
+          26,
+          42,
+          58,
+          74,
+          90,
+          106,
+          122
+        ],
+        "recent_pool_query_mmr": [
+          66,
+          70,
+          74,
+          78,
+          98,
+          118,
+          122,
+          126
+        ],
+        "recent_pool_query_topk": [
+          66,
+          70,
+          74,
+          78,
+          98,
+          118,
+          122,
+          126
+        ],
+        "reservoir_recent_query_mmr": [
+          6,
+          18,
+          22,
+          30,
+          46,
+          118,
+          122,
+          126
+        ]
+      },
+      "sample_index": 112,
+      "task": "object_existence",
+      "video": "/home/wangmeiqi/.cache/huggingface/hub/datasets--OpenGVLab--MVBench/snapshots/a776e554280b99b70f00cc3eacd69a65e0727efc/clevrer/video_validation/video_12744.mp4"
+    },
+    "scene_transition_0140": {
+      "policies": {
+        "diverse_recent_query_mmr": [
+          253,
+          271,
+          290,
+          365,
+          534,
+          553,
+          571,
+          590
+        ],
+        "diverse_recent_query_topk": [
+          253,
+          271,
+          290,
+          365,
+          534,
+          553,
+          571,
+          590
+        ],
+        "exact_recent": [
+          459,
+          478,
+          496,
+          515,
+          534,
+          553,
+          571,
+          590
+        ],
+        "offline_full_query_mmr": [
+          253,
+          271,
+          290,
+          365,
+          421,
+          553,
+          571,
+          590
+        ],
+        "offline_uniform": [
+          46,
+          121,
+          196,
+          271,
+          346,
+          421,
+          496,
+          571
+        ],
+        "recent_pool_query_mmr": [
+          328,
+          365,
+          421,
+          459,
+          534,
+          553,
+          571,
+          590
+        ],
+        "recent_pool_query_topk": [
+          328,
+          365,
+          421,
+          459,
+          534,
+          553,
+          571,
+          590
+        ],
+        "reservoir_recent_query_mmr": [
+          290,
+          328,
+          365,
+          421,
+          459,
+          553,
+          571,
+          590
+        ]
+      },
+      "sample_index": 140,
+      "task": "scene_transition",
+      "video": "/home/wangmeiqi/.cache/huggingface/hub/datasets--OpenGVLab--MVBench/snapshots/a776e554280b99b70f00cc3eacd69a65e0727efc/scene_qa/video/Top047_04095.mp4"
+    },
+    "state_change_0113": {
+      "policies": {
+        "diverse_recent_query_mmr": [
+          81,
+          114,
+          376,
+          442,
+          573,
+          967,
+          999,
+          1032
+        ],
+        "diverse_recent_query_topk": [
+          81,
+          114,
+          376,
+          442,
+          573,
+          967,
+          999,
+          1032
+        ],
+        "exact_recent": [
+          803,
+          835,
+          868,
+          901,
+          934,
+          967,
+          999,
+          1032
+        ],
+        "offline_full_query_mmr": [
+          114,
+          147,
+          245,
+          311,
+          344,
+          967,
+          999,
+          1032
+        ],
+        "offline_uniform": [
+          81,
+          213,
+          344,
+          475,
+          606,
+          737,
+          868,
+          999
+        ],
+        "recent_pool_query_mmr": [
+          540,
+          573,
+          606,
+          704,
+          737,
+          967,
+          999,
+          1032
+        ],
+        "recent_pool_query_topk": [
+          540,
+          573,
+          606,
+          704,
+          737,
+          967,
+          999,
+          1032
+        ],
+        "reservoir_recent_query_mmr": [
+          114,
+          213,
+          278,
+          311,
+          442,
+          967,
+          999,
+          1032
+        ]
+      },
+      "sample_index": 113,
+      "task": "state_change",
+      "video": "/home/wangmeiqi/.cache/huggingface/hub/datasets--OpenGVLab--MVBench/snapshots/a776e554280b99b70f00cc3eacd69a65e0727efc/perception/videos/video_7515.mp4"
+    }
+  },
+  "split": "evaluation"
+}

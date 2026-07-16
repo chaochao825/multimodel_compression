@@ -1,0 +1,28 @@
+{
+  "rank_rows": 32,
+  "residual_rows": 60,
+  "runs": [
+    {
+      "frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "grid_thw": [
+        4,
+        4,
+        5
+      ],
+      "model_dir": "synthetic-smoke",
+      "run": "analyzer_smoke",
+      "video": "synthetic"
+    }
+  ],
+  "subspace_rows": 24,
+  "transport_rows": 20
+}

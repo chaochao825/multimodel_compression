@@ -1,0 +1,47 @@
+project:
+  name: "online_video_state_decomposition_probe_mvp"
+  seed: 42
+
+synthetic:
+  seeds: [1, 7, 42, 101, 2026]
+  frames: 28
+  height: 12
+  width: 16
+  hidden_dim: 24
+  spatial_rank: 4
+  temporal_modes: 3
+  event_frames: [7, 15, 23]
+  scene_cut_frame: 20
+  event_block_size: 2
+  event_amplitude: 8.0
+  max_step_shift: 1
+  transport_step: [1, -1]
+
+probe:
+  ranks: [1, 2, 4, 8, 16, 32, 64]
+  block_size: 2
+  top_fractions: [0.05, 0.10, 0.20]
+  local_radius: 1
+  ridge: 0.0001
+
+gates:
+  aligned_temporal_energy_rank4: 0.70
+  event_top10_energy: 0.70
+  event_top10_recall: 0.80
+  structured_relative_improvement: 0.10
+
+remote:
+  profile: "210"
+  workspace: "/home/spco/online_video_state_decomposition"
+  conda_env: "Qwen3"
+  qwen_model: "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8"
+  llava_model: "/home/spco/models/llava-v1.5-7b"
+  llava_vision_tower: "/home/spco/models/clip-vit-large-patch14-336"
+  videomme_root: "/home/wangmeiqi/.cache/huggingface/videomme/data"
+  development_videos:
+    - "fFYNmVb3NCQ.mp4"
+    - "VP4GtrEsefk.mp4"
+    - "HProiNnmGwI.mp4"
+
+outputs:
+  root: "../../paper/results/probe_mvp"

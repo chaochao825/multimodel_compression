@@ -1,0 +1,10 @@
+policy,reference,samples,mean_jaccard,exact_selection_rate
+offline_uniform,exact_recent,200,0.14285714285714282,0.0
+recent_pool_query_topk,exact_recent,200,0.46014918414918404,0.02
+recent_pool_query_mmr,exact_recent,200,0.4108251748251747,0.0
+reservoir_recent_query_mmr,exact_recent,200,0.2911888111888112,0.0
+diverse_recent_query_topk,exact_recent,200,0.34980264180264187,0.0
+diverse_recent_query_mmr,exact_recent,200,0.29409790209790215,0.0
+calibrated_diverse_recent_query_mmr,exact_recent,200,0.49274436674436667,0.015
+learned_recent_query_topk,exact_recent,200,0.6407117327117325,0.14
+offline_full_query_mmr,exact_recent,200,0.28173426573426574,0.0

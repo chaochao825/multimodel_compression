@@ -1,0 +1,23 @@
+panel,metric,statistic,value,unit
+latency,decode,mean,7.062531142150402,seconds
+latency,decode,p50,6.619172377511859,seconds
+latency,decode,p95,12.876511338434645,seconds
+latency,decode,p99,14.74211382660316,seconds
+latency,preprocess,mean,1.231239820146002,seconds
+latency,preprocess,p50,1.0611588694737293,seconds
+latency,preprocess,p95,2.2880442424793723,seconds
+latency,preprocess,p99,2.465121625039028,seconds
+latency,vision_encode,mean,0.38640099588199517,seconds
+latency,vision_encode,p50,0.3637786114704795,seconds
+latency,vision_encode,p95,0.36882763234898447,seconds
+latency,vision_encode,p99,1.6145876614621366,seconds
+latency,read,mean,0.08286974807691877,seconds
+latency,read,p50,0.08166312851244584,seconds
+latency,read,p95,0.0903776212304365,seconds
+latency,read,p99,0.09296028761076741,seconds
+consistency,Selected frames,agreement,100.0,percent
+consistency,Predictions,agreement,99.625,percent
+consistency,Correctness,agreement,99.875,percent
+state,native_feature_cache,bytes,8388608,bytes
+state,provisioned_selector,bytes,24720,bytes
+state,total_persistent_state,bytes,8413328,bytes

@@ -1,0 +1,181 @@
+{
+  "checks": [
+    {
+      "detail": "missing files: []",
+      "name": "required_outputs_present",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "overlapping runs: []",
+      "name": "clip_split_disjoint",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "{\"camera_motion\": {\"test\": 2, \"train\": 3, \"val\": 1}, \"high_change\": {\"test\": 2, \"train\": 3, \"val\": 1}, \"object_motion\": {\"test\": 2, \"train\": 3, \"val\": 1}, \"scene_cut\": {\"test\": 2, \"train\": 3, \"val\": 1}, \"static\": {\"test\": 2, \"train\": 3, \"val\": 1}}",
+      "name": "stratified_3_1_2_split",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "checked 28 predictor rows",
+      "name": "predictor_metrics_finite",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "expected predictors: ['ema_025', 'ema_050', 'ema_075', 'fourier_h4_k1', 'fourier_h8_k2', 'linear', 'previous']",
+      "name": "predictor_ablation_complete",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "at least one residual time-series entropy must be nonzero",
+      "name": "temporal_entropy_not_degenerate",
+      "severity": "minor",
+      "status": "PASS"
+    },
+    {
+      "detail": "checked 92 VQ/scalar rows",
+      "name": "vq_metrics_finite",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed methods: ['raw_pq', 'residual_pq', 'scalar_quant']",
+      "name": "vq_baselines_complete",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "INT4 test layers: [15, 22]",
+      "name": "int4_baseline_present",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "raw PQ nominal points: [0.5, 1.0, 1.5, 2.0, 4.0]",
+      "name": "multi_bit_pq_sweep_present",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "effective_bps must include nonzero codebook static bits",
+      "name": "vq_static_and_metadata_accounted",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "checked 20 method/codec/layer codebooks",
+      "name": "codebook_hash_stable_across_val_test",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed learned controllers: ['decision_tree', 'dlgn', 'mlp', 'threshold']",
+      "name": "controller_ablation_complete",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed budgets: [0.5, 1.0, 1.58, 2.0, 4.0]",
+      "name": "controller_budget_sweep_complete",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "checked 10 hardened DLGN rows",
+      "name": "dlgn_hard_metrics_reported",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed policies: ['always_innovation', 'always_int4_refresh', 'always_predict', 'always_reuse', 'decision_tree', 'dlgn', 'mlp', 'threshold']",
+      "name": "fixed_policy_baselines_present",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "checked 80 combined rows",
+      "name": "combined_action_rates_sum_to_one",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "effective_bps must be no smaller than stream payload_bps",
+      "name": "combined_static_and_action_bits_accounted",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "innovation+refresh requires current hidden state; reuse+predict is the encoder-skip fraction",
+      "name": "encoder_required_rate_contract",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "combined layers: [15, 22]",
+      "name": "combined_layers_complete",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "observed verdict keys: ['combined_memory', 'conditional_compute', 'end_to_end_task', 'logic_controller', 'predictor', 'residual_vq']",
+      "name": "component_verdicts_complete",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "candidate layers=[22], verdict=Mixed",
+      "name": "memory_verdict_matches_candidate_rows",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "candidate layers=[], verdict=Negative",
+      "name": "compute_verdict_matches_encoder_gate",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "checked 40 learned policy rows",
+      "name": "derived_encoder_rates_exact",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "source and regression test use current/previous RGB summaries",
+      "name": "controller_uses_causal_rgb_features",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "codebook samples are selected from train clips",
+      "name": "codebook_fit_uses_train_split",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "predictor history is reconstructed state, not target state",
+      "name": "combined_codec_is_open_loop",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "summary separates representation quality from task/PPA claims",
+      "name": "claim_boundary_explicit",
+      "severity": "major",
+      "status": "PASS"
+    },
+    {
+      "detail": "unsupported phrases: []",
+      "name": "no_unsupported_positive_claim",
+      "severity": "major",
+      "status": "PASS"
+    }
+  ],
+  "major_issue_count": 0,
+  "minor_issue_count": 0,
+  "overall": "PASS"
+}

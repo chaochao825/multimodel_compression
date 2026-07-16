@@ -1,0 +1,9 @@
+selection_policy,memory_variant,reference_variant,paired_samples,accuracy_gain,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+exact_recent,pca_r64_s0,full,5,-0.2,-0.6,0.0,0,1,4,1.0
+exact_recent,pca_r64_s1,full,5,-0.2,-0.6,0.0,0,1,4,1.0
+exact_recent,pca_r64_s2,full,5,-0.2,-0.6,0.0,0,1,4,1.0
+exact_recent,pca_r64_s4,full,5,-0.2,-0.6,0.0,0,1,4,1.0
+learned_recent_query_topk,pca_r64_s0,full,5,-0.2,-0.6,0.0,0,1,4,1.0
+learned_recent_query_topk,pca_r64_s1,full,5,-0.2,-0.6,0.0,0,1,4,1.0
+learned_recent_query_topk,pca_r64_s2,full,5,-0.2,-0.6,0.0,0,1,4,1.0
+learned_recent_query_topk,pca_r64_s4,full,5,-0.2,-0.6,0.0,0,1,4,1.0

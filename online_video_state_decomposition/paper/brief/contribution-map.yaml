@@ -1,0 +1,98 @@
+paper_type: empirical
+working_title: Budgeted Query-Conditioned Memory for Online Video Understanding
+evidence_cutoff: 2026-07-18
+
+primary_claim:
+  id: C1
+  status: preliminary
+  statement: >
+    Under a matched fixed-capacity native visual state and fixed final visual-token
+    budget, query-conditioned access to a larger recent history can improve
+    online-video question answering over reading only the most recent evidence.
+  required_scope:
+    - A genuinely native trained writer or readout, not only a frozen CLIP selector.
+    - At least two visual encoders or video benchmarks.
+    - Matched persistent bytes, visual tokens, and complete cache accounting.
+    - Question-only and multiple-choice-dependence controls.
+  falsified_if:
+    - The matched-state gain disappears with a trained native interface.
+    - The method does not beat recent-pool top-k or MMR under the same state.
+    - Gains are confined to answer-option artifacts or one task slice.
+
+secondary_claims:
+  - id: C2
+    status: preliminary
+    statement: >
+      The current benefit is concentrated in action sequence, scene transition,
+      and state change, while moving direction and object existence remain
+      unresolved mechanism slices.
+    falsified_if:
+      - Task-slice gains do not replicate or disappear under open-ended controls.
+  - id: C3
+    status: preliminary
+    statement: >
+      A counted 16-frame projected-feature cache removes query-time video replay
+      and supports approximately 83 ms mean cached read plus generation, while
+      keeping persistent state independent of stream length.
+    falsified_if:
+      - Optimized online writing cannot reduce the current 8.68-second mean cost.
+      - Compression loses the query-memory accuracy gain.
+      - Hidden host caches or archives make state grow with stream duration.
+  - id: C4
+    status: verified_boundary
+    statement: >
+      Existing local results reject universal zero-shot BCCB replacement and
+      query-free Oja consolidation. They support testing BCCB, low-rank, and sparse
+      residuals only as separately validated components after the memory mechanism.
+    evidence:
+      - E:/Codex_work/ssh_experiment/video_circulant_analysis_20260701/ANALYSIS_REPORT.md
+      - E:/Codex_work/ssh_experiment/video_circulant_analysis_20260701/ATTENTION_PATTERN_MECHANISM_STUDY.md
+
+non_claims:
+  - BCCB is not claimed to approximate every visual or video attention map.
+  - Low-rank plus sparse decomposition is not claimed as a new mathematical primitive.
+  - DRE-BCM weight-space residual results are not temporal-memory evidence.
+  - Generation-side superiority is not part of the first-paper claim.
+  - Hardware efficiency is not claimed from FLOP proxies alone.
+
+novelty_boundary:
+  already_covered:
+    - Online low-rank plus sparse decomposition exists in robust PCA and video background-foreground separation.
+    - State-space video models already provide linear-complexity temporal modeling.
+    - Fixed-budget streaming memories already exist in Flash-VStream, StateKV, StreamingTOM, CausalMem, SelectStream, SAVEMem, and FOLIO.
+    - Fixed-size persistent spatial state already exists in Tensor Memory.
+    - Event-centric online memories already exist in Event-VStream, EventMemAgent, and StreamForest.
+    - Front-end caching and post-LLM compression are jointly addressed by STC and StreamingTOM.
+    - Online-video retrieval hardware co-design is already addressed by V-Rex.
+    - Structured sparse and low-rank video attention exists in VMonarch, MonarchRT, and RoPeSLR.
+  provisional_gap:
+    - Mechanism attribution between larger bounded history and learned query-conditioned readout.
+    - Native state compression with complete cache accounting and task-preservation gates.
+    - A single fixed-memory contract with measured write and tail-read latency.
+
+risk_factors:
+  - The current learned selector is not significant versus exact recent or query-only controls.
+  - A low-rank projected-feature codec may preserve reconstruction but destroy task decisions.
+  - Sparse high-residual tokens may not correspond to semantic rare events.
+  - The 8 MiB native cache and slow video decode may dominate the system budget.
+  - Existing CausalMem or event-memory methods may subsume part of the proposed contribution.
+  - FOLIO, SelectStream, SAVEMem, or Tensor Memory may subsume the state path under a stronger semantic organization.
+  - The three paths may double-count the same evidence and destabilize training.
+
+likely_reviewer_objections:
+  - This is a frame selector and cache rather than a learned memory.
+  - Fixed-budget semantic and episodic memories already cover the central idea.
+  - Tensor Memory already provides fixed-size persistent spatial state.
+  - SelectStream shows that a recent window can outperform indiscriminate historical memory.
+  - The learned selector is not better than simple top-k or MMR.
+  - PCA plus sparse residual is classical compression rather than a novel mechanism.
+  - FLOP reductions do not establish wall-clock or tail-latency improvement.
+  - Probe success on frozen activations may not transfer to downstream online VLM accuracy.
+
+mitigation_commitments:
+  - Include online RPCA, CausalMem, StateKV, SelectStream, FOLIO, Tensor Memory, and event-memory methods in related work and baselines.
+  - Keep exact recent and query-only recent-pool controls in every matched-budget comparison.
+  - Keep BCCB and DRE-BCM out of the primary claim until the native memory is validated.
+  - Report full cache, low-rank-only, and low-rank-plus-residual paths separately.
+  - Account for every cache, archive, router, and kernel in memory and latency.
+  - Preserve negative probe results and component failures in the main paper or appendix.

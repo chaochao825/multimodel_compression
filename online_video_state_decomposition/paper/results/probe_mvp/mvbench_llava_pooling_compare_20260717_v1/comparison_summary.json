@@ -1,0 +1,12 @@
+{
+  "label_a": "grid4",
+  "label_b": "grid8",
+  "policies": [
+    "hybrid",
+    "recent",
+    "uniform"
+  ],
+  "run_a": "remote_results/mvbench_llava_formal_20260717_v1",
+  "run_b": "remote_results/mvbench_llava_grid8_formal_20260717_v1",
+  "sample_count": 100
+}

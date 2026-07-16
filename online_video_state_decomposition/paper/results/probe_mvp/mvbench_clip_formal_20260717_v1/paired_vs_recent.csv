@@ -1,0 +1,13 @@
+method,capacity,paired_samples,accuracy_gain_vs_recent,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+adaptive_slots,4,200,0.0,-0.04,0.04,8,8,184,1.0
+adaptive_slots,8,200,0.005,-0.045,0.055,13,12,175,1.0
+adaptive_slots,16,200,-0.05,-0.1,-0.005,7,17,176,0.06391465663909912
+instant_oja,4,200,0.005,-0.01,0.025,2,1,197,1.0
+instant_oja,8,200,0.0,-0.03,0.03,5,5,190,1.0
+instant_oja,16,200,-0.04,-0.075,-0.01,1,9,190,0.021484375
+oja_subspace,4,200,-0.005,-0.045,0.03012499999999818,7,8,185,1.0
+oja_subspace,8,200,-0.015,-0.05,0.02,5,8,187,0.5810546875
+oja_subspace,16,200,-0.04,-0.075,-0.01,1,9,190,0.021484375
+uniform_reservoir,4,200,-0.01,-0.05,0.03,8,10,182,0.8145294189453125
+uniform_reservoir,8,200,-0.01,-0.045,0.025,5,7,188,0.7744140625
+uniform_reservoir,16,200,-0.025,-0.055,0.0,2,7,191,0.1796875

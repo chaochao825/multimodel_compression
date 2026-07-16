@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "all_expected_records_present": true,
+    "no_duplicate_cache_records": true,
+    "no_unexpected_records": true,
+    "split_labels_match_manifest": true
+  },
+  "expected_records": 300,
+  "missing": [],
+  "records": 300,
+  "unexpected": [],
+  "valid": true,
+  "wrong_split": []
+}

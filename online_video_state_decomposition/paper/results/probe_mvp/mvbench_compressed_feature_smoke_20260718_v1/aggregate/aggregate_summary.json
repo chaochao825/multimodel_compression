@@ -1,0 +1,18 @@
+{
+  "checkpoint_count": 5,
+  "prediction_rows": 50,
+  "fingerprints": [
+    "35394ab09cf37cf6f33ef92c81cce5a946d2b83bbc2e6e15d089958c8e6493c2"
+  ],
+  "selection_policies": [
+    "exact_recent",
+    "learned_recent_query_topk"
+  ],
+  "memory_variants": [
+    "full",
+    "pca_r64_s0",
+    "pca_r64_s1",
+    "pca_r64_s2",
+    "pca_r64_s4"
+  ]
+}

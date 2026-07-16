@@ -1,0 +1,39 @@
+{
+  "combined_memory": {
+    "layer_count": 2,
+    "max_predict_rate": 0.0,
+    "qualified_layers": [
+      22
+    ],
+    "rule": "A memory-representation candidate needs mean cosine >=0.95 and lower effective bps than always-INT4 refresh on the same held-out layer, and it must not be rate-quality dominated by standalone raw PQ, residual PQ, or scalar quantization. It is not automatically a compute-saving point.",
+    "verdict": "Mixed"
+  },
+  "conditional_compute": {
+    "layer_count": 2,
+    "qualified_layers": [],
+    "rule": "A conditional-compute candidate additionally needs encoder_required_rate = innovation_rate + refresh_rate <0.30. Innovation coding requires the current hidden state and therefore does not skip the visual encoder.",
+    "verdict": "Negative"
+  },
+  "end_to_end_task": {
+    "rule": "Requires a streaming Video-LLM task benchmark.",
+    "verdict": "UNVALIDATED"
+  },
+  "logic_controller": {
+    "comparison_rows": 10,
+    "dlgn_near_mlp_rows": 0,
+    "rule": "DLGN enters the provisional Pareto set only when test balanced accuracy is within 0.02 of MLP, its static description is smaller, and validation soft-hard gap is at most 0.02.",
+    "verdict": "Negative"
+  },
+  "predictor": {
+    "fourier_wins": 0,
+    "layer_count": 2,
+    "rule": "Fourier is positive only when validation-selected Fourier beats the validation-selected simple causal predictor on test NMSE.",
+    "verdict": "Negative"
+  },
+  "residual_vq": {
+    "entropy_reduction_over_30pct": 2,
+    "matched_rows": 10,
+    "rule": "Residual VQ is retained when matched full-PQ index entropy falls by more than 30%, or when it improves held-out distortion at a comparable reported stream rate. This probe does not test task accuracy.",
+    "verdict": "Mixed"
+  }
+}

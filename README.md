@@ -4,11 +4,19 @@
 
 核心问题来自 `LeapLabTHU/Circulant-Attention`：视觉/视频模型的 attention 是否也能近似为 BCCB/circulant attention，从而用 FFT 或结构化矩阵替换。当前结论是：Qwen3-VL visual 与 ViT 不适合直接零训练替换为单一 circulant attention；Wan2.2 在部分 heads/layers/timesteps 上有更强 3D cyclic 成分，但仍不是严格 BCCB；更合理的方向是 `sink/global + local-cyclic + sparse routing` 的混合 attention。
 
+新增的 `online_video_state_decomposition/` 将这条负面边界推进到在线
+视频理解：它实现并审计了 query-conditioned bounded memory、LLaVA native
+feature cache、calibration-only PCA 和 sparse residual event probe。当前最佳
+压缩状态缩小 `7.84x`，并保留查询记忆增益，但尚未通过严格的 `2%`
+finite-sample non-inferiority gate。
+
 ## 目录
 
 - `ANALYSIS_REPORT.md`：完整实验报告和结论。
 - `ATTENTION_PATTERN_MECHANISM_STUDY.md`：attention sink/outlier/local/sparse
   pattern 的文献机制、全量 probe 结果和实验设计。
+- `online_video_state_decomposition/`：在线理解的固定预算记忆、原生视觉状态
+  压缩、稀疏事件残差、验证器、精选聚合结果和研究边界。
 - `scripts/`：所有探测、结构拟合、hybrid 分解和可视化脚本。
 - `figures/`：论文风格 PNG/PDF 图，包括 BCCB 拟合、attention 替换、失败模式和 hybrid 分解图。
 - `remote_logs/`：210/34/35 服务器回传的 JSON/CSV/NPZ 结果。包含大文件原始 attention-space probe 结果。

@@ -1,0 +1,15 @@
+{
+  "accounting_rows": 4,
+  "category": "unlabeled",
+  "configuration_fingerprint": "6756108037e8771940d490b29ffb24b87b3b0864c745e1accea2ae43903f8f99",
+  "input": "E:\\Codex_work\\ssh_experiment\\video_circulant_analysis_20260701\\online_video_state_decomposition\\paper\\results\\probe_mvp\\qwen_dev_v2_download\\fFYN_s020\\hidden.npz",
+  "input_index": 0,
+  "input_mtime_ns": 1784219098600699000,
+  "input_size": 13205825,
+  "layers": [
+    8
+  ],
+  "metric_rows": 100,
+  "run": "fFYN_s020",
+  "seconds": 0.04600000008940697
+}

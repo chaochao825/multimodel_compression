@@ -1,0 +1,100 @@
+{
+  "aggregate_dir": "E:\\Codex_work\\ssh_experiment\\video_circulant_analysis_20260701\\online_video_state_decomposition\\paper\\results\\probe_mvp\\clip_stratified_formal30_20260717",
+  "category_counts": {
+    "camera_motion": 6,
+    "high_change": 6,
+    "object_motion": 6,
+    "scene_cut": 6,
+    "static": 6
+  },
+  "checks": {
+    "all_numeric_values_finite": true,
+    "all_tables_nonempty": true,
+    "category_counts": true,
+    "figures_present_and_nonempty": true,
+    "run_count": true
+  },
+  "decision_summary": {
+    "bccb_gain_vs_identity": {
+      "eligible_cells": 20,
+      "max": 0.1712161808519214,
+      "mean": 0.09639242021882802,
+      "min": 0.020256685597264994,
+      "pass_cells": 9
+    },
+    "bccb_increment_vs_bttb": {
+      "eligible_cells": 20,
+      "max": 0.0032240369871376286,
+      "mean": 0.0003679594877766478,
+      "min": -0.0012680368367982684,
+      "pass_cells": 10
+    },
+    "bttb_gain_vs_identity": {
+      "eligible_cells": 20,
+      "max": 0.16946487528656717,
+      "mean": 0.09608863986930419,
+      "min": 0.021497462859260016,
+      "pass_cells": 9
+    },
+    "causal_rank32_projection_error": {
+      "eligible_cells": 25,
+      "max": 0.6401629577226262,
+      "mean": 0.39279451350770545,
+      "min": 0.2255882739799407,
+      "pass_cells": 0
+    },
+    "flow_gain_vs_identity": {
+      "eligible_cells": 20,
+      "max": 0.08525667849803774,
+      "mean": -0.008794232527506954,
+      "min": -0.20470646577891005,
+      "pass_cells": 0
+    },
+    "residual_joint_gate": {
+      "eligible_cells": 25,
+      "max": 0.3670947244022691,
+      "mean": 0.2000164908880163,
+      "min": 0.09219694963102841,
+      "pass_cells": 0
+    },
+    "residual_top10_change_recall": {
+      "eligible_cells": 25,
+      "max": 0.3670947244022691,
+      "mean": 0.20455091311896878,
+      "min": 0.09219694963102841,
+      "pass_cells": 0
+    },
+    "residual_top10_energy": {
+      "eligible_cells": 25,
+      "max": 0.8032563438059847,
+      "mean": 0.48166100729597994,
+      "min": 0.22759117534586665,
+      "pass_cells": 4
+    },
+    "state_rank32_energy": {
+      "eligible_cells": 25,
+      "max": 0.9002444999881208,
+      "mean": 0.7662701097820225,
+      "min": 0.5996206497505552,
+      "pass_cells": 19
+    }
+  },
+  "required_figures": [
+    "clip_stratified_formal30_temporal_spectrum.png",
+    "clip_stratified_formal30_state_spectrum.png",
+    "clip_stratified_formal30_state_spectrum.pdf",
+    "clip_stratified_formal30_transport_error.png",
+    "clip_stratified_formal30_causal_subspace.png",
+    "clip_stratified_formal30_residual_concentration.png",
+    "clip_stratified_formal30_category_probe_summary.png",
+    "clip_stratified_formal30_category_probe_summary.pdf"
+  ],
+  "run_count": 30,
+  "table_rows": {
+    "rank": 2100,
+    "residual": 375,
+    "subspace": 350,
+    "transport": 275
+  },
+  "valid": true
+}

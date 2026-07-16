@@ -1,0 +1,77 @@
+{
+  "advance_to_llava_anchor": false,
+  "claim_boundary": "The visual evidence cache is not counted in this CLIP proxy. A positive result promotes only a selection-policy anchor.",
+  "exploratory_learned_readout": {
+    "claim_boundary": "The four-feature ridge readout is trained only on calibration labels and remains an exploratory baseline.",
+    "non_worse_tasks": 5,
+    "paired": {
+      "accuracy_gain": 0.025,
+      "better_samples": 6,
+      "bootstrap_ci95_high": 0.05,
+      "bootstrap_ci95_low": 0.0,
+      "mcnemar_exact_p": 0.125,
+      "paired_samples": 200,
+      "policy": "learned_recent_query_topk",
+      "reference": "exact_recent",
+      "tied_samples": 193,
+      "worse_samples": 1
+    },
+    "policy": "learned_recent_query_topk",
+    "task_gains": {
+      "action_sequence": 0.10000000000000003,
+      "moving_direction": 0.0,
+      "object_existence": 0.0,
+      "scene_transition": 0.025000000000000022,
+      "state_change": 0.0
+    }
+  },
+  "exploratory_option_aware": {
+    "claim_boundary": "This secondary policy uses all answer options symmetrically and is not the preregistered primary.",
+    "non_worse_tasks": 5,
+    "paired": {
+      "accuracy_gain": 0.015,
+      "better_samples": 5,
+      "bootstrap_ci95_high": 0.04,
+      "bootstrap_ci95_low": -0.01,
+      "mcnemar_exact_p": 0.453125,
+      "paired_samples": 200,
+      "policy": "calibrated_diverse_recent_query_mmr",
+      "reference": "exact_recent",
+      "tied_samples": 193,
+      "worse_samples": 2
+    },
+    "policy": "calibrated_diverse_recent_query_mmr",
+    "task_gains": {
+      "action_sequence": 0.07500000000000001,
+      "moving_direction": 0.0,
+      "object_existence": 0.0,
+      "scene_transition": 0.0,
+      "state_change": 0.0
+    }
+  },
+  "non_worse_tasks": 4,
+  "paired": {
+    "accuracy_gain": -0.005,
+    "better_samples": 6,
+    "bootstrap_ci95_high": 0.03,
+    "bootstrap_ci95_low": -0.04,
+    "mcnemar_exact_p": 1.0,
+    "paired_samples": 200,
+    "policy": "diverse_recent_query_mmr",
+    "reference": "exact_recent",
+    "tied_samples": 187,
+    "worse_samples": 7
+  },
+  "positive_trend_gate": false,
+  "primary_policy": "diverse_recent_query_mmr",
+  "reference_policy": "exact_recent",
+  "split_and_cache_validation": true,
+  "strong_gain_gate": false,
+  "task_gains": {
+    "action_sequence": 0.024999999999999967,
+    "moving_direction": 0.0,
+    "object_existence": 0.0,
+    "scene_transition": -0.04999999999999993,
+    "state_change": 0.0
+  }
+}

@@ -1,0 +1,15 @@
+innovation_id,claim_id,issue_id,artifact_path,what_to_verify,status,notes
+I3,C4,R2,E:/Codex_work/ssh_experiment/video_circulant_analysis_20260701/ANALYSIS_REPORT.md,Negative BCCB replacement and conditional Wan geometry,verified,Existing evidence boundary
+I3,C4,R2,E:/Codex_work/ssh_experiment/video_circulant_analysis_20260701/ATTENTION_PATTERN_MECHANISM_STUDY.md,Dynamic routing and route causality,verified,Existing evidence boundary
+I3,C1,E4,brief/evidence-matrix.csv,Joint three-path matched-budget claim,planned,Requires probes and downstream tasks
+I3,C2,E1,notes/design/experiment-matrix.csv,Aligned temporal effective rank and delayed retention,planned,Do not infer from DRE-BCM
+I3,C2,E2,notes/design/experiment-matrix.csv,Residual block sparsity and event recall,planned,Report oracle-router gap
+I3,C2,E3,notes/design/experiment-matrix.csv,Structured transport versus identity flow and convolution,planned,Prefer local BTTB/BCCB
+I3,C3,E7,notes/design/experiment-matrix.csv,Measured bounded memory and tail latency,planned,Count all caches and archives
+I3,C1,E5,paper/results/probe_mvp/MVBENCH_TASK_MVP_ANALYSIS.md,Task transfer of exact recent plus unsupervised Oja memory,verified_negative,The preregistered CLIP and LLaVA gates fail
+I5,C1,E8,paper/results/probe_mvp/MVBENCH_TASK_MVP_ANALYSIS.md,Why query-conditioned learned memory is the next candidate,planned,Exact recent survives while query-free consolidation fails
+I2,C4,R1,paper/notes/innovation/online-video-generation-priority-audit.md,Generation-side bottleneck ranking and structured-operator boundary,verified_literature,Few-step causal cache precision and SLO axes precede BCCB
+I5,C1,E9,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md,Query-conditioned gain after raw-frame and matched-state native confirmation,verified_positive,Supports bounded-history access but not learned-ranker optimality
+I5,C3,E10,paper/results/probe_mvp/FEATURE_MEMORY_COMPRESSION_ANALYSIS_20260718.md,Matched-state rank-256 sparse-residual confirmation and finite-sample preservation gate,verified_mixed,7.84x steady-state reduction while strict 2% non-inferiority remains unpassed
+I5,C2,E11,paper/results/probe_mvp/mvbench_compressed_feature_confirmation_rank256_20260718_v1/aggregate/task_delta_vs_full.csv,Task localization of compression losses and sparse-event recovery,verified_mixed,Scene transition and state change remain the next adaptive-routing targets
+I5,C3,E12,streaming_hybrid_state_v0/formal_results_final_20260717/STREAMING_HYBRID_STATE_V0_ANALYSIS.md,Disjoint-split predictor residual-PQ controller and combined representation probe,verified_mixed,EMA and selected residual PQ survive while Fourier logic control and conditional compute fail

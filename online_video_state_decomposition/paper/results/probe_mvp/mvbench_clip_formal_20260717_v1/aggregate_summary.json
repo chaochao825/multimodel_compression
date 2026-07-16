@@ -1,0 +1,23 @@
+{
+  "checkpoint_count": 200,
+  "fingerprints": [
+    "7d69e83a9687a917777a998020b7118b3dfe63cdf7f135040f731ecfa975ee38"
+  ],
+  "methods": [
+    "adaptive_slots",
+    "full_sequence",
+    "instant_oja",
+    "oja_subspace",
+    "recent_window",
+    "uniform_reservoir"
+  ],
+  "plot_capacity": 8,
+  "prediction_rows": 3200,
+  "tasks": [
+    "action_sequence",
+    "moving_direction",
+    "object_existence",
+    "scene_transition",
+    "state_change"
+  ]
+}

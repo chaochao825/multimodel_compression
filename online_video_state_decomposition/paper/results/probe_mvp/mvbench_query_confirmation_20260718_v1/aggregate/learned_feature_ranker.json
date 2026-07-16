@@ -1,0 +1,35 @@
+{
+  "coefficients": [
+    0.0026205539687702084,
+    0.008819869282132391,
+    0.0008215950145056119,
+    0.0010541082767783136
+  ],
+  "feature_mean": [
+    0.2135245839270527,
+    0.013402710068821004,
+    0.7580645161290271,
+    0.03556067743696183
+  ],
+  "feature_names": [
+    "question_relevance",
+    "option_contrast",
+    "recency",
+    "novelty"
+  ],
+  "feature_scale": [
+    0.035837367074358605,
+    0.012714201315388272,
+    0.14870232995633711,
+    0.050659360126824385
+  ],
+  "format_version": 1,
+  "parameter_bytes_fp32": 48,
+  "ridge": 1.0,
+  "source": {
+    "mode": "fixed_before_evaluation",
+    "path": "configs/mvbench/query_memory_learned_ranker_20260717.json",
+    "sha256": "65226a3ef558bf0968d48fa8a482cec85a7a0d39af85f0226c785f613e666f12"
+  },
+  "training_frames": 1600
+}

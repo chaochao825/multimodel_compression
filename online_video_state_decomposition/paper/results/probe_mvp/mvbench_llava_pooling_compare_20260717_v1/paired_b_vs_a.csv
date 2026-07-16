@@ -1,0 +1,4 @@
+policy,run_a,run_b,paired_samples,accuracy_gain_b_vs_a,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+hybrid,grid4,grid8,100,0.06,-0.05,0.17,18,12,70,0.361594608053565
+recent,grid4,grid8,100,0.07,-0.04,0.18,19,12,69,0.28104151505976915
+uniform,grid4,grid8,100,0.08,-0.02,0.18,17,9,74,0.16863754391670227

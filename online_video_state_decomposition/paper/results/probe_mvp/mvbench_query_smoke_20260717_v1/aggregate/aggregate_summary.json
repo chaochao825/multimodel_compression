@@ -1,0 +1,65 @@
+{
+  "hyperparameters": {
+    "diversity_weight": 0.0,
+    "temporal_weight": 0.0
+  },
+  "policies": [
+    "exact_recent",
+    "offline_uniform",
+    "recent_pool_query_topk",
+    "recent_pool_query_mmr",
+    "reservoir_recent_query_mmr",
+    "diverse_recent_query_topk",
+    "diverse_recent_query_mmr",
+    "offline_full_query_mmr"
+  ],
+  "prediction_rows": 80,
+  "promotion": {
+    "advance_to_llava_anchor": false,
+    "claim_boundary": "The visual evidence cache is not counted in this CLIP proxy. A positive result promotes only a selection-policy anchor.",
+    "non_worse_tasks": 5,
+    "paired": {
+      "accuracy_gain": 0.0,
+      "better_samples": 0,
+      "bootstrap_ci95_high": 0.0,
+      "bootstrap_ci95_low": 0.0,
+      "mcnemar_exact_p": 1.0,
+      "paired_samples": 5,
+      "policy": "diverse_recent_query_mmr",
+      "reference": "exact_recent",
+      "tied_samples": 5,
+      "worse_samples": 0
+    },
+    "positive_trend_gate": false,
+    "primary_policy": "diverse_recent_query_mmr",
+    "split_and_cache_validation": true,
+    "strong_gain_gate": false,
+    "task_gains": {
+      "action_sequence": 0.0,
+      "moving_direction": 0.0,
+      "object_existence": 0.0,
+      "scene_transition": 0.0,
+      "state_change": 0.0
+    }
+  },
+  "protocol_limits": {
+    "evaluation_labels_used_for_selection": false,
+    "question_only_retrieval": true,
+    "visual_evidence_cache_counted": false
+  },
+  "records": 10,
+  "validation": {
+    "checks": {
+      "all_expected_records_present": true,
+      "no_duplicate_cache_records": true,
+      "no_unexpected_records": true,
+      "split_labels_match_manifest": true
+    },
+    "expected_records": 10,
+    "missing": [],
+    "records": 10,
+    "unexpected": [],
+    "valid": true,
+    "wrong_split": []
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "accounting_rows": 20,
+  "aggregate_rows": 600,
+  "aggregate_values_finite": true,
+  "checkpoints": 30,
+  "complete": true,
+  "figures": {
+    "memory_budget_frontier.pdf": 19526,
+    "memory_budget_frontier.png": 109327,
+    "memory_category_gain.pdf": 22187,
+    "memory_category_gain.png": 147905,
+    "memory_retention_curves.pdf": 25341,
+    "memory_retention_curves.png": 218866
+  },
+  "inputs": 30,
+  "instant_frames": 3,
+  "metric_rows": 39000
+}

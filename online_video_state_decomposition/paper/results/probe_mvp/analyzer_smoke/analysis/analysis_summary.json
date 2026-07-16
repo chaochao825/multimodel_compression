@@ -1,0 +1,440 @@
+{
+  "frame_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "grid_thw": [
+    4,
+    4,
+    5
+  ],
+  "layers": {
+    "0": {
+      "event_pixel_change_threshold": 0.3704252210688197,
+      "layer": 0,
+      "method_summary": {
+        "global_bccb_causal": {
+          "event_like_error": null,
+          "mean_error": 0.09995766937707062,
+          "stable_error": 0.09995766937707062
+        },
+        "global_bccb_pair": {
+          "event_like_error": 0.031184278871462377,
+          "mean_error": 0.07332883125767348,
+          "stable_error": 0.09440110745077904
+        },
+        "hidden_shift_cyclic": {
+          "event_like_error": 0.03320580179483322,
+          "mean_error": 0.07625460519509532,
+          "stable_error": 0.09777900689522638
+        },
+        "identity": {
+          "event_like_error": 1.381188837252579,
+          "mean_error": 1.3797932299587468,
+          "stable_error": 1.379095426311831
+        },
+        "local_bccb_causal": {
+          "event_like_error": null,
+          "mean_error": 0.09830019393692108,
+          "stable_error": 0.09830019393692108
+        },
+        "local_bccb_pair": {
+          "event_like_error": 0.032888234476829495,
+          "mean_error": 0.07555911366256636,
+          "stable_error": 0.09689455325543479
+        },
+        "local_bttb_causal": {
+          "event_like_error": null,
+          "mean_error": 0.6446546953370311,
+          "stable_error": 0.6446546953370311
+        },
+        "local_bttb_pair": {
+          "event_like_error": 0.6052832097787424,
+          "mean_error": 0.6201314114242887,
+          "stable_error": 0.6275555122470619
+        },
+        "pixel_shift_cyclic": {
+          "event_like_error": 0.03320580179483322,
+          "mean_error": 0.5283836400347536,
+          "stable_error": 0.7759725591547137
+        },
+        "pixel_shift_zero": {
+          "event_like_error": 0.6151679268639397,
+          "mean_error": 0.8818777518760662,
+          "stable_error": 1.0152326643821294
+        }
+      },
+      "rank_summary": {
+        "hidden_aligned_temporal": {
+          "effective_rank": 1.0223232210912523,
+          "energy_at_rank": {
+            "1": 0.997081535176069,
+            "2": 0.9991320042690188,
+            "4": 1.0,
+            "8": 1.0
+          },
+          "shape": [
+            4,
+            240
+          ],
+          "singular_values": [
+            28.599883757895785,
+            1.2969569025832488,
+            0.7821203659382253,
+            0.3167741570568492
+          ],
+          "stable_rank": 1.0029270071914587
+        },
+        "hidden_shift_errors": [
+          0.0,
+          0.03320580179483322,
+          0.07471742422538225,
+          0.12084058956507052
+        ],
+        "hidden_steps": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "history_feature_subspace": {
+          "effective_rank": 8.929980433065124,
+          "energy_at_rank": {
+            "1": 0.23513465604982098,
+            "2": 0.38727239784036005,
+            "4": 0.626400689088932,
+            "8": 0.9163307501158069
+          },
+          "shape": [
+            80,
+            12
+          ],
+          "singular_values": [
+            13.888561075090543,
+            11.171652388650923,
+            10.537032294834864,
+            9.227093140882308,
+            8.965760132805604,
+            8.332384920438848,
+            7.1663309555979495,
+            6.055874006279591,
+            5.632840951804309,
+            4.399046440632005,
+            3.699330022157707,
+            1.9678188709758582
+          ],
+          "stable_rank": 4.252882228420285
+        },
+        "mean_frame_spatial_effective_rank": 8.911749496010767,
+        "pixel_aligned_temporal": {
+          "effective_rank": 2.026007504599533,
+          "energy_at_rank": {
+            "1": 0.5143341281393057,
+            "2": 0.998025680661359,
+            "4": 1.0,
+            "8": 1.0
+          },
+          "shape": [
+            4,
+            240
+          ],
+          "singular_values": [
+            20.54100093537309,
+            19.919717842695494,
+            1.22849755189684,
+            0.33229762425983195
+          ],
+          "stable_rank": 1.9442614154687268
+        },
+        "pixel_steps": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "unaligned_temporal": {
+          "effective_rank": 3.9874704270763006,
+          "energy_at_rank": {
+            "1": 0.2786573044034211,
+            "2": 0.5355478746437738,
+            "4": 1.0,
+            "8": 1.0
+          },
+          "shape": [
+            4,
+            240
+          ],
+          "singular_values": [
+            15.119385727641719,
+            14.516870829835325,
+            13.985352868370452,
+            13.61697646254582
+          ],
+          "stable_rank": 3.588637312561769
+        }
+      },
+      "stable_pixel_change_threshold": 0.36839446366782014
+    },
+    "2": {
+      "event_pixel_change_threshold": 0.3704252210688197,
+      "layer": 2,
+      "method_summary": {
+        "global_bccb_causal": {
+          "event_like_error": null,
+          "mean_error": 0.09995789523518289,
+          "stable_error": 0.09995789523518289
+        },
+        "global_bccb_pair": {
+          "event_like_error": 0.031209953329197106,
+          "mean_error": 0.07333046919867518,
+          "stable_error": 0.09439072713341422
+        },
+        "hidden_shift_cyclic": {
+          "event_like_error": 0.03322389376694339,
+          "mean_error": 0.0762568709261493,
+          "stable_error": 0.09777335950575226
+        },
+        "identity": {
+          "event_like_error": 1.3812166087644153,
+          "mean_error": 1.3797888991142102,
+          "stable_error": 1.379075044289108
+        },
+        "local_bccb_causal": {
+          "event_like_error": null,
+          "mean_error": 0.09829457194445018,
+          "stable_error": 0.09829457194445018
+        },
+        "local_bccb_pair": {
+          "event_like_error": 0.03290474762756989,
+          "mean_error": 0.07556170842243787,
+          "stable_error": 0.09689018881987185
+        },
+        "local_bttb_causal": {
+          "event_like_error": null,
+          "mean_error": 0.6446664230057622,
+          "stable_error": 0.6446664230057622
+        },
+        "local_bttb_pair": {
+          "event_like_error": 0.6052881781382566,
+          "mean_error": 0.6201428583459067,
+          "stable_error": 0.6275701984497317
+        },
+        "pixel_shift_cyclic": {
+          "event_like_error": 0.03322389376694339,
+          "mean_error": 0.5284002158516778,
+          "stable_error": 0.7759883768940451
+        },
+        "pixel_shift_zero": {
+          "event_like_error": 0.6151723888920378,
+          "mean_error": 0.8818922093952423,
+          "stable_error": 1.0152521196468445
+        }
+      },
+      "rank_summary": {
+        "hidden_aligned_temporal": {
+          "effective_rank": 1.022320970034832,
+          "energy_at_rank": {
+            "1": 0.9970818528341111,
+            "2": 0.9991324816503575,
+            "4": 1.0,
+            "8": 1.0
+          },
+          "shape": [
+            4,
+            240
+          ],
+          "singular_values": [
+            31.448485180153376,
+            1.42619153041332,
+            0.8596668329122231,
+            0.34851957313956256
+          ],
+          "stable_rank": 1.0029266876712222
+        },
+        "hidden_shift_errors": [
+          0.0,
+          0.03322389376694339,
+          0.07469797508575445,
+          0.12084874392575008
+        ],
+        "hidden_steps": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "history_feature_subspace": {
+          "effective_rank": 8.93013377490035,
+          "energy_at_rank": {
+            "1": 0.23512191518627895,
+            "2": 0.3872542495593202,
+            "4": 0.6263903490890541,
+            "8": 0.9163302338736314
+          },
+          "shape": [
+            80,
+            12
+          ],
+          "singular_values": [
+            15.271471300939831,
+            12.284149399515998,
+            11.58693271274265,
+            10.146058467313695,
+            9.858983714915228,
+            9.162317023837034,
+            7.880255258669563,
+            6.65926713618527,
+            6.193754429752811,
+            4.837177224046354,
+            4.067989491356282,
+            2.1639709525691004
+          ],
+          "stable_rank": 4.253112684998906
+        },
+        "mean_frame_spatial_effective_rank": 8.91190615868764,
+        "pixel_aligned_temporal": {
+          "effective_rank": 2.0260120419609096,
+          "energy_at_rank": {
+            "1": 0.514346092593938,
+            "2": 0.9980252184660382,
+            "4": 1.0,
+            "8": 1.0
+          },
+          "shape": [
+            4,
+            240
+          ],
+          "singular_values": [
+            22.58718180344181,
+            21.90347379554177,
+            1.3509715500016481,
+            0.36560238181398136
+          ],
+          "stable_rank": 1.9442161890582734
+        },
+        "pixel_steps": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "unaligned_temporal": {
+          "effective_rank": 3.9874710854599127,
+          "energy_at_rank": {
+            "1": 0.278659130078219,
+            "2": 0.5355482154952951,
+            "4": 1.0,
+            "8": 1.0
+          },
+          "shape": [
+            4,
+            240
+          ],
+          "singular_values": [
+            16.62535637812523,
+            15.962729391345484,
+            15.378101568783348,
+            14.97346062817172
+          ],
+          "stable_rank": 3.588613801095633
+        }
+      },
+      "stable_pixel_change_threshold": 0.36839446366782014
+    }
+  },
+  "model_dir": "synthetic-smoke",
+  "pixel_change_scores": [
+    0.0,
+    0.37245597846981926,
+    0.36839446366782014,
+    0.3047128027681661
+  ],
+  "pixel_shift_errors": [
+    0.0,
+    0.6383540774750006,
+    0.6348640120864358,
+    0.5773903389012276
+  ],
+  "pixel_steps": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      -1
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      -1
+    ]
+  ],
+  "ranks": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "scope": "Activation diagnostics. Pair-fitted operators are oracle upper bounds; causal operators reuse only the previous transition. Pixel-change recall is a motion/change proxy and not semantic event recall.",
+  "source_metadata": "E:\\Codex_work\\ssh_experiment\\video_circulant_analysis_20260701\\online_video_state_decomposition\\paper\\results\\probe_mvp\\analyzer_smoke\\meta.json",
+  "source_npz": "E:\\Codex_work\\ssh_experiment\\video_circulant_analysis_20260701\\online_video_state_decomposition\\paper\\results\\probe_mvp\\analyzer_smoke\\input.npz",
+  "video": "synthetic"
+}

@@ -1,0 +1,5 @@
+layer,mode,method,capacity,hidden_dim,storage_bits,payload_bytes,metadata_bytes,total_state_bytes,read_flops_per_query_token,update_flops_per_input_token
+8,frame_centered_unit,recent_window,4,1152,16,9216,16,9232,9216,0
+8,frame_centered_unit,uniform_reservoir,4,1152,16,9216,16,9232,9216,0
+8,frame_centered_unit,adaptive_slots,4,1152,16,9216,40,9256,9216,13824
+8,frame_centered_unit,oja_subspace,4,1152,16,9216,8,9224,18432,27648

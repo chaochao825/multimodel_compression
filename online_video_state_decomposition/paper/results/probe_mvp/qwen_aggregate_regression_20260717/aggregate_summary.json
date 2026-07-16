@@ -1,0 +1,98 @@
+{
+  "analysis_name": "analysis",
+  "display_name": "Qwen3-VL",
+  "prefix": "qwen_regression",
+  "rank_rows": 1008,
+  "residual_rows": 936,
+  "runs": [
+    {
+      "category": "unlabeled",
+      "frame_indices": [
+        3441,
+        3445,
+        3449,
+        3453,
+        3457,
+        3461,
+        3465,
+        3469,
+        3473,
+        3477,
+        3481,
+        3485,
+        3489,
+        3493,
+        3497,
+        3501
+      ],
+      "grid_thw": [
+        8,
+        14,
+        14
+      ],
+      "model_dir": "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+      "run": "fFYN_s020",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/fFYNmVb3NCQ.mp4"
+    },
+    {
+      "category": "unlabeled",
+      "frame_indices": [
+        49482,
+        49486,
+        49490,
+        49494,
+        49498,
+        49502,
+        49506,
+        49510,
+        49514,
+        49518,
+        49522,
+        49526,
+        49530,
+        49534,
+        49538,
+        49542
+      ],
+      "grid_thw": [
+        8,
+        14,
+        14
+      ],
+      "model_dir": "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+      "run": "HPro_s070",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/HProiNnmGwI.mp4"
+    },
+    {
+      "category": "unlabeled",
+      "frame_indices": [
+        5867,
+        5871,
+        5875,
+        5879,
+        5883,
+        5887,
+        5891,
+        5895,
+        5899,
+        5903,
+        5907,
+        5911,
+        5915,
+        5919,
+        5923,
+        5927
+      ],
+      "grid_thw": [
+        8,
+        14,
+        14
+      ],
+      "model_dir": "/home/wangmeiqi/dqy/Qwen3-VL-30B-A3B-FP8",
+      "run": "VP4_s045",
+      "video": "/home/wangmeiqi/.cache/huggingface/videomme/data/VP4GtrEsefk.mp4"
+    }
+  ],
+  "subspace_rows": 1176,
+  "transport_rows": 120
+}

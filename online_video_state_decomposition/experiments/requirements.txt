@@ -1,0 +1,16 @@
+# Verified on server 210 with Python 3.11 and CUDA 12.4.
+# Install the CUDA-compatible torch wheel for the target machine separately.
+torch>=2.6,<2.7
+transformers==4.51.0
+accelerate>=1.10,<2
+safetensors>=0.5,<1
+
+numpy>=2.2,<3
+matplotlib>=3.10,<4
+opencv-python-headless>=4.11,<6
+Pillow>=11,<13
+PyYAML>=6,<7
+tqdm>=4.66,<5
+
+# LLaVA is loaded from the pinned local source tree under third_party/LLaVA.
+# Its model assets and MVBench videos are not included in this repository.

@@ -1,0 +1,17 @@
+{
+  "checkpoint_count": 200,
+  "prediction_rows": 1200,
+  "fingerprints": [
+    "80802e66393317066e0f0f01aabc92596300e0033aae31693d992075f15fa813"
+  ],
+  "selection_policies": [
+    "exact_recent",
+    "learned_recent_query_topk"
+  ],
+  "memory_variants": [
+    "full",
+    "pca_r256_s0",
+    "pca_r256_s4"
+  ],
+  "noninferiority_margin": 0.02
+}

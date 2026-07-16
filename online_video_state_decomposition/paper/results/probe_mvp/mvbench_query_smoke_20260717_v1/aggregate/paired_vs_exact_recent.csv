@@ -1,0 +1,8 @@
+policy,reference,paired_samples,accuracy_gain,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+diverse_recent_query_mmr,exact_recent,5,0.0,0.0,0.0,0,0,5,1.0
+diverse_recent_query_topk,exact_recent,5,0.0,0.0,0.0,0,0,5,1.0
+offline_full_query_mmr,exact_recent,5,0.0,0.0,0.0,0,0,5,1.0
+offline_uniform,exact_recent,5,0.0,0.0,0.0,0,0,5,1.0
+recent_pool_query_mmr,exact_recent,5,-0.2,-0.6,0.0,0,1,4,1.0
+recent_pool_query_topk,exact_recent,5,-0.2,-0.6,0.0,0,1,4,1.0
+reservoir_recent_query_mmr,exact_recent,5,0.0,0.0,0.0,0,0,5,1.0

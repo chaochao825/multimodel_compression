@@ -1,0 +1,990 @@
+{
+  "aggregate_rows": 1800,
+  "configuration": {
+    "capacities": [
+      16,
+      32,
+      64
+    ],
+    "coverage_threshold": 0.9,
+    "delays": [
+      0,
+      1,
+      2,
+      4,
+      8
+    ],
+    "methods": [
+      "recent_window",
+      "uniform_reservoir",
+      "adaptive_slots",
+      "oja_subspace"
+    ],
+    "modes": [
+      "frame_centered_unit"
+    ],
+    "oja_lr": 0.5,
+    "pool_cols": 4,
+    "pool_rows": 4,
+    "requested_layers": [
+      0,
+      7,
+      15,
+      22,
+      23
+    ],
+    "seed": 42,
+    "slot_min_lr": 0.05,
+    "slot_replace_similarity": 0.75,
+    "storage_bits": 16
+  },
+  "configuration_fingerprint": "f85c805b6e3d8f7e964a2395dfda02c2c38bdd9609e4f074f660024dcdf64c78",
+  "figures": [
+    "memory_retention_curves.png",
+    "memory_retention_curves.pdf",
+    "memory_category_gain.png",
+    "memory_category_gain.pdf",
+    "memory_budget_frontier.png",
+    "memory_budget_frontier.pdf"
+  ],
+  "inputs": [
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        7812,
+        7816,
+        7820,
+        7824,
+        7828,
+        7832,
+        7836,
+        7840,
+        7844,
+        7848,
+        7852,
+        7856,
+        7860,
+        7864,
+        7868,
+        7872
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_A9fQPzZ1-hg_f0007812/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_A9fQPzZ1-hg_f0007812/hidden.npz",
+      "run": "camera_motion_A9fQPzZ1-hg_f0007812"
+    },
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        43406,
+        43410,
+        43414,
+        43418,
+        43422,
+        43426,
+        43430,
+        43434,
+        43438,
+        43442,
+        43446,
+        43450,
+        43454,
+        43458,
+        43462,
+        43466
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_EeTmrsVW8qE_f0043406/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_EeTmrsVW8qE_f0043406/hidden.npz",
+      "run": "camera_motion_EeTmrsVW8qE_f0043406"
+    },
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        52018,
+        52022,
+        52026,
+        52030,
+        52034,
+        52038,
+        52042,
+        52046,
+        52050,
+        52054,
+        52058,
+        52062,
+        52066,
+        52070,
+        52074,
+        52078
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_NagvWwLvRik_f0052018/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_NagvWwLvRik_f0052018/hidden.npz",
+      "run": "camera_motion_NagvWwLvRik_f0052018"
+    },
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        2270,
+        2274,
+        2278,
+        2282,
+        2286,
+        2290,
+        2294,
+        2298,
+        2302,
+        2306,
+        2310,
+        2314,
+        2318,
+        2322,
+        2326,
+        2330
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_VmNBt1tzC6k_f0002270/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_VmNBt1tzC6k_f0002270/hidden.npz",
+      "run": "camera_motion_VmNBt1tzC6k_f0002270"
+    },
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        5685,
+        5689,
+        5693,
+        5697,
+        5701,
+        5705,
+        5709,
+        5713,
+        5717,
+        5721,
+        5725,
+        5729,
+        5733,
+        5737,
+        5741,
+        5745
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_p9uIBCDhyr0_f0005685/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_p9uIBCDhyr0_f0005685/hidden.npz",
+      "run": "camera_motion_p9uIBCDhyr0_f0005685"
+    },
+    {
+      "category": "camera_motion",
+      "frame_indices": [
+        2241,
+        2245,
+        2249,
+        2253,
+        2257,
+        2261,
+        2265,
+        2269,
+        2273,
+        2277,
+        2281,
+        2285,
+        2289,
+        2293,
+        2297,
+        2301
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_yU5kPoc7sL4_f0002241/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/camera_motion_yU5kPoc7sL4_f0002241/hidden.npz",
+      "run": "camera_motion_yU5kPoc7sL4_f0002241"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        8218,
+        8222,
+        8226,
+        8230,
+        8234,
+        8238,
+        8242,
+        8246,
+        8250,
+        8254,
+        8258,
+        8262,
+        8266,
+        8270,
+        8274,
+        8278
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_0ncLRRLvdfk_f0008218/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_0ncLRRLvdfk_f0008218/hidden.npz",
+      "run": "high_change_0ncLRRLvdfk_f0008218"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        1899,
+        1903,
+        1907,
+        1911,
+        1915,
+        1919,
+        1923,
+        1927,
+        1931,
+        1935,
+        1939,
+        1943,
+        1947,
+        1951,
+        1955,
+        1959
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_8np5YKYx3sU_f0001899/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_8np5YKYx3sU_f0001899/hidden.npz",
+      "run": "high_change_8np5YKYx3sU_f0001899"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        16195,
+        16199,
+        16203,
+        16207,
+        16211,
+        16215,
+        16219,
+        16223,
+        16227,
+        16231,
+        16235,
+        16239,
+        16243,
+        16247,
+        16251,
+        16255
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_Huj-zXv4DEw_f0016195/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_Huj-zXv4DEw_f0016195/hidden.npz",
+      "run": "high_change_Huj-zXv4DEw_f0016195"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        50015,
+        50019,
+        50023,
+        50027,
+        50031,
+        50035,
+        50039,
+        50043,
+        50047,
+        50051,
+        50055,
+        50059,
+        50063,
+        50067,
+        50071,
+        50075
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_LCfBYE97rFk_f0050015/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_LCfBYE97rFk_f0050015/hidden.npz",
+      "run": "high_change_LCfBYE97rFk_f0050015"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        21996,
+        22000,
+        22004,
+        22008,
+        22012,
+        22016,
+        22020,
+        22024,
+        22028,
+        22032,
+        22036,
+        22040,
+        22044,
+        22048,
+        22052,
+        22056
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_M_lwC5zPkyo_f0021996/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_M_lwC5zPkyo_f0021996/hidden.npz",
+      "run": "high_change_M_lwC5zPkyo_f0021996"
+    },
+    {
+      "category": "high_change",
+      "frame_indices": [
+        17868,
+        17872,
+        17876,
+        17880,
+        17884,
+        17888,
+        17892,
+        17896,
+        17900,
+        17904,
+        17908,
+        17912,
+        17916,
+        17920,
+        17924,
+        17928
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_uhYiRmGURwE_f0017868/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/high_change_uhYiRmGURwE_f0017868/hidden.npz",
+      "run": "high_change_uhYiRmGURwE_f0017868"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        2674,
+        2678,
+        2682,
+        2686,
+        2690,
+        2694,
+        2698,
+        2702,
+        2706,
+        2710,
+        2714,
+        2718,
+        2722,
+        2726,
+        2730,
+        2734
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_40BlVzjxu-I_f0002674/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_40BlVzjxu-I_f0002674/hidden.npz",
+      "run": "object_motion_40BlVzjxu-I_f0002674"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        11302,
+        11306,
+        11310,
+        11314,
+        11318,
+        11322,
+        11326,
+        11330,
+        11334,
+        11338,
+        11342,
+        11346,
+        11350,
+        11354,
+        11358,
+        11362
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_KlbDo9o5SC8_f0011302/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_KlbDo9o5SC8_f0011302/hidden.npz",
+      "run": "object_motion_KlbDo9o5SC8_f0011302"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        662,
+        666,
+        670,
+        674,
+        678,
+        682,
+        686,
+        690,
+        694,
+        698,
+        702,
+        706,
+        710,
+        714,
+        718,
+        722
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_QhL6ICNQ_So_f0000662/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_QhL6ICNQ_So_f0000662/hidden.npz",
+      "run": "object_motion_QhL6ICNQ_So_f0000662"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        338,
+        342,
+        346,
+        350,
+        354,
+        358,
+        362,
+        366,
+        370,
+        374,
+        378,
+        382,
+        386,
+        390,
+        394,
+        398
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_fJ-hp5Jlbv0_f0000338/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_fJ-hp5Jlbv0_f0000338/hidden.npz",
+      "run": "object_motion_fJ-hp5Jlbv0_f0000338"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        323,
+        327,
+        331,
+        335,
+        339,
+        343,
+        347,
+        351,
+        355,
+        359,
+        363,
+        367,
+        371,
+        375,
+        379,
+        383
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_iZYLeIJwe4w_f0000323/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_iZYLeIJwe4w_f0000323/hidden.npz",
+      "run": "object_motion_iZYLeIJwe4w_f0000323"
+    },
+    {
+      "category": "object_motion",
+      "frame_indices": [
+        12311,
+        12315,
+        12319,
+        12323,
+        12327,
+        12331,
+        12335,
+        12339,
+        12343,
+        12347,
+        12351,
+        12355,
+        12359,
+        12363,
+        12367,
+        12371
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_ooqdg9Wr-mo_f0012311/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/object_motion_ooqdg9Wr-mo_f0012311/hidden.npz",
+      "run": "object_motion_ooqdg9Wr-mo_f0012311"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        22339,
+        22343,
+        22347,
+        22351,
+        22355,
+        22359,
+        22363,
+        22367,
+        22371,
+        22375,
+        22379,
+        22383,
+        22387,
+        22391,
+        22395,
+        22399
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_CxBbw8eT624_f0022339/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_CxBbw8eT624_f0022339/hidden.npz",
+      "run": "scene_cut_CxBbw8eT624_f0022339"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        2824,
+        2828,
+        2832,
+        2836,
+        2840,
+        2844,
+        2848,
+        2852,
+        2856,
+        2860,
+        2864,
+        2868,
+        2872,
+        2876,
+        2880,
+        2884
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_Lyv_2usFQA0_f0002824/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_Lyv_2usFQA0_f0002824/hidden.npz",
+      "run": "scene_cut_Lyv_2usFQA0_f0002824"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        6737,
+        6741,
+        6745,
+        6749,
+        6753,
+        6757,
+        6761,
+        6765,
+        6769,
+        6773,
+        6777,
+        6781,
+        6785,
+        6789,
+        6793,
+        6797
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_Zjl2vmy02As_f0006737/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_Zjl2vmy02As_f0006737/hidden.npz",
+      "run": "scene_cut_Zjl2vmy02As_f0006737"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        2285,
+        2289,
+        2293,
+        2297,
+        2301,
+        2305,
+        2309,
+        2313,
+        2317,
+        2321,
+        2325,
+        2329,
+        2333,
+        2337,
+        2341,
+        2345
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut__tvmjsKXTu8_f0002285/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut__tvmjsKXTu8_f0002285/hidden.npz",
+      "run": "scene_cut__tvmjsKXTu8_f0002285"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        1269,
+        1273,
+        1277,
+        1281,
+        1285,
+        1289,
+        1293,
+        1297,
+        1301,
+        1305,
+        1309,
+        1313,
+        1317,
+        1321,
+        1325,
+        1329
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_dTUaWnvIOp4_f0001269/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_dTUaWnvIOp4_f0001269/hidden.npz",
+      "run": "scene_cut_dTUaWnvIOp4_f0001269"
+    },
+    {
+      "category": "scene_cut",
+      "frame_indices": [
+        11385,
+        11389,
+        11393,
+        11397,
+        11401,
+        11405,
+        11409,
+        11413,
+        11417,
+        11421,
+        11425,
+        11429,
+        11433,
+        11437,
+        11441,
+        11445
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_txdfCHpxzVg_f0011385/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/scene_cut_txdfCHpxzVg_f0011385/hidden.npz",
+      "run": "scene_cut_txdfCHpxzVg_f0011385"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        27140,
+        27144,
+        27148,
+        27152,
+        27156,
+        27160,
+        27164,
+        27168,
+        27172,
+        27176,
+        27180,
+        27184,
+        27188,
+        27192,
+        27196,
+        27200
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_0w4OTD4L0GQ_f0027140/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_0w4OTD4L0GQ_f0027140/hidden.npz",
+      "run": "static_0w4OTD4L0GQ_f0027140"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        16034,
+        16038,
+        16042,
+        16046,
+        16050,
+        16054,
+        16058,
+        16062,
+        16066,
+        16070,
+        16074,
+        16078,
+        16082,
+        16086,
+        16090,
+        16094
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_20gUIdXGuAs_f0016034/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_20gUIdXGuAs_f0016034/hidden.npz",
+      "run": "static_20gUIdXGuAs_f0016034"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        2658,
+        2662,
+        2666,
+        2670,
+        2674,
+        2678,
+        2682,
+        2686,
+        2690,
+        2694,
+        2698,
+        2702,
+        2706,
+        2710,
+        2714,
+        2718
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_FcP0mzWFCQU_f0002658/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_FcP0mzWFCQU_f0002658/hidden.npz",
+      "run": "static_FcP0mzWFCQU_f0002658"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        674,
+        678,
+        682,
+        686,
+        690,
+        694,
+        698,
+        702,
+        706,
+        710,
+        714,
+        718,
+        722,
+        726,
+        730,
+        734
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_M69Sn3OERZo_f0000674/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_M69Sn3OERZo_f0000674/hidden.npz",
+      "run": "static_M69Sn3OERZo_f0000674"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        11416,
+        11420,
+        11424,
+        11428,
+        11432,
+        11436,
+        11440,
+        11444,
+        11448,
+        11452,
+        11456,
+        11460,
+        11464,
+        11468,
+        11472,
+        11476
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_QdlP8ai8trw_f0011416/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_QdlP8ai8trw_f0011416/hidden.npz",
+      "run": "static_QdlP8ai8trw_f0011416"
+    },
+    {
+      "category": "static",
+      "frame_indices": [
+        723,
+        727,
+        731,
+        735,
+        739,
+        743,
+        747,
+        751,
+        755,
+        759,
+        763,
+        767,
+        771,
+        775,
+        779,
+        783
+      ],
+      "layers": [
+        0,
+        7,
+        15,
+        22,
+        23
+      ],
+      "metadata": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_aqTIB_q40bo_f0000723/metadata.json",
+      "npz": "/home/spco/online_video_state_decomposition/remote_results/clip_stratified_20260717/static_aqTIB_q40bo_f0000723/hidden.npz",
+      "run": "static_aqTIB_q40bo_f0000723"
+    }
+  ],
+  "methods": [
+    "recent_window",
+    "uniform_reservoir",
+    "adaptive_slots",
+    "oja_subspace"
+  ],
+  "metric_rows": 117000,
+  "scope": "Representation-level matched-state diagnostic. A query is a held-out delayed region vector; each bounded memory returns an approximation. This does not substitute for downstream online QA or language-conditioned retrieval."
+}

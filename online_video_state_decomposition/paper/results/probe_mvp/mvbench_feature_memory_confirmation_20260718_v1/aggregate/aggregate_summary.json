@@ -1,0 +1,21 @@
+{
+  "checkpoint_count": 200,
+  "fingerprints": [
+    "b5538473e2354f57af923385a3bd63fc91fffe27f1763cd81b14592080a38c48"
+  ],
+  "policies": [
+    "exact_recent",
+    "learned_recent_query_topk",
+    "recent_pool_query_mmr",
+    "recent_pool_query_topk"
+  ],
+  "prediction_rows": 800,
+  "reference": "exact_recent",
+  "tasks": [
+    "action_sequence",
+    "moving_direction",
+    "object_existence",
+    "scene_transition",
+    "state_change"
+  ]
+}

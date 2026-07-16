@@ -1,0 +1,19 @@
+{
+  "checkpoint_count": 100,
+  "fingerprints": [
+    "718c96c8e40ff6d752eb813e0a92fc245580653361941f4049fa0e849cdc0c51"
+  ],
+  "policies": [
+    "hybrid",
+    "recent",
+    "uniform"
+  ],
+  "prediction_rows": 300,
+  "tasks": [
+    "action_sequence",
+    "moving_direction",
+    "object_existence",
+    "scene_transition",
+    "state_change"
+  ]
+}

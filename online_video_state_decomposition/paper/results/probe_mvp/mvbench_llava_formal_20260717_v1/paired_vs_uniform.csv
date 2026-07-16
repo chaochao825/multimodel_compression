@@ -1,0 +1,3 @@
+policy,reference,paired_samples,accuracy_gain,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+hybrid,uniform,100,0.01,-0.03,0.06,3,2,95,1.0
+recent,uniform,100,0.0,-0.04,0.04,2,2,96,1.0

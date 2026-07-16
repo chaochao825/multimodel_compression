@@ -1,0 +1,16 @@
+run,policy,samples,gain,ci95_low,ci95_high,better,worse,tied
+formal,recent_pool_query_topk,200,0.02,0.0,0.045,5,1,194
+formal,recent_pool_query_mmr,200,0.015,-0.01,0.04,5,2,193
+formal,learned_recent_query_topk,200,0.025,0.0,0.05,6,1,193
+formal,offline_uniform,200,0.03,-0.005,0.065,10,4,186
+formal,offline_full_query_mmr,200,0.005,-0.035,0.045,8,7,185
+confirmation,recent_pool_query_topk,200,0.015,-0.015,0.045,6,3,191
+confirmation,recent_pool_query_mmr,200,0.02,-0.005,0.05,6,2,192
+confirmation,learned_recent_query_topk,200,0.03,0.005,0.06,7,1,192
+confirmation,offline_uniform,200,0.015,-0.03,0.06,11,8,181
+confirmation,offline_full_query_mmr,200,0.01,-0.025,0.045,7,5,188
+pooled_descriptive,recent_pool_query_topk,400,0.0175,0.0,0.0375,11,4,385
+pooled_descriptive,recent_pool_query_mmr,400,0.0175,0.0,0.0375,11,4,385
+pooled_descriptive,learned_recent_query_topk,400,0.0275,0.01,0.0475,13,2,385
+pooled_descriptive,offline_uniform,400,0.0225,-0.005,0.05,21,12,367
+pooled_descriptive,offline_full_query_mmr,400,0.0075,-0.0175,0.0325,15,12,373

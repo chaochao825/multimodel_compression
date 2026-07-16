@@ -1,0 +1,135 @@
+{
+  "analysis_stage": "posthoc_reserve_confirmation",
+  "hyperparameter_source": {
+    "mode": "fixed_before_evaluation",
+    "path": "configs/mvbench/query_memory_confirmation_hyperparameters_20260717.json",
+    "sha256": "c04db25ab9597c4079e675a2790f3cee56e40bf2d87b06b20b4215dcabf26681"
+  },
+  "hyperparameters": {
+    "diversity_weight": 0.5,
+    "novelty_weight": 0.0,
+    "option_weight": 0.0,
+    "recency_weight": 0.1,
+    "temporal_weight": 0.0
+  },
+  "learned_ranker_source": {
+    "mode": "fixed_before_evaluation",
+    "path": "configs/mvbench/query_memory_learned_ranker_20260717.json",
+    "sha256": "65226a3ef558bf0968d48fa8a482cec85a7a0d39af85f0226c785f613e666f12"
+  },
+  "policies": [
+    "exact_recent",
+    "offline_uniform",
+    "recent_pool_query_topk",
+    "recent_pool_query_mmr",
+    "reservoir_recent_query_mmr",
+    "diverse_recent_query_topk",
+    "diverse_recent_query_mmr",
+    "calibrated_diverse_recent_query_mmr",
+    "learned_recent_query_topk",
+    "offline_full_query_mmr"
+  ],
+  "prediction_rows": 2000,
+  "promotion": {
+    "advance_to_llava_anchor": true,
+    "claim_boundary": "The visual evidence cache is not counted in this CLIP proxy. A positive result promotes only a selection-policy anchor.",
+    "exploratory_learned_readout": {
+      "claim_boundary": "The four-feature ridge readout is trained only on calibration labels and remains an exploratory baseline.",
+      "non_worse_tasks": 5,
+      "paired": {
+        "accuracy_gain": 0.03,
+        "better_samples": 7,
+        "bootstrap_ci95_high": 0.06,
+        "bootstrap_ci95_low": 0.005,
+        "mcnemar_exact_p": 0.0703125,
+        "paired_samples": 200,
+        "policy": "learned_recent_query_topk",
+        "reference": "exact_recent",
+        "tied_samples": 192,
+        "worse_samples": 1
+      },
+      "policy": "learned_recent_query_topk",
+      "task_gains": {
+        "action_sequence": 0.04999999999999993,
+        "moving_direction": 0.0,
+        "object_existence": 0.0,
+        "scene_transition": 0.09999999999999998,
+        "state_change": 0.0
+      }
+    },
+    "exploratory_option_aware": {
+      "claim_boundary": "This secondary policy uses all answer options symmetrically and is not the preregistered primary.",
+      "non_worse_tasks": 4,
+      "paired": {
+        "accuracy_gain": 0.005,
+        "better_samples": 6,
+        "bootstrap_ci95_high": 0.04,
+        "bootstrap_ci95_low": -0.03,
+        "mcnemar_exact_p": 1.0,
+        "paired_samples": 200,
+        "policy": "calibrated_diverse_recent_query_mmr",
+        "reference": "exact_recent",
+        "tied_samples": 189,
+        "worse_samples": 5
+      },
+      "policy": "calibrated_diverse_recent_query_mmr",
+      "task_gains": {
+        "action_sequence": -0.050000000000000044,
+        "moving_direction": 0.0,
+        "object_existence": 0.0,
+        "scene_transition": 0.07499999999999996,
+        "state_change": 0.0
+      }
+    },
+    "non_worse_tasks": 4,
+    "paired": {
+      "accuracy_gain": 0.015,
+      "better_samples": 6,
+      "bootstrap_ci95_high": 0.045,
+      "bootstrap_ci95_low": -0.015,
+      "mcnemar_exact_p": 0.5078125,
+      "paired_samples": 200,
+      "policy": "recent_pool_query_topk",
+      "reference": "exact_recent",
+      "tied_samples": 191,
+      "worse_samples": 3
+    },
+    "positive_trend_gate": true,
+    "primary_policy": "recent_pool_query_topk",
+    "reference_policy": "exact_recent",
+    "split_and_cache_validation": true,
+    "strong_gain_gate": false,
+    "task_gains": {
+      "action_sequence": 0.0,
+      "moving_direction": 0.0,
+      "object_existence": 0.0,
+      "scene_transition": 0.09999999999999998,
+      "state_change": -0.025000000000000022
+    }
+  },
+  "protocol_limits": {
+    "candidate_options_used_symmetrically": true,
+    "evaluation_labels_used_for_selection": false,
+    "primary_question_only_retrieval": true,
+    "secondary_option_aware_policies": [
+      "calibrated_diverse_recent_query_mmr",
+      "learned_recent_query_topk"
+    ],
+    "visual_evidence_cache_counted": false
+  },
+  "records": 200,
+  "validation": {
+    "checks": {
+      "all_expected_records_present": true,
+      "no_duplicate_cache_records": true,
+      "no_unexpected_records": true,
+      "split_labels_match_manifest": true
+    },
+    "expected_records": 200,
+    "missing": [],
+    "records": 200,
+    "unexpected": [],
+    "valid": true,
+    "wrong_split": []
+  }
+}

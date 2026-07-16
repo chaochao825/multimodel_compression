@@ -1,0 +1,72 @@
+{
+  "aggregate_rows": 128,
+  "configuration": {
+    "capacities": [
+      4,
+      8
+    ],
+    "coverage_threshold": 0.9,
+    "delays": [
+      0,
+      1,
+      2,
+      4
+    ],
+    "modes": [
+      "raw_unit",
+      "frame_centered_unit"
+    ],
+    "oja_lr": 0.5,
+    "pool_cols": 2,
+    "pool_rows": 2,
+    "seed": 42,
+    "slot_min_lr": 0.05,
+    "slot_replace_similarity": 0.75,
+    "storage_bits": 16
+  },
+  "figures": [
+    "memory_retention_curves.png",
+    "memory_retention_curves.pdf",
+    "memory_category_gain.png",
+    "memory_category_gain.pdf",
+    "memory_budget_frontier.png",
+    "memory_budget_frontier.pdf"
+  ],
+  "inputs": [
+    {
+      "category": "unlabeled",
+      "frame_indices": [
+        3441,
+        3445,
+        3449,
+        3453,
+        3457,
+        3461,
+        3465,
+        3469,
+        3473,
+        3477,
+        3481,
+        3485,
+        3489,
+        3493,
+        3497,
+        3501
+      ],
+      "layers": [
+        8
+      ],
+      "metadata": "E:\\Codex_work\\ssh_experiment\\video_circulant_analysis_20260701\\online_video_state_decomposition\\paper\\results\\probe_mvp\\qwen_dev_v2_download\\fFYN_s020\\metadata.json",
+      "npz": "E:\\Codex_work\\ssh_experiment\\video_circulant_analysis_20260701\\online_video_state_decomposition\\paper\\results\\probe_mvp\\qwen_dev_v2_download\\fFYN_s020\\hidden.npz",
+      "run": "fFYN_s020"
+    }
+  ],
+  "methods": [
+    "recent_window",
+    "uniform_reservoir",
+    "adaptive_slots",
+    "oja_subspace"
+  ],
+  "metric_rows": 400,
+  "scope": "Representation-level matched-state diagnostic. A query is a held-out delayed region vector; each bounded memory returns an approximation. This does not substitute for downstream online QA or language-conditioned retrieval."
+}
