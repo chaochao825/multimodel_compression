@@ -1,0 +1,28 @@
+{
+  "python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "transformers": "4.51.0",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "model_dir": "/home/wangmeiqi/.cache/huggingface/hub/models--Qwen--Qwen2.5-VL-3B-Instruct/snapshots/66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "manifest": "/home/spco/sow_linear/tilespec_ex_minimal_20260717/data/tilespec_ex_minimal/manifest.jsonl",
+  "manifest_sha256": "2dd118b849e920b94b6dffe859dd7cfe464ebbcc52589e53b0e001325c858d5a",
+  "samples_per_dataset": 200,
+  "oracle_samples_per_dataset": 16,
+  "retention_rates": [
+    0.125,
+    0.25
+  ],
+  "main_methods": [
+    "none",
+    "average_pool",
+    "global_lowpass",
+    "tile_lowpass",
+    "tile_energy_exception",
+    "tile_risk_exception"
+  ],
+  "tile_adapter": "one 448x448 thumbnail + four independent 448x448 crops",
+  "quality_path_keeps_original_visual_token_length": true,
+  "quality_path_is_latency_evidence": false
+}

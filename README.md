@@ -1,5 +1,26 @@
 # Multimodal Compression: Video Circulant/Hybrid Attention Probe
 
+## 2026-07-17 Update: TileSpec-Ex Minimal Feasibility Gates
+
+The branch now includes a controlled minimal experiment for tile-local
+spectral compression and task-risk exception blocks. See
+[`TILESPEC_EX_MINIMAL_EXPERIMENT.md`](TILESPEC_EX_MINIMAL_EXPERIMENT.md).
+It fixes one Qwen2.5-VL-3B model, GQA/TextVQA/ChartQA, crop-token retention
+rates of 12.5% and 25%, and six headline methods. Independent structural
+ablations compare arbitrary tokens, dynamic 2x2 blocks, and fixed per-tile
+block slots with a real Qwen projection weight.
+
+The quality path reconstructs full-length visual embeddings and is not speed
+evidence. In the completed 600-sample run, tile-local passed only at 25% and
+risk exceptions improved task-sensitive accuracy by only 0.25 percentage
+points, so both scientific gates failed. The structured gate is inconclusive:
+an aligned 75%-base/25%-exception diagnostic found layout-included gather and
+selector paths slower, with no stable compact-prefill-plus-logits benefit, but
+it is not an end-to-end multimodal TTFT measurement. The raw-data evidence
+audit passed after an independent review-driven correction. See the bundle in
+[`remote_logs/tilespec_ex_minimal_20260717/`](remote_logs/tilespec_ex_minimal_20260717/).
+No fused-kernel, multimodal TTFT, or model-wide memory benefit is claimed.
+
 本目录整理了当前一轮关于视频生成、视频理解和 ViT 注意力结构化替换的实验代码、日志、图和报告。
 
 核心问题来自 `LeapLabTHU/Circulant-Attention`：视觉/视频模型的 attention 是否也能近似为 BCCB/circulant attention，从而用 FFT 或结构化矩阵替换。当前结论是：Qwen3-VL visual 与 ViT 不适合直接零训练替换为单一 circulant attention；Wan2.2 在部分 heads/layers/timesteps 上有更强 3D cyclic 成分，但仍不是严格 BCCB；更合理的方向是 `sink/global + local-cyclic + sparse routing` 的混合 attention。

@@ -8,3 +8,5 @@ trash/
 .ipynb_checkpoints/
 *.tmp
 *.log.tmp
+data/tilespec_ex_minimal/
+results/tilespec_ex_minimal_runs/

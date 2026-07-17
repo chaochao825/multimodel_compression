@@ -1,0 +1,128 @@
+{
+  "overall": "PASS",
+  "major_issues": [],
+  "minor_issues": [],
+  "findings": [
+    {
+      "check": "required_outputs",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "missing=[]"
+    },
+    {
+      "check": "three_dataset_200_sample_contract",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "counts={'gqa': 200, 'textvqa': 200, 'chartqa': 200}"
+    },
+    {
+      "check": "quality_run_completed",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "{\"complete\": true, \"elapsed_seconds\": 912.2497722610133, \"new_oracle_records_by_dataset\": {\"chartqa\": 16, \"gqa\": 16, \"textvqa\": 16}, \"oracle_records\": 48, \"quality_records\": 600}"
+    },
+    {
+      "check": "six_main_methods_two_rates",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[], expected_variants=15"
+    },
+    {
+      "check": "five_image_multitile_grid",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "answer_scores_recomputed",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "answer_derived_fields_recomputed",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "exact_equal_budget_accounting",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "oracle_16_samples_per_dataset",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "counts={'gqa': 16, 'textvqa': 16, 'chartqa': 16}"
+    },
+    {
+      "check": "oracle_arrays_and_risk_product",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "oracle_correlations_recomputed",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "rows=96, errors=[]"
+    },
+    {
+      "check": "quality_and_oracle_gate_inputs_recomputed_from_raw",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "latency_matrix_complete",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "missing=[], extra=[], invalid=0"
+    },
+    {
+      "check": "aligned_latency_budget_and_claim_boundary",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "{\"budget_contract\": [{\"base_tokens\": 96, \"exception_blocks\": 8, \"exception_tokens\": 32, \"retained_crop_tokens\": 128, \"retention_rate\": 0.125}, {\"base_tokens\": 192, \"exception_blocks\": 16, \"exception_tokens\": 64, \"retained_crop_tokens\": 256, \"retention_rate\": 0.25}], \"structured_gate_validated\": false}"
+    },
+    {
+      "check": "structured_latency_recomputed_from_raw",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "structured_diagnostic_and_status_recomputed",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "gate_boole_recomputed",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "errors=[]"
+    },
+    {
+      "check": "quality_latency_claim_boundary",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "{\"keeps_length\": true, \"latency_evidence\": false}"
+    },
+    {
+      "check": "no_unsupported_system_claim",
+      "status": "PASS",
+      "severity": "none",
+      "evidence": "matches=[], structured_inconclusive=INCONCLUSIVE"
+    }
+  ],
+  "scientific_gate_outcome": {
+    "tile_local": false,
+    "risk_exception": false,
+    "structured_latency": "INCONCLUSIVE",
+    "all_three": false
+  },
+  "review_note": "Review PASS means evidence/accounting consistency, not that a scientific gate is positive."
+}

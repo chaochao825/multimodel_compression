@@ -1,0 +1,7 @@
+{
+  "records": 600,
+  "variants": 9000,
+  "changed_scores": 96,
+  "original_staged_at": "/home/spco/sow_linear/tilespec_ex_minimal_20260717/trash/20260717-053333-quality-rescore/quality_samples.jsonl",
+  "metric": "GQA exact, TextVQA VQA-style, ChartQA relaxed numeric"
+}

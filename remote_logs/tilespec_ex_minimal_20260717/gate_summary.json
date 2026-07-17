@@ -1,0 +1,178 @@
+{
+  "contract": {
+    "model": "Qwen2.5-VL-3B-Instruct with deterministic five-image multi-tile adapter",
+    "datasets": [
+      "gqa",
+      "textvqa",
+      "chartqa"
+    ],
+    "samples_per_dataset": 200,
+    "retention_rates": [
+      0.125,
+      0.25
+    ],
+    "main_methods": [
+      "none",
+      "average_pool",
+      "global_lowpass",
+      "tile_lowpass",
+      "tile_energy_exception",
+      "tile_risk_exception"
+    ]
+  },
+  "tile_local_better_than_global": {
+    "pass": false,
+    "by_rate": [
+      {
+        "retention_rate": 0.125,
+        "task_sensitive_accuracy_delta": -0.005833333333333333,
+        "prediction_loss_event_reduction": 0.04761904761904767,
+        "boundary_mse_reduction": 0.12546916786665652,
+        "boundary_delta_ci95_lower": 0.13180008704494686,
+        "at_least_one_sensitive_win": true,
+        "gqa_accuracy_delta": -0.02,
+        "gqa_not_worse": false,
+        "same_budget": true,
+        "pass": false
+      },
+      {
+        "retention_rate": 0.25,
+        "task_sensitive_accuracy_delta": -0.004166666666666667,
+        "prediction_loss_event_reduction": -0.07407407407407418,
+        "boundary_mse_reduction": 0.22259660229432077,
+        "boundary_delta_ci95_lower": 0.17590798299666496,
+        "at_least_one_sensitive_win": true,
+        "gqa_accuracy_delta": 0.005,
+        "gqa_not_worse": true,
+        "same_budget": true,
+        "pass": true
+      }
+    ]
+  },
+  "risk_exception_better_than_energy": {
+    "pass": false,
+    "by_rate": [
+      {
+        "retention_rate": 0.125,
+        "task_sensitive_accuracy_delta": 0.0025,
+        "task_delta_at_least_2pp": false,
+        "gqa_accuracy_delta": 0.0,
+        "gqa_not_worse": true,
+        "oracle_spearman_delta": 0.0008363553349355308,
+        "oracle_spearman_delta_ci95_lower": 5.974339212825021e-06,
+        "oracle_spearman_delta_ci95_upper": 0.0016644143217841591,
+        "oracle_significantly_better": true,
+        "same_budget": true,
+        "risk_scorer_flop_ratio_to_saved_projection": 0.0012555803571428572,
+        "scorer_below_5pct": true,
+        "pass": false
+      },
+      {
+        "retention_rate": 0.25,
+        "task_sensitive_accuracy_delta": 0.0025,
+        "task_delta_at_least_2pp": false,
+        "gqa_accuracy_delta": 0.0,
+        "gqa_not_worse": true,
+        "oracle_spearman_delta": 0.0009020704585336109,
+        "oracle_spearman_delta_ci95_lower": 1.2426640464068352e-05,
+        "oracle_spearman_delta_ci95_upper": 0.001826644621552416,
+        "oracle_significantly_better": true,
+        "same_budget": true,
+        "risk_scorer_flop_ratio_to_saved_projection": 0.00146484375,
+        "scorer_below_5pct": true,
+        "pass": false
+      }
+    ]
+  },
+  "structured_block_real_latency_benefit": {
+    "status": "INCONCLUSIVE",
+    "validated": false,
+    "pass": false,
+    "candidate_pass": {
+      "risk_block_dynamic": false,
+      "risk_block_fixed_slots": false
+    },
+    "by_candidate_rate": [
+      {
+        "candidate": "risk_block_dynamic",
+        "retention_rate": 0.125,
+        "accuracy_loss_vs_unstructured": -0.0005555555555555558,
+        "accuracy_loss_within_0_5pp": true,
+        "mean_gather_p50_reduction": -2.788334512829927,
+        "gather_reduction_at_least_30pct": false,
+        "mean_selector_gather_project_p50_reduction": -0.10138689317123747,
+        "total_reduction_at_least_10pct": false,
+        "all_micro_batches_faster": false,
+        "mean_full_decoder_prefill_p50_reduction": -0.026516451843104843,
+        "full_decoder_prefill_reduction_at_least_10pct": false,
+        "all_prefill_batches_faster": false,
+        "fixed_output_shape": true,
+        "diagnostic_pass": false,
+        "validated": false,
+        "pass": false,
+        "status": "INCONCLUSIVE"
+      },
+      {
+        "candidate": "risk_block_dynamic",
+        "retention_rate": 0.25,
+        "accuracy_loss_vs_unstructured": -0.003333333333333334,
+        "accuracy_loss_within_0_5pp": true,
+        "mean_gather_p50_reduction": -2.173966996803747,
+        "gather_reduction_at_least_30pct": false,
+        "mean_selector_gather_project_p50_reduction": -0.06793240023217043,
+        "total_reduction_at_least_10pct": false,
+        "all_micro_batches_faster": false,
+        "mean_full_decoder_prefill_p50_reduction": 0.009063323567403877,
+        "full_decoder_prefill_reduction_at_least_10pct": false,
+        "all_prefill_batches_faster": false,
+        "fixed_output_shape": true,
+        "diagnostic_pass": false,
+        "validated": false,
+        "pass": false,
+        "status": "INCONCLUSIVE"
+      },
+      {
+        "candidate": "risk_block_fixed_slots",
+        "retention_rate": 0.125,
+        "accuracy_loss_vs_unstructured": 0.0016666666666666668,
+        "accuracy_loss_within_0_5pp": true,
+        "mean_gather_p50_reduction": -2.77919214731458,
+        "gather_reduction_at_least_30pct": false,
+        "mean_selector_gather_project_p50_reduction": -0.1543270863780471,
+        "total_reduction_at_least_10pct": false,
+        "all_micro_batches_faster": false,
+        "mean_full_decoder_prefill_p50_reduction": -0.02747276471097922,
+        "full_decoder_prefill_reduction_at_least_10pct": false,
+        "all_prefill_batches_faster": false,
+        "fixed_output_shape": true,
+        "diagnostic_pass": false,
+        "validated": false,
+        "pass": false,
+        "status": "INCONCLUSIVE"
+      },
+      {
+        "candidate": "risk_block_fixed_slots",
+        "retention_rate": 0.25,
+        "accuracy_loss_vs_unstructured": -0.01,
+        "accuracy_loss_within_0_5pp": true,
+        "mean_gather_p50_reduction": -2.1928874174550383,
+        "gather_reduction_at_least_30pct": false,
+        "mean_selector_gather_project_p50_reduction": -0.1325826041037968,
+        "total_reduction_at_least_10pct": false,
+        "all_micro_batches_faster": false,
+        "mean_full_decoder_prefill_p50_reduction": -0.058022798736364546,
+        "full_decoder_prefill_reduction_at_least_10pct": false,
+        "all_prefill_batches_faster": false,
+        "fixed_output_shape": true,
+        "diagnostic_pass": false,
+        "validated": false,
+        "pass": false,
+        "status": "INCONCLUSIVE"
+      }
+    ],
+    "evidence_boundary": "Aligned GPU diagnostics with exact 75% base plus 25% exception budgets, a real Qwen q_proj weight, and compact decoder prefill plus first-token logits. The visual encoder, native multimodal position construction, and end-to-end TTFT are not measured.",
+    "inconclusive_reason": "The aligned benchmark stops after compact packing, language decoder prefill, and first-token logits. It does not measure the visual encoder, native multimodal position construction, or end-to-end TTFT required by the predeclared gate."
+  },
+  "all_three_pass": false,
+  "recommendation": "Do not invest in a fused kernel: tile-local and risk gates failed, and the structured gate remains inconclusive."
+}

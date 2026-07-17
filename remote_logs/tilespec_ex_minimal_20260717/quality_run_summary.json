@@ -1,0 +1,11 @@
+{
+  "quality_records": 600,
+  "oracle_records": 48,
+  "new_oracle_records_by_dataset": {
+    "gqa": 16,
+    "textvqa": 16,
+    "chartqa": 16
+  },
+  "elapsed_seconds": 912.2497722610133,
+  "complete": true
+}

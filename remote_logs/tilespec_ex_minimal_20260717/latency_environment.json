@@ -1,0 +1,56 @@
+{
+  "python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "model_dir": "/home/wangmeiqi/.cache/huggingface/hub/models--Qwen--Qwen2.5-VL-3B-Instruct/snapshots/66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "projection": "model.model.layers[0].self_attn.q_proj",
+  "projection_shape": [
+    2048,
+    2048
+  ],
+  "dtype": "bfloat16",
+  "batch_sizes": [
+    1,
+    4,
+    8,
+    16
+  ],
+  "retention_rates": [
+    0.125,
+    0.25
+  ],
+  "warmup": 25,
+  "trials": 120,
+  "inner_repeats": 10,
+  "prefill_warmup": 3,
+  "prefill_trials": 20,
+  "prefill_max_batch": 8,
+  "thumbnail_tokens": 256,
+  "text_tokens": 64,
+  "exception_fraction": 0.25,
+  "budget_contract": [
+    {
+      "retention_rate": 0.125,
+      "retained_crop_tokens": 128,
+      "base_tokens": 96,
+      "exception_tokens": 32,
+      "exception_blocks": 8
+    },
+    {
+      "retention_rate": 0.25,
+      "retained_crop_tokens": 256,
+      "base_tokens": 192,
+      "exception_tokens": 64,
+      "exception_blocks": 16
+    }
+  ],
+  "selector_operates_on_exception_budget_only": true,
+  "prefill_sequence_includes_thumbnail_and_text": true,
+  "structured_gate_validated": false,
+  "compile_requested": false,
+  "compile_failures": [],
+  "elapsed_seconds": 66.49178568506613,
+  "claim_boundary": "Aligned GPU diagnostics with exact 75% base plus 25% exception budgets, a real Qwen q_proj weight, and compact decoder prefill plus first-token logits. The visual encoder, native multimodal position construction, and end-to-end TTFT are not measured."
+}
