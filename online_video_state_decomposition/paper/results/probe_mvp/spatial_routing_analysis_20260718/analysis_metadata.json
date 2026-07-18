@@ -1,0 +1,13 @@
+{
+  "combined_rows": 1200,
+  "expected_samples": 200,
+  "reference_fingerprints": [
+    "bd6a2d9aa9486aae534414cdefbe227536f4d9142ab8bc013f6b0777e389aba5"
+  ],
+  "reference_run_dir": "/home/spco/online_video_state_decomposition/remote_results/mvbench_spatial_residual_confirmation_200_20260718_v2",
+  "routed_fingerprints": [
+    "5ab305aac90e19227bbfb5a25681547e3e30e98de58f34f7e3488cae57b02630"
+  ],
+  "routed_run_dir": "/home/spco/online_video_state_decomposition/remote_results/mvbench_routed_residual_exploratory_200_20260718_v2",
+  "selector": "learned_recent_query_topk"
+}

@@ -84,6 +84,51 @@ class CompressedFeatureMemoryAggregateTest(unittest.TestCase):
             0.25,
         )
 
+    def test_routed_summary_is_invariant_to_sample_order(self) -> None:
+        rows = [
+            row(
+                "a",
+                variant="pca_r4_route_grid2_s4",
+                correct=1,
+                state_bytes=250,
+            ),
+            row(
+                "b",
+                variant="pca_r4_route_grid2_s4",
+                correct=0,
+                state_bytes=250,
+            ),
+        ]
+        rows[0].update(
+            {
+                "sparse_residual_tokens_per_frame": 0,
+                "sparse_residual_token_capacity": 64,
+                "realized_sparse_residual_tokens": 0,
+                "pool_frame_indices": list(range(16)),
+            }
+        )
+        rows[1].update(
+            {
+                "sparse_residual_tokens_per_frame": 4,
+                "sparse_residual_token_capacity": 64,
+                "realized_sparse_residual_tokens": 64,
+                "pool_frame_indices": list(range(16)),
+            }
+        )
+        forward = summarize_variants(rows)[0]
+        reverse = summarize_variants(list(reversed(rows)))[0]
+        self.assertEqual(forward, reverse)
+        self.assertEqual(forward["sparse_residual_tokens_per_frame"], -1)
+        self.assertEqual(forward["sparse_residual_token_capacity"], 64)
+        self.assertEqual(
+            forward["mean_realized_sparse_residual_tokens"],
+            32.0,
+        )
+        self.assertEqual(
+            forward["mean_realized_sparse_tokens_per_frame"],
+            2.0,
+        )
+
     def test_paired_comparison_uses_full_variant_reference(self) -> None:
         paired = paired_vs_full(self.rows, seed=3)
         self.assertEqual(len(paired), 1)

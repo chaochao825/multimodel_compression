@@ -1,0 +1,6 @@
+task,samples,exact_full,learned_full,learned_compressed,selector_gain_points,compression_delta_points
+action_sequence,40,0.475,0.475,0.475,0.0,0.0
+moving_direction,40,0.4,0.4,0.4,0.0,0.0
+object_existence,40,0.575,0.575,0.55,0.0,-2.5
+scene_transition,40,0.675,0.675,0.675,0.0,0.0
+state_change,40,0.425,0.425,0.425,0.0,0.0

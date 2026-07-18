@@ -1,0 +1,4 @@
+selection_policy,memory_variant,reference_variant,noninferiority_margin,paired_prediction_matches,paired_prediction_disagreements,prediction_agreement_rate,worse_rate,worse_rate_upper_95,noninferior_at_margin,paired_samples,accuracy_gain,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+learned_recent_query_topk,pca_r256_grid2x2,full,0.02,1,1,0.5,0.5,0.9746794344808964,0,2,-0.5,-1.0,0.0,0,1,1,1.0
+learned_recent_query_topk,pca_r256_route_grid2_s4,full,0.02,2,0,1.0,0.0,0.7763932022500211,0,2,0.0,0.0,0.0,0,0,2,1.0
+learned_recent_query_topk,pca_r256_s4,full,0.02,1,1,0.5,0.5,0.9746794344808964,0,2,-0.5,-1.0,0.0,0,1,1,1.0

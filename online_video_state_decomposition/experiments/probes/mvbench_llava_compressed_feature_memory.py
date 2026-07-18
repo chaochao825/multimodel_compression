@@ -3,16 +3,28 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import sys
 import time
 import traceback
 from pathlib import Path
 
+import feature_memory_codec as feature_memory_codec_module
 import torch
 
 from feature_memory_codec import (
+    ROUTED_STATE_FORMAT_VERSION,
+    ROUTED_TOKEN_LAYOUT,
+    BudgetedResidualFeatureMemory,
     EncodedFeatureMemory,
+    PooledSparseResidualFeatureMemory,
+    RoutedSpatialSparseFeatureMemory,
+    SpatialGridResidualFeatureMemory,
+    encode_budgeted_feature_memory,
     encode_feature_memory,
+    encode_pooled_sparse_feature_memory,
+    encode_routed_spatial_sparse_feature_memory,
+    encode_spatial_grid_feature_memory,
     load_codec,
     reconstruct_feature_memory,
     relative_reconstruction_error,
@@ -56,6 +68,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--pool-grid", type=int, default=8)
     parser.add_argument("--policies", default=",".join(DEFAULT_POLICIES))
     parser.add_argument("--residual-tokens", default="0,1,2,4")
+    parser.add_argument("--pooled-sparse-residual-vectors", default="")
+    parser.add_argument("--spatial-residual-grids", default="")
+    parser.add_argument("--routed-residual-grids", default="")
+    parser.add_argument("--routed-grid-error-ratio", type=float, default=1.0)
+    parser.add_argument("--adaptive-residual-budgets", default="")
+    parser.add_argument(
+        "--adaptive-residuals-per-frame-equivalent",
+        type=int,
+        default=0,
+    )
+    parser.add_argument(
+        "--adaptive-residual-modes",
+        default="global_energy,temporal_novelty",
+    )
+    parser.add_argument("--adaptive-minimum-per-frame", type=int, default=0)
+    parser.add_argument("--temporal-novelty-weight", type=float, default=1.0)
+    parser.add_argument("--sample-ids", default="")
     parser.add_argument("--exclude-full", action="store_true")
     parser.add_argument("--max-new-tokens", type=int, default=16)
     parser.add_argument("--include-subtitle", action="store_true")
@@ -74,6 +103,28 @@ def parse_nonnegative_ints(value: str) -> list[int]:
     return parsed
 
 
+def parse_positive_ints(value: str) -> list[int]:
+    if not value.strip():
+        return []
+    parsed = sorted({int(item) for item in parse_csv_list(value)})
+    if parsed[0] <= 0:
+        raise ValueError("values must be positive")
+    return parsed
+
+
+def parse_optional_csv_list(value: str) -> list[str]:
+    return parse_csv_list(value) if value.strip() else []
+
+
+def parse_adaptive_modes(value: str) -> list[str]:
+    modes = parse_optional_csv_list(value)
+    supported = {"global_energy", "temporal_novelty"}
+    unknown = sorted(set(modes) - supported)
+    if unknown:
+        raise ValueError(f"unsupported adaptive residual modes: {unknown}")
+    return modes
+
+
 def sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -82,12 +133,47 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def implementation_hashes() -> dict[str, str]:
+    root = Path(__file__).resolve().parent
+    paths = {
+        "mvbench_llava_compressed_feature_memory.py": Path(__file__).resolve(),
+        "feature_memory_codec.py": Path(feature_memory_codec_module.__file__).resolve(),
+        "mvbench_llava_anchor.py": root / "mvbench_llava_anchor.py",
+        "mvbench_llava_feature_memory_anchor.py": (
+            root / "mvbench_llava_feature_memory_anchor.py"
+        ),
+        "mvbench_utils.py": root / "mvbench_utils.py",
+    }
+    return {name: sha256(path) for name, path in paths.items()}
+
+
 def variant_name(rank: int, residual_tokens: int) -> str:
     return f"pca_r{rank}_s{residual_tokens}"
 
 
+def adaptive_variant_name(rank: int, mode: str, budget: int) -> str:
+    short_mode = {
+        "global_energy": "global",
+        "temporal_novelty": "temporal",
+    }[mode]
+    return f"pca_r{rank}_{short_mode}_k{budget}"
+
+
+def pooled_sparse_variant_name(rank: int, vectors: int) -> str:
+    return f"pca_r{rank}_mean1_s{vectors - 1}"
+
+
+def spatial_grid_variant_name(rank: int, grid_size: int) -> str:
+    return f"pca_r{rank}_grid{grid_size}x{grid_size}"
+
+
+def routed_variant_name(rank: int, grid_size: int) -> str:
+    vectors = grid_size**2
+    return f"pca_r{rank}_route_grid{grid_size}_s{vectors}"
+
+
 def config_from_args(args: argparse.Namespace) -> dict[str, object]:
-    return {
+    config = {
         "dataset_root": str(args.dataset_root.resolve()),
         "model_dir": str(args.model_dir.resolve()),
         "llava_source": str(args.llava_source.resolve()),
@@ -95,6 +181,11 @@ def config_from_args(args: argparse.Namespace) -> dict[str, object]:
         "selection_manifest_sha256": sha256(args.selection_manifest),
         "codec_path": str(args.codec_path.resolve()),
         "codec_sha256": sha256(args.codec_path),
+        "probe_implementation_sha256": sha256(Path(__file__).resolve()),
+        "codec_implementation_sha256": sha256(
+            Path(feature_memory_codec_module.__file__).resolve()
+        ),
+        "implementation_sha256": implementation_hashes(),
         "tasks": parse_csv_list(args.tasks),
         "samples_per_task": args.samples_per_task,
         "selection_seed": args.selection_seed,
@@ -106,13 +197,58 @@ def config_from_args(args: argparse.Namespace) -> dict[str, object]:
         "residual_tokens": parse_nonnegative_ints(
             args.residual_tokens
         ),
+        "pooled_sparse_residual_vectors": parse_positive_ints(
+            args.pooled_sparse_residual_vectors
+        ),
+        "spatial_residual_grids": parse_positive_ints(
+            args.spatial_residual_grids
+        ),
+        "routed_residual_grids": parse_positive_ints(
+            args.routed_residual_grids
+        ),
+        "routed_grid_error_ratio": args.routed_grid_error_ratio,
+        "adaptive_residual_budgets": parse_positive_ints(
+            args.adaptive_residual_budgets
+        ),
+        "adaptive_residuals_per_frame_equivalent": (
+            args.adaptive_residuals_per_frame_equivalent
+        ),
+        "adaptive_residual_modes": parse_adaptive_modes(
+            args.adaptive_residual_modes
+        ),
+        "adaptive_minimum_per_frame": args.adaptive_minimum_per_frame,
+        "temporal_novelty_weight": args.temporal_novelty_weight,
+        "sample_ids": parse_optional_csv_list(args.sample_ids),
         "include_full": not args.exclude_full,
         "max_new_tokens": args.max_new_tokens,
         "include_subtitle": args.include_subtitle,
         "native_feature_memory": True,
         "compressed_native_feature_memory": True,
         "raw_frame_replay_at_read": False,
+        "feature_token_layout": ROUTED_TOKEN_LAYOUT,
+        "structured_residual_format_version": ROUTED_STATE_FORMAT_VERSION,
+        "state_accounting_scope": (
+            "logical_tensor_payload_bytes_excluding_archive_metadata"
+        ),
     }
+    validate_probe_config(config)
+    return config
+
+
+def validate_probe_config(config: dict[str, object]) -> None:
+    pool_grid = int(config["pool_grid"])
+    if pool_grid <= 0:
+        raise ValueError("pool grid must be positive")
+    ratio = float(config["routed_grid_error_ratio"])
+    if not math.isfinite(ratio) or ratio <= 0.0:
+        raise ValueError("routed grid error ratio must be finite and positive")
+    spatial_grids = [int(value) for value in config["spatial_residual_grids"]]
+    routed_grids = [int(value) for value in config["routed_residual_grids"]]
+    for grid_size in spatial_grids + routed_grids:
+        if grid_size > pool_grid or pool_grid % grid_size:
+            raise ValueError("residual grid must divide the pooled token grid")
+    if routed_grids and pool_grid**2 > 256:
+        raise ValueError("routed uint8 indices support at most 256 pooled tokens")
 
 
 def fingerprint(config: dict[str, object]) -> str:
@@ -130,12 +266,38 @@ def build_compressed_states(
     *,
     codec: object,
     residual_tokens: list[int],
+    pooled_sparse_residual_vectors: list[int],
+    spatial_residual_grids: list[int],
+    routed_residual_grids: list[int],
+    routed_grid_error_ratio: float,
+    adaptive_residual_budgets: list[int],
+    adaptive_residuals_per_frame_equivalent: int,
+    adaptive_residual_modes: list[str],
+    adaptive_minimum_per_frame: int,
+    temporal_novelty_weight: float,
 ) -> tuple[
-    dict[str, EncodedFeatureMemory],
-    dict[str, dict[str, float | int]],
+    dict[
+        str,
+        EncodedFeatureMemory
+        | BudgetedResidualFeatureMemory
+        | PooledSparseResidualFeatureMemory
+        | SpatialGridResidualFeatureMemory
+        | RoutedSpatialSparseFeatureMemory,
+    ],
+    dict[str, dict[str, float | int | str]],
 ]:
     states = {}
     metadata = {}
+    if adaptive_residuals_per_frame_equivalent < 0:
+        raise ValueError(
+            "adaptive per-frame equivalent must be non-negative"
+        )
+    adaptive_budgets = set(adaptive_residual_budgets)
+    if adaptive_residuals_per_frame_equivalent:
+        adaptive_budgets.add(
+            adaptive_residuals_per_frame_equivalent
+            * int(features.shape[0])
+        )
     for count in residual_tokens:
         synchronize()
         started = time.perf_counter()
@@ -165,8 +327,246 @@ def build_compressed_states(
             "latent_state_bytes": state.latent_bytes,
             "residual_value_bytes": state.residual_value_bytes,
             "residual_index_bytes": state.residual_index_bytes,
+            "residual_index_slot_bytes": state.residual_index_bytes,
+            "route_mask_bytes": 0,
             "residual_tokens_per_frame": count,
+            "residual_token_budget": count * int(features.shape[0]),
+            "residual_value_vectors_per_frame": count,
+            "residual_value_vector_budget": count * int(features.shape[0]),
+            "sparse_residual_tokens_per_frame": count,
+            "sparse_residual_token_capacity": count * int(features.shape[0]),
+            "realized_sparse_residual_tokens": count * int(features.shape[0]),
+            "residual_allocation": "fixed_per_frame",
+            "residual_nonempty_frames": int(features.shape[0]) if count else 0,
+            "residual_max_tokens_in_frame": count,
+            "pooled_residual_vectors_per_frame": 0,
+            "spatial_residual_grid_size": 0,
+            "grid_mode_frames": 0,
+            "sparse_mode_frames": int(features.shape[0]) if count else 0,
         }
+    for vectors in pooled_sparse_residual_vectors:
+        synchronize()
+        started = time.perf_counter()
+        state = encode_pooled_sparse_feature_memory(
+            features,
+            codec,
+            residual_vectors_per_frame=vectors,
+        )
+        synchronize()
+        compression_seconds = time.perf_counter() - started
+        reconstruction = reconstruct_feature_memory(
+            state,
+            codec,
+            output_dtype=features.dtype,
+        )
+        name = pooled_sparse_variant_name(codec.rank, vectors)
+        states[name] = state
+        metadata[name] = {
+            "compression_seconds": compression_seconds,
+            "pool_reconstruction_relative_error": (
+                relative_reconstruction_error(features, reconstruction)
+            ),
+            "native_feature_state_bytes": state.stream_state_bytes,
+            "latent_state_bytes": state.latent_bytes,
+            "residual_value_bytes": state.residual_value_bytes,
+            "residual_index_bytes": state.residual_index_bytes,
+            "residual_index_slot_bytes": state.residual_index_bytes,
+            "route_mask_bytes": 0,
+            "residual_tokens_per_frame": vectors - 1,
+            "residual_token_budget": (vectors - 1) * int(features.shape[0]),
+            "residual_value_vectors_per_frame": vectors,
+            "residual_value_vector_budget": vectors * int(features.shape[0]),
+            "sparse_residual_tokens_per_frame": vectors - 1,
+            "sparse_residual_token_capacity": (vectors - 1)
+            * int(features.shape[0]),
+            "realized_sparse_residual_tokens": (vectors - 1)
+            * int(features.shape[0]),
+            "residual_allocation": "frame_mean_plus_sparse",
+            "residual_nonempty_frames": int(features.shape[0]),
+            "residual_max_tokens_in_frame": vectors - 1,
+            "pooled_residual_vectors_per_frame": 1,
+            "spatial_residual_grid_size": 0,
+            "grid_mode_frames": 0,
+            "sparse_mode_frames": int(features.shape[0]) if vectors > 1 else 0,
+        }
+    for grid_size in spatial_residual_grids:
+        synchronize()
+        started = time.perf_counter()
+        state = encode_spatial_grid_feature_memory(
+            features,
+            codec,
+            residual_grid_size=grid_size,
+        )
+        synchronize()
+        compression_seconds = time.perf_counter() - started
+        reconstruction = reconstruct_feature_memory(
+            state,
+            codec,
+            output_dtype=features.dtype,
+        )
+        name = spatial_grid_variant_name(codec.rank, grid_size)
+        vectors = grid_size**2
+        states[name] = state
+        metadata[name] = {
+            "compression_seconds": compression_seconds,
+            "pool_reconstruction_relative_error": (
+                relative_reconstruction_error(features, reconstruction)
+            ),
+            "native_feature_state_bytes": state.stream_state_bytes,
+            "latent_state_bytes": state.latent_bytes,
+            "residual_value_bytes": state.residual_value_bytes,
+            "residual_index_bytes": state.residual_index_bytes,
+            "residual_index_slot_bytes": 0,
+            "route_mask_bytes": 0,
+            "residual_tokens_per_frame": 0,
+            "residual_token_budget": 0,
+            "residual_value_vectors_per_frame": vectors,
+            "residual_value_vector_budget": vectors * int(features.shape[0]),
+            "sparse_residual_tokens_per_frame": 0,
+            "sparse_residual_token_capacity": 0,
+            "realized_sparse_residual_tokens": 0,
+            "residual_allocation": "coarse_spatial_grid",
+            "residual_nonempty_frames": int(features.shape[0]),
+            "residual_max_tokens_in_frame": 0,
+            "pooled_residual_vectors_per_frame": vectors,
+            "spatial_residual_grid_size": grid_size,
+            "grid_mode_frames": int(features.shape[0]),
+            "sparse_mode_frames": 0,
+        }
+    for grid_size in routed_residual_grids:
+        synchronize()
+        started = time.perf_counter()
+        state = encode_routed_spatial_sparse_feature_memory(
+            features,
+            codec,
+            residual_grid_size=grid_size,
+            grid_error_ratio=routed_grid_error_ratio,
+        )
+        synchronize()
+        compression_seconds = time.perf_counter() - started
+        reconstruction = reconstruct_feature_memory(
+            state,
+            codec,
+            output_dtype=features.dtype,
+        )
+        name = routed_variant_name(codec.rank, grid_size)
+        vectors = grid_size**2
+        grid_frames = int(torch.count_nonzero(state.grid_mode).item())
+        sparse_frames = int(features.shape[0]) - grid_frames
+        states[name] = state
+        metadata[name] = {
+            "compression_seconds": compression_seconds,
+            "pool_reconstruction_relative_error": (
+                relative_reconstruction_error(features, reconstruction)
+            ),
+            "native_feature_state_bytes": state.stream_state_bytes,
+            "latent_state_bytes": state.latent_bytes,
+            "residual_value_bytes": state.residual_value_bytes,
+            "residual_index_bytes": state.residual_index_bytes,
+            "residual_index_slot_bytes": state.residual_index_slot_bytes,
+            "route_mask_bytes": state.route_mask_bytes,
+            "residual_tokens_per_frame": -1,
+            "residual_token_budget": vectors * int(features.shape[0]),
+            "residual_value_vectors_per_frame": vectors,
+            "residual_value_vector_budget": vectors * int(features.shape[0]),
+            "sparse_residual_tokens_per_frame": (
+                vectors if grid_frames == 0 else (0 if sparse_frames == 0 else -1)
+            ),
+            "sparse_residual_token_capacity": vectors * int(features.shape[0]),
+            "realized_sparse_residual_tokens": vectors * sparse_frames,
+            "residual_allocation": "routed_spatial_or_sparse",
+            "residual_nonempty_frames": int(features.shape[0]),
+            "residual_max_tokens_in_frame": vectors if sparse_frames else 0,
+            "pooled_residual_vectors_per_frame": -1,
+            "spatial_residual_grid_size": grid_size,
+            "grid_mode_frames": grid_frames,
+            "sparse_mode_frames": sparse_frames,
+        }
+    for mode in adaptive_residual_modes:
+        for budget in sorted(adaptive_budgets):
+            synchronize()
+            started = time.perf_counter()
+            state = encode_budgeted_feature_memory(
+                features,
+                codec,
+                residual_token_budget=budget,
+                allocation=mode,
+                minimum_per_frame=adaptive_minimum_per_frame,
+                temporal_novelty_weight=temporal_novelty_weight,
+            )
+            synchronize()
+            compression_seconds = time.perf_counter() - started
+            reconstruction = reconstruct_feature_memory(
+                state,
+                codec,
+                output_dtype=features.dtype,
+            )
+            name = adaptive_variant_name(codec.rank, mode, budget)
+            frame_counts = state.residual_frame_counts()
+            states[name] = state
+            if (
+                adaptive_residuals_per_frame_equivalent
+                and budget
+                == adaptive_residuals_per_frame_equivalent
+                * int(features.shape[0])
+                and adaptive_residuals_per_frame_equivalent
+                in residual_tokens
+            ):
+                fixed_state = states[
+                    variant_name(
+                        codec.rank,
+                        adaptive_residuals_per_frame_equivalent,
+                    )
+                ]
+                if state.stream_state_bytes != fixed_state.stream_state_bytes:
+                    raise RuntimeError(
+                        "matched adaptive and fixed residual states differ "
+                        "in byte count"
+                    )
+            metadata[name] = {
+                "compression_seconds": compression_seconds,
+                "pool_reconstruction_relative_error": (
+                    relative_reconstruction_error(features, reconstruction)
+                ),
+                "native_feature_state_bytes": state.stream_state_bytes,
+                "latent_state_bytes": state.latent_bytes,
+                "residual_value_bytes": state.residual_value_bytes,
+                "residual_index_bytes": state.residual_index_bytes,
+                "residual_index_slot_bytes": state.residual_index_bytes,
+                "route_mask_bytes": 0,
+                "residual_tokens_per_frame": (
+                    budget // int(features.shape[0])
+                    if budget % int(features.shape[0]) == 0
+                    else -1
+                ),
+                "residual_token_budget": budget,
+                "residual_value_vectors_per_frame": (
+                    budget // int(features.shape[0])
+                    if budget % int(features.shape[0]) == 0
+                    else -1
+                ),
+                "residual_value_vector_budget": budget,
+                "sparse_residual_tokens_per_frame": (
+                    budget // int(features.shape[0])
+                    if budget % int(features.shape[0]) == 0
+                    else -1
+                ),
+                "sparse_residual_token_capacity": budget,
+                "realized_sparse_residual_tokens": budget,
+                "residual_allocation": mode,
+                "residual_nonempty_frames": int(
+                    torch.count_nonzero(frame_counts).item()
+                ),
+                "residual_max_tokens_in_frame": int(
+                    frame_counts.max().item()
+                ),
+                "pooled_residual_vectors_per_frame": 0,
+                "spatial_residual_grid_size": 0,
+                "grid_mode_frames": 0,
+                "sparse_mode_frames": int(
+                    torch.count_nonzero(frame_counts).item()
+                ),
+            }
     return states, metadata
 
 
@@ -180,6 +580,15 @@ def run_sample(
     image_processor: object,
     codec: object,
     residual_tokens: list[int],
+    pooled_sparse_residual_vectors: list[int],
+    spatial_residual_grids: list[int],
+    routed_residual_grids: list[int],
+    routed_grid_error_ratio: float,
+    adaptive_residual_budgets: list[int],
+    adaptive_residuals_per_frame_equivalent: int,
+    adaptive_residual_modes: list[str],
+    adaptive_minimum_per_frame: int,
+    temporal_novelty_weight: float,
     include_full: bool,
     sampled_frames: int,
     feature_pool_frames: int,
@@ -199,6 +608,21 @@ def run_sample(
         ]
         for policy in policies
     }
+    pool_set = set(pool_indices)
+    for policy, indices in selected_by_policy.items():
+        if len(indices) != frame_budget:
+            raise ValueError(
+                f"policy {policy} selects {len(indices)} frames; "
+                f"expected {frame_budget}"
+            )
+        if len(set(indices)) != len(indices):
+            raise ValueError(f"policy {policy} contains duplicate frames")
+        outside_pool = sorted(set(indices) - pool_set)
+        if outside_pool:
+            raise ValueError(
+                f"policy {policy} selects frames outside the feature pool: "
+                f"{outside_pool}"
+            )
     positions_by_policy = {
         policy: selected_positions(pool_indices, indices)
         for policy, indices in selected_by_policy.items()
@@ -209,11 +633,26 @@ def run_sample(
         model=model,
         image_processor=image_processor,
     )
+    if int(features.shape[1]) != pool_grid**2:
+        raise ValueError(
+            "pooled feature tokens do not match the declared row-major grid"
+        )
     dense_cache_bytes = feature_cache_bytes(features)
     compressed_states, compressed_metadata = build_compressed_states(
         features,
         codec=codec,
         residual_tokens=residual_tokens,
+        pooled_sparse_residual_vectors=pooled_sparse_residual_vectors,
+        spatial_residual_grids=spatial_residual_grids,
+        routed_residual_grids=routed_residual_grids,
+        routed_grid_error_ratio=routed_grid_error_ratio,
+        adaptive_residual_budgets=adaptive_residual_budgets,
+        adaptive_residuals_per_frame_equivalent=(
+            adaptive_residuals_per_frame_equivalent
+        ),
+        adaptive_residual_modes=adaptive_residual_modes,
+        adaptive_minimum_per_frame=adaptive_minimum_per_frame,
+        temporal_novelty_weight=temporal_novelty_weight,
     )
     accounting_by_policy = selection_manifest.get(
         "policy_accounting",
@@ -271,7 +710,22 @@ def run_sample(
                 "latent_state_bytes": dense_cache_bytes,
                 "residual_value_bytes": 0,
                 "residual_index_bytes": 0,
+                "residual_index_slot_bytes": 0,
+                "route_mask_bytes": 0,
                 "residual_tokens_per_frame": 0,
+                "residual_token_budget": 0,
+                "residual_value_vectors_per_frame": 0,
+                "residual_value_vector_budget": 0,
+                "sparse_residual_tokens_per_frame": 0,
+                "sparse_residual_token_capacity": 0,
+                "realized_sparse_residual_tokens": 0,
+                "residual_allocation": "full",
+                "residual_nonempty_frames": 0,
+                "residual_max_tokens_in_frame": 0,
+                "pooled_residual_vectors_per_frame": 0,
+                "spatial_residual_grid_size": 0,
+                "grid_mode_frames": 0,
+                "sparse_mode_frames": 0,
             },
         )
         for policy in policies:
@@ -383,12 +837,78 @@ def run_sample(
                     "residual_index_bytes": int(
                         variant_metadata["residual_index_bytes"]
                     ),
+                    "residual_index_slot_bytes": int(
+                        variant_metadata.get("residual_index_slot_bytes", 0)
+                    ),
+                    "route_mask_bytes": int(
+                        variant_metadata.get("route_mask_bytes", 0)
+                    ),
                     "codec_parameter_bytes": codec.parameter_bytes,
                     "codec_rank": codec.rank,
                     "residual_tokens_per_frame": int(
                         variant_metadata[
                             "residual_tokens_per_frame"
                         ]
+                    ),
+                    "residual_token_budget": int(
+                        variant_metadata["residual_token_budget"]
+                    ),
+                    "residual_value_vectors_per_frame": int(
+                        variant_metadata.get(
+                            "residual_value_vectors_per_frame",
+                            0,
+                        )
+                    ),
+                    "residual_value_vector_budget": int(
+                        variant_metadata.get(
+                            "residual_value_vector_budget",
+                            0,
+                        )
+                    ),
+                    "sparse_residual_tokens_per_frame": int(
+                        variant_metadata.get(
+                            "sparse_residual_tokens_per_frame",
+                            0,
+                        )
+                    ),
+                    "sparse_residual_token_capacity": int(
+                        variant_metadata.get(
+                            "sparse_residual_token_capacity",
+                            0,
+                        )
+                    ),
+                    "realized_sparse_residual_tokens": int(
+                        variant_metadata.get(
+                            "realized_sparse_residual_tokens",
+                            0,
+                        )
+                    ),
+                    "residual_allocation": str(
+                        variant_metadata["residual_allocation"]
+                    ),
+                    "residual_nonempty_frames": int(
+                        variant_metadata["residual_nonempty_frames"]
+                    ),
+                    "residual_max_tokens_in_frame": int(
+                        variant_metadata["residual_max_tokens_in_frame"]
+                    ),
+                    "pooled_residual_vectors_per_frame": int(
+                        variant_metadata.get(
+                            "pooled_residual_vectors_per_frame",
+                            0,
+                        )
+                    ),
+                    "spatial_residual_grid_size": int(
+                        variant_metadata.get(
+                            "spatial_residual_grid_size",
+                            0,
+                        )
+                    ),
+                    "grid_mode_frames": int(
+                        variant_metadata.get("grid_mode_frames", 0)
+                    ),
+                    "sparse_mode_frames": int(
+                        variant_metadata.get("sparse_mode_frames", 0)
                     ),
                     "pool_reconstruction_relative_error": float(
                         variant_metadata[
@@ -416,6 +936,13 @@ def run_sample(
                     "visual_evidence_cache_counted": 1,
                     "raw_frame_replay_at_read": 0,
                     "matched_provisioned_state": 1,
+                    "feature_token_layout": ROUTED_TOKEN_LAYOUT,
+                    "structured_residual_format_version": (
+                        ROUTED_STATE_FORMAT_VERSION
+                    ),
+                    "state_accounting_scope": (
+                        "logical_tensor_payload_bytes_excluding_archive_metadata"
+                    ),
                 }
             )
             rows.append(result)
@@ -438,6 +965,19 @@ def main() -> int:
         samples_per_task=args.samples_per_task,
         selection_seed=args.selection_seed,
     )
+    requested_sample_ids = {
+        str(value) for value in config["sample_ids"]
+    }
+    if requested_sample_ids:
+        available_sample_ids = {sample.sample_id for sample in samples}
+        missing = sorted(requested_sample_ids - available_sample_ids)
+        if missing:
+            raise ValueError(f"requested sample IDs are unavailable: {missing}")
+        samples = [
+            sample
+            for sample in samples
+            if sample.sample_id in requested_sample_ids
+        ]
     samples = shard_samples(
         samples,
         shard_index=args.shard_index,
@@ -513,6 +1053,42 @@ def main() -> int:
                     int(value)
                     for value in config["residual_tokens"]
                 ],
+                pooled_sparse_residual_vectors=[
+                    int(value)
+                    for value in config[
+                        "pooled_sparse_residual_vectors"
+                    ]
+                ],
+                spatial_residual_grids=[
+                    int(value)
+                    for value in config["spatial_residual_grids"]
+                ],
+                routed_residual_grids=[
+                    int(value)
+                    for value in config["routed_residual_grids"]
+                ],
+                routed_grid_error_ratio=float(
+                    config["routed_grid_error_ratio"]
+                ),
+                adaptive_residual_budgets=[
+                    int(value)
+                    for value in config["adaptive_residual_budgets"]
+                ],
+                adaptive_residuals_per_frame_equivalent=int(
+                    config[
+                        "adaptive_residuals_per_frame_equivalent"
+                    ]
+                ),
+                adaptive_residual_modes=[
+                    str(value)
+                    for value in config["adaptive_residual_modes"]
+                ],
+                adaptive_minimum_per_frame=int(
+                    config["adaptive_minimum_per_frame"]
+                ),
+                temporal_novelty_weight=float(
+                    config["temporal_novelty_weight"]
+                ),
                 include_full=bool(config["include_full"]),
                 sampled_frames=args.sampled_frames,
                 feature_pool_frames=args.feature_pool_frames,

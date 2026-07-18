@@ -1,0 +1,17 @@
+{
+  "checkpoint_count": 2,
+  "prediction_rows": 8,
+  "fingerprints": [
+    "2a2c9563405f489785567201837732d438589e417de4b84066af30dfa8418f2c"
+  ],
+  "selection_policies": [
+    "learned_recent_query_topk"
+  ],
+  "memory_variants": [
+    "full",
+    "pca_r256_grid2x2",
+    "pca_r256_route_grid2_s4",
+    "pca_r256_s4"
+  ],
+  "noninferiority_margin": 0.02
+}

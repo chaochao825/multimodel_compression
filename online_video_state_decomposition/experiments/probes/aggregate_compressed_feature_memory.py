@@ -68,6 +68,10 @@ def summarize_variants(
     output = []
     for key in sorted(grouped):
         values = grouped[key]
+        sparse_rates = {
+            int(row.get("sparse_residual_tokens_per_frame", 0))
+            for row in values
+        }
         correct = sum(int(row["correct"]) for row in values)
         parsed = sum(int(row["parsed"]) for row in values)
         samples = len(values)
@@ -112,6 +116,71 @@ def summarize_variants(
                 "codec_rank": int(values[0]["codec_rank"]),
                 "residual_tokens_per_frame": int(
                     values[0]["residual_tokens_per_frame"]
+                ),
+                "residual_value_vectors_per_frame": int(
+                    values[0].get("residual_value_vectors_per_frame", 0)
+                ),
+                "residual_value_vector_budget": int(
+                    values[0].get("residual_value_vector_budget", 0)
+                ),
+                "sparse_residual_tokens_per_frame": int(
+                    next(iter(sparse_rates)) if len(sparse_rates) == 1 else -1
+                ),
+                "sparse_residual_token_capacity": int(
+                    max(
+                        int(row.get("sparse_residual_token_capacity", 0))
+                        for row in values
+                    )
+                ),
+                "mean_realized_sparse_residual_tokens": float(
+                    np.mean(
+                        [
+                            int(row.get("realized_sparse_residual_tokens", 0))
+                            for row in values
+                        ]
+                    )
+                ),
+                "mean_realized_sparse_tokens_per_frame": float(
+                    np.mean(
+                        [
+                            int(row.get("realized_sparse_residual_tokens", 0))
+                            / max(1, len(row.get("pool_frame_indices", [])))
+                            for row in values
+                        ]
+                    )
+                ),
+                "mean_grid_mode_frames": float(
+                    np.mean(
+                        [int(row.get("grid_mode_frames", 0)) for row in values]
+                    )
+                ),
+                "mean_sparse_mode_frames": float(
+                    np.mean(
+                        [int(row.get("sparse_mode_frames", 0)) for row in values]
+                    )
+                ),
+                "mean_residual_value_bytes": float(
+                    np.mean(
+                        [int(row.get("residual_value_bytes", 0)) for row in values]
+                    )
+                ),
+                "mean_residual_index_bytes": float(
+                    np.mean(
+                        [int(row.get("residual_index_bytes", 0)) for row in values]
+                    )
+                ),
+                "mean_residual_index_slot_bytes": float(
+                    np.mean(
+                        [
+                            int(row.get("residual_index_slot_bytes", 0))
+                            for row in values
+                        ]
+                    )
+                ),
+                "mean_route_mask_bytes": float(
+                    np.mean(
+                        [int(row.get("route_mask_bytes", 0)) for row in values]
+                    )
                 ),
                 "mean_feature_state_compression_ratio": float(
                     np.mean(
@@ -243,6 +312,8 @@ def task_deltas_vs_full(
         if row["memory_variant"] == "full":
             continue
         key = (str(row["task"]), str(row["selection_policy"]))
+        if key not in full_accuracy:
+            continue
         reference = full_accuracy[key]
         output.append(
             {
@@ -560,6 +631,8 @@ def plot_task_delta_heatmap(
     rows: list[dict[str, object]],
     out_dir: Path,
 ) -> None:
+    if not rows:
+        return
     import matplotlib.pyplot as plt
 
     tasks = [
@@ -652,6 +725,8 @@ def plot_preservation_gate(
     *,
     noninferiority_margin: float,
 ) -> None:
+    if not rows:
+        return
     import matplotlib.pyplot as plt
 
     labels = [

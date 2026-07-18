@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "checks": {
+    "expected_checkpoint_count": true,
+    "expected_prediction_rows": true,
+    "one_configuration_fingerprint": true,
+    "no_recorded_failures": true,
+    "observed_ids_match_selection_manifest": true,
+    "selection_manifest_declares_evaluation": true,
+    "selection_manifest_has_expected_samples": true,
+    "selection_manifest_is_subset_of_reserve": true,
+    "selection_disjoint_from_calibration": true,
+    "selection_disjoint_from_original_evaluation": true,
+    "selection_disjoint_from_prior_formal": true,
+    "balanced_task_sample_counts": true,
+    "complete_sample_policy_variant_layout": true,
+    "selection_frames_match_frozen_manifest": true,
+    "sample_fields_immutable_across_variants": true,
+    "all_rows_parsed": true,
+    "all_numeric_metrics_finite": true,
+    "online_bounded_flag_set": true,
+    "visual_cache_counted": true,
+    "no_raw_frame_replay_at_read": true,
+    "matched_provisioned_state": true,
+    "one_selector_state_budget": true,
+    "one_dense_cache_budget": true,
+    "variant_state_bytes_match_formula": true,
+    "variant_tensor_payload_bytes_match_formula": true,
+    "codec_rank_matches_fit": true,
+    "codec_parameter_bytes_match_fit": true,
+    "codec_hash_matches_fit": true,
+    "selection_manifest_hash_matches_configuration": true,
+    "reference_pair_coverage": true,
+    "reference_full_prediction_agreement_at_least_99pct": true,
+    "reference_full_correctness_agreement_at_least_99_5pct": true
+  },
+  "counts": {
+    "checkpoints": 200,
+    "prediction_rows": 600,
+    "sample_ids": 200,
+    "configuration_fingerprints": 1,
+    "failures": 0,
+    "reference_pairs": 200,
+    "reference_prediction_matches": 200,
+    "reference_correctness_matches": 200
+  },
+  "task_sample_counts": {
+    "action_sequence": 40,
+    "moving_direction": 40,
+    "object_existence": 40,
+    "scene_transition": 40,
+    "state_change": 40
+  },
+  "state_accounting": {
+    "scope": "logical_tensor_payload_bytes_excluding_archive_metadata",
+    "selector_state_bytes": 24720,
+    "dense_feature_cache_bytes": 8388608,
+    "codec_parameter_bytes": 2105344,
+    "codec_rank": 256,
+    "observed_total_state_bytes": {
+      "full": [
+        8413328
+      ],
+      "pca_r256_s0": [
+        549008
+      ],
+      "pca_r256_route_grid2_s4": [
+        1073376
+      ]
+    },
+    "expected_total_state_bytes": {
+      "full": 8413328,
+      "pca_r256_s0": 549008,
+      "pca_r256_route_grid2_s4": 1073376
+    }
+  },
+  "split_intersections": {
+    "selection_calibration": 0,
+    "selection_original_evaluation": 0,
+    "selection_prior_formal": 0,
+    "selection_outside_reserve": 0
+  },
+  "reference_agreement": {
+    "prediction_rate": 1.0,
+    "correctness_rate": 1.0,
+    "prediction_mismatches": []
+  },
+  "configuration_fingerprints": [
+    "5ab305aac90e19227bbfb5a25681547e3e30e98de58f34f7e3488cae57b02630"
+  ],
+  "codec_sha256": "39f7623b3ae95db93403ef00c63589d901a2d9011dd4a23b8fc185d76d20012f",
+  "selection_manifest_sha256": "dbc763008af72a9e335039bc0ab61e08e4fc5375b3996b72a304c2ea9789945c"
+}

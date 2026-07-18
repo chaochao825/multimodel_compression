@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -121,13 +122,56 @@ def selection_split_audit(
     return checks, intersections
 
 
-def residual_count(variant: str) -> int:
+def expected_feature_payload_bytes(
+    variant: str,
+    *,
+    source_frames: int,
+    source_tokens: int,
+    hidden_size: int,
+    rank: int,
+    dense_feature_bytes: int,
+) -> int:
+    """Return logical tensor payload bytes, excluding archive metadata."""
+
     if variant == "full":
-        return 0
-    marker = variant.rsplit("_s", 1)
-    if len(marker) != 2:
-        raise ValueError(f"cannot parse residual count: {variant}")
-    return int(marker[1])
+        return dense_feature_bytes
+    latent_bytes = source_frames * source_tokens * rank * 2
+    routed = re.fullmatch(r"pca_r\d+_route_grid(\d+)_s(\d+)", variant)
+    if routed:
+        grid_size = int(routed.group(1))
+        vectors = int(routed.group(2))
+        if vectors != grid_size**2:
+            raise ValueError("routed grid and vector counts disagree")
+        value_bytes = source_frames * vectors * hidden_size * 2
+        index_slot_bytes = source_frames * vectors
+        route_mask_bytes = source_frames
+        return latent_bytes + value_bytes + index_slot_bytes + route_mask_bytes
+    grid = re.fullmatch(r"pca_r\d+_grid(\d+)x(\d+)", variant)
+    if grid:
+        rows, columns = int(grid.group(1)), int(grid.group(2))
+        return latent_bytes + source_frames * rows * columns * hidden_size * 2
+    pooled_sparse = re.fullmatch(r"pca_r\d+_mean1_s(\d+)", variant)
+    if pooled_sparse:
+        sparse = int(pooled_sparse.group(1))
+        vectors = 1 + sparse
+        return (
+            latent_bytes
+            + source_frames * vectors * hidden_size * 2
+            + source_frames * sparse * 2
+        )
+    adaptive = re.fullmatch(r"pca_r\d+_(?:global|temporal)_k(\d+)", variant)
+    if adaptive:
+        budget = int(adaptive.group(1))
+        return latent_bytes + budget * hidden_size * 2 + budget * 2
+    fixed = re.fullmatch(r"pca_r\d+_s(\d+)", variant)
+    if fixed:
+        sparse = int(fixed.group(1))
+        return (
+            latent_bytes
+            + source_frames * sparse * hidden_size * 2
+            + source_frames * sparse * 2
+        )
+    raise ValueError(f"cannot parse compressed memory variant: {variant}")
 
 
 def failure_count(run_dir: Path) -> int:
@@ -239,20 +283,14 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
     variant_state_bytes: dict[str, list[int]] = {}
     expected_state_bytes = {}
     for variant in variants:
-        if variant == "full":
-            feature_bytes = dense_bytes_value
-        else:
-            sparse_tokens = residual_count(variant)
-            latent_bytes = source_frames * source_tokens * rank * 2
-            residual_value_bytes = (
-                source_frames * sparse_tokens * hidden_size * 2
-            )
-            residual_index_bytes = source_frames * sparse_tokens * 2
-            feature_bytes = (
-                latent_bytes
-                + residual_value_bytes
-                + residual_index_bytes
-            )
+        feature_bytes = expected_feature_payload_bytes(
+            variant,
+            source_frames=source_frames,
+            source_tokens=source_tokens,
+            hidden_size=hidden_size,
+            rank=rank,
+            dense_feature_bytes=dense_bytes_value,
+        )
         expected_state_bytes[variant] = (
             feature_bytes + selector_bytes_value
         )
@@ -379,6 +417,11 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
             == [expected_state_bytes[variant]]
             for variant in variants
         ),
+        "variant_tensor_payload_bytes_match_formula": all(
+            variant_state_bytes[variant]
+            == [expected_state_bytes[variant]]
+            for variant in variants
+        ),
         "codec_rank_matches_fit": all(
             int(row["codec_rank"]) == rank for row in rows
         ),
@@ -420,6 +463,7 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
         },
         "task_sample_counts": dict(sorted(task_counts.items())),
         "state_accounting": {
+            "scope": "logical_tensor_payload_bytes_excluding_archive_metadata",
             "selector_state_bytes": selector_bytes_value,
             "dense_feature_cache_bytes": dense_bytes_value,
             "codec_parameter_bytes": int(fit["model_parameter_bytes"]),

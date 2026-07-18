@@ -1,0 +1,6 @@
+selection_policy,memory_variant,reference_variant,noninferiority_margin,paired_prediction_matches,paired_prediction_disagreements,prediction_agreement_rate,worse_rate,worse_rate_upper_95,noninferior_at_margin,paired_samples,accuracy_gain,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+learned_recent_query_topk,pca_r256_global_k64,full,0.02,7,1,0.875,0.125,0.47067940860113155,0,8,-0.125,-0.375,0.0,0,1,7,1.0
+learned_recent_query_topk,pca_r256_grid2x2,full,0.02,8,0,1.0,0.0,0.31234397806636793,0,8,0.0,0.0,0.0,0,0,8,1.0
+learned_recent_query_topk,pca_r256_mean1_s3,full,0.02,7,1,0.875,0.125,0.47067940860113155,0,8,-0.125,-0.375,0.0,0,1,7,1.0
+learned_recent_query_topk,pca_r256_s4,full,0.02,7,1,0.875,0.125,0.47067940860113155,0,8,-0.125,-0.375,0.0,0,1,7,1.0
+learned_recent_query_topk,pca_r256_temporal_k64,full,0.02,7,1,0.875,0.125,0.47067940860113155,0,8,-0.125,-0.375,0.0,0,1,7,1.0

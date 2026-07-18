@@ -11,27 +11,33 @@ components for a later writer, router, or projection accelerator.
 
 ## Current Result
 
-The strongest confirmed configuration uses a frozen LLaVA-1.5-7B visual
-feature cache, a rank-256 calibration-only PCA codec, and four sparse residual
-tokens per frame:
+The strongest current evidence is a post-hoc mechanism regression on a reused
+200-sample MVBench set. With a frozen LLaVA-1.5-7B feature cache and a
+calibration-only rank-256 PCA codec, fixed-s4 and spatial grid-2x2 each score
+101/200 versus 102/200 for full state, but fail on different samples. A causal
+error-oracle route between the two representations scores 102/200 in the
+audited v2 scan:
 
-| Result | Full cache | Compressed |
+| Result | Full cache | Routed compressed |
 |---|---:|---:|
-| Per-stream persistent state | 8.024 MiB | 1.024 MiB |
-| Learned-selector accuracy | 51.0% | 50.5% |
-| Exact prediction agreement | - | 99.0% |
-| Full-correct/compressed-wrong | - | 1 / 200 |
-| One-sided 95% loss-rate upper bound | - | 2.35% |
+| Steady per-stream tensor payload | 8.024 MiB | 1.024 MiB |
+| Cold start including shared codec | 8.024 MiB | 3.031 MiB |
+| Learned-selector accuracy | 51.0% | 51.0% |
+| Exact prediction agreement | - | 98.5% |
+| Full-correct/compressed-wrong | - | 0 / 200 |
 
-The state is 7.84x smaller, but the strict 2% non-inferiority gate is not
-passed. At matched compressed state, query-conditioned learned selection
-reaches 50.5% versus 46.5% exact recent: +4.0 points, 95% interval
-[+1.0, +7.0], 9 better / 1 worse, McNemar p=0.0215.
+The amortized state ratio is 7.84x; the cold-start ratio is 2.65x. The route
+computes both candidates and was designed after inspecting the same set, so it
+is not a deployable router or independent confirmation. Separately, the
+option-aware learned reader shows an exploratory 9-better/1-worse paired
+signal over recent-only access at the compressed state (unadjusted McNemar
+p=0.0215). Both findings require a frozen, previously unseen reserve set.
 
 See
 [FEATURE_MEMORY_COMPRESSION_ANALYSIS_20260718.md](paper/results/probe_mvp/FEATURE_MEMORY_COMPRESSION_ANALYSIS_20260718.md)
-for the complete protocol, state accounting, paired tests, and failure
-localization.
+for the original protocol and failure localization. The stricter evidence
+audit and routed redesign are summarized in
+[COMPETITIVENESS_LOSS_REDESIGN_ANALYSIS_20260718.md](paper/results/probe_mvp/COMPETITIVENESS_LOSS_REDESIGN_ANALYSIS_20260718.md).
 
 ## Repository Layout
 
@@ -94,6 +100,30 @@ bash experiments/scripts/run_mvbench_compressed_feature_memory_shard.sh \
   0,4
 ```
 
+Run the equal-value-budget spatial/sparse router by setting environment
+variables on the same shard runner. The reported state sizes are logical
+tensor payload bytes; a serialized archive additionally contains format and
+layout metadata.
+
+```bash
+ROUTED_RESIDUAL_GRIDS=2 \
+ROUTED_GRID_ERROR_RATIO=1.0 \
+bash experiments/scripts/run_mvbench_compressed_feature_memory_shard.sh \
+  1 0 1 \
+  remote_results/mvbench_routed_feature_memory \
+  remote_results/mvbench_query_confirmation/aggregate/llava_selection_manifest.json \
+  remote_results/llava_feature_pca_calibration/codec_rank256/llava_feature_pca_rank256.pt \
+  40 \
+  learned_recent_query_topk \
+  4
+```
+
+The router computes both a 2x2 coarse spatial candidate and a top-4 sparse
+candidate from the current frame, quantizes both to the configured storage
+dtype, and stores the lower-error candidate. It is causal but not yet a
+low-cost learned router; matched-value-vector comparisons do not imply
+matched writer FLOPs.
+
 Aggregate and validate:
 
 ```bash
@@ -127,13 +157,14 @@ redistributing third-party models or datasets.
   established tools; this repository does not claim these primitives as new.
 - The current evidence supports query-conditioned access to bounded history,
   not the optimality of the frozen four-feature ridge selector.
-- The compressed state is promising but has not passed the strict finite-
-  sample non-inferiority gate.
+- The routed result is a post-hoc regression on a reused set. It does not
+  replace the failed strict finite-sample gate for fixed-s4 or establish
+  generalization.
 - Latency measurements are unfused Python/CUDA measurements, not production
   serving or hardware-kernel claims.
-- The next mechanism gate is adaptive event allocation on disjoint training
-  and confirmation data, followed by replication on a second encoder or
-  benchmark.
+- The next mechanism gate is a cheap causal router trained on disjoint data,
+  followed by a frozen paired run on at least 400 unseen samples and
+  replication on a second encoder or benchmark.
 
 The parallel `streaming_hybrid_state_v0` probe reaches a similarly bounded
 verdict: simple EMA predictors beat its Fourier predictors; residual product

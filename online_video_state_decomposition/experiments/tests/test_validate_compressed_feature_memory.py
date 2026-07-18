@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 from experiments.probes.validate_compressed_feature_memory import (
+    expected_feature_payload_bytes,
     selection_split_audit,
 )
 
@@ -37,6 +38,26 @@ class CompressedFeatureMemoryValidationTest(unittest.TestCase):
         self.assertFalse(checks["selection_disjoint_from_calibration"])
         self.assertEqual(intersections["selection_calibration"], 1)
         self.assertEqual(intersections["selection_outside_reserve"], 1)
+
+    def test_routed_payload_formula_matches_uint8_slots_and_mask(self) -> None:
+        common = {
+            "source_frames": 16,
+            "source_tokens": 64,
+            "hidden_size": 4096,
+            "rank": 256,
+            "dense_feature_bytes": 8_388_608,
+        }
+        routed = expected_feature_payload_bytes(
+            "pca_r256_route_grid2_s4",
+            **common,
+        )
+        fixed = expected_feature_payload_bytes("pca_r256_s4", **common)
+        grid = expected_feature_payload_bytes("pca_r256_grid2x2", **common)
+        self.assertEqual(routed, 1_048_656)
+        self.assertEqual(fixed, 1_048_704)
+        self.assertEqual(grid, 1_048_576)
+        self.assertLess(grid, routed)
+        self.assertLess(routed, fixed)
 
 
 if __name__ == "__main__":

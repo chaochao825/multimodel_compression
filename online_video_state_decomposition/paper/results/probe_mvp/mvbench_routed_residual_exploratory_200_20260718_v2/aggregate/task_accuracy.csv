@@ -1,0 +1,16 @@
+task,selection_policy,memory_variant,samples,correct,accuracy
+action_sequence,learned_recent_query_topk,full,40,19,0.475
+action_sequence,learned_recent_query_topk,pca_r256_route_grid2_s4,40,19,0.475
+action_sequence,learned_recent_query_topk,pca_r256_s0,40,18,0.45
+moving_direction,learned_recent_query_topk,full,40,16,0.4
+moving_direction,learned_recent_query_topk,pca_r256_route_grid2_s4,40,16,0.4
+moving_direction,learned_recent_query_topk,pca_r256_s0,40,16,0.4
+object_existence,learned_recent_query_topk,full,40,23,0.575
+object_existence,learned_recent_query_topk,pca_r256_route_grid2_s4,40,23,0.575
+object_existence,learned_recent_query_topk,pca_r256_s0,40,23,0.575
+scene_transition,learned_recent_query_topk,full,40,27,0.675
+scene_transition,learned_recent_query_topk,pca_r256_route_grid2_s4,40,27,0.675
+scene_transition,learned_recent_query_topk,pca_r256_s0,40,27,0.675
+state_change,learned_recent_query_topk,full,40,17,0.425
+state_change,learned_recent_query_topk,pca_r256_route_grid2_s4,40,17,0.425
+state_change,learned_recent_query_topk,pca_r256_s0,40,16,0.4

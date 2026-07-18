@@ -1,0 +1,4 @@
+label,selector,variant,samples,correct,accuracy,state_mib
+Recent / full,exact_recent,full,200,95,0.475,8.023574829101562
+Query / full,learned_recent_query_topk,full,200,102,0.51,8.023574829101562
+Query / r256+s4,learned_recent_query_topk,pca_r256_s4,200,101,0.505,1.0236968994140625

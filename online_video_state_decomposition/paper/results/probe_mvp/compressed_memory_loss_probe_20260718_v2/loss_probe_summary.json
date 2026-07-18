@@ -1,0 +1,51 @@
+{
+  "candidate_selector": "learned_recent_query_topk",
+  "candidate_variant": "pca_r256_s4",
+  "compression_net_delta_samples": -1,
+  "exact_full_accuracy": 0.475,
+  "exact_full_correct": 95,
+  "learned_compressed_accuracy": 0.505,
+  "learned_compressed_correct": 101,
+  "learned_compression_prediction_changes": 2,
+  "learned_compression_worse_samples": 1,
+  "learned_full_accuracy": 0.51,
+  "learned_full_correct": 102,
+  "reconstruction_error_auc_for_prediction_change": 0.8080808080808081,
+  "reconstruction_error_auc_for_worse_event": 0.6633165829145728,
+  "reference_selector": "exact_recent",
+  "reference_variant": "full",
+  "samples": 200,
+  "selector_compressed_transitions": {
+    "better": 9,
+    "stable_correct": 92,
+    "stable_wrong": 98,
+    "worse": 1
+  },
+  "selector_full_transitions": {
+    "better": 10,
+    "stable_correct": 92,
+    "stable_wrong": 95,
+    "worse": 3
+  },
+  "selector_net_gain_samples": 7,
+  "top_error_capture": [
+    {
+      "changed_capture": 0.0,
+      "fraction": 0.05,
+      "samples": 10,
+      "worse_capture": 0.0
+    },
+    {
+      "changed_capture": 0.5,
+      "fraction": 0.1,
+      "samples": 20,
+      "worse_capture": 0.0
+    },
+    {
+      "changed_capture": 0.5,
+      "fraction": 0.2,
+      "samples": 40,
+      "worse_capture": 0.0
+    }
+  ]
+}
