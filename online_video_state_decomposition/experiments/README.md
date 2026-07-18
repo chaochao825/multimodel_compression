@@ -153,6 +153,31 @@ used to promote a configuration. `selector_gain_by_variant.csv` separately
 tests query-conditioned versus exact-recent selection within each matched
 memory variant.
 
+## Streaming Baseline Mechanism Proxies
+
+Audit pinned external checkouts without vendoring their code:
+
+```bash
+python experiments/probes/audit_streaming_baseline_sources.py \
+  --manifest experiments/configs/streaming_baseline_sources.json \
+  --external-root external_baselines \
+  --out remote_results/streaming_source_checkout_audit.json
+```
+
+Replay the frozen CLIP cache through CausalMem, StreamingTOM, STC,
+SelectStream, OASIS, and StateKV mechanism proxies plus project controls:
+
+```bash
+bash experiments/scripts/run_streaming_baseline_proxies.sh \
+  remote_results/streaming_baseline_proxy_200
+```
+
+This command writes paired statistics, component-level state accounting, and
+PNG/PDF plots. CPU proxy timings are not official GPU or end-to-end latency.
+The external methods operate at different state layers, so `reproduction_tier`
+and the complete active/archive/detailed byte breakdown must remain attached
+to every comparison.
+
 ## Resource Safety
 
 GPU runners check memory and utilization before launch and take a per-GPU

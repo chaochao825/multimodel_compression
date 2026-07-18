@@ -39,6 +39,14 @@ for the original protocol and failure localization. The stricter evidence
 audit and routed redesign are summarized in
 [COMPETITIVENESS_LOSS_REDESIGN_ANALYSIS_20260718.md](paper/results/probe_mvp/COMPETITIVENESS_LOSS_REDESIGN_ANALYSIS_20260718.md).
 
+A separate six-baseline audit now distinguishes official source availability,
+paper-to-code mismatches, and unified feature-level mechanism proxies. On the
+reused 200-sample development cache, the dev-fitted bounded selector scores
+53.0% versus 50.0% for exact recent, but this is post-hoc and not an
+independent confirmation. StateKV, OASIS, and StreamingTOM additionally retain
+growing detailed or archive state in the audited accounting. See
+[STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md](paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md).
+
 ## Repository Layout
 
 - `configs/`: frozen MVBench split and experiment configuration.

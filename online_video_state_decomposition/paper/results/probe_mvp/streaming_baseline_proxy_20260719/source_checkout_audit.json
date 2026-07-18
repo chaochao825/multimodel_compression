@@ -1,0 +1,137 @@
+{
+  "available_checkouts_passed": true,
+  "external_root": "external_baselines",
+  "format_version": 1,
+  "manifest": "experiments/configs/streaming_baseline_sources.json",
+  "sources": [
+    {
+      "audit_passed": true,
+      "checkout_status": "present",
+      "code_availability": "official_public_code",
+      "commit": "640104b3786125c4918924f9b666ff7fe04d81de",
+      "commit_matches": true,
+      "compileall_status": "passed",
+      "compileall_warnings": "Can't list 'external_baselines/CausalMem'",
+      "license_status": "no_root_license_file_found",
+      "local_directory": "CausalMem",
+      "missing_paths": [],
+      "name": "CausalMem",
+      "observed_commit": "640104b3786125c4918924f9b666ff7fe04d81de",
+      "paper_url": "https://arxiv.org/abs/2606.25658",
+      "repository_url": "https://github.com/hktk07/CausalMem",
+      "required_paths": [
+        "llava/model/llava_arch_v3.py",
+        "llava/model/llava_arch_v3_time_only_mem1.py"
+      ],
+      "required_paths_present": true,
+      "worktree_clean": true
+    },
+    {
+      "audit_passed": true,
+      "checkout_status": "present",
+      "code_availability": "official_public_code",
+      "commit": "6c66b05065692bc3fa4c6ec7fa9cad84d3b0cd75",
+      "commit_matches": true,
+      "compileall_status": "passed",
+      "compileall_warnings": "Can't list 'external_baselines/StreamingTOM'",
+      "license_status": "no_root_license_file_found",
+      "local_directory": "StreamingTOM",
+      "missing_paths": [],
+      "name": "StreamingTOM",
+      "observed_commit": "6c66b05065692bc3fa4c6ec7fa9cad84d3b0cd75",
+      "paper_url": "https://arxiv.org/abs/2510.18269",
+      "repository_url": "https://github.com/YIGE24/StreamingTOM",
+      "required_paths": [
+        "streamingtom/modules/ctr.py",
+        "streamingtom/modules/oqm.py",
+        "streamingtom/utils/profiler.py"
+      ],
+      "required_paths_present": true,
+      "worktree_clean": true
+    },
+    {
+      "audit_passed": true,
+      "checkout_status": "present",
+      "code_availability": "official_public_code",
+      "commit": "cf53f781d8740df5c07d7924756acc429641ffd0",
+      "commit_matches": true,
+      "compileall_status": "passed",
+      "compileall_warnings": "Can't list 'external_baselines/STC'",
+      "license_status": "apache_declared_in_pyproject_no_root_license",
+      "local_directory": "STC",
+      "missing_paths": [],
+      "name": "STC",
+      "observed_commit": "cf53f781d8740df5c07d7924756acc429641ffd0",
+      "paper_url": "https://arxiv.org/abs/2512.00891",
+      "repository_url": "https://github.com/lern-to-write/STC",
+      "required_paths": [
+        "stc/cacher/reference_forward.py",
+        "stc/pruner/pruner.py",
+        "speed_benchmark/README.md"
+      ],
+      "required_paths_present": true,
+      "worktree_clean": true
+    },
+    {
+      "audit_passed": true,
+      "checkout_status": "present",
+      "code_availability": "official_public_code",
+      "commit": "dbd342c79a1b9b03327d4ec5daa87488737db988",
+      "commit_matches": true,
+      "compileall_status": "passed",
+      "compileall_warnings": "Can't list 'external_baselines/OASIS'",
+      "license_status": "mit_root_license",
+      "local_directory": "OASIS",
+      "missing_paths": [],
+      "name": "OASIS",
+      "observed_commit": "dbd342c79a1b9b03327d4ec5daa87488737db988",
+      "paper_url": "https://arxiv.org/abs/2604.17052",
+      "repository_url": "https://github.com/Solus-sano/OASIS",
+      "required_paths": [
+        "LICENSE",
+        "src/oasis/event/forest.py",
+        "src/oasis/model.py",
+        "src/scripts/eval.py"
+      ],
+      "required_paths_present": true,
+      "worktree_clean": true
+    },
+    {
+      "audit_passed": true,
+      "checkout_status": "present",
+      "code_availability": "official_placeholder_only",
+      "commit": "ba308d107d24d59b265e952e20ee5172d3f7d670",
+      "commit_matches": true,
+      "compileall_status": "passed",
+      "compileall_warnings": "Can't list 'external_baselines/StateKV'",
+      "license_status": "no_root_license_file_found",
+      "local_directory": "StateKV",
+      "missing_paths": [],
+      "name": "StateKV",
+      "observed_commit": "ba308d107d24d59b265e952e20ee5172d3f7d670",
+      "paper_url": "https://arxiv.org/abs/2605.31598",
+      "repository_url": "https://github.com/ceyzaguirre4/StateKV",
+      "required_paths": [
+        "README.md"
+      ],
+      "required_paths_present": true,
+      "worktree_clean": true
+    },
+    {
+      "audit_passed": false,
+      "checkout_status": "not_available",
+      "code_availability": "no_public_official_code_found",
+      "commit": null,
+      "commit_matches": false,
+      "compileall_status": "not_run",
+      "license_status": "not_applicable",
+      "local_directory": null,
+      "name": "SelectStream",
+      "paper_url": "https://arxiv.org/abs/2606.16353",
+      "repository_url": null,
+      "required_paths": [],
+      "required_paths_present": false,
+      "worktree_clean": false
+    }
+  ]
+}

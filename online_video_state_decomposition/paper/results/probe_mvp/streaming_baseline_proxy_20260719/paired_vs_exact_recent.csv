@@ -1,0 +1,8 @@
+reference,method,method_label,samples,gain,bootstrap_95_low,bootstrap_95_high,better,worse,tied,mcnemar_exact_p
+exact_recent,causalmem_feature_proxy,CausalMem proxy,200,-0.01,-0.06,0.04,11,13,176,0.8388197422027588
+exact_recent,streamingtom_feature_proxy,StreamingTOM proxy,200,-0.025,-0.075,0.03,12,17,171,0.45825831964612007
+exact_recent,stc_feature_proxy,STC proxy,200,0.025,-0.02,0.07,13,8,179,0.38331031799316406
+exact_recent,selectstream_feature_proxy,SelectStream proxy,200,-0.01,-0.045,0.025,6,8,186,0.79052734375
+exact_recent,oasis_feature_proxy,OASIS proxy,200,0.015,-0.02,0.05,8,5,187,0.5810546875
+exact_recent,statekv_feature_proxy,StateKV proxy,200,0.015,-0.025,0.055,10,7,183,0.629058837890625
+exact_recent,ours_learned_recent_selector,Ours: learned selector (dev-fitted),200,0.03,0.005,0.06,7,1,192,0.0703125

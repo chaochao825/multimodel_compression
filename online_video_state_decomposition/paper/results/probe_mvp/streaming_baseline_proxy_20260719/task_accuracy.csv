@@ -1,0 +1,41 @@
+task,method,method_label,samples,accuracy
+action_sequence,causalmem_feature_proxy,CausalMem proxy,40,0.475
+action_sequence,exact_recent,Exact recent,40,0.525
+action_sequence,oasis_feature_proxy,OASIS proxy,40,0.475
+action_sequence,ours_learned_recent_selector,Ours: learned selector (dev-fitted),40,0.575
+action_sequence,selectstream_feature_proxy,SelectStream proxy,40,0.475
+action_sequence,statekv_feature_proxy,StateKV proxy,40,0.55
+action_sequence,stc_feature_proxy,STC proxy,40,0.55
+action_sequence,streamingtom_feature_proxy,StreamingTOM proxy,40,0.4
+moving_direction,causalmem_feature_proxy,CausalMem proxy,40,0.4
+moving_direction,exact_recent,Exact recent,40,0.4
+moving_direction,oasis_feature_proxy,OASIS proxy,40,0.4
+moving_direction,ours_learned_recent_selector,Ours: learned selector (dev-fitted),40,0.4
+moving_direction,selectstream_feature_proxy,SelectStream proxy,40,0.4
+moving_direction,statekv_feature_proxy,StateKV proxy,40,0.4
+moving_direction,stc_feature_proxy,STC proxy,40,0.4
+moving_direction,streamingtom_feature_proxy,StreamingTOM proxy,40,0.4
+object_existence,causalmem_feature_proxy,CausalMem proxy,40,0.425
+object_existence,exact_recent,Exact recent,40,0.45
+object_existence,oasis_feature_proxy,OASIS proxy,40,0.45
+object_existence,ours_learned_recent_selector,Ours: learned selector (dev-fitted),40,0.45
+object_existence,selectstream_feature_proxy,SelectStream proxy,40,0.4
+object_existence,statekv_feature_proxy,StateKV proxy,40,0.4
+object_existence,stc_feature_proxy,STC proxy,40,0.4
+object_existence,streamingtom_feature_proxy,StreamingTOM proxy,40,0.425
+scene_transition,causalmem_feature_proxy,CausalMem proxy,40,0.8
+scene_transition,exact_recent,Exact recent,40,0.75
+scene_transition,oasis_feature_proxy,OASIS proxy,40,0.9
+scene_transition,ours_learned_recent_selector,Ours: learned selector (dev-fitted),40,0.85
+scene_transition,selectstream_feature_proxy,SelectStream proxy,40,0.825
+scene_transition,statekv_feature_proxy,StateKV proxy,40,0.85
+scene_transition,stc_feature_proxy,STC proxy,40,0.875
+scene_transition,streamingtom_feature_proxy,StreamingTOM proxy,40,0.85
+state_change,causalmem_feature_proxy,CausalMem proxy,40,0.35
+state_change,exact_recent,Exact recent,40,0.375
+state_change,oasis_feature_proxy,OASIS proxy,40,0.35
+state_change,ours_learned_recent_selector,Ours: learned selector (dev-fitted),40,0.375
+state_change,selectstream_feature_proxy,SelectStream proxy,40,0.35
+state_change,statekv_feature_proxy,StateKV proxy,40,0.375
+state_change,stc_feature_proxy,STC proxy,40,0.4
+state_change,streamingtom_feature_proxy,StreamingTOM proxy,40,0.3

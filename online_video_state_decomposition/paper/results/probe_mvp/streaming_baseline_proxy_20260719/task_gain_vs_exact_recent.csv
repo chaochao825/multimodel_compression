@@ -1,0 +1,36 @@
+task,reference,method,method_label,accuracy,reference_accuracy,gain
+action_sequence,exact_recent,causalmem_feature_proxy,CausalMem proxy,0.475,0.525,-0.050000000000000044
+action_sequence,exact_recent,streamingtom_feature_proxy,StreamingTOM proxy,0.4,0.525,-0.125
+action_sequence,exact_recent,stc_feature_proxy,STC proxy,0.55,0.525,0.025000000000000022
+action_sequence,exact_recent,selectstream_feature_proxy,SelectStream proxy,0.475,0.525,-0.050000000000000044
+action_sequence,exact_recent,oasis_feature_proxy,OASIS proxy,0.475,0.525,-0.050000000000000044
+action_sequence,exact_recent,statekv_feature_proxy,StateKV proxy,0.55,0.525,0.025000000000000022
+action_sequence,exact_recent,ours_learned_recent_selector,Ours: learned selector (dev-fitted),0.575,0.525,0.04999999999999993
+moving_direction,exact_recent,causalmem_feature_proxy,CausalMem proxy,0.4,0.4,0.0
+moving_direction,exact_recent,streamingtom_feature_proxy,StreamingTOM proxy,0.4,0.4,0.0
+moving_direction,exact_recent,stc_feature_proxy,STC proxy,0.4,0.4,0.0
+moving_direction,exact_recent,selectstream_feature_proxy,SelectStream proxy,0.4,0.4,0.0
+moving_direction,exact_recent,oasis_feature_proxy,OASIS proxy,0.4,0.4,0.0
+moving_direction,exact_recent,statekv_feature_proxy,StateKV proxy,0.4,0.4,0.0
+moving_direction,exact_recent,ours_learned_recent_selector,Ours: learned selector (dev-fitted),0.4,0.4,0.0
+object_existence,exact_recent,causalmem_feature_proxy,CausalMem proxy,0.425,0.45,-0.025000000000000022
+object_existence,exact_recent,streamingtom_feature_proxy,StreamingTOM proxy,0.425,0.45,-0.025000000000000022
+object_existence,exact_recent,stc_feature_proxy,STC proxy,0.4,0.45,-0.04999999999999999
+object_existence,exact_recent,selectstream_feature_proxy,SelectStream proxy,0.4,0.45,-0.04999999999999999
+object_existence,exact_recent,oasis_feature_proxy,OASIS proxy,0.45,0.45,0.0
+object_existence,exact_recent,statekv_feature_proxy,StateKV proxy,0.4,0.45,-0.04999999999999999
+object_existence,exact_recent,ours_learned_recent_selector,Ours: learned selector (dev-fitted),0.45,0.45,0.0
+scene_transition,exact_recent,causalmem_feature_proxy,CausalMem proxy,0.8,0.75,0.050000000000000044
+scene_transition,exact_recent,streamingtom_feature_proxy,StreamingTOM proxy,0.85,0.75,0.09999999999999998
+scene_transition,exact_recent,stc_feature_proxy,STC proxy,0.875,0.75,0.125
+scene_transition,exact_recent,selectstream_feature_proxy,SelectStream proxy,0.825,0.75,0.07499999999999996
+scene_transition,exact_recent,oasis_feature_proxy,OASIS proxy,0.9,0.75,0.15000000000000002
+scene_transition,exact_recent,statekv_feature_proxy,StateKV proxy,0.85,0.75,0.09999999999999998
+scene_transition,exact_recent,ours_learned_recent_selector,Ours: learned selector (dev-fitted),0.85,0.75,0.09999999999999998
+state_change,exact_recent,causalmem_feature_proxy,CausalMem proxy,0.35,0.375,-0.025000000000000022
+state_change,exact_recent,streamingtom_feature_proxy,StreamingTOM proxy,0.3,0.375,-0.07500000000000001
+state_change,exact_recent,stc_feature_proxy,STC proxy,0.4,0.375,0.025000000000000022
+state_change,exact_recent,selectstream_feature_proxy,SelectStream proxy,0.35,0.375,-0.025000000000000022
+state_change,exact_recent,oasis_feature_proxy,OASIS proxy,0.35,0.375,-0.025000000000000022
+state_change,exact_recent,statekv_feature_proxy,StateKV proxy,0.375,0.375,0.0
+state_change,exact_recent,ours_learned_recent_selector,Ours: learned selector (dev-fitted),0.375,0.375,0.0
