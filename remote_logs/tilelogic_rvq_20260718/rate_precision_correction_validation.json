@@ -1,0 +1,29 @@
+{
+  "allowed_changed_component_names": [
+    "base_codebook",
+    "base_scalar_scales",
+    "logic_router",
+    "mlp_router_normalizer",
+    "mlp_router_parameters",
+    "residual_codebooks",
+    "router_curvature_prior"
+  ],
+  "changed_component_names": [
+    "base_codebook",
+    "base_scalar_scales",
+    "logic_router",
+    "mlp_router_normalizer",
+    "mlp_router_parameters",
+    "residual_codebooks",
+    "router_curvature_prior"
+  ],
+  "changed_variants": 5760,
+  "compared_variants": 8280,
+  "errors": [],
+  "feature_sample_hash_scope": "private_source_run_excluded_feature_jsonl",
+  "format": "tilelogic_rate_precision_correction_validation_v1",
+  "new_feature_samples_sha256": "ab50762d1b8324248c438d45364b94980423ea4b7fdb5d9e8325427679271105",
+  "non_rate_semantics_identical": true,
+  "old_feature_samples_sha256": "1d5dcdaac4d45f3267b529ad937820b993efc11e397d424b42074aa5b3c183e9",
+  "records": 360
+}

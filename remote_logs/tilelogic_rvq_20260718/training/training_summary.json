@@ -1,0 +1,109 @@
+{
+  "artifact_hash_scope": "private_source_run_excluded_artifacts",
+  "artifacts": {
+    "base_codebook": {
+      "bytes": 1058643,
+      "file": "base_codebook.pt",
+      "sha256": "06f318613ec0a9a476d785c1d6aa20b6f7d580cdec029e976800fd1140350a7a"
+    },
+    "fisher": {
+      "bytes": 9742,
+      "file": "channel_fisher.pt",
+      "sha256": "be1f97b296a633b9cf1702cc41ee5c0062b1c7f88e30d0f5d8744ff30244bd1b"
+    },
+    "residual_rvq_fisher": {
+      "bytes": 8423357,
+      "file": "residual_rvq_fisher.pt",
+      "sha256": "14861374d869dfd095e7fba975d23a50fc13a914aca26f4849efab97ac266162"
+    },
+    "residual_rvq_unweighted": {
+      "bytes": 8423385,
+      "file": "residual_rvq_unweighted.pt",
+      "sha256": "92f3220b0f6957bfbd007a6193a4295ba16ee9979dd4a1201a22721c8f432db5"
+    },
+    "router_rate_0p125": {
+      "bytes": 29240,
+      "file": "router_rate_0p125.pt",
+      "sha256": "3fb0e0f1ad3c1e62a6c4d1e9b68cbc4f3e0b0f966e808a722b4ee18861261f60"
+    },
+    "router_rate_0p250": {
+      "bytes": 29368,
+      "file": "router_rate_0p250.pt",
+      "sha256": "2b1c2b02713383080498ff3130099a12a0abd888cfe17aa42575ab4dc3299738"
+    }
+  },
+  "base_codes": 256,
+  "base_train_vectors": 32768,
+  "cache_dir": "external://private/cache",
+  "cache_provenance_backfill": {
+    "format": "tilelogic_cache_provenance_backfill_v1",
+    "new_manifest_sha256": "9858d3cf60c2c60be69fab27e13e7011009b41c5355fd2d746ba953c8ccc9e31",
+    "old_manifest_sha256": "6cb6174ec20dfc505b9f96fb05e8a9c7441d54085099308ca128f9a1a7c5a391",
+    "payload_tensors_unchanged": true
+  },
+  "complete": true,
+  "elapsed_seconds": 412.35075452690944,
+  "evaluation_entries_loaded": 0,
+  "feature_names": [
+    "log_energy",
+    "query_relevance",
+    "log_variance",
+    "log_rms",
+    "tile_0",
+    "tile_1",
+    "tile_2",
+    "tile_3",
+    "normalized_row",
+    "normalized_col",
+    "spatial_radius",
+    "thumbnail_agreement",
+    "curvature_prior"
+  ],
+  "fisher_summary": {
+    "clip_lower": 8.74528094385596e-09,
+    "clip_upper": 9.606198148048861e-08,
+    "normalized_max": 3.9187424182891846,
+    "normalized_mean": 1.0,
+    "normalized_min": 0.3567540645599365,
+    "oracle_entries": 48,
+    "raw_max": 3.1389888022204104e-07,
+    "raw_median": 1.9835507458765278e-08,
+    "raw_min": 4.830461364235816e-09,
+    "spatial_values": 49152
+  },
+  "format": "tilelogic_rvq_training_v1",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "kmeans_iterations": 12,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+  "residual_codes": 256,
+  "residual_train_blocks": 8192,
+  "router_epochs": 300,
+  "router_hidden": 32,
+  "rvq_stages": 2,
+  "scale_levels": 16,
+  "source_cache_manifest_sha256": "9858d3cf60c2c60be69fab27e13e7011009b41c5355fd2d746ba953c8ccc9e31",
+  "split_counts": {
+    "chartqa": {
+      "calibration": 80,
+      "calibration_oracle": 16,
+      "evaluation": 120,
+      "evaluation_oracle": 16
+    },
+    "gqa": {
+      "calibration": 80,
+      "calibration_oracle": 16,
+      "evaluation": 120,
+      "evaluation_oracle": 16
+    },
+    "textvqa": {
+      "calibration": 80,
+      "calibration_oracle": 16,
+      "evaluation": 120,
+      "evaluation_oracle": 16
+    }
+  },
+  "torch": "2.6.0+cu124",
+  "training_entries": 240,
+  "training_keys_sha256": "5870bc22546f201da9e3bba8bba3eb4ca441d33d995834568e3bc826afeacb32"
+}

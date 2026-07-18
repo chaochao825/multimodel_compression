@@ -1,0 +1,293 @@
+2026-07-18T18:50:26+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:50:41+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:50:57+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:51:12+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:51:27+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     50     11      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:51:42+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     19      2      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:51:58+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     34      7      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:52:13+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     37      8      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:52:29+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:52:44+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     15      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:52:59+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:53:15+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:53:30+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     11      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:53:46+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     38      8      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:54:02+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     43     10      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:54:17+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     25      4      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:54:33+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:54:48+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     11      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:55:03+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C      9      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:55:18+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:55:33+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     11      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:55:48+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     40      9      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:56:04+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     32      6      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:56:20+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     34      7      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:56:36+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:56:51+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:57:07+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:57:22+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C      9      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:57:37+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     11      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:57:53+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     25      4      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:58:08+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     18      2      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:58:23+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     37      8      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:58:39+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     15      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:58:55+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:59:10+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:59:26+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:59:42+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T18:59:57+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     26      4      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:00:13+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     18      2      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:00:29+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     35      8      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:00:44+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     14      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:01:00+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:01:16+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:01:31+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:01:47+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     10      0      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:02:02+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     24      4      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:02:17+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     20      2      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:02:33+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1543270     C     35      7      -      -      -      -    python
+    1    1969394     C      -      -      -      -      -      -    python
+2026-07-18T19:02:49+08:00
+# gpu         pid   type     sm    mem    enc    dec    jpg    ofa    command
+# Idx           #    C/G      %      %      %      %      %      %    name
+    1       2177     G      -      -      -      -      -      -    Xorg
+    1    1969394     C      -      -      -      -      -      -    python

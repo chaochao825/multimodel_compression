@@ -1,0 +1,11 @@
+{
+  "complete": true,
+  "elapsed_seconds": 0.0005078311078250408,
+  "expected_records": 360,
+  "format": "tilelogic_quality_evaluation_v1",
+  "new_records": 0,
+  "quality_path_is_latency_evidence": false,
+  "quality_path_keeps_original_visual_token_length": true,
+  "records": 360,
+  "variants_per_record": 23
+}

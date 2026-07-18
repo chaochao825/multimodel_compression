@@ -1,0 +1,29 @@
+{
+  "claim_boundary": "End-to-end TTFT includes image preprocessing, the visual encoder, codec encode/decode, native full-length multimodal positions, language prefill, and first-token generation. The codec still expands to 1,280 visual tokens; no native compact-kernel speedup is claimed.",
+  "component_trials": 50,
+  "cuda": "12.4",
+  "fixed_codec_ttft_expands_to_full_visual_tokens": true,
+  "format": "tilelogic_latency_v1",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "gpu_co_residency_log": {
+    "public_bytes": 19623,
+    "public_file": "latency/gpu_co_residency_during_run.log",
+    "public_sha256": "9316b959c0edbe1c1ab457dc0131dfd08b920321935404fa97b0b8d8948a65d6",
+    "source_bytes": 21133,
+    "source_file": "gpu_co_residency_during_run.log",
+    "source_sha256": "0f5a8c85ce76188af49c33093299ab66e96a0a158599853bcebb62ecc96513c5"
+  },
+  "model_dir": "external://models/66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "native_compact_visual_sequence": false,
+  "paired_dynamic_fixed_methods": [
+    "base_vq_logic_router",
+    "logic_router_fixed_slots"
+  ],
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+  "quality_equivalent_sequence_length": 1280,
+  "samples": 6,
+  "source_manifest_sha256": "2dd118b849e920b94b6dffe859dd7cfe464ebbcc52589e53b0e001325c858d5a",
+  "torch": "2.6.0+cu124",
+  "ttft_trials": 5
+}

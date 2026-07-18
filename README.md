@@ -1,5 +1,31 @@
 # Multimodal Compression: Video Circulant/Hybrid Attention Probe
 
+## 2026-07-18 Update: TileLogic-RVQ Formal Evaluation
+
+This branch adds a leakage-controlled evaluation of TileLogic-RVQ: tile-local
+DCT, scaled base VQ, sequential residual VQ, calibration-only MLP and discrete
+logic routing, fixed residual slots, and a fully charged sparse FP16 fallback.
+The frozen protocol, implementation, and concise result interpretation are in
+[`TILELOGIC_RVQ_EXPERIMENT.md`](TILELOGIC_RVQ_EXPERIMENT.md) and
+[`TILELOGIC_RVQ_SUMMARY.md`](TILELOGIC_RVQ_SUMMARY.md).
+
+The formal run uses 240 calibration records for training and 360 disjoint
+evaluation records from GQA, TextVQA, and ChartQA. All six predeclared
+questions are reported independently: Q1/Q2/Q3/Q5/Q6 are **FAIL** and Q4 is
+**INCONCLUSIVE**, so no aggregate positive claim is allowed. Base VQ reaches
+very low effective rates after full shared-overhead accounting, but misses the
+quality guardrails; Fisher weighting does not beat unweighted RVQ; the MLP
+router does not beat the energy/risk heuristics on the oracle subset; and fixed
+slots lower measured TTFT without consistently lowering every required
+component. The public,
+path-sanitized evidence bundle and passing machine audit are in
+[`remote_logs/tilelogic_rvq_20260718/`](remote_logs/tilelogic_rvq_20260718/).
+The initial publication candidate was rejected by the sole Review Agent for
+undercharging several FP32 fields; the final bundle uses artifact-matched
+precision and includes a 360-sample non-rate semantic-equivalence proof.
+The quality path still reconstructs all 1,280 visual tokens, and latency remains
+a PyTorch diagnostic rather than compact-prefill, isolated-GPU, or PPA evidence.
+
 ## 2026-07-17 Update: TileSpec-Ex Minimal Feasibility Gates
 
 The branch now includes a controlled minimal experiment for tile-local

@@ -1,0 +1,20 @@
+{
+  "answer_score_uses_all_manifest_answers": true,
+  "evaluation_samples": 360,
+  "format": "tilelogic_quality_evaluation_v1",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "model_dir": "external://models/66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "public_feature_eval_summary_bytes": 1739,
+  "public_feature_eval_summary_file": "feature_eval/feature_eval_summary.json",
+  "public_feature_eval_summary_sha256": "aca1cf01ded7fefa56a34bc63b923fbb5f068ff6fffc993c612390c15c0fd3b8",
+  "python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+  "quality_path_is_latency_evidence": false,
+  "quality_path_keeps_original_visual_token_length": true,
+  "source_cache_manifest_sha256": "9858d3cf60c2c60be69fab27e13e7011009b41c5355fd2d746ba953c8ccc9e31",
+  "source_feature_eval_summary_sha256": "ebb23a1ed61a6d16714f294c99520b7f85f5fd5b83013605931a45bbf10f4dfb",
+  "source_manifest_sha256": "2dd118b849e920b94b6dffe859dd7cfe464ebbcc52589e53b0e001325c858d5a",
+  "teacher_forced_target_policy": "first_manifest_answer_verbatim",
+  "torch": "2.6.0+cu124",
+  "transformers": "4.51.0"
+}

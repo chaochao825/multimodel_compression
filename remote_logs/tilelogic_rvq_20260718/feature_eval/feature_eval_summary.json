@@ -1,0 +1,53 @@
+{
+  "calibration_records_loaded": 0,
+  "complete": true,
+  "elapsed_seconds": 952.9850730099715,
+  "evaluation_records_loaded": 360,
+  "expected_records": 360,
+  "format": "tilelogic_feature_evaluation_v1",
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "new_records": 360,
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "public_training_summary_bytes": 3413,
+  "public_training_summary_file": "training/training_summary.json",
+  "public_training_summary_sha256": "2007bf9a7f969ce3e629827d603567db569b16c438a8b235d4f098ad8b4c9126",
+  "python": "3.10.0 | packaged by conda-forge | (default, Nov 20 2021, 02:24:10) [GCC 9.4.0]",
+  "rate_storage_policy": {
+    "base_scalar_scale_bits": 32,
+    "curvature_prior_bits": 32,
+    "exact_fallback_value_bits": 16,
+    "logic_leaf_bits": 32,
+    "logic_threshold_bits": 16,
+    "mlp_normalizer_bits": 32,
+    "mlp_parameter_bits": 32,
+    "vq_codeword_bits": 16,
+    "vq_metric_weight_bits": 32,
+    "vq_scale_table_bits": 16
+  },
+  "records": 360,
+  "source_cache_manifest_sha256": "9858d3cf60c2c60be69fab27e13e7011009b41c5355fd2d746ba953c8ccc9e31",
+  "source_training_summary_sha256": "739a56c907546364c16b3aa55d3c762d3f06d0c1d74da09e3690ca0de5019a12",
+  "split_counts": {
+    "chartqa": {
+      "calibration": 80,
+      "calibration_oracle": 16,
+      "evaluation": 120,
+      "evaluation_oracle": 16
+    },
+    "gqa": {
+      "calibration": 80,
+      "calibration_oracle": 16,
+      "evaluation": 120,
+      "evaluation_oracle": 16
+    },
+    "textvqa": {
+      "calibration": 80,
+      "calibration_oracle": 16,
+      "evaluation": 120,
+      "evaluation_oracle": 16
+    }
+  },
+  "torch": "2.6.0+cu124",
+  "training_format": "tilelogic_rvq_training_v1",
+  "variants_per_record": 23
+}

@@ -1,0 +1,20 @@
+{
+  "cache_manifest_hash_scope": "private_source_run_excluded_cache_manifests",
+  "format": "tilelogic_cache_provenance_backfill_v1",
+  "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "new_manifest_sha256": "9858d3cf60c2c60be69fab27e13e7011009b41c5355fd2d746ba953c8ccc9e31",
+  "old_manifest_sha256": "6cb6174ec20dfc505b9f96fb05e8a9c7441d54085099308ca128f9a1a7c5a391",
+  "payload_tensors_unchanged": true,
+  "public_training_summary_bytes": 3413,
+  "public_training_summary_file": "training/training_summary.json",
+  "public_training_summary_sha256": "2007bf9a7f969ce3e629827d603567db569b16c438a8b235d4f098ad8b4c9126",
+  "records": 600,
+  "source_manifest_sha256": "2dd118b849e920b94b6dffe859dd7cfe464ebbcc52589e53b0e001325c858d5a",
+  "source_training_summary_sha256": "739a56c907546364c16b3aa55d3c762d3f06d0c1d74da09e3690ca0de5019a12",
+  "tensor_dtype_fields": [
+    "thumbnail",
+    "crops",
+    "query",
+    "crop_gradient"
+  ]
+}

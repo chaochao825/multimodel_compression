@@ -1,0 +1,190 @@
+{
+  "binary_private_marker_scan_pass": true,
+  "excluded": [
+    "cache payload tensors",
+    "training .pt artifacts",
+    "feature_samples.jsonl",
+    "quality_samples.jsonl",
+    "model checkpoints and datasets"
+  ],
+  "file_count": 34,
+  "files": [
+    {
+      "bytes": 2779,
+      "path": "README.md",
+      "sha256": "6e87d621ccc827518c6c4e8d871c7584846214a8f24957264a79195ac4952a08"
+    },
+    {
+      "bytes": 16804,
+      "path": "analysis/TILELOGIC_RVQ_FINAL_REPORT.md",
+      "sha256": "6bb1c9583458a177c1f2479458ce64b3bb54d06f836adea4a191ce9a889f8410"
+    },
+    {
+      "bytes": 11365,
+      "path": "analysis/analysis_environment.json",
+      "sha256": "67e6e64476861eacfd2808b8deab6989a4eb7253210e39e594adb3cd45fe7a9a"
+    },
+    {
+      "bytes": 11111,
+      "path": "analysis/decision_summary.csv",
+      "sha256": "5d0bc717b4a82653c49aa222efbe8b72e69de86961fe8e4046e26f4318ec7c9e"
+    },
+    {
+      "bytes": 16127,
+      "path": "analysis/decision_summary.json",
+      "sha256": "95fad3911f9d1743e9cbc5c9a24d60bba9198e9fe6e5708d1c117de648777993"
+    },
+    {
+      "bytes": 31264,
+      "path": "analysis/feature_metrics.csv",
+      "sha256": "7bfae4114c927ee8f503825b48433a5d5e5775c2462dd427af3f30ca5ad79d3f"
+    },
+    {
+      "bytes": 14360,
+      "path": "analysis/figures/dynamic_fixed_latency.pdf",
+      "sha256": "00a9de0db52303319e7decef040c5e12b82685674d8b1742bc10eb433e7ef67e"
+    },
+    {
+      "bytes": 49914,
+      "path": "analysis/figures/dynamic_fixed_latency.png",
+      "sha256": "a94195b09d0d74148620b82302a9cbf2ff864f88d4aae623f49e54591b51db58"
+    },
+    {
+      "bytes": 22265,
+      "path": "analysis/figures/rate_distortion_feature_nmse.pdf",
+      "sha256": "2073f44c18a875b833d8911583e0374e37105a6d0c9934bbdfb2f28720175f61"
+    },
+    {
+      "bytes": 113425,
+      "path": "analysis/figures/rate_distortion_feature_nmse.png",
+      "sha256": "90d2bd974344569631f20859e4f3f6b86de1efe2e634b9bdd2d9b8756a6557b1"
+    },
+    {
+      "bytes": 22229,
+      "path": "analysis/figures/rate_distortion_teacher_nll.pdf",
+      "sha256": "13f849cbb460dcc46578824c313bf5eedc43c5e40e0c6b69d5717344bc02fc9d"
+    },
+    {
+      "bytes": 115881,
+      "path": "analysis/figures/rate_distortion_teacher_nll.png",
+      "sha256": "c3d8c2a1a545d5138e289df6980bacc887b9a4aac5684bdc1167a2afc53103c4"
+    },
+    {
+      "bytes": 14488,
+      "path": "analysis/figures/router_metrics.pdf",
+      "sha256": "f4387f2c547d7537028f674745b7db62d8dfff75630aa83f5b3223930a8c18eb"
+    },
+    {
+      "bytes": 47700,
+      "path": "analysis/figures/router_metrics.png",
+      "sha256": "f1dfede9613b8e91ea9f89335731965e504e095ab524411958236e80636e3542"
+    },
+    {
+      "bytes": 2870,
+      "path": "analysis/independent_review_report.md",
+      "sha256": "14064b78d38010d94f08ae3b74ff9cc82aa6c229e8403c79a888983cf5d9ff0a"
+    },
+    {
+      "bytes": 4189,
+      "path": "analysis/latency_metrics.csv",
+      "sha256": "af581ee81cc008786b6d3b02ea482f2e1beeda386694009cb648673b246fcb16"
+    },
+    {
+      "bytes": 808,
+      "path": "analysis/latency_paired_dynamic_fixed.csv",
+      "sha256": "c1c07f04d45750baef0b0ebef8c207d265279c544d0a4e89572f9ed4b3587f4b"
+    },
+    {
+      "bytes": 4874,
+      "path": "analysis/method_points.csv",
+      "sha256": "27ec9d66d73f01e42dfef386e0213d5ea378bc077c7b327c491e37b14feeaf04"
+    },
+    {
+      "bytes": 10953,
+      "path": "analysis/quality_metrics.csv",
+      "sha256": "f4949c0a5dbc09a364805f4869242fec85bda1b5302e4554ef469c1fc4bc0e5d"
+    },
+    {
+      "bytes": 55052,
+      "path": "analysis/rate_components.csv",
+      "sha256": "ac0fa09a7debc9e051940b57452a0ecd4f042ecfeea6190ec39265811b630185"
+    },
+    {
+      "bytes": 9789,
+      "path": "analysis/result_audit_findings.json",
+      "sha256": "dd8ff6cc9f4775cb68038bf9c5c48b1c06bc4755ff977f9f942c98db0f64cea7"
+    },
+    {
+      "bytes": 6344,
+      "path": "analysis/result_audit_report.md",
+      "sha256": "abfab4ecab0349e29276dd841990ad336a289c1126825d4ff3c24df37a938d87"
+    },
+    {
+      "bytes": 971,
+      "path": "analysis/router_metrics.csv",
+      "sha256": "c66ce8d28eaf6ee0b64bb852d1f6f172fdfd9806c7af9978760efcb88d110b49"
+    },
+    {
+      "bytes": 29523,
+      "path": "analysis/router_sample_metrics.csv",
+      "sha256": "e1703867ae2f4fee34cfb284301bd1f5c83fa185fca4372f015eafac6f12d44d"
+    },
+    {
+      "bytes": 637,
+      "path": "cache/cache_summary.json",
+      "sha256": "b6133930d25bd39e3abd7f260df7b2fa5fc7e68df16369b82b8dc291dd6a2fff"
+    },
+    {
+      "bytes": 948,
+      "path": "cache_provenance_backfill.json",
+      "sha256": "a9742bef7634d92fb69cc07ccc4a4965438b9f2816450e43972849c9af6b6d67"
+    },
+    {
+      "bytes": 1739,
+      "path": "feature_eval/feature_eval_summary.json",
+      "sha256": "aca1cf01ded7fefa56a34bc63b923fbb5f068ff6fffc993c612390c15c0fd3b8"
+    },
+    {
+      "bytes": 19623,
+      "path": "latency/gpu_co_residency_during_run.log",
+      "sha256": "9316b959c0edbe1c1ab457dc0131dfd08b920321935404fa97b0b8d8948a65d6"
+    },
+    {
+      "bytes": 1428,
+      "path": "latency/latency_environment.json",
+      "sha256": "29cee9a193ead2b000fa55508fa31d93a44c3bf83bd97075787e391e6789ba88"
+    },
+    {
+      "bytes": 46757,
+      "path": "latency/latency_samples.csv",
+      "sha256": "564af69e03b8ed97a4460c218f3467095b3b76857f268bb8d8e0f532c7947206"
+    },
+    {
+      "bytes": 1164,
+      "path": "quality/quality_environment.json",
+      "sha256": "80c8c3cbda8083b6f7803e50e7a57b810a4bd4854e7c8fafc4ce1d79c194d52c"
+    },
+    {
+      "bytes": 312,
+      "path": "quality/quality_summary.json",
+      "sha256": "bccc363d61e885b0bc856de0bd8858a74c52365618be94f703de6f24f62657ab"
+    },
+    {
+      "bytes": 915,
+      "path": "rate_precision_correction_validation.json",
+      "sha256": "8188c6d6222d89dba2fe632e5d444548676cb43fbfc9fe1f3add01a4aec515c0"
+    },
+    {
+      "bytes": 3413,
+      "path": "training/training_summary.json",
+      "sha256": "2007bf9a7f969ce3e629827d603567db569b16c438a8b235d4f098ad8b4c9126"
+    }
+  ],
+  "format": "tilelogic_rvq_publication_v1",
+  "markdown_link_scan_pass": true,
+  "private_path_scan_pass": true,
+  "release_ready": true,
+  "review_stage": "final",
+  "source_public_provenance_scan_pass": true,
+  "total_bytes": 692021
+}

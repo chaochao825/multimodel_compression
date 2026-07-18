@@ -1,0 +1,14 @@
+{
+  "complete": true,
+  "elapsed_seconds": 397.9596461209003,
+  "expected_records": 600,
+  "format": "tilelogic_feature_cache_v1",
+  "manifest_hash_scope": "private_source_run_excluded_manifests",
+  "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "new_records": 600,
+  "per_entry_tensor_dtypes": true,
+  "records": 600,
+  "source_cache_manifest_sha256": "9858d3cf60c2c60be69fab27e13e7011009b41c5355fd2d746ba953c8ccc9e31",
+  "source_manifest_sha256": "2dd118b849e920b94b6dffe859dd7cfe464ebbcc52589e53b0e001325c858d5a",
+  "source_split_manifest_sha256": "89f92477bed65b71ca076a720fd8e6b301b152d8939b4b3e8ede543f5ed60545"
+}
