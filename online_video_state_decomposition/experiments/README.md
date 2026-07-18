@@ -164,6 +164,22 @@ python experiments/probes/audit_streaming_baseline_sources.py \
   --out remote_results/streaming_source_checkout_audit.json
 ```
 
+After method-specific dependencies are installed, run executable module
+smokes without writing bytecode into the third-party checkouts:
+
+```bash
+python experiments/probes/smoke_external_baseline_modules.py \
+  --external-root external_baselines \
+  --methods causalmem,streamingtom,stc,oasis \
+  --oasis-python .conda/oasis-py312/bin/python \
+  --out remote_results/official_module_smoke.json
+```
+
+This validates a synthetic CausalMem cache update, StreamingTOM OQM 4-bit
+round trip, STC core imports, and OASIS `ShortMemory` window/event behavior.
+It is dependency and mechanism evidence only, not a model-level quality or
+latency reproduction.
+
 Replay the frozen CLIP cache through CausalMem, StreamingTOM, STC,
 SelectStream, OASIS, and StateKV mechanism proxies plus project controls:
 

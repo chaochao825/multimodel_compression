@@ -46,6 +46,9 @@ reused 200-sample development cache, the dev-fitted bounded selector scores
 independent confirmation. StateKV, OASIS, and StreamingTOM additionally retain
 growing detailed or archive state in the audited accounting. See
 [STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md](paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md).
+Targeted official-module smokes now also cover CausalMem `FOSSCache`,
+StreamingTOM `OQM`, STC core imports, and OASIS `ShortMemory`; these remain
+mechanism checks rather than model-level latency or quality reproductions.
 
 ## Repository Layout
 

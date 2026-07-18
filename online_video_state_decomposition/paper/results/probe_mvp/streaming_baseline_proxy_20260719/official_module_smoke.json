@@ -1,0 +1,102 @@
+{
+  "all_requested_passed": true,
+  "format_version": 1,
+  "methods": [
+    "causalmem",
+    "streamingtom",
+    "stc",
+    "oasis"
+  ],
+  "results": [
+    {
+      "method": "causalmem",
+      "metrics": {
+        "basis_rank": 4,
+        "budget_excess": 1,
+        "budget_respected": false,
+        "mem1_tokens": 100,
+        "mem2_frames": 21,
+        "requested_budget": 120,
+        "retained_tokens": 121
+      },
+      "passed": true,
+      "python": "/home/wangmeiqi/anaconda3/envs/Qwen3/bin/python",
+      "repository": "CausalMem",
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": "",
+      "stdout_tail": "Failed to import llava_llama from llava.language_model.llava_llama. Error: No module named 'llava.model.llava_arch'\nwra None\nPlease install pyav to use video processing functions.\nOpenCLIP not installed\nFailed to import llava_mistral from llava.language_model.llava_mistral. Error: No module named 'llava.model.llava_arch'\nFailed to import llava_mixtral from llava.language_model.llava_mixtral. Error: No module named 'llava.model.llava_arch'\nBASELINE_SMOKE_RESULT={\"basis_rank\": 4, \"budget_excess\": 1, \"budget_respected\": false, \"mem1_tokens\": 100, \"mem2_frames\": 21, \"requested_budget\": 120, \"retained_tokens\": 121}\n"
+    },
+    {
+      "method": "streamingtom",
+      "metrics": {
+        "group_count": 2,
+        "key_mse": 0.0008096994715742767,
+        "key_packed_bytes": 64,
+        "key_payload_ratio": 4.0,
+        "shape": [
+          1,
+          2,
+          10,
+          8
+        ],
+        "value_mse": 0.0009131982806138694,
+        "vision_fp16_bytes": 256
+      },
+      "passed": true,
+      "python": "/home/wangmeiqi/anaconda3/envs/Qwen3/bin/python",
+      "repository": "StreamingTOM",
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": "",
+      "stdout_tail": "BASELINE_SMOKE_RESULT={\"group_count\": 2, \"key_mse\": 0.0008096994715742767, \"key_packed_bytes\": 64, \"key_payload_ratio\": 4.0, \"shape\": [1, 2, 10, 8], \"value_mse\": 0.0009131982806138694, \"vision_fp16_bytes\": 256}\n"
+    },
+    {
+      "method": "stc",
+      "metrics": {
+        "modules": [
+          "stc.cacher.state",
+          "stc.cacher.reference_forward",
+          "stc.pruner.pruner",
+          "stc.integrations.hf_vit"
+        ],
+        "torch": "2.6.0+cu124",
+        "transformers": "4.51.0"
+      },
+      "passed": true,
+      "python": "/home/wangmeiqi/anaconda3/envs/Qwen3/bin/python",
+      "repository": "STC",
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": "",
+      "stdout_tail": "BASELINE_SMOKE_RESULT={\"modules\": [\"stc.cacher.state\", \"stc.cacher.reference_forward\", \"stc.pruner.pruner\", \"stc.integrations.hf_vit\"], \"torch\": \"2.6.0+cu124\", \"transformers\": \"4.51.0\"}\n"
+    },
+    {
+      "method": "oasis",
+      "metrics": {
+        "configured_buffer_limit": 4,
+        "configured_now_window_limit": 2,
+        "emitted_event_sizes": [
+          4
+        ],
+        "modules": [
+          "src.oasis.event.forest",
+          "src.oasis.event.segmenter"
+        ],
+        "pending_event_frames": 3,
+        "retained_buffer_frames": 3,
+        "retained_now_window_frames": 1,
+        "sentence_transformers": "5.6.0",
+        "torch": "2.5.1+cu124",
+        "transformers": "4.57.6"
+      },
+      "passed": true,
+      "python": "/home/spco/online_video_state_decomposition/.conda/oasis-py312/bin/python",
+      "repository": "OASIS",
+      "returncode": 0,
+      "status": "passed",
+      "stderr_tail": "",
+      "stdout_tail": "BASELINE_SMOKE_RESULT={\"configured_buffer_limit\": 4, \"configured_now_window_limit\": 2, \"emitted_event_sizes\": [4], \"modules\": [\"src.oasis.event.forest\", \"src.oasis.event.segmenter\"], \"pending_event_frames\": 3, \"retained_buffer_frames\": 3, \"retained_now_window_frames\": 1, \"sentence_transformers\": \"5.6.0\", \"torch\": \"2.5.1+cu124\", \"transformers\": \"4.57.6\"}\n"
+    }
+  ]
+}

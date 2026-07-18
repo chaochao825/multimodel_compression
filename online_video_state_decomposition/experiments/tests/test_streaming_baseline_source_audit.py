@@ -10,6 +10,10 @@ EXPERIMENTS_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(EXPERIMENTS_ROOT / "probes"))
 
 from audit_streaming_baseline_sources import audit_source  # noqa: E402
+from smoke_external_baseline_modules import (  # noqa: E402
+    _output_tail,
+    run_probe,
+)
 
 
 def _git(*args: str, cwd: Path) -> str:
@@ -81,6 +85,18 @@ class StreamingBaselineSourceAuditTest(unittest.TestCase):
             self.assertFalse(unavailable["audit_passed"])
             self.assertEqual(missing["checkout_status"], "missing")
             self.assertFalse(missing["audit_passed"])
+
+    def test_module_smoke_reports_missing_checkout_and_decodes_output(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            result = run_probe(
+                "stc",
+                external_root=Path(directory),
+                python=sys.executable,
+                timeout_seconds=1.0,
+            )
+        self.assertEqual(result["status"], "missing_checkout")
+        self.assertFalse(result["passed"])
+        self.assertEqual(_output_tail(b"abc"), "abc")
 
 
 if __name__ == "__main__":

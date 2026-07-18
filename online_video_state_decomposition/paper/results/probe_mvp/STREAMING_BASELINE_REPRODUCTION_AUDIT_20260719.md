@@ -14,17 +14,18 @@ This audit therefore separates four evidence tiers:
 4. `feature proxy`: an independent mechanism approximation on the same frozen
    CLIP cache used by this project.
 
-The current completed experiment is tier 4 plus tier 3. It is not an official
-end-to-end reproduction. The first 200-sample result is also a reused
-development analysis, not an independent confirmation.
+The current completed experiment is tier 4 plus tier 3, augmented by selected
+official-module synthetic smokes. It is not an official end-to-end
+reproduction. The first 200-sample result is also a reused development
+analysis, not an independent confirmation.
 
 | Method | Intended role | Public implementation status | Current status |
 |---|---|---|---|
-| CausalMem | Closest query-free semantic-memory algorithm | Public, but the documented evaluation tree is incomplete | Pinned source smoke and frame-vector mechanism proxy complete |
-| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Pinned source smoke and feature-group proxy complete; GPU run pending |
-| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Pinned source smoke and terminal-feature proxy complete; GPU run pending |
+| CausalMem | Closest query-free semantic-memory algorithm | Public, but the documented evaluation tree is incomplete | Pinned source, FOSSCache module smoke, and frame-vector proxy complete |
+| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Pinned source, OQM module smoke, and feature-group proxy complete; GPU run pending |
+| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Pinned source/core-import smoke and terminal-feature proxy complete; GPU run pending |
 | SelectStream | Task-quality target | No discoverable official code as of the audit date | Paper-structure proxy only |
-| OASIS | Slow event-archive baseline | Public evaluation path, no public paper-table timing runner | Pinned source smoke and event-centroid proxy complete; GPU run pending |
+| OASIS | Slow event-archive baseline | Public evaluation path, no public paper-table timing runner | Pinned source, ShortMemory module smoke, and event-centroid proxy complete; GPU run pending |
 | StateKV | Recurrent model-state baseline | Official placeholder repository only | Paper-structure proxy only |
 
 ## Source Pins And Licensing
@@ -46,6 +47,25 @@ The smoke audit validates commit identity, clean worktrees, required entry
 files, and `compileall`. It writes bytecode to a temporary external cache so
 the audited repositories remain clean. Passing this check does not establish
 dependency compatibility or numerical equivalence.
+
+## Executable Module Smoke
+
+The machine-readable output is `official_module_smoke.json` in the selected
+result bundle. All four requested public implementations with code passed the
+targeted smoke, but the checks have deliberately different strengths:
+
+| Method | Official module exercised | Synthetic result | Evidence boundary |
+|---|---|---|---|
+| CausalMem | `FOSSCache.process_frame` | 121 tokens retained for a requested budget of 120; rank stayed at 4 | Confirms the default `mem2` path is not a strict total-budget implementation |
+| StreamingTOM | `OQM` 4-bit write/read | Key/value MSE `8.10e-4`/`9.13e-4`; packed-key payload ratio `4.0x` | Ratio excludes scales, minima, indices, Python objects, and allocator overhead |
+| STC | cacher, pruner, and HF-ViT integration imports | Four core modules import with Torch 2.6.0 and Transformers 4.51.0 | Dependency smoke only; no ViT skip/prune numerical or CUDA timing claim |
+| OASIS | `ShortMemory.push` plus event modules | Limits 2/4 retain 1/3 frames; one 4-frame event emitted | Confirms bounded windows and an exclusive effective capacity caused by `>= limit` followed by `pop(0)` |
+
+CausalMem, StreamingTOM, and STC use the existing Qwen3 Python 3.10
+environment. OASIS uses an isolated Python 3.12.13 environment with Torch
+2.5.1+cu124, Transformers 4.57.6, and SentenceTransformers 5.6.0. OASIS's
+README specifies CUDA 12.1; the cu124 environment is therefore used only for
+CPU/module compatibility evidence, not official GPU latency.
 
 ## Paper-To-Code Findings
 
@@ -134,6 +154,12 @@ bounds root summaries: descendants, parent nodes, and keyframes remain in the
 event forest, so complete retained evidence grows with the stream. The code
 also fails to write parent pointers after one merge path and uses the original
 question rather than generated intent for QA retrieval.
+
+The executable `ShortMemory` smoke also shows that configured limits are
+exclusive in steady state: the implementation appends and then pops when
+`len >= limit`, so limits 2 and 4 retain only 1 and 3 frames respectively.
+Paper-to-code budget comparisons must use effective retained capacity rather
+than the raw configuration value.
 
 Our proxy therefore counts bounded active roots separately from a growing
 event archive. Visual centroids replace MLLM summaries, embeddings, and tool
@@ -233,9 +259,10 @@ block-circulant plus low-rank unit would be one component of a hybrid system.
    fixing backbone, frames, precision, prompt, generation length, warmups, and
    repetitions. Report P50/P95/P99 for encoder, prefill, retrieval,
    reconstruction, decode, and end-to-end latency.
-4. Run OASIS in its separate Python 3.12/Qwen3-VL environment and report both
-   foreground latency and background GPU-seconds. Do not hide synchronous
-   maintenance behind an assumed asynchronous schedule.
+4. Extend the now-passing OASIS Python 3.12 module environment to the official
+   Qwen3-VL and embedding checkpoints; report foreground latency and
+   background GPU-seconds. Do not hide synchronous maintenance behind an
+   assumed asynchronous schedule.
 5. Keep StateKV and SelectStream labeled paper proxies until executable code
    is public. Do not fill missing architectural details and call the result
    official.
