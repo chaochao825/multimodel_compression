@@ -1,0 +1,104 @@
+{
+  "16": {
+    "component_scales": {
+      "angle_component": 0.024927286258220827,
+      "residual_component": 0.01830653560280904,
+      "spectrum_component": 0.31242137991808927
+    },
+    "methods": {
+      "causalmem_residual_proxy": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.00012725318059130962
+      },
+      "dual_slow_residual": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.019498155233640117
+      },
+      "dual_spectral": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 2.2474110290930835
+      },
+      "frame_delta": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.972753824118275
+      },
+      "single_oja_residual": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.00011964408440816539
+      }
+    }
+  },
+  "32": {
+    "component_scales": {
+      "angle_component": 0.009329463312734987,
+      "residual_component": 0.00010382485302094785,
+      "spectrum_component": 0.5593209161744206
+    },
+    "methods": {
+      "causalmem_residual_proxy": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.0001073954086528191
+      },
+      "dual_slow_residual": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.00011964408440816539
+      },
+      "dual_spectral": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 2.9523719853832127
+      },
+      "frame_delta": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.972753824118275
+      },
+      "single_oja_residual": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.00010178092550071839
+      }
+    }
+  },
+  "64": {
+    "component_scales": {
+      "angle_component": 0.004665104444145918,
+      "residual_component": 8.926998231950768e-05,
+      "spectrum_component": 0.5722493369954
+    },
+    "methods": {
+      "causalmem_residual_proxy": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 6.999189446082556e-05
+      },
+      "dual_slow_residual": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.00010178092550071839
+      },
+      "dual_spectral": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 2.8988792421908185
+      },
+      "frame_delta": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 0.972753824118275
+      },
+      "single_oja_residual": {
+        "empirical_false_trigger_rate": 0.019642857142857142,
+        "negative_samples": 1120,
+        "threshold": 6.7797031526288e-05
+      }
+    }
+  }
+}

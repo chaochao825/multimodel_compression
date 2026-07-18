@@ -194,6 +194,26 @@ The external methods operate at different state layers, so `reproduction_tier`
 and the complete active/archive/detailed byte breakdown must remain attached
 to every comparison.
 
+## Controlled Dual-Timescale Trigger
+
+Run the matched-rank synthetic trigger gate on static, camera-motion,
+lighting, periodic-motion, object-change, scene-cut, OCR, and brief-action
+streams:
+
+```bash
+bash experiments/scripts/run_spectral_event_trigger.sh \
+  remote_results/controlled_spectral_trigger
+```
+
+Single-state baselines receive the full basis-rank budget; the dual state
+splits the same basis payload between fast and slow channels. The runner fits
+thresholds only on calibration seeds, evaluates disjoint seeds, and writes
+scenario-level metrics plus paired seed-bootstrap false-trigger intervals.
+This is controlled trigger evidence only. It is not Video-LLM task quality,
+an official CausalMem reproduction, or end-to-end GPU latency evidence. A
+nonzero exit code is expected when any preregistered gate fails; retain and
+report the artifacts rather than relaxing the gate post hoc.
+
 ## Resource Safety
 
 GPU runners check memory and utilization before launch and take a per-GPU

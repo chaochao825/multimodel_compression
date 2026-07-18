@@ -1,0 +1,151 @@
+total_rank_budget,method,method_label,scenario,scenario_type,seed_count,eligible_frame_count,trigger_count,false_trigger_rate,event_count,detected_count,event_recall,mean_detection_delay
+16,causalmem_residual_proxy,CausalMem residual proxy,brief_action,event,8,448,25,,8,8,1.0,0.0
+16,causalmem_residual_proxy,CausalMem residual proxy,camera_fast,negative_control,8,448,0,0.0,0,0,,
+16,causalmem_residual_proxy,CausalMem residual proxy,camera_slow,negative_control,8,448,0,0.0,0,0,,
+16,causalmem_residual_proxy,CausalMem residual proxy,lighting_drift,negative_control,8,448,17,0.03794642857142857,0,0,,
+16,causalmem_residual_proxy,CausalMem residual proxy,object_disappear,event,8,448,0,,8,0,0.0,
+16,causalmem_residual_proxy,CausalMem residual proxy,object_enter,event,8,448,68,,8,8,1.0,0.0
+16,causalmem_residual_proxy,CausalMem residual proxy,one_frame_ocr,event,8,448,8,,8,8,1.0,0.0
+16,causalmem_residual_proxy,CausalMem residual proxy,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+16,causalmem_residual_proxy,CausalMem residual proxy,scene_cut,event,8,448,88,,8,8,1.0,0.0
+16,causalmem_residual_proxy,CausalMem residual proxy,static,negative_control,8,448,0,0.0,0,0,,
+16,dual_slow_residual,Dual-state residual only,brief_action,event,8,448,8,,8,8,1.0,0.0
+16,dual_slow_residual,Dual-state residual only,camera_fast,negative_control,8,448,0,0.0,0,0,,
+16,dual_slow_residual,Dual-state residual only,camera_slow,negative_control,8,448,0,0.0,0,0,,
+16,dual_slow_residual,Dual-state residual only,lighting_drift,negative_control,8,448,0,0.0,0,0,,
+16,dual_slow_residual,Dual-state residual only,object_disappear,event,8,448,2,,8,2,0.25,0.0
+16,dual_slow_residual,Dual-state residual only,object_enter,event,8,448,88,,8,8,1.0,0.0
+16,dual_slow_residual,Dual-state residual only,one_frame_ocr,event,8,448,8,,8,8,1.0,0.0
+16,dual_slow_residual,Dual-state residual only,periodic_motion,negative_control,8,448,52,0.11607142857142858,0,0,,
+16,dual_slow_residual,Dual-state residual only,scene_cut,event,8,448,88,,8,8,1.0,0.0
+16,dual_slow_residual,Dual-state residual only,static,negative_control,8,448,0,0.0,0,0,,
+16,dual_spectral,Dual-timescale spectral,brief_action,event,8,448,8,,8,8,1.0,0.0
+16,dual_spectral,Dual-timescale spectral,camera_fast,negative_control,8,448,0,0.0,0,0,,
+16,dual_spectral,Dual-timescale spectral,camera_slow,negative_control,8,448,0,0.0,0,0,,
+16,dual_spectral,Dual-timescale spectral,lighting_drift,negative_control,8,448,6,0.013392857142857142,0,0,,
+16,dual_spectral,Dual-timescale spectral,object_disappear,event,8,448,49,,8,0,0.0,
+16,dual_spectral,Dual-timescale spectral,object_enter,event,8,448,80,,8,8,1.0,0.0
+16,dual_spectral,Dual-timescale spectral,one_frame_ocr,event,8,448,8,,8,8,1.0,0.0
+16,dual_spectral,Dual-timescale spectral,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+16,dual_spectral,Dual-timescale spectral,scene_cut,event,8,448,88,,8,8,1.0,0.0
+16,dual_spectral,Dual-timescale spectral,static,negative_control,8,448,0,0.0,0,0,,
+16,frame_delta,Frame delta,brief_action,event,8,448,2,,8,0,0.0,
+16,frame_delta,Frame delta,camera_fast,negative_control,8,448,38,0.08482142857142858,0,0,,
+16,frame_delta,Frame delta,camera_slow,negative_control,8,448,6,0.013392857142857142,0,0,,
+16,frame_delta,Frame delta,lighting_drift,negative_control,8,448,0,0.0,0,0,,
+16,frame_delta,Frame delta,object_disappear,event,8,448,2,,8,0,0.0,
+16,frame_delta,Frame delta,object_enter,event,8,448,2,,8,0,0.0,
+16,frame_delta,Frame delta,one_frame_ocr,event,8,448,2,,8,0,0.0,
+16,frame_delta,Frame delta,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+16,frame_delta,Frame delta,scene_cut,event,8,448,8,,8,8,1.0,0.0
+16,frame_delta,Frame delta,static,negative_control,8,448,0,0.0,0,0,,
+16,single_oja_residual,Single Oja residual,brief_action,event,8,448,25,,8,8,1.0,0.0
+16,single_oja_residual,Single Oja residual,camera_fast,negative_control,8,448,0,0.0,0,0,,
+16,single_oja_residual,Single Oja residual,camera_slow,negative_control,8,448,0,0.0,0,0,,
+16,single_oja_residual,Single Oja residual,lighting_drift,negative_control,8,448,16,0.03571428571428571,0,0,,
+16,single_oja_residual,Single Oja residual,object_disappear,event,8,448,0,,8,0,0.0,
+16,single_oja_residual,Single Oja residual,object_enter,event,8,448,88,,8,8,1.0,0.0
+16,single_oja_residual,Single Oja residual,one_frame_ocr,event,8,448,26,,8,8,1.0,0.0
+16,single_oja_residual,Single Oja residual,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+16,single_oja_residual,Single Oja residual,scene_cut,event,8,448,88,,8,8,1.0,0.0
+16,single_oja_residual,Single Oja residual,static,negative_control,8,448,0,0.0,0,0,,
+32,causalmem_residual_proxy,CausalMem residual proxy,brief_action,event,8,448,8,,8,8,1.0,0.0
+32,causalmem_residual_proxy,CausalMem residual proxy,camera_fast,negative_control,8,448,0,0.0,0,0,,
+32,causalmem_residual_proxy,CausalMem residual proxy,camera_slow,negative_control,8,448,0,0.0,0,0,,
+32,causalmem_residual_proxy,CausalMem residual proxy,lighting_drift,negative_control,8,448,20,0.044642857142857144,0,0,,
+32,causalmem_residual_proxy,CausalMem residual proxy,object_disappear,event,8,448,0,,8,0,0.0,
+32,causalmem_residual_proxy,CausalMem residual proxy,object_enter,event,8,448,33,,8,8,1.0,0.0
+32,causalmem_residual_proxy,CausalMem residual proxy,one_frame_ocr,event,8,448,8,,8,8,1.0,0.0
+32,causalmem_residual_proxy,CausalMem residual proxy,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+32,causalmem_residual_proxy,CausalMem residual proxy,scene_cut,event,8,448,88,,8,8,1.0,0.0
+32,causalmem_residual_proxy,CausalMem residual proxy,static,negative_control,8,448,0,0.0,0,0,,
+32,dual_slow_residual,Dual-state residual only,brief_action,event,8,448,25,,8,8,1.0,0.0
+32,dual_slow_residual,Dual-state residual only,camera_fast,negative_control,8,448,0,0.0,0,0,,
+32,dual_slow_residual,Dual-state residual only,camera_slow,negative_control,8,448,0,0.0,0,0,,
+32,dual_slow_residual,Dual-state residual only,lighting_drift,negative_control,8,448,16,0.03571428571428571,0,0,,
+32,dual_slow_residual,Dual-state residual only,object_disappear,event,8,448,0,,8,0,0.0,
+32,dual_slow_residual,Dual-state residual only,object_enter,event,8,448,88,,8,8,1.0,0.0
+32,dual_slow_residual,Dual-state residual only,one_frame_ocr,event,8,448,26,,8,8,1.0,0.0
+32,dual_slow_residual,Dual-state residual only,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+32,dual_slow_residual,Dual-state residual only,scene_cut,event,8,448,88,,8,8,1.0,0.0
+32,dual_slow_residual,Dual-state residual only,static,negative_control,8,448,0,0.0,0,0,,
+32,dual_spectral,Dual-timescale spectral,brief_action,event,8,448,28,,8,8,1.0,0.0
+32,dual_spectral,Dual-timescale spectral,camera_fast,negative_control,8,448,0,0.0,0,0,,
+32,dual_spectral,Dual-timescale spectral,camera_slow,negative_control,8,448,0,0.0,0,0,,
+32,dual_spectral,Dual-timescale spectral,lighting_drift,negative_control,8,448,8,0.017857142857142856,0,0,,
+32,dual_spectral,Dual-timescale spectral,object_disappear,event,8,448,0,,8,0,0.0,
+32,dual_spectral,Dual-timescale spectral,object_enter,event,8,448,88,,8,8,1.0,0.0
+32,dual_spectral,Dual-timescale spectral,one_frame_ocr,event,8,448,17,,8,8,1.0,0.0
+32,dual_spectral,Dual-timescale spectral,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+32,dual_spectral,Dual-timescale spectral,scene_cut,event,8,448,88,,8,8,1.0,0.0
+32,dual_spectral,Dual-timescale spectral,static,negative_control,8,448,0,0.0,0,0,,
+32,frame_delta,Frame delta,brief_action,event,8,448,2,,8,0,0.0,
+32,frame_delta,Frame delta,camera_fast,negative_control,8,448,38,0.08482142857142858,0,0,,
+32,frame_delta,Frame delta,camera_slow,negative_control,8,448,6,0.013392857142857142,0,0,,
+32,frame_delta,Frame delta,lighting_drift,negative_control,8,448,0,0.0,0,0,,
+32,frame_delta,Frame delta,object_disappear,event,8,448,2,,8,0,0.0,
+32,frame_delta,Frame delta,object_enter,event,8,448,2,,8,0,0.0,
+32,frame_delta,Frame delta,one_frame_ocr,event,8,448,2,,8,0,0.0,
+32,frame_delta,Frame delta,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+32,frame_delta,Frame delta,scene_cut,event,8,448,8,,8,8,1.0,0.0
+32,frame_delta,Frame delta,static,negative_control,8,448,0,0.0,0,0,,
+32,single_oja_residual,Single Oja residual,brief_action,event,8,448,26,,8,8,1.0,0.0
+32,single_oja_residual,Single Oja residual,camera_fast,negative_control,8,448,0,0.0,0,0,,
+32,single_oja_residual,Single Oja residual,camera_slow,negative_control,8,448,0,0.0,0,0,,
+32,single_oja_residual,Single Oja residual,lighting_drift,negative_control,8,448,21,0.046875,0,0,,
+32,single_oja_residual,Single Oja residual,object_disappear,event,8,448,0,,8,0,0.0,
+32,single_oja_residual,Single Oja residual,object_enter,event,8,448,88,,8,8,1.0,0.0
+32,single_oja_residual,Single Oja residual,one_frame_ocr,event,8,448,28,,8,8,1.0,0.0
+32,single_oja_residual,Single Oja residual,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+32,single_oja_residual,Single Oja residual,scene_cut,event,8,448,88,,8,8,1.0,0.0
+32,single_oja_residual,Single Oja residual,static,negative_control,8,448,0,0.0,0,0,,
+64,causalmem_residual_proxy,CausalMem residual proxy,brief_action,event,8,448,8,,8,8,1.0,0.0
+64,causalmem_residual_proxy,CausalMem residual proxy,camera_fast,negative_control,8,448,0,0.0,0,0,,
+64,causalmem_residual_proxy,CausalMem residual proxy,camera_slow,negative_control,8,448,0,0.0,0,0,,
+64,causalmem_residual_proxy,CausalMem residual proxy,lighting_drift,negative_control,8,448,19,0.04241071428571429,0,0,,
+64,causalmem_residual_proxy,CausalMem residual proxy,object_disappear,event,8,448,0,,8,0,0.0,
+64,causalmem_residual_proxy,CausalMem residual proxy,object_enter,event,8,448,53,,8,8,1.0,0.0
+64,causalmem_residual_proxy,CausalMem residual proxy,one_frame_ocr,event,8,448,8,,8,8,1.0,0.0
+64,causalmem_residual_proxy,CausalMem residual proxy,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+64,causalmem_residual_proxy,CausalMem residual proxy,scene_cut,event,8,448,88,,8,8,1.0,0.0
+64,causalmem_residual_proxy,CausalMem residual proxy,static,negative_control,8,448,0,0.0,0,0,,
+64,dual_slow_residual,Dual-state residual only,brief_action,event,8,448,26,,8,8,1.0,0.0
+64,dual_slow_residual,Dual-state residual only,camera_fast,negative_control,8,448,0,0.0,0,0,,
+64,dual_slow_residual,Dual-state residual only,camera_slow,negative_control,8,448,0,0.0,0,0,,
+64,dual_slow_residual,Dual-state residual only,lighting_drift,negative_control,8,448,21,0.046875,0,0,,
+64,dual_slow_residual,Dual-state residual only,object_disappear,event,8,448,0,,8,0,0.0,
+64,dual_slow_residual,Dual-state residual only,object_enter,event,8,448,88,,8,8,1.0,0.0
+64,dual_slow_residual,Dual-state residual only,one_frame_ocr,event,8,448,28,,8,8,1.0,0.0
+64,dual_slow_residual,Dual-state residual only,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+64,dual_slow_residual,Dual-state residual only,scene_cut,event,8,448,88,,8,8,1.0,0.0
+64,dual_slow_residual,Dual-state residual only,static,negative_control,8,448,0,0.0,0,0,,
+64,dual_spectral,Dual-timescale spectral,brief_action,event,8,448,42,,8,8,1.0,0.0
+64,dual_spectral,Dual-timescale spectral,camera_fast,negative_control,8,448,0,0.0,0,0,,
+64,dual_spectral,Dual-timescale spectral,camera_slow,negative_control,8,448,0,0.0,0,0,,
+64,dual_spectral,Dual-timescale spectral,lighting_drift,negative_control,8,448,7,0.015625,0,0,,
+64,dual_spectral,Dual-timescale spectral,object_disappear,event,8,448,0,,8,0,0.0,
+64,dual_spectral,Dual-timescale spectral,object_enter,event,8,448,88,,8,8,1.0,0.0
+64,dual_spectral,Dual-timescale spectral,one_frame_ocr,event,8,448,23,,8,8,1.0,0.0
+64,dual_spectral,Dual-timescale spectral,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+64,dual_spectral,Dual-timescale spectral,scene_cut,event,8,448,88,,8,8,1.0,0.0
+64,dual_spectral,Dual-timescale spectral,static,negative_control,8,448,0,0.0,0,0,,
+64,frame_delta,Frame delta,brief_action,event,8,448,2,,8,0,0.0,
+64,frame_delta,Frame delta,camera_fast,negative_control,8,448,38,0.08482142857142858,0,0,,
+64,frame_delta,Frame delta,camera_slow,negative_control,8,448,6,0.013392857142857142,0,0,,
+64,frame_delta,Frame delta,lighting_drift,negative_control,8,448,0,0.0,0,0,,
+64,frame_delta,Frame delta,object_disappear,event,8,448,2,,8,0,0.0,
+64,frame_delta,Frame delta,object_enter,event,8,448,2,,8,0,0.0,
+64,frame_delta,Frame delta,one_frame_ocr,event,8,448,2,,8,0,0.0,
+64,frame_delta,Frame delta,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+64,frame_delta,Frame delta,scene_cut,event,8,448,8,,8,8,1.0,0.0
+64,frame_delta,Frame delta,static,negative_control,8,448,0,0.0,0,0,,
+64,single_oja_residual,Single Oja residual,brief_action,event,8,448,25,,8,8,1.0,0.0
+64,single_oja_residual,Single Oja residual,camera_fast,negative_control,8,448,0,0.0,0,0,,
+64,single_oja_residual,Single Oja residual,camera_slow,negative_control,8,448,0,0.0,0,0,,
+64,single_oja_residual,Single Oja residual,lighting_drift,negative_control,8,448,20,0.044642857142857144,0,0,,
+64,single_oja_residual,Single Oja residual,object_disappear,event,8,448,0,,8,0,0.0,
+64,single_oja_residual,Single Oja residual,object_enter,event,8,448,88,,8,8,1.0,0.0
+64,single_oja_residual,Single Oja residual,one_frame_ocr,event,8,448,27,,8,8,1.0,0.0
+64,single_oja_residual,Single Oja residual,periodic_motion,negative_control,8,448,0,0.0,0,0,,
+64,single_oja_residual,Single Oja residual,scene_cut,event,8,448,88,,8,8,1.0,0.0
+64,single_oja_residual,Single Oja residual,static,negative_control,8,448,0,0.0,0,0,,

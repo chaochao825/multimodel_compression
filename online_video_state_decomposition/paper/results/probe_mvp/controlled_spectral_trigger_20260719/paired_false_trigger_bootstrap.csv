@@ -1,0 +1,4 @@
+total_rank_budget,candidate_method,baseline_method,seed_count,bootstrap_samples,bootstrap_seed,candidate_false_trigger_rate,baseline_false_trigger_rate,candidate_minus_baseline_pp,paired_bootstrap_ci95_low_pp,paired_bootstrap_ci95_high_pp,relative_reduction
+32,dual_spectral,causalmem_residual_proxy,8,10000,20260719,0.0035714285714285713,0.008928571428571428,-0.5357142857142857,-0.8928571428571428,-0.04464285714285714,0.6000000000000001
+32,dual_spectral,single_oja_residual,8,10000,20260719,0.0035714285714285713,0.009375,-0.5803571428571429,-0.8928571428571428,-0.17857142857142858,0.6190476190476191
+32,dual_spectral,dual_slow_residual,8,10000,20260719,0.0035714285714285713,0.007142857142857143,-0.35714285714285715,-0.6696428571428572,0.08928571428571429,0.5

@@ -1,0 +1,47 @@
+format_version: 1
+
+calibration_seeds: [1, 7, 42, 101]
+evaluation_seeds: [1001, 1009, 2026, 4093, 8191, 12289, 16381, 32749]
+
+synthetic:
+  frames: 64
+  height: 8
+  width: 8
+  hidden_dim: 128
+  base_rank: 8
+  event_frame: 32
+  event_block_size: 2
+  event_amplitude: 10.0
+  noise_std: 0.01
+
+state:
+  # Single-state baselines receive this full rank. The dual state splits the
+  # same basis-vector budget evenly between fast and slow channels.
+  total_rank_budgets: [16, 32, 64]
+  storage_bits: 16
+  fast_beta: 0.80
+  slow_beta: 0.98
+  fast_learning_rate: 0.05
+  slow_learning_rate: 0.005
+  causal_activity_beta: 0.90
+  causal_max_new_directions: 4
+
+detection:
+  warmup_frames: 8
+  target_false_trigger_rate: 0.02
+  component_scale_quantile: 0.95
+  detection_tolerance_frames: 2
+  cooldown_frames: 2
+  primary_rank_budget: 32
+
+analysis:
+  bootstrap_samples: 10000
+  bootstrap_seed: 20260719
+
+gates:
+  max_camera_false_trigger_rate: 0.05
+  max_scene_cut_delay_frames: 2
+  min_event_recall_gain: 0.00
+  min_rare_recall_gain: 0.10
+  max_writer_p95_us: 100000
+  max_state_ratio_vs_causalmem: 1.05
