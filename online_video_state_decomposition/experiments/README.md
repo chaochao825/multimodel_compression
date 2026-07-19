@@ -200,6 +200,24 @@ and validates exact-prefix resume/output integrity. OASIS is the slow
 event-archive quality baseline. Its whole-run `pace=0` wall time covers the
 full offline evaluator and is not request TTFT or SLO latency.
 
+While an audited OASIS job is still running, validate its atomic output prefix
+and generate a diagnostic progress snapshot with:
+
+```bash
+python experiments/probes/analyze_oasis_progress.py \
+  --output remote_results/oasis_streamingbench/<run>/rtu_1_50_output.json \
+  --metadata third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1_50.json \
+  --preflight remote_results/oasis_streamingbench/<run>/preflight.json \
+  --out-dir remote_results/oasis_progress/<run>/<snapshot>
+```
+
+The snapshot writes per-video and per-task CSVs, a machine-readable summary,
+and PNG/PDF progress figures. Partial accuracy uses completed questions only,
+includes a 95% Wilson interval, and is always marked
+`formal_comparison_eligible=false`; completion-order bias is not removed. The
+linear remaining-time estimate is diagnostic only. A completed run must still
+pass the strict official-result aggregator before entering a method comparison.
+
 Separately, the preflighted CausalMem and STC jobs are waiting in their safe
 idle-GPU queues. Waiting in a queue is not an official quality or timing result.
 
