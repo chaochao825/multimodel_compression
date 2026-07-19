@@ -282,6 +282,23 @@ pass their quality gates and contain 200 latency samples. These measurements
 are core-module P50/P95/P99 latency, not encoder, prefill, TTFT, or end-to-end
 request latency.
 
+Build a single evidence-tiered completion matrix without mixing official,
+paper-only, smoke, proxy, or post-hoc results:
+
+```bash
+python experiments/probes/build_streaming_evidence_matrix.py \
+  --runtime-status remote_results/streaming_runtime_status.json \
+  --out-dir remote_results/streaming_evidence_matrix
+```
+
+The optional runtime-status JSON uses `format_version=1`, an `observed_at`
+timestamp, and records containing `method_id`, `stage`, `status`, `detail`, and
+`source_path`. The builder re-reads the frozen query-memory, spectral-trigger,
+codec, BCCB/event-residual, unified-proxy, and OASIS-smoke artifacts. It writes
+nested JSON, flattened evidence and completion CSVs, a Markdown analysis, and
+PNG/PDF matrix figures. Every metric retains a `comparability_group`; rows from
+different groups must not be ranked together.
+
 ## Controlled Dual-Timescale Trigger
 
 Run the matched-rank synthetic trigger gate on static, camera-motion,
