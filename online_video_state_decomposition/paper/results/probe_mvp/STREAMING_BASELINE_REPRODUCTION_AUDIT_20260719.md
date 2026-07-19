@@ -5,33 +5,36 @@ Date: 2026-07-19
 ## Verdict
 
 The six requested baselines are not equally reproducible from public assets.
-This audit therefore separates four evidence tiers:
+This audit therefore separates six evidence tiers:
 
 1. `paper mechanism`: the method described by the paper;
 2. `official runnable`: an executable public entry point;
-3. `source smoke`: a pinned checkout with required paths and valid Python
-   syntax; and
-4. `feature proxy`: an independent mechanism approximation on the same frozen
+3. `strict preflight`: pinned source, runtime, assets, protocol, and output
+   integrity validated without claiming a result;
+4. `source/module smoke`: pinned syntax/import or targeted synthetic execution;
+5. `official smoke/partial monitor`: official model execution that is either
+   deliberately too small or not yet complete; and
+6. `feature proxy`: an independent mechanism approximation on the same frozen
    CLIP cache used by this project.
 
-The completed quality comparison is tier 4 plus tier 3, augmented by selected
-official-module synthetic smokes. CausalMem's official evaluator and STC's
-official ReKV latency runner now also have strict, machine-readable preflights.
-Their official jobs are waiting in the safe idle-GPU queue and have not
-produced quality or timing results. OASIS has passed static preflight for its
-source, models, and exact-50x5 data. Its server-210 FlashAttention 2.8.3 source
-build and CPU-side import/ELF audit also pass with only `sm_80` cubins. The
-CUDA BF16 kernel preflight and model inference remain incomplete. The first
-200-sample proxy result is a reused development analysis, not an independent
-confirmation.
+The completed cross-method quality table remains tier 6 and is not an official
+baseline ranking. CausalMem's official evaluator and STC's official ReKV
+latency runner have strict preflights but are still waiting in safe GPU queues.
+StreamingTOM's pinned CTR/OQM CUDA core triplet has also passed static dry-run
+preflight and is waiting behind the same 4 GiB/20% idle gate. OASIS has now
+passed its BF16 CUDA-kernel preflight and completed a one-video/five-question
+official smoke. Its separate 50-video/250-question run is actively progressing,
+but partial accuracy remains diagnostic and ineligible for formal comparison.
+The first 200-sample proxy result is a reused development analysis, not an
+independent confirmation.
 
 | Method | Intended role | Public implementation status | Current status |
 |---|---|---|---|
 | CausalMem | Closest query-free semantic-memory algorithm | `causal_mem` evaluator is runnable; stock baseline imports a missing upstream file | Strict official evaluator preflight passed on 50 videos/250 questions; official quality job waiting in safe queue; no result |
-| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Incremental official-core CTR/OQM harness ready; CUDA run pending |
+| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Pinned 64/64/256-frame CTR/OQM core preflights passed; strict GPU queue active; no timing result |
 | STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Both official ReKV mode preflights passed; CUDA timing jobs waiting in safe queue; no result |
 | SelectStream | Task-quality target | No discoverable official code as of the audit date | Reported quality target; untrained structural proxy only |
-| OASIS | Slow event-archive quality baseline | Public evaluation path, no public paper-table timing runner | Static source/model/exact-50x5 data preflight and `sm_80` source-build/import audit passed; one-video smoke waiting in safe queue; CUDA BF16 kernel preflight and inference incomplete |
+| OASIS | Slow event-archive quality baseline | Public evaluation path, no public paper-table timing runner | BF16 CUDA kernel and audited 1x5 smoke passed; formal 50x5 run active; partial monitor only, no formal result |
 | StateKV | Recurrent model-state baseline | Official placeholder repository only | Reference-only; paper-structure proxy cannot be called a reproduction |
 
 ## Source Pins And Licensing
@@ -75,6 +78,16 @@ exact mode environment, and audited wrapper hash. Passing preflight proves
 launch readiness, not latency. Both official mode jobs are waiting in the safe
 idle-GPU queue; neither has produced CUDA timing results.
 
+StreamingTOM's official-core dry runs pin commit
+`6c66b05065692bc3fa4c6ec7fa9cad84d3b0cd75`, Torch 2.5.1,
+Transformers 4.53.3, FlashAttention 2.8.0.post2, FP16, 28 layers, 20 warmups,
+and 200 measured iterations. CTR and OQM write use 64 frames; OQM selection
+uses 256 frames so the upstream top-k branch is exercised. The queue holds one
+project GPU lock across all three components and rechecks the 4 GiB and 20%
+utilization gate before each launch. These checks establish protocol readiness
+only; no core latency is reported until all three summaries pass their quality
+gates and exact sample-count validation.
+
 OASIS now has an audited data adapter, no-copy dataset materializer, and strict
 official evaluator wrapper. The matched contract is
 `OASIS_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md`. Static validation passes for
@@ -88,8 +101,13 @@ quality or CUDA result. The separate
 CPU-side import, maximum GLIBC requirement 2.14, and only `sm_80` embedded
 cubins (SHA256
 `061bc3b46b4b049c3071a6349a283500ca62b114ceb2859240dc9aeda645bb80`).
-It does not execute CUDA. The BF16 kernel preflight and one-video model
-inference remain incomplete.
+The subsequent BF16 CUDA-kernel check and one-video/five-question official
+model smoke both passed. The smoke answered all five questions, took 309.645 s
+at offline `pace=0`, and reached a sampled evaluator-process peak of 26,674
+MiB. It validates execution, not formal quality or request latency. The formal
+50-video/250-question job uses a distinct run fingerprint and is currently
+active; its atomic prefix is monitored separately and cannot enter a comparison
+until the strict final-result validator accepts all 250 questions.
 
 ## Executable Module Smoke
 
@@ -110,8 +128,9 @@ source-built `sm_80` FlashAttention import. OASIS uses an isolated Python
 3.12.13 environment with Torch 2.5.1+cu124, Transformers 4.57.6, and
 SentenceTransformers 5.6.0. Its own FlashAttention 2.8.3 source build and
 CPU-side import/ELF audit for `sm_80` pass. Its CUDA BF16 kernel preflight and
-model inference have not completed. No OASIS GPU quality or latency claim is
-made before those gates pass.
+one-video model inference smoke also pass. That 1x5 smoke is not promoted to a
+formal result, and no OASIS request-latency claim is made from its offline wall
+time.
 
 ## Paper-To-Code Findings
 
@@ -153,6 +172,12 @@ length; only the active retrieved KV is bounded.
 Our proxy models two-frame compression groups, a 4-bit growing archive, and a
 bounded query-conditioned read. It cannot reproduce pre-RoPE layer KV,
 attention saliency, 15.7x KV compression, or TTFT.
+
+The new pinned core harness does execute upstream CTR, incremental OQM writes,
+and top-k OQM selection with CUDA synchronization and separate CUDA-event and
+host-wall clocks. It intentionally excludes model loading and input creation.
+Its future P50/P95/P99 values are component microbenchmarks, not VideoMME
+quality, end-to-end Video-LLM latency, or the paper's 0.20 s TTFT.
 
 ### STC
 
@@ -282,6 +307,40 @@ This pattern supports an event-sensitive residual path, but it does not yet
 validate long-horizon motion state. A one-vector-per-frame CLIP proxy is too
 weak for that claim.
 
+## Evidence Matrix And Gate Findings
+
+`experiments/probes/build_streaming_evidence_matrix.py` now rebuilds a
+source-grounded 17-entry evidence ledger, 65-row metric table, and 8-method by
+8-stage completion matrix. A `PASS` cell can mean source, preflight, accounting,
+or protocol validation; it does not imply that a complete method passed all
+end-to-end gates. Runtime states are supplied separately so queued and partial
+jobs cannot be mistaken for repository evidence.
+
+- The preregistered 200-sample query-selector confirmation lost 0.5 points
+  versus its reference, with a paired interval of `[-4,+3]`; its promotion gate
+  failed.
+- Native matched-state query memory reached 51.0% versus 47.5% for exact recent
+  at 8,413,328 bytes, a +3.5-point paired difference with interval `[0,+7]` and
+  `p=0.0923`; it remains open rather than confirmed.
+- The rank-32 dual-spectral trigger used 8,320 bytes and reduced false triggers
+  from 0.893% to 0.357%, but rare-event recall did not improve; its joint gate
+  failed despite a 401.1 us writer P95.
+- The fixed rank-256 plus 4-bit codec achieved 7.84x steady-state compression
+  and only a 0.5-point observed quality loss, but its one-sided loss bound was
+  2.3498%, above the 2% gate. The routed codec passes numerically only on the
+  same post-hoc sample and still requires disjoint evaluation.
+- Low-rank state evidence remains plausible but incomplete: rank 32 captured
+  mean energy 0.766 and passed 19/25 cells at the 0.70 threshold on one encoder
+  domain. The sparse-event residual failed its joint gate, with mean top-10
+  energy 0.4817 and recall 0.205.
+- BCCB improved over identity by 0.09639 on average in the controlled probe,
+  but improved by less than 0.001 over the matched BTTB transport and showed no
+  cyclic-cost advantage. The current evidence does not justify making BCCB the
+  dominant architecture.
+- OASIS 1x5 is execution smoke only. The formal OASIS, CausalMem, STC, and
+  StreamingTOM cells remain running or queued until strict final artifacts are
+  available.
+
 ## Positioning Consequence
 
 The evidence supports pursuing online video understanding with:
@@ -300,23 +359,23 @@ block-circulant plus low-rank unit would be one component of a hybrid system.
 
 ## Required Next Gates
 
-1. Freeze the proxy implementation and run at least 400 untouched reserve
-   samples; report micro/macro accuracy, Wilson intervals, paired bootstrap,
-   McNemar, exact agreement, and per-task deltas.
-2. Add native `[frame,64,4096]` LLaVA projected-token versions of strict
-   CausalMem, CTR, and STC-Pruner under the same 512-token read budget.
-3. Run the now-preflighted STC ReKV baseline and STC modes when the A800 idle
-   gate admits the jobs now waiting in the safe queue. Separately run
-   StreamingTOM's incremental official-core CTR/OQM harness. Report P50/P95/P99
-   only for stages each runner actually measures; do not relabel the STC
-   ViT/prefill stage sum as end-to-end latency.
-4. Let the queued OASIS one-video smoke acquire an idle GPU and pass its CUDA
-   BF16 kernel preflight before model inference. Queue the exact 50-video
-   quality run only after that smoke passes. Report `pace=0` whole-run wall
-   time separately; do not relabel it as request latency or hide synchronous
-   maintenance behind an asynchronous assumption.
-5. Keep StateKV and SelectStream labeled paper proxies until executable code
-   is public. Do not fill missing architectural details and call the result
+1. Let the active OASIS 50x5 run finish and pass strict output, fingerprint,
+   coverage, GPU-trace, and result validation. Continue treating every partial
+   snapshot as diagnostic only.
+2. Let the queued STC ReKV/STC pair and StreamingTOM CTR/OQM triplet acquire
+   genuinely idle GPUs without relaxing the 4 GiB/20% gate. Run CausalMem only
+   after its declared STC dependency completes. Keep STC stage latency,
+   StreamingTOM core latency, whole-run wall time, and request latency in
+   separate tables.
+3. Evaluate the routed codec on a disjoint frozen split and add native
+   `[frame,64,4096]` projected-token versions of strict CausalMem, CTR, and
+   STC-Pruner under one matched read/state-byte budget.
+4. Repeat low-rank spectrum tests across layers, encoders, and domains. Redesign
+   event routing before claiming a sparse residual, because the current joint
+   energy/recall gate failed. Retain BCCB only where a cyclic implementation
+   demonstrates incremental benefit over matched BTTB plus a real cost win.
+5. Keep StateKV and SelectStream labeled paper proxies until executable code is
+   public. Do not fill missing architectural details and call the result
    official.
 
 The selected CSV, JSON, and figures are in

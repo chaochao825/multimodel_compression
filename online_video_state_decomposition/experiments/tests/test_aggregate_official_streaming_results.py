@@ -98,6 +98,56 @@ def _oasis(*, expected: int, correct: int) -> dict:
     }
 
 
+def _distribution(scale: float) -> dict:
+    return {
+        "count": 200.0,
+        "min": 1.0 * scale,
+        "p50": 2.0 * scale,
+        "p95": 3.0 * scale,
+        "p99": 4.0 * scale,
+        "mean": 2.5 * scale,
+        "max": 5.0 * scale,
+    }
+
+
+def _streamingtom(method: str) -> dict:
+    frames = {
+        "streamingtom_ctr": 64,
+        "streamingtom_oqm_write": 64,
+        "streamingtom_oqm_select": 256,
+    }[method]
+    return {
+        "format_version": 2,
+        "evidence_tier": "official_core_gpu_microbenchmark",
+        "method": method,
+        "source": {
+            "name": "streamingtom",
+            "commit": aggregate.STREAMINGTOM_COMMIT,
+            "code_clean": True,
+        },
+        "frames": frames,
+        "layers": 28,
+        "warmup": 20,
+        "repeat": 200,
+        "dtype": "float16",
+        "started_at_utc": "2026-07-19T00:00:00+00:00",
+        "finished_at_utc": "2026-07-19T00:01:00+00:00",
+        "quality_gate": {"passed": True},
+        "wall_ms": _distribution(1.1),
+        "cuda_event_ms": _distribution(1.0),
+        "peak_allocated_mib": _distribution(20.0),
+        "peak_reserved_mib": _distribution(25.0),
+        "peak_allocated_delta_mib": _distribution(4.0),
+        "peak_reserved_delta_mib": _distribution(5.0),
+        "tail_latency_protocol": {
+            "quantile_method": "higher",
+            "global_cuda_synchronize_per_iteration": True,
+            "input_preparation_timed": False,
+            "model_loading_timed": False,
+        },
+    }
+
+
 class AggregateOfficialStreamingResultsTests(unittest.TestCase):
     def test_aggregate_separates_formal_smoke_and_stage_latency(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -105,31 +155,43 @@ class AggregateOfficialStreamingResultsTests(unittest.TestCase):
             causalmem = _write(root / "causalmem" / "metrics.json", _causalmem())
             stc_rekv = _write(root / "stc_rekv" / "result.json", _stc("rekv"))
             stc_stc = _write(root / "stc_stc" / "result.json", _stc("stc"))
-            oasis_formal = _write(root / "oasis_formal" / "result.json", _oasis(expected=250, correct=190))
-            oasis_smoke = _write(root / "oasis_smoke" / "result.json", _oasis(expected=5, correct=4))
+            oasis_formal = _write(
+                root / "oasis_formal" / "result.json", _oasis(expected=250, correct=190)
+            )
+            oasis_smoke = _write(
+                root / "oasis_smoke" / "result.json", _oasis(expected=5, correct=4)
+            )
+            streamingtom = [
+                _write(
+                    root / method / "summary.json",
+                    _streamingtom(method),
+                )
+                for method in aggregate.STREAMINGTOM_SPECS
+            ]
             out = root / "aggregate"
 
             summary = aggregate.aggregate_results(
                 causalmem_metrics=[causalmem],
                 stc_results=[stc_rekv, stc_stc],
                 oasis_results=[oasis_formal, oasis_smoke],
+                streamingtom_summaries=streamingtom,
                 out_dir=out,
             )
 
-            self.assertEqual(summary["run_count"], 5)
+            self.assertEqual(summary["run_count"], 8)
             self.assertEqual(summary["formal_quality_run_count"], 2)
             self.assertEqual(summary["smoke_quality_run_count"], 1)
             self.assertEqual(summary["stc_stage_row_count"], 6)
+            self.assertEqual(summary["streamingtom_core_run_count"], 3)
+            self.assertEqual(summary["streamingtom_core_row_count"], 6)
+            self.assertTrue(summary["streamingtom_core_complete_set"])
             self.assertEqual(
                 {row["method"] for row in summary["quality_formal"]},
                 {"CausalMem", "OASIS"},
             )
             self.assertEqual(summary["quality_smoke"][0]["method"], "OASIS")
             self.assertTrue(
-                all(
-                    row["method"] == "STC ReKV"
-                    for row in summary["stc_stage_latency"]
-                )
+                all(row["method"] == "STC ReKV" for row in summary["stc_stage_latency"])
             )
             for name in (
                 "aggregation_summary.json",
@@ -143,17 +205,37 @@ class AggregateOfficialStreamingResultsTests(unittest.TestCase):
                 "official_quality_smoke.pdf",
                 "official_stc_stage_latency.png",
                 "official_stc_stage_latency.pdf",
+                "official_streamingtom_core_latency.csv",
+                "official_streamingtom_core_latency.png",
+                "official_streamingtom_core_latency.pdf",
             ):
                 self.assertGreater((out / name).stat().st_size, 0, name)
 
-            with (out / "official_runs.csv").open(encoding="utf-8", newline="") as handle:
+            with (out / "official_runs.csv").open(
+                encoding="utf-8", newline=""
+            ) as handle:
                 runs = list(csv.DictReader(handle))
             causal_row = next(row for row in runs if row["method"] == "CausalMem")
             stc_row = next(row for row in runs if row["method"] == "STC ReKV")
+            streamingtom_row = next(
+                row for row in runs if row["method"] == "StreamingTOM"
+            )
             self.assertEqual(causal_row["tail_latency_available"], "False")
             self.assertEqual(stc_row["tail_latency_available"], "False")
             self.assertEqual(stc_row["stage_latency_available"], "True")
             self.assertEqual(stc_row["quality_accuracy"], "")
+            self.assertEqual(streamingtom_row["role"], "core_latency")
+            self.assertEqual(streamingtom_row["tail_latency_available"], "False")
+
+            with (out / "official_streamingtom_core_latency.csv").open(
+                encoding="utf-8", newline=""
+            ) as handle:
+                core_rows = list(csv.DictReader(handle))
+            self.assertEqual(
+                {row["timing_basis"] for row in core_rows},
+                {"cuda_event", "synchronized_host_wall"},
+            )
+            self.assertEqual({int(row["count"]) for row in core_rows}, {200})
 
     def test_rejects_incomplete_or_failed_quality(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -170,6 +252,33 @@ class AggregateOfficialStreamingResultsTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "failed questions"):
                 aggregate.parse_oasis(oasis)
 
+            streamingtom_payload = _streamingtom("streamingtom_ctr")
+            streamingtom_payload["quality_gate"]["passed"] = False
+            streamingtom = _write(root / "streamingtom.json", streamingtom_payload)
+            with self.assertRaisesRegex(ValueError, "quality gate failed"):
+                aggregate.parse_streamingtom(streamingtom)
+
+    def test_rejects_streamingtom_protocol_or_source_mismatch(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            payload = _streamingtom("streamingtom_oqm_select")
+            payload["frames"] = 64
+            path = _write(root / "frames.json", payload)
+            with self.assertRaisesRegex(ValueError, "formal protocol mismatch"):
+                aggregate.parse_streamingtom(path)
+
+            payload = _streamingtom("streamingtom_oqm_select")
+            payload["source"]["commit"] = "wrong"
+            path = _write(root / "source.json", payload)
+            with self.assertRaisesRegex(ValueError, "source audit failed"):
+                aggregate.parse_streamingtom(path)
+
+            payload = _streamingtom("streamingtom_oqm_select")
+            payload["cuda_event_ms"]["count"] = 199.0
+            path = _write(root / "count.json", payload)
+            with self.assertRaisesRegex(ValueError, "must match repeat"):
+                aggregate.parse_streamingtom(path)
+
     def test_requires_at_least_one_result(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaisesRegex(ValueError, "at least one"):
@@ -177,6 +286,7 @@ class AggregateOfficialStreamingResultsTests(unittest.TestCase):
                     causalmem_metrics=[],
                     stc_results=[],
                     oasis_results=[],
+                    streamingtom_summaries=[],
                     out_dir=Path(directory),
                 )
 

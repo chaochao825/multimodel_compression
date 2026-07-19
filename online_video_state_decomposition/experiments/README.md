@@ -181,16 +181,16 @@ It is dependency and mechanism evidence only, not a model-level quality or
 latency reproduction.
 
 The OASIS static preflight has passed for the pinned source, local models, and
-exact StreamingBench RTU 50x5 data. FlashAttention 2.8.3 has also built from
-source on server 210: CPU-side import passes, the extension requires at most
-GLIBC 2.14, and its embedded cubins are only `sm_80`. This does not execute a
-CUDA kernel. The BF16 kernel preflight and one-video model inference remain
-queued behind the idle-GPU gate rather than reported as results:
+exact StreamingBench RTU 50x5 data. FlashAttention 2.8.3 was built from source
+on server 210, and the BF16 CUDA-kernel plus one-video/five-question inference
+smoke completed successfully. That artifact is retained as smoke evidence only;
+it is not a formal quality result. The audited 50-video/250-question run is
+separately resumable and may be launched behind the idle-GPU gate with:
 
 ```bash
 bash experiments/scripts/prepare_oasis_streamingbench.sh
 bash experiments/scripts/run_oasis_when_idle.sh \
-  oasis_smoke_1video_v1 smoke 3
+  oasis_formal_50x5_v1 formal 1
 ```
 
 The adapter cross-checks OASIS JSON against the validated CSV and upstream
@@ -218,8 +218,17 @@ includes a 95% Wilson interval, and is always marked
 linear remaining-time estimate is diagnostic only. A completed run must still
 pass the strict official-result aggregator before entering a method comparison.
 
-Separately, the preflighted CausalMem and STC jobs are waiting in their safe
-idle-GPU queues. Waiting in a queue is not an official quality or timing result.
+Separately, CausalMem and STC model-level jobs and the pinned StreamingTOM
+CTR/OQM core triplet can wait in strict idle-GPU queues. The StreamingTOM queue
+fixes CTR/OQM-write/OQM-select at 64/64/256 frames, 28 layers, 20 warmups, 200
+repeats, and FP16, while holding one project GPU lock across the full triplet:
+
+```bash
+bash experiments/scripts/run_streamingtom_kernels_when_idle.sh \
+  streamingtom_core_formal_v1 2
+```
+
+Waiting in a queue is not an official quality or timing result.
 
 Once audited runs complete, aggregate only their final model-level artifacts:
 
@@ -229,6 +238,9 @@ python experiments/probes/aggregate_official_streaming_results.py \
   --stc-result remote_results/stc_rekv_official/<rekv-run>/result.json \
   --stc-result remote_results/stc_rekv_official/<stc-run>/result.json \
   --oasis-result remote_results/oasis_streamingbench/<run>/result.json \
+  --streamingtom-summary remote_results/official_streaming_kernels/<run>/ctr/summary.json \
+  --streamingtom-summary remote_results/official_streaming_kernels/<run>/oqm_write/summary.json \
+  --streamingtom-summary remote_results/official_streaming_kernels/<run>/oqm_select/summary.json \
   --out-dir remote_results/official_streaming_aggregate
 ```
 
@@ -236,9 +248,13 @@ The aggregator rejects incomplete or internally inconsistent results and writes
 CSV, JSON, PNG, and PDF artifacts. Formal 50-video/250-question quality is kept
 separate from smoke quality. STC P50/P95/P99 values cover only the instrumented
 ViT-encode and visual-token-prefill stages; they are not request-tail latency,
-TTFT, or decode latency. OASIS `pace=0` wall time and method-specific memory
-fields are likewise retained only with their original semantics. Proxy results
-are intentionally excluded.
+TTFT, or decode latency. StreamingTOM core P50/P95/P99 values are written to a
+separate CSV/figure with CUDA-event and synchronized-host-wall timing bases;
+they cover only CTR compression, OQM write, and OQM select, whose input scopes
+also differ. They are not end-to-end Video-LLM latency or a same-workload speed
+ranking. OASIS `pace=0` wall time and method-specific memory fields are likewise
+retained only with their original semantics. Proxy results are intentionally
+excluded.
 
 Plot and cross-check the per-run GPU monitor trace against its audited result:
 

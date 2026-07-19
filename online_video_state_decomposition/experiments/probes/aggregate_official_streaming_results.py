@@ -63,10 +63,44 @@ LATENCY_FIELDS = (
     "source_path",
 )
 
+STREAMINGTOM_CORE_FIELDS = (
+    "method",
+    "variant",
+    "component",
+    "timing_basis",
+    "frames",
+    "layers",
+    "count",
+    "min_ms",
+    "p50_ms",
+    "p95_ms",
+    "p99_ms",
+    "mean_ms",
+    "max_ms",
+    "source_path",
+)
+
+STREAMINGTOM_COMMIT = "6c66b05065692bc3fa4c6ec7fa9cad84d3b0cd75"
+STREAMINGTOM_SPECS = {
+    "streamingtom_ctr": {
+        "component": "CTR compression",
+        "frames": 64,
+    },
+    "streamingtom_oqm_write": {
+        "component": "OQM write",
+        "frames": 64,
+    },
+    "streamingtom_oqm_select": {
+        "component": "OQM select",
+        "frames": 256,
+    },
+}
+
 COLORS = ("#0072B2", "#D55E00", "#009E73", "#E69F00", "#56B4E9")
 METHOD_STYLES = {
     "CausalMem": (COLORS[0], "//"),
     "OASIS": (COLORS[1], "xx"),
+    "StreamingTOM": (COLORS[2], ".."),
 }
 
 
@@ -77,6 +111,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--causalmem-metrics", type=Path, action="append", default=[])
     parser.add_argument("--stc-result", type=Path, action="append", default=[])
     parser.add_argument("--oasis-result", type=Path, action="append", default=[])
+    parser.add_argument(
+        "--streamingtom-summary", type=Path, action="append", default=[]
+    )
     parser.add_argument("--out-dir", type=Path, required=True)
     return parser.parse_args()
 
@@ -112,6 +149,13 @@ def _integer(value: Any, *, label: str, minimum: int = 0) -> int:
     if isinstance(value, bool) or not isinstance(value, int) or value < minimum:
         raise ValueError(f"invalid {label}: {value}")
     return value
+
+
+def _distribution_count(value: Any, *, label: str) -> int:
+    observed = _finite_number(value, label=label, minimum=1.0)
+    if not observed.is_integer():
+        raise ValueError(f"{label} must be an integer-valued number: {value}")
+    return int(observed)
 
 
 def _probability(value: Any, *, label: str) -> float:
@@ -172,10 +216,14 @@ def parse_causalmem(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
         if value not in (0, []):
             raise ValueError(f"CausalMem quality integrity failure in {field}: {value}")
     scored = _integer(
-        quality.get("completed_questions"), label="CausalMem completed_questions", minimum=1
+        quality.get("completed_questions"),
+        label="CausalMem completed_questions",
+        minimum=1,
     )
     expected = _integer(
-        quality.get("expected_questions"), label="CausalMem expected_questions", minimum=1
+        quality.get("expected_questions"),
+        label="CausalMem expected_questions",
+        minimum=1,
     )
     correct = _integer(quality.get("correct"), label="CausalMem correct")
     if scored != expected or correct > scored:
@@ -184,9 +232,10 @@ def parse_causalmem(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     if not math.isclose(accuracy, correct / scored, rel_tol=0.0, abs_tol=1e-12):
         raise ValueError("CausalMem accuracy is inconsistent")
     latency_scope = payload.get("latency_scope")
-    if not isinstance(latency_scope, dict) or latency_scope.get(
-        "per_sample_p50_p95_p99_available"
-    ) is not False:
+    if (
+        not isinstance(latency_scope, dict)
+        or latency_scope.get("per_sample_p50_p95_p99_available") is not False
+    ):
         raise ValueError("CausalMem latency scope must explicitly reject tail latency")
     monitor = payload.get("gpu_monitor")
     peak_memory = _gpu_peak(monitor)
@@ -224,7 +273,9 @@ def parse_causalmem(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     return run, _quality_row(run)
 
 
-def _validate_stage(stage: Any, *, label: str, source_path: str, mode: str) -> dict[str, Any]:
+def _validate_stage(
+    stage: Any, *, label: str, source_path: str, mode: str
+) -> dict[str, Any]:
     if not isinstance(stage, dict):
         raise ValueError(f"missing STC stage summary: {label}")
     count = _integer(stage.get("count"), label=f"{label}.count", minimum=1)
@@ -323,8 +374,9 @@ def parse_stc(path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
         "peak_memory_value": peak_memory,
         "peak_memory_unit": "GB (official field)",
         "peak_memory_semantics": (
-            "official benchmark peak_mem_gb; sampled process peak is "
-            f"{gpu_peak} MiB" if gpu_peak is not None else "official benchmark peak_mem_gb"
+            f"official benchmark peak_mem_gb; sampled process peak is {gpu_peak} MiB"
+            if gpu_peak is not None
+            else "official benchmark peak_mem_gb"
         ),
         "notes": (
             "Stage P50/P95/P99 cover ViT encode plus visual-token prefill only; "
@@ -332,6 +384,159 @@ def parse_stc(path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
         ),
     }
     return run, stage_rows
+
+
+def _validate_core_distribution(
+    value: Any,
+    *,
+    label: str,
+    expected_count: int,
+) -> dict[str, float | int]:
+    if not isinstance(value, dict):
+        raise ValueError(f"missing StreamingTOM distribution: {label}")
+    count = _distribution_count(value.get("count"), label=f"{label}.count")
+    if count != expected_count:
+        raise ValueError(f"{label}.count must match repeat={expected_count}: {count}")
+    observed = {
+        key: _finite_number(value.get(key), label=f"{label}.{key}", minimum=0.0)
+        for key in ("min", "p50", "p95", "p99", "mean", "max")
+    }
+    if not (
+        observed["min"]
+        <= observed["p50"]
+        <= observed["p95"]
+        <= observed["p99"]
+        <= observed["max"]
+    ):
+        raise ValueError(f"StreamingTOM quantiles are not ordered for {label}")
+    if not observed["min"] <= observed["mean"] <= observed["max"]:
+        raise ValueError(f"StreamingTOM mean is outside the range for {label}")
+    return {"count": count, **observed}
+
+
+def parse_streamingtom(path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    payload = _load_json(path)
+    method = payload.get("method")
+    spec = STREAMINGTOM_SPECS.get(method) if isinstance(method, str) else None
+    if (
+        payload.get("format_version") != 2
+        or payload.get("evidence_tier") != "official_core_gpu_microbenchmark"
+        or spec is None
+    ):
+        raise ValueError(f"not an audited StreamingTOM core summary: {path}")
+
+    expected = {
+        "frames": spec["frames"],
+        "layers": 28,
+        "warmup": 20,
+        "repeat": 200,
+        "dtype": "float16",
+    }
+    mismatches = {
+        field: {"expected": expected_value, "observed": payload.get(field)}
+        for field, expected_value in expected.items()
+        if payload.get(field) != expected_value
+    }
+    if mismatches:
+        raise ValueError(f"StreamingTOM formal protocol mismatch: {mismatches}")
+
+    source_info = payload.get("source")
+    if (
+        not isinstance(source_info, dict)
+        or source_info.get("name") != "streamingtom"
+        or source_info.get("commit") != STREAMINGTOM_COMMIT
+        or source_info.get("code_clean") is not True
+    ):
+        raise ValueError(f"StreamingTOM source audit failed: {source_info}")
+    quality_gate = payload.get("quality_gate")
+    if not isinstance(quality_gate, dict) or quality_gate.get("passed") is not True:
+        raise ValueError(f"StreamingTOM quality gate failed: {quality_gate}")
+    protocol = payload.get("tail_latency_protocol")
+    expected_protocol = {
+        "quantile_method": "higher",
+        "global_cuda_synchronize_per_iteration": True,
+        "input_preparation_timed": False,
+        "model_loading_timed": False,
+    }
+    if not isinstance(protocol, dict) or any(
+        protocol.get(field) != expected_value
+        for field, expected_value in expected_protocol.items()
+    ):
+        raise ValueError(f"StreamingTOM timing protocol mismatch: {protocol}")
+    for field in ("started_at_utc", "finished_at_utc"):
+        if not isinstance(payload.get(field), str) or not payload[field]:
+            raise ValueError(f"StreamingTOM summary is missing {field}")
+
+    distributions = {
+        name: _validate_core_distribution(
+            payload.get(name),
+            label=name,
+            expected_count=expected["repeat"],
+        )
+        for name in (
+            "wall_ms",
+            "cuda_event_ms",
+            "peak_allocated_mib",
+            "peak_reserved_mib",
+            "peak_allocated_delta_mib",
+            "peak_reserved_delta_mib",
+        )
+    }
+    source = str(path.resolve())
+    rows = []
+    for timing_basis, distribution_name in (
+        ("synchronized_host_wall", "wall_ms"),
+        ("cuda_event", "cuda_event_ms"),
+    ):
+        values = distributions[distribution_name]
+        rows.append(
+            {
+                "method": "StreamingTOM",
+                "variant": method,
+                "component": spec["component"],
+                "timing_basis": timing_basis,
+                "frames": expected["frames"],
+                "layers": expected["layers"],
+                "count": values["count"],
+                "min_ms": values["min"],
+                "p50_ms": values["p50"],
+                "p95_ms": values["p95"],
+                "p99_ms": values["p99"],
+                "mean_ms": values["mean"],
+                "max_ms": values["max"],
+                "source_path": source,
+            }
+        )
+    source_sha = _sha256(path)
+    run = {
+        "method": "StreamingTOM",
+        "variant": method,
+        "role": "core_latency",
+        "benchmark": "Pinned official StreamingTOM CUDA core microbenchmark",
+        "scope": "official_core_gpu_microbenchmark",
+        "status": "complete",
+        "evidence_tier": "official_core_gpu_microbenchmark",
+        "run_fingerprint": f"sha256:{source_sha}",
+        "source_path": source,
+        "source_sha256": source_sha,
+        "quality_accuracy": None,
+        "quality_correct": None,
+        "quality_scored": None,
+        "quality_expected": None,
+        "quality_coverage": None,
+        "whole_run_seconds": None,
+        "whole_run_semantics": None,
+        "tail_latency_available": False,
+        "stage_latency_available": True,
+        "peak_memory_value": distributions["peak_allocated_mib"]["max"],
+        "peak_memory_unit": "MiB",
+        "peak_memory_semantics": "maximum torch peak allocated memory across timed core iterations",
+        "notes": (
+            f"{spec['component']} only over {expected['frames']} frames; repeated core "
+            "latency is not end-to-end Video-LLM latency, TTFT, decode, or quality."
+        ),
+    }
+    return run, rows
 
 
 def parse_oasis(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -345,8 +550,12 @@ def parse_oasis(path: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     if not isinstance(metrics, dict) or metrics.get("complete") is not True:
         raise ValueError(f"OASIS metrics are incomplete: {path}")
     if metrics.get("errors") not in (None, []):
-        raise ValueError(f"OASIS result contains failed questions: {metrics.get('errors')}")
-    scored = _integer(metrics.get("scored_questions"), label="OASIS scored_questions", minimum=1)
+        raise ValueError(
+            f"OASIS result contains failed questions: {metrics.get('errors')}"
+        )
+    scored = _integer(
+        metrics.get("scored_questions"), label="OASIS scored_questions", minimum=1
+    )
     expected = _integer(
         metrics.get("expected_questions"), label="OASIS expected_questions", minimum=1
     )
@@ -524,19 +733,85 @@ def _plot_stc_latency(rows: list[dict[str, Any]], stem: Path) -> list[str]:
     return paths
 
 
+def _plot_streamingtom_core_latency(
+    rows: list[dict[str, Any]], stem: Path
+) -> list[str]:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    variant_order = {name: index for index, name in enumerate(STREAMINGTOM_SPECS)}
+    timing_specs = (
+        ("cuda_event", "CUDA event latency (ms)"),
+        ("synchronized_host_wall", "Synchronized host wall latency (ms)"),
+    )
+    fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.7))
+    for axis, (timing_basis, ylabel) in zip(axes, timing_specs, strict=True):
+        selected = [row for row in rows if row["timing_basis"] == timing_basis]
+        selected.sort(key=lambda row: variant_order[str(row["variant"])])
+        labels = [f"{row['component']}\n({row['frames']} frames)" for row in selected]
+        positions = np.arange(len(selected), dtype=float)
+        width = 0.24
+        for offset, field, label, color, hatch in zip(
+            (-width, 0.0, width),
+            ("p50_ms", "p95_ms", "p99_ms"),
+            ("P50", "P95", "P99"),
+            COLORS[:3],
+            ("//", "xx", ".."),
+            strict=True,
+        ):
+            axis.bar(
+                positions + offset,
+                [float(row[field]) for row in selected],
+                width=width,
+                label=label,
+                color=color,
+                edgecolor="black",
+                linewidth=0.5,
+                hatch=hatch,
+            )
+        axis.set_xticks(positions, labels)
+        axis.set_xlabel("Pinned official core and input scope")
+        axis.set_ylabel(ylabel)
+        axis.spines[["top", "right"]].set_visible(False)
+        axis.grid(axis="y", color="#D9D9D9", linewidth=0.6, alpha=0.7)
+        axis.set_axisbelow(True)
+        maximum = max(float(row["p99_ms"]) for row in selected)
+        axis.set_ylim(0.0, 1.12 * maximum)
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(
+        handles,
+        labels,
+        frameon=False,
+        ncol=3,
+        loc="upper center",
+        bbox_to_anchor=(0.5, 1.0),
+    )
+    fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.92))
+    paths = _save_figure(fig, stem)
+    plt.close(fig)
+    return paths
+
+
 def aggregate_results(
     *,
     causalmem_metrics: list[Path],
     stc_results: list[Path],
     oasis_results: list[Path],
+    streamingtom_summaries: list[Path],
     out_dir: Path,
 ) -> dict[str, Any]:
-    if not (causalmem_metrics or stc_results or oasis_results):
+    if not (
+        causalmem_metrics or stc_results or oasis_results or streamingtom_summaries
+    ):
         raise ValueError("at least one official result path is required")
     out_dir.mkdir(parents=True, exist_ok=True)
     runs: list[dict[str, Any]] = []
     quality: list[dict[str, Any]] = []
     latency: list[dict[str, Any]] = []
+    streamingtom_core: list[dict[str, Any]] = []
     for path in causalmem_metrics:
         run, quality_row = parse_causalmem(path.resolve())
         runs.append(run)
@@ -549,13 +824,22 @@ def aggregate_results(
         run, quality_row = parse_oasis(path.resolve())
         runs.append(run)
         quality.append(quality_row)
+    for path in streamingtom_summaries:
+        run, core_rows = parse_streamingtom(path.resolve())
+        runs.append(run)
+        streamingtom_core.extend(core_rows)
     identities = [(row["method"], row["variant"], row["scope"]) for row in runs]
     if len(set(identities)) != len(identities):
         raise ValueError(f"duplicate official run identities: {identities}")
 
-    runs.sort(key=lambda row: (str(row["role"]), str(row["method"]), str(row["variant"])))
+    runs.sort(
+        key=lambda row: (str(row["role"]), str(row["method"]), str(row["variant"]))
+    )
     quality.sort(key=lambda row: (str(row["scope"]), str(row["method"])))
     latency.sort(key=lambda row: (str(row["mode"]), str(row["stage"])))
+    streamingtom_core.sort(
+        key=lambda row: (str(row["variant"]), str(row["timing_basis"]))
+    )
     formal_quality = [row for row in quality if row["scope"] == "formal_50x5"]
     smoke_quality = [row for row in quality if row["scope"] != "formal_50x5"]
 
@@ -563,6 +847,11 @@ def aggregate_results(
     _write_csv(out_dir / "official_quality_formal.csv", formal_quality, QUALITY_FIELDS)
     _write_csv(out_dir / "official_quality_smoke.csv", smoke_quality, QUALITY_FIELDS)
     _write_csv(out_dir / "official_stc_stage_latency.csv", latency, LATENCY_FIELDS)
+    _write_csv(
+        out_dir / "official_streamingtom_core_latency.csv",
+        streamingtom_core,
+        STREAMINGTOM_CORE_FIELDS,
+    )
 
     plots: dict[str, list[str]] = {}
     if formal_quality:
@@ -581,6 +870,16 @@ def aggregate_results(
         plots["stc_stage_latency"] = _plot_stc_latency(
             latency, out_dir / "official_stc_stage_latency"
         )
+    if streamingtom_core:
+        plots["streamingtom_core_latency"] = _plot_streamingtom_core_latency(
+            streamingtom_core,
+            out_dir / "official_streamingtom_core_latency",
+        )
+
+    observed_streamingtom = {
+        str(row["variant"]) for row in runs if row["method"] == "StreamingTOM"
+    }
+    streamingtom_complete_set = observed_streamingtom == set(STREAMINGTOM_SPECS)
 
     summary = {
         "format_version": 1,
@@ -588,15 +887,21 @@ def aggregate_results(
         "formal_quality_run_count": len(formal_quality),
         "smoke_quality_run_count": len(smoke_quality),
         "stc_stage_row_count": len(latency),
+        "streamingtom_core_run_count": len(observed_streamingtom),
+        "streamingtom_core_row_count": len(streamingtom_core),
+        "streamingtom_core_complete_set": streamingtom_complete_set,
         "runs": runs,
         "quality_formal": formal_quality,
         "quality_smoke": smoke_quality,
         "stc_stage_latency": latency,
+        "streamingtom_core_latency": streamingtom_core,
         "plots": plots,
         "cautions": [
             "CausalMem and OASIS quality are compared only within the formal 50x5 scope.",
             "Smoke quality is emitted separately and is not a formal method comparison.",
             "STC values cover ViT encode and visual-token prefill stages only.",
+            "StreamingTOM values cover CTR and OQM core invocations only; they are not end-to-end Video-LLM latency, TTFT, decode, or quality.",
+            "StreamingTOM components use different input scopes, so core latencies must not be interpreted as a same-workload speed ranking.",
             "Whole-run wall time is not mixed with stage P50/P95/P99 or request latency.",
             "Peak-memory fields have method-specific semantics and are not plotted together.",
             "Proxy results are intentionally excluded from this official-result aggregate.",
@@ -615,6 +920,7 @@ def main() -> int:
         causalmem_metrics=args.causalmem_metrics,
         stc_results=args.stc_result,
         oasis_results=args.oasis_result,
+        streamingtom_summaries=args.streamingtom_summary,
         out_dir=args.out_dir.resolve(),
     )
     print(json.dumps(summary, indent=2, sort_keys=True))
