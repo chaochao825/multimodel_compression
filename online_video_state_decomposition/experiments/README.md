@@ -180,6 +180,29 @@ round trip, STC core imports, and OASIS `ShortMemory` window/event behavior.
 It is dependency and mechanism evidence only, not a model-level quality or
 latency reproduction.
 
+The OASIS static preflight has passed for the pinned source, local models, and
+exact StreamingBench RTU 50x5 data. FlashAttention 2.8.3 has also built from
+source on server 210: CPU-side import passes, the extension requires at most
+GLIBC 2.14, and its embedded cubins are only `sm_80`. This does not execute a
+CUDA kernel. The BF16 kernel preflight and one-video model inference remain
+queued behind the idle-GPU gate rather than reported as results:
+
+```bash
+bash experiments/scripts/prepare_oasis_streamingbench.sh
+bash experiments/scripts/run_oasis_when_idle.sh \
+  oasis_smoke_1video_v1 smoke 3
+```
+
+The adapter cross-checks OASIS JSON against the validated CSV and upstream
+archive manifest, then creates audited symbolic links instead of copying
+videos. The runner hashes source and model assets, enforces official arguments,
+and validates exact-prefix resume/output integrity. OASIS is the slow
+event-archive quality baseline. Its whole-run `pace=0` wall time covers the
+full offline evaluator and is not request TTFT or SLO latency.
+
+Separately, the preflighted CausalMem and STC jobs are waiting in their safe
+idle-GPU queues. Waiting in a queue is not an official quality or timing result.
+
 Replay the frozen CLIP cache through CausalMem, StreamingTOM, STC,
 SelectStream, OASIS, and StateKV mechanism proxies plus project controls:
 

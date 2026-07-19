@@ -1,0 +1,77 @@
+{
+  "build": {
+    "exit_code": 0,
+    "finished_at": "2026-07-19T03:05:52Z",
+    "started_at": "2026-07-19T02:27:37Z",
+    "status": "completed",
+    "wheel": {
+      "bytes": 57022770,
+      "name": "flash_attn-2.8.3-cp312-cp312-linux_x86_64.whl",
+      "path": "/home/spco/online_video_state_decomposition/.cache/pip-oasis-sm80/wheels/74/6a/4d/626aca3b1c60e7834496c917e3c4bcd881367bce9bc50c4e29/flash_attn-2.8.3-cp312-cp312-linux_x86_64.whl",
+      "sha256": "dd9466914b3555a5724ef1168b0760987d68186020830ff333dcd1915f3d242a"
+    }
+  },
+  "created_at": "2026-07-19T03:09:52.625833+00:00",
+  "cuda_bf16_kernel_smoke": {
+    "gpu_snapshot": [
+      {
+        "index": 0,
+        "memory_total_mib": 81920,
+        "memory_used_mib": 8215,
+        "name": "NVIDIA A800 80GB PCIe",
+        "utilization_percent": 0
+      },
+      {
+        "index": 1,
+        "memory_total_mib": 81920,
+        "memory_used_mib": 59945,
+        "name": "NVIDIA A800 80GB PCIe",
+        "utilization_percent": 100
+      },
+      {
+        "index": 2,
+        "memory_total_mib": 81920,
+        "memory_used_mib": 69062,
+        "name": "NVIDIA A800 80GB PCIe",
+        "utilization_percent": 100
+      },
+      {
+        "index": 3,
+        "memory_total_mib": 81920,
+        "memory_used_mib": 74660,
+        "name": "NVIDIA A800 80GB PCIe",
+        "utilization_percent": 99
+      }
+    ],
+    "idle_gate_memory_mib": 4096,
+    "idle_gate_utilization_percent": 20,
+    "status": "pending_idle_gpu"
+  },
+  "evidence_scope": "source build, CPU-side import, ELF ABI, and embedded CUDA architecture audit; not a CUDA kernel execution, model inference, quality, or latency result",
+  "extension": {
+    "bytes": 201632728,
+    "embedded_cuda_arches": [
+      "sm_80"
+    ],
+    "maximum_required_glibc": "2.14",
+    "path": "/home/spco/online_video_state_decomposition/.conda/oasis-py312/lib/python3.12/site-packages/flash_attn_2_cuda.cpython-312-x86_64-linux-gnu.so",
+    "required_glibc_versions": [
+      "2.2.5",
+      "2.3.4",
+      "2.4",
+      "2.14"
+    ],
+    "sha256": "7c64e77a6e8541ccaec1937de1ce217c086a634fd245767771c80bfebdb7e730"
+  },
+  "format_version": 1,
+  "runtime_import": {
+    "cuda_visible_device_count": 0,
+    "flash_attn_distribution": "2.8.3",
+    "flash_attn_module": "2.8.3",
+    "passed_without_visible_gpu": true,
+    "python": "3.12.13",
+    "torch": "2.5.1+cu124",
+    "torch_cuda": "12.4",
+    "torch_cxx11_abi": false
+  }
+}

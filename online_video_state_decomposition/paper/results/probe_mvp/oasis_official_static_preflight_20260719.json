@@ -1,0 +1,2164 @@
+{
+  "benchmark": "StreamingBench Real-Time Visual Understanding",
+  "command": [
+    "/home/spco/online_video_state_decomposition/.conda/oasis-py312/bin/python3.12",
+    "-c",
+    "import random\nimport runpy\nimport sys\n\nimport numpy as np\nimport torch\nfrom transformers import set_seed\n\nseed = int(sys.argv[1])\nscript = sys.argv[2]\nrandom.seed(seed)\nnp.random.seed(seed)\ntorch.manual_seed(seed)\ntorch.cuda.manual_seed_all(seed)\nset_seed(seed)\nsys.argv = sys.argv[2:]\nrunpy.run_path(script, run_name=\"__main__\")\n",
+    "20260719",
+    "/home/spco/online_video_state_decomposition/external_baselines/OASIS/src/scripts/eval.py",
+    "--metadata",
+    "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1_50.json",
+    "--dataset_root",
+    "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset",
+    "--output_dir",
+    "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_static_preflight_hardened_20260719/unused_output",
+    "--fps",
+    "2.0",
+    "--pace",
+    "0.0",
+    "--shortmem_frames_limit",
+    "32",
+    "--now_window_frames_limit",
+    "16",
+    "--buffer_fps",
+    "1.0",
+    "--frames_per_node",
+    "16",
+    "--tokens_per_frame",
+    "256",
+    "--root_cnt_limit",
+    "4",
+    "--asr",
+    "none",
+    "--rag_event_retrieve_limit",
+    "2",
+    "--rag_qa_retrieve_limit",
+    "1",
+    "--mllm_path",
+    "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+    "--embedding_path",
+    "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope"
+  ],
+  "created_at": "2026-07-19T03:02:50.366319+00:00",
+  "dataset_manifest": {
+    "formal_contract": true,
+    "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/manifests/rtu_1_50_mapping.json",
+    "question_count": 250,
+    "sha256": "322f3a488e36a1de0e5805f78bc144316fc062827ea8aba77eee90de6fb8ea4c",
+    "source_metadata_sha256": "5ec95ccacdd5000d40884f2a50a72d7634cbc068d5c104798517ae81fabb0493",
+    "subset_metadata_sha256": "0ef04f4c956785cc745d866237fcf41013d9c4e6a51cc5623b8f955024a3baca",
+    "upstream_dataset_manifest": {
+      "archive": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/Real-Time Visual Understanding_1-50.zip",
+      "archive_bytes": 9080551796,
+      "archive_sha256": "39f8e42130424bddfa8c298be882b21fa3e818318e9782e28ef705851c0c82c5",
+      "metadata_sha256": "0121417a71e1dcf367222ae97e9512e3e99725d72e60d50760a050816ccd58da",
+      "path": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/manifest.json",
+      "question_count": 250,
+      "sha256": "fc4c18de257107abd9c519d7b92ea22220041f384913b7961f1e0416e7ccbd7a",
+      "subset_sha256": "63e96f1b207f3d17948df61735f4c101ee33e41cc71583ad24696e396f1e8580",
+      "timestamp_normalization_count": 1,
+      "timestamp_normalizations": [
+        {
+          "normalized": "00:08:01",
+          "original": "08:01",
+          "question_id": "Real-Time Visual Understanding_sample_40_3",
+          "reason": "official evaluator requires HH:MM:SS"
+        }
+      ],
+      "video_count": 50
+    },
+    "video_count": 50,
+    "video_crc32": {
+      "1": "ff541db2",
+      "10": "9bc9a09e",
+      "11": "15f4d347",
+      "12": "0d10e7dd",
+      "13": "6b4533f4",
+      "14": "8b28121d",
+      "15": "98902f55",
+      "16": "aaa39554",
+      "17": "af816d98",
+      "18": "40edd0ee",
+      "19": "4d73ff88",
+      "2": "a2336759",
+      "20": "9f5bb53c",
+      "21": "665d5108",
+      "22": "a7946752",
+      "23": "62499f4c",
+      "24": "562098aa",
+      "25": "5a849aa7",
+      "26": "9e9eeb30",
+      "27": "c0006880",
+      "28": "7fd7496f",
+      "29": "0d10e7dd",
+      "3": "69f4b711",
+      "30": "9511c748",
+      "31": "a96b99d4",
+      "32": "e93d43e1",
+      "33": "6b4533f4",
+      "34": "35c29e05",
+      "35": "21f38c11",
+      "36": "471c81a8",
+      "37": "9697e8df",
+      "38": "15f4d347",
+      "39": "a67364bd",
+      "4": "d44c8847",
+      "40": "8b28121d",
+      "41": "af85d7eb",
+      "42": "f721e18e",
+      "43": "e8e4231d",
+      "44": "00437ddf",
+      "45": "98902f55",
+      "46": "e121b05f",
+      "47": "b91e76ac",
+      "48": "3cec8dfa",
+      "49": "4f216801",
+      "5": "4cf8e57c",
+      "50": "facfe6f4",
+      "6": "6681f00a",
+      "7": "3b57a100",
+      "8": "77f5b2dc",
+      "9": "66cd5eb0"
+    }
+  },
+  "embedding": {
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "config_sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+    "model_type": "qwen3",
+    "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope",
+    "support_file_sha256": {
+      "config_sentence_transformers.json": "10667c72ddb772627bf1780cb7f86af8e2ae0032b8c243c731172064105c6961",
+      "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "tokenizer.json": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a",
+      "tokenizer_config.json": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+    },
+    "weight_bytes": 1191586416,
+    "weight_files": [
+      {
+        "bytes": 1191586416,
+        "name": "model.safetensors",
+        "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+      }
+    ]
+  },
+  "environment": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "CUDA_VISIBLE_DEVICES": "3",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONHASHSEED": "20260719",
+    "PYTHONPATH": "/home/spco/online_video_state_decomposition/external_baselines/OASIS",
+    "TOKENIZERS_PARALLELISM": "false",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "evidence_scope": "official OASIS quality evaluation; elapsed wall time is an offline, pace=0 whole-run measurement, not request TTFT or SLO latency",
+  "evidence_tier": "official_model_level_rt_1_50",
+  "fingerprint_inputs": {
+    "allow_smoke_subset": false,
+    "command": [
+      "/home/spco/online_video_state_decomposition/.conda/oasis-py312/bin/python3.12",
+      "-c",
+      "import random\nimport runpy\nimport sys\n\nimport numpy as np\nimport torch\nfrom transformers import set_seed\n\nseed = int(sys.argv[1])\nscript = sys.argv[2]\nrandom.seed(seed)\nnp.random.seed(seed)\ntorch.manual_seed(seed)\ntorch.cuda.manual_seed_all(seed)\nset_seed(seed)\nsys.argv = sys.argv[2:]\nrunpy.run_path(script, run_name=\"__main__\")\n",
+      "20260719",
+      "/home/spco/online_video_state_decomposition/external_baselines/OASIS/src/scripts/eval.py",
+      "--metadata",
+      "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1_50.json",
+      "--dataset_root",
+      "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset",
+      "--output_dir",
+      "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_static_preflight_hardened_20260719/unused_output",
+      "--fps",
+      "2.0",
+      "--pace",
+      "0.0",
+      "--shortmem_frames_limit",
+      "32",
+      "--now_window_frames_limit",
+      "16",
+      "--buffer_fps",
+      "1.0",
+      "--frames_per_node",
+      "16",
+      "--tokens_per_frame",
+      "256",
+      "--root_cnt_limit",
+      "4",
+      "--asr",
+      "none",
+      "--rag_event_retrieve_limit",
+      "2",
+      "--rag_qa_retrieve_limit",
+      "1",
+      "--mllm_path",
+      "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+      "--embedding_path",
+      "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope"
+    ],
+    "config": {
+      "asr": "none",
+      "buffer_fps": 1.0,
+      "fps": 2.0,
+      "frames_per_node": 16,
+      "now_window_frames_limit": 16,
+      "pace": 0.0,
+      "rag_event_retrieve_limit": 2,
+      "rag_qa_retrieve_limit": 1,
+      "root_cnt_limit": 4,
+      "shortmem_frames_limit": 32,
+      "tokens_per_frame": 256
+    },
+    "dataset_manifest_sha256": "322f3a488e36a1de0e5805f78bc144316fc062827ea8aba77eee90de6fb8ea4c",
+    "embedding": {
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "config_sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+      "model_type": "qwen3",
+      "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope",
+      "support_file_sha256": {
+        "config_sentence_transformers.json": "10667c72ddb772627bf1780cb7f86af8e2ae0032b8c243c731172064105c6961",
+        "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+        "tokenizer.json": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a",
+        "tokenizer_config.json": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+      },
+      "weight_bytes": 1191586416,
+      "weight_files": [
+        {
+          "bytes": 1191586416,
+          "name": "model.safetensors",
+          "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+        }
+      ]
+    },
+    "format_version": 1,
+    "gpu_index": 3,
+    "max_idle_memory_mib": 4096,
+    "max_idle_utilization": 20,
+    "metadata_sha256": "0ef04f4c956785cc745d866237fcf41013d9c4e6a51cc5623b8f955024a3baca",
+    "minimum_gpu_total_memory_mib": 70000,
+    "mllm": {
+      "architectures": [
+        "Qwen3VLForConditionalGeneration"
+      ],
+      "config_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+      "index_sha256": "520b2e05079402e9468a8701d03d1154d14b2599593afb6effa7fb60c1bff070",
+      "indexed_tensor_count": 750,
+      "model_type": "qwen3_vl",
+      "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+      "support_file_sha256": {
+        "chat_template.json": "5c72a170d2a4a1a3bc5adad2e689ae28138a9700e5b8c96c0266331e86c0acce",
+        "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+        "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+        "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+        "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+      },
+      "weight_bytes": 17534339512,
+      "weight_files": [
+        {
+          "bytes": 4902275944,
+          "name": "model-00001-of-00004.safetensors",
+          "sha256": "d5d0aef0eb170fc7453a296c43c0849a56f510555d3588e4fd662bb35490aefa"
+        },
+        {
+          "bytes": 4915962496,
+          "name": "model-00002-of-00004.safetensors",
+          "sha256": "8be88fb5501e4d5719a6d4cc212e6a13480330e74f3e8c77daa1a68f199106b5"
+        },
+        {
+          "bytes": 4999831048,
+          "name": "model-00003-of-00004.safetensors",
+          "sha256": "83de00eafe6e0d57ccd009dbcf71c9974d74df2f016c27afb7e95aafd16b2192"
+        },
+        {
+          "bytes": 2716270024,
+          "name": "model-00004-of-00004.safetensors",
+          "sha256": "0a88b98e9f96270973f567e6a2c103ede6ccdf915ca3075e21c755604d0377a5"
+        }
+      ]
+    },
+    "runner_sha256": "7003a94665d736be6d4390feab745c31cceff3204c1baa698f9d857af77471fe",
+    "runtime": null,
+    "seed": 20260719,
+    "shared_helper_sha256": "d5d8f9107c319ff9b71cd01832f6c9b5ab92ecf75041edcb60fafcfeb7ee3ce5",
+    "source": {
+      "code_clean": true,
+      "commit": "dbd342c79a1b9b03327d4ec5daa87488737db988",
+      "ignored_cache_status": [],
+      "path": "/home/spco/online_video_state_decomposition/external_baselines/OASIS",
+      "required_file_sha256": {
+        "src/oasis/config.py": "ae606931b2a44b1d8995747ef52539c609c767aec8b700828b22d8771ebeccc7",
+        "src/oasis/event/forest.py": "4c5c74fff604226f13deadf9a8d0dc0412236a5fbbb5795754c28deaa26993ed",
+        "src/oasis/event/segmenter.py": "c8bcb81c6e7816d312b7f30de1f736089a63698e75baa621cf5ba203427944ea",
+        "src/oasis/io/stream.py": "0f952cef45aa7a0f61091e1277c6c4c2db0795bf19df95e4023024e4b599ef71",
+        "src/oasis/model.py": "348a8a13e4650082efb619767082aef91037418724f2c412a74ab0ce51761b33",
+        "src/scripts/eval.py": "0643f5ce472b71bbf81c6e2aee4a0d68572aadd33ef06d619629e1b3d1448a03"
+      }
+    },
+    "video_crc32": {
+      "1": "ff541db2",
+      "10": "9bc9a09e",
+      "11": "15f4d347",
+      "12": "0d10e7dd",
+      "13": "6b4533f4",
+      "14": "8b28121d",
+      "15": "98902f55",
+      "16": "aaa39554",
+      "17": "af816d98",
+      "18": "40edd0ee",
+      "19": "4d73ff88",
+      "2": "a2336759",
+      "20": "9f5bb53c",
+      "21": "665d5108",
+      "22": "a7946752",
+      "23": "62499f4c",
+      "24": "562098aa",
+      "25": "5a849aa7",
+      "26": "9e9eeb30",
+      "27": "c0006880",
+      "28": "7fd7496f",
+      "29": "0d10e7dd",
+      "3": "69f4b711",
+      "30": "9511c748",
+      "31": "a96b99d4",
+      "32": "e93d43e1",
+      "33": "6b4533f4",
+      "34": "35c29e05",
+      "35": "21f38c11",
+      "36": "471c81a8",
+      "37": "9697e8df",
+      "38": "15f4d347",
+      "39": "a67364bd",
+      "4": "d44c8847",
+      "40": "8b28121d",
+      "41": "af85d7eb",
+      "42": "f721e18e",
+      "43": "e8e4231d",
+      "44": "00437ddf",
+      "45": "98902f55",
+      "46": "e121b05f",
+      "47": "b91e76ac",
+      "48": "3cec8dfa",
+      "49": "4f216801",
+      "5": "4cf8e57c",
+      "50": "facfe6f4",
+      "6": "6681f00a",
+      "7": "3b57a100",
+      "8": "77f5b2dc",
+      "9": "66cd5eb0"
+    },
+    "video_sampling": {
+      "minimum_sampled_frames": 180,
+      "records": [
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 376,
+          "source_fps": 25.0,
+          "total_frames": 4707,
+          "video_id": 1
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 813,
+          "source_fps": 25.0,
+          "total_frames": 10164,
+          "video_id": 2
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 386,
+          "source_fps": 25.0,
+          "total_frames": 4829,
+          "video_id": 3
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 462,
+          "source_fps": 25.0,
+          "total_frames": 5775,
+          "video_id": 4
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1024,
+          "source_fps": 50.0,
+          "total_frames": 25607,
+          "video_id": 5
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1153,
+          "source_fps": 25.0,
+          "total_frames": 14415,
+          "video_id": 6
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 918,
+          "source_fps": 25.0,
+          "total_frames": 11475,
+          "video_id": 7
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 627,
+          "source_fps": 59.94005994005994,
+          "total_frames": 18800,
+          "video_id": 8
+        },
+        {
+          "first_frame_shape": [
+            720,
+            1280,
+            3
+          ],
+          "sampled_frames": 180,
+          "source_fps": 30.0,
+          "total_frames": 2700,
+          "video_id": 9
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 949,
+          "source_fps": 23.976023976023978,
+          "total_frames": 11381,
+          "video_id": 10
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1294,
+          "source_fps": 25.0,
+          "total_frames": 16182,
+          "video_id": 11
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1330,
+          "source_fps": 25.0,
+          "total_frames": 16629,
+          "video_id": 12
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1421,
+          "source_fps": 25.0,
+          "total_frames": 17768,
+          "video_id": 13
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1292,
+          "source_fps": 25.0,
+          "total_frames": 16158,
+          "video_id": 14
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1130,
+          "source_fps": 25.0,
+          "total_frames": 14131,
+          "video_id": 15
+        },
+        {
+          "first_frame_shape": [
+            360,
+            640,
+            3
+          ],
+          "sampled_frames": 1640,
+          "source_fps": 23.976023976023978,
+          "total_frames": 19670,
+          "video_id": 16
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1351,
+          "source_fps": 25.0,
+          "total_frames": 16892,
+          "video_id": 17
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1168,
+          "source_fps": 25.0,
+          "total_frames": 14609,
+          "video_id": 18
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1881,
+          "source_fps": 30.0,
+          "total_frames": 28215,
+          "video_id": 19
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 697,
+          "source_fps": 23.976023976023978,
+          "total_frames": 8356,
+          "video_id": 20
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 686,
+          "source_fps": 23.976023976023978,
+          "total_frames": 8234,
+          "video_id": 21
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 764,
+          "source_fps": 23.976023976023978,
+          "total_frames": 9162,
+          "video_id": 22
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 651,
+          "source_fps": 23.976023976023978,
+          "total_frames": 7815,
+          "video_id": 23
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 778,
+          "source_fps": 23.976023976023978,
+          "total_frames": 9332,
+          "video_id": 24
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1686,
+          "source_fps": 24.0,
+          "total_frames": 20236,
+          "video_id": 25
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1225,
+          "source_fps": 23.976023976023978,
+          "total_frames": 14695,
+          "video_id": 26
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1215,
+          "source_fps": 23.976023976023978,
+          "total_frames": 14570,
+          "video_id": 27
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1657,
+          "source_fps": 30.0,
+          "total_frames": 24858,
+          "video_id": 28
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1330,
+          "source_fps": 25.0,
+          "total_frames": 16629,
+          "video_id": 29
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1837,
+          "source_fps": 30.0,
+          "total_frames": 27559,
+          "video_id": 30
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1334,
+          "source_fps": 25.0,
+          "total_frames": 16675,
+          "video_id": 31
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1231,
+          "source_fps": 25.0,
+          "total_frames": 15395,
+          "video_id": 32
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1421,
+          "source_fps": 25.0,
+          "total_frames": 17768,
+          "video_id": 33
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1424,
+          "source_fps": 25.0,
+          "total_frames": 17800,
+          "video_id": 34
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1884,
+          "source_fps": 23.976023976023978,
+          "total_frames": 22592,
+          "video_id": 35
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 2052,
+          "source_fps": 24.0,
+          "total_frames": 24632,
+          "video_id": 36
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1640,
+          "source_fps": 23.976023976023978,
+          "total_frames": 19670,
+          "video_id": 37
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1294,
+          "source_fps": 25.0,
+          "total_frames": 16182,
+          "video_id": 38
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1109,
+          "source_fps": 25.0,
+          "total_frames": 13866,
+          "video_id": 39
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1292,
+          "source_fps": 25.0,
+          "total_frames": 16158,
+          "video_id": 40
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 742,
+          "source_fps": 23.976023976023978,
+          "total_frames": 8903,
+          "video_id": 41
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1279,
+          "source_fps": 25.0,
+          "total_frames": 15992,
+          "video_id": 42
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1512,
+          "source_fps": 23.976023976023978,
+          "total_frames": 18130,
+          "video_id": 43
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 981,
+          "source_fps": 25.0,
+          "total_frames": 12264,
+          "video_id": 44
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1130,
+          "source_fps": 25.0,
+          "total_frames": 14131,
+          "video_id": 45
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1036,
+          "source_fps": 25.0,
+          "total_frames": 12957,
+          "video_id": 46
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1310,
+          "source_fps": 25.0,
+          "total_frames": 16385,
+          "video_id": 47
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1177,
+          "source_fps": 24.0,
+          "total_frames": 14128,
+          "video_id": 48
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1203,
+          "source_fps": 24.0,
+          "total_frames": 14445,
+          "video_id": 49
+        },
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 1267,
+          "source_fps": 59.94005994005994,
+          "total_frames": 37977,
+          "video_id": 50
+        }
+      ],
+      "target_fps": 2.0,
+      "video_count": 50
+    }
+  },
+  "format_version": 1,
+  "metadata": {
+    "dataset_root": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset",
+    "formal_contract": true,
+    "minimum_breakpoint_time_seconds": 3.0,
+    "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1_50.json",
+    "question_count": 250,
+    "question_ids": [
+      "Real-Time Visual Understanding_sample_1_1",
+      "Real-Time Visual Understanding_sample_1_2",
+      "Real-Time Visual Understanding_sample_1_4",
+      "Real-Time Visual Understanding_sample_1_3",
+      "Real-Time Visual Understanding_sample_1_5",
+      "Real-Time Visual Understanding_sample_2_1",
+      "Real-Time Visual Understanding_sample_2_2",
+      "Real-Time Visual Understanding_sample_2_3",
+      "Real-Time Visual Understanding_sample_2_4",
+      "Real-Time Visual Understanding_sample_2_5",
+      "Real-Time Visual Understanding_sample_3_1",
+      "Real-Time Visual Understanding_sample_3_2",
+      "Real-Time Visual Understanding_sample_3_3",
+      "Real-Time Visual Understanding_sample_3_4",
+      "Real-Time Visual Understanding_sample_3_5",
+      "Real-Time Visual Understanding_sample_4_2",
+      "Real-Time Visual Understanding_sample_4_1",
+      "Real-Time Visual Understanding_sample_4_3",
+      "Real-Time Visual Understanding_sample_4_4",
+      "Real-Time Visual Understanding_sample_4_5",
+      "Real-Time Visual Understanding_sample_5_1",
+      "Real-Time Visual Understanding_sample_5_2",
+      "Real-Time Visual Understanding_sample_5_3",
+      "Real-Time Visual Understanding_sample_5_4",
+      "Real-Time Visual Understanding_sample_5_5",
+      "Real-Time Visual Understanding_sample_6_1",
+      "Real-Time Visual Understanding_sample_6_2",
+      "Real-Time Visual Understanding_sample_6_3",
+      "Real-Time Visual Understanding_sample_6_4",
+      "Real-Time Visual Understanding_sample_6_5",
+      "Real-Time Visual Understanding_sample_7_1",
+      "Real-Time Visual Understanding_sample_7_2",
+      "Real-Time Visual Understanding_sample_7_4",
+      "Real-Time Visual Understanding_sample_7_3",
+      "Real-Time Visual Understanding_sample_7_5",
+      "Real-Time Visual Understanding_sample_8_1",
+      "Real-Time Visual Understanding_sample_8_2",
+      "Real-Time Visual Understanding_sample_8_3",
+      "Real-Time Visual Understanding_sample_8_4",
+      "Real-Time Visual Understanding_sample_8_5",
+      "Real-Time Visual Understanding_sample_9_1",
+      "Real-Time Visual Understanding_sample_9_2",
+      "Real-Time Visual Understanding_sample_9_3",
+      "Real-Time Visual Understanding_sample_9_4",
+      "Real-Time Visual Understanding_sample_9_5",
+      "Real-Time Visual Understanding_sample_10_1",
+      "Real-Time Visual Understanding_sample_10_2",
+      "Real-Time Visual Understanding_sample_10_3",
+      "Real-Time Visual Understanding_sample_10_4",
+      "Real-Time Visual Understanding_sample_10_5",
+      "Real-Time Visual Understanding_sample_11_1",
+      "Real-Time Visual Understanding_sample_11_2",
+      "Real-Time Visual Understanding_sample_11_3",
+      "Real-Time Visual Understanding_sample_11_4",
+      "Real-Time Visual Understanding_sample_11_5",
+      "Real-Time Visual Understanding_sample_12_1",
+      "Real-Time Visual Understanding_sample_12_2",
+      "Real-Time Visual Understanding_sample_12_3",
+      "Real-Time Visual Understanding_sample_12_4",
+      "Real-Time Visual Understanding_sample_12_5",
+      "Real-Time Visual Understanding_sample_13_1",
+      "Real-Time Visual Understanding_sample_13_2",
+      "Real-Time Visual Understanding_sample_13_3",
+      "Real-Time Visual Understanding_sample_13_4",
+      "Real-Time Visual Understanding_sample_13_5",
+      "Real-Time Visual Understanding_sample_14_1",
+      "Real-Time Visual Understanding_sample_14_2",
+      "Real-Time Visual Understanding_sample_14_3",
+      "Real-Time Visual Understanding_sample_14_4",
+      "Real-Time Visual Understanding_sample_14_5",
+      "Real-Time Visual Understanding_sample_15_1",
+      "Real-Time Visual Understanding_sample_15_2",
+      "Real-Time Visual Understanding_sample_15_3",
+      "Real-Time Visual Understanding_sample_15_4",
+      "Real-Time Visual Understanding_sample_15_5",
+      "Real-Time Visual Understanding_sample_16_1",
+      "Real-Time Visual Understanding_sample_16_2",
+      "Real-Time Visual Understanding_sample_16_3",
+      "Real-Time Visual Understanding_sample_16_4",
+      "Real-Time Visual Understanding_sample_16_5",
+      "Real-Time Visual Understanding_sample_17_1",
+      "Real-Time Visual Understanding_sample_17_2",
+      "Real-Time Visual Understanding_sample_17_3",
+      "Real-Time Visual Understanding_sample_17_4",
+      "Real-Time Visual Understanding_sample_17_5",
+      "Real-Time Visual Understanding_sample_18_1",
+      "Real-Time Visual Understanding_sample_18_2",
+      "Real-Time Visual Understanding_sample_18_3",
+      "Real-Time Visual Understanding_sample_18_4",
+      "Real-Time Visual Understanding_sample_18_5",
+      "Real-Time Visual Understanding_sample_19_1",
+      "Real-Time Visual Understanding_sample_19_3",
+      "Real-Time Visual Understanding_sample_19_2",
+      "Real-Time Visual Understanding_sample_19_4",
+      "Real-Time Visual Understanding_sample_19_5",
+      "Real-Time Visual Understanding_sample_20_1",
+      "Real-Time Visual Understanding_sample_20_2",
+      "Real-Time Visual Understanding_sample_20_3",
+      "Real-Time Visual Understanding_sample_20_4",
+      "Real-Time Visual Understanding_sample_20_5",
+      "Real-Time Visual Understanding_sample_21_1",
+      "Real-Time Visual Understanding_sample_21_2",
+      "Real-Time Visual Understanding_sample_21_3",
+      "Real-Time Visual Understanding_sample_21_4",
+      "Real-Time Visual Understanding_sample_21_5",
+      "Real-Time Visual Understanding_sample_22_1",
+      "Real-Time Visual Understanding_sample_22_2",
+      "Real-Time Visual Understanding_sample_22_3",
+      "Real-Time Visual Understanding_sample_22_4",
+      "Real-Time Visual Understanding_sample_22_5",
+      "Real-Time Visual Understanding_sample_23_1",
+      "Real-Time Visual Understanding_sample_23_2",
+      "Real-Time Visual Understanding_sample_23_3",
+      "Real-Time Visual Understanding_sample_23_4",
+      "Real-Time Visual Understanding_sample_23_5",
+      "Real-Time Visual Understanding_sample_24_1",
+      "Real-Time Visual Understanding_sample_24_2",
+      "Real-Time Visual Understanding_sample_24_3",
+      "Real-Time Visual Understanding_sample_24_4",
+      "Real-Time Visual Understanding_sample_24_5",
+      "Real-Time Visual Understanding_sample_25_1",
+      "Real-Time Visual Understanding_sample_25_2",
+      "Real-Time Visual Understanding_sample_25_3",
+      "Real-Time Visual Understanding_sample_25_4",
+      "Real-Time Visual Understanding_sample_25_5",
+      "Real-Time Visual Understanding_sample_26_1",
+      "Real-Time Visual Understanding_sample_26_2",
+      "Real-Time Visual Understanding_sample_26_3",
+      "Real-Time Visual Understanding_sample_26_4",
+      "Real-Time Visual Understanding_sample_26_5",
+      "Real-Time Visual Understanding_sample_27_1",
+      "Real-Time Visual Understanding_sample_27_2",
+      "Real-Time Visual Understanding_sample_27_3",
+      "Real-Time Visual Understanding_sample_27_4",
+      "Real-Time Visual Understanding_sample_27_5",
+      "Real-Time Visual Understanding_sample_28_1",
+      "Real-Time Visual Understanding_sample_28_2",
+      "Real-Time Visual Understanding_sample_28_3",
+      "Real-Time Visual Understanding_sample_28_4",
+      "Real-Time Visual Understanding_sample_28_5",
+      "Real-Time Visual Understanding_sample_29_1",
+      "Real-Time Visual Understanding_sample_29_2",
+      "Real-Time Visual Understanding_sample_29_3",
+      "Real-Time Visual Understanding_sample_29_4",
+      "Real-Time Visual Understanding_sample_29_5",
+      "Real-Time Visual Understanding_sample_30_1",
+      "Real-Time Visual Understanding_sample_30_2",
+      "Real-Time Visual Understanding_sample_30_3",
+      "Real-Time Visual Understanding_sample_30_4",
+      "Real-Time Visual Understanding_sample_30_5",
+      "Real-Time Visual Understanding_sample_31_1",
+      "Real-Time Visual Understanding_sample_31_3",
+      "Real-Time Visual Understanding_sample_31_2",
+      "Real-Time Visual Understanding_sample_31_4",
+      "Real-Time Visual Understanding_sample_31_5",
+      "Real-Time Visual Understanding_sample_32_1",
+      "Real-Time Visual Understanding_sample_32_2",
+      "Real-Time Visual Understanding_sample_32_3",
+      "Real-Time Visual Understanding_sample_32_5",
+      "Real-Time Visual Understanding_sample_32_4",
+      "Real-Time Visual Understanding_sample_33_1",
+      "Real-Time Visual Understanding_sample_33_2",
+      "Real-Time Visual Understanding_sample_33_3",
+      "Real-Time Visual Understanding_sample_33_4",
+      "Real-Time Visual Understanding_sample_33_5",
+      "Real-Time Visual Understanding_sample_34_1",
+      "Real-Time Visual Understanding_sample_34_2",
+      "Real-Time Visual Understanding_sample_34_3",
+      "Real-Time Visual Understanding_sample_34_4",
+      "Real-Time Visual Understanding_sample_34_5",
+      "Real-Time Visual Understanding_sample_35_1",
+      "Real-Time Visual Understanding_sample_35_2",
+      "Real-Time Visual Understanding_sample_35_3",
+      "Real-Time Visual Understanding_sample_35_4",
+      "Real-Time Visual Understanding_sample_35_5",
+      "Real-Time Visual Understanding_sample_36_1",
+      "Real-Time Visual Understanding_sample_36_2",
+      "Real-Time Visual Understanding_sample_36_3",
+      "Real-Time Visual Understanding_sample_36_4",
+      "Real-Time Visual Understanding_sample_36_5",
+      "Real-Time Visual Understanding_sample_37_1",
+      "Real-Time Visual Understanding_sample_37_2",
+      "Real-Time Visual Understanding_sample_37_3",
+      "Real-Time Visual Understanding_sample_37_4",
+      "Real-Time Visual Understanding_sample_37_5",
+      "Real-Time Visual Understanding_sample_38_1",
+      "Real-Time Visual Understanding_sample_38_2",
+      "Real-Time Visual Understanding_sample_38_3",
+      "Real-Time Visual Understanding_sample_38_4",
+      "Real-Time Visual Understanding_sample_38_5",
+      "Real-Time Visual Understanding_sample_39_1",
+      "Real-Time Visual Understanding_sample_39_2",
+      "Real-Time Visual Understanding_sample_39_3",
+      "Real-Time Visual Understanding_sample_39_4",
+      "Real-Time Visual Understanding_sample_39_5",
+      "Real-Time Visual Understanding_sample_40_1",
+      "Real-Time Visual Understanding_sample_40_2",
+      "Real-Time Visual Understanding_sample_40_3",
+      "Real-Time Visual Understanding_sample_40_5",
+      "Real-Time Visual Understanding_sample_40_4",
+      "Real-Time Visual Understanding_sample_41_1",
+      "Real-Time Visual Understanding_sample_41_3",
+      "Real-Time Visual Understanding_sample_41_2",
+      "Real-Time Visual Understanding_sample_41_4",
+      "Real-Time Visual Understanding_sample_41_5",
+      "Real-Time Visual Understanding_sample_42_1",
+      "Real-Time Visual Understanding_sample_42_2",
+      "Real-Time Visual Understanding_sample_42_3",
+      "Real-Time Visual Understanding_sample_42_5",
+      "Real-Time Visual Understanding_sample_42_4",
+      "Real-Time Visual Understanding_sample_43_1",
+      "Real-Time Visual Understanding_sample_43_2",
+      "Real-Time Visual Understanding_sample_43_3",
+      "Real-Time Visual Understanding_sample_43_4",
+      "Real-Time Visual Understanding_sample_43_5",
+      "Real-Time Visual Understanding_sample_44_1",
+      "Real-Time Visual Understanding_sample_44_2",
+      "Real-Time Visual Understanding_sample_44_3",
+      "Real-Time Visual Understanding_sample_44_4",
+      "Real-Time Visual Understanding_sample_44_5",
+      "Real-Time Visual Understanding_sample_45_1",
+      "Real-Time Visual Understanding_sample_45_2",
+      "Real-Time Visual Understanding_sample_45_3",
+      "Real-Time Visual Understanding_sample_45_4",
+      "Real-Time Visual Understanding_sample_45_5",
+      "Real-Time Visual Understanding_sample_46_1",
+      "Real-Time Visual Understanding_sample_46_2",
+      "Real-Time Visual Understanding_sample_46_3",
+      "Real-Time Visual Understanding_sample_46_4",
+      "Real-Time Visual Understanding_sample_46_5",
+      "Real-Time Visual Understanding_sample_47_1",
+      "Real-Time Visual Understanding_sample_47_2",
+      "Real-Time Visual Understanding_sample_47_3",
+      "Real-Time Visual Understanding_sample_47_4",
+      "Real-Time Visual Understanding_sample_47_5",
+      "Real-Time Visual Understanding_sample_48_1",
+      "Real-Time Visual Understanding_sample_48_2",
+      "Real-Time Visual Understanding_sample_48_3",
+      "Real-Time Visual Understanding_sample_48_4",
+      "Real-Time Visual Understanding_sample_48_5",
+      "Real-Time Visual Understanding_sample_49_1",
+      "Real-Time Visual Understanding_sample_49_2",
+      "Real-Time Visual Understanding_sample_49_3",
+      "Real-Time Visual Understanding_sample_49_4",
+      "Real-Time Visual Understanding_sample_49_5",
+      "Real-Time Visual Understanding_sample_50_1",
+      "Real-Time Visual Understanding_sample_50_2",
+      "Real-Time Visual Understanding_sample_50_3",
+      "Real-Time Visual Understanding_sample_50_4",
+      "Real-Time Visual Understanding_sample_50_5"
+    ],
+    "sha256": "0ef04f4c956785cc745d866237fcf41013d9c4e6a51cc5623b8f955024a3baca",
+    "task_counts": {
+      "Action Perception": 51,
+      "Attribute Perception": 36,
+      "Causal Reasoning": 9,
+      "Clips Summarize": 2,
+      "Counting": 2,
+      "Event Understanding": 25,
+      "Object Perception": 102,
+      "Prospective Reasoning": 2,
+      "Spatial Understanding": 3,
+      "Text-Rich Understanding": 18
+    },
+    "video_count": 50,
+    "video_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "videos": [
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_1/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_1/video.mp4",
+        "size_bytes": 95813537,
+        "video_id": 1
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_2/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_2/video.mp4",
+        "size_bytes": 168099735,
+        "video_id": 2
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_3/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_3/video.mp4",
+        "size_bytes": 73763382,
+        "video_id": 3
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_4/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_4/video.mp4",
+        "size_bytes": 92169097,
+        "video_id": 4
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_5/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_5/video.mp4",
+        "size_bytes": 268738834,
+        "video_id": 5
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_6/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_6/video.mp4",
+        "size_bytes": 282885460,
+        "video_id": 6
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_7/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_7/video.mp4",
+        "size_bytes": 221859067,
+        "video_id": 7
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_8/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_8/video.mp4",
+        "size_bytes": 140815877,
+        "video_id": 8
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_9/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_9/video.mp4",
+        "size_bytes": 24395641,
+        "video_id": 9
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_10/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_10/video.mp4",
+        "size_bytes": 188432617,
+        "video_id": 10
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_11/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_11/video.mp4",
+        "size_bytes": 161541002,
+        "video_id": 11
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_12/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_12/video.mp4",
+        "size_bytes": 172870048,
+        "video_id": 12
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_13/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_13/video.mp4",
+        "size_bytes": 185636696,
+        "video_id": 13
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_14/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_14/video.mp4",
+        "size_bytes": 169092948,
+        "video_id": 14
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_15/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_15/video.mp4",
+        "size_bytes": 142428824,
+        "video_id": 15
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_16/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_16/video.mp4",
+        "size_bytes": 41053470,
+        "video_id": 16
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_17/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_17/video.mp4",
+        "size_bytes": 192227765,
+        "video_id": 17
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_18/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_18/video.mp4",
+        "size_bytes": 173773171,
+        "video_id": 18
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_19/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_19/video.mp4",
+        "size_bytes": 381301607,
+        "video_id": 19
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_20/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_20/video.mp4",
+        "size_bytes": 62013840,
+        "video_id": 20
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_21/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_21/video.mp4",
+        "size_bytes": 64270887,
+        "video_id": 21
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_22/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_22/video.mp4",
+        "size_bytes": 105220849,
+        "video_id": 22
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_23/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_23/video.mp4",
+        "size_bytes": 57670049,
+        "video_id": 23
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_24/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_24/video.mp4",
+        "size_bytes": 66438750,
+        "video_id": 24
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_25/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_25/video.mp4",
+        "size_bytes": 273699821,
+        "video_id": 25
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_26/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_26/video.mp4",
+        "size_bytes": 144544115,
+        "video_id": 26
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_27/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_27/video.mp4",
+        "size_bytes": 119656254,
+        "video_id": 27
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_28/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_28/video.mp4",
+        "size_bytes": 318032084,
+        "video_id": 28
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_29/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_29/video.mp4",
+        "size_bytes": 172870048,
+        "video_id": 29
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_30/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_30/video.mp4",
+        "size_bytes": 391965431,
+        "video_id": 30
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_31/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_31/video.mp4",
+        "size_bytes": 182010517,
+        "video_id": 31
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_32/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_32/video.mp4",
+        "size_bytes": 164102232,
+        "video_id": 32
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_33/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_33/video.mp4",
+        "size_bytes": 185636696,
+        "video_id": 33
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_34/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_34/video.mp4",
+        "size_bytes": 177444529,
+        "video_id": 34
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_35/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_35/video.mp4",
+        "size_bytes": 417662310,
+        "video_id": 35
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_36/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_36/video.mp4",
+        "size_bytes": 378382976,
+        "video_id": 36
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_37/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_37/video.mp4",
+        "size_bytes": 312369197,
+        "video_id": 37
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_38/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_38/video.mp4",
+        "size_bytes": 161541002,
+        "video_id": 38
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_39/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_39/video.mp4",
+        "size_bytes": 158611536,
+        "video_id": 39
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_40/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_40/video.mp4",
+        "size_bytes": 169092948,
+        "video_id": 40
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_41/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_41/video.mp4",
+        "size_bytes": 64772041,
+        "video_id": 41
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_42/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_42/video.mp4",
+        "size_bytes": 177744912,
+        "video_id": 42
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_43/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_43/video.mp4",
+        "size_bytes": 273720222,
+        "video_id": 43
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_44/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_44/video.mp4",
+        "size_bytes": 184632840,
+        "video_id": 44
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_45/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_45/video.mp4",
+        "size_bytes": 142428824,
+        "video_id": 45
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_46/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_46/video.mp4",
+        "size_bytes": 133452430,
+        "video_id": 46
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_47/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_47/video.mp4",
+        "size_bytes": 164689843,
+        "video_id": 47
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_48/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_48/video.mp4",
+        "size_bytes": 231374640,
+        "video_id": 48
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_49/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_49/video.mp4",
+        "size_bytes": 133132781,
+        "video_id": 49
+      },
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_50/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_50/video.mp4",
+        "size_bytes": 329689455,
+        "video_id": 50
+      }
+    ]
+  },
+  "method": "OASIS",
+  "mllm": {
+    "architectures": [
+      "Qwen3VLForConditionalGeneration"
+    ],
+    "config_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+    "index_sha256": "520b2e05079402e9468a8701d03d1154d14b2599593afb6effa7fb60c1bff070",
+    "indexed_tensor_count": 750,
+    "model_type": "qwen3_vl",
+    "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+    "support_file_sha256": {
+      "chat_template.json": "5c72a170d2a4a1a3bc5adad2e689ae28138a9700e5b8c96c0266331e86c0acce",
+      "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+      "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+      "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+    },
+    "weight_bytes": 17534339512,
+    "weight_files": [
+      {
+        "bytes": 4902275944,
+        "name": "model-00001-of-00004.safetensors",
+        "sha256": "d5d0aef0eb170fc7453a296c43c0849a56f510555d3588e4fd662bb35490aefa"
+      },
+      {
+        "bytes": 4915962496,
+        "name": "model-00002-of-00004.safetensors",
+        "sha256": "8be88fb5501e4d5719a6d4cc212e6a13480330e74f3e8c77daa1a68f199106b5"
+      },
+      {
+        "bytes": 4999831048,
+        "name": "model-00003-of-00004.safetensors",
+        "sha256": "83de00eafe6e0d57ccd009dbcf71c9974d74df2f016c27afb7e95aafd16b2192"
+      },
+      {
+        "bytes": 2716270024,
+        "name": "model-00004-of-00004.safetensors",
+        "sha256": "0a88b98e9f96270973f567e6a2c103ede6ccdf915ca3075e21c755604d0377a5"
+      }
+    ]
+  },
+  "official_config": {
+    "asr": "none",
+    "buffer_fps": 1.0,
+    "fps": 2.0,
+    "frames_per_node": 16,
+    "now_window_frames_limit": 16,
+    "pace": 0.0,
+    "rag_event_retrieve_limit": 2,
+    "rag_qa_retrieve_limit": 1,
+    "root_cnt_limit": 4,
+    "shortmem_frames_limit": 32,
+    "tokens_per_frame": 256
+  },
+  "run_fingerprint": "4a4fa2f270f1dda42f0dd01d162f17e52515b551cb718a691fb187260e2b05d5",
+  "runtime": null,
+  "source": {
+    "code_clean": true,
+    "commit": "dbd342c79a1b9b03327d4ec5daa87488737db988",
+    "ignored_cache_status": [],
+    "path": "/home/spco/online_video_state_decomposition/external_baselines/OASIS",
+    "required_file_sha256": {
+      "src/oasis/config.py": "ae606931b2a44b1d8995747ef52539c609c767aec8b700828b22d8771ebeccc7",
+      "src/oasis/event/forest.py": "4c5c74fff604226f13deadf9a8d0dc0412236a5fbbb5795754c28deaa26993ed",
+      "src/oasis/event/segmenter.py": "c8bcb81c6e7816d312b7f30de1f736089a63698e75baa621cf5ba203427944ea",
+      "src/oasis/io/stream.py": "0f952cef45aa7a0f61091e1277c6c4c2db0795bf19df95e4023024e4b599ef71",
+      "src/oasis/model.py": "348a8a13e4650082efb619767082aef91037418724f2c412a74ab0ce51761b33",
+      "src/scripts/eval.py": "0643f5ce472b71bbf81c6e2aee4a0d68572aadd33ef06d619629e1b3d1448a03"
+    }
+  },
+  "video_sampling": {
+    "minimum_sampled_frames": 180,
+    "records": [
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 376,
+        "source_fps": 25.0,
+        "total_frames": 4707,
+        "video_id": 1
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 813,
+        "source_fps": 25.0,
+        "total_frames": 10164,
+        "video_id": 2
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 386,
+        "source_fps": 25.0,
+        "total_frames": 4829,
+        "video_id": 3
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 462,
+        "source_fps": 25.0,
+        "total_frames": 5775,
+        "video_id": 4
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1024,
+        "source_fps": 50.0,
+        "total_frames": 25607,
+        "video_id": 5
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1153,
+        "source_fps": 25.0,
+        "total_frames": 14415,
+        "video_id": 6
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 918,
+        "source_fps": 25.0,
+        "total_frames": 11475,
+        "video_id": 7
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 627,
+        "source_fps": 59.94005994005994,
+        "total_frames": 18800,
+        "video_id": 8
+      },
+      {
+        "first_frame_shape": [
+          720,
+          1280,
+          3
+        ],
+        "sampled_frames": 180,
+        "source_fps": 30.0,
+        "total_frames": 2700,
+        "video_id": 9
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 949,
+        "source_fps": 23.976023976023978,
+        "total_frames": 11381,
+        "video_id": 10
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1294,
+        "source_fps": 25.0,
+        "total_frames": 16182,
+        "video_id": 11
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1330,
+        "source_fps": 25.0,
+        "total_frames": 16629,
+        "video_id": 12
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1421,
+        "source_fps": 25.0,
+        "total_frames": 17768,
+        "video_id": 13
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1292,
+        "source_fps": 25.0,
+        "total_frames": 16158,
+        "video_id": 14
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1130,
+        "source_fps": 25.0,
+        "total_frames": 14131,
+        "video_id": 15
+      },
+      {
+        "first_frame_shape": [
+          360,
+          640,
+          3
+        ],
+        "sampled_frames": 1640,
+        "source_fps": 23.976023976023978,
+        "total_frames": 19670,
+        "video_id": 16
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1351,
+        "source_fps": 25.0,
+        "total_frames": 16892,
+        "video_id": 17
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1168,
+        "source_fps": 25.0,
+        "total_frames": 14609,
+        "video_id": 18
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1881,
+        "source_fps": 30.0,
+        "total_frames": 28215,
+        "video_id": 19
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 697,
+        "source_fps": 23.976023976023978,
+        "total_frames": 8356,
+        "video_id": 20
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 686,
+        "source_fps": 23.976023976023978,
+        "total_frames": 8234,
+        "video_id": 21
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 764,
+        "source_fps": 23.976023976023978,
+        "total_frames": 9162,
+        "video_id": 22
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 651,
+        "source_fps": 23.976023976023978,
+        "total_frames": 7815,
+        "video_id": 23
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 778,
+        "source_fps": 23.976023976023978,
+        "total_frames": 9332,
+        "video_id": 24
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1686,
+        "source_fps": 24.0,
+        "total_frames": 20236,
+        "video_id": 25
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1225,
+        "source_fps": 23.976023976023978,
+        "total_frames": 14695,
+        "video_id": 26
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1215,
+        "source_fps": 23.976023976023978,
+        "total_frames": 14570,
+        "video_id": 27
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1657,
+        "source_fps": 30.0,
+        "total_frames": 24858,
+        "video_id": 28
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1330,
+        "source_fps": 25.0,
+        "total_frames": 16629,
+        "video_id": 29
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1837,
+        "source_fps": 30.0,
+        "total_frames": 27559,
+        "video_id": 30
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1334,
+        "source_fps": 25.0,
+        "total_frames": 16675,
+        "video_id": 31
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1231,
+        "source_fps": 25.0,
+        "total_frames": 15395,
+        "video_id": 32
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1421,
+        "source_fps": 25.0,
+        "total_frames": 17768,
+        "video_id": 33
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1424,
+        "source_fps": 25.0,
+        "total_frames": 17800,
+        "video_id": 34
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1884,
+        "source_fps": 23.976023976023978,
+        "total_frames": 22592,
+        "video_id": 35
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 2052,
+        "source_fps": 24.0,
+        "total_frames": 24632,
+        "video_id": 36
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1640,
+        "source_fps": 23.976023976023978,
+        "total_frames": 19670,
+        "video_id": 37
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1294,
+        "source_fps": 25.0,
+        "total_frames": 16182,
+        "video_id": 38
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1109,
+        "source_fps": 25.0,
+        "total_frames": 13866,
+        "video_id": 39
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1292,
+        "source_fps": 25.0,
+        "total_frames": 16158,
+        "video_id": 40
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 742,
+        "source_fps": 23.976023976023978,
+        "total_frames": 8903,
+        "video_id": 41
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1279,
+        "source_fps": 25.0,
+        "total_frames": 15992,
+        "video_id": 42
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1512,
+        "source_fps": 23.976023976023978,
+        "total_frames": 18130,
+        "video_id": 43
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 981,
+        "source_fps": 25.0,
+        "total_frames": 12264,
+        "video_id": 44
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1130,
+        "source_fps": 25.0,
+        "total_frames": 14131,
+        "video_id": 45
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1036,
+        "source_fps": 25.0,
+        "total_frames": 12957,
+        "video_id": 46
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1310,
+        "source_fps": 25.0,
+        "total_frames": 16385,
+        "video_id": 47
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1177,
+        "source_fps": 24.0,
+        "total_frames": 14128,
+        "video_id": 48
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1203,
+        "source_fps": 24.0,
+        "total_frames": 14445,
+        "video_id": 49
+      },
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 1267,
+        "source_fps": 59.94005994005994,
+        "total_frames": 37977,
+        "video_id": 50
+      }
+    ],
+    "target_fps": 2.0,
+    "video_count": 50
+  }
+}

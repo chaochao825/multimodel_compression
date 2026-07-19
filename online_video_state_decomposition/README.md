@@ -51,10 +51,26 @@ StreamingTOM `OQM`, STC core imports, and OASIS `ShortMemory`; these remain
 mechanism checks rather than model-level latency or quality reproductions.
 Strict machine-readable preflights now additionally pass for CausalMem's
 official 50-video/250-question evaluator and both modes of STC's official ReKV
-latency benchmark. Their GPU runs are queued but not yet results. See
+latency benchmark. Their official jobs are waiting in the safe idle-GPU queue;
+queue placement is not a quality or latency result. OASIS now also has an
+exact-50x5 data adapter, no-copy dataset materializer, and official evaluator
+wrapper. Its static source/model/data preflight passes. The server-210
+FlashAttention 2.8.3 source build and CPU-side import/ELF audit also pass, with
+only `sm_80` cubins and maximum GLIBC requirement 2.14. The CUDA BF16 kernel
+preflight and one-video model inference remain incomplete.
+OASIS is retained as a slow event-archive quality baseline; a future `pace=0`
+whole-run wall time is not request TTFT or SLO latency. See
 [CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md)
 and
 [STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md).
+The OASIS contract is
+[OASIS_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/OASIS_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md).
+Its completed static evidence is
+[oasis_official_static_preflight_20260719.json](paper/results/probe_mvp/oasis_official_static_preflight_20260719.json);
+the intentionally null runtime field means it is not a CUDA launch result.
+The separate source-build/import evidence is
+[oasis_flash_attn_build_audit_20260719.json](paper/results/probe_mvp/oasis_flash_attn_build_audit_20260719.json),
+which likewise is not a CUDA kernel result.
 
 ## Repository Layout
 
@@ -110,7 +126,17 @@ bash experiments/scripts/run_stc_rekv_official.sh \
   rekv_stc RUN_NAME 0
 ```
 
-The queue helpers wait without weakening the gate:
+Prepare and run the audited OASIS one-video smoke before scheduling its formal
+50-video quality evaluation:
+
+```bash
+bash experiments/scripts/prepare_oasis_streamingbench.sh
+bash experiments/scripts/run_oasis_when_idle.sh \
+  oasis_smoke_1video_v1 smoke 3
+```
+
+The CausalMem and STC jobs are currently waiting through these queue helpers;
+no official quality or CUDA timing result has been produced:
 
 ```bash
 bash experiments/scripts/run_stc_rekv_pair_when_idle.sh RUN_NAME 0

@@ -16,17 +16,22 @@ This audit therefore separates four evidence tiers:
 
 The completed quality comparison is tier 4 plus tier 3, augmented by selected
 official-module synthetic smokes. CausalMem's official evaluator and STC's
-official ReKV latency runner now also have strict, machine-readable preflights;
-their formal GPU runs are still pending. The first 200-sample proxy result is a
-reused development analysis, not an independent confirmation.
+official ReKV latency runner now also have strict, machine-readable preflights.
+Their official jobs are waiting in the safe idle-GPU queue and have not
+produced quality or timing results. OASIS has passed static preflight for its
+source, models, and exact-50x5 data. Its server-210 FlashAttention 2.8.3 source
+build and CPU-side import/ELF audit also pass with only `sm_80` cubins. The
+CUDA BF16 kernel preflight and model inference remain incomplete. The first
+200-sample proxy result is a reused development analysis, not an independent
+confirmation.
 
 | Method | Intended role | Public implementation status | Current status |
 |---|---|---|---|
-| CausalMem | Closest query-free semantic-memory algorithm | `causal_mem` evaluator is runnable; stock baseline imports a missing upstream file | Strict official evaluator preflight passed on 50 videos/250 questions; quality run pending |
+| CausalMem | Closest query-free semantic-memory algorithm | `causal_mem` evaluator is runnable; stock baseline imports a missing upstream file | Strict official evaluator preflight passed on 50 videos/250 questions; official quality job waiting in safe queue; no result |
 | StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Incremental official-core CTR/OQM harness ready; CUDA run pending |
-| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Both official ReKV mode preflights passed; model-stage CUDA timing pending |
+| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Both official ReKV mode preflights passed; CUDA timing jobs waiting in safe queue; no result |
 | SelectStream | Task-quality target | No discoverable official code as of the audit date | Reported quality target; untrained structural proxy only |
-| OASIS | Slow event-archive baseline | Public evaluation path, no public paper-table timing runner | Official source and local Qwen3-VL/embedding assets found; model evaluation pending |
+| OASIS | Slow event-archive quality baseline | Public evaluation path, no public paper-table timing runner | Static source/model/exact-50x5 data preflight and `sm_80` source-build/import audit passed; one-video smoke waiting in safe queue; CUDA BF16 kernel preflight and inference incomplete |
 | StateKV | Recurrent model-state baseline | Official placeholder repository only | Reference-only; paper-structure proxy cannot be called a reproduction |
 
 ## Source Pins And Licensing
@@ -58,7 +63,8 @@ CausalMem's official evaluator preflight is stored in
 shards and hashes, the SigLIP cache, pinned source, runtime versions, resume
 integrity, and output fingerprints. The pinned source's stock baseline cannot
 run because `llava_arch_baseline.py` is absent; it is not replaced with a local
-surrogate.
+surrogate. The official quality job is waiting in the safe idle-GPU queue and
+has not produced a result.
 
 STC's official ReKV preflights are stored in
 `stc_rekv_official_rekv_preflight_20260719.json` and
@@ -66,7 +72,24 @@ STC's official ReKV preflights are stored in
 `STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md`. Both validate the pinned
 source, full 16.06 GB four-shard model, CUDA runtime, official module imports,
 exact mode environment, and audited wrapper hash. Passing preflight proves
-launch readiness, not latency.
+launch readiness, not latency. Both official mode jobs are waiting in the safe
+idle-GPU queue; neither has produced CUDA timing results.
+
+OASIS now has an audited data adapter, no-copy dataset materializer, and strict
+official evaluator wrapper. The matched contract is
+`OASIS_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md`. Static validation passes for
+the pinned source, 17.53 GB Qwen3-VL checkpoint, 1.19 GB embedding checkpoint,
+and exact 50-video/250-question dataset. The machine-readable evidence is
+`oasis_official_static_preflight_20260719.json` (SHA256
+`9e7d90cbe8d23c507e74b82a99824939c7afeb144f8cfbb2f6b6ed6fe187ef0a`).
+Its runtime field is intentionally null, so this is launch preparation, not a
+quality or CUDA result. The separate
+`oasis_flash_attn_build_audit_20260719.json` records a successful source build,
+CPU-side import, maximum GLIBC requirement 2.14, and only `sm_80` embedded
+cubins (SHA256
+`061bc3b46b4b049c3071a6349a283500ca62b114ceb2859240dc9aeda645bb80`).
+It does not execute CUDA. The BF16 kernel preflight and one-video model
+inference remain incomplete.
 
 ## Executable Module Smoke
 
@@ -81,11 +104,14 @@ targeted smoke, but the checks have deliberately different strengths:
 | STC | cacher, pruner, and HF-ViT integration imports | Four core modules import with Torch 2.6.0 and Transformers 4.51.0 | Dependency smoke only; no ViT skip/prune numerical or CUDA timing claim |
 | OASIS | `ShortMemory.push` plus event modules | Limits 2/4 retain 1/3 frames; one 4-frame event emitted | Confirms bounded windows and an exclusive effective capacity caused by `>= limit` followed by `pop(0)` |
 
-CausalMem, StreamingTOM, and STC use the existing Qwen3 Python 3.10
-environment. OASIS uses an isolated Python 3.12.13 environment with Torch
-2.5.1+cu124, Transformers 4.57.6, and SentenceTransformers 5.6.0. OASIS's
-README specifies CUDA 12.1; the cu124 environment is therefore used only for
-CPU/module compatibility evidence, not official GPU latency.
+CausalMem and STC use the existing Qwen3 Python 3.10 environment. StreamingTOM
+uses an isolated Python 3.10/Torch 2.5.1 environment with a verified
+source-built `sm_80` FlashAttention import. OASIS uses an isolated Python
+3.12.13 environment with Torch 2.5.1+cu124, Transformers 4.57.6, and
+SentenceTransformers 5.6.0. Its own FlashAttention 2.8.3 source build and
+CPU-side import/ELF audit for `sm_80` pass. Its CUDA BF16 kernel preflight and
+model inference have not completed. No OASIS GPU quality or latency claim is
+made before those gates pass.
 
 ## Paper-To-Code Findings
 
@@ -171,11 +197,13 @@ end-to-end query latency on an A800, with expensive node generation and root
 merge maintenance assumed to overlap asynchronously.
 
 The public code performs summary and merge work synchronously and does not
-publish the timing runner used for the paper table. A root budget of four only
-bounds root summaries: descendants, parent nodes, and keyframes remain in the
-event forest, so complete retained evidence grows with the stream. The code
-also fails to write parent pointers after one merge path and uses the original
-question rather than generated intent for QA retrieval.
+publish the timing runner used for the paper table. The audited evaluator's
+`pace=0` total wall time covers the complete offline stream and synchronous
+maintenance; it is not request latency. A root budget of four only bounds root
+summaries: descendants, parent nodes, and keyframes remain in the event forest,
+so complete retained evidence grows with the stream. The code also fails to
+write parent pointers after one merge path and uses the original question
+rather than generated intent for QA retrieval.
 
 The executable `ShortMemory` smoke also shows that configured limits are
 exclusive in steady state: the implementation appends and then pops when
@@ -278,13 +306,15 @@ block-circulant plus low-rank unit would be one component of a hybrid system.
 2. Add native `[frame,64,4096]` LLaVA projected-token versions of strict
    CausalMem, CTR, and STC-Pruner under the same 512-token read budget.
 3. Run the now-preflighted STC ReKV baseline and STC modes when the A800 idle
-   gate passes. Separately run StreamingTOM's incremental official-core CTR/OQM
-   harness. Report P50/P95/P99 only for stages each runner actually measures;
-   do not relabel the STC ViT/prefill stage sum as end-to-end latency.
-4. Extend the now-passing OASIS Python 3.12 module environment to the official
-   Qwen3-VL and embedding checkpoints; report foreground latency and
-   background GPU-seconds. Do not hide synchronous maintenance behind an
-   assumed asynchronous schedule.
+   gate admits the jobs now waiting in the safe queue. Separately run
+   StreamingTOM's incremental official-core CTR/OQM harness. Report P50/P95/P99
+   only for stages each runner actually measures; do not relabel the STC
+   ViT/prefill stage sum as end-to-end latency.
+4. Let the queued OASIS one-video smoke acquire an idle GPU and pass its CUDA
+   BF16 kernel preflight before model inference. Queue the exact 50-video
+   quality run only after that smoke passes. Report `pace=0` whole-run wall
+   time separately; do not relabel it as request latency or hide synchronous
+   maintenance behind an asynchronous assumption.
 5. Keep StateKV and SelectStream labeled paper proxies until executable code
    is public. Do not fill missing architectural details and call the result
    official.
