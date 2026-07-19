@@ -8,6 +8,7 @@ from pathlib import Path
 
 EXPERIMENTS_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(EXPERIMENTS_ROOT / "probes"))
+STREAMINGTOM_QUEUE = EXPERIMENTS_ROOT / "scripts/run_streamingtom_kernels_when_idle.sh"
 
 from benchmark_official_streaming_kernels import (  # noqa: E402
     REQUIRED_PATHS,
@@ -33,6 +34,27 @@ def _git(*args: str, cwd: Path) -> str:
 
 
 class OfficialStreamingKernelBenchmarkTest(unittest.TestCase):
+    def test_streamingtom_queue_locks_and_fixes_formal_protocol(self) -> None:
+        script = STREAMINGTOM_QUEUE.read_text(encoding="utf-8")
+        required_fragments = (
+            'MAX_IDLE_MEMORY_MIB:-4096',
+            'MAX_IDLE_UTILIZATION:-20',
+            'flock -n 9',
+            'streamingtom_ctr|streamingtom_oqm_write',
+            'frames=64',
+            'streamingtom_oqm_select)',
+            'frames=256',
+            'LAYERS=28',
+            'WARMUP=20',
+            'REPEAT=200',
+            'DTYPE=float16',
+            'quality.get("passed") is not True',
+        )
+        for fragment in required_fragments:
+            with self.subTest(fragment=fragment):
+                self.assertIn(fragment, script)
+        self.assertNotIn("ALLOW_BUSY_GPU", script)
+
     def test_method_defaults_exercise_cross_batch_state_and_oqm_topk(self) -> None:
         self.assertEqual(resolve_frames("streamingtom_ctr", 0), 64)
         self.assertEqual(resolve_frames("streamingtom_oqm_write", 0), 64)

@@ -267,6 +267,21 @@ The external methods operate at different state layers, so `reproduction_tier`
 and the complete active/archive/detailed byte breakdown must remain attached
 to every comparison.
 
+Run the pinned StreamingTOM CTR/OQM core microbenchmarks only after the strict
+GPU idle gate admits the job:
+
+```bash
+bash experiments/scripts/run_streamingtom_kernels_when_idle.sh \
+  streamingtom_core_formal_v1 2
+```
+
+The queue holds the project GPU lock across CTR, OQM write, and OQM select,
+while each child runner rechecks at most 4096 MiB allocated and at most 20%
+utilization. It writes `complete` only after all three official-core summaries
+pass their quality gates and contain 200 latency samples. These measurements
+are core-module P50/P95/P99 latency, not encoder, prefill, TTFT, or end-to-end
+request latency.
+
 ## Controlled Dual-Timescale Trigger
 
 Run the matched-rank synthetic trigger gate on static, camera-motion,
