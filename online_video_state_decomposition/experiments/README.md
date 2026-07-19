@@ -203,6 +203,25 @@ full offline evaluator and is not request TTFT or SLO latency.
 Separately, the preflighted CausalMem and STC jobs are waiting in their safe
 idle-GPU queues. Waiting in a queue is not an official quality or timing result.
 
+Once audited runs complete, aggregate only their final model-level artifacts:
+
+```bash
+python experiments/probes/aggregate_official_streaming_results.py \
+  --causalmem-metrics remote_results/causalmem_streamingbench/<run>/metrics.json \
+  --stc-result remote_results/stc_rekv_official/<rekv-run>/result.json \
+  --stc-result remote_results/stc_rekv_official/<stc-run>/result.json \
+  --oasis-result remote_results/oasis_streamingbench/<run>/result.json \
+  --out-dir remote_results/official_streaming_aggregate
+```
+
+The aggregator rejects incomplete or internally inconsistent results and writes
+CSV, JSON, PNG, and PDF artifacts. Formal 50-video/250-question quality is kept
+separate from smoke quality. STC P50/P95/P99 values cover only the instrumented
+ViT-encode and visual-token-prefill stages; they are not request-tail latency,
+TTFT, or decode latency. OASIS `pace=0` wall time and method-specific memory
+fields are likewise retained only with their original semantics. Proxy results
+are intentionally excluded.
+
 Replay the frozen CLIP cache through CausalMem, StreamingTOM, STC,
 SelectStream, OASIS, and StateKV mechanism proxies plus project controls:
 
