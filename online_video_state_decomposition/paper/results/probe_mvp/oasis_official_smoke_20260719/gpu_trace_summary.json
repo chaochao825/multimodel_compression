@@ -1,0 +1,22 @@
+{
+  "active_sample_fraction_ge_20_percent": 0.6892950391644909,
+  "format_version": 1,
+  "median_gpu_utilization_percent": 23.0,
+  "median_sample_interval_seconds": 1.100310985581018,
+  "normalized_csv": "paper\\results\\probe_mvp\\oasis_official_smoke_20260719\\gpu_trace.csv",
+  "p95_process_memory_mib": 26674.0,
+  "peak_gpu_memory_used_mib": 26697.0,
+  "peak_gpu_utilization_percent": 98.0,
+  "peak_process_memory_mib": 26674.0,
+  "plots": [
+    "paper\\results\\probe_mvp\\oasis_official_smoke_20260719\\gpu_trace.png",
+    "paper\\results\\probe_mvp\\oasis_official_smoke_20260719\\gpu_trace.pdf"
+  ],
+  "run_fingerprint": "e1d4a0a044fbd0670cd5dc4bc553e82f6bb23839de7bd2ce0e974de0e40567fc",
+  "sample_count": 383,
+  "sampled_duration_seconds": 309.1876267930493,
+  "source_result": "paper\\results\\probe_mvp\\oasis_official_smoke_20260719\\result.json",
+  "source_result_sha256": "df3f7f63d19f4fae5565ef46a207dec1454e490f1ed78d8399cee615b88e631e",
+  "source_samples": "paper\\results\\probe_mvp\\oasis_official_smoke_20260719\\gpu_samples.csv",
+  "source_samples_sha256": "cb47d01e39333b8b3a2671ae1c36c2452ef052696e5bfdce636c33efdfdfd818"
+}

@@ -1,0 +1,6 @@
+*.csv -text whitespace=cr-at-eol
+*.json -text whitespace=cr-at-eol
+*.pdf -text
+*.png -text
+ANALYSIS.md text eol=lf
+SHA256SUMS text eol=lf

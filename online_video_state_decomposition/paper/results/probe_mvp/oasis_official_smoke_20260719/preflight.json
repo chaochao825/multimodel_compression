@@ -1,0 +1,472 @@
+{
+  "benchmark": "StreamingBench Real-Time Visual Understanding",
+  "command": [
+    "/home/spco/online_video_state_decomposition/.conda/oasis-py312/bin/python3.12",
+    "-c",
+    "import random\nimport runpy\nimport sys\n\nimport numpy as np\nimport torch\nfrom transformers import set_seed\n\nseed = int(sys.argv[1])\nscript = sys.argv[2]\nrandom.seed(seed)\nnp.random.seed(seed)\ntorch.manual_seed(seed)\ntorch.cuda.manual_seed_all(seed)\nset_seed(seed)\nsys.argv = sys.argv[2:]\nrunpy.run_path(script, run_name=\"__main__\")\n",
+    "20260719",
+    "/home/spco/online_video_state_decomposition/external_baselines/OASIS/src/scripts/eval.py",
+    "--metadata",
+    "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1.json",
+    "--dataset_root",
+    "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset",
+    "--output_dir",
+    "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719",
+    "--fps",
+    "2.0",
+    "--pace",
+    "0.0",
+    "--shortmem_frames_limit",
+    "32",
+    "--now_window_frames_limit",
+    "16",
+    "--buffer_fps",
+    "1.0",
+    "--frames_per_node",
+    "16",
+    "--tokens_per_frame",
+    "256",
+    "--root_cnt_limit",
+    "4",
+    "--asr",
+    "none",
+    "--rag_event_retrieve_limit",
+    "2",
+    "--rag_qa_retrieve_limit",
+    "1",
+    "--mllm_path",
+    "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+    "--embedding_path",
+    "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope"
+  ],
+  "created_at": "2026-07-19T03:37:39.304111+00:00",
+  "dataset_manifest": {
+    "formal_contract": false,
+    "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/manifests/rtu_1_mapping.json",
+    "question_count": 5,
+    "sha256": "a47c08404befae1d0df3deded174107cecefc20f1a6ad688c93ecfec57ad9034",
+    "source_metadata_sha256": "5ec95ccacdd5000d40884f2a50a72d7634cbc068d5c104798517ae81fabb0493",
+    "subset_metadata_sha256": "c8d26323d2b9939df4d73f5a035ffe28cac4ac8109662b88644ddcfb55ea7593",
+    "upstream_dataset_manifest": {
+      "archive": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/Real-Time Visual Understanding_1-50.zip",
+      "archive_bytes": 9080551796,
+      "archive_sha256": "39f8e42130424bddfa8c298be882b21fa3e818318e9782e28ef705851c0c82c5",
+      "metadata_sha256": "0121417a71e1dcf367222ae97e9512e3e99725d72e60d50760a050816ccd58da",
+      "path": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/manifest.json",
+      "question_count": 250,
+      "sha256": "fc4c18de257107abd9c519d7b92ea22220041f384913b7961f1e0416e7ccbd7a",
+      "subset_sha256": "63e96f1b207f3d17948df61735f4c101ee33e41cc71583ad24696e396f1e8580",
+      "timestamp_normalization_count": 1,
+      "timestamp_normalizations": [
+        {
+          "normalized": "00:08:01",
+          "original": "08:01",
+          "question_id": "Real-Time Visual Understanding_sample_40_3",
+          "reason": "official evaluator requires HH:MM:SS"
+        }
+      ],
+      "video_count": 50
+    },
+    "video_count": 1,
+    "video_crc32": {
+      "1": "ff541db2"
+    }
+  },
+  "embedding": {
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "config_sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+    "model_type": "qwen3",
+    "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope",
+    "support_file_sha256": {
+      "config_sentence_transformers.json": "10667c72ddb772627bf1780cb7f86af8e2ae0032b8c243c731172064105c6961",
+      "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+      "tokenizer.json": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a",
+      "tokenizer_config.json": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+    },
+    "weight_bytes": 1191586416,
+    "weight_files": [
+      {
+        "bytes": 1191586416,
+        "name": "model.safetensors",
+        "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+      }
+    ]
+  },
+  "environment": {
+    "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONHASHSEED": "20260719",
+    "PYTHONPATH": "/home/spco/online_video_state_decomposition/external_baselines/OASIS",
+    "TOKENIZERS_PARALLELISM": "false",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "evidence_scope": "official OASIS quality evaluation; elapsed wall time is an offline, pace=0 whole-run measurement, not request TTFT or SLO latency",
+  "evidence_tier": "official_model_level_smoke",
+  "fingerprint_inputs": {
+    "allow_smoke_subset": true,
+    "command": [
+      "/home/spco/online_video_state_decomposition/.conda/oasis-py312/bin/python3.12",
+      "-c",
+      "import random\nimport runpy\nimport sys\n\nimport numpy as np\nimport torch\nfrom transformers import set_seed\n\nseed = int(sys.argv[1])\nscript = sys.argv[2]\nrandom.seed(seed)\nnp.random.seed(seed)\ntorch.manual_seed(seed)\ntorch.cuda.manual_seed_all(seed)\nset_seed(seed)\nsys.argv = sys.argv[2:]\nrunpy.run_path(script, run_name=\"__main__\")\n",
+      "20260719",
+      "/home/spco/online_video_state_decomposition/external_baselines/OASIS/src/scripts/eval.py",
+      "--metadata",
+      "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1.json",
+      "--dataset_root",
+      "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset",
+      "--output_dir",
+      "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719",
+      "--fps",
+      "2.0",
+      "--pace",
+      "0.0",
+      "--shortmem_frames_limit",
+      "32",
+      "--now_window_frames_limit",
+      "16",
+      "--buffer_fps",
+      "1.0",
+      "--frames_per_node",
+      "16",
+      "--tokens_per_frame",
+      "256",
+      "--root_cnt_limit",
+      "4",
+      "--asr",
+      "none",
+      "--rag_event_retrieve_limit",
+      "2",
+      "--rag_qa_retrieve_limit",
+      "1",
+      "--mllm_path",
+      "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+      "--embedding_path",
+      "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope"
+    ],
+    "config": {
+      "asr": "none",
+      "buffer_fps": 1.0,
+      "fps": 2.0,
+      "frames_per_node": 16,
+      "now_window_frames_limit": 16,
+      "pace": 0.0,
+      "rag_event_retrieve_limit": 2,
+      "rag_qa_retrieve_limit": 1,
+      "root_cnt_limit": 4,
+      "shortmem_frames_limit": 32,
+      "tokens_per_frame": 256
+    },
+    "dataset_manifest_sha256": "a47c08404befae1d0df3deded174107cecefc20f1a6ad688c93ecfec57ad9034",
+    "embedding": {
+      "architectures": [
+        "Qwen3ForCausalLM"
+      ],
+      "config_sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+      "model_type": "qwen3",
+      "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-Embedding-0.6B-modelscope",
+      "support_file_sha256": {
+        "config_sentence_transformers.json": "10667c72ddb772627bf1780cb7f86af8e2ae0032b8c243c731172064105c6961",
+        "modules.json": "84e40c8e006c9b1d6c122e02cba9b02458120b5fb0c87b746c41e0207cf642cf",
+        "tokenizer.json": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a",
+        "tokenizer_config.json": "253153d0738ceb4c668d2eff957714dd2bea0b56de772a9fdccd96cbf517e6a0"
+      },
+      "weight_bytes": 1191586416,
+      "weight_files": [
+        {
+          "bytes": 1191586416,
+          "name": "model.safetensors",
+          "sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd"
+        }
+      ]
+    },
+    "format_version": 1,
+    "gpu_index": 1,
+    "max_idle_memory_mib": 4096,
+    "max_idle_utilization": 20,
+    "metadata_sha256": "c8d26323d2b9939df4d73f5a035ffe28cac4ac8109662b88644ddcfb55ea7593",
+    "minimum_gpu_total_memory_mib": 70000,
+    "mllm": {
+      "architectures": [
+        "Qwen3VLForConditionalGeneration"
+      ],
+      "config_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+      "index_sha256": "520b2e05079402e9468a8701d03d1154d14b2599593afb6effa7fb60c1bff070",
+      "indexed_tensor_count": 750,
+      "model_type": "qwen3_vl",
+      "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+      "support_file_sha256": {
+        "chat_template.json": "5c72a170d2a4a1a3bc5adad2e689ae28138a9700e5b8c96c0266331e86c0acce",
+        "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+        "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+        "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+        "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+      },
+      "weight_bytes": 17534339512,
+      "weight_files": [
+        {
+          "bytes": 4902275944,
+          "name": "model-00001-of-00004.safetensors",
+          "sha256": "d5d0aef0eb170fc7453a296c43c0849a56f510555d3588e4fd662bb35490aefa"
+        },
+        {
+          "bytes": 4915962496,
+          "name": "model-00002-of-00004.safetensors",
+          "sha256": "8be88fb5501e4d5719a6d4cc212e6a13480330e74f3e8c77daa1a68f199106b5"
+        },
+        {
+          "bytes": 4999831048,
+          "name": "model-00003-of-00004.safetensors",
+          "sha256": "83de00eafe6e0d57ccd009dbcf71c9974d74df2f016c27afb7e95aafd16b2192"
+        },
+        {
+          "bytes": 2716270024,
+          "name": "model-00004-of-00004.safetensors",
+          "sha256": "0a88b98e9f96270973f567e6a2c103ede6ccdf915ca3075e21c755604d0377a5"
+        }
+      ]
+    },
+    "runner_sha256": "7003a94665d736be6d4390feab745c31cceff3204c1baa698f9d857af77471fe",
+    "runtime": {
+      "bf16_supported": true,
+      "cuda_available": true,
+      "cuda_capability": [
+        8,
+        0
+      ],
+      "cuda_device_count": 1,
+      "cuda_device_name": "NVIDIA A800 80GB PCIe",
+      "flash_attn_kernel": {
+        "dtype": "bfloat16",
+        "finite": true,
+        "shape": [
+          1,
+          8,
+          2,
+          64
+        ]
+      },
+      "libc": [
+        "glibc",
+        "2.31"
+      ],
+      "packages": {
+        "accelerate": "1.10.1",
+        "decord": "0.6.0",
+        "flash_attn": "2.8.3",
+        "numpy": "2.5.1",
+        "opencv_python": "5.0.0.93",
+        "pydantic": "2.13.4",
+        "qwen_vl_utils": "0.0.14",
+        "sentence_transformers": "5.6.0",
+        "torch": "2.5.1",
+        "torchvision": "0.20.1",
+        "transformers": "4.57.6"
+      },
+      "python": "3.12.13",
+      "torch_cuda_version": "12.4",
+      "torch_cxx11_abi": false
+    },
+    "seed": 20260719,
+    "shared_helper_sha256": "d5d8f9107c319ff9b71cd01832f6c9b5ab92ecf75041edcb60fafcfeb7ee3ce5",
+    "source": {
+      "code_clean": true,
+      "commit": "dbd342c79a1b9b03327d4ec5daa87488737db988",
+      "ignored_cache_status": [],
+      "path": "/home/spco/online_video_state_decomposition/external_baselines/OASIS",
+      "required_file_sha256": {
+        "src/oasis/config.py": "ae606931b2a44b1d8995747ef52539c609c767aec8b700828b22d8771ebeccc7",
+        "src/oasis/event/forest.py": "4c5c74fff604226f13deadf9a8d0dc0412236a5fbbb5795754c28deaa26993ed",
+        "src/oasis/event/segmenter.py": "c8bcb81c6e7816d312b7f30de1f736089a63698e75baa621cf5ba203427944ea",
+        "src/oasis/io/stream.py": "0f952cef45aa7a0f61091e1277c6c4c2db0795bf19df95e4023024e4b599ef71",
+        "src/oasis/model.py": "348a8a13e4650082efb619767082aef91037418724f2c412a74ab0ce51761b33",
+        "src/scripts/eval.py": "0643f5ce472b71bbf81c6e2aee4a0d68572aadd33ef06d619629e1b3d1448a03"
+      }
+    },
+    "video_crc32": {
+      "1": "ff541db2"
+    },
+    "video_sampling": {
+      "minimum_sampled_frames": 376,
+      "records": [
+        {
+          "first_frame_shape": [
+            1080,
+            1920,
+            3
+          ],
+          "sampled_frames": 376,
+          "source_fps": 25.0,
+          "total_frames": 4707,
+          "video_id": 1
+        }
+      ],
+      "target_fps": 2.0,
+      "video_count": 1
+    }
+  },
+  "format_version": 1,
+  "metadata": {
+    "dataset_root": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset",
+    "formal_contract": false,
+    "minimum_breakpoint_time_seconds": 4.0,
+    "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1.json",
+    "question_count": 5,
+    "question_ids": [
+      "Real-Time Visual Understanding_sample_1_1",
+      "Real-Time Visual Understanding_sample_1_2",
+      "Real-Time Visual Understanding_sample_1_4",
+      "Real-Time Visual Understanding_sample_1_3",
+      "Real-Time Visual Understanding_sample_1_5"
+    ],
+    "sha256": "c8d26323d2b9939df4d73f5a035ffe28cac4ac8109662b88644ddcfb55ea7593",
+    "task_counts": {
+      "Attribute Perception": 2,
+      "Causal Reasoning": 1,
+      "Object Perception": 1,
+      "Text-Rich Understanding": 1
+    },
+    "video_count": 1,
+    "video_ids": [
+      1
+    ],
+    "videos": [
+      {
+        "path": "/home/spco/online_video_state_decomposition/third_party/OASIS-StreamingBench-RT-1-50-v1/dataset/StreamingBench/Real-Time_Visual_Understanding/sample_1/video.mp4",
+        "relative_path": "StreamingBench/Real-Time_Visual_Understanding/sample_1/video.mp4",
+        "size_bytes": 95813537,
+        "video_id": 1
+      }
+    ]
+  },
+  "method": "OASIS",
+  "mllm": {
+    "architectures": [
+      "Qwen3VLForConditionalGeneration"
+    ],
+    "config_sha256": "5cd452860dc1e9c29dd71cc3cef7f39b338b7a40793f7a260655c2d3568f3661",
+    "index_sha256": "520b2e05079402e9468a8701d03d1154d14b2599593afb6effa7fb60c1bff070",
+    "indexed_tensor_count": 750,
+    "model_type": "qwen3_vl",
+    "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope",
+    "support_file_sha256": {
+      "chat_template.json": "5c72a170d2a4a1a3bc5adad2e689ae28138a9700e5b8c96c0266331e86c0acce",
+      "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+      "tokenizer.json": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7",
+      "tokenizer_config.json": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399",
+      "video_preprocessor_config.json": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+    },
+    "weight_bytes": 17534339512,
+    "weight_files": [
+      {
+        "bytes": 4902275944,
+        "name": "model-00001-of-00004.safetensors",
+        "sha256": "d5d0aef0eb170fc7453a296c43c0849a56f510555d3588e4fd662bb35490aefa"
+      },
+      {
+        "bytes": 4915962496,
+        "name": "model-00002-of-00004.safetensors",
+        "sha256": "8be88fb5501e4d5719a6d4cc212e6a13480330e74f3e8c77daa1a68f199106b5"
+      },
+      {
+        "bytes": 4999831048,
+        "name": "model-00003-of-00004.safetensors",
+        "sha256": "83de00eafe6e0d57ccd009dbcf71c9974d74df2f016c27afb7e95aafd16b2192"
+      },
+      {
+        "bytes": 2716270024,
+        "name": "model-00004-of-00004.safetensors",
+        "sha256": "0a88b98e9f96270973f567e6a2c103ede6ccdf915ca3075e21c755604d0377a5"
+      }
+    ]
+  },
+  "official_config": {
+    "asr": "none",
+    "buffer_fps": 1.0,
+    "fps": 2.0,
+    "frames_per_node": 16,
+    "now_window_frames_limit": 16,
+    "pace": 0.0,
+    "rag_event_retrieve_limit": 2,
+    "rag_qa_retrieve_limit": 1,
+    "root_cnt_limit": 4,
+    "shortmem_frames_limit": 32,
+    "tokens_per_frame": 256
+  },
+  "run_fingerprint": "e1d4a0a044fbd0670cd5dc4bc553e82f6bb23839de7bd2ce0e974de0e40567fc",
+  "runtime": {
+    "bf16_supported": true,
+    "cuda_available": true,
+    "cuda_capability": [
+      8,
+      0
+    ],
+    "cuda_device_count": 1,
+    "cuda_device_name": "NVIDIA A800 80GB PCIe",
+    "flash_attn_kernel": {
+      "dtype": "bfloat16",
+      "finite": true,
+      "shape": [
+        1,
+        8,
+        2,
+        64
+      ]
+    },
+    "libc": [
+      "glibc",
+      "2.31"
+    ],
+    "packages": {
+      "accelerate": "1.10.1",
+      "decord": "0.6.0",
+      "flash_attn": "2.8.3",
+      "numpy": "2.5.1",
+      "opencv_python": "5.0.0.93",
+      "pydantic": "2.13.4",
+      "qwen_vl_utils": "0.0.14",
+      "sentence_transformers": "5.6.0",
+      "torch": "2.5.1",
+      "torchvision": "0.20.1",
+      "transformers": "4.57.6"
+    },
+    "python": "3.12.13",
+    "torch_cuda_version": "12.4",
+    "torch_cxx11_abi": false
+  },
+  "source": {
+    "code_clean": true,
+    "commit": "dbd342c79a1b9b03327d4ec5daa87488737db988",
+    "ignored_cache_status": [],
+    "path": "/home/spco/online_video_state_decomposition/external_baselines/OASIS",
+    "required_file_sha256": {
+      "src/oasis/config.py": "ae606931b2a44b1d8995747ef52539c609c767aec8b700828b22d8771ebeccc7",
+      "src/oasis/event/forest.py": "4c5c74fff604226f13deadf9a8d0dc0412236a5fbbb5795754c28deaa26993ed",
+      "src/oasis/event/segmenter.py": "c8bcb81c6e7816d312b7f30de1f736089a63698e75baa621cf5ba203427944ea",
+      "src/oasis/io/stream.py": "0f952cef45aa7a0f61091e1277c6c4c2db0795bf19df95e4023024e4b599ef71",
+      "src/oasis/model.py": "348a8a13e4650082efb619767082aef91037418724f2c412a74ab0ce51761b33",
+      "src/scripts/eval.py": "0643f5ce472b71bbf81c6e2aee4a0d68572aadd33ef06d619629e1b3d1448a03"
+    }
+  },
+  "video_sampling": {
+    "minimum_sampled_frames": 376,
+    "records": [
+      {
+        "first_frame_shape": [
+          1080,
+          1920,
+          3
+        ],
+        "sampled_frames": 376,
+        "source_fps": 25.0,
+        "total_frames": 4707,
+        "video_id": 1
+      }
+    ],
+    "target_fps": 2.0,
+    "video_count": 1
+  }
+}

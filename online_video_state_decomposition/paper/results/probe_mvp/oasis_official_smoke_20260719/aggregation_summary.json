@@ -1,0 +1,64 @@
+{
+  "cautions": [
+    "CausalMem and OASIS quality are compared only within the formal 50x5 scope.",
+    "Smoke quality is emitted separately and is not a formal method comparison.",
+    "STC values cover ViT encode and visual-token prefill stages only.",
+    "Whole-run wall time is not mixed with stage P50/P95/P99 or request latency.",
+    "Peak-memory fields have method-specific semantics and are not plotted together.",
+    "Proxy results are intentionally excluded from this official-result aggregate."
+  ],
+  "formal_quality_run_count": 0,
+  "format_version": 1,
+  "plots": {
+    "quality_smoke": [
+      "/home/spco/online_video_state_decomposition/remote_results/official_streaming_aggregate/oasis_smoke_1video_v1_20260719/official_quality_smoke.png",
+      "/home/spco/online_video_state_decomposition/remote_results/official_streaming_aggregate/oasis_smoke_1video_v1_20260719/official_quality_smoke.pdf"
+    ]
+  },
+  "quality_formal": [],
+  "quality_smoke": [
+    {
+      "accuracy": 1.0,
+      "correct": 5,
+      "coverage": 1.0,
+      "evidence_tier": "official_model_level_smoke",
+      "expected": 5,
+      "method": "OASIS",
+      "scope": "smoke_5q",
+      "scored": 5,
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/result.json",
+      "variant": "event_archive"
+    }
+  ],
+  "run_count": 1,
+  "runs": [
+    {
+      "benchmark": "StreamingBench RTU",
+      "evidence_tier": "official_model_level_smoke",
+      "method": "OASIS",
+      "notes": "Slow event-archive quality baseline; wall time is not TTFT or SLO latency.",
+      "peak_memory_semantics": "sampled evaluator-process GPU memory",
+      "peak_memory_unit": "MiB",
+      "peak_memory_value": 26674,
+      "quality_accuracy": 1.0,
+      "quality_correct": 5,
+      "quality_coverage": 1.0,
+      "quality_expected": 5,
+      "quality_scored": 5,
+      "role": "quality",
+      "run_fingerprint": "e1d4a0a044fbd0670cd5dc4bc553e82f6bb23839de7bd2ce0e974de0e40567fc",
+      "scope": "smoke_5q",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/result.json",
+      "source_sha256": "df3f7f63d19f4fae5565ef46a207dec1454e490f1ed78d8399cee615b88e631e",
+      "stage_latency_available": false,
+      "status": "complete",
+      "tail_latency_available": false,
+      "variant": "event_archive",
+      "whole_run_seconds": 309.64532083808444,
+      "whole_run_semantics": "whole official pace=0 evaluation; not request latency"
+    }
+  ],
+  "smoke_quality_run_count": 1,
+  "stc_stage_latency": [],
+  "stc_stage_row_count": 0
+}

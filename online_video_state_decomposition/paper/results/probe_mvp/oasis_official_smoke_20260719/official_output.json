@@ -1,0 +1,106 @@
+{
+  "results": [
+    {
+      "info": {
+        "video_path": "StreamingBench/Real-Time_Visual_Understanding/sample_1/video.mp4",
+        "dataset": "streamingbench"
+      },
+      "breakpoint": [
+        {
+          "question": "What logos are visible in the background as players and referees walk towards the center of the football field?",
+          "answer": "D",
+          "options": [
+            "A. FIFA and La Liga.",
+            "B. UEFA and La Liga.",
+            "C. Bundesliga and La Liga.",
+            "D. Aeromexico and La Liga."
+          ],
+          "gt": "D",
+          "type": "multiple_choice",
+          "time": 4,
+          "task": "Object Perception",
+          "question_id": "Real-Time Visual Understanding_sample_1_1",
+          "response": "The video frames show referees and players walking onto the field, with visible logos in the background. The \"La Liga\" logo is clearly displayed, along with \"Aeromexico\" on a banner. This matches option D. No other options are supported by the visual evidence.\n\n<answer>D</answer>",
+          "prediction": "D",
+          "correct": true
+        },
+        {
+          "question": "Why does the player wearing the number nine red and blue jersey celebrate?",
+          "answer": "C",
+          "options": [
+            "A. He saved a goal.",
+            "B. He received a pass.",
+            "C. He scored a goal.",
+            "D. He won a free kick."
+          ],
+          "gt": "C",
+          "type": "multiple_choice",
+          "time": 53,
+          "task": "Causal Reasoning",
+          "question_id": "Real-Time Visual Understanding_sample_1_2",
+          "response": "The player wearing jersey number 9 (Lewandowski) is seen celebrating after scoring a goal, as evidenced by his actions and the scoreboard updating to 0-1. The goal was scored against the opposing team’s goalkeeper, confirming he scored. The celebration is consistent with scoring, not saving, receiving a pass, or winning a free kick.\n\n<answer>C</answer>",
+          "prediction": "C",
+          "correct": true
+        },
+        {
+          "question": "What color is the goalie's uniform?",
+          "answer": "D",
+          "options": [
+            "A. Blue.",
+            "B. Red.",
+            "C. White.",
+            "D. Yellow."
+          ],
+          "gt": "D",
+          "type": "multiple_choice",
+          "time": 80,
+          "task": "Attribute Perception",
+          "question_id": "Real-Time Visual Understanding_sample_1_4",
+          "response": "The goalie is visible in multiple frames, wearing a bright yellow uniform with the number 1. This is consistent across both the NowWindow and short-term frames. No retrieval is needed as the color is clearly visible in the current video frames.\n\n<answer>D</answer>",
+          "prediction": "D",
+          "correct": true
+        },
+        {
+          "question": "What logo is seen on the jersey of the player covering his mouth?",
+          "answer": "D",
+          "options": [
+            "A. Apple.",
+            "B. Google.",
+            "C. Adidas.",
+            "D. Spotify."
+          ],
+          "gt": "D",
+          "type": "multiple_choice",
+          "time": 82,
+          "task": "Text-Rich Understanding",
+          "question_id": "Real-Time Visual Understanding_sample_1_3",
+          "response": "<tool_call>\n{\"name\": \"rag_retrieval\", \"arguments\": {\"text_input\": \"player covering mouth, jersey logo visible\"}}\n</tool_call>\n\n Retrieved events: ['ev_64_126', 'ev_0_62']\n Retrieved QAs: ['qa_3.0']\n<answer>D</answer>",
+          "prediction": "D",
+          "correct": true
+        },
+        {
+          "question": "What is the color of the cooler labeled \"PRIME\" near the team bench?",
+          "answer": "D",
+          "options": [
+            "A. Blue.",
+            "B. Yellow.",
+            "C. Green.",
+            "D. Red."
+          ],
+          "gt": "D",
+          "type": "multiple_choice",
+          "time": 128,
+          "task": "Attribute Perception",
+          "question_id": "Real-Time Visual Understanding_sample_1_5",
+          "response": "The question asks for the color of the cooler labeled \"PRIME\" near the team bench, which is visible in the NowWindow frames (00:02:00-00:02:07). The cooler is clearly red with \"PRIME\" written on it. No retrieval is needed as this is directly observable in the current frames.\n\n<answer>D</answer>",
+          "prediction": "D",
+          "correct": true
+        }
+      ]
+    }
+  ],
+  "total_videos": 1,
+  "mc_total": 5,
+  "mc_correct": 5,
+  "mc_accuracy": 1.0
+}

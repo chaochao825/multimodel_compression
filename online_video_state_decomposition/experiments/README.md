@@ -222,6 +222,19 @@ TTFT, or decode latency. OASIS `pace=0` wall time and method-specific memory
 fields are likewise retained only with their original semantics. Proxy results
 are intentionally excluded.
 
+Plot and cross-check the per-run GPU monitor trace against its audited result:
+
+```bash
+python experiments/probes/plot_official_gpu_trace.py \
+  --samples remote_results/<method>/<run>/gpu_samples_<attempt>.csv \
+  --result remote_results/<method>/<run>/result.json \
+  --out-dir remote_results/<method>/<run>/gpu_trace
+```
+
+This writes a normalized CSV, a JSON resource summary, and PNG/PDF memory and
+utilization traces. The command rejects timestamp, sample-count, peak-memory,
+or peak-utilization disagreement between the raw monitor and `result.json`.
+
 Replay the frozen CLIP cache through CausalMem, StreamingTOM, STC,
 SelectStream, OASIS, and StateKV mechanism proxies plus project controls:
 

@@ -1,0 +1,150 @@
+{
+  "evidence_scope": "official OASIS quality evaluation; elapsed wall time is an offline, pace=0 whole-run measurement, not request TTFT or SLO latency",
+  "format_version": 1,
+  "metrics": {
+    "accuracy": 1.0,
+    "accuracy_all_expected": 1.0,
+    "accuracy_on_scored": 1.0,
+    "complete": true,
+    "completed_questions": 5,
+    "completed_videos": 1,
+    "correct": 5,
+    "errors": [],
+    "expected_questions": 5,
+    "expected_videos": 1,
+    "output_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/rtu_1_output.json",
+    "output_sha256": "2e475dafdab00c85f77415744fe93d73262ed803304d0df4a8703c208968091c",
+    "safe_resume_prefix": false,
+    "scored_coverage": 1.0,
+    "scored_questions": 5,
+    "task_metrics": {
+      "Attribute Perception": {
+        "accuracy": 1.0,
+        "correct": 2,
+        "coverage": 1.0,
+        "errors": 0,
+        "scored": 2,
+        "total": 2
+      },
+      "Causal Reasoning": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "coverage": 1.0,
+        "errors": 0,
+        "scored": 1,
+        "total": 1
+      },
+      "Object Perception": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "coverage": 1.0,
+        "errors": 0,
+        "scored": 1,
+        "total": 1
+      },
+      "Text-Rich Understanding": {
+        "accuracy": 1.0,
+        "correct": 1,
+        "coverage": 1.0,
+        "errors": 0,
+        "scored": 1,
+        "total": 1
+      }
+    }
+  },
+  "official_output_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/rtu_1_output.json",
+  "preflight_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/preflight.json",
+  "run_fingerprint": "e1d4a0a044fbd0670cd5dc4bc553e82f6bb23839de7bd2ce0e974de0e40567fc",
+  "run_record": {
+    "attempt_id": "20260719T033748Z",
+    "elapsed_semantics": "whole official pace=0 evaluation; not request latency",
+    "elapsed_wall_seconds": 309.64532083808444,
+    "finished_at": "2026-07-19T03:42:58.044927+00:00",
+    "format_version": 1,
+    "gpu_after_locked": {
+      "memory_total_mib": 81920,
+      "memory_used_mib": 17,
+      "utilization_percent": 0,
+      "uuid": "GPU-4cef1781-fc13-31ef-c955-310cec1794d3"
+    },
+    "gpu_before": {
+      "memory_total_mib": 81920,
+      "memory_used_mib": 17,
+      "utilization_percent": 0,
+      "uuid": "GPU-4cef1781-fc13-31ef-c955-310cec1794d3"
+    },
+    "gpu_locked": {
+      "memory_total_mib": 81920,
+      "memory_used_mib": 17,
+      "utilization_percent": 0,
+      "uuid": "GPU-4cef1781-fc13-31ef-c955-310cec1794d3"
+    },
+    "gpu_monitor": {
+      "gpu_peak_process_mib_sampled": 26674,
+      "gpu_peak_total_delta_mib_sampled": 26680,
+      "gpu_peak_total_mib_sampled": 26697,
+      "gpu_peak_utilization_percent_sampled": 98,
+      "sample_count": 383
+    },
+    "gpu_samples_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/gpu_samples_20260719T033748Z.csv",
+    "interrupted": false,
+    "log_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/launch_20260719T033748Z.log",
+    "partial_metrics": {
+      "accuracy": 1.0,
+      "accuracy_all_expected": 1.0,
+      "accuracy_on_scored": 1.0,
+      "complete": true,
+      "completed_questions": 5,
+      "completed_videos": 1,
+      "correct": 5,
+      "errors": [],
+      "expected_questions": 5,
+      "expected_videos": 1,
+      "output_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_smoke_1video_v1_20260719/rtu_1_output.json",
+      "output_sha256": "2e475dafdab00c85f77415744fe93d73262ed803304d0df4a8703c208968091c",
+      "safe_resume_prefix": false,
+      "scored_coverage": 1.0,
+      "scored_questions": 5,
+      "task_metrics": {
+        "Attribute Perception": {
+          "accuracy": 1.0,
+          "correct": 2,
+          "coverage": 1.0,
+          "errors": 0,
+          "scored": 2,
+          "total": 2
+        },
+        "Causal Reasoning": {
+          "accuracy": 1.0,
+          "correct": 1,
+          "coverage": 1.0,
+          "errors": 0,
+          "scored": 1,
+          "total": 1
+        },
+        "Object Perception": {
+          "accuracy": 1.0,
+          "correct": 1,
+          "coverage": 1.0,
+          "errors": 0,
+          "scored": 1,
+          "total": 1
+        },
+        "Text-Rich Understanding": {
+          "accuracy": 1.0,
+          "correct": 1,
+          "coverage": 1.0,
+          "errors": 0,
+          "scored": 1,
+          "total": 1
+        }
+      }
+    },
+    "partial_validation_error": null,
+    "resume_snapshot_path": null,
+    "return_code": 0,
+    "run_fingerprint": "e1d4a0a044fbd0670cd5dc4bc553e82f6bb23839de7bd2ce0e974de0e40567fc",
+    "started_at": "2026-07-19T03:37:48.399614+00:00"
+  },
+  "status": "complete"
+}
