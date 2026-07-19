@@ -1,0 +1,50 @@
+{
+  "format_version": 1,
+  "evidence_tier": "official_model_level_subset",
+  "source": {
+    "repository": "https://github.com/hktk07/CausalMem",
+    "commit": "640104b3786125c4918924f9b666ff7fe04d81de",
+    "license_note": "No root license file was found; the checkout remains external and read-only."
+  },
+  "model": {
+    "repository": "lmms-lab/llava-onevision-qwen2-7b-ov",
+    "required_model_type": "llava",
+    "required_architecture": "LlavaQwenForCausalLM",
+    "required_vision_tower": "google/siglip-so400m-patch14-384",
+    "incompatible_model_type": "llava_onevision"
+  },
+  "dataset": {
+    "repository": "mjuicem/StreamingBench",
+    "archive": "Real-Time Visual Understanding_1-50.zip",
+    "metadata": "StreamingBench/Real_Time_Visual_Understanding.csv",
+    "first_video": 1,
+    "last_video": 50,
+    "expected_videos": 50,
+    "expected_questions": 250
+  },
+  "methods": {
+    "baseline": {
+      "availability": "blocked_upstream_source_gap",
+      "official_sampling": "32 uniform frames up to the question timestamp",
+      "blocker": "Pinned llava_qwen.py imports missing llava/model/llava_arch_baseline.py; no baseline result may be claimed from this checkout."
+    },
+    "causal_mem": {
+      "availability": "runnable_official",
+      "official_sampling_fps": 0.5,
+      "foss_budget": 12000,
+      "foss_decay": 0.9,
+      "foss_k_max": 64,
+      "foss_max_new_basis": 8,
+      "foss_time_weight": 0.8,
+      "foss_update_ratio": 0.1,
+      "foss_time_power": 1.0
+    }
+  },
+  "reporting": {
+    "quality": "Exact-match multiple-choice accuracy from the official evaluator",
+    "latency": "Process wall time and peak GPU memory only",
+    "tail_latency": "Unavailable because the pinned official evaluator has no per-sample timing",
+    "timestamp_normalization": "Only sample_40_3 is normalized from 08:01 to 00:08:01 and recorded in the dataset manifest",
+    "formal_contract": "50 videos, 250 questions, five per video; exact-ID subsets are smoke-only"
+  }
+}

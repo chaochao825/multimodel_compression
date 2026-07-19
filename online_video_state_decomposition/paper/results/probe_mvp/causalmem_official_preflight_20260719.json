@@ -1,0 +1,361 @@
+{
+  "benchmark": "StreamingBench Real-Time Visual Understanding",
+  "command": [
+    "/home/spco/online_video_state_decomposition/.conda/causalmem-py310/bin/python",
+    "-W",
+    "ignore",
+    "/home/spco/online_video_state_decomposition/external_baselines/CausalMem/llava/eval/modeling_streamingbench.py",
+    "--model-path",
+    "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-original-hf",
+    "--video-dir",
+    "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/realtime_video",
+    "--gt-file",
+    "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/Real_Time_Visual_Understanding_1-50.csv",
+    "--output-dir",
+    "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causal_mem_rt_1_50",
+    "--output-name",
+    "pred",
+    "--num-chunks",
+    "1",
+    "--chunk-idx",
+    "0",
+    "--conv-mode",
+    "qwen_1_5"
+  ],
+  "dataset": {
+    "first_video": 1,
+    "gt_file": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/Real_Time_Visual_Understanding_1-50.csv",
+    "gt_sha256": "63e96f1b207f3d17948df61735f4c101ee33e41cc71583ad24696e396f1e8580",
+    "last_video": 50,
+    "question_count": 250,
+    "questions_per_video": {
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "4": 5,
+      "5": 5,
+      "6": 5,
+      "7": 5,
+      "8": 5,
+      "9": 5,
+      "10": 5,
+      "11": 5,
+      "12": 5,
+      "13": 5,
+      "14": 5,
+      "15": 5,
+      "16": 5,
+      "17": 5,
+      "18": 5,
+      "19": 5,
+      "20": 5,
+      "21": 5,
+      "22": 5,
+      "23": 5,
+      "24": 5,
+      "25": 5,
+      "26": 5,
+      "27": 5,
+      "28": 5,
+      "29": 5,
+      "30": 5,
+      "31": 5,
+      "32": 5,
+      "33": 5,
+      "34": 5,
+      "35": 5,
+      "36": 5,
+      "37": 5,
+      "38": 5,
+      "39": 5,
+      "40": 5,
+      "41": 5,
+      "42": 5,
+      "43": 5,
+      "44": 5,
+      "45": 5,
+      "46": 5,
+      "47": 5,
+      "48": 5,
+      "49": 5,
+      "50": 5
+    },
+    "video_count": 50,
+    "video_dir": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/realtime_video",
+    "video_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ]
+  },
+  "dataset_manifest": {
+    "archive": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/Real-Time Visual Understanding_1-50.zip",
+    "archive_bytes": 9080551796,
+    "archive_sha256": "39f8e42130424bddfa8c298be882b21fa3e818318e9782e28ef705851c0c82c5",
+    "formal_contract": true,
+    "gt_file": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/Real_Time_Visual_Understanding_1-50.csv",
+    "metadata_sha256": "0121417a71e1dcf367222ae97e9512e3e99725d72e60d50760a050816ccd58da",
+    "path": "/home/spco/online_video_state_decomposition/third_party/StreamingBench-RT-1-50/prepared/manifest.json",
+    "question_count": 250,
+    "selection_mode": "video_range",
+    "sha256": "fc4c18de257107abd9c519d7b92ea22220041f384913b7961f1e0416e7ccbd7a",
+    "subset_sha256": "63e96f1b207f3d17948df61735f4c101ee33e41cc71583ad24696e396f1e8580",
+    "timestamp_normalization_count": 1,
+    "timestamp_normalizations": [
+      {
+        "normalized": "00:08:01",
+        "original": "08:01",
+        "question_id": "Real-Time Visual Understanding_sample_40_3",
+        "reason": "official evaluator requires HH:MM:SS"
+      }
+    ],
+    "video_count": 50
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "FOSS_BUDGET": "12000",
+    "FOSS_DECAY": "0.9",
+    "FOSS_K_MAX": "64",
+    "FOSS_MAX_NEW_BASIS": "8",
+    "FOSS_TIME_POWER": "1.0",
+    "FOSS_TIME_WEIGHT": "0.8",
+    "FOSS_UPDATE_RATIO": "0.1",
+    "HF_HUB_CACHE": "/home/spco/online_video_state_decomposition/third_party/hf_cache",
+    "HF_HUB_OFFLINE": "1",
+    "METHOD": "causal_mem",
+    "TRANSFORMERS_CACHE": "/home/spco/online_video_state_decomposition/third_party/hf_cache",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "evidence_tier": "official_model_level_rt_1_50",
+  "fingerprint_inputs": {
+    "allow_smoke_subset": false,
+    "conv_mode": "qwen_1_5",
+    "dataset_manifest_sha256": "fc4c18de257107abd9c519d7b92ea22220041f384913b7961f1e0416e7ccbd7a",
+    "format_version": 2,
+    "foss_budget": 12000,
+    "foss_decay": 0.9,
+    "foss_k_max": 64,
+    "foss_max_new_basis": 8,
+    "foss_time_power": 1.0,
+    "foss_time_weight": 0.8,
+    "foss_update_ratio": 0.1,
+    "gt_sha256": "63e96f1b207f3d17948df61735f4c101ee33e41cc71583ad24696e396f1e8580",
+    "method": "causal_mem",
+    "model_config_sha256": "cf9eb0d98bb199a66b6f2086f4169c8af631195e7d165c5dd852c2b83b0e907a",
+    "model_index_sha256": "2c5e4f760960cb00a85de88caf55a798eed0685773cdd9d04a6d4438238c134c",
+    "model_weight_files": [
+      {
+        "bytes": 4877668032,
+        "name": "model-00001-of-00004.safetensors",
+        "sha256": "b15850a51ee64cf90bf99aed86e775b65b1ba10e51251ef1d57009fe611adb55"
+      },
+      {
+        "bytes": 4932751008,
+        "name": "model-00002-of-00004.safetensors",
+        "sha256": "5fa80d1a610f925032971b1423be1ea727a763acbfa572dfa77d1c1cd6d24c8f"
+      },
+      {
+        "bytes": 4994571904,
+        "name": "model-00003-of-00004.safetensors",
+        "sha256": "a8ac3828d0f05a2cf6331a724b74cb5965230b7f3150568c0f3961a1bb50fa3a"
+      },
+      {
+        "bytes": 1255812224,
+        "name": "model-00004-of-00004.safetensors",
+        "sha256": "f04485ec7215f6bbab31e6b72e76dcc4c45041f46a242f3b665192226ff6ae96"
+      }
+    ],
+    "output_name": "pred",
+    "runner_sha256": "7ef32d3db5faa82f81dcb4527b4beb0d73010ae832695099178c567a6a6e60f7",
+    "runtime": {
+      "cuda_available": true,
+      "packages": {
+        "accelerate": "0.26.0",
+        "decord": "0.6.0",
+        "flash_attn": "2.5.8",
+        "numpy": "1.26.1",
+        "pandas": "2.2.3",
+        "shortuuid": "1.0.13",
+        "torch": "2.2.1+cu121",
+        "torchvision": "0.17.1+cu121",
+        "transformers": "4.45.1"
+      },
+      "python": "3.10.20",
+      "torch_cuda_version": "12.1"
+    },
+    "source_commit": "640104b3786125c4918924f9b666ff7fe04d81de",
+    "vision_tower_config_sha256": "adc04928d8fd19a61822584fe0cf2e813e5ebac17f3e49fb1ea096860ae6457b",
+    "vision_tower_revision": "9fdffc58afc957d1a03a25b10dba0329ab15c2a3",
+    "vision_tower_weight_files": [
+      {
+        "bytes": 3511950624,
+        "name": "model.safetensors",
+        "sha256": "ea2abad2b7f8a9c1aa5e49a244d5d57ffa71c56f720c94bc5d240ef4d6e1d94a"
+      }
+    ]
+  },
+  "format_version": 2,
+  "method": "causal_mem",
+  "model": {
+    "architectures": [
+      "LlavaQwenForCausalLM"
+    ],
+    "config_sha256": "cf9eb0d98bb199a66b6f2086f4169c8af631195e7d165c5dd852c2b83b0e907a",
+    "index_sha256": "2c5e4f760960cb00a85de88caf55a798eed0685773cdd9d04a6d4438238c134c",
+    "indexed_tensor_count": 765,
+    "model_type": "llava",
+    "path": "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-original-hf",
+    "vision_tower": "google/siglip-so400m-patch14-384",
+    "weight_bytes": 16060803168,
+    "weight_files": [
+      {
+        "bytes": 4877668032,
+        "name": "model-00001-of-00004.safetensors",
+        "sha256": "b15850a51ee64cf90bf99aed86e775b65b1ba10e51251ef1d57009fe611adb55"
+      },
+      {
+        "bytes": 4932751008,
+        "name": "model-00002-of-00004.safetensors",
+        "sha256": "5fa80d1a610f925032971b1423be1ea727a763acbfa572dfa77d1c1cd6d24c8f"
+      },
+      {
+        "bytes": 4994571904,
+        "name": "model-00003-of-00004.safetensors",
+        "sha256": "a8ac3828d0f05a2cf6331a724b74cb5965230b7f3150568c0f3961a1bb50fa3a"
+      },
+      {
+        "bytes": 1255812224,
+        "name": "model-00004-of-00004.safetensors",
+        "sha256": "f04485ec7215f6bbab31e6b72e76dcc4c45041f46a242f3b665192226ff6ae96"
+      }
+    ]
+  },
+  "official_evaluator_limitations": {
+    "baseline_blocker": "pinned upstream llava_qwen.py imports missing llava/model/llava_arch_baseline.py",
+    "baseline_mode_available": false,
+    "generation_max_new_tokens": 4096,
+    "per_sample_latency_instrumented": false,
+    "tail_latency_available": false,
+    "test_size_argument_is_ignored_upstream": true,
+    "video_decode_exceptions_are_swallowed_upstream": true
+  },
+  "run_fingerprint": "8c942bbf03144180b5d8f21a4c660f2f0fa74497fc72fcb7609cc02330aa51be",
+  "runtime": {
+    "cuda_available": true,
+    "packages": {
+      "accelerate": "0.26.0",
+      "decord": "0.6.0",
+      "flash_attn": "2.5.8",
+      "numpy": "1.26.1",
+      "pandas": "2.2.3",
+      "shortuuid": "1.0.13",
+      "torch": "2.2.1+cu121",
+      "torchvision": "0.17.1+cu121",
+      "transformers": "4.45.1"
+    },
+    "python": "3.10.20",
+    "torch_cuda_version": "12.1"
+  },
+  "scope": "official Real-Time Visual Understanding samples 1-50 (50 videos, 250 questions)",
+  "source": {
+    "code_clean": true,
+    "commit": "640104b3786125c4918924f9b666ff7fe04d81de",
+    "ignored_cache_status": [
+      "M llava/model/multimodal_encoder/mlcd/__pycache__/vit_rope2d_hf.cpython-310.pyc",
+      "?? llava/__pycache__/__init__.cpython-310.pyc",
+      "?? llava/__pycache__/constants.cpython-310.pyc",
+      "?? llava/__pycache__/mm_utils.cpython-310.pyc",
+      "?? llava/__pycache__/utils.cpython-310.pyc",
+      "?? llava/model/__pycache__/__init__.cpython-310.pyc",
+      "?? llava/model/__pycache__/llava_arch_v3.cpython-310.pyc",
+      "?? llava/model/__pycache__/llava_arch_v3_time.cpython-310.pyc",
+      "?? llava/model/__pycache__/llava_arch_v3_time_only_mem1.cpython-310.pyc",
+      "?? llava/model/language_model/__pycache__/llava_llama.cpython-310.pyc",
+      "?? llava/model/language_model/__pycache__/llava_mistral.cpython-310.pyc",
+      "?? llava/model/language_model/__pycache__/llava_mixtral.cpython-310.pyc",
+      "?? llava/model/language_model/__pycache__/llava_qwen.cpython-310.pyc",
+      "?? llava/model/multimodal_encoder/__pycache__/builder.cpython-310.pyc",
+      "?? llava/model/multimodal_encoder/__pycache__/clip_encoder.cpython-310.pyc",
+      "?? llava/model/multimodal_encoder/__pycache__/hf_vision.cpython-310.pyc",
+      "?? llava/model/multimodal_encoder/__pycache__/imagebind.cpython-310.pyc",
+      "?? llava/model/multimodal_encoder/__pycache__/mlcd_encoder.cpython-310.pyc",
+      "?? llava/model/multimodal_encoder/__pycache__/open_clip_encoder.cpython-310.pyc",
+      "?? llava/model/multimodal_encoder/__pycache__/siglip_encoder_visionzip.cpython-310.pyc",
+      "?? llava/model/multimodal_projector/__pycache__/builder.cpython-310.pyc",
+      "?? llava/model/multimodal_projector/__pycache__/pooler_projector.cpython-310.pyc",
+      "?? llava/model/multimodal_resampler/__pycache__/builder.cpython-310.pyc",
+      "?? llava/model/multimodal_resampler/__pycache__/masked_drop.cpython-310.pyc",
+      "?? llava/model/multimodal_resampler/__pycache__/perceiver.cpython-310.pyc",
+      "?? llava/model/multimodal_resampler/__pycache__/qformer.cpython-310.pyc",
+      "?? llava/model/multimodal_resampler/__pycache__/spatial_pool.cpython-310.pyc"
+    ],
+    "path": "/home/spco/online_video_state_decomposition/external_baselines/CausalMem",
+    "required_paths": [
+      "llava/eval/modeling_streamingbench.py",
+      "llava/model/builder.py",
+      "llava/model/llava_arch_v3.py"
+    ]
+  },
+  "vision_tower": {
+    "cache_dir": "/home/spco/online_video_state_decomposition/third_party/hf_cache",
+    "config_sha256": "adc04928d8fd19a61822584fe0cf2e813e5ebac17f3e49fb1ea096860ae6457b",
+    "repo_id": "google/siglip-so400m-patch14-384",
+    "revision": "9fdffc58afc957d1a03a25b10dba0329ab15c2a3",
+    "snapshot": "/home/spco/online_video_state_decomposition/third_party/hf_cache/models--google--siglip-so400m-patch14-384/snapshots/9fdffc58afc957d1a03a25b10dba0329ab15c2a3",
+    "weight_bytes": 3511950624,
+    "weight_files": [
+      {
+        "bytes": 3511950624,
+        "name": "model.safetensors",
+        "sha256": "ea2abad2b7f8a9c1aa5e49a244d5d57ffa71c56f720c94bc5d240ef4d6e1d94a"
+      }
+    ]
+  }
+}

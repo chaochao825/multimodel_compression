@@ -49,6 +49,12 @@ growing detailed or archive state in the audited accounting. See
 Targeted official-module smokes now also cover CausalMem `FOSSCache`,
 StreamingTOM `OQM`, STC core imports, and OASIS `ShortMemory`; these remain
 mechanism checks rather than model-level latency or quality reproductions.
+Strict machine-readable preflights now additionally pass for CausalMem's
+official 50-video/250-question evaluator and both modes of STC's official ReKV
+latency benchmark. Their GPU runs are queued but not yet results. See
+[CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md)
+and
+[STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md).
 
 ## Repository Layout
 
@@ -88,6 +94,27 @@ Run the complete unit suite:
 
 ```bash
 python -m unittest discover -s experiments/tests -v
+```
+
+Run the audited official CausalMem quality evaluator or one STC ReKV latency
+mode. Both launchers enforce pinned sources, complete local models, output
+fingerprints, a per-GPU lock, and an idle-GPU gate.
+
+```bash
+bash experiments/scripts/run_causalmem_streamingbench.sh \
+  causal_mem RUN_NAME 0
+
+bash experiments/scripts/run_stc_rekv_official.sh \
+  rekv RUN_NAME 0
+bash experiments/scripts/run_stc_rekv_official.sh \
+  rekv_stc RUN_NAME 0
+```
+
+The queue helpers wait without weakening the gate:
+
+```bash
+bash experiments/scripts/run_stc_rekv_pair_when_idle.sh RUN_NAME 0
+bash experiments/scripts/run_causalmem_when_idle.sh RUN_NAME 0
 ```
 
 Extract calibration features, fit codecs, and run the rank gate:

@@ -14,19 +14,20 @@ This audit therefore separates four evidence tiers:
 4. `feature proxy`: an independent mechanism approximation on the same frozen
    CLIP cache used by this project.
 
-The current completed experiment is tier 4 plus tier 3, augmented by selected
-official-module synthetic smokes. It is not an official end-to-end
-reproduction. The first 200-sample result is also a reused development
-analysis, not an independent confirmation.
+The completed quality comparison is tier 4 plus tier 3, augmented by selected
+official-module synthetic smokes. CausalMem's official evaluator and STC's
+official ReKV latency runner now also have strict, machine-readable preflights;
+their formal GPU runs are still pending. The first 200-sample proxy result is a
+reused development analysis, not an independent confirmation.
 
 | Method | Intended role | Public implementation status | Current status |
 |---|---|---|---|
-| CausalMem | Closest query-free semantic-memory algorithm | Public, but the documented evaluation tree is incomplete | Pinned source, FOSSCache module smoke, and frame-vector proxy complete |
-| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Pinned source, OQM module smoke, and feature-group proxy complete; GPU run pending |
-| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Pinned source/core-import smoke and terminal-feature proxy complete; GPU run pending |
-| SelectStream | Task-quality target | No discoverable official code as of the audit date | Paper-structure proxy only |
-| OASIS | Slow event-archive baseline | Public evaluation path, no public paper-table timing runner | Pinned source, ShortMemory module smoke, and event-centroid proxy complete; GPU run pending |
-| StateKV | Recurrent model-state baseline | Official placeholder repository only | Paper-structure proxy only |
+| CausalMem | Closest query-free semantic-memory algorithm | `causal_mem` evaluator is runnable; stock baseline imports a missing upstream file | Strict official evaluator preflight passed on 50 videos/250 questions; quality run pending |
+| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Incremental official-core CTR/OQM harness ready; CUDA run pending |
+| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Both official ReKV mode preflights passed; model-stage CUDA timing pending |
+| SelectStream | Task-quality target | No discoverable official code as of the audit date | Reported quality target; untrained structural proxy only |
+| OASIS | Slow event-archive baseline | Public evaluation path, no public paper-table timing runner | Official source and local Qwen3-VL/embedding assets found; model evaluation pending |
+| StateKV | Recurrent model-state baseline | Official placeholder repository only | Reference-only; paper-structure proxy cannot be called a reproduction |
 
 ## Source Pins And Licensing
 
@@ -47,6 +48,25 @@ The smoke audit validates commit identity, clean worktrees, required entry
 files, and `compileall`. It writes bytecode to a temporary external cache so
 the audited repositories remain clean. Passing this check does not establish
 dependency compatibility or numerical equivalence.
+
+## Strict Official Preflights
+
+CausalMem's official evaluator preflight is stored in
+`causalmem_official_preflight_20260719.json`; its detailed contract is
+`CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md`. It validates the exact
+50-video/250-question StreamingBench subset, per-video CRC32 values, all model
+shards and hashes, the SigLIP cache, pinned source, runtime versions, resume
+integrity, and output fingerprints. The pinned source's stock baseline cannot
+run because `llava_arch_baseline.py` is absent; it is not replaced with a local
+surrogate.
+
+STC's official ReKV preflights are stored in
+`stc_rekv_official_rekv_preflight_20260719.json` and
+`stc_rekv_official_stc_preflight_20260719.json`; the matched protocol is
+`STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md`. Both validate the pinned
+source, full 16.06 GB four-shard model, CUDA runtime, official module imports,
+exact mode environment, and audited wrapper hash. Passing preflight proves
+launch readiness, not latency.
 
 ## Executable Module Smoke
 
@@ -123,8 +143,10 @@ must be selected explicitly. Paper timing values shown in seconds cannot be
 silently equated with the newer tool's millisecond output.
 
 Our terminal-feature proxy can test state and task effects, but it cannot
-recover ViT FLOPs. Official STC latency must be measured inside the real ViT
-and LLM stack.
+recover ViT FLOPs. The new audited wrapper executes the upstream ReKV speed
+benchmark inside the real ViT and LLM stack with separate baseline/STC
+processes, 64 frames, five warmups, and twenty repeats. Both preflights pass;
+the actual CUDA timing remains gated on an idle A800.
 
 ### SelectStream
 
@@ -255,10 +277,10 @@ block-circulant plus low-rank unit would be one component of a hybrid system.
    McNemar, exact agreement, and per-task deltas.
 2. Add native `[frame,64,4096]` LLaVA projected-token versions of strict
    CausalMem, CTR, and STC-Pruner under the same 512-token read budget.
-3. Run STC and StreamingTOM official speed tools when an A800 is available,
-   fixing backbone, frames, precision, prompt, generation length, warmups, and
-   repetitions. Report P50/P95/P99 for encoder, prefill, retrieval,
-   reconstruction, decode, and end-to-end latency.
+3. Run the now-preflighted STC ReKV baseline and STC modes when the A800 idle
+   gate passes. Separately run StreamingTOM's incremental official-core CTR/OQM
+   harness. Report P50/P95/P99 only for stages each runner actually measures;
+   do not relabel the STC ViT/prefill stage sum as end-to-end latency.
 4. Extend the now-passing OASIS Python 3.12 module environment to the official
    Qwen3-VL and embedding checkpoints; report foreground latency and
    background GPU-seconds. Do not hide synchronous maintenance behind an

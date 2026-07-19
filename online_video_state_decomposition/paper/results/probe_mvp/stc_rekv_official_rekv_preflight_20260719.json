@@ -1,0 +1,229 @@
+{
+  "command": [
+    "/home/wangmeiqi/anaconda3/envs/Qwen3/bin/python3.10",
+    "/home/spco/online_video_state_decomposition/external_baselines/STC/speed_benchmark/benchmark_rekv.py",
+    "--model",
+    "llava_ov_7b",
+    "--num-frames",
+    "64",
+    "--image-size",
+    "384",
+    "--repeats",
+    "20",
+    "--warmup",
+    "5",
+    "--label",
+    "rekv",
+    "--out",
+    "/home/spco/online_video_state_decomposition/remote_results/preflight/stc_rekv_official_rekv_v3_20260719/output/official_raw.json"
+  ],
+  "created_at": "2026-07-19T01:54:56.178979+00:00",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "HF_HUB_OFFLINE": "1",
+    "PYTHONPATH": "/home/spco/online_video_state_decomposition/external_baselines/STC/models/rekv:/home/spco/online_video_state_decomposition/external_baselines/STC",
+    "REKV_LLAVA_OV_7B_PATH": "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-chat-hf-modelscope",
+    "STC_CACHE_INTERVAL": "4",
+    "STC_PATCH_VISION": "0",
+    "STC_TOKEN_PER_FRAME": "196",
+    "STC_UPDATE_TOKEN_RATIO": "1.0",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "evidence_scope": "official STC ReKV synthetic/real-video stage latency; measures ViT encode and visual-token LLM prefill, not TTFT, decode latency, or task quality",
+  "fingerprint_inputs": {
+    "command": [
+      "/home/wangmeiqi/anaconda3/envs/Qwen3/bin/python3.10",
+      "/home/spco/online_video_state_decomposition/external_baselines/STC/speed_benchmark/benchmark_rekv.py",
+      "--model",
+      "llava_ov_7b",
+      "--num-frames",
+      "64",
+      "--image-size",
+      "384",
+      "--repeats",
+      "20",
+      "--warmup",
+      "5",
+      "--label",
+      "rekv",
+      "--out",
+      "/home/spco/online_video_state_decomposition/remote_results/preflight/stc_rekv_official_rekv_v3_20260719/output/official_raw.json"
+    ],
+    "format_version": 1,
+    "gpu_index": 0,
+    "image_size": 384,
+    "mode": "rekv",
+    "mode_environment": {
+      "STC_CACHE_INTERVAL": "4",
+      "STC_PATCH_VISION": "0",
+      "STC_TOKEN_PER_FRAME": "196",
+      "STC_UPDATE_TOKEN_RATIO": "1.0"
+    },
+    "model": {
+      "architecture": "LlavaOnevisionForConditionalGeneration",
+      "config_sha256": "e6869aa136460284997c66b54afc52e55207c8eab6f2fcbd943b0bd3a1bb5ca4",
+      "index_sha256": "e389b969d3b9b7120f136fbf6592cbbc1c07326157cae6f863fb64559261dae9",
+      "metadata_sha256": {
+        "config.json": "e6869aa136460284997c66b54afc52e55207c8eab6f2fcbd943b0bd3a1bb5ca4",
+        "model.safetensors.index.json": "e389b969d3b9b7120f136fbf6592cbbc1c07326157cae6f863fb64559261dae9",
+        "preprocessor_config.json": "3644c108b9f0fa53e62ff422a9be6639642f0e64dab4a71f961c7911d4386384",
+        "processor_config.json": "04e9899e93f2a412c94e153cab4081457c9a44defb3b2c0b9df673d42c42cdd0",
+        "tokenizer.json": "f65ad17592f7249fd1b17f15fb187539db26597204fe727baec7033f388ca47f",
+        "tokenizer_config.json": "66e74355746ccc732775b0cdbede79ab62f714c39282d9905e2ac9b0ebb38b5e"
+      },
+      "model_type": "llava_onevision",
+      "path": "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-chat-hf-modelscope",
+      "shards": [
+        {
+          "name": "model-00001-of-00004.safetensors",
+          "sha256": "dfcf357353d2b1755bc3ae287d03875f82249736a5efba240634cbfef3280411",
+          "size_bytes": 4911200360
+        },
+        {
+          "name": "model-00002-of-00004.safetensors",
+          "sha256": "d03bde4f1f97e21bee68b889583fc4aa6ae5e4be4ac984b88837a38dd94d0ca8",
+          "size_bytes": 4991497664
+        },
+        {
+          "name": "model-00003-of-00004.safetensors",
+          "sha256": "caabaad2af378c0c6d52427a1f76f6be7e792f3ff618d2cad7d798abcbda3088",
+          "size_bytes": 4932752752
+        },
+        {
+          "name": "model-00004-of-00004.safetensors",
+          "sha256": "b94b2c9877e642e62a7d09f5f24f69507f3fa400499fe2082f4af936f7d482a3",
+          "size_bytes": 1226266240
+        }
+      ],
+      "total_shard_bytes": 16061717016,
+      "vision_model_type": "siglip_vision_model"
+    },
+    "num_frames": 64,
+    "repeats": 20,
+    "runner_sha256": "d5d8f9107c319ff9b71cd01832f6c9b5ab92ecf75041edcb60fafcfeb7ee3ce5",
+    "runtime": {
+      "accelerate": "1.14.0",
+      "cuda_available": true,
+      "logzero": "1.7.0",
+      "numpy": "2.2.6",
+      "official_imports": {
+        "load_model_callable": true,
+        "resolved_model": "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-chat-hf-modelscope",
+        "stc_module": "/home/spco/online_video_state_decomposition/external_baselines/STC/stc/__init__.py",
+        "synthetic_dtype": "torch.uint8",
+        "synthetic_shape": [
+          2,
+          32,
+          32,
+          3
+        ]
+      },
+      "python": "3.10.0",
+      "safetensors": "0.7.0",
+      "torch": "2.6.0+cu124",
+      "torch_cuda": "12.4",
+      "transformers": "4.51.0"
+    },
+    "sample_fps": 0.5,
+    "source_commit": "cf53f781d8740df5c07d7924756acc429641ffd0",
+    "source_file_sha256": {
+      "models/rekv/model/abstract_rekv.py": "e2f2c0148b617adac2b5133cbb4e2c859d3cc22ca272edaa0f1bd3a713dbf8d8",
+      "models/rekv/model/llava_onevision_rekv.py": "a4f90966f5b121e9b7e43ff9dd606dfb0eda89dfdd41af588a26a316b2f84ed9",
+      "models/rekv/model/patch.py": "71c4dfb005ef031356012b2ffb491ef3f0a1d877a2070a3c8b556cedd6de6ff5",
+      "speed_benchmark/benchmark_rekv.py": "296a97fabdfffab01fe2578e5849c6d69264f687772c7e9cf5a7654aba433d73",
+      "stc/__init__.py": "21722ca679ce5fbdd8bb8cab0a20c647ef66ed8a7a0b9a51aa1a43be4b5dd17d",
+      "stc/config.py": "72af8e28082403ee81470b22c9e38b852336610b9a53d5c933e5c434cff1dd0c"
+    },
+    "video": null,
+    "video_sha256": null,
+    "warmup": 5
+  },
+  "format_version": 1,
+  "mode": "rekv",
+  "mode_config": {
+    "cache_interval": 4,
+    "patch_vision": false,
+    "token_per_frame": 196,
+    "update_token_ratio": 1.0
+  },
+  "model": {
+    "architecture": "LlavaOnevisionForConditionalGeneration",
+    "config_sha256": "e6869aa136460284997c66b54afc52e55207c8eab6f2fcbd943b0bd3a1bb5ca4",
+    "index_sha256": "e389b969d3b9b7120f136fbf6592cbbc1c07326157cae6f863fb64559261dae9",
+    "metadata_sha256": {
+      "config.json": "e6869aa136460284997c66b54afc52e55207c8eab6f2fcbd943b0bd3a1bb5ca4",
+      "model.safetensors.index.json": "e389b969d3b9b7120f136fbf6592cbbc1c07326157cae6f863fb64559261dae9",
+      "preprocessor_config.json": "3644c108b9f0fa53e62ff422a9be6639642f0e64dab4a71f961c7911d4386384",
+      "processor_config.json": "04e9899e93f2a412c94e153cab4081457c9a44defb3b2c0b9df673d42c42cdd0",
+      "tokenizer.json": "f65ad17592f7249fd1b17f15fb187539db26597204fe727baec7033f388ca47f",
+      "tokenizer_config.json": "66e74355746ccc732775b0cdbede79ab62f714c39282d9905e2ac9b0ebb38b5e"
+    },
+    "model_type": "llava_onevision",
+    "path": "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-chat-hf-modelscope",
+    "shards": [
+      {
+        "name": "model-00001-of-00004.safetensors",
+        "sha256": "dfcf357353d2b1755bc3ae287d03875f82249736a5efba240634cbfef3280411",
+        "size_bytes": 4911200360
+      },
+      {
+        "name": "model-00002-of-00004.safetensors",
+        "sha256": "d03bde4f1f97e21bee68b889583fc4aa6ae5e4be4ac984b88837a38dd94d0ca8",
+        "size_bytes": 4991497664
+      },
+      {
+        "name": "model-00003-of-00004.safetensors",
+        "sha256": "caabaad2af378c0c6d52427a1f76f6be7e792f3ff618d2cad7d798abcbda3088",
+        "size_bytes": 4932752752
+      },
+      {
+        "name": "model-00004-of-00004.safetensors",
+        "sha256": "b94b2c9877e642e62a7d09f5f24f69507f3fa400499fe2082f4af936f7d482a3",
+        "size_bytes": 1226266240
+      }
+    ],
+    "total_shard_bytes": 16061717016,
+    "vision_model_type": "siglip_vision_model"
+  },
+  "run_fingerprint": "d986af8a7fd988fbdf5297126f506469fb86ef161463909af0b87980cd996b8b",
+  "runner": {
+    "path": "/home/spco/sow_linear/multimodel_compression/online_video_state_decomposition/experiments/probes/run_stc_rekv_official.py",
+    "sha256": "d5d8f9107c319ff9b71cd01832f6c9b5ab92ecf75041edcb60fafcfeb7ee3ce5"
+  },
+  "runtime": {
+    "accelerate": "1.14.0",
+    "cuda_available": true,
+    "logzero": "1.7.0",
+    "numpy": "2.2.6",
+    "official_imports": {
+      "load_model_callable": true,
+      "resolved_model": "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-chat-hf-modelscope",
+      "stc_module": "/home/spco/online_video_state_decomposition/external_baselines/STC/stc/__init__.py",
+      "synthetic_dtype": "torch.uint8",
+      "synthetic_shape": [
+        2,
+        32,
+        32,
+        3
+      ]
+    },
+    "python": "3.10.0",
+    "safetensors": "0.7.0",
+    "torch": "2.6.0+cu124",
+    "torch_cuda": "12.4",
+    "transformers": "4.51.0"
+  },
+  "source": {
+    "code_clean": true,
+    "commit": "cf53f781d8740df5c07d7924756acc429641ffd0",
+    "path": "/home/spco/online_video_state_decomposition/external_baselines/STC",
+    "required_file_sha256": {
+      "models/rekv/model/abstract_rekv.py": "e2f2c0148b617adac2b5133cbb4e2c859d3cc22ca272edaa0f1bd3a713dbf8d8",
+      "models/rekv/model/llava_onevision_rekv.py": "a4f90966f5b121e9b7e43ff9dd606dfb0eda89dfdd41af588a26a316b2f84ed9",
+      "models/rekv/model/patch.py": "71c4dfb005ef031356012b2ffb491ef3f0a1d877a2070a3c8b556cedd6de6ff5",
+      "speed_benchmark/benchmark_rekv.py": "296a97fabdfffab01fe2578e5849c6d69264f687772c7e9cf5a7654aba433d73",
+      "stc/__init__.py": "21722ca679ce5fbdd8bb8cab0a20c647ef66ed8a7a0b9a51aa1a43be4b5dd17d",
+      "stc/config.py": "72af8e28082403ee81470b22c9e38b852336610b9a53d5c933e5c434cff1dd0c"
+    }
+  }
+}
