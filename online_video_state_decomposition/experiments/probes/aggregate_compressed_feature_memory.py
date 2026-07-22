@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -518,6 +519,110 @@ def clopper_pearson_upper(
     return (lower + upper) / 2.0
 
 
+def memory_variant_label(variant: str) -> str:
+    """Return compact, unambiguous labels for result figures."""
+
+    if variant == "full":
+        return "Full"
+    routed = re.fullmatch(r"pca_r(\d+)_route_grid(\d+)_s(\d+)", variant)
+    if routed:
+        rank, grid, sparse = routed.groups()
+        return f"PCA-r{rank} routed g{grid}/s{sparse}"
+    grid = re.fullmatch(r"pca_r(\d+)_grid(\d+)x(\d+)", variant)
+    if grid:
+        rank, rows, columns = grid.groups()
+        return f"PCA-r{rank} grid {rows}x{columns}"
+    sparse = re.fullmatch(r"pca_r(\d+)_s(\d+)", variant)
+    if sparse:
+        rank, count = sparse.groups()
+        suffix = "latent" if count == "0" else f"sparse-{count}"
+        return f"PCA-r{rank} {suffix}"
+    return variant.replace("_", " ")
+
+
+def annotation_offset(variant: str) -> tuple[int, int]:
+    if "_route_grid" in variant:
+        return (-102, 10)
+    if "_grid" in variant:
+        return (5, 8)
+    if variant.endswith("_s4"):
+        return (5, -17)
+    return (5, 5)
+
+
+def preservation_variant_label(variant: str) -> str:
+    if "_route_grid" in variant:
+        return "Routed"
+    if "_grid" in variant:
+        return "Grid"
+    if variant.endswith("_s0"):
+        return "Latent"
+    sparse = re.search(r"_s(\d+)$", variant)
+    return f"Sparse-{sparse.group(1)}" if sparse else memory_variant_label(variant)
+
+
+def summarize_route_usage(
+    rows: list[dict[str, object]],
+) -> list[dict[str, object]]:
+    sample_routes: dict[tuple[str, str], dict[str, object]] = {}
+    for row in rows:
+        variant = str(row["memory_variant"])
+        if "_route_grid" not in variant:
+            continue
+        key = (str(row["sample_id"]), variant)
+        record = {
+            "task": str(row["task"]),
+            "memory_variant": variant,
+            "grid_mode_frames": float(row["grid_mode_frames"]),
+            "sparse_mode_frames": float(row["sparse_mode_frames"]),
+        }
+        previous = sample_routes.get(key)
+        if previous is not None and previous != record:
+            raise ValueError(
+                "route allocation changed across selection policies for "
+                f"sample {key[0]}"
+            )
+        sample_routes[key] = record
+    output = []
+    variants = sorted(
+        {str(record["memory_variant"]) for record in sample_routes.values()}
+    )
+    for variant in variants:
+        variant_records = [
+            record
+            for record in sample_routes.values()
+            if record["memory_variant"] == variant
+        ]
+        tasks = [
+            task
+            for task in TASK_ORDER
+            if any(record["task"] == task for record in variant_records)
+        ]
+        for task in [*tasks, "all"]:
+            selected = (
+                variant_records
+                if task == "all"
+                else [record for record in variant_records if record["task"] == task]
+            )
+            grid = float(np.mean([record["grid_mode_frames"] for record in selected]))
+            sparse = float(
+                np.mean([record["sparse_mode_frames"] for record in selected])
+            )
+            total = grid + sparse
+            output.append(
+                {
+                    "task": task,
+                    "memory_variant": variant,
+                    "samples": len(selected),
+                    "mean_grid_mode_frames": grid,
+                    "mean_sparse_mode_frames": sparse,
+                    "grid_mode_share": grid / total if total else 0.0,
+                    "sparse_mode_share": sparse / total if total else 0.0,
+                }
+            )
+    return output
+
+
 def plot_accuracy_vs_state(
     rows: list[dict[str, object]],
     out_dir: Path,
@@ -553,14 +658,27 @@ def plot_accuracy_vs_state(
             color=SELECTION_COLORS.get(selection_policy),
         )
         for x_value, y_value, row in zip(x, y, values):
+            variant = str(row["memory_variant"])
+            if (
+                selection_policy != "learned_recent_query_topk"
+                and variant != "full"
+            ):
+                continue
+            offset = annotation_offset(variant)
+            if (
+                "_route_grid" in variant
+                and selection_policy == "exact_recent"
+            ):
+                offset = (5, 27)
             axis.annotate(
-                str(row["memory_variant"]).replace("pca_r64_", ""),
+                memory_variant_label(variant),
                 (x_value, y_value),
-                xytext=(3, 4),
+                xytext=offset,
                 textcoords="offset points",
-                fontsize=8,
+                fontsize=7.4,
             )
     axis.set_xscale("log")
+    axis.margins(y=0.09)
     axis.set_xlabel("Per-stream persistent state (MiB, log scale)")
     axis.set_ylabel("MVBench accuracy")
     axis.grid(alpha=0.25, which="both")
@@ -613,6 +731,19 @@ def plot_reconstruction_vs_state(
             ),
             color=SELECTION_COLORS.get(selection_policy),
         )
+        if selection_policy == "learned_recent_query_topk":
+            for row in values:
+                variant = str(row["memory_variant"])
+                axis.annotate(
+                    memory_variant_label(variant),
+                    (
+                        float(row["mean_total_state_bytes"]) / (1024**2),
+                        float(row["mean_selected_reconstruction_error"]),
+                    ),
+                    xytext=annotation_offset(variant),
+                    textcoords="offset points",
+                    fontsize=7.4,
+                )
     axis.set_xlabel("Per-stream persistent state (MiB)")
     axis.set_ylabel("Selected-feature relative reconstruction error")
     axis.grid(alpha=0.25)
@@ -687,7 +818,8 @@ def plot_task_delta_heatmap(
     axis.set_yticks(
         range(len(combinations)),
         [
-            f"{SELECTION_LABELS.get(policy, policy)} | {variant}"
+            f"{SELECTION_LABELS.get(policy, policy)} | "
+            f"{memory_variant_label(variant)}"
             for policy, variant in combinations
         ],
     )
@@ -731,11 +863,11 @@ def plot_preservation_gate(
 
     labels = [
         f"{'Exact' if row['selection_policy'] == 'exact_recent' else 'Learned'}\n"
-        f"{str(row['memory_variant']).rsplit('_', 1)[-1]}"
+        f"{preservation_variant_label(str(row['memory_variant']))}"
         for row in rows
     ]
     positions = np.arange(len(rows))
-    figure, axes = plt.subplots(1, 2, figsize=(10.5, 4.2))
+    figure, axes = plt.subplots(1, 2, figsize=(12.2, 4.4))
     axes[0].bar(
         positions,
         [float(row["worse_rate_upper_95"]) * 100 for row in rows],
@@ -782,12 +914,72 @@ def plot_preservation_gate(
     plt.close(figure)
 
 
+def plot_route_usage(
+    rows: list[dict[str, object]],
+    out_dir: Path,
+) -> None:
+    if not rows:
+        return
+    import matplotlib.pyplot as plt
+
+    values = [row for row in rows if row["task"] != "all"]
+    values.extend(row for row in rows if row["task"] == "all")
+    labels = [
+        "Overall" if row["task"] == "all" else str(row["task"]).replace("_", " ")
+        for row in values
+    ]
+    grid = np.asarray([float(row["grid_mode_share"]) * 100 for row in values])
+    sparse = np.asarray([float(row["sparse_mode_share"]) * 100 for row in values])
+    positions = np.arange(len(values))
+    figure, axis = plt.subplots(figsize=(8.2, 4.5))
+    axis.bar(positions, grid, label="Spatial grid path", color="#287271")
+    axis.bar(
+        positions,
+        sparse,
+        bottom=grid,
+        label="Sparse residual path",
+        color="#E76F51",
+    )
+    for position, grid_value in zip(positions, grid):
+        axis.text(
+            position,
+            grid_value / 2,
+            f"{grid_value:.1f}%",
+            ha="center",
+            va="center",
+            color="white" if grid_value > 35 else "#222222",
+            fontsize=8,
+        )
+    axis.set_xticks(positions, labels, rotation=18, ha="right")
+    axis.set_ylabel("Routed source frames (%)")
+    axis.set_ylim(0, 100)
+    axis.grid(axis="y", alpha=0.22)
+    axis.legend(
+        frameon=False,
+        ncol=2,
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        borderaxespad=0.0,
+    )
+    axis.spines["top"].set_visible(False)
+    axis.spines["right"].set_visible(False)
+    figure.tight_layout()
+    for suffix in ("png", "pdf"):
+        figure.savefig(
+            out_dir / f"route_usage_by_task.{suffix}",
+            dpi=300,
+            bbox_inches="tight",
+        )
+    plt.close(figure)
+
+
 def write_report(
     out_dir: Path,
     *,
     summary_rows: list[dict[str, object]],
     paired_rows: list[dict[str, object]],
     selector_rows: list[dict[str, object]],
+    route_rows: list[dict[str, object]],
     checkpoint_count: int,
     fingerprints: list[str],
     noninferiority_margin: float,
@@ -860,6 +1052,27 @@ def write_report(
             f"| {row['better_samples']} / {row['worse_samples']} "
             f"| {float(row['mcnemar_exact_p']):.4f} |"
         )
+    if route_rows:
+        lines.extend(
+            [
+                "",
+                "## Routed Spatial/Sparse Allocation",
+                "",
+                "The route is a frozen reconstruction-error oracle, not a "
+                "deployable semantic event detector.",
+                "",
+                "| Task | Samples | Grid frames | Sparse frames | Grid share |",
+                "|---|---:|---:|---:|---:|",
+            ]
+        )
+        for row in route_rows:
+            lines.append(
+                f"| {str(row['task']).replace('_', ' ')} "
+                f"| {row['samples']} "
+                f"| {float(row['mean_grid_mode_frames']):.2f} "
+                f"| {float(row['mean_sparse_mode_frames']):.2f} "
+                f"| {float(row['grid_mode_share']):.1%} |"
+            )
     lines.extend(
         [
             "",
@@ -891,6 +1104,9 @@ def write_report(
             "![Finite-sample preservation gate]"
             "(preservation_gate.png)",
             "",
+            "![Routed spatial and sparse allocation]"
+            "(route_usage_by_task.png)",
+            "",
         ]
     )
     (out_dir / "RESULTS_ANALYSIS.md").write_text(
@@ -918,6 +1134,7 @@ def main() -> int:
         rows,
         seed=args.seed,
     )
+    route_rows = summarize_route_usage(rows)
     write_csv(out_dir / "predictions.csv", rows)
     write_csv(out_dir / "variant_summary.csv", summary_rows)
     write_csv(out_dir / "task_accuracy.csv", task_rows)
@@ -927,6 +1144,8 @@ def main() -> int:
         out_dir / "selector_gain_by_variant.csv",
         selector_rows,
     )
+    if route_rows:
+        write_csv(out_dir / "route_usage_by_task.csv", route_rows)
     checkpoint_count = len(
         list((args.run_dir / "checkpoints").glob("*.json"))
     )
@@ -957,11 +1176,13 @@ def main() -> int:
         out_dir,
         noninferiority_margin=args.noninferiority_margin,
     )
+    plot_route_usage(route_rows, out_dir)
     write_report(
         out_dir,
         summary_rows=summary_rows,
         paired_rows=paired_rows,
         selector_rows=selector_rows,
+        route_rows=route_rows,
         checkpoint_count=checkpoint_count,
         fingerprints=fingerprints,
         noninferiority_margin=args.noninferiority_margin,

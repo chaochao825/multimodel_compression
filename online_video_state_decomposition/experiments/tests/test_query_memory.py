@@ -15,6 +15,7 @@ sys.path.insert(0, str(EXPERIMENTS_ROOT / "probes"))
 from build_mvbench_query_split import build_split, validate_split
 from build_mvbench_query_confirmation import (
     build_confirmation,
+    build_payload,
     validate_confirmation,
 )
 from aggregate_mvbench_llava import load_rows, summarize_overall
@@ -364,6 +365,42 @@ class QueryMemoryTest(unittest.TestCase):
         self.assertEqual(len(confirmation["evaluation"]["demo"]), 6)
         self.assertFalse(
             set(confirmation["evaluation"]["demo"]) & {0, 1, 2, 3}
+        )
+
+    def test_confirmation_payload_records_frozen_stage_and_split_ancestry(
+        self,
+    ) -> None:
+        source = {
+            "analysis_stage": "posthoc_reserve_confirmation",
+            "source_split": {"name": "base.json", "sha256": "base-hash"},
+            "tasks": ["demo"],
+            "task_sizes": {"demo": 10},
+            "calibration": {"demo": []},
+            "evaluation": {"demo": [0, 1]},
+            "reserve": {"demo": [2, 3, 4, 5]},
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            source_path = Path(directory) / "confirmation.json"
+            source_path.write_text(json.dumps(source), encoding="utf-8")
+            payload = build_payload(
+                source,
+                source_path=source_path,
+                evaluation_per_task=4,
+                seed=17,
+                primary_policy="learned_recent_query_topk",
+                analysis_stage="frozen_independent_replication",
+            )
+        self.assertEqual(
+            payload["analysis_stage"], "frozen_independent_replication"
+        )
+        self.assertEqual(payload["evaluation"]["demo"], [2, 3, 4, 5])
+        self.assertEqual(payload["reserve"]["demo"], [])
+        self.assertEqual(
+            payload["source_split"]["analysis_stage"],
+            "posthoc_reserve_confirmation",
+        )
+        self.assertEqual(
+            payload["source_split"]["parent"]["sha256"], "base-hash"
         )
 
     def test_cross_split_comparison_keeps_only_paired_samples(self) -> None:

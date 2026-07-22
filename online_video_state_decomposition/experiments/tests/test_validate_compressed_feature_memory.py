@@ -4,6 +4,7 @@ import unittest
 
 from experiments.probes.validate_compressed_feature_memory import (
     expected_feature_payload_bytes,
+    independent_protocol_audit,
     selection_split_audit,
 )
 
@@ -58,6 +59,31 @@ class CompressedFeatureMemoryValidationTest(unittest.TestCase):
         self.assertEqual(grid, 1_048_576)
         self.assertLess(grid, routed)
         self.assertLess(routed, fixed)
+
+    def test_independent_protocol_binds_split_codec_and_method(self) -> None:
+        evaluation = {
+            "evaluation": {"task": [6, 8]},
+        }
+        protocol = {
+            "analysis_stage": "frozen_independent_replication",
+            "split": {"sample_count": 2, "sha256": "split-hash"},
+            "controls": {"policies": ["exact_recent", "learned"]},
+            "frozen_method": {
+                "codec_sha256": "codec-hash",
+                "residual_variants": ["pca_r4_s0", "pca_r4_s1"],
+            },
+        }
+        checks = independent_protocol_audit(
+            selection_ids={"task_0006", "task_0008"},
+            evaluation_manifest=evaluation,
+            evaluation_sha256="split-hash",
+            protocol=protocol,
+            expected_samples=2,
+            policies=["exact_recent", "learned"],
+            variants=["full", "pca_r4_s0", "pca_r4_s1"],
+            codec_sha256="codec-hash",
+        )
+        self.assertTrue(all(checks.values()))
 
 
 if __name__ == "__main__":

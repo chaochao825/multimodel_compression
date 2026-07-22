@@ -18,6 +18,10 @@ def parse_args() -> argparse.Namespace:
         "--primary-policy",
         default="recent_pool_query_topk",
     )
+    parser.add_argument(
+        "--analysis-stage",
+        default="posthoc_reserve_confirmation",
+    )
     return parser.parse_args()
 
 
@@ -82,32 +86,58 @@ def validate_confirmation(
             raise ValueError(f"prior sample leaked for task {task}")
 
 
+def build_payload(
+    source: dict[str, object],
+    *,
+    source_path: Path,
+    evaluation_per_task: int,
+    seed: int,
+    primary_policy: str,
+    analysis_stage: str,
+) -> dict[str, object]:
+    if not analysis_stage.strip():
+        raise ValueError("analysis_stage must be non-empty")
+    confirmation = build_confirmation(
+        source,
+        evaluation_per_task=evaluation_per_task,
+        seed=seed,
+    )
+    validate_confirmation(source, confirmation)
+    source_record: dict[str, object] = {
+        "name": source_path.name,
+        "sha256": file_sha256(source_path),
+    }
+    if source.get("analysis_stage") is not None:
+        source_record["analysis_stage"] = source["analysis_stage"]
+    if source.get("source_split") is not None:
+        source_record["parent"] = source["source_split"]
+    return {
+        "format_version": 1,
+        "analysis_stage": analysis_stage,
+        "seed": seed,
+        "tasks": source["tasks"],
+        "task_sizes": source["task_sizes"],
+        "calibration_per_task": 0,
+        "evaluation_per_task": evaluation_per_task,
+        "primary_policy": primary_policy,
+        "source_split": source_record,
+        **confirmation,
+    }
+
+
 def main() -> int:
     args = parse_args()
     source = json.loads(
         args.source_split.read_text(encoding="utf-8")
     )
-    confirmation = build_confirmation(
+    payload = build_payload(
         source,
+        source_path=args.source_split,
         evaluation_per_task=args.evaluation_per_task,
         seed=args.seed,
+        primary_policy=args.primary_policy,
+        analysis_stage=args.analysis_stage,
     )
-    validate_confirmation(source, confirmation)
-    payload = {
-        "format_version": 1,
-        "analysis_stage": "posthoc_reserve_confirmation",
-        "seed": args.seed,
-        "tasks": source["tasks"],
-        "task_sizes": source["task_sizes"],
-        "calibration_per_task": 0,
-        "evaluation_per_task": args.evaluation_per_task,
-        "primary_policy": args.primary_policy,
-        "source_split": {
-            "name": args.source_split.name,
-            "sha256": file_sha256(args.source_split),
-        },
-        **confirmation,
-    }
     serialized = json.dumps(
         payload,
         indent=2,

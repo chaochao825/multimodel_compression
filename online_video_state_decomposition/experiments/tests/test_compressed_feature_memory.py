@@ -10,9 +10,12 @@ sys.path.insert(0, str(EXPERIMENTS_ROOT / "probes"))
 
 from aggregate_compressed_feature_memory import (
     clopper_pearson_upper,
+    memory_variant_label,
     paired_selectors_by_variant,
     paired_vs_full,
+    preservation_variant_label,
     summarize_variants,
+    summarize_route_usage,
     task_deltas_vs_full,
 )
 
@@ -55,6 +58,53 @@ def row(
 
 
 class CompressedFeatureMemoryAggregateTest(unittest.TestCase):
+    def test_memory_variant_labels_are_compact_and_unambiguous(self) -> None:
+        self.assertEqual(memory_variant_label("full"), "Full")
+        self.assertEqual(
+            memory_variant_label("pca_r256_route_grid2_s4"),
+            "PCA-r256 routed g2/s4",
+        )
+        self.assertEqual(
+            memory_variant_label("pca_r256_grid2x2"),
+            "PCA-r256 grid 2x2",
+        )
+        self.assertEqual(
+            memory_variant_label("pca_r256_s4"),
+            "PCA-r256 sparse-4",
+        )
+        self.assertEqual(
+            preservation_variant_label("pca_r256_route_grid2_s4"),
+            "Routed",
+        )
+        self.assertEqual(
+            preservation_variant_label("pca_r256_s4"),
+            "Sparse-4",
+        )
+
+    def test_route_usage_deduplicates_matching_selection_policies(self) -> None:
+        routed = []
+        for sample_id, task, grid, sparse in (
+            ("a", "object_existence", 12, 4),
+            ("b", "object_existence", 8, 8),
+        ):
+            for selector in ("exact_recent", "learned_recent_query_topk"):
+                routed.append(
+                    {
+                        "sample_id": sample_id,
+                        "task": task,
+                        "selection_policy": selector,
+                        "memory_variant": "pca_r256_route_grid2_s4",
+                        "grid_mode_frames": grid,
+                        "sparse_mode_frames": sparse,
+                    }
+                )
+        summary = summarize_route_usage(routed)
+        overall = next(row for row in summary if row["task"] == "all")
+        self.assertEqual(overall["samples"], 2)
+        self.assertEqual(overall["mean_grid_mode_frames"], 10.0)
+        self.assertEqual(overall["mean_sparse_mode_frames"], 6.0)
+        self.assertEqual(overall["grid_mode_share"], 0.625)
+
     def setUp(self) -> None:
         self.rows = [
             row("a", variant="full", correct=1, state_bytes=1000),

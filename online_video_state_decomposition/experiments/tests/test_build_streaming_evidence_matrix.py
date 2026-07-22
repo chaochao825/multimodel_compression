@@ -43,6 +43,19 @@ class BuildStreamingEvidenceMatrixTests(unittest.TestCase):
         self.assertEqual(routed["gate"]["status"], "OPEN")
         self.assertAlmostEqual(routed["metrics"][1]["value"], 0.014867039231272083)
 
+        independent = _entry(evidence, "ours_routed_codec_independent_300")
+        self.assertEqual(independent["gate"]["status"], "PASS")
+        self.assertTrue(independent["gate"]["valid_for_positive_claim"])
+        self.assertAlmostEqual(
+            independent["metrics"][3]["value"],
+            0.015714554891583965,
+        )
+
+        selector = _entry(evidence, "ours_query_memory_independent_300")
+        self.assertEqual(selector["gate"]["status"], "OPEN")
+        self.assertEqual(selector["metrics"][0]["value"], 0.02)
+        self.assertEqual(selector["metrics"][1]["value"], 0.109375)
+
         bccb = _entry(evidence, "ours_bccb_transport_formal30")
         self.assertEqual(bccb["gate"]["status"], "FAIL")
         self.assertLess(abs(bccb["metrics"][2]["value"]), 0.001)
@@ -50,6 +63,17 @@ class BuildStreamingEvidenceMatrixTests(unittest.TestCase):
         oasis = _entry(evidence, "oasis_official_smoke_1x5")
         self.assertEqual(oasis["gate"]["status"], "SMOKE_ONLY")
         self.assertFalse(oasis["gate"]["valid_for_positive_claim"])
+
+        causalmem = _entry(evidence, "causalmem_official_quality_50x5")
+        self.assertEqual(causalmem["gate"]["status"], "PASS")
+        self.assertEqual(causalmem["metrics"][0]["value"], 0.824)
+
+        stc = _entry(evidence, "stc_official_rekv_stage_pair_20")
+        self.assertEqual(stc["gate"]["status"], "PASS")
+        self.assertAlmostEqual(
+            stc["metrics"][2]["value"],
+            0.27647474450764886,
+        )
 
     def test_runtime_overrides_are_strict_and_audited(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

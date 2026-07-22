@@ -1,0 +1,6 @@
+memory_variant,selection_policy,reference_selection_policy,paired_prediction_matches,prediction_agreement_rate,paired_samples,accuracy_gain,bootstrap_ci95_low,bootstrap_ci95_high,better_samples,worse_samples,tied_samples,mcnemar_exact_p
+full,learned_recent_query_topk,exact_recent,282,0.94,300,0.016666666666666666,-0.0033333333333333335,0.04,8,3,289,0.2265625
+pca_r256_grid2x2,learned_recent_query_topk,exact_recent,285,0.95,300,0.016666666666666666,-0.0033333333333333335,0.03666666666666667,7,2,291,0.1796875
+pca_r256_route_grid2_s4,learned_recent_query_topk,exact_recent,284,0.9466666666666667,300,0.02,0.0,0.04,8,2,290,0.109375
+pca_r256_s0,learned_recent_query_topk,exact_recent,285,0.95,300,0.01,-0.01,0.03333333333333333,7,4,289,0.548828125
+pca_r256_s4,learned_recent_query_topk,exact_recent,284,0.9466666666666667,300,0.016666666666666666,-0.0033333333333333335,0.04,8,3,289,0.2265625

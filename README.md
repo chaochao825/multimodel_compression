@@ -7,8 +7,10 @@
 新增的 `online_video_state_decomposition/` 将这条负面边界推进到在线
 视频理解：它实现并审计了 query-conditioned bounded memory、LLaVA native
 feature cache、calibration-only PCA 和 sparse residual event probe。当前最佳
-压缩状态缩小 `7.84x`，并保留查询记忆增益，但尚未通过严格的 `2%`
-finite-sample non-inferiority gate。
+压缩状态在最终未使用的 300 样本 MVBench reserve 上缩小 `7.84x`，并以
+1.571% 的单侧 95% loss 上界通过严格的 `2%` finite-sample
+non-inferiority gate。查询记忆在相同压缩状态下提升 `+2.0` 个百分点，但
+McNemar `p=0.1094`，因此仍是独立正向信号而非确定优越结论。
 
 ## 目录
 

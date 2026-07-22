@@ -151,7 +151,30 @@ uses a one-sided 95% Clopper-Pearson upper bound on
 full-correct/compressed-wrong outcomes; a degenerate bootstrap interval is not
 used to promote a configuration. `selector_gain_by_variant.csv` separately
 tests query-conditioned versus exact-recent selection within each matched
-memory variant.
+memory variant. Routed runs additionally write `route_usage_by_task.csv` and
+PNG/PDF stacked-path figures. `--reference-run` is optional: omit it for a
+single independently frozen run that contains its own full-state reference.
+
+The final 300-sample independent replication used the frozen split and
+protocol in `configs/mvbench/`, three disjoint shards, and these route settings:
+
+```bash
+SPATIAL_RESIDUAL_GRIDS=2 \
+ROUTED_RESIDUAL_GRIDS=2 \
+ROUTED_GRID_ERROR_RATIO=1.0 \
+bash experiments/scripts/run_mvbench_compressed_feature_memory_shard.sh \
+  GPU SHARD_INDEX 3 \
+  remote_results/mvbench_independent_native_memory_300 \
+  remote_results/mvbench_independent_query_cache_300/aggregate/llava_selection_manifest.json \
+  remote_results/llava_feature_pca_calibration/codec_rank256/llava_feature_pca_rank256.pt \
+  60 \
+  exact_recent,learned_recent_query_topk \
+  0,4
+```
+
+Do not regenerate or retune the frozen split after reading results. The
+committed result bundle records split/model/codec/code hashes, strict
+validation, per-sample predictions, route allocation, and all plot source CSVs.
 
 ## Streaming Baseline Mechanism Proxies
 
@@ -342,7 +365,8 @@ python experiments/probes/build_streaming_evidence_matrix.py \
 The optional runtime-status JSON uses `format_version=1`, an `observed_at`
 timestamp, and records containing `method_id`, `stage`, `status`, `detail`, and
 `source_path`. The builder re-reads the frozen query-memory, spectral-trigger,
-codec, BCCB/event-residual, unified-proxy, and OASIS-smoke artifacts. It writes
+independent codec, BCCB/event-residual, unified-proxy, official
+quality/core/stage, and OASIS-smoke artifacts. It writes
 nested JSON, flattened evidence and completion CSVs, a Markdown analysis, and
 PNG/PDF matrix figures. Every metric retains a `comparability_group`; rows from
 different groups must not be ranked together.

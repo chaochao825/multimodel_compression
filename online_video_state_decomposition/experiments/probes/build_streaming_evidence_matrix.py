@@ -536,6 +536,206 @@ def build_evidence(repo_root: Path) -> list[dict[str, Any]]:
         )
     )
 
+    independent_root = (
+        "paper/results/probe_mvp/"
+        "mvbench_independent_replication_300_20260722/aggregate/"
+    )
+    independent_validation_rel = independent_root + "full_validation.json"
+    independent_validation_path, _ = _artifact(
+        repo_root, independent_validation_rel
+    )
+    independent_validation = _load_object(independent_validation_path)
+    if independent_validation.get("passed") is not True:
+        raise ValueError("independent native-memory validation did not pass")
+    independent_pair_rel = independent_root + "paired_vs_full.csv"
+    independent_pair_path, independent_pair_sha = _artifact(
+        repo_root, independent_pair_rel
+    )
+    independent_pair = _select_one(
+        _read_csv(independent_pair_path),
+        selection_policy="learned_recent_query_topk",
+        memory_variant="pca_r256_route_grid2_s4",
+    )
+    if independent_pair["noninferior_at_margin"] != "1":
+        raise ValueError("independent routed-codec preservation gate did not pass")
+    independent_summary_rel = independent_root + "variant_summary.csv"
+    independent_summary_path, _ = _artifact(repo_root, independent_summary_rel)
+    independent_summary = _select_one(
+        _read_csv(independent_summary_path),
+        selection_policy="learned_recent_query_topk",
+        memory_variant="pca_r256_route_grid2_s4",
+    )
+    evidence.append(
+        _evidence(
+            evidence_id="ours_routed_codec_independent_300",
+            method_id="ours",
+            component_id="routed_low_rank_spatial_sparse_codec",
+            comparability_group="mvbench_llava_independent_reserve_300",
+            evidence_tier="project_native_frozen_independent_replication",
+            data_reuse="untouched_final_reserve_frozen_before_results",
+            sample_count=_integer(
+                independent_pair["paired_samples"],
+                label="independent routed samples",
+            ),
+            gate_id="routed_codec_two_point_noninferiority",
+            gate_status="PASS",
+            valid_for_positive_claim=True,
+            metrics=[
+                _metric(
+                    "accuracy",
+                    _finite(
+                        independent_summary["accuracy"],
+                        label="independent routed accuracy",
+                    ),
+                    "fraction",
+                ),
+                _metric(
+                    "accuracy_gain_vs_full",
+                    _finite(
+                        independent_pair["accuracy_gain"],
+                        label="independent routed gain",
+                    ),
+                    "fraction",
+                    ci95_low=_finite(
+                        independent_pair["bootstrap_ci95_low"],
+                        label="independent routed CI low",
+                    ),
+                    ci95_high=_finite(
+                        independent_pair["bootstrap_ci95_high"],
+                        label="independent routed CI high",
+                    ),
+                    reference="full_feature_cache",
+                ),
+                _metric(
+                    "prediction_agreement_rate",
+                    _finite(
+                        independent_pair["prediction_agreement_rate"],
+                        label="independent routed agreement",
+                    ),
+                    "fraction",
+                ),
+                _metric(
+                    "worse_rate_upper_95",
+                    _finite(
+                        independent_pair["worse_rate_upper_95"],
+                        label="independent routed loss bound",
+                    ),
+                    "fraction",
+                    reference="noninferiority_margin_0.02",
+                ),
+                _metric(
+                    "steady_state_bytes",
+                    _finite(
+                        independent_summary["mean_total_state_bytes"],
+                        label="independent routed state",
+                    ),
+                    "bytes",
+                ),
+                _metric(
+                    "cold_start_bytes",
+                    _finite(
+                        independent_summary["cold_start_total_state_bytes"],
+                        label="independent routed cold state",
+                    ),
+                    "bytes",
+                ),
+                _metric(
+                    "state_compression_ratio",
+                    _finite(
+                        independent_summary[
+                            "mean_total_state_compression_ratio"
+                        ],
+                        label="independent routed compression",
+                    ),
+                    "ratio",
+                ),
+            ],
+            source_path=independent_pair_rel,
+            source_sha256=independent_pair_sha,
+            notes=(
+                "The frozen error-oracle route passes the independent "
+                "representation-preservation gate at 7.84x steady-state "
+                "compression; this is not a cheap-router or latency result."
+            ),
+        )
+    )
+
+    independent_selector_rel = independent_root + "selector_gain_by_variant.csv"
+    independent_selector_path, independent_selector_sha = _artifact(
+        repo_root, independent_selector_rel
+    )
+    independent_selector = _select_one(
+        _read_csv(independent_selector_path),
+        selection_policy="learned_recent_query_topk",
+        memory_variant="pca_r256_route_grid2_s4",
+    )
+    evidence.append(
+        _evidence(
+            evidence_id="ours_query_memory_independent_300",
+            method_id="ours",
+            component_id="query_conditioned_routed_memory",
+            comparability_group="mvbench_llava_independent_reserve_300",
+            evidence_tier="project_native_frozen_independent_replication",
+            data_reuse="untouched_final_reserve_frozen_before_results",
+            sample_count=_integer(
+                independent_selector["paired_samples"],
+                label="independent selector samples",
+            ),
+            gate_id="query_memory_confirmatory_superiority",
+            gate_status="OPEN",
+            valid_for_positive_claim=False,
+            metrics=[
+                _metric(
+                    "accuracy_gain",
+                    _finite(
+                        independent_selector["accuracy_gain"],
+                        label="independent selector gain",
+                    ),
+                    "fraction",
+                    ci95_low=_finite(
+                        independent_selector["bootstrap_ci95_low"],
+                        label="independent selector CI low",
+                    ),
+                    ci95_high=_finite(
+                        independent_selector["bootstrap_ci95_high"],
+                        label="independent selector CI high",
+                    ),
+                    reference="exact_recent_matched_routed_state",
+                ),
+                _metric(
+                    "mcnemar_exact_p",
+                    _finite(
+                        independent_selector["mcnemar_exact_p"],
+                        label="independent selector McNemar p",
+                    ),
+                    "probability",
+                ),
+                _metric(
+                    "better_samples",
+                    _integer(
+                        independent_selector["better_samples"],
+                        label="independent selector better samples",
+                    ),
+                    "count",
+                ),
+                _metric(
+                    "worse_samples",
+                    _integer(
+                        independent_selector["worse_samples"],
+                        label="independent selector worse samples",
+                    ),
+                    "count",
+                ),
+            ],
+            source_path=independent_selector_rel,
+            source_sha256=independent_selector_sha,
+            notes=(
+                "The frozen learned reader gains 2.0 points (8 better, 2 "
+                "worse), but its interval touches zero and McNemar p=0.1094."
+            ),
+        )
+    )
+
     decision_rel = (
         "paper/results/probe_mvp/clip_stratified_formal30_20260717/"
         "formal_probe_decision_metrics.csv"
@@ -701,6 +901,185 @@ def build_evidence(repo_root: Path) -> list[dict[str, Any]]:
             )
         )
 
+    official_root = (
+        "paper/results/probe_mvp/official_streaming_formal_20260722/"
+    )
+    official_quality_rel = official_root + "official_quality_formal.csv"
+    official_quality_path, official_quality_sha = _artifact(
+        repo_root, official_quality_rel
+    )
+    official_quality = _read_csv(official_quality_path)
+    quality_method_ids = {"CausalMem": "causalmem", "OASIS": "oasis"}
+    for row in official_quality:
+        if row["method"] not in quality_method_ids:
+            raise ValueError(f"unknown official quality method: {row['method']}")
+        expected = _integer(
+            row["expected"], label=f"{row['method']} expected questions"
+        )
+        scored = _integer(
+            row["scored"], label=f"{row['method']} scored questions"
+        )
+        if scored != expected or _finite(
+            row["coverage"], label=f"{row['method']} coverage"
+        ) != 1.0:
+            raise ValueError(f"incomplete official quality result: {row['method']}")
+        method_id = quality_method_ids[row["method"]]
+        evidence.append(
+            _evidence(
+                evidence_id=f"{method_id}_official_quality_50x5",
+                method_id=method_id,
+                component_id="official_streamingbench_system",
+                comparability_group="streamingbench_rtu_official_50x5",
+                evidence_tier=row["evidence_tier"],
+                data_reuse="official_fixed_50_video_evaluation",
+                sample_count=scored,
+                gate_id="official_quality_run_complete",
+                gate_status="PASS",
+                valid_for_positive_claim=True,
+                metrics=[
+                    _metric(
+                        "accuracy",
+                        _finite(
+                            row["accuracy"],
+                            label=f"{row['method']} official accuracy",
+                        ),
+                        "fraction",
+                    ),
+                    _metric(
+                        "correct",
+                        _integer(
+                            row["correct"],
+                            label=f"{row['method']} official correct",
+                        ),
+                        "count",
+                    ),
+                    _metric("coverage", 1.0, "fraction"),
+                ],
+                source_path=official_quality_rel,
+                source_sha256=official_quality_sha,
+                notes=(
+                    "Official system-level StreamingBench reproduction. "
+                    "CausalMem and OASIS use different VLM backbones, so "
+                    "their paired scores are not a memory-module ablation."
+                ),
+            )
+        )
+
+    official_runs_rel = official_root + "official_runs.csv"
+    official_runs_path, _ = _artifact(repo_root, official_runs_rel)
+    official_runs = _read_csv(official_runs_path)
+    stc_rel = official_root + "official_stc_stage_latency.csv"
+    stc_path, stc_sha = _artifact(repo_root, stc_rel)
+    stc_rows = _read_csv(stc_path)
+    rekv_stage = _select_one(
+        stc_rows, mode="rekv", stage="instrumented_stage_sum_ms"
+    )
+    stc_stage = _select_one(
+        stc_rows, mode="stc", stage="instrumented_stage_sum_ms"
+    )
+    rekv_run = _select_one(official_runs, method="STC ReKV", variant="rekv")
+    stc_run = _select_one(official_runs, method="STC ReKV", variant="stc")
+    stc_p50_reduction = 1.0 - _finite(
+        stc_stage["p50_ms"], label="STC P50"
+    ) / _finite(rekv_stage["p50_ms"], label="ReKV P50")
+    stc_mean_reduction = 1.0 - _finite(
+        stc_stage["mean_ms"], label="STC mean"
+    ) / _finite(rekv_stage["mean_ms"], label="ReKV mean")
+    stc_peak_reduction = 1.0 - _finite(
+        stc_run["peak_memory_value"], label="STC peak memory"
+    ) / _finite(rekv_run["peak_memory_value"], label="ReKV peak memory")
+    evidence.append(
+        _evidence(
+            evidence_id="stc_official_rekv_stage_pair_20",
+            method_id="stc",
+            component_id="official_rekv_stage_latency",
+            comparability_group="stc_rekv_official_model_stage_pair",
+            evidence_tier="official_model_stage_latency",
+            data_reuse="official_benchmark_pair",
+            sample_count=_integer(stc_stage["count"], label="STC stage count"),
+            gate_id="official_stage_pair_complete",
+            gate_status="PASS",
+            valid_for_positive_claim=True,
+            metrics=[
+                _metric(
+                    "rekv_p50",
+                    _finite(rekv_stage["p50_ms"], label="ReKV P50"),
+                    "milliseconds",
+                ),
+                _metric(
+                    "stc_p50",
+                    _finite(stc_stage["p50_ms"], label="STC P50"),
+                    "milliseconds",
+                ),
+                _metric("p50_reduction", stc_p50_reduction, "fraction"),
+                _metric("mean_reduction", stc_mean_reduction, "fraction"),
+                _metric("peak_memory_reduction", stc_peak_reduction, "fraction"),
+            ],
+            source_path=stc_rel,
+            source_sha256=stc_sha,
+            notes=(
+                "Matched official ViT-plus-visual-prefill stages only; not "
+                "request TTFT, decode, quality, or an end-to-end SLO result."
+            ),
+        )
+    )
+
+    streamingtom_rel = official_root + "official_streamingtom_core_latency.csv"
+    streamingtom_path, streamingtom_sha = _artifact(repo_root, streamingtom_rel)
+    streamingtom_rows = [
+        row
+        for row in _read_csv(streamingtom_path)
+        if row["timing_basis"] == "cuda_event"
+    ]
+    streamingtom_metrics = []
+    for variant in (
+        "streamingtom_ctr",
+        "streamingtom_oqm_write",
+        "streamingtom_oqm_select",
+    ):
+        row = _select_one(streamingtom_rows, variant=variant)
+        short = variant.removeprefix("streamingtom_")
+        streamingtom_metrics.extend(
+            [
+                _metric(
+                    f"{short}_p50",
+                    _finite(row["p50_ms"], label=f"{variant} P50"),
+                    "milliseconds",
+                ),
+                _metric(
+                    f"{short}_p95",
+                    _finite(row["p95_ms"], label=f"{variant} P95"),
+                    "milliseconds",
+                ),
+                _metric(
+                    f"{short}_p99",
+                    _finite(row["p99_ms"], label=f"{variant} P99"),
+                    "milliseconds",
+                ),
+            ]
+        )
+    evidence.append(
+        _evidence(
+            evidence_id="streamingtom_official_core_triplet_200",
+            method_id="streamingtom",
+            component_id="official_ctr_oqm_core_latency",
+            comparability_group="streamingtom_official_cuda_core_microbenchmarks",
+            evidence_tier="official_core_gpu_microbenchmark",
+            data_reuse="official_pinned_core_benchmark",
+            sample_count=200,
+            gate_id="official_core_summary_triplet_complete",
+            gate_status="PASS",
+            valid_for_positive_claim=True,
+            metrics=streamingtom_metrics,
+            source_path=streamingtom_rel,
+            source_sha256=streamingtom_sha,
+            notes=(
+                "CTR, OQM write, and OQM select have different scopes and "
+                "are neither additive nor end-to-end Video-LLM latency."
+            ),
+        )
+    )
+
     oasis_rel = "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json"
     oasis_path, oasis_sha = _artifact(repo_root, oasis_rel)
     oasis = _load_object(oasis_path)
@@ -752,7 +1131,7 @@ def base_completion_matrix() -> list[dict[str, str]]:
             "OPEN",
             "OPEN",
             "PASS",
-            "OPEN",
+            "PASS",
         ),
         "exact_recent": (
             "PASS",
@@ -762,17 +1141,17 @@ def base_completion_matrix() -> list[dict[str, str]]:
             "PASS",
             "NA",
             "PASS",
-            "OPEN",
+            "PASS",
         ),
         "causalmem": (
             "PASS",
             "PASS",
             "PASS",
             "PASS",
-            "OPEN",
+            "PASS",
             "NA",
             "PROXY_ONLY",
-            "OPEN",
+            "PASS",
         ),
         "stc": (
             "PASS",
@@ -780,19 +1159,19 @@ def base_completion_matrix() -> list[dict[str, str]]:
             "NA",
             "PASS",
             "NA",
-            "OPEN",
+            "PASS",
             "PROXY_ONLY",
-            "OPEN",
+            "PASS",
         ),
         "streamingtom": (
             "PASS",
             "PASS",
             "NA",
-            "OPEN",
+            "PASS",
             "NA",
-            "OPEN",
+            "PASS",
             "PROXY_ONLY",
-            "OPEN",
+            "PASS",
         ),
         "selectstream": (
             "UNAVAILABLE",
@@ -809,10 +1188,10 @@ def base_completion_matrix() -> list[dict[str, str]]:
             "PASS",
             "PASS",
             "PASS",
-            "SMOKE_ONLY",
+            "PASS",
             "UNAVAILABLE",
             "PROXY_ONLY",
-            "OPEN",
+            "PASS",
         ),
         "statekv": (
             "PLACEHOLDER",
@@ -828,23 +1207,28 @@ def base_completion_matrix() -> list[dict[str, str]]:
     details = {
         ("ours", "official_quality"): "No independent end-to-end streaming quality run.",
         ("ours", "official_latency"): "No native writer/read/TTFT tail-latency run.",
-        ("causalmem", "official_quality"): "Strict 50x5 evaluator is prepared but has no complete result.",
-        ("stc", "official_latency"): "Both ReKV modes pass preflight; CUDA timing is pending.",
-        ("streamingtom", "runtime_preflight"): "Pinned core runner exists; runtime dry-run is external state.",
-        ("streamingtom", "official_latency"): "Official-core CTR/OQM CUDA timing is pending.",
+        ("ours", "independent_replication"): "Frozen 300-sample routed-state preservation gate passed; selector superiority remains open.",
+        ("causalmem", "official_quality"): "Strict official 50x5 result: 206/250 correct.",
+        ("causalmem", "independent_replication"): "Official evaluator reproduced with complete audited artifacts.",
+        ("stc", "official_latency"): "Matched official ReKV/ReKV+STC ViT-plus-prefill stage pair completed.",
+        ("stc", "independent_replication"): "Official stage benchmark pair reproduced; not end-to-end TTFT.",
+        ("streamingtom", "runtime_preflight"): "Pinned CTR/OQM dry-run preflight triplet passed.",
+        ("streamingtom", "official_latency"): "Official-core CTR/OQM CUDA summaries completed; scopes are non-additive.",
+        ("streamingtom", "independent_replication"): "Pinned official core microbenchmarks reproduced; not model-level quality.",
         ("selectstream", "source"): "No discoverable public implementation.",
-        ("oasis", "official_quality"): "Audited 1x5 smoke only; not a formal comparison.",
+        ("oasis", "official_quality"): "Strict official 50x5 result: 209/250 correct.",
         ("oasis", "official_latency"): "No public paper-table request-latency runner.",
+        ("oasis", "independent_replication"): "Official evaluator reproduced with complete audited artifacts.",
         ("statekv", "source"): "Official repository is a README placeholder.",
     }
     sources = {
-        "ours": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
-        "exact_recent": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
-        "causalmem": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
-        "stc": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
-        "streamingtom": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+        "ours": "paper/results/probe_mvp/mvbench_independent_replication_300_20260722/INDEPENDENT_REPLICATION_ANALYSIS.md",
+        "exact_recent": "paper/results/probe_mvp/mvbench_independent_replication_300_20260722/aggregate/variant_summary.csv",
+        "causalmem": "paper/results/probe_mvp/official_streaming_formal_20260722/official_quality_formal.csv",
+        "stc": "paper/results/probe_mvp/official_streaming_formal_20260722/official_stc_stage_latency.csv",
+        "streamingtom": "paper/results/probe_mvp/official_streaming_formal_20260722/official_streamingtom_core_latency.csv",
         "selectstream": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
-        "oasis": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+        "oasis": "paper/results/probe_mvp/official_streaming_formal_20260722/official_quality_formal.csv",
         "statekv": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
     }
     method_labels = dict(METHODS)
@@ -1045,7 +1429,10 @@ def _write_report(
         "",
         "## Claim Decision",
         "",
-        "No complete hybrid method has passed independent end-to-end quality, latency, and fixed-state gates. Positive mechanism signals and failed gates remain separated by comparability group.",
+        "The frozen routed codec now passes an independent fixed-state "
+        "preservation gate. No complete hybrid method has yet passed the "
+        "combined end-to-end streaming quality, latency, and SLO gates; "
+        "comparability groups remain separate.",
         "",
         "## Our Component Gates",
         "",
@@ -1078,7 +1465,13 @@ def _write_report(
         [
             "## Claim Boundary",
             "",
-            "The current evidence does not justify claims that BCCB replaces global video attention, that residuals are semantically event-sparse, that the codec is independently non-inferior, or that proxy latency is official TTFT/SLO latency. SelectStream and StateKV remain paper/proxy references until executable official code is available.",
+            "The current evidence supports independent routed-state "
+            "preservation on the frozen LLaVA MVBench reserve. It does not "
+            "justify claims that BCCB replaces global video attention, that "
+            "the error-oracle route is a cheap semantic event detector, or "
+            "that proxy/stage latency is official TTFT or SLO latency. "
+            "SelectStream and StateKV remain paper/proxy references until "
+            "executable official code is available.",
             "",
             "The matrix figure is `streaming_evidence_completion_matrix.png`/`.pdf`; raw rows are preserved in `completion_matrix.csv` and `evidence_metrics.csv`.",
         ]

@@ -1,0 +1,87 @@
+{
+  "analysis_stage": "frozen_independent_replication",
+  "code": {
+    "aggregate_compressed_feature_memory_sha256": "b4d79f8969fdae51519d3e89b1adf34f72f94796bcb464bc3eb008eeeab472fc",
+    "evaluate_query_memory_sha256": "7a5a3a3426d53f0c5fcefdbd24d9e64216fde430aa9a2c085f4545deb1dd0bd4",
+    "feature_memory_codec_sha256": "2a959cd7783fb9542d7a6a1016329206fcbc3656ce5f7c0be7e65df8fca24e8d",
+    "git_commit_before_launch": "673c8342a0756a536b403fee93b3f06483be7f3b",
+    "mvbench_query_cache_sha256": "a860593477fdc4085631e622809bae07415933d3e4bffbc697803f70d53b5c0f",
+    "native_memory_runner_sha256": "f540883f2cd9fb9e82cec2f8093471a6a7434f6bfc46fe853cbfad7d1758fb3a",
+    "query_cache_launcher_sha256": "54e6d4cf00a1bbe9b88117943d80aaf829ce86813296ee81d14c6d0505c44389",
+    "native_memory_launcher_sha256": "a5d3d827f0e258c9a9e6e04bb3220428e34eea421984aff6e3fa33957d99be84"
+  },
+  "controls": {
+    "frame_budget": 8,
+    "include_full_state": true,
+    "policies": [
+      "exact_recent",
+      "learned_recent_query_topk"
+    ],
+    "sampled_frames": 32,
+    "feature_pool_frames": 16,
+    "pool_grid": 8,
+    "raw_frame_replay_at_read": false
+  },
+  "frozen_method": {
+    "codec_rank": 256,
+    "codec_sha256": "39f7623b3ae95db93403ef00c63589d901a2d9011dd4a23b8fc185d76d20012f",
+    "learned_ranker_sha256": "65226a3ef558bf0968d48fa8a482cec85a7a0d39af85f0226c785f613e666f12",
+    "query_hyperparameters_sha256": "c04db25ab9597c4079e675a2790f3cee56e40bf2d87b06b20b4215dcabf26681",
+    "residual_variants": [
+      "pca_r256_s0",
+      "pca_r256_s4",
+      "pca_r256_grid2x2",
+      "pca_r256_route_grid2_s4"
+    ],
+    "route_decision": "lower stored-state reconstruction error after FP16 quantization",
+    "route_grid_error_ratio": 1.0,
+    "route_is_error_oracle": true
+  },
+  "format_version": 1,
+  "hypotheses": {
+    "primary_preservation": {
+      "candidate": "learned_recent_query_topk/pca_r256_route_grid2_s4",
+      "decision": "one-sided 95% Clopper-Pearson upper bound must be at most 0.02",
+      "maximum_full_correct_candidate_wrong": 1,
+      "reference": "learned_recent_query_topk/full"
+    },
+    "primary_query_memory": {
+      "candidate": "learned_recent_query_topk/pca_r256_route_grid2_s4",
+      "decision": "report paired gain, exact McNemar p-value, and confidence interval without retuning",
+      "reference": "exact_recent/pca_r256_route_grid2_s4"
+    },
+    "secondary": [
+      "compare fixed sparse, spatial grid, routed, latent-only, and full state",
+      "localize losses by task without task-specific tuning",
+      "report steady-state bytes, cold-start bytes, writer time, and cached-read time"
+    ]
+  },
+  "model": {
+    "clip_config_sha256": "51b1c14aabcdf639c4a0370eeda1010b773bbe1df78319c7d0f5882c22ac0ac0",
+    "llava_model_config_sha256": "a6748e8c83eb5fd9ccae29e8a3eae327f7d0b62ba465ed13f566ccd372e6a900",
+    "llava_model_index_sha256": "487578d3f7ec21c057596d0f9dc71084acc349eb8f13bd8b5af86c26460f2d31",
+    "llava_source_commit": "c121f0432da27facab705978f83c4ada465e46fd"
+  },
+  "protocol_id": "mvbench_independent_replication_300_20260722_v1",
+  "restrictions": [
+    "Do not change the codec, selector, route, thresholds, prompts, or metrics after reading this run.",
+    "Do not use task labels or future frames in selection or routing.",
+    "Do not promote the error-oracle route as a low-cost deployed router.",
+    "Do not compare these LLaVA-1.5 results directly with different-backbone StreamingBench systems."
+  ],
+  "split": {
+    "evaluation_per_task": 60,
+    "prior_overlap_count": 0,
+    "sample_count": 300,
+    "sha256": "720423b308f97aecdacd1bb9c70b13ae08920a38e3abb75147e63e71486821f2",
+    "source_confirmation_sha256": "f4e6af52c06eb174ebe0f83bf623d5ff4a36103d0981fd41d186683350ff8108",
+    "source_original_sha256": "97f1b9cdb0488719b5b1f5a94a312a61c111b557f482de10e49b31d8830c2409",
+    "tasks": [
+      "object_existence",
+      "state_change",
+      "scene_transition",
+      "action_sequence",
+      "moving_direction"
+    ]
+  }
+}

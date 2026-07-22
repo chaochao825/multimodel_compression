@@ -11,66 +11,46 @@ components for a later writer, router, or projection accelerator.
 
 ## Current Result
 
-The strongest current evidence is a post-hoc mechanism regression on a reused
-200-sample MVBench set. With a frozen LLaVA-1.5-7B feature cache and a
-calibration-only rank-256 PCA codec, fixed-s4 and spatial grid-2x2 each score
-101/200 versus 102/200 for full state, but fail on different samples. A causal
-error-oracle route between the two representations scores 102/200 in the
-audited v2 scan:
+The strongest current evidence is a frozen independent replication on the
+final untouched 300-sample MVBench reserve. With LLaVA-1.5-7B and a
+calibration-only rank-256 PCA codec, the learned reader's routed state matches
+full-state accuracy and passes the preregistered 2% preservation gate:
 
 | Result | Full cache | Routed compressed |
 |---|---:|---:|
 | Steady per-stream tensor payload | 8.024 MiB | 1.024 MiB |
 | Cold start including shared codec | 8.024 MiB | 3.031 MiB |
-| Learned-selector accuracy | 51.0% | 51.0% |
-| Exact prediction agreement | - | 98.5% |
-| Full-correct/compressed-wrong | - | 0 / 200 |
+| Learned-reader accuracy | 45.0% | 45.0% |
+| Exact prediction agreement | - | 99.33% |
+| Full-correct/compressed-wrong | - | 1 / 300 |
+| One-sided upper 95% loss bound | - | 1.571% |
 
-The amortized state ratio is 7.84x; the cold-start ratio is 2.65x. The route
-computes both candidates and was designed after inspecting the same set, so it
-is not a deployable router or independent confirmation. Separately, the
-option-aware learned reader shows an exploratory 9-better/1-worse paired
-signal over recent-only access at the compressed state (unadjusted McNemar
-p=0.0215). Both findings require a frozen, previously unseen reserve set.
+The steady-state ratio is 7.84x and the cold-start ratio is 2.65x. At matched
+routed state, the frozen learned reader scores 45.0% versus 43.0% for exact
+recent: +2.0 points, eight better and two worse samples, bootstrap interval
+[0.0, 4.0] points, exact McNemar `p=0.1094`. The direction independently
+replicates, but superiority is not statistically conclusive.
 
-See
-[FEATURE_MEMORY_COMPRESSION_ANALYSIS_20260718.md](paper/results/probe_mvp/FEATURE_MEMORY_COMPRESSION_ANALYSIS_20260718.md)
-for the original protocol and failure localization. The stricter evidence
-audit and routed redesign are summarized in
-[COMPETITIVENESS_LOSS_REDESIGN_ANALYSIS_20260718.md](paper/results/probe_mvp/COMPETITIVENESS_LOSS_REDESIGN_ANALYSIS_20260718.md).
+The error-oracle route selects the spatial-grid path for 75.7% of source
+frames and sparse-4 for 24.3%, with strong task variation. It evaluates both
+candidates and is therefore a state-preservation mechanism, not a deployable
+low-cost router or latency result. See the
+[independent replication analysis](paper/results/probe_mvp/mvbench_independent_replication_300_20260722/INDEPENDENT_REPLICATION_ANALYSIS.md)
+and its committed CSV/JSON/PNG/PDF evidence.
 
-A separate six-baseline audit now distinguishes official source availability,
-paper-to-code mismatches, and unified feature-level mechanism proxies. On the
-reused 200-sample development cache, the dev-fitted bounded selector scores
-53.0% versus 50.0% for exact recent, but this is post-hoc and not an
-independent confirmation. StateKV, OASIS, and StreamingTOM additionally retain
-growing detailed or archive state in the audited accounting. See
-[STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md](paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md).
-Targeted official-module smokes now also cover CausalMem `FOSSCache`,
-StreamingTOM `OQM`, STC core imports, and OASIS `ShortMemory`; these remain
-mechanism checks rather than model-level latency or quality reproductions.
-Strict machine-readable preflights now additionally pass for CausalMem's
-official 50-video/250-question evaluator and both modes of STC's official ReKV
-latency benchmark. Their official jobs are waiting in the safe idle-GPU queue;
-queue placement is not a quality or latency result. OASIS now also has an
-exact-50x5 data adapter, no-copy dataset materializer, and official evaluator
-wrapper. Its static source/model/data preflight passes. The server-210
-FlashAttention 2.8.3 source build and CPU-side import/ELF audit also pass, with
-only `sm_80` cubins and maximum GLIBC requirement 2.14. The CUDA BF16 kernel
-preflight and one-video model inference remain incomplete.
-OASIS is retained as a slow event-archive quality baseline; a future `pace=0`
-whole-run wall time is not request TTFT or SLO latency. See
-[CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md)
+The audited official baseline reproductions are also complete. CausalMem
+scores 206/250 (82.4%) and OASIS 209/250 (83.6%) on the same StreamingBench
+question IDs, with exact paired McNemar `p=0.755`; they use different VLM
+backbones and are system comparisons, not memory-module ablations. In the
+official STC stage benchmark, ReKV+STC reduces median ViT-plus-prefill time by
+27.65% and reported peak memory by 10.61% versus ReKV over 20 samples.
+StreamingTOM official-core CUDA P50 is 396.50 ms for CTR over 64 frames, 37.47
+ms for OQM write over 64 frames, and 70.19 ms for OQM select over 256 frames.
+These core/stage scopes are not additive and are not request TTFT or SLO
+latency. See the
+[formal baseline aggregate](paper/results/probe_mvp/official_streaming_formal_20260722/aggregation_summary.json)
 and
-[STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md).
-The OASIS contract is
-[OASIS_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md](paper/results/probe_mvp/OASIS_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md).
-Its completed static evidence is
-[oasis_official_static_preflight_20260719.json](paper/results/probe_mvp/oasis_official_static_preflight_20260719.json);
-the intentionally null runtime field means it is not a CUDA launch result.
-The separate source-build/import evidence is
-[oasis_flash_attn_build_audit_20260719.json](paper/results/probe_mvp/oasis_flash_attn_build_audit_20260719.json),
-which likewise is not a CUDA kernel result.
+[evidence matrix](paper/results/probe_mvp/streaming_evidence_matrix_20260722/EVIDENCE_MATRIX_ANALYSIS.md).
 
 ## Repository Layout
 
@@ -126,8 +106,8 @@ bash experiments/scripts/run_stc_rekv_official.sh \
   rekv_stc RUN_NAME 0
 ```
 
-Prepare and run the audited OASIS one-video smoke before scheduling its formal
-50-video quality evaluation:
+Prepare OASIS assets and launch its audited evaluator through the idle-GPU
+runner:
 
 ```bash
 bash experiments/scripts/prepare_oasis_streamingbench.sh
@@ -135,12 +115,15 @@ bash experiments/scripts/run_oasis_when_idle.sh \
   oasis_smoke_1video_v1 smoke 3
 ```
 
-The CausalMem and STC jobs are currently waiting through these queue helpers;
-no official quality or CUDA timing result has been produced:
+The completed CausalMem, OASIS, STC, and StreamingTOM runs are retained under
+`paper/results/probe_mvp/official_streaming_formal_20260722/`. Queue helpers
+remain available for exact reruns; queue state itself is never treated as a
+result:
 
 ```bash
 bash experiments/scripts/run_stc_rekv_pair_when_idle.sh RUN_NAME 0
 bash experiments/scripts/run_causalmem_when_idle.sh RUN_NAME 0
+bash experiments/scripts/run_streamingtom_kernels_when_idle.sh RUN_NAME 0
 ```
 
 Extract calibration features, fit codecs, and run the rank gate:
@@ -151,7 +134,7 @@ bash experiments/scripts/run_llava_feature_pca_fit.sh ...
 bash experiments/scripts/run_compressed_feature_rank_sweep.sh ...
 ```
 
-Run formal compressed native-memory confirmation:
+Run compressed native-memory confirmation or an independently frozen split:
 
 ```bash
 bash experiments/scripts/run_mvbench_compressed_feature_memory_shard.sh \
@@ -199,10 +182,13 @@ python experiments/probes/validate_compressed_feature_memory.py \
   --selection-manifest remote_results/mvbench_query_confirmation/aggregate/llava_selection_manifest.json \
   --split-manifest configs/mvbench/query_memory_split_20260717.json \
   --fit-summary remote_results/llava_feature_pca_calibration/codec_rank256/fit_summary.json \
-  --reference-run remote_results/mvbench_feature_memory_confirmation \
   --expected-samples 200 \
   --expected-variants full,pca_r256_s0,pca_r256_s4
 ```
+
+`--reference-run` is optional. Supply it only when a separate full-state run
+must agree with the current run; independent all-in-one runs validate their
+own full reference without a prior result directory.
 
 Full operational details are in
 [experiments/README.md](experiments/README.md).
@@ -221,14 +207,14 @@ redistributing third-party models or datasets.
   established tools; this repository does not claim these primitives as new.
 - The current evidence supports query-conditioned access to bounded history,
   not the optimality of the frozen four-feature ridge selector.
-- The routed result is a post-hoc regression on a reused set. It does not
-  replace the failed strict finite-sample gate for fixed-s4 or establish
-  generalization.
+- The frozen routed codec passes independent representation preservation on
+  300 LLaVA MVBench samples. The +2-point learned-reader gain remains
+  inconclusive (`p=0.1094`), and the route is still an error oracle.
 - Latency measurements are unfused Python/CUDA measurements, not production
   serving or hardware-kernel claims.
 - The next mechanism gate is a cheap causal router trained on disjoint data,
-  followed by a frozen paired run on at least 400 unseen samples and
-  replication on a second encoder or benchmark.
+  followed by frozen paired replication on a second model or benchmark and
+  end-to-end TTFT/SLO measurement.
 
 The parallel `streaming_hybrid_state_v0` probe reaches a similarly bounded
 verdict: simple EMA predictors beat its Fourier predictors; residual product

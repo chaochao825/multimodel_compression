@@ -15,7 +15,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--selection-manifest", type=Path, required=True)
     parser.add_argument("--split-manifest", type=Path, required=True)
     parser.add_argument("--fit-summary", type=Path, required=True)
-    parser.add_argument("--reference-run", type=Path, required=True)
+    parser.add_argument("--reference-run", type=Path)
+    parser.add_argument("--evaluation-split-manifest", type=Path)
+    parser.add_argument("--protocol-manifest", type=Path)
     parser.add_argument("--expected-samples", type=int, default=200)
     parser.add_argument(
         "--expected-policies",
@@ -122,6 +124,52 @@ def selection_split_audit(
     return checks, intersections
 
 
+def independent_protocol_audit(
+    *,
+    selection_ids: set[str],
+    evaluation_manifest: dict[str, object],
+    evaluation_sha256: str,
+    protocol: dict[str, object],
+    expected_samples: int,
+    policies: list[str],
+    variants: list[str],
+    codec_sha256: str,
+) -> dict[str, bool]:
+    evaluation_ids = split_sample_ids(evaluation_manifest, "evaluation")
+    protocol_split = protocol["split"]
+    protocol_method = protocol["frozen_method"]
+    protocol_controls = protocol["controls"]
+    return {
+        "frozen_evaluation_has_expected_samples": (
+            len(evaluation_ids) == expected_samples
+        ),
+        "selection_ids_match_frozen_evaluation": (
+            selection_ids == evaluation_ids
+        ),
+        "protocol_analysis_stage_is_frozen": (
+            protocol.get("analysis_stage")
+            == "frozen_independent_replication"
+        ),
+        "protocol_sample_count_matches": (
+            int(protocol_split["sample_count"]) == expected_samples
+        ),
+        "protocol_split_hash_matches_evaluation": (
+            str(protocol_split["sha256"]) == evaluation_sha256
+        ),
+        "protocol_codec_hash_matches_fit": (
+            str(protocol_method["codec_sha256"]) == codec_sha256
+        ),
+        "protocol_policies_match_expected": (
+            set(str(value) for value in protocol_controls["policies"])
+            == set(policies)
+        ),
+        "protocol_variants_match_expected": (
+            set(str(value) for value in protocol_method["residual_variants"])
+            == set(variants) - {"full"}
+        ),
+    }
+
+
 def expected_feature_payload_bytes(
     variant: str,
     *,
@@ -216,6 +264,20 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
         args.split_manifest.read_text(encoding="utf-8")
     )
     fit = json.loads(args.fit_summary.read_text(encoding="utf-8"))
+    evaluation_manifest = None
+    protocol = None
+    if args.protocol_manifest is not None and args.evaluation_split_manifest is None:
+        raise ValueError(
+            "--protocol-manifest requires --evaluation-split-manifest"
+        )
+    if args.evaluation_split_manifest is not None:
+        evaluation_manifest = json.loads(
+            args.evaluation_split_manifest.read_text(encoding="utf-8")
+        )
+    if args.protocol_manifest is not None:
+        protocol = json.loads(
+            args.protocol_manifest.read_text(encoding="utf-8")
+        )
     configuration = json.loads(
         (args.run_dir / "configuration.json").read_text(
             encoding="utf-8"
@@ -302,17 +364,19 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
             }
         )
 
-    reference_rows, _, _ = load_checkpoint_rows(args.reference_run)
-    reference_lookup = {
-        (str(row["sample_id"]), str(row["policy"])): row
-        for row in reference_rows
-        if str(row["policy"]) in policies
-    }
     full_lookup = {
         (str(row["sample_id"]), str(row["selection_policy"])): row
         for row in rows
         if row["memory_variant"] == "full"
     }
+    reference_lookup: dict[tuple[str, str], dict[str, object]] = {}
+    if args.reference_run is not None:
+        reference_rows, _, _ = load_checkpoint_rows(args.reference_run)
+        reference_lookup = {
+            (str(row["sample_id"]), str(row["policy"])): row
+            for row in reference_rows
+            if str(row["policy"]) in policies
+        }
     paired_keys = sorted(set(reference_lookup) & set(full_lookup))
     prediction_matches = sum(
         str(reference_lookup[key]["predicted_index"])
@@ -339,14 +403,10 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
     ]
     reference_pair_count = len(paired_keys)
     prediction_agreement_rate = (
-        prediction_matches / reference_pair_count
-        if reference_pair_count
-        else 0.0
+        prediction_matches / reference_pair_count if reference_pair_count else None
     )
     correctness_agreement_rate = (
-        correctness_matches / reference_pair_count
-        if reference_pair_count
-        else 0.0
+        correctness_matches / reference_pair_count if reference_pair_count else None
     )
 
     task_counts = Counter(
@@ -438,16 +498,36 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
             str(configuration["selection_manifest_sha256"])
             == sha256(args.selection_manifest)
         ),
-        "reference_pair_coverage": (
-            len(paired_keys) == args.expected_samples * len(policies)
-        ),
-        "reference_full_prediction_agreement_at_least_99pct": (
-            prediction_agreement_rate >= 0.99
-        ),
-        "reference_full_correctness_agreement_at_least_99_5pct": (
-            correctness_agreement_rate >= 0.995
-        ),
     }
+    if evaluation_manifest is not None and protocol is not None:
+        checks.update(
+            independent_protocol_audit(
+                selection_ids=selection_ids,
+                evaluation_manifest=evaluation_manifest,
+                evaluation_sha256=sha256(args.evaluation_split_manifest),
+                protocol=protocol,
+                expected_samples=args.expected_samples,
+                policies=policies,
+                variants=variants,
+                codec_sha256=str(fit["codec_sha256"]),
+            )
+        )
+    if args.reference_run is not None:
+        checks.update(
+            {
+                "reference_pair_coverage": (
+                    len(paired_keys) == args.expected_samples * len(policies)
+                ),
+                "reference_full_prediction_agreement_at_least_99pct": (
+                    prediction_agreement_rate is not None
+                    and prediction_agreement_rate >= 0.99
+                ),
+                "reference_full_correctness_agreement_at_least_99_5pct": (
+                    correctness_agreement_rate is not None
+                    and correctness_agreement_rate >= 0.995
+                ),
+            }
+        )
     return {
         "passed": all(checks.values()),
         "checks": checks,
@@ -472,7 +552,36 @@ def validate(args: argparse.Namespace) -> dict[str, object]:
             "expected_total_state_bytes": expected_state_bytes,
         },
         "split_intersections": split_intersections,
+        "independent_protocol": {
+            "available": protocol is not None,
+            "evaluation_split_path": (
+                str(args.evaluation_split_manifest.resolve())
+                if args.evaluation_split_manifest is not None
+                else None
+            ),
+            "evaluation_split_sha256": (
+                sha256(args.evaluation_split_manifest)
+                if args.evaluation_split_manifest is not None
+                else None
+            ),
+            "protocol_path": (
+                str(args.protocol_manifest.resolve())
+                if args.protocol_manifest is not None
+                else None
+            ),
+            "protocol_sha256": (
+                sha256(args.protocol_manifest)
+                if args.protocol_manifest is not None
+                else None
+            ),
+        },
         "reference_agreement": {
+            "available": args.reference_run is not None,
+            "source_path": (
+                str(args.reference_run.resolve())
+                if args.reference_run is not None
+                else None
+            ),
             "prediction_rate": prediction_agreement_rate,
             "correctness_rate": correctness_agreement_rate,
             "prediction_mismatches": prediction_mismatches[:20],
