@@ -1,0 +1,3 @@
+method,variant,scope,accuracy,correct,scored,expected,coverage,evidence_tier,source_path
+CausalMem,causal_mem,formal_50x5,0.824,206,250,250,1.0,official_model_level_rt_1_50,/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/official/metrics.json
+OASIS,event_archive,formal_50x5,0.836,209,250,250,1.0,official_model_level_rt_1_50,/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/result.json

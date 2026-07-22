@@ -112,6 +112,11 @@ def stable_fingerprint(payload: dict[str, Any]) -> str:
     return hashlib.sha256(encoded).hexdigest()
 
 
+def absolute_executable_path(path: Path) -> Path:
+    """Make an interpreter path absolute without escaping its virtual environment."""
+    return Path(os.path.abspath(path))
+
+
 def write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
@@ -300,7 +305,16 @@ import importlib
 import json
 import platform
 
-names = ["torch", "transformers", "numpy", "logzero", "accelerate", "safetensors"]
+names = [
+    "torch",
+    "transformers",
+    "tokenizers",
+    "triton",
+    "numpy",
+    "logzero",
+    "accelerate",
+    "safetensors",
+]
 if __import__("os").environ.get("STC_REQUIRE_DECORD") == "1":
     names.append("decord")
 versions = {"python": platform.python_version()}
@@ -593,7 +607,7 @@ def build_preflight(args: argparse.Namespace) -> tuple[dict[str, Any], list[str]
     source_root = args.source_root.resolve()
     model_path = args.model_path.resolve()
     output_dir = args.output_dir.resolve()
-    python_bin = args.python_bin.resolve()
+    python_bin = absolute_executable_path(args.python_bin)
     video = args.video.resolve() if args.video else None
     if video is not None and not video.is_file():
         raise FileNotFoundError(f"video not found: {video}")
@@ -674,7 +688,9 @@ def build_preflight(args: argparse.Namespace) -> tuple[dict[str, Any], list[str]
                 "STC_TOKEN_PER_FRAME",
                 "STC_UPDATE_TOKEN_RATIO",
                 "STC_CACHE_INTERVAL",
+                "TRITON_CACHE_DIR",
             )
+            if key in environment
         },
         "fingerprint_inputs": fingerprint_inputs,
         "run_fingerprint": stable_fingerprint(fingerprint_inputs),

@@ -1,0 +1,65 @@
+method_id,method_label,stage,stage_label,status,detail,source_path
+ours,Ours,source,Source,PASS,,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+ours,Ours,module_smoke,Module smoke,PASS,,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+ours,Ours,dataset_preflight,Data preflight,PASS,,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+ours,Ours,runtime_preflight,Runtime preflight,PASS,,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+ours,Ours,official_quality,Quality,OPEN,No independent end-to-end streaming quality run.,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+ours,Ours,official_latency,Latency,OPEN,No native writer/read/TTFT tail-latency run.,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+ours,Ours,state_accounting,State accounting,PASS,,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+ours,Ours,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md
+exact_recent,Exact recent,source,Source,PASS,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+exact_recent,Exact recent,module_smoke,Module smoke,PASS,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+exact_recent,Exact recent,dataset_preflight,Data preflight,PASS,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+exact_recent,Exact recent,runtime_preflight,Runtime preflight,PASS,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+exact_recent,Exact recent,official_quality,Quality,PASS,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+exact_recent,Exact recent,official_latency,Latency,NA,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+exact_recent,Exact recent,state_accounting,State accounting,PASS,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+exact_recent,Exact recent,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv
+causalmem,CausalMem,source,Source,PASS,,paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+causalmem,CausalMem,module_smoke,Module smoke,PASS,,paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+causalmem,CausalMem,dataset_preflight,Data preflight,PASS,,paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+causalmem,CausalMem,runtime_preflight,Runtime preflight,PASS,,paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+causalmem,CausalMem,official_quality,Quality,PASS,strict formal result passed: 206/250 correct,/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/queue_status
+causalmem,CausalMem,official_latency,Latency,NA,,paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+causalmem,CausalMem,state_accounting,State accounting,PROXY_ONLY,,paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+causalmem,CausalMem,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+stc,STC,source,Source,PASS,,paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+stc,STC,module_smoke,Module smoke,PASS,,paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+stc,STC,dataset_preflight,Data preflight,NA,,paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+stc,STC,runtime_preflight,Runtime preflight,PASS,,paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+stc,STC,official_quality,Quality,NA,,paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+stc,STC,official_latency,Latency,PASS,strict ReKV and ReKV+STC stage result pair passed,/home/spco/online_video_state_decomposition/remote_results/stc_rekv_official/stc_rekv_pair_formal64_tf446_v2_20260722/queue_status
+stc,STC,state_accounting,State accounting,PROXY_ONLY,,paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+stc,STC,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md
+streamingtom,StreamingTOM,source,Source,PASS,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+streamingtom,StreamingTOM,module_smoke,Module smoke,PASS,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+streamingtom,StreamingTOM,dataset_preflight,Data preflight,NA,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+streamingtom,StreamingTOM,runtime_preflight,Runtime preflight,PASS,pinned CTR/OQM dry-run preflight triplet passed,/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/preflight_20260719
+streamingtom,StreamingTOM,official_quality,Quality,NA,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+streamingtom,StreamingTOM,official_latency,Latency,PASS,strict CTR/OQM core summary triplet passed,/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/streamingtom_core_formal_v1_20260719/queue_status
+streamingtom,StreamingTOM,state_accounting,State accounting,PROXY_ONLY,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+streamingtom,StreamingTOM,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,source,Source,UNAVAILABLE,No discoverable public implementation.,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,module_smoke,Module smoke,UNAVAILABLE,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,dataset_preflight,Data preflight,NA,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,runtime_preflight,Runtime preflight,UNAVAILABLE,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,official_quality,Quality,PAPER_ONLY,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,official_latency,Latency,PAPER_ONLY,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,state_accounting,State accounting,PROXY_ONLY,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+selectstream,SelectStream,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+oasis,OASIS,source,Source,PASS,,paper/results/probe_mvp/oasis_official_smoke_20260719/result.json
+oasis,OASIS,module_smoke,Module smoke,PASS,,paper/results/probe_mvp/oasis_official_smoke_20260719/result.json
+oasis,OASIS,dataset_preflight,Data preflight,PASS,,paper/results/probe_mvp/oasis_official_smoke_20260719/result.json
+oasis,OASIS,runtime_preflight,Runtime preflight,PASS,,paper/results/probe_mvp/oasis_official_smoke_20260719/result.json
+oasis,OASIS,official_quality,Quality,PASS,strict formal result passed: 209/250 correct,/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/queue_status
+oasis,OASIS,official_latency,Latency,UNAVAILABLE,No public paper-table request-latency runner.,paper/results/probe_mvp/oasis_official_smoke_20260719/result.json
+oasis,OASIS,state_accounting,State accounting,PROXY_ONLY,,paper/results/probe_mvp/oasis_official_smoke_20260719/result.json
+oasis,OASIS,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/oasis_official_smoke_20260719/result.json
+statekv,StateKV,source,Source,PLACEHOLDER,Official repository is a README placeholder.,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+statekv,StateKV,module_smoke,Module smoke,UNAVAILABLE,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+statekv,StateKV,dataset_preflight,Data preflight,NA,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+statekv,StateKV,runtime_preflight,Runtime preflight,UNAVAILABLE,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+statekv,StateKV,official_quality,Quality,PAPER_ONLY,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+statekv,StateKV,official_latency,Latency,PAPER_ONLY,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+statekv,StateKV,state_accounting,State accounting,PROXY_ONLY,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md
+statekv,StateKV,independent_replication,Independent replication,OPEN,,paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md

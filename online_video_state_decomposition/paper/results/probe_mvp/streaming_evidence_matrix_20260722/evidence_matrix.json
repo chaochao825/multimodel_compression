@@ -1,0 +1,1485 @@
+{
+  "cautions": [
+    "Rows from different comparability_group values must not be ranked together.",
+    "PROXY_ONLY, PAPER_ONLY, SMOKE_ONLY, RUNNING, and QUEUED are not completed formal comparisons.",
+    "A failed or open component gate prevents a positive claim for the complete hybrid method."
+  ],
+  "completion_cell_count": 64,
+  "completion_matrix": [
+    {
+      "detail": "",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "No independent end-to-end streaming quality run.",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "OPEN"
+    },
+    {
+      "detail": "No native writer/read/TTFT tail-latency run.",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "OPEN"
+    },
+    {
+      "detail": "",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "ours",
+      "method_label": "Ours",
+      "source_path": "paper/results/probe_mvp/QUERY_MEMORY_STAGE_ANALYSIS_20260718.md",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "NA"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "exact_recent",
+      "method_label": "Exact recent",
+      "source_path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/overall_accuracy.csv",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    },
+    {
+      "detail": "",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "strict formal result passed: 206/250 correct",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/queue_status",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "NA"
+    },
+    {
+      "detail": "",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PROXY_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "causalmem",
+      "method_label": "CausalMem",
+      "source_path": "paper/results/probe_mvp/CAUSALMEM_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    },
+    {
+      "detail": "",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "NA"
+    },
+    {
+      "detail": "",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "NA"
+    },
+    {
+      "detail": "strict ReKV and ReKV+STC stage result pair passed",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/stc_rekv_official/stc_rekv_pair_formal64_tf446_v2_20260722/queue_status",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PROXY_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "stc",
+      "method_label": "STC",
+      "source_path": "paper/results/probe_mvp/STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    },
+    {
+      "detail": "",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "NA"
+    },
+    {
+      "detail": "pinned CTR/OQM dry-run preflight triplet passed",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/preflight_20260719",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "NA"
+    },
+    {
+      "detail": "strict CTR/OQM core summary triplet passed",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/streamingtom_core_formal_v1_20260719/queue_status",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PROXY_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "streamingtom",
+      "method_label": "StreamingTOM",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    },
+    {
+      "detail": "No discoverable public implementation.",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "detail": "",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "detail": "",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "NA"
+    },
+    {
+      "detail": "",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "detail": "",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "PAPER_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "PAPER_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PROXY_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "selectstream",
+      "method_label": "SelectStream",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    },
+    {
+      "detail": "",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "PASS"
+    },
+    {
+      "detail": "strict formal result passed: 209/250 correct",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/queue_status",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "PASS"
+    },
+    {
+      "detail": "No public paper-table request-latency runner.",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "detail": "",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PROXY_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "oasis",
+      "method_label": "OASIS",
+      "source_path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    },
+    {
+      "detail": "Official repository is a README placeholder.",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "source",
+      "stage_label": "Source",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "detail": "",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "module_smoke",
+      "stage_label": "Module smoke",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "detail": "",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "dataset_preflight",
+      "stage_label": "Data preflight",
+      "status": "NA"
+    },
+    {
+      "detail": "",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "runtime_preflight",
+      "stage_label": "Runtime preflight",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "detail": "",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "official_quality",
+      "stage_label": "Quality",
+      "status": "PAPER_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "official_latency",
+      "stage_label": "Latency",
+      "status": "PAPER_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "state_accounting",
+      "stage_label": "State accounting",
+      "status": "PROXY_ONLY"
+    },
+    {
+      "detail": "",
+      "method_id": "statekv",
+      "method_label": "StateKV",
+      "source_path": "paper/results/probe_mvp/STREAMING_BASELINE_REPRODUCTION_AUDIT_20260719.md",
+      "stage": "independent_replication",
+      "stage_label": "Independent replication",
+      "status": "OPEN"
+    }
+  ],
+  "evidence": [
+    {
+      "comparability_group": "mvbench_clip_preregistered_200",
+      "component_id": "query_conditioned_selector",
+      "data_reuse": "fresh_preregistered_evaluation",
+      "evidence_id": "ours_query_selector_formal_200",
+      "evidence_tier": "project_native_preregistered_proxy",
+      "gate": {
+        "gate_id": "query_selector_promotion",
+        "status": "FAIL",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": 0.03,
+          "ci95_low": -0.04,
+          "name": "accuracy_gain",
+          "reference": "exact_recent",
+          "unit": "fraction",
+          "value": -0.005
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mcnemar_exact_p",
+          "reference": null,
+          "unit": "probability",
+          "value": 1.0
+        }
+      ],
+      "notes": "The preregistered primary did not advance; exploratory readers are separate evidence.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/mvbench_query_formal_20260717_v1/aggregate/promotion_decision.json",
+        "sha256": "a101d9f26aaec247a2e9bb6b69bfeecd67581e248cec96c09016ecf8f8ffcf3d"
+      }
+    },
+    {
+      "comparability_group": "mvbench_llava_native_matched_state_200",
+      "component_id": "query_conditioned_native_memory",
+      "data_reuse": "frozen_confirmation_split",
+      "evidence_id": "ours_native_query_memory_200",
+      "evidence_tier": "project_native_model_level_confirmation",
+      "gate": {
+        "gate_id": "native_query_memory_independent_confirmation",
+        "status": "OPEN",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.51
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "reference_accuracy",
+          "reference": "exact_recent",
+          "unit": "fraction",
+          "value": 0.475
+        },
+        {
+          "ci95_high": 0.07,
+          "ci95_low": 0.0,
+          "name": "accuracy_gain",
+          "reference": "exact_recent",
+          "unit": "fraction",
+          "value": 0.035
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "persistent_state_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 8413328.0
+        }
+      ],
+      "notes": "Matched provisioned native state gives a positive point estimate, but no independent 400-sample end-to-end promotion exists.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/mvbench_feature_memory_confirmation_20260718_v1/aggregate/paired_vs_exact_recent.csv",
+        "sha256": "6bceba588b099ef0d8629a6d43a53dd246d90ee1c868633a38eb508855462140"
+      }
+    },
+    {
+      "comparability_group": "controlled_trigger_matched_rank",
+      "component_id": "dual_timescale_spectral_trigger",
+      "data_reuse": "disjoint_calibration_and_evaluation_seeds",
+      "evidence_id": "ours_dual_spectral_controlled",
+      "evidence_tier": "controlled_synthetic_trigger",
+      "gate": {
+        "gate_id": "spectral_rare_event_recall",
+        "status": "FAIL",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "event_recall",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.8
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "false_trigger_rate",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.0035714285714285713
+        },
+        {
+          "ci95_high": -0.04464285714285714,
+          "ci95_low": -0.8928571428571428,
+          "name": "false_trigger_delta_vs_causalmem_proxy",
+          "reference": "causalmem_residual_proxy",
+          "unit": "percentage_points",
+          "value": -0.5357142857142857
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "writer_p95",
+          "reference": null,
+          "unit": "microseconds",
+          "value": 401.11265000000003
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "state_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 8320
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "rare_recall_gain",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.0
+        }
+      ],
+      "notes": "Five sub-gates pass, but rare-event recall gain is 0 rather than the preregistered +10-point requirement.",
+      "sample_count": 8,
+      "source": {
+        "path": "paper/results/probe_mvp/controlled_spectral_trigger_20260719/summary.json",
+        "sha256": "c630eae24ece5094679a9c1954f219b428e8ac62c3a48bd6cf196d7fbe2eef7c"
+      }
+    },
+    {
+      "comparability_group": "mvbench_llava_codec_confirmation_200",
+      "component_id": "low_rank_sparse_codec",
+      "data_reuse": "frozen_confirmation_split",
+      "evidence_id": "ours_fixed_rank256_sparse4_200",
+      "evidence_tier": "project_native_model_level_confirmation",
+      "gate": {
+        "gate_id": "codec_two_point_noninferiority",
+        "status": "FAIL",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.505
+        },
+        {
+          "ci95_high": 0.0,
+          "ci95_low": -0.015,
+          "name": "accuracy_gain",
+          "reference": "full_feature_cache",
+          "unit": "fraction",
+          "value": -0.005
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "worse_rate_upper_95",
+          "reference": "noninferiority_margin_0.02",
+          "unit": "fraction",
+          "value": 0.023498470434950736
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "steady_state_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 1073424.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "cold_start_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 3178768.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "state_compression_ratio",
+          "reference": null,
+          "unit": "ratio",
+          "value": 7.837842269224466
+        }
+      ],
+      "notes": "The one-sided 95% loss bound is 2.3498%, above the fixed 2% margin.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/mvbench_compressed_feature_confirmation_rank256_20260718_v1/aggregate/paired_vs_full.csv",
+        "sha256": "916a1e0b5af22bd80e5e8fc33fc55e5faaec9a64c6a062c8fca45c4bf4160351"
+      }
+    },
+    {
+      "comparability_group": "mvbench_llava_codec_posthoc_200",
+      "component_id": "routed_low_rank_spatial_sparse_codec",
+      "data_reuse": "posthoc_same_set",
+      "evidence_id": "ours_routed_codec_posthoc_200",
+      "evidence_tier": "project_native_posthoc_same_set",
+      "gate": {
+        "gate_id": "routed_codec_independent_noninferiority",
+        "status": "OPEN",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "prediction_agreement_rate",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.985
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "worse_rate_upper_95",
+          "reference": "noninferiority_margin_0.02",
+          "unit": "fraction",
+          "value": 0.014867039231272083
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "accuracy_gain",
+          "reference": "full_feature_cache",
+          "unit": "fraction",
+          "value": 0.0
+        }
+      ],
+      "notes": "The post-hoc router clears the numerical margin on reused data, but has no disjoint training/evaluation confirmation.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/mvbench_routed_residual_exploratory_200_20260718_v2/aggregate/paired_vs_full.csv",
+        "sha256": "1f5fadda82428f09de2652ea49f06f280feca49669c6a98d4e21a809248765fd"
+      }
+    },
+    {
+      "comparability_group": "video_mme_clip_stratified_formal30",
+      "component_id": "low_rank_long_term_state",
+      "data_reuse": "formal_stratified_probe",
+      "evidence_id": "ours_low_rank_state_formal30",
+      "evidence_tier": "project_native_representation_probe",
+      "gate": {
+        "gate_id": "p1_low_dimensional_state_two_domains",
+        "status": "OPEN",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "rank32_energy_mean",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.7662701097820224
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "rank32_energy_cells_passing",
+          "reference": null,
+          "unit": "count",
+          "value": 19
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "causal_rank32_projection_error_mean",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.39279451350770545
+        }
+      ],
+      "notes": "Rank-32 energy is encouraging in one encoder domain, but the preregistered two-domain or matched-byte task gate remains open.",
+      "sample_count": 30,
+      "source": {
+        "path": "paper/results/probe_mvp/clip_stratified_formal30_20260717/formal_probe_decision_metrics.csv",
+        "sha256": "ad4163916c2ea54bea9fcfefed16f46449c2fd67dd1735571e897da567ba5cc4"
+      }
+    },
+    {
+      "comparability_group": "video_mme_clip_stratified_formal30",
+      "component_id": "sparse_event_residual",
+      "data_reuse": "formal_stratified_probe",
+      "evidence_id": "ours_sparse_event_residual_formal30",
+      "evidence_tier": "project_native_representation_probe",
+      "gate": {
+        "gate_id": "p2_sparse_event_joint_gate",
+        "status": "FAIL",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "top10_residual_energy_mean",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.48166100729597994
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "top10_change_recall_mean",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.20455091311896878
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "joint_cells_passing",
+          "reference": null,
+          "unit": "count",
+          "value": 0
+        }
+      ],
+      "notes": "No category-layer cell passes both the 70% residual-energy and 80% event-recall thresholds.",
+      "sample_count": 30,
+      "source": {
+        "path": "paper/results/probe_mvp/clip_stratified_formal30_20260717/formal_probe_decision_metrics.csv",
+        "sha256": "ad4163916c2ea54bea9fcfefed16f46449c2fd67dd1735571e897da567ba5cc4"
+      }
+    },
+    {
+      "comparability_group": "video_mme_clip_stratified_formal30",
+      "component_id": "bccb_transport",
+      "data_reuse": "formal_stratified_probe",
+      "evidence_id": "ours_bccb_transport_formal30",
+      "evidence_tier": "project_native_representation_probe",
+      "gate": {
+        "gate_id": "p3_bccb_incremental_advantage",
+        "status": "FAIL",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "bccb_gain_vs_identity_mean",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.09639242021882802
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "bccb_cells_passing_identity_gate",
+          "reference": null,
+          "unit": "count",
+          "value": 9
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "bccb_increment_vs_bttb_mean",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.00036795948777664785
+        }
+      ],
+      "notes": "BCCB tracks BTTB and has no demonstrated cyclic or measured-cost advantage.",
+      "sample_count": 30,
+      "source": {
+        "path": "paper/results/probe_mvp/clip_stratified_formal30_20260717/formal_probe_decision_metrics.csv",
+        "sha256": "ad4163916c2ea54bea9fcfefed16f46449c2fd67dd1735571e897da567ba5cc4"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_exact_recent",
+      "evidence_tier": "project_native_control",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PASS",
+        "valid_for_positive_claim": true
+      },
+      "method_id": "exact_recent",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.5
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 8.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 12336.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 1
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_causalmem_feature_proxy",
+      "evidence_tier": "official_mechanism_feature_proxy",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PROXY_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "causalmem",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.49
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 8.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 24664.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 1
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_streamingtom_feature_proxy",
+      "evidence_tier": "official_mechanism_feature_group_proxy",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PROXY_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "streamingtom",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.475
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 8.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 18688.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 0
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_stc_feature_proxy",
+      "evidence_tier": "official_mechanism_feature_group_proxy",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PROXY_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "stc",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.525
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 8.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 13912.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 1
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_selectstream_feature_proxy",
+      "evidence_tier": "paper_mechanism_feature_proxy_untrained",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PROXY_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "selectstream",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.49
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 8.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 17629.54
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 1
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_oasis_feature_proxy",
+      "evidence_tier": "official_structure_feature_proxy_no_mllm_summaries",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PROXY_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "oasis",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.515
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 8.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 48644.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 0
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_statekv_feature_proxy",
+      "evidence_tier": "paper_mechanism_feature_proxy",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PROXY_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "statekv",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.515
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 32.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 74144.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 0
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "mvbench_clip_streaming_proxy_200",
+      "component_id": "unified_feature_proxy",
+      "data_reuse": "frozen_then_reused_development_pool",
+      "evidence_id": "proxy_ours_learned_recent_selector",
+      "evidence_tier": "project_native_selector_feature_proxy",
+      "gate": {
+        "gate_id": "proxy_mechanism_only",
+        "status": "PROXY_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "ours",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "micro_accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 0.53
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_evidence_count",
+          "reference": null,
+          "unit": "count",
+          "value": 8.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "mean_total_retained_bytes",
+          "reference": null,
+          "unit": "bytes",
+          "value": 24768.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "total_state_bounded",
+          "reference": null,
+          "unit": "boolean",
+          "value": 1
+        }
+      ],
+      "notes": "Comparable only inside the frozen CLIP mechanism-proxy group; not official model quality or GPU latency.",
+      "sample_count": 200,
+      "source": {
+        "path": "paper/results/probe_mvp/streaming_baseline_proxy_20260719/overall_summary.csv",
+        "sha256": "35a52f20a09366ce433fee77372b7e6d43fc2ae0cf2c307a6ddcc500de4804c5"
+      }
+    },
+    {
+      "comparability_group": "oasis_official_smoke_1x5",
+      "component_id": "official_event_archive",
+      "data_reuse": "official_prefix_smoke",
+      "evidence_id": "oasis_official_smoke_1x5",
+      "evidence_tier": "official_model_level_smoke",
+      "gate": {
+        "gate_id": "oasis_cuda_and_inference_smoke",
+        "status": "SMOKE_ONLY",
+        "valid_for_positive_claim": false
+      },
+      "method_id": "oasis",
+      "metrics": [
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "accuracy",
+          "reference": null,
+          "unit": "fraction",
+          "value": 1.0
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "whole_run_wall_time",
+          "reference": null,
+          "unit": "seconds",
+          "value": 309.64532083808444
+        },
+        {
+          "ci95_high": null,
+          "ci95_low": null,
+          "name": "peak_process_memory_sampled",
+          "reference": null,
+          "unit": "MiB",
+          "value": 26674
+        }
+      ],
+      "notes": "One-video smoke validates BF16 CUDA and official inference only; wall time is offline pace=0 and not request latency.",
+      "sample_count": 5,
+      "source": {
+        "path": "paper/results/probe_mvp/oasis_official_smoke_20260719/result.json",
+        "sha256": "df3f7f63d19f4fae5565ef46a207dec1454e490f1ed78d8399cee615b88e631e"
+      }
+    }
+  ],
+  "evidence_count": 17,
+  "format_version": "evidence-completion/v1",
+  "generated_at": "2026-07-22T05:46:10.112963+00:00",
+  "metric_row_count": 65,
+  "repository_commit": "898f1a7a76f400957801d35069508648cfee3a47",
+  "runtime_status": {
+    "observed_at": "2026-07-22T05:46:06.569105+00:00",
+    "path": "/home/spco/online_video_state_decomposition/remote_results/runtime_status/runtime_status_20260722T054606Z.json",
+    "record_count": 5,
+    "sha256": "1b27f0067574ebc8b79921582d41dffe48d0ef3716b2194141084fa1ea5c586a"
+  },
+  "status_counts": {
+    "NA": 8,
+    "OPEN": 10,
+    "PAPER_ONLY": 4,
+    "PASS": 29,
+    "PLACEHOLDER": 1,
+    "PROXY_ONLY": 6,
+    "UNAVAILABLE": 6
+  }
+}

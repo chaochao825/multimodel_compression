@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 EXPERIMENTS_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(EXPERIMENTS_ROOT / "probes"))
@@ -67,6 +69,28 @@ def _official_payload(mode: str, repeats: int = 4) -> dict:
 
 
 class STCReKVOfficialTest(unittest.TestCase):
+    def test_executable_path_preserves_virtualenv_symlink(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            link = Path(directory) / "python"
+            try:
+                link.symlink_to(Path(sys.executable))
+            except OSError as error:
+                self.skipTest(f"symlinks are unavailable: {error}")
+            observed = runner.absolute_executable_path(link)
+            self.assertEqual(observed, Path(os.path.abspath(link)))
+            self.assertNotEqual(observed, link.resolve())
+
+    def test_environment_preserves_isolated_triton_cache(self) -> None:
+        cache = "/workspace/.cache/triton-stc"
+        with mock.patch.dict(os.environ, {"TRITON_CACHE_DIR": cache}):
+            environment = runner.build_environment(
+                source_root=Path("/source"),
+                model_path=Path("/model"),
+                mode="rekv",
+                gpu_index=2,
+            )
+        self.assertEqual(environment["TRITON_CACHE_DIR"], cache)
+
     def test_mode_environment_matches_upstream_run_script(self) -> None:
         self.assertEqual(
             runner.mode_environment("rekv"),

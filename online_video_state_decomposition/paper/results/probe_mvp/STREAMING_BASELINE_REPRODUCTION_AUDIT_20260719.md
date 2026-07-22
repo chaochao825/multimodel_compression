@@ -1,6 +1,6 @@
 # Streaming Baseline Reproduction Audit
 
-Date: 2026-07-19
+Initial audit: 2026-07-19. Formal-result update: 2026-07-22.
 
 ## Verdict
 
@@ -17,25 +17,60 @@ This audit therefore separates six evidence tiers:
 6. `feature proxy`: an independent mechanism approximation on the same frozen
    CLIP cache used by this project.
 
-The completed cross-method quality table remains tier 6 and is not an official
-baseline ranking. CausalMem's official evaluator and STC's official ReKV
-latency runner have strict preflights but are still waiting in safe GPU queues.
-StreamingTOM's pinned CTR/OQM CUDA core triplet has also passed static dry-run
-preflight and is waiting behind the same 4 GiB/20% idle gate. OASIS has now
-passed its BF16 CUDA-kernel preflight and completed a one-video/five-question
-official smoke. Its separate 50-video/250-question run is actively progressing,
-but partial accuracy remains diagnostic and ineligible for formal comparison.
-The first 200-sample proxy result is a reused development analysis, not an
-independent confirmation.
+The proxy table remains tier 6 and is not an official baseline ranking. Since
+the initial audit, strict formal 50-video/250-question quality runs have
+completed for CausalMem and OASIS, and the pinned StreamingTOM CTR/OQM CUDA
+core triplet has completed. STC's matched official ReKV/ReKV+STC model-stage
+latency pair also completed after an isolated runtime repair passed a real-model
+smoke. SelectStream and StateKV remain paper-only because executable official
+code is unavailable.
+The first 200-sample proxy result is still a reused development analysis, not
+an independent confirmation.
 
 | Method | Intended role | Public implementation status | Current status |
 |---|---|---|---|
-| CausalMem | Closest query-free semantic-memory algorithm | `causal_mem` evaluator is runnable; stock baseline imports a missing upstream file | Strict official evaluator preflight passed on 50 videos/250 questions; official quality job waiting in safe queue; no result |
-| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Pinned 64/64/256-frame CTR/OQM core preflights passed; strict GPU queue active; no timing result |
-| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Both official ReKV mode preflights passed; CUDA timing jobs waiting in safe queue; no result |
+| CausalMem | Closest query-free semantic-memory algorithm | `causal_mem` evaluator is runnable; stock baseline imports a missing upstream file | Formal 50x5 result passed strict validation: 206/250, 82.4% |
+| StreamingTOM | Real CTR/OQM systems-latency baseline | Public VideoMME-Short path | Pinned 64/64/256-frame CTR/OQM core triplet complete; core latency only, not TTFT |
+| STC | Real ViT-cache and prefill-latency baseline | Public model-specific runners and speed tools | Matched 64-frame ReKV/ReKV+STC pair passed strict validation; stage latency only |
 | SelectStream | Task-quality target | No discoverable official code as of the audit date | Reported quality target; untrained structural proxy only |
-| OASIS | Slow event-archive quality baseline | Public evaluation path, no public paper-table timing runner | BF16 CUDA kernel and audited 1x5 smoke passed; formal 50x5 run active; partial monitor only, no formal result |
+| OASIS | Slow event-archive quality baseline | Public evaluation path, no public paper-table timing runner | Formal 50x5 result passed strict validation: 209/250, 83.6% |
 | StateKV | Recurrent model-state baseline | Official placeholder repository only | Reference-only; paper-structure proxy cannot be called a reproduction |
+
+## Formal Result Update
+
+The completed OASIS and CausalMem runs cover the same 250 question IDs, but
+they do not isolate the memory mechanism. OASIS uses Qwen3-VL-8B-Instruct,
+whereas CausalMem uses LLaVA-OneVision-Qwen2-7B. OASIS scored 83.6% and
+CausalMem scored 82.4%, a difference of only three questions. The paired
+outcomes were 187 both correct, 22 OASIS-only correct, 19 CausalMem-only
+correct, and 22 both wrong. Exact McNemar `p=0.755`, so this run does not
+distinguish the systems statistically and cannot establish memory-method
+superiority. The paired task table and source hashes are in
+`official_streaming_formal_20260722/`.
+
+StreamingTOM's pinned official-core measurements are complete. CUDA-event
+P50/P95/P99 are 396.50/519.39/553.95 ms for CTR over 64 frames,
+37.47/43.13/51.38 ms for OQM write over 64 frames, and
+70.19/85.56/123.23 ms for OQM selection over 256 frames. The input scopes
+differ and these are repeated core invocations, not additive end-to-end
+latency, TTFT, decode time, or task quality.
+
+STC's matched 64-frame, 5-warmup, 20-repeat official pair also completed. For
+ReKV versus ReKV+STC, P50 ViT encode fell from 1681.37 to 527.95 ms (68.6%),
+P50 visual-token prefill fell from 7587.77 to 6551.79 ms (13.7%), and the
+per-iteration sum of those two stages fell from 9761.02 to 7062.34 ms (27.6%).
+Mean summed stage time fell 25.3%, while the official peak-memory field fell
+from 18.42 to 16.46 GB (10.6%). These are internal upstream-mode comparisons,
+not task-quality, TTFT, decode, or end-to-end results. With only 20 measured
+samples and the audited `higher` quantile convention, P95 and P99 both select
+the maximum sample; tail-latency interpretation is therefore weak. The full
+stage table and variability analysis are in
+`official_streaming_formal_20260722/STC_STAGE_LATENCY_ANALYSIS.md`.
+
+There is still no official same-backbone, equal-budget comparison against our
+three-path proposal. The current project evidence supports individual state,
+transport, and accounting probes only; its end-to-end quality and latency
+cells remain open.
 
 ## Source Pins And Licensing
 
@@ -66,8 +101,9 @@ CausalMem's official evaluator preflight is stored in
 shards and hashes, the SigLIP cache, pinned source, runtime versions, resume
 integrity, and output fingerprints. The pinned source's stock baseline cannot
 run because `llava_arch_baseline.py` is absent; it is not replaced with a local
-surrogate. The official quality job is waiting in the safe idle-GPU queue and
-has not produced a result.
+surrogate. The `causal_mem` formal run completed all 250 questions at 82.4%
+accuracy. Its evaluator-process wall time was 9,918.24 s and sampled peak GPU
+memory was 42,894 MiB; neither value is a per-request tail-latency metric.
 
 STC's official ReKV preflights are stored in
 `stc_rekv_official_rekv_preflight_20260719.json` and
@@ -75,8 +111,14 @@ STC's official ReKV preflights are stored in
 `STC_REKV_OFFICIAL_REPRODUCTION_PROTOCOL_20260719.md`. Both validate the pinned
 source, full 16.06 GB four-shard model, CUDA runtime, official module imports,
 exact mode environment, and audited wrapper hash. Passing preflight proves
-launch readiness, not latency. Both official mode jobs are waiting in the safe
-idle-GPU queue; neither has produced CUDA timing results.
+launch readiness, not latency. The first formal attempt exposed two runtime
+compatibility failures: Transformers 4.51 removed per-layer Qwen2 RoPE state,
+and a shared stale Triton cache loaded an incompatible `cuda_utils` extension.
+No STC source was modified. An isolated Python environment with Transformers
+4.46.0 plus a project-local Triton 3.2.0 cache passed a real two-frame model
+smoke. The fresh 64-frame, 5-warmup, 20-repeat ReKV/ReKV+STC pair then completed
+under the original idle-GPU and lock gates. Both strict result artifacts,
+run-record fingerprints, preflights, and GPU traces are present.
 
 StreamingTOM's official-core dry runs pin commit
 `6c66b05065692bc3fa4c6ec7fa9cad84d3b0cd75`, Torch 2.5.1,
@@ -85,8 +127,10 @@ and 200 measured iterations. CTR and OQM write use 64 frames; OQM selection
 uses 256 frames so the upstream top-k branch is exercised. The queue holds one
 project GPU lock across all three components and rechecks the 4 GiB and 20%
 utilization gate before each launch. These checks establish protocol readiness
-only; no core latency is reported until all three summaries pass their quality
-gates and exact sample-count validation.
+only. All three summaries have now passed source, protocol, sample-count, and
+finite-quantile validation. Their values are reported only as component-level
+core latency because CTR and the two OQM paths do not share one additive input
+scope.
 
 OASIS now has an audited data adapter, no-copy dataset materializer, and strict
 official evaluator wrapper. The matched contract is
@@ -105,9 +149,11 @@ The subsequent BF16 CUDA-kernel check and one-video/five-question official
 model smoke both passed. The smoke answered all five questions, took 309.645 s
 at offline `pace=0`, and reached a sampled evaluator-process peak of 26,674
 MiB. It validates execution, not formal quality or request latency. The formal
-50-video/250-question job uses a distinct run fingerprint and is currently
-active; its atomic prefix is monitored separately and cannot enter a comparison
-until the strict final-result validator accepts all 250 questions.
+50-video/250-question job used a distinct run fingerprint and completed at
+83.6% accuracy (209/250). Its whole-run wall time was 54,416.64 s and sampled
+evaluator-process peak was 28,478 MiB. This validates official quality only;
+the wall time includes offline `pace=0` streaming and synchronous archive work
+and is not request latency or the paper's reported 6.52 s query latency.
 
 ## Executable Module Smoke
 
@@ -122,8 +168,10 @@ targeted smoke, but the checks have deliberately different strengths:
 | STC | cacher, pruner, and HF-ViT integration imports | Four core modules import with Torch 2.6.0 and Transformers 4.51.0 | Dependency smoke only; no ViT skip/prune numerical or CUDA timing claim |
 | OASIS | `ShortMemory.push` plus event modules | Limits 2/4 retain 1/3 frames; one 4-frame event emitted | Confirms bounded windows and an exclusive effective capacity caused by `>= limit` followed by `pop(0)` |
 
-CausalMem and STC use the existing Qwen3 Python 3.10 environment. StreamingTOM
-uses an isolated Python 3.10/Torch 2.5.1 environment with a verified
+CausalMem uses an isolated Python 3.10 environment. STC now uses a thin
+project-local Python 3.10 environment over Torch 2.6.0 with Transformers
+4.46.0 and an isolated Triton cache. StreamingTOM uses an isolated Python
+3.10/Torch 2.5.1 environment with a verified
 source-built `sm_80` FlashAttention import. OASIS uses an isolated Python
 3.12.13 environment with Torch 2.5.1+cu124, Transformers 4.57.6, and
 SentenceTransformers 5.6.0. Its own FlashAttention 2.8.3 source build and
@@ -173,10 +221,10 @@ Our proxy models two-frame compression groups, a 4-bit growing archive, and a
 bounded query-conditioned read. It cannot reproduce pre-RoPE layer KV,
 attention saliency, 15.7x KV compression, or TTFT.
 
-The new pinned core harness does execute upstream CTR, incremental OQM writes,
-and top-k OQM selection with CUDA synchronization and separate CUDA-event and
+The new pinned core harness executes upstream CTR, incremental OQM writes, and
+top-k OQM selection with CUDA synchronization and separate CUDA-event and
 host-wall clocks. It intentionally excludes model loading and input creation.
-Its future P50/P95/P99 values are component microbenchmarks, not VideoMME
+Its completed P50/P95/P99 values are component microbenchmarks, not VideoMME
 quality, end-to-end Video-LLM latency, or the paper's 0.20 s TTFT.
 
 ### STC
@@ -196,8 +244,12 @@ silently equated with the newer tool's millisecond output.
 Our terminal-feature proxy can test state and task effects, but it cannot
 recover ViT FLOPs. The new audited wrapper executes the upstream ReKV speed
 benchmark inside the real ViT and LLM stack with separate baseline/STC
-processes, 64 frames, five warmups, and twenty repeats. Both preflights pass;
-the actual CUDA timing remains gated on an idle A800.
+processes, 64 frames, five warmups, and twenty repeats. Both preflights, the
+compatibility smoke, and the matched pair pass on an idle A800. ReKV uses the
+upstream 196-token/frame, full-update mode; ReKV+STC uses the upstream
+64-token/frame, 0.25-update mode. The measured stage-time and memory reductions
+therefore validate the official combined path, but do not isolate cacher versus
+pruner effects and do not establish quality preservation.
 
 ### SelectStream
 
@@ -337,9 +389,10 @@ jobs cannot be mistaken for repository evidence.
   but improved by less than 0.001 over the matched BTTB transport and showed no
   cyclic-cost advantage. The current evidence does not justify making BCCB the
   dominant architecture.
-- OASIS 1x5 is execution smoke only. The formal OASIS, CausalMem, STC, and
-  StreamingTOM cells remain running or queued until strict final artifacts are
-  available.
+- OASIS and CausalMem formal quality now pass, but their different backbones
+  prevent a memory-method claim. StreamingTOM official-core latency passes.
+  STC matched model-stage latency also passes, while our native end-to-end
+  quality and latency cells remain open.
 
 ## Positioning Consequence
 
@@ -359,14 +412,13 @@ block-circulant plus low-rank unit would be one component of a hybrid system.
 
 ## Required Next Gates
 
-1. Let the active OASIS 50x5 run finish and pass strict output, fingerprint,
-   coverage, GPU-trace, and result validation. Continue treating every partial
-   snapshot as diagnostic only.
-2. Let the queued STC ReKV/STC pair and StreamingTOM CTR/OQM triplet acquire
-   genuinely idle GPUs without relaxing the 4 GiB/20% gate. Run CausalMem only
-   after its declared STC dependency completes. Keep STC stage latency,
-   StreamingTOM core latency, whole-run wall time, and request latency in
-   separate tables.
+1. Add our three-path method to a same-backbone 64-frame harness and report
+   quality, state bytes, ViT/prefill stage latency, TTFT, decode, and end-to-end
+   latency separately. The completed STC pair supplies a stage-level systems
+   reference, not a direct comparison against our method.
+2. Run a same-backbone, same-frame-sampling, equal-token/equal-byte comparison
+   of exact recent, CausalMem, OASIS-style archive, and our proposed memory.
+   The completed cross-backbone 50x5 results are system diagnostics only.
 3. Evaluate the routed codec on a disjoint frozen split and add native
    `[frame,64,4096]` projected-token versions of strict CausalMem, CTR, and
    STC-Pruner under one matched read/state-byte budget.
@@ -378,5 +430,9 @@ block-circulant plus low-rank unit would be one component of a hybrid system.
    public. Do not fill missing architectural details and call the result
    official.
 
-The selected CSV, JSON, and figures are in
-`paper/results/probe_mvp/streaming_baseline_proxy_20260719/`.
+The proxy bundle is in
+`paper/results/probe_mvp/streaming_baseline_proxy_20260719/`. Formal quality,
+paired statistics, and official core-latency figures are in
+`paper/results/probe_mvp/official_streaming_formal_20260722/`; the current
+completion ledger is in
+`paper/results/probe_mvp/streaming_evidence_matrix_20260722/`.

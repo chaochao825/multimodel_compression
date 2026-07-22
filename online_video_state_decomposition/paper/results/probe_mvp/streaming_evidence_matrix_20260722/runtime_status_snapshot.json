@@ -1,0 +1,183 @@
+{
+  "diagnostics": {
+    "causalmem": {
+      "last_idle_sample": "2026-07-21T05:29:44Z memory_mib=184 utilization=0",
+      "pid": 1743153,
+      "pid_alive": null,
+      "pid_path": "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/pid",
+      "queue_status": "complete",
+      "queue_status_path": "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/queue_status",
+      "run_dir": "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719"
+    },
+    "oasis": {
+      "last_idle_sample": null,
+      "pid": 2481806,
+      "pid_alive": null,
+      "pid_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/queue_pid",
+      "progress": {
+        "accuracy": 0.836,
+        "accuracy_all_expected": 0.836,
+        "accuracy_on_scored": 0.836,
+        "complete": true,
+        "completed_questions": 250,
+        "completed_videos": 50,
+        "correct": 209,
+        "errors": [],
+        "expected_questions": 250,
+        "expected_videos": 50,
+        "output_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/rtu_1_50_output.json",
+        "output_sha256": "401b65e488c99b3844b00b46d5c7f503870e10e9f182369b5d007e6e35d70040",
+        "safe_resume_prefix": false,
+        "scored_coverage": 1.0,
+        "scored_questions": 250,
+        "task_metrics": {
+          "Action Perception": {
+            "accuracy": 0.8431372549019608,
+            "correct": 43,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 51,
+            "total": 51
+          },
+          "Attribute Perception": {
+            "accuracy": 0.8888888888888888,
+            "correct": 32,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 36,
+            "total": 36
+          },
+          "Causal Reasoning": {
+            "accuracy": 1.0,
+            "correct": 9,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 9,
+            "total": 9
+          },
+          "Clips Summarize": {
+            "accuracy": 1.0,
+            "correct": 2,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 2,
+            "total": 2
+          },
+          "Counting": {
+            "accuracy": 0.5,
+            "correct": 1,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 2,
+            "total": 2
+          },
+          "Event Understanding": {
+            "accuracy": 0.8,
+            "correct": 20,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 25,
+            "total": 25
+          },
+          "Object Perception": {
+            "accuracy": 0.803921568627451,
+            "correct": 82,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 102,
+            "total": 102
+          },
+          "Prospective Reasoning": {
+            "accuracy": 1.0,
+            "correct": 2,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 2,
+            "total": 2
+          },
+          "Spatial Understanding": {
+            "accuracy": 0.3333333333333333,
+            "correct": 1,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 3,
+            "total": 3
+          },
+          "Text-Rich Understanding": {
+            "accuracy": 0.9444444444444444,
+            "correct": 17,
+            "coverage": 1.0,
+            "errors": 0,
+            "scored": 18,
+            "total": 18
+          }
+        }
+      },
+      "queue_status": "completed",
+      "queue_status_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/queue_status",
+      "run_dir": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719"
+    },
+    "stc": {
+      "last_idle_sample": "2026-07-22T05:28:53Z memory_mib=17 utilization=0",
+      "pid": 1098699,
+      "pid_alive": null,
+      "pid_path": "/home/spco/online_video_state_decomposition/remote_results/stc_rekv_official/stc_rekv_pair_formal64_tf446_v2_20260722/pid",
+      "queue_status": "complete",
+      "queue_status_path": "/home/spco/online_video_state_decomposition/remote_results/stc_rekv_official/stc_rekv_pair_formal64_tf446_v2_20260722/queue_status",
+      "run_dir": "/home/spco/online_video_state_decomposition/remote_results/stc_rekv_official/stc_rekv_pair_formal64_tf446_v2_20260722"
+    },
+    "streamingtom": {
+      "last_idle_sample": "2026-07-22T04:45:36Z memory_mib=17 utilization=0",
+      "pid": 2745577,
+      "pid_alive": null,
+      "pid_path": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/streamingtom_core_formal_v1_20260719/pid",
+      "queue_status": "complete",
+      "queue_status_path": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/streamingtom_core_formal_v1_20260719/queue_status",
+      "run_dir": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/streamingtom_core_formal_v1_20260719"
+    },
+    "streamingtom_preflight": {
+      "directory": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/preflight_20260719",
+      "valid": true
+    }
+  },
+  "format_version": 1,
+  "observed_at": "2026-07-22T05:46:06.569105+00:00",
+  "records": [
+    {
+      "detail": "strict formal result passed: 206/250 correct",
+      "method_id": "causalmem",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/queue_status",
+      "stage": "official_quality",
+      "status": "PASS"
+    },
+    {
+      "detail": "strict formal result passed: 209/250 correct",
+      "method_id": "oasis",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/queue_status",
+      "stage": "official_quality",
+      "status": "PASS"
+    },
+    {
+      "detail": "strict ReKV and ReKV+STC stage result pair passed",
+      "method_id": "stc",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/stc_rekv_official/stc_rekv_pair_formal64_tf446_v2_20260722/queue_status",
+      "stage": "official_latency",
+      "status": "PASS"
+    },
+    {
+      "detail": "strict CTR/OQM core summary triplet passed",
+      "method_id": "streamingtom",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/streamingtom_core_formal_v1_20260719/queue_status",
+      "stage": "official_latency",
+      "status": "PASS"
+    },
+    {
+      "detail": "pinned CTR/OQM dry-run preflight triplet passed",
+      "method_id": "streamingtom",
+      "source_path": "/home/spco/online_video_state_decomposition/remote_results/official_streaming_kernels/preflight_20260719",
+      "stage": "runtime_preflight",
+      "status": "PASS"
+    }
+  ],
+  "validation_errors": []
+}

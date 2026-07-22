@@ -309,14 +309,16 @@ def _validate_stage(
 
 def parse_stc(path: Path) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     payload = _load_json(path)
-    mode = payload.get("mode")
+    raw_mode = payload.get("mode")
     if payload.get("format_version") != 1 or payload.get("status") not in {
         "complete",
         "recovered_from_valid_official_raw",
     }:
         raise ValueError(f"STC result is not complete: {path}")
-    if mode not in {"rekv", "stc"}:
-        raise ValueError(f"unexpected STC mode: {mode}")
+    mode_labels = {"rekv": "rekv", "rekv_stc": "stc"}
+    if raw_mode not in mode_labels:
+        raise ValueError(f"unexpected STC mode: {raw_mode}")
+    mode = mode_labels[raw_mode]
     derived = payload.get("derived")
     if not isinstance(derived, dict):
         raise ValueError(f"STC derived metrics are missing: {path}")
@@ -676,7 +678,17 @@ def _plot_quality(
                 va="bottom",
                 fontsize=9,
             )
-    fig.tight_layout()
+    if {"CausalMem", "OASIS"}.issubset(labels):
+        fig.text(
+            0.5,
+            0.01,
+            "System-level comparison only: official runs use different VLM backbones.",
+            ha="center",
+            fontsize=8,
+        )
+        fig.tight_layout(rect=(0.0, 0.05, 1.0, 1.0))
+    else:
+        fig.tight_layout()
     paths = _save_figure(fig, stem)
     plt.close(fig)
     return paths
@@ -691,7 +703,12 @@ def _plot_stc_latency(rows: list[dict[str, Any]], stem: Path) -> list[str]:
 
     totals = [row for row in rows if row["stage"] == "instrumented_stage_sum_ms"]
     totals.sort(key=lambda row: str(row["mode"]))
-    labels = [str(row["mode"]).upper() for row in totals]
+    mode_labels = {"rekv": "ReKV", "stc": "ReKV+STC"}
+    labels = [
+        f"{mode_labels.get(str(row['mode']), str(row['mode']).upper())}\n"
+        f"(n={int(row['count'])})"
+        for row in totals
+    ]
     positions = np.arange(len(totals), dtype=float)
     width = 0.24
     fig, axis = plt.subplots(figsize=(max(6.3, 1.45 * len(totals) + 3.8), 4.4))
@@ -703,7 +720,7 @@ def _plot_stc_latency(rows: list[dict[str, Any]], stem: Path) -> list[str]:
         ("//", "xx", ".."),
         strict=True,
     ):
-        axis.bar(
+        bars = axis.bar(
             positions + offset,
             [float(row[field]) for row in totals],
             width=width,
@@ -713,21 +730,38 @@ def _plot_stc_latency(rows: list[dict[str, Any]], stem: Path) -> list[str]:
             linewidth=0.5,
             hatch=hatch,
         )
+        axis.bar_label(
+            bars,
+            labels=[f"{float(row[field]) / 1000.0:.2f} s" for row in totals],
+            padding=3,
+            fontsize=7,
+        )
     axis.set_xticks(positions, labels)
-    axis.set_xlabel("Official mode")
+    axis.set_xlabel("Upstream official mode (64 frames)")
     axis.set_ylabel("ViT encode + visual-token prefill (ms)")
     axis.spines[["top", "right"]].set_visible(False)
     axis.grid(axis="y", color="#D9D9D9", linewidth=0.6, alpha=0.7)
     axis.set_axisbelow(True)
     maximum = max(float(row["p99_ms"]) for row in totals)
-    axis.set_ylim(0.0, 1.12 * maximum)
+    axis.set_ylim(0.0, 1.17 * maximum)
     axis.legend(
         frameon=False,
         ncol=3,
         loc="lower center",
-        bbox_to_anchor=(0.5, 1.0),
+        bbox_to_anchor=(0.5, 1.01),
     )
-    fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.93))
+    fig.text(
+        0.5,
+        0.012,
+        "Stage-only timing: ViT encode + visual-token prefill; excludes TTFT, "
+        "decode, end-to-end latency, and quality. Higher quantiles make "
+        "P95=P99=max when n=20.",
+        ha="center",
+        va="bottom",
+        fontsize=7,
+        color="#4A4A4A",
+    )
+    fig.tight_layout(rect=(0.0, 0.08, 1.0, 0.93))
     paths = _save_figure(fig, stem)
     plt.close(fig)
     return paths
@@ -898,6 +932,7 @@ def aggregate_results(
         "plots": plots,
         "cautions": [
             "CausalMem and OASIS quality are compared only within the formal 50x5 scope.",
+            "CausalMem and OASIS use different official VLM backbones, so their quality is a system-level benchmark comparison rather than a memory-module ablation.",
             "Smoke quality is emitted separately and is not a formal method comparison.",
             "STC values cover ViT encode and visual-token prefill stages only.",
             "StreamingTOM values cover CTR and OQM core invocations only; they are not end-to-end Video-LLM latency, TTFT, decode, or quality.",

@@ -180,12 +180,10 @@ round trip, STC core imports, and OASIS `ShortMemory` window/event behavior.
 It is dependency and mechanism evidence only, not a model-level quality or
 latency reproduction.
 
-The OASIS static preflight has passed for the pinned source, local models, and
-exact StreamingBench RTU 50x5 data. FlashAttention 2.8.3 was built from source
-on server 210, and the BF16 CUDA-kernel plus one-video/five-question inference
-smoke completed successfully. That artifact is retained as smoke evidence only;
-it is not a formal quality result. The audited 50-video/250-question run is
-separately resumable and may be launched behind the idle-GPU gate with:
+The OASIS static preflight, BF16 CUDA-kernel check, and
+one-video/five-question smoke passed on server 210. The audited formal
+50-video/250-question run subsequently completed; the launch remains resumable
+behind the idle-GPU gate with:
 
 ```bash
 bash experiments/scripts/prepare_oasis_streamingbench.sh
@@ -230,6 +228,24 @@ bash experiments/scripts/run_streamingtom_kernels_when_idle.sh \
 
 Waiting in a queue is not an official quality or timing result.
 
+Create a read-only runtime snapshot before rebuilding the evidence matrix:
+
+```bash
+python experiments/probes/collect_streaming_runtime_status.py \
+  --oasis-run remote_results/oasis_streamingbench/<run> \
+  --oasis-metadata third_party/OASIS-StreamingBench-RT-1-50-v1/metadata/rtu_1_50.json \
+  --stc-run remote_results/stc_rekv_official/<pair-run> \
+  --causalmem-run remote_results/causalmem_streamingbench/<run> \
+  --streamingtom-run remote_results/official_streaming_kernels/<run> \
+  --streamingtom-preflight-dir remote_results/official_streaming_kernels/<preflight> \
+  --out remote_results/runtime_status/<snapshot>.json
+```
+
+The collector checks queue vocabulary and PID liveness for nonterminal jobs,
+then applies the same strict artifact parsers used by the official aggregator.
+A `complete` or `completed` status cannot become `PASS` without a valid final
+artifact.
+
 Once audited runs complete, aggregate only their final model-level artifacts:
 
 ```bash
@@ -255,6 +271,22 @@ also differ. They are not end-to-end Video-LLM latency or a same-workload speed
 ranking. OASIS `pace=0` wall time and method-specific memory fields are likewise
 retained only with their original semantics. Proxy results are intentionally
 excluded.
+
+When OASIS and CausalMem cover the same question IDs, generate a paired
+benchmark-system diagnostic with:
+
+```bash
+python experiments/probes/compare_official_streaming_quality.py \
+  --oasis-output remote_results/oasis_streamingbench/<run>/rtu_1_50_output.json \
+  --oasis-preflight remote_results/oasis_streamingbench/<run>/preflight.json \
+  --causalmem-predictions remote_results/causalmem_streamingbench/<run>/official/pred.json \
+  --causalmem-manifest remote_results/causalmem_streamingbench/<run>/official/run_manifest.json \
+  --out-dir remote_results/official_streaming_aggregate
+```
+
+This writes question-level outcomes, task deltas, exact McNemar tests, source
+hashes, and PNG/PDF figures. It explicitly records the different official VLM
+backbones, so the result is not presented as a memory-module ablation.
 
 Plot and cross-check the per-run GPU monitor trace against its audited result:
 

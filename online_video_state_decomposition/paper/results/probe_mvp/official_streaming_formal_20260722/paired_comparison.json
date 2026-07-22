@@ -1,0 +1,59 @@
+{
+  "both_correct": 187,
+  "both_wrong": 22,
+  "causalmem_accuracy": 0.824,
+  "causalmem_correct": 206,
+  "causalmem_model": {
+    "architectures": [
+      "LlavaQwenForCausalLM"
+    ],
+    "model_type": "llava",
+    "name": "llava-onevision-qwen2-7b-ov-original-hf",
+    "path": "/home/spco/online_video_state_decomposition/third_party/llava-onevision-qwen2-7b-ov-original-hf"
+  },
+  "causalmem_only_correct": 19,
+  "cautions": [
+    "The official runs use different VLM backbones and are not a method-isolated ablation.",
+    "Per-task p-values are exploratory and use a Bonferroni correction across reported task groups.",
+    "Tasks with very small question counts should not be interpreted from percentage differences alone."
+  ],
+  "comparison_scope": "paired benchmark-system diagnostic, not a memory-module ablation",
+  "delta_accuracy_pp": 1.2,
+  "format_version": 1,
+  "mcnemar_exact_p": 0.755228657504631,
+  "oasis_accuracy": 0.836,
+  "oasis_correct": 209,
+  "oasis_model": {
+    "architectures": [
+      "Qwen3VLForConditionalGeneration"
+    ],
+    "model_type": "qwen3_vl",
+    "name": "Qwen3-VL-8B-Instruct-modelscope",
+    "path": "/home/spco/online_video_state_decomposition/third_party/Qwen3-VL-8B-Instruct-modelscope"
+  },
+  "oasis_only_correct": 22,
+  "plots": [
+    "/home/spco/sow_linear/multimodel_compression/online_video_state_decomposition/paper/results/probe_mvp/official_streaming_formal_20260722/paired_task_accuracy_delta.png",
+    "/home/spco/sow_linear/multimodel_compression/online_video_state_decomposition/paper/results/probe_mvp/official_streaming_formal_20260722/paired_task_accuracy_delta.pdf"
+  ],
+  "questions": 250,
+  "sources": {
+    "causalmem_manifest": {
+      "path": "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/official/run_manifest.json",
+      "sha256": "71f370d7e974f0a7467aee419ae0144295665dc173c8ff5bc19d624fb78b8408"
+    },
+    "causalmem_predictions": {
+      "path": "/home/spco/online_video_state_decomposition/remote_results/causalmem_streamingbench/causalmem_formal_50x5_v1_20260719/official/pred.json",
+      "sha256": "8b6abc4c5bef543f09f714a2fb035763deabde189a3e69ffc5427b5b8a7e61a2"
+    },
+    "oasis_output": {
+      "path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/rtu_1_50_output.json",
+      "sha256": "401b65e488c99b3844b00b46d5c7f503870e10e9f182369b5d007e6e35d70040"
+    },
+    "oasis_preflight": {
+      "path": "/home/spco/online_video_state_decomposition/remote_results/oasis_streamingbench/oasis_formal_50x5_v1_20260719/preflight.json",
+      "sha256": "2a2b2bd5343fc64518e29fc8db839529af4970bb0a9f71ee228ebf3ff0292578"
+    }
+  },
+  "task_count": 10
+}

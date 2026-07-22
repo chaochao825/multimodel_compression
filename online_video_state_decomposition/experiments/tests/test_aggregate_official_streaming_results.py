@@ -154,7 +154,9 @@ class AggregateOfficialStreamingResultsTests(unittest.TestCase):
             root = Path(directory)
             causalmem = _write(root / "causalmem" / "metrics.json", _causalmem())
             stc_rekv = _write(root / "stc_rekv" / "result.json", _stc("rekv"))
-            stc_stc = _write(root / "stc_stc" / "result.json", _stc("stc"))
+            stc_stc = _write(
+                root / "stc_stc" / "result.json", _stc("rekv_stc")
+            )
             oasis_formal = _write(
                 root / "oasis_formal" / "result.json", _oasis(expected=250, correct=190)
             )
@@ -192,6 +194,10 @@ class AggregateOfficialStreamingResultsTests(unittest.TestCase):
             self.assertEqual(summary["quality_smoke"][0]["method"], "OASIS")
             self.assertTrue(
                 all(row["method"] == "STC ReKV" for row in summary["stc_stage_latency"])
+            )
+            self.assertEqual(
+                {row["mode"] for row in summary["stc_stage_latency"]},
+                {"rekv", "stc"},
             )
             for name in (
                 "aggregation_summary.json",
