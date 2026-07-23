@@ -1,0 +1,2 @@
+method,schedule_family,schedule_action,schedule_cell_count,samples,speedup_geomean,speedup_mean,speedup_min,speedup_max,ssim_mean,ssim_min,ssim_p05,psnr_mean_db,requested_quant_mean,requested_cache_mean,executed_cache_mean,cache_fallbacks_mean,cache_refreshes_mean,pareto
+dense,reference,,0,2,1.0,1.0,1.0,1.0,1.0,1.0,1.0,inf,0.0,0.0,0.0,0.0,0.0,True

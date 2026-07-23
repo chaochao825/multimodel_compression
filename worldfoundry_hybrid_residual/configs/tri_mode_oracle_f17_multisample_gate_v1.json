@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "sampling_steps": 20,
+  "block_count": 30,
+  "schedules": [
+    {
+      "name": "dense",
+      "default_action": "D",
+      "metadata": {
+        "family": "reference",
+        "cell_count": 0
+      }
+    },
+    {
+      "name": "c_s19_b12_br1",
+      "default_action": "D",
+      "forecast_scale": 0.0,
+      "overrides": [
+        {
+          "action": "C",
+          "steps": [19],
+          "blocks": [12],
+          "branches": [1]
+        }
+      ],
+      "metadata": {
+        "family": "multisample_gate",
+        "action": "C",
+        "cell_count": 1,
+        "selection": "best measured pure-cache single-call candidate"
+      }
+    },
+    {
+      "name": "c_s19_b06_br1_f100",
+      "default_action": "D",
+      "forecast_scale": 1.0,
+      "overrides": [
+        {
+          "action": "C",
+          "steps": [19],
+          "blocks": [6],
+          "branches": [1]
+        }
+      ],
+      "metadata": {
+        "family": "multisample_gate",
+        "action": "C",
+        "cell_count": 1,
+        "selection": "best measured first-order forecast single-call candidate"
+      }
+    }
+  ]
+}

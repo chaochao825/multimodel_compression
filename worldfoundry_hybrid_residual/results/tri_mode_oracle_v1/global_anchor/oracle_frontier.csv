@@ -1,0 +1,4 @@
+method,schedule_family,schedule_action,schedule_cell_count,samples,speedup_geomean,speedup_mean,speedup_min,speedup_max,ssim_mean,ssim_min,ssim_p05,psnr_mean_db,requested_quant_mean,requested_cache_mean,executed_cache_mean,cache_fallbacks_mean,cache_refreshes_mean,pareto
+dense,reference,,0,5,1.0,1.0,1.0,1.0,1.0,1.0,1.0,inf,0.0,0.0,0.0,0.0,0.0,True
+all_q,global_cost_anchor,Q,25,5,1.0513652247633691,1.0517671411786158,1.0094984735635235,1.0948481041394222,0.6768883808339677,0.6768883808339677,0.6768883808339677,19.186415012625684,1200.0,0.0,0.0,0.0,0.0,True
+all_c,global_cost_anchor,C,25,5,3.842703233179022,3.8453827200284523,3.676108973065967,4.090676120383418,0.20266811695779158,0.20266811695779158,0.20266811695779158,9.899736052799229,0.0,1200.0,1140.0,60.0,60.0,True

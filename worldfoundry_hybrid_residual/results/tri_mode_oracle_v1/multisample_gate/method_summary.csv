@@ -1,0 +1,4 @@
+method,schedule_family,schedule_action,schedule_cell_count,samples,speedup_geomean,speedup_mean,speedup_min,speedup_max,ssim_mean,ssim_min,ssim_p05,psnr_mean_db,requested_quant_mean,requested_cache_mean,executed_cache_mean,cache_fallbacks_mean,cache_refreshes_mean
+c_s19_b06_br1_f100,multisample_gate,C,1,4,1.0048325213173377,1.0051198166810837,0.9775480825618343,1.0435468977677567,0.9735110526816735,0.97085170152279,0.9712426257492195,36.8320752190233,0.0,1.0,1.0,0.0,2.0
+c_s19_b12_br1,multisample_gate,C,1,4,1.0049316113001747,1.005334396787066,0.9678250773247613,1.046166112275654,0.9706018911904146,0.9676221174952344,0.9679483376285425,35.92220164426416,0.0,1.0,1.0,0.0,1.0
+dense,reference,,0,4,1.0,1.0,1.0,1.0,1.0,1.0,1.0,inf,0.0,0.0,0.0,0.0,0.0

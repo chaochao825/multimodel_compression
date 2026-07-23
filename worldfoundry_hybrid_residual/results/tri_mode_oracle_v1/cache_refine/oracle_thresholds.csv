@@ -1,0 +1,5 @@
+ssim_threshold,sample_count,oracle_feasible_samples,per_sample_oracle_geomean_speedup,per_sample_oracle_min_speedup,universal_best_method,universal_geomean_speedup,selected_methods_json,evidence_scope
+0.98,1,1,1.0,1.0,dense,1.0,"{""p00_seed20260723_r0"": ""dense""}",best measured candidate; lower bound on restricted grouped oracle
+0.97,1,1,1.0067321190237397,1.0067321190237397,c_s15-15_b27-29,1.0067321190237397,"{""p00_seed20260723_r0"": ""c_s15-15_b27-29""}",best measured candidate; lower bound on restricted grouped oracle
+0.95,1,1,1.0070904618885974,1.0070904618885974,c_s17-17_b00-02,1.0070904618885974,"{""p00_seed20260723_r0"": ""c_s17-17_b00-02""}",best measured candidate; lower bound on restricted grouped oracle
+0.9,1,1,1.0070904618885974,1.0070904618885974,c_s17-17_b00-02,1.0070904618885974,"{""p00_seed20260723_r0"": ""c_s17-17_b00-02""}",best measured candidate; lower bound on restricted grouped oracle

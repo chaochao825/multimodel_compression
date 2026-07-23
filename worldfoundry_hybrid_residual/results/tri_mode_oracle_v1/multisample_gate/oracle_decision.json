@@ -1,0 +1,14 @@
+{
+  "evidence_scope": "restricted grouped schedules with actual rollout; measured best is an oracle lower bound, not an exhaustive upper bound",
+  "focus_sample_adaptive_controller": false,
+  "next_gate": "stop schedule-combination search for the current training-free action implementations; change the operator set or relax/redefine the quality gate",
+  "paired_csvs": [
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/tri_mode_oracle_f17_multisample_gate_v1/analysis/paired_metrics.csv"
+  ],
+  "per_sample_oracle_geomean_speedup": 1.0,
+  "run_dirs": [],
+  "ssim_gate": 0.98,
+  "status": "preliminary",
+  "stop_training_free_high_fidelity": true,
+  "universal_geomean_speedup": 1.0
+}

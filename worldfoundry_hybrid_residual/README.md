@@ -35,9 +35,40 @@ The pre-registered non-cache quality gate was SSIM `>= 0.98`; neither residual
 configuration passed, so the hybrid F81 confirmation was intentionally not
 run. Existing F81 TeaCache evidence is retained in the reports for context.
 
+## Trajectory-Budgeted Tri-Mode Follow-up
+
+The follow-up reframes quantization and caching as mutually exclusive actions
+at each block, diffusion step, and CFG branch:
+
+```text
+D = BF16 dense anchor
+Q = FP8 FFN recompute
+C = residual cache reuse or first-order forecast
+```
+
+The H200 audit covers 384 generated videos or dense-trajectory audits. No
+tested Q/C granularity clears the preregistered `SSIM >= 0.98` gate. Serial
+global anchors reach `1.051x / 0.67689 SSIM` for all-Q and
+`3.843x / 0.20267 SSIM` for all-C. The best single forecast action reaches
+`0.975997` on the screening sample; across 2 prompts x 2 seeds its mean/minimum
+SSIM is `0.97351/0.97085`, with only `1.005x` geometric-mean speedup (below the
+video-level timing noise floor).
+
+Activation-defect spectra also reject a uniform rank-8/16 correction: global
+rank-16 explained energy is `34.2%` for Q and `76.1%` for first-order cache
+forecast. Only the probed late block 24 is strongly low-dimensional (`91.4%`),
+so any retained correction should be layer-specific and fused rather than a
+global eager residual path. See
+[`results/tri_mode_oracle_v1/TRI_MODE_ORACLE_REPORT.zh-CN.md`](results/tri_mode_oracle_v1/TRI_MODE_ORACLE_REPORT.zh-CN.md)
+and the source-bound dashboard in the same directory.
+
 ## Layout
 
 - `scripts/worldfoundry_hybrid_residual.py`: switchable dense/FP8/hybrid linear.
+- `scripts/trajectory_budget_runtime.py`: mutually exclusive D/Q/C block runtime.
+- `scripts/generate_wan_tri_mode_oracle.py`: paired tri-mode rollout runner.
+- `scripts/activation_defect_runtime.py`: dense-preserving Q/C defect recorder.
+- `scripts/search_tri_mode_oracle.py`: measured-cost conservative schedule search.
 - `scripts/generate_wan_hybrid_residual.py`: paired Wan generation runner.
 - `scripts/summarize_hybrid_residual.py`: prompt/seed paired video analysis.
 - `scripts/run_ffn_*.sh`: H200 pilot, schedule, component, and multi-seed runs.
@@ -46,6 +77,7 @@ run. Existing F81 TeaCache evidence is retained in the reports for context.
 - `figures/`: plotting scripts and prior decomposition/system figures.
 - `results/h200_live/hybrid_worldfoundry_report.md`: consolidated final report.
 - `results/h200_live/figures/`: publication PNG/PDF plus source-bound CSV files.
+- `results/tri_mode_oracle_v1/`: compact tri-mode report, CSV evidence, and figures.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -59,6 +91,9 @@ Install analysis dependencies in an isolated environment:
 ```bash
 python -m pip install -r requirements-analysis.txt
 python figures/worldfoundry_hybrid_results_plot.py
+python scripts/plot_tri_mode_evidence_dashboard.py \
+  --results-root results/tri_mode_oracle_v1 \
+  --out-dir results/tri_mode_oracle_v1
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the
@@ -90,8 +125,9 @@ weight error is not aligned with diffusion trajectory sensitivity. A dense
 refresh stops adding operator error but does not reset an already-diverged
 latent state.
 
-The recommended next direction is per-step activation scaling,
-trajectory/Jacobian-aware layer and rank selection, fused FP8 plus low-rank
-epilogues, and cache-triggered error feedback. Static row blocks should remain
-optional until a native block-sparse kernel and trajectory-aware support
-selection demonstrate a real quality-speed benefit.
+The measured action set does not support a training-free `>=1.2x` turbo under
+strict dense-relative SSIM 0.98. The remaining defensible directions are exact
+system optimization (fused FP8, CUDA Graph, allocation and synchronization
+cleanup), NFE/solver changes, or low-cost trajectory-aware adaptation. Static
+row blocks and uniform eager low-rank correction should remain stopped unless a
+native fused kernel and new defect evidence change their quality-speed bound.

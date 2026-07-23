@@ -317,9 +317,31 @@ class HybridResidualController:
     def __init__(self, modules: Iterable[tuple[str, HybridResidualLinear]], setup_seconds: float) -> None:
         self.modules = tuple(modules)
         self.setup_seconds = float(setup_seconds)
+        by_block: dict[int, list[HybridResidualLinear]] = {}
+        for name, module in self.modules:
+            fields = name.split(".")
+            if len(fields) < 2 or fields[0] != "blocks":
+                raise ValueError(f"cannot recover block index from module name: {name}")
+            block_index = int(fields[1])
+            by_block.setdefault(block_index, []).append(module)
+        self._by_block = {
+            block_index: tuple(block_modules)
+            for block_index, block_modules in by_block.items()
+        }
 
     def set_mode(self, mode: str) -> None:
         for _, module in self.modules:
+            module.set_mode(mode)
+
+    @property
+    def block_indices(self) -> tuple[int, ...]:
+        return tuple(sorted(self._by_block))
+
+    def set_block_mode(self, block_index: int, mode: str) -> None:
+        modules = self._by_block.get(int(block_index))
+        if modules is None:
+            raise KeyError(f"no injected linears for block {block_index}")
+        for module in modules:
             module.set_mode(mode)
 
     def reset_runtime_stats(self) -> None:
