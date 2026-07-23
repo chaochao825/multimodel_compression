@@ -1,0 +1,24 @@
+{
+  "arguments": {
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/h200_sparse24_v1",
+    "device": "cuda:0",
+    "rows": "512,2048,7800,32760",
+    "features": 1536,
+    "rank_budget": 16,
+    "warmup": 30,
+    "iterations": 100,
+    "repeats": 5,
+    "seed": 20260723
+  },
+  "torch": "2.9.1+cu128",
+  "cuda_runtime": "12.8",
+  "python": "3.11.15",
+  "device": "NVIDIA H200 NVL",
+  "device_capability": [
+    9,
+    0
+  ],
+  "sparse_tensor_type": "SparseSemiStructuredTensorCUSPARSELT",
+  "elapsed_seconds": 2.6098291873931885,
+  "scope": "Residual branch kernel only; no FP8 main branch included"
+}

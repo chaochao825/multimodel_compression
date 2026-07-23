@@ -1,0 +1,33 @@
+{
+  "arguments": {
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+    "activation": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+    "keys": "blocks.0.self_attn.q.weight,blocks.0.self_attn.o.weight,blocks.0.ffn.0.weight,blocks.15.self_attn.q.weight,blocks.15.self_attn.o.weight,blocks.15.ffn.0.weight,blocks.29.self_attn.q.weight,blocks.29.self_attn.o.weight,blocks.29.ffn.0.weight",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/activation_aware_v1",
+    "device": "cuda:0",
+    "ranks": "4,8,16",
+    "block_sizes": "64,128",
+    "rank_budget": 16,
+    "group_size": 128,
+    "samples": 128,
+    "ridge": 0.001,
+    "block_rows": 16,
+    "seed": 20260724
+  },
+  "torch": "2.9.1+cu128",
+  "cuda_runtime": "12.8",
+  "python": "3.11.15",
+  "device": "NVIDIA H200 NVL",
+  "device_capability": [
+    9,
+    0
+  ],
+  "hadamard_source": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/src/RobuQ/quant/quantized_modules/hadamard_utils.py",
+  "elapsed_seconds": 2.2433958053588867,
+  "methodology": {
+    "split": "first half fit, second half held out",
+    "activation_bcm": "ridge least squares over circulant generator features",
+    "activation_lowrank": "top output-sample SVD lifted by ridge regression",
+    "sparse": "output-row blocks selected by activation residual energy"
+  }
+}

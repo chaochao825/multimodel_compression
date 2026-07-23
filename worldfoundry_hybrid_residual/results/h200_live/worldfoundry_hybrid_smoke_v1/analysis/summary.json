@@ -1,0 +1,44 @@
+{
+  "acceptance": {
+    "cache_faster_than_uncached_hybrid": false,
+    "cache_quality": false,
+    "correctness": false,
+    "hybrid_quality": false,
+    "hybrid_runtime_within_15_percent": true,
+    "promote_to_f81": false,
+    "reference_pairs": 1,
+    "warning": "PSNR and SSIM are paired deviations from dense output, not standalone semantic quality"
+  },
+  "methods": [
+    {
+      "cached_model_forward_fraction_mean": 0.0,
+      "candidate_seconds_mean": 0.953699506004341,
+      "frame_ssim_mean": 0.8881916777291607,
+      "frame_ssim_min": 0.8881916777291607,
+      "frame_ssim_p05_mean": 0.8614647649266969,
+      "hybrid_residual_calls_mean": 0.0,
+      "method": "fp8",
+      "paired_speedup_geomean": 1.014131054823578,
+      "paired_speedup_min": 1.014131054823578,
+      "pairs": 1,
+      "peak_allocated_mib_mean": 20862.892578125,
+      "pixel_psnr_db_mean": 33.33756449476833,
+      "successful_pairs": 1
+    },
+    {
+      "cached_model_forward_fraction_mean": 0.0,
+      "candidate_seconds_mean": 0.9565691119933035,
+      "frame_ssim_mean": 0.892406669819775,
+      "frame_ssim_min": 0.892406669819775,
+      "frame_ssim_p05_mean": 0.8677283372848245,
+      "hybrid_residual_calls_mean": 120.0,
+      "method": "hybrid",
+      "paired_speedup_geomean": 1.0110887691047232,
+      "paired_speedup_min": 1.0110887691047232,
+      "pairs": 1,
+      "peak_allocated_mib_mean": 20862.892578125,
+      "pixel_psnr_db_mean": 33.57203387975195,
+      "successful_pairs": 1
+    }
+  ]
+}

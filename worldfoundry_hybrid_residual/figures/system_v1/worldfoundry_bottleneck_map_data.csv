@@ -1,0 +1,24 @@
+panel,shape,rows,in_features,out_features,method,milliseconds,speedup_vs_bf16,fp8_hardware_eligible,nvfp4_hardware_eligible,output_rel_l2,output_cosine,output_max_abs,output_finite_fraction,case,source,batch,heads,q_len,k_len,head_dim,dtype,preprocessing_in_timing,status,effective_tflops,peak_allocated_mib,row_rel_l2_mean,row_rel_l2_p95,prompt_index,prompt,seed,seconds_including_text_and_vae,self_attention_calls,cross_attention_calls,video_file,video_sha256,scope,threshold,speedup,ssim,cached_fraction
+linear,f17_qkv,7800,1536,1536,worldfoundry_fp8,0.25964544296264647,0.22260017869815976,True,False,0.03749660402536392,0.9992977380752563,8.109375,1.0,,,,,,,,,,,,,,,,,,,,,,,,,,,
+linear,f81_qkv,32760,1536,1536,worldfoundry_fp8,0.9351455688476562,0.23871021298606362,True,False,0.037542663514614105,0.9992955923080444,9.265625,1.0,,,,,,,,,,,,,,,,,,,,,,,,,,,
+linear,f17_ffn_up,7800,1536,8960,worldfoundry_fp8,0.4275008010864258,0.7659910248149384,True,False,0.03751439228653908,0.9992969036102295,8.5625,0.9999999403953552,,,,,,,,,,,,,,,,,,,,,,,,,,,
+linear,f17_ffn_down,7800,8960,1536,worldfoundry_fp8,1.29951171875,0.2365294552444202,True,False,0.03761904686689377,0.9992930889129639,19.0,1.0,,,,,,,,,,,,,,,,,,,,,,,,,,,
+attention,,,,,torch_sdpa,1.2276559829711915,,,,0.0,1.0,0.0,1.0,checkpoint_replay,checkpoint_qkv_replay,1,12,7800,7800,128,bf16,True,ok,304.4834751632304,137.4677734375,0.0,0.0,,,,,,,,,,,,,
+attention,,,,,fa3_bf16,0.8758000373840332,,,,0.0010939661879092455,0.9999994039535522,0.015625,1.0,checkpoint_replay,checkpoint_qkv_replay,1,12,7800,7800,128,bf16,True,ok,426.8108518429881,137.46728515625,0.0006297539221122861,0.0018228295957669616,,,,,,,,,,,,,
+attention,,,,,fa3_fp8,0.8826831817626953,,,,0.07908505946397781,0.997014045715332,0.8203125,1.0,checkpoint_replay,checkpoint_qkv_replay,1,12,7800,7800,128,bf16,True,ok,423.4825900427028,195.40771484375,0.06858551502227783,0.12447027862071991,,,,,,,,,,,,,
+attention,,,,,sage_sm90_no_smooth,0.6911952018737793,,,,0.022440500557422638,0.9997488260269165,0.1875,1.0,checkpoint_replay,checkpoint_qkv_replay,1,12,7800,7800,128,bf16,True,ok,540.8037541155568,218.20947265625,0.013765125535428524,0.03334552422165871,,,,,,,,,,,,,
+generation,,,,,sdpa,,,,,,,,,,,,,,,,,,ok,,21075.544921875,,,0,A red panda runs through a bamboo forest while the camera tracks smoothly.,20260723,71.45691420100047,1200,1200,0000_sdpa_seed20260723.mp4,589997752b25e97e9d4999e3b70a4d9d299f6aadf280f811f7df1c489a2973a7,,,,,
+generation,,,,,fa3_bf16,,,,,,,,,,,,,,,,,,ok,,21075.544921875,,,0,A red panda runs through a bamboo forest while the camera tracks smoothly.,20260723,58.351818916999036,1200,1200,0000_fa3_bf16_seed20260723.mp4,2c0ae229010609ac8fd4db03427ed1f009d108f3cb69b24cc897dfdc3f7ecd27,,,,,
+generation,,,,,fa3_hybrid_fp8_every4,,,,,,,,,,,,,,,,,,ok,,21075.544921875,,,0,A red panda runs through a bamboo forest while the camera tracks smoothly.,20260723,55.643541537981946,1200,1200,0000_fa3_hybrid_fp8_every4_seed20260723.mp4,53adfc8d858df397df93459b1752eeaa3115f360a63a682214f63c37d5e11967,,,,,
+generation,,,,,fa3_hybrid_fp8_late8,,,,,,,,,,,,,,,,,,ok,,21075.544921875,,,0,A red panda runs through a bamboo forest while the camera tracks smoothly.,20260723,58.99482423698646,1200,1200,0000_fa3_hybrid_fp8_late8_seed20260723.mp4,b0b75e4e766bebac3edb4f75bcc889ccf5bf64880e655c63071ddecd90824510,,,,,
+generation,,,,,fa3_hybrid_fp8_every2,,,,,,,,,,,,,,,,,,ok,,21075.544921875,,,0,A red panda runs through a bamboo forest while the camera tracks smoothly.,20260723,53.481785625976045,1200,1200,0000_fa3_hybrid_fp8_every2_seed20260723.mp4,1f566f56dea424202799664e1f639c42eac16d56d9f1f525e31579da4fb37ec4,,,,,
+generation,,,,,fa3_fp8,,,,,,,,,,,,,,,,,,ok,,21075.544921875,,,0,A red panda runs through a bamboo forest while the camera tracks smoothly.,20260723,47.62495935498737,1200,1200,0000_fa3_fp8_seed20260723.mp4,114a2f6abad393d6421e3a973240ef2d67ce2ec4e47a4cb50828c72a8a9f224b,,,,,
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,0.1,1.3071911641249208,0.5862933640197983,0.3
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,0.15,1.4081596139592116,0.590763138467,0.4
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,0.2,1.4865793482936225,0.542925916512039,0.45
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,0.3,1.6654073896603756,0.5092117563696928,0.55
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,0.5,1.9217844016128944,0.42620702599130367,0.65
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,1.0,1.971008079824876,0.3883433261696255,0.7
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,0.08,1.1699010308244522,0.8697265872835631,0.2
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,single_prompt_screen,0.09,1.2954029369306574,0.5862933640197983,0.3
+teacache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,eight_prompt_f81,0.08,1.038579143938712,0.9621135010263551,0.05

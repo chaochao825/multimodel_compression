@@ -1,0 +1,21 @@
+method,prompt_index,frame_ssim_mean,method_label,prompt_label
+dense_cache008,0,0.9655559664477824,Dense cache .08,Panda
+dense_cache008,1,0.9354895404279854,Dense cache .08,Dancer
+dense_cache008,2,0.9698202678582809,Dense cache .08,Car
+dense_cache008,3,0.9496326056223909,Dense cache .08,Lighthouse
+fp8,0,0.7485238328222924,Full FP8,Panda
+fp8,1,0.6810792072802472,Full FP8,Dancer
+fp8,2,0.8881383593916634,Full FP8,Car
+fp8,3,0.8687697156638784,Full FP8,Lighthouse
+fp8_middle1,0,0.9607144013460903,FP8 middle-1,Panda
+fp8_middle1,1,0.9327720414696425,FP8 middle-1,Dancer
+fp8_middle1,2,0.9721578343018551,FP8 middle-1,Car
+fp8_middle1,3,0.9510918047438435,FP8 middle-1,Lighthouse
+hybrid_middle1,0,0.9532852339881062,Hybrid middle-1,Panda
+hybrid_middle1,1,0.9170696828198021,Hybrid middle-1,Dancer
+hybrid_middle1,2,0.9702525749165529,Hybrid middle-1,Car
+hybrid_middle1,3,0.9524762878617101,Hybrid middle-1,Lighthouse
+hybrid_middle1_cache008,0,0.9529501733019304,Hybrid + cache .08,Panda
+hybrid_middle1_cache008,1,0.90941415786753,Hybrid + cache .08,Dancer
+hybrid_middle1_cache008,2,0.9674171217500698,Hybrid + cache .08,Car
+hybrid_middle1_cache008,3,0.942718135387701,Hybrid + cache .08,Lighthouse

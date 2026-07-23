@@ -1,0 +1,91 @@
+{
+  "acceptance": {
+    "cache_faster_than_uncached_hybrid": true,
+    "cache_quality": false,
+    "correctness": true,
+    "hybrid_quality": false,
+    "hybrid_runtime_within_15_percent": true,
+    "primary_cache_method": "hybrid_refresh4_cache008",
+    "primary_method": "hybrid_refresh4",
+    "promote_to_f81": false,
+    "reference_pairs": 1,
+    "warning": "PSNR and SSIM are paired deviations from dense output, not standalone semantic quality"
+  },
+  "methods": [
+    {
+      "cached_model_forward_fraction_mean": 0.05,
+      "candidate_seconds_mean": 5.7801602839899715,
+      "frame_ssim_mean": 0.9680570954439053,
+      "frame_ssim_min": 0.9680570954439053,
+      "frame_ssim_p05_mean": 0.9646394833534643,
+      "hybrid_residual_calls_mean": 0.0,
+      "method": "dense_cache008",
+      "paired_speedup_geomean": 1.0460242245771558,
+      "paired_speedup_min": 1.0460242245771558,
+      "pairs": 1,
+      "peak_allocated_mib_mean": 21579.857421875,
+      "pixel_psnr_db_mean": 33.74773673706285,
+      "successful_pairs": 1
+    },
+    {
+      "cached_model_forward_fraction_mean": 0.0,
+      "candidate_seconds_mean": 6.69100133900065,
+      "frame_ssim_mean": 0.6720020832738518,
+      "frame_ssim_min": 0.6720020832738518,
+      "frame_ssim_p05_mean": 0.5907474080192178,
+      "hybrid_residual_calls_mean": 0.0,
+      "method": "fp8",
+      "paired_speedup_geomean": 0.9036297218698995,
+      "paired_speedup_min": 0.9036297218698995,
+      "pairs": 1,
+      "peak_allocated_mib_mean": 21534.119140625,
+      "pixel_psnr_db_mean": 18.964087093722103,
+      "successful_pairs": 1
+    },
+    {
+      "cached_model_forward_fraction_mean": 0.0,
+      "candidate_seconds_mean": 7.125131328997668,
+      "frame_ssim_mean": 0.7089710222000216,
+      "frame_ssim_min": 0.7089710222000216,
+      "frame_ssim_p05_mean": 0.6519233281390648,
+      "hybrid_residual_calls_mean": 2400.0,
+      "method": "hybrid",
+      "paired_speedup_geomean": 0.8485721034201391,
+      "paired_speedup_min": 0.8485721034201391,
+      "pairs": 1,
+      "peak_allocated_mib_mean": 21535.119140625,
+      "pixel_psnr_db_mean": 19.535547872066306,
+      "successful_pairs": 1
+    },
+    {
+      "cached_model_forward_fraction_mean": 0.0,
+      "candidate_seconds_mean": 6.664152538985945,
+      "frame_ssim_mean": 0.8366581202349299,
+      "frame_ssim_min": 0.8366581202349299,
+      "frame_ssim_p05_mean": 0.7869262648193154,
+      "hybrid_residual_calls_mean": 1440.0,
+      "method": "hybrid_refresh4",
+      "paired_speedup_geomean": 0.9072703008554339,
+      "paired_speedup_min": 0.9072703008554339,
+      "pairs": 1,
+      "peak_allocated_mib_mean": 21535.119140625,
+      "pixel_psnr_db_mean": 23.213475485567585,
+      "successful_pairs": 1
+    },
+    {
+      "cached_model_forward_fraction_mean": 0.05,
+      "candidate_seconds_mean": 6.481801137997536,
+      "frame_ssim_mean": 0.8300607496412207,
+      "frame_ssim_min": 0.8300607496412207,
+      "frame_ssim_p05_mean": 0.7850286765031035,
+      "hybrid_residual_calls_mean": 1440.0,
+      "method": "hybrid_refresh4_cache008",
+      "paired_speedup_geomean": 0.9327943808007924,
+      "paired_speedup_min": 0.9327943808007924,
+      "pairs": 1,
+      "peak_allocated_mib_mean": 21579.857421875,
+      "pixel_psnr_db_mean": 23.01635328585109,
+      "successful_pairs": 1
+    }
+  ]
+}

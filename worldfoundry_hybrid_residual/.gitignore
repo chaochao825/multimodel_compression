@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.mp4
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+wandb/
+trash/

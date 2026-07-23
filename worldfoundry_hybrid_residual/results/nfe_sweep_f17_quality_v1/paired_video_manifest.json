@@ -1,0 +1,14 @@
+{
+  "decoder": "imageio-ffmpeg",
+  "numpy": "2.3.5",
+  "opencv": null,
+  "platform": "Linux-5.4.0-42-generic-x86_64-with-glibc2.31",
+  "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+  "reference": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/nfe_sweep_f17_quality_v1/videos/step20.mp4",
+  "reference_fps": 16.0,
+  "reference_sha256": "05e9c5f36db0801e12f5ceae616a122ee3aa3964ab365ae740b677128d7d5742",
+  "scope": "decoded-frame paired comparison; same prompt, seed, sampler, and encoding settings",
+  "ssim_backend": "scipy-uniform-filter-compatible",
+  "video_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/nfe_sweep_f17_quality_v1/videos",
+  "warning": "PSNR/SSIM measure deviation from dense SDPA, not standalone semantic or perceptual quality"
+}

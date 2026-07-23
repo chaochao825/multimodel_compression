@@ -1,0 +1,2 @@
+[bench] rows=512: bf16_dense=0.0272ms, fp8_dynamic_main=0.1602ms, fp8_static_input_main=0.0297ms, fp8_dynamic_svd_r16=0.2718ms, fp8_static_input_svd_r16=0.1368ms, fp8_dynamic_bcm_b128_svd_r10=0.5424ms, fp8_static_input_bcm_b128_svd_r10=0.3736ms, fp8_dynamic_svd_r8_rowsparse_b16=0.3231ms, fp8_static_input_svd_r8_rowsparse_b16=0.1890ms
+[bench] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/h200_smoke_v1

@@ -1,0 +1,12 @@
+{
+  "cache_faster_than_uncached_hybrid": false,
+  "cache_quality": false,
+  "correctness": false,
+  "hybrid_quality": false,
+  "hybrid_runtime_within_15_percent": true,
+  "primary_cache_method": "hybrid_cache008",
+  "primary_method": "hybrid_middle1",
+  "promote_to_f81": false,
+  "reference_pairs": 2,
+  "warning": "PSNR and SSIM are paired deviations from dense output, not standalone semantic quality"
+}

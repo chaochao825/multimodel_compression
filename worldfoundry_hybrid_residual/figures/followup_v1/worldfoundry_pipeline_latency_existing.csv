@@ -1,0 +1,7 @@
+method,seconds_including_text_and_vae
+fa3_fp8,47.62495935498737
+fa3_hybrid_fp8_every2,53.481785625976045
+fa3_hybrid_fp8_every4,55.643541537981946
+fa3_bf16,58.35181891699904
+fa3_hybrid_fp8_late8,58.99482423698646
+sdpa,71.45691420100047

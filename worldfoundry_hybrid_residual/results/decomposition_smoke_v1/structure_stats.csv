@@ -1,0 +1,5 @@
+weight_key,shape,source,block_size,bcm_params,bcm_energy_ratio,budget_rank_after_bcm,bcm_after_lowrank_energy_ratio,structure,selected_params,captured_residual_energy_ratio,selected_tiles
+blocks.0.self_attn.q.weight,1536x1536,ternary_error,64,36864,0.015450920545158195,4,0.013019344114347057,,,,
+blocks.0.self_attn.q.weight,1536x1536,ternary_error,128,18432,0.007625220236799145,10,0.006248742154054471,,,,
+blocks.0.self_attn.q.weight,1536x1536,ternary_error_after_lowrank,16,,,,,row_sparse,24576,0.012819022057862351,
+blocks.0.self_attn.q.weight,1536x1536,ternary_error_after_lowrank,32,,,,,tile_sparse,24576,0.013119734590535025,24

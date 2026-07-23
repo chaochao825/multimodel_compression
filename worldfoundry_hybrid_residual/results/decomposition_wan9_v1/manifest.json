@@ -1,0 +1,36 @@
+{
+  "arguments": {
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+    "activation": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+    "keys": "blocks.0.self_attn.q.weight,blocks.0.self_attn.o.weight,blocks.0.ffn.0.weight,blocks.15.self_attn.q.weight,blocks.15.self_attn.o.weight,blocks.15.ffn.0.weight,blocks.29.self_attn.q.weight,blocks.29.self_attn.o.weight,blocks.29.ffn.0.weight",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/decomposition_wan9_v1",
+    "device": "cuda:0",
+    "ranks": "8,16,32",
+    "block_sizes": "64,128,256",
+    "spectrum_ranks": "1,2,4,8,16,32,64",
+    "rank_budget": 16,
+    "group_size": 128,
+    "activation_samples": 128,
+    "block_rows": 16,
+    "tile_size": 32,
+    "seed": 20260723
+  },
+  "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+  "hadamard_source": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/src/RobuQ/quant/quantized_modules/hadamard_utils.py",
+  "torch": "2.9.1+cu128",
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "device_capability": [
+    9,
+    0
+  ],
+  "python": "3.11.15",
+  "elapsed_seconds": 2.8471856117248535,
+  "methodology": {
+    "ternary": "RobuQ groupwise mean-absolute scale, round and clamp to {-1,0,1}",
+    "fp8": "tensorwise E4M3 fake quantization matching WorldFoundry weight scaling",
+    "svd": "torch.svd_lowrank with oversampling=12 and power_iterations=4",
+    "bcm": "orthogonal projection of every dense block onto the circulant subspace",
+    "hardware_scope": "decomposition only; actual H200 timings are produced by benchmark_h200.py"
+  }
+}

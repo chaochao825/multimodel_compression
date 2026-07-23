@@ -1,0 +1,24 @@
+[probe] loading blocks.0.self_attn.q.weight
+[probe] blocks.0.self_attn.q.weight ternary_no_hadamard: fro=0.46864 act=0.46502 params=0
+[probe] blocks.0.self_attn.q.weight ternary_hadamard: fro=0.51084 act=0.52387 params=0
+[probe] blocks.0.self_attn.q.weight fp8_hadamard: fro=0.02650 act=0.02763 params=0
+[probe] blocks.0.self_attn.q.weight robuq_weight_svd_r8: fro=0.44396 act=0.46682 params=24576
+[probe] blocks.0.self_attn.q.weight ternary_qer_svd_r8: fro=0.46469 act=0.48425 params=24576
+[probe] blocks.0.self_attn.q.weight fp8_qer_svd_r8: fro=0.02588 act=0.02686 params=24576
+[probe] blocks.0.self_attn.q.weight robuq_weight_svd_r16: fro=0.43779 act=0.45759 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_svd_r16: fro=0.45870 act=0.47893 params=49152
+[probe] blocks.0.self_attn.q.weight fp8_qer_svd_r16: fro=0.02550 act=0.02647 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_bcm_b64: fro=0.50688 act=0.52019 params=36864
+[probe] blocks.0.self_attn.q.weight ternary_qer_bcm_b64_svd_r4_budget_lr16: fro=0.46698 act=0.48735 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_svd_r4_bcm_b64_budget_lr16: fro=0.46634 act=0.48666 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_bcm_b64_svd_r16_expanded: fro=0.45589 act=0.47692 params=86016
+[probe] blocks.0.self_attn.q.weight fp8_qer_bcm_b64_svd_r4_budget_lr16: fro=0.02591 act=0.02686 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_bcm_b128: fro=0.50889 act=0.52273 params=18432
+[probe] blocks.0.self_attn.q.weight ternary_qer_bcm_b128_svd_r10_budget_lr16: fro=0.46150 act=0.48203 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_svd_r10_bcm_b128_budget_lr16: fro=0.46114 act=0.48106 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_bcm_b128_svd_r16_expanded: fro=0.45730 act=0.47823 params=67584
+[probe] blocks.0.self_attn.q.weight fp8_qer_bcm_b128_svd_r10_budget_lr16: fro=0.02569 act=0.02669 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_svd_r8_rowsparse_b16_budget_lr16: fro=0.46171 act=0.48146 params=49152
+[probe] blocks.0.self_attn.q.weight ternary_qer_svd_r8_tilesparse_b32_budget_lr16: fro=0.46164 act=0.48145 params=49152
+[probe] blocks.0.self_attn.q.weight fp8_qer_svd_r8_rowsparse_b16_budget_lr16: fro=0.02567 act=0.02669 params=49152
+[probe] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/decomposition_smoke_v1 in 0.9s
