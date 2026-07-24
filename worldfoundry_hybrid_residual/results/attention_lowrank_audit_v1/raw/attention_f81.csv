@@ -1,0 +1,4 @@
+case,source,method,batch,heads,q_len,k_len,head_dim,dtype,preprocessing_in_timing,status,milliseconds,effective_tflops,peak_allocated_mib,output_finite_fraction,output_rel_l2,row_rel_l2_mean,row_rel_l2_p95,output_cosine,output_max_abs
+checkpoint_replay,checkpoint_qkv_replay,torch_sdpa,1,12,32760,32760,128,bf16,True,ok,20.535267639160157,321.0987580130547,577.5009765625,1.0,0.0,0.0,0.0,1.0,0.0
+checkpoint_replay,checkpoint_qkv_replay,fa3_bf16,1,12,32760,32760,128,bf16,True,ok,14.657081604003906,449.87461437062234,577.50048828125,1.0,0.0010608405573293567,0.0005424632108770311,0.001776588847860694,0.9999995231628418,0.015625
+checkpoint_replay,checkpoint_qkv_replay,fa3_fp8,1,12,32760,32760,128,bf16,True,ok,9.690773010253906,680.425485915621,816.00146484375,1.0,0.1376292109489441,0.15541018545627594,0.3446494936943054,0.9914443492889404,0.96484375

@@ -1,0 +1,8 @@
+label,family,speedup
+F17 FA3 FP8 attention,attention,0.992202021607666
+F17 SageAttention,attention,1.2670806090809135
+F81 FA3 FP8 attention,attention,1.5124780642880704
+F17 WorldFoundry dynamic FP8 QKV,linear,0.22260017869815976
+F17 WorldFoundry dynamic FP8 FFN-down,linear,0.2365294552444202
+F17 static-scale FP8 Q lower bound,linear,1.5032523855164408
+F17 static FP8 + rank-16 Q,linear,0.463367848485374

@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-07-25T01:30:00+08:00",
+  "hardware": "NVIDIA H200 NVL 143 GB",
+  "model": "Wan2.1-T2V-1.3B through World Foundry",
+  "git_repository": "/home/spco/sow_linear/multimodel_compression",
+  "git_branch": "codex/online-video-state-memory-20260718",
+  "profiles": {
+    "f17_one_step": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/profile_f17_fa3_nsys_v2",
+    "f17_twenty_step": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/profile_f17_fa3_20step_nsys_v1",
+    "f81_one_step": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/profile_f81_fa3_1step_nsys_v1",
+    "f81_twenty_step": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/profile_f81_fa3_20step_nsys_v1"
+  },
+  "attention_microbench": {
+    "f17": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/attention_backend_replay_f17_v1",
+    "f81": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/attention_backend_replay_f81_v1"
+  },
+  "attention_oracle": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_lowrank_sparse_oracle_v1",
+  "activation_defect": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/activation_defect_subspace_f17_v1",
+  "ffn_multiseed": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/worldfoundry_ffn_hybrid_f17_multiseed_v2",
+  "caveats": [
+    "The attention low-rank/sparse experiment is a representation oracle, not a runnable kernel benchmark.",
+    "The one-step versus twenty-step profile subtraction isolates incremental denoising approximately; it excludes VAE decode and should not replace end-to-end wall-clock timing.",
+    "Reported literature speedups use different models, resolutions, quality metrics, hardware, and training budgets."
+  ]
+}

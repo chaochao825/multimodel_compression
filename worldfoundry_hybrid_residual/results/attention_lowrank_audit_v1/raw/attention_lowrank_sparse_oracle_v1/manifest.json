@@ -1,0 +1,24 @@
+{
+  "scope": "Representation oracle on 512 evenly spaced real Wan2.1 queries at layer 0, timestep 1000, conditional branch.",
+  "warning": "This is not a runnable sparse/low-rank kernel and excludes mask search, basis construction, RoPE, and scheduling overhead.",
+  "captures": [
+    "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+    "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt"
+  ],
+  "ranks": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "topks": [
+    32,
+    64,
+    128,
+    256,
+    512
+  ],
+  "elapsed_seconds": 4.009612560272217,
+  "torch": "2.9.1+cu128",
+  "gpu": "NVIDIA H200 NVL"
+}
