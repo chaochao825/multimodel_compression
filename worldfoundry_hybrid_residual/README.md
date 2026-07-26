@@ -72,6 +72,13 @@ kernel. Moving from token top-k to contiguous GPU tiles creates a measurable
 quality gap, so coarse routing, shared normalization, and a fused H200 kernel
 are required before claiming end-to-end acceleration.
 
+The follow-up two-seed screen separates stable head roles from unstable
+correction bases. All 12 layer-0/step-0 heads preserve their
+localized/transitional/diffuse class across independent seeds, with entropy
+and temporal-tile mass correlations above `0.99998`; this is a provisional GO
+for studying a head-role-aware adaptive router, not for a fixed token mask.
+See [`results/ATTENTION_HEAD_CLASS_STABILITY_F81_20260726.zh-CN.md`](results/ATTENTION_HEAD_CLASS_STABILITY_F81_20260726.zh-CN.md).
+
 For FFN, static row/column/2D FFT sparsification and a hidden-channel BCM main
 path are stopped. Across sampled Wan and Llama weights, low-frequency energy
 matches the scalar budget and shuffled/Gaussian controls, while the nearest
