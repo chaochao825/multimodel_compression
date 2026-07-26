@@ -99,6 +99,8 @@ class WanFFNExactSummaryTests(unittest.TestCase):
         self.assertIn("static_output = ffn(static_value)", benchmark)
         self.assertIn("no GEMM-epilogue fusion is claimed", benchmark)
         self.assertIn("GPU=\"${GPU:-2}\"", runner)
+        self.assertIn("GPU_CANDIDATES=\"${GPU_CANDIDATES:-2,3}\"", runner)
+        self.assertIn("selected first-idle GPU", runner)
         self.assertIn("/tmp/codex_phase2_strict_h200_v1.lock", runner)
         self.assertIn("flock 9", runner)
 

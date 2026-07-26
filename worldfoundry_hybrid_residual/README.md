@@ -82,6 +82,13 @@ a standalone post-GEMM Triton bias/GELU kernel is not sufficient. See
 [`results/ffn_attention_audit_v1/FFN_ATTENTION_AUDIT_20260726.zh-CN.md`](results/ffn_attention_audit_v1/FFN_ATTENTION_AUDIT_20260726.zh-CN.md)
 and its source-bound dashboard and CSV evidence.
 
+The measured H200 fusion ceiling further separates local FFN wins from
+end-to-end value. Even removing all measured up-projection bias/GELU overhead
+would yield only `1.038x` for F17 and `1.016x` for F81 under the profiled
+runtime shares; the existing standalone Triton path is both approximate and
+slower when projected onto the complete FFN. See
+[`results/FFN_FUSION_CEILING_H200_20260726.zh-CN.md`](results/FFN_FUSION_CEILING_H200_20260726.zh-CN.md).
+
 ## Function-Aware Entropy And THW Structure Audit
 
 The follow-up separates parameter entropy, activation structure, and operator
