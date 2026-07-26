@@ -1,0 +1,46 @@
+{
+  "model": {
+    "dim": 1536,
+    "ffn_dim": 8960,
+    "layers": 30,
+    "sampling_steps": 20,
+    "text_tokens": 512
+  },
+  "rows": [
+    {
+      "case": "F17",
+      "cross_attention_qk_pv_flops_per_step": 736100352000,
+      "cross_attention_qo_flops_per_step": 2208301056000,
+      "cross_attention_text_kv_flops_per_step": 144955146240,
+      "ffn_up_down_flops_per_step": 12881756160000,
+      "ideal_flop_speedup": 1.0043766600028479,
+      "layers": 30,
+      "sampling_steps": 20,
+      "self_attention_qk_pv_flops_per_step": 11214028800000,
+      "self_attention_qkvo_flops_per_step": 4416602112000,
+      "text_kv_cacheable_flop_fraction": 0.004586935074039358,
+      "text_kv_eliminated_flop_fraction": 0.00435758832033739,
+      "text_tokens": 512,
+      "total_flops_per_step": 31601743626240,
+      "video_tokens": 7800
+    },
+    {
+      "case": "F81",
+      "cross_attention_qk_pv_flops_per_step": 3091621478400,
+      "cross_attention_qo_flops_per_step": 9274864435200,
+      "cross_attention_text_kv_flops_per_step": 144955146240,
+      "ffn_up_down_flops_per_step": 54103375872000,
+      "ideal_flop_speedup": 1.0004868698415688,
+      "layers": 30,
+      "sampling_steps": 20,
+      "self_attention_qk_pv_flops_per_step": 197815468032000,
+      "self_attention_qkvo_flops_per_step": 18549728870400,
+      "text_kv_cacheable_flop_fraction": 0.0005122451733460927,
+      "text_kv_eliminated_flop_fraction": 0.0004866329146787881,
+      "text_tokens": 512,
+      "total_flops_per_step": 282980013834240,
+      "video_tokens": 32760
+    }
+  ],
+  "scope_warning": "This is a dense arithmetic proxy. It excludes normalization, modulation, VAE, scheduler, launch overhead, memory effects, and actual H200 kernel timing."
+}

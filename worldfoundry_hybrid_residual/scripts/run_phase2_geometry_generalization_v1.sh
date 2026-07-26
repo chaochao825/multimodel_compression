@@ -95,4 +95,9 @@ CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   --device cuda:0 \
   2>&1 | tee "$OUT/logs/geometry_basis_transfer.log"
 
+"$PY" "$PROBE_ROOT/scripts/plot_geometry_basis_transfer.py" \
+  --stop-go-csv "$OUT/basis_transfer/geometry_basis_transfer_stop_go.csv" \
+  --output-dir "$OUT/basis_transfer" \
+  2>&1 | tee "$OUT/logs/geometry_basis_transfer.plot.log"
+
 printf '[geometry-generalization] pilot completed %s\n' "$OUT"
