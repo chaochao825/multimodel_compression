@@ -1,0 +1,29 @@
+{
+  "allowed_process_prefixes": [
+    "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python"
+  ],
+  "ancestry_foreign_event_count": 0,
+  "ancestry_foreign_events": [],
+  "estimated_foreign_overlap_seconds": 0.0,
+  "foreign_processes": [],
+  "foreign_snapshot_fraction": 0.0,
+  "interpretation": "Latency is admissible only when timing_valid is true. Correctness and quality artifacts may still be used when timing is contaminated.",
+  "median_monitor_interval_seconds": 5.0,
+  "owned_processes": [
+    {
+      "gpu_uuid": "GPU-4bffd208-6c43-9564-d8fd-76284154138e",
+      "pid": 2217873,
+      "process_name": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+      "used_memory_mib": 2156
+    }
+  ],
+  "snapshots_total": 12,
+  "snapshots_with_foreign_process": 0,
+  "snapshots_with_owned_process": 11,
+  "stage": "ffn_exact_h200",
+  "telemetry": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_exact_h200_v3_first_idle/attempt_01/logs/gpu-telemetry.1785056708.log",
+  "timing_valid": true,
+  "used_gpu_uuids": [
+    "GPU-4bffd208-6c43-9564-d8fd-76284154138e"
+  ]
+}

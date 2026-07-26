@@ -96,6 +96,14 @@ runtime shares; the existing standalone Triton path is both approximate and
 slower when projected onto the complete FFN. See
 [`results/FFN_FUSION_CEILING_H200_20260726.zh-CN.md`](results/FFN_FUSION_CEILING_H200_20260726.zh-CN.md).
 
+The exclusive-H200 exact-path gate confirms that generic compilation is not a
+substitute for fusion. All three `torch.compile` modes are slower and alter the
+BF16 trajectory; static-address CUDA Graph replay is bitwise exact but reaches
+only `1.022x` harmonic-mean steady speedup and fails 40-call amortization.
+Standalone FFN compile/graph is therefore stopped; only whole-segment graphing
+or a real GEMM epilogue remains as an F17 systems candidate. See
+[`results/FFN_EXACT_PATHS_H200_20260726.zh-CN.md`](results/FFN_EXACT_PATHS_H200_20260726.zh-CN.md).
+
 ## Function-Aware Entropy And THW Structure Audit
 
 The follow-up separates parameter entropy, activation structure, and operator

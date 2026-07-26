@@ -1,0 +1,5 @@
+path,cells_expected,cells_ok,cells_go,all_cells_go,median_speedup_hmean,median_speedup_min,p95_speedup_min,amortized_speedup_min,bitwise_exact_all,decision
+compile_default,6,6,0,False,0.9481579513583814,0.9107749734595292,0.8681858170019903,0.009038453516251353,False,NO-GO
+compile_max-autotune,6,6,0,False,0.9220719781917538,0.8679282136808145,0.8591015443034459,0.0019115696180855436,False,NO-GO
+compile_reduce-overhead,6,6,0,False,0.9240873986127002,0.8735700279770314,0.8665082574900794,0.07742731969956176,False,NO-GO
+cuda_graph_eager_static,6,6,0,False,1.022474414892758,0.9972664914207919,0.9687802345430515,0.7610993474849361,True,NO-GO

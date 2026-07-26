@@ -1,0 +1,305 @@
+[exclusive-retry] attempt 1/12 target=/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/scripts/run_phase2_ffn_exact_v1.sh out=/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_exact_h200_v3_first_idle/attempt_01
+[ffn-exact] waiting for lock /tmp/codex_phase2_strict_h200_v1.lock
+[ffn-exact] acquired lock /tmp/codex_phase2_strict_h200_v1.lock
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 1/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 2/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 1/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 2/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 1/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 2/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] waiting: 1 compute processes still use GPU 3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 1/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 2/3
+[ffn-exact] waiting: 1 compute processes still use GPU 2
+[ffn-exact] GPU 3 idle poll 3/3
+[ffn-exact] selected first-idle GPU 3
+[ffn-exact] case=F17 layer=0 path=eager status=ok
+[ffn-exact] case=F17 layer=0 path=cuda_graph_eager_static status=ok
+[ffn-exact] case=F17 layer=0 path=compile_default status=ok
+[ffn-exact] case=F17 layer=0 path=compile_reduce-overhead status=ok
+Autotune Choices Stats:
+{"num_choices": 20, "num_triton_choices": 19, "best_kernel": "mm", "best_time": 0.3044799864292145, "best_triton_pos": 1, "best_triton_time": 0.37536001205444336, "best_triton_kernel": "triton_mm_17", "best_triton_kernel_desc": "ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4"}
+AUTOTUNE mm(7800x1536, 1536x8960)
+strides: [1536, 1], [1, 1536]
+dtypes: torch.bfloat16, torch.bfloat16
+  mm 0.3045 ms 100.0%
+  triton_mm_17 0.3754 ms 81.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_18 0.4005 ms 76.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=5, num_warps=8
+  triton_mm_16 0.4095 ms 74.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_11 0.4760 ms 64.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_12 0.5594 ms 54.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=4
+  triton_mm_14 0.5900 ms 51.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=8
+  triton_mm_9 0.5910 ms 51.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_13 0.5939 ms 51.3% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_10 0.6000 ms 50.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.7447 seconds and 5.0607 seconds precompiling for 20 choices
+Autotune Choices Stats:
+{"num_choices": 21, "num_triton_choices": 19, "best_kernel": "bias_addmm", "best_time": 0.2895039916038513, "best_triton_pos": 2, "best_triton_time": 0.34006398916244507, "best_triton_kernel": "triton_mm_36", "best_triton_kernel_desc": "ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4"}
+AUTOTUNE addmm(7800x1536, 7800x8960, 8960x1536)
+strides: [0, 1], [8960, 1], [1, 8960]
+dtypes: torch.bfloat16, torch.bfloat16, torch.bfloat16
+  bias_addmm 0.2895 ms 100.0%
+  addmm 0.3221 ms 89.9%
+  triton_mm_36 0.3401 ms 85.1% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_37 0.3714 ms 78.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=5, num_warps=8
+  triton_mm_35 0.4149 ms 69.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_31 0.4298 ms 67.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=4
+  triton_mm_30 0.4642 ms 62.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_28 0.5739 ms 50.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_32 0.6030 ms 48.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_29 0.6113 ms 47.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 0.8240 seconds and 0.0007 seconds precompiling for 21 choices
+[ffn-exact] case=F17 layer=0 path=compile_max-autotune status=ok
+[ffn-exact] case=F81 layer=0 path=eager status=ok
+[ffn-exact] case=F81 layer=0 path=cuda_graph_eager_static status=ok
+[ffn-exact] case=F81 layer=0 path=compile_default status=ok
+[ffn-exact] case=F81 layer=0 path=compile_reduce-overhead status=ok
+Autotune Choices Stats:
+{"num_choices": 20, "num_triton_choices": 19, "best_kernel": "mm", "best_time": 1.2392319440841675, "best_triton_pos": 1, "best_triton_time": 1.6213120222091675, "best_triton_kernel": "triton_mm_55", "best_triton_kernel_desc": "ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4"}
+AUTOTUNE mm(32760x1536, 1536x8960)
+strides: [1536, 1], [1, 1536]
+dtypes: torch.bfloat16, torch.bfloat16
+  mm 1.2392 ms 100.0%
+  triton_mm_55 1.6213 ms 76.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_54 1.7082 ms 72.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_56 1.8115 ms 68.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=5, num_warps=8
+  triton_mm_49 2.1508 ms 57.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_50 2.3031 ms 53.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=4
+  triton_mm_52 2.4663 ms 50.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=8
+  triton_mm_51 2.4669 ms 50.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_47 2.4865 ms 49.8% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_48 2.5462 ms 48.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 1.1000 seconds and 5.6705 seconds precompiling for 20 choices
+Autotune Choices Stats:
+{"num_choices": 21, "num_triton_choices": 19, "best_kernel": "bias_addmm", "best_time": 1.2079999446868896, "best_triton_pos": 2, "best_triton_time": 1.4296000003814697, "best_triton_kernel": "triton_mm_74", "best_triton_kernel_desc": "ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4"}
+AUTOTUNE addmm(32760x1536, 32760x8960, 8960x1536)
+strides: [0, 1], [8960, 1], [1, 8960]
+dtypes: torch.bfloat16, torch.bfloat16, torch.bfloat16
+  bias_addmm 1.2080 ms 100.0%
+  addmm 1.3333 ms 90.6%
+  triton_mm_74 1.4296 ms 84.5% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_75 1.5251 ms 79.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=5, num_warps=8
+  triton_mm_73 1.6645 ms 72.6% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_69 1.7457 ms 69.2% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=128, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=4
+  triton_mm_68 2.0934 ms 57.7% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=64, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_66 2.3710 ms 50.9% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=64, BLOCK_N=128, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_70 2.4636 ms 49.0% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=3, num_warps=4
+  triton_mm_71 2.6037 ms 46.4% ACC_TYPE='tl.float32', ALLOW_TF32=True, BLOCK_K=32, BLOCK_M=128, BLOCK_N=64, EVEN_K=True, GROUP_M=8, USE_FAST_ACCUM=False, num_stages=4, num_warps=8
+SingleProcess AUTOTUNE benchmarking takes 1.1394 seconds and 0.0007 seconds precompiling for 21 choices
+[ffn-exact] case=F81 layer=0 path=compile_max-autotune status=ok
+[ffn-exact] case=F17 layer=14 path=eager status=ok
+[ffn-exact] case=F17 layer=14 path=cuda_graph_eager_static status=ok
+[ffn-exact] case=F17 layer=14 path=compile_default status=ok
+[ffn-exact] case=F17 layer=14 path=compile_reduce-overhead status=ok
+[ffn-exact] case=F17 layer=14 path=compile_max-autotune status=ok
+[ffn-exact] case=F81 layer=14 path=eager status=ok
+[ffn-exact] case=F81 layer=14 path=cuda_graph_eager_static status=ok
+[ffn-exact] case=F81 layer=14 path=compile_default status=ok
+[ffn-exact] case=F81 layer=14 path=compile_reduce-overhead status=ok
+[ffn-exact] case=F81 layer=14 path=compile_max-autotune status=ok
+[ffn-exact] case=F17 layer=29 path=eager status=ok
+[ffn-exact] case=F17 layer=29 path=cuda_graph_eager_static status=ok
+[ffn-exact] case=F17 layer=29 path=compile_default status=ok
+[ffn-exact] case=F17 layer=29 path=compile_reduce-overhead status=ok
+[ffn-exact] case=F17 layer=29 path=compile_max-autotune status=ok
+[ffn-exact] case=F81 layer=29 path=eager status=ok
+[ffn-exact] case=F81 layer=29 path=cuda_graph_eager_static status=ok
+[ffn-exact] case=F81 layer=29 path=compile_default status=ok
+[ffn-exact] case=F81 layer=29 path=compile_reduce-overhead status=ok
+[ffn-exact] case=F81 layer=29 path=compile_max-autotune status=ok
+[ffn-exact] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_exact_h200_v3_first_idle/attempt_01
+{
+  "allowed_process_prefixes": [
+    "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python"
+  ],
+  "ancestry_foreign_event_count": 0,
+  "ancestry_foreign_events": [],
+  "estimated_foreign_overlap_seconds": 0.0,
+  "foreign_processes": [],
+  "foreign_snapshot_fraction": 0.0,
+  "interpretation": "Latency is admissible only when timing_valid is true. Correctness and quality artifacts may still be used when timing is contaminated.",
+  "median_monitor_interval_seconds": 5.0,
+  "owned_processes": [
+    {
+      "gpu_uuid": "GPU-4bffd208-6c43-9564-d8fd-76284154138e",
+      "pid": 2217873,
+      "process_name": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+      "used_memory_mib": 2156
+    }
+  ],
+  "snapshots_total": 12,
+  "snapshots_with_foreign_process": 0,
+  "snapshots_with_owned_process": 11,
+  "stage": "ffn_exact_h200",
+  "telemetry": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_exact_h200_v3_first_idle/attempt_01/logs/gpu-telemetry.1785056708.log",
+  "timing_valid": true,
+  "used_gpu_uuids": [
+    "GPU-4bffd208-6c43-9564-d8fd-76284154138e"
+  ]
+}
+{
+  "interpretation": "GO requires every F17/F81 representative-layer cell to be bitwise equal to eager and to pass steady-state, p95, amortization, and memory gates. A compile result does not by itself prove GEMM-epilogue fusion.",
+  "paths": [
+    {
+      "all_cells_go": false,
+      "amortized_speedup_min": 0.009038453516251353,
+      "bitwise_exact_all": false,
+      "cells_expected": 6,
+      "cells_go": 0,
+      "cells_ok": 6,
+      "decision": "NO-GO",
+      "median_speedup_hmean": 0.9481579513583814,
+      "median_speedup_min": 0.9107749734595292,
+      "p95_speedup_min": 0.8681858170019903,
+      "path": "compile_default"
+    },
+    {
+      "all_cells_go": false,
+      "amortized_speedup_min": 0.0019115696180855436,
+      "bitwise_exact_all": false,
+      "cells_expected": 6,
+      "cells_go": 0,
+      "cells_ok": 6,
+      "decision": "NO-GO",
+      "median_speedup_hmean": 0.9220719781917538,
+      "median_speedup_min": 0.8679282136808145,
+      "p95_speedup_min": 0.8591015443034459,
+      "path": "compile_max-autotune"
+    },
+    {
+      "all_cells_go": false,
+      "amortized_speedup_min": 0.07742731969956176,
+      "bitwise_exact_all": false,
+      "cells_expected": 6,
+      "cells_go": 0,
+      "cells_ok": 6,
+      "decision": "NO-GO",
+      "median_speedup_hmean": 0.9240873986127002,
+      "median_speedup_min": 0.8735700279770314,
+      "p95_speedup_min": 0.8665082574900794,
+      "path": "compile_reduce-overhead"
+    },
+    {
+      "all_cells_go": false,
+      "amortized_speedup_min": 0.7610993474849361,
+      "bitwise_exact_all": true,
+      "cells_expected": 6,
+      "cells_go": 0,
+      "cells_ok": 6,
+      "decision": "NO-GO",
+      "median_speedup_hmean": 1.022474414892758,
+      "median_speedup_min": 0.9972664914207919,
+      "p95_speedup_min": 0.9687802345430515,
+      "path": "cuda_graph_eager_static"
+    }
+  ],
+  "scope": "complete Wan checkpoint FFN exact-path gate",
+  "thresholds": {
+    "bitwise_equal_required": true,
+    "max_incremental_memory_gib": 4.0,
+    "min_amortized_speedup": 1.0,
+    "min_median_speedup": 1.1,
+    "min_p95_speedup": 1.0
+  }
+}
+[ffn-exact] completed /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_exact_h200_v3_first_idle/attempt_01
+[exclusive-retry] completed on attempt 1

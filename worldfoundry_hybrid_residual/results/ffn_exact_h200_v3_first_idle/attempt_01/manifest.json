@@ -1,0 +1,47 @@
+{
+  "arguments": {
+    "amortization_calls": 40,
+    "cases": "F17:7800,F81:32760",
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "compile_modes": "default,reduce-overhead,max-autotune",
+    "device": "cuda:0",
+    "graph_capture_warmup": 3,
+    "layers": "0,14,29",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_exact_h200_v3_first_idle/attempt_01",
+    "repeats": 50,
+    "seed": 20260726,
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT",
+    "warmup": 10
+  },
+  "benchmark_seconds": 51.978096390957944,
+  "cases": {
+    "F17": 7800,
+    "F81": 32760
+  },
+  "compile_modes_requested": [
+    "default",
+    "reduce-overhead",
+    "max-autotune"
+  ],
+  "compute_capability": [
+    9,
+    0
+  ],
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "dimensions": {
+    "ffn_dim": 8960,
+    "hidden_dim": 1536,
+    "num_layers": 30
+  },
+  "layers": [
+    0,
+    14,
+    29
+  ],
+  "model_load_seconds": 0.14435202802997082,
+  "python": "3.11.15",
+  "scope": "checkpoint-faithful complete Wan FFN exact-path microbenchmark",
+  "torch": "2.9.1+cu128",
+  "warning": "torch.compile is benchmarked as an opaque full-FFN execution path. These measurements do not establish GEMM-epilogue fusion. CUDA Graph numbers use static addresses and exclude an input copy."
+}

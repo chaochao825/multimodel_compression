@@ -1,0 +1,36 @@
+timestamp=2026-07-26T17:05:08+08:00
+3, NVIDIA H200 NVL, 14, 143771, 0, 0
+
+timestamp=2026-07-26T17:05:14+08:00
+3, NVIDIA H200 NVL, 541, 143771, 0, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 518
+timestamp=2026-07-26T17:05:19+08:00
+3, NVIDIA H200 NVL, 985, 143771, 1, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 962
+timestamp=2026-07-26T17:05:24+08:00
+3, NVIDIA H200 NVL, 987, 143771, 0, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 964
+timestamp=2026-07-26T17:05:29+08:00
+3, NVIDIA H200 NVL, 1315, 143771, 0, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 1292
+timestamp=2026-07-26T17:05:34+08:00
+3, NVIDIA H200 NVL, 2661, 143771, 0, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 2638
+timestamp=2026-07-26T17:05:39+08:00
+3, NVIDIA H200 NVL, 1487, 143771, 0, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 1462
+timestamp=2026-07-26T17:05:44+08:00
+3, NVIDIA H200 NVL, 2047, 143771, 74, 12
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 2022
+timestamp=2026-07-26T17:05:50+08:00
+3, NVIDIA H200 NVL, 2607, 143771, 0, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 2582
+timestamp=2026-07-26T17:05:55+08:00
+3, NVIDIA H200 NVL, 927, 143771, 0, 0
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 902
+timestamp=2026-07-26T17:06:00+08:00
+3, NVIDIA H200 NVL, 2181, 143771, 3, 1
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 1464
+timestamp=2026-07-26T17:06:05+08:00
+3, NVIDIA H200 NVL, 2181, 143771, 80, 24
+GPU-4bffd208-6c43-9564-d8fd-76284154138e, 2217873, /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python, 2156
