@@ -1,0 +1,76 @@
+{
+  "best_by_head_role": {
+    "diffuse": {
+      "aggregate_output_relative_l2": 0.08782786085773135,
+      "attention_work_ratio_mean": 0.4687679303532957,
+      "density": 0.375,
+      "flop_proxy_speedup": 2.1332517334245353,
+      "head_role": "diffuse",
+      "method": "centroid",
+      "record_error_max": 0.5201346020025643,
+      "record_error_p95": 0.2543678783912014,
+      "records": 123,
+      "router": "moment",
+      "router_selected_mass_proxy_mean": 0.7123433196447729,
+      "selected_attention_mass_mean": 0.7207415523083229,
+      "split": "test",
+      "tail_group_size": 8
+    },
+    "localized": {
+      "aggregate_output_relative_l2": 0.005147086968922971,
+      "attention_work_ratio_mean": 0.46879833129833093,
+      "density": 0.375,
+      "flop_proxy_speedup": 2.1331133949016263,
+      "head_role": "localized",
+      "method": "centroid",
+      "record_error_max": 0.0823295971591978,
+      "record_error_p95": 0.015517932253593181,
+      "records": 54,
+      "router": "moment",
+      "router_selected_mass_proxy_mean": 0.9961025637608988,
+      "selected_attention_mass_mean": 0.9959134316002881,
+      "split": "test",
+      "tail_group_size": 8
+    },
+    "transitional": {
+      "aggregate_output_relative_l2": 0.0352885861903772,
+      "attention_work_ratio_mean": 0.468795591872515,
+      "density": 0.375,
+      "flop_proxy_speedup": 2.1331258598351783,
+      "head_role": "transitional",
+      "method": "centroid",
+      "record_error_max": 0.09534760866146358,
+      "record_error_p95": 0.08857445409836098,
+      "records": 39,
+      "router": "moment",
+      "router_selected_mass_proxy_mean": 0.9554135570159326,
+      "selected_attention_mass_mean": 0.9553994016769605,
+      "split": "test",
+      "tail_group_size": 8
+    }
+  },
+  "best_deployable_configuration": {
+    "aggregate_output_relative_l2": 0.047752442319265155,
+    "attention_work_ratio_mean": 0.4687805250305245,
+    "density": 0.375,
+    "flop_proxy_speedup": 2.1331944195738193,
+    "method": "centroid",
+    "record_error_max": 0.5201346020025643,
+    "record_error_p95": 0.21322272021510988,
+    "records": 216,
+    "router": "moment",
+    "router_selected_mass_proxy_mean": 0.8271708124213748,
+    "selected_attention_mass_mean": 0.8319033004895404,
+    "split": "test",
+    "tail_group_size": 8
+  },
+  "gates": {
+    "aggregate_output_relative_l2": 0.01,
+    "attention_work_ratio": 0.5,
+    "every_record_output_relative_l2": 0.02,
+    "real_h200_local_speedup_continue": 1.5,
+    "real_h200_local_speedup_target": 2.0
+  },
+  "verdict": "NO_GO_CURRENT_BLOCK_MOMENTS",
+  "warning": "a numerical GO only permits a fused-kernel pilot; the arithmetic work ratio excludes K/V moment reduction, routing, gather, softmax, and launch overhead, so it is not an H200 speedup claim"
+}

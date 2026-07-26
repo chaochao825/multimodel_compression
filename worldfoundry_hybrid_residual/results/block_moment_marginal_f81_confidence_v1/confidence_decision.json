@@ -1,0 +1,382 @@
+{
+  "all_validation_feasible_configurations": [
+    {
+      "density": "0.125",
+      "method": "centroid",
+      "tail_group_size": "16",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 39,
+          "transitional": 3
+        },
+        "accepted_records": 42,
+        "aggregate_output_relative_l2": 0.005476316281617094,
+        "approximate_attention_work_ratio": 0.19536019536019547,
+        "coverage": 0.19444444444444445,
+        "fallback_adjusted_arithmetic_speedup": 1.1854770616380523,
+        "fallback_adjusted_attention_work_ratio": 0.8435422602089269,
+        "record_error_max": 0.041199932111150556,
+        "record_error_p95": 0.016638303902780243,
+        "records": 216,
+        "threshold": 0.9819023609161377
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 19,
+          "transitional": 3
+        },
+        "accepted_records": 22,
+        "aggregate_output_relative_l2": 0.004706801867969588,
+        "approximate_attention_work_ratio": 0.19536019536019544,
+        "coverage": 0.2037037037037037,
+        "fallback_adjusted_arithmetic_speedup": 1.1960407821077967,
+        "fallback_adjusted_attention_work_ratio": 0.8360918916474472,
+        "record_error_max": 0.019317952333534054,
+        "record_error_p95": 0.010824241829045433,
+        "records": 108,
+        "threshold": 0.9819023609161377
+      }
+    },
+    {
+      "density": "0.125",
+      "method": "centroid",
+      "tail_group_size": "8",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 39,
+          "transitional": 5
+        },
+        "accepted_records": 44,
+        "aggregate_output_relative_l2": 0.005022918513605715,
+        "approximate_attention_work_ratio": 0.25003052503052475,
+        "coverage": 0.2037037037037037,
+        "fallback_adjusted_arithmetic_speedup": 1.1803192060748036,
+        "fallback_adjusted_attention_work_ratio": 0.8472284402839958,
+        "record_error_max": 0.04041067308041772,
+        "record_error_p95": 0.013554576141164223,
+        "records": 216,
+        "threshold": 0.9771096110343933
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 20,
+          "transitional": 3
+        },
+        "accepted_records": 23,
+        "aggregate_output_relative_l2": 0.005574183727981266,
+        "approximate_attention_work_ratio": 0.2500305250305249,
+        "coverage": 0.21296296296296297,
+        "fallback_adjusted_arithmetic_speedup": 1.1900734377780238,
+        "fallback_adjusted_attention_work_ratio": 0.8402842784787229,
+        "record_error_max": 0.019003566952069867,
+        "record_error_p95": 0.018286653057839542,
+        "records": 108,
+        "threshold": 0.9771096110343933
+      }
+    },
+    {
+      "density": "0.125",
+      "method": "centroid",
+      "tail_group_size": "4",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 39,
+          "transitional": 5
+        },
+        "accepted_records": 44,
+        "aggregate_output_relative_l2": 0.004197698413348453,
+        "approximate_attention_work_ratio": 0.3594017094017091,
+        "coverage": 0.2037037037037037,
+        "fallback_adjusted_arithmetic_speedup": 1.15007599821609,
+        "fallback_adjusted_attention_work_ratio": 0.8695077556188666,
+        "record_error_max": 0.03599686960748303,
+        "record_error_p95": 0.00966009747482894,
+        "records": 216,
+        "threshold": 0.9771096110343933
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 20,
+          "transitional": 3
+        },
+        "accepted_records": 23,
+        "aggregate_output_relative_l2": 0.004218697975761307,
+        "approximate_attention_work_ratio": 0.35940170940170924,
+        "coverage": 0.21296296296296297,
+        "fallback_adjusted_arithmetic_speedup": 1.1579752844306577,
+        "fallback_adjusted_attention_work_ratio": 0.8635762899651788,
+        "record_error_max": 0.017228604731707488,
+        "record_error_p95": 0.011778591078922974,
+        "records": 108,
+        "threshold": 0.9771096110343933
+      }
+    },
+    {
+      "density": "0.25",
+      "method": "centroid",
+      "tail_group_size": "16",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 47,
+          "transitional": 5
+        },
+        "accepted_records": 52,
+        "aggregate_output_relative_l2": 0.0024803701628385417,
+        "approximate_attention_work_ratio": 0.31254813562505895,
+        "coverage": 0.24074074074074073,
+        "fallback_adjusted_arithmetic_speedup": 1.1983190044084135,
+        "fallback_adjusted_attention_work_ratio": 0.8345023289467735,
+        "record_error_max": 0.01355899663239373,
+        "record_error_p95": 0.00962923635374688,
+        "records": 216,
+        "threshold": 0.9845690131187439
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 24,
+          "transitional": 4
+        },
+        "accepted_records": 28,
+        "aggregate_output_relative_l2": 0.0026350712985985267,
+        "approximate_attention_work_ratio": 0.3125501482644339,
+        "coverage": 0.25925925925925924,
+        "fallback_adjusted_arithmetic_speedup": 1.2168821556418308,
+        "fallback_adjusted_attention_work_ratio": 0.8217722606611495,
+        "record_error_max": 0.010922031347551986,
+        "record_error_p95": 0.010162394384559511,
+        "records": 108,
+        "threshold": 0.9845690131187439
+      }
+    },
+    {
+      "density": "0.25",
+      "method": "centroid",
+      "tail_group_size": "8",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 47,
+          "transitional": 5
+        },
+        "accepted_records": 52,
+        "aggregate_output_relative_l2": 0.0022374570367451746,
+        "approximate_attention_work_ratio": 0.3594075795998869,
+        "coverage": 0.24074074074074073,
+        "fallback_adjusted_arithmetic_speedup": 1.1823359395598723,
+        "fallback_adjusted_attention_work_ratio": 0.8457833061999728,
+        "record_error_max": 0.013190782826947047,
+        "record_error_p95": 0.008562939167419603,
+        "records": 216,
+        "threshold": 0.9845690131187439
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 24,
+          "transitional": 4
+        },
+        "accepted_records": 28,
+        "aggregate_output_relative_l2": 0.0023248506992762296,
+        "approximate_attention_work_ratio": 0.35940934065934055,
+        "coverage": 0.25925925925925924,
+        "fallback_adjusted_arithmetic_speedup": 1.1991544423803728,
+        "fallback_adjusted_attention_work_ratio": 0.8339209401709401,
+        "record_error_max": 0.009853097047869283,
+        "record_error_p95": 0.008943628984134136,
+        "records": 108,
+        "threshold": 0.9845690131187439
+      }
+    },
+    {
+      "density": "0.25",
+      "method": "centroid",
+      "tail_group_size": "4",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 51,
+          "transitional": 12
+        },
+        "accepted_records": 63,
+        "aggregate_output_relative_l2": 0.008697356750309106,
+        "approximate_attention_work_ratio": 0.4531571603000169,
+        "coverage": 0.2916666666666667,
+        "fallback_adjusted_arithmetic_speedup": 1.1897620899524548,
+        "fallback_adjusted_attention_work_ratio": 0.8405041717541715,
+        "record_error_max": 0.13277578322951603,
+        "record_error_p95": 0.01453244682275462,
+        "records": 216,
+        "threshold": 0.9611189365386963
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 26,
+          "transitional": 8
+        },
+        "accepted_records": 34,
+        "aggregate_output_relative_l2": 0.0038310882376824465,
+        "approximate_attention_work_ratio": 0.45315844286432494,
+        "coverage": 0.3148148148148148,
+        "fallback_adjusted_arithmetic_speedup": 1.2079538789191893,
+        "fallback_adjusted_attention_work_ratio": 0.8278461764572874,
+        "record_error_max": 0.01915960359759571,
+        "record_error_p95": 0.01767272590421049,
+        "records": 108,
+        "threshold": 0.9611189365386963
+      }
+    },
+    {
+      "density": "0.375",
+      "method": "centroid",
+      "tail_group_size": "16",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 51,
+          "transitional": 17
+        },
+        "accepted_records": 68,
+        "aggregate_output_relative_l2": 0.0024537080441737863,
+        "approximate_attention_work_ratio": 0.4297708827120586,
+        "coverage": 0.3148148148148148,
+        "fallback_adjusted_arithmetic_speedup": 1.2187936626918405,
+        "fallback_adjusted_attention_work_ratio": 0.8204834260389814,
+        "record_error_max": 0.021407146265657654,
+        "record_error_p95": 0.009949526223434053,
+        "records": 216,
+        "threshold": 0.9770366549491882
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 25,
+          "transitional": 11
+        },
+        "accepted_records": 36,
+        "aggregate_output_relative_l2": 0.003218226866860254,
+        "approximate_attention_work_ratio": 0.42975851309184665,
+        "coverage": 0.3333333333333333,
+        "fallback_adjusted_arithmetic_speedup": 1.2346906014880161,
+        "fallback_adjusted_attention_work_ratio": 0.8099195043639489,
+        "record_error_max": 0.018418397300901376,
+        "record_error_p95": 0.012942395350322256,
+        "records": 108,
+        "threshold": 0.9770366549491882
+      }
+    },
+    {
+      "density": "0.375",
+      "method": "centroid",
+      "tail_group_size": "8",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 51,
+          "transitional": 17
+        },
+        "accepted_records": 68,
+        "aggregate_output_relative_l2": 0.0021221539448770315,
+        "approximate_attention_work_ratio": 0.468815090138619,
+        "coverage": 0.3148148148148148,
+        "fallback_adjusted_arithmetic_speedup": 1.2008043646113513,
+        "fallback_adjusted_attention_work_ratio": 0.8327751209695652,
+        "record_error_max": 0.019701047114923893,
+        "record_error_p95": 0.009503579271275745,
+        "records": 216,
+        "threshold": 0.9770366549491882
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 25,
+          "transitional": 11
+        },
+        "accepted_records": 36,
+        "aggregate_output_relative_l2": 0.002697993183729091,
+        "approximate_attention_work_ratio": 0.4688042667209335,
+        "coverage": 0.3333333333333333,
+        "fallback_adjusted_arithmetic_speedup": 1.2151631623614296,
+        "fallback_adjusted_attention_work_ratio": 0.8229347555736446,
+        "record_error_max": 0.016737539669828085,
+        "record_error_p95": 0.011674729760612549,
+        "records": 108,
+        "threshold": 0.9770366549491882
+      }
+    },
+    {
+      "density": "0.375",
+      "method": "centroid",
+      "tail_group_size": "4",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 51,
+          "transitional": 17
+        },
+        "accepted_records": 68,
+        "aggregate_output_relative_l2": 0.0016604940972373239,
+        "approximate_attention_work_ratio": 0.5469313366372187,
+        "coverage": 0.3148148148148148,
+        "fallback_adjusted_arithmetic_speedup": 1.166361292185688,
+        "fallback_adjusted_attention_work_ratio": 0.8573672726450503,
+        "record_error_max": 0.01585651411685511,
+        "record_error_p95": 0.0073778455814574005,
+        "records": 216,
+        "threshold": 0.9758663773536682
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 26,
+          "transitional": 11
+        },
+        "accepted_records": 37,
+        "aggregate_output_relative_l2": 0.002482693801088015,
+        "approximate_attention_work_ratio": 0.5469227469227471,
+        "coverage": 0.3425925925925926,
+        "fallback_adjusted_arithmetic_speedup": 1.1837414215817477,
+        "fallback_adjusted_attention_work_ratio": 0.8447790892235338,
+        "record_error_max": 0.013717635269937205,
+        "record_error_p95": 0.011442530712189584,
+        "records": 108,
+        "threshold": 0.9758663773536682
+      }
+    }
+  ],
+  "chosen_without_test_selection": {
+    "density": "0.375",
+    "method": "centroid",
+    "tail_group_size": "16",
+    "test": {
+      "accepted_head_roles": {
+        "localized": 51,
+        "transitional": 17
+      },
+      "accepted_records": 68,
+      "aggregate_output_relative_l2": 0.0024537080441737863,
+      "approximate_attention_work_ratio": 0.4297708827120586,
+      "coverage": 0.3148148148148148,
+      "fallback_adjusted_arithmetic_speedup": 1.2187936626918405,
+      "fallback_adjusted_attention_work_ratio": 0.8204834260389814,
+      "record_error_max": 0.021407146265657654,
+      "record_error_p95": 0.009949526223434053,
+      "records": 216,
+      "threshold": 0.9770366549491882
+    },
+    "validation": {
+      "accepted_head_roles": {
+        "localized": 25,
+        "transitional": 11
+      },
+      "accepted_records": 36,
+      "aggregate_output_relative_l2": 0.003218226866860254,
+      "approximate_attention_work_ratio": 0.42975851309184665,
+      "coverage": 0.3333333333333333,
+      "fallback_adjusted_arithmetic_speedup": 1.2346906014880161,
+      "fallback_adjusted_attention_work_ratio": 0.8099195043639489,
+      "record_error_max": 0.018418397300901376,
+      "record_error_p95": 0.012942395350322256,
+      "records": 108,
+      "threshold": 0.9770366549491882
+    }
+  },
+  "gates": {
+    "aggregate_output_relative_l2": 0.01,
+    "every_record_output_relative_l2": 0.02,
+    "fallback_adjusted_arithmetic_attention_speedup": 1.5,
+    "minimum_validation_coverage": 0.05
+  },
+  "methodology": "configuration and threshold maximize validation arithmetic speed under quality constraints; test errors are read only after the choice is frozen",
+  "verdict": "NO_GO_VALIDATION_GATE_DID_NOT_TRANSFER"
+}

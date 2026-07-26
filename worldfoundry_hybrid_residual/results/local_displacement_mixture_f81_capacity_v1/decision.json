@@ -1,0 +1,36 @@
+{
+  "best_localized_oracle": {
+    "aggregate_full_output_relative_l2": 0.007678285517071294,
+    "aggregate_local_output_relative_l2": 0.007908547000357013,
+    "basis_energy_mean": 0.9999999735090468,
+    "head_role": "localized",
+    "local_mass_mean": 0.9263737775661327,
+    "prediction": "oracle_nonnegative",
+    "rank": 64,
+    "record_error_max": 0.09239953154814141,
+    "record_error_p95": 0.03855746705401433,
+    "records": 54,
+    "split": "test"
+  },
+  "best_localized_ridge": {
+    "aggregate_full_output_relative_l2": 0.10366439960214874,
+    "aggregate_local_output_relative_l2": 0.10677315589458458,
+    "basis_energy_mean": 0.9903944587266004,
+    "head_role": "localized",
+    "local_mass_mean": 0.9263737775661327,
+    "prediction": "ridge_nonnegative",
+    "rank": 16,
+    "record_error_max": 0.411624467175489,
+    "record_error_p95": 0.30098323970457325,
+    "records": 54,
+    "split": "test"
+  },
+  "gates": {
+    "every_record_full_output_relative_l2": 0.02,
+    "localized_local_mass_mean": 0.5,
+    "maximum_expert_rank": 64
+  },
+  "rank_boundary": "mean plus M signed displacement experts is linear before clipping; the nonnegative clamp invalidates a simple rank<=M+1 statement",
+  "scope_warning": "the exact outside-local contribution is retained when measuring branch error; this is a local branch replacement probe, not full sparse attention and not a kernel-speed claim",
+  "verdict": "NO_GO_LOCAL_DISPLACEMENT_MIXTURE"
+}

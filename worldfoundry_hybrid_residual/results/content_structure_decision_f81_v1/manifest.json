@@ -1,0 +1,6 @@
+{
+  "attention_share": 0.5388,
+  "block_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/block_moment_marginal_f81_capacity_v1",
+  "confidence_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/block_moment_confidence_margin15_v1",
+  "displacement_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/local_displacement_mixture_f81_capacity_v1"
+}

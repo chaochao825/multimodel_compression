@@ -1,0 +1,53 @@
+{
+  "arguments": {
+    "branches": [
+      "cond"
+    ],
+    "calibration_samples": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740"
+    ],
+    "capture_index": "results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "device": "cuda:0",
+    "full_output_target": 0.02,
+    "head_stats_index": "results/attention_head_factorial_f81_v1/head_stats/head_stats_index.csv",
+    "layers": [
+      0,
+      14,
+      29
+    ],
+    "localized_mass_target": 0.5,
+    "max_rank_for_go": 8,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/local_displacement_mixture_f81_pilot_v1",
+    "query_samples": 32,
+    "radius": [
+      2,
+      4,
+      4
+    ],
+    "ranks": [
+      0,
+      2,
+      4,
+      8
+    ],
+    "ridge_lambda": 1.0,
+    "steps": [
+      0,
+      9,
+      19
+    ]
+  },
+  "calibration_samples": [
+    "s00_p00_seed20260740",
+    "s01_p01_seed20260740"
+  ],
+  "captures": 36,
+  "cells": 9,
+  "device": "NVIDIA GeForce RTX 4090",
+  "elapsed_seconds": 38.729735374450684,
+  "methodology": "fit frozen mean plus M non-periodic THW displacement experts on calibration; evaluate held-out oracle and query-ridge coefficients on AV",
+  "python": "3.11.15",
+  "scope": "boundary-aware local displacement mixture transfer probe",
+  "torch": "2.9.1+cu128"
+}

@@ -1,0 +1,53 @@
+{
+  "arguments": {
+    "aggregate_target": 0.01,
+    "block_size": 64,
+    "branches": [
+      "cond"
+    ],
+    "capture_index": "results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "densities": [
+      0.0625,
+      0.125
+    ],
+    "device": "cuda:0",
+    "head_stats_index": "results/attention_head_factorial_f81_v1/head_stats/head_stats_index.csv",
+    "layers": [
+      0,
+      14,
+      29
+    ],
+    "max_work_ratio": 0.5,
+    "methods": [
+      "centroid",
+      "diag_gaussian"
+    ],
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/block_moment_marginal_f81_pilot_v1",
+    "query_tile_size": 64,
+    "query_tiles": 1,
+    "routers": [
+      "moment",
+      "oracle_mass"
+    ],
+    "steps": [
+      0,
+      9,
+      19
+    ],
+    "tail_group_sizes": [
+      64,
+      16
+    ],
+    "worst_head_target": 0.02
+  },
+  "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+  "captures": 36,
+  "device": "NVIDIA GeForce RTX 4090",
+  "elapsed_seconds": 29.362033367156982,
+  "head_stats_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/head_stats/head_stats_index.csv",
+  "methodology": "moment router uses current pooled K; selected blocks use exact scores; unselected blocks use current K/V centroid or diagonal-Gaussian moments",
+  "oracle_boundary": "oracle_mass router is diagnostic only; moment router does not read dense attention",
+  "python": "3.11.15",
+  "scope": "F81 content-derived exact-critical plus block-moment marginal probe",
+  "torch": "2.9.1+cu128"
+}

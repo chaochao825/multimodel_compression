@@ -1,0 +1,379 @@
+{
+  "all_validation_feasible_configurations": [
+    {
+      "density": "0.125",
+      "method": "centroid",
+      "tail_group_size": "16",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 29
+        },
+        "accepted_records": 29,
+        "aggregate_output_relative_l2": 0.0032190114281764695,
+        "approximate_attention_work_ratio": 0.19536019536019547,
+        "coverage": 0.13425925925925927,
+        "fallback_adjusted_arithmetic_speedup": 1.1211143713599463,
+        "fallback_adjusted_attention_work_ratio": 0.8919696558585447,
+        "record_error_max": 0.005826769870965611,
+        "record_error_p95": 0.005457647113640039,
+        "records": 216,
+        "threshold": 0.9956041574478149
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 15,
+          "transitional": 1
+        },
+        "accepted_records": 16,
+        "aggregate_output_relative_l2": 0.003677278831398699,
+        "approximate_attention_work_ratio": 0.19536019536019542,
+        "coverage": 0.14814814814814814,
+        "fallback_adjusted_arithmetic_speedup": 1.1353391179339734,
+        "fallback_adjusted_attention_work_ratio": 0.8807941030163252,
+        "record_error_max": 0.007184536317663035,
+        "record_error_p95": 0.004309806975127874,
+        "records": 108,
+        "threshold": 0.9956041574478149
+      }
+    },
+    {
+      "density": "0.125",
+      "method": "centroid",
+      "tail_group_size": "8",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 29
+        },
+        "accepted_records": 29,
+        "aggregate_output_relative_l2": 0.003105880890078054,
+        "approximate_attention_work_ratio": 0.2500305250305248,
+        "coverage": 0.13425925925925927,
+        "fallback_adjusted_arithmetic_speedup": 1.1119640445850414,
+        "fallback_adjusted_attention_work_ratio": 0.8993096538235427,
+        "record_error_max": 0.005713915596144148,
+        "record_error_p95": 0.0052954492079558425,
+        "records": 216,
+        "threshold": 0.9956041574478149
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 15,
+          "transitional": 1
+        },
+        "accepted_records": 16,
+        "aggregate_output_relative_l2": 0.003491252055784139,
+        "approximate_attention_work_ratio": 0.25003052503052503,
+        "coverage": 0.14814814814814814,
+        "fallback_adjusted_arithmetic_speedup": 1.1249942765858945,
+        "fallback_adjusted_attention_work_ratio": 0.8888934111156334,
+        "record_error_max": 0.0069231627506057365,
+        "record_error_p95": 0.004266502331083389,
+        "records": 108,
+        "threshold": 0.9956041574478149
+      }
+    },
+    {
+      "density": "0.125",
+      "method": "centroid",
+      "tail_group_size": "4",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 29
+        },
+        "accepted_records": 29,
+        "aggregate_output_relative_l2": 0.0026509848645656963,
+        "approximate_attention_work_ratio": 0.3594017094017092,
+        "coverage": 0.13425925925925927,
+        "fallback_adjusted_arithmetic_speedup": 1.0940993876212473,
+        "fallback_adjusted_attention_work_ratio": 0.9139937480215258,
+        "record_error_max": 0.005049482324829982,
+        "record_error_p95": 0.004391011474697954,
+        "records": 216,
+        "threshold": 0.9956041574478149
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 15,
+          "transitional": 1
+        },
+        "accepted_records": 16,
+        "aggregate_output_relative_l2": 0.002930948206151976,
+        "approximate_attention_work_ratio": 0.3594017094017093,
+        "coverage": 0.14814814814814814,
+        "fallback_adjusted_arithmetic_speedup": 1.1048545047565752,
+        "fallback_adjusted_attention_work_ratio": 0.9050965495409939,
+        "record_error_max": 0.0057168146757341646,
+        "record_error_p95": 0.003979784487637136,
+        "records": 108,
+        "threshold": 0.9956041574478149
+      }
+    },
+    {
+      "density": "0.25",
+      "method": "centroid",
+      "tail_group_size": "16",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 47,
+          "transitional": 5
+        },
+        "accepted_records": 52,
+        "aggregate_output_relative_l2": 0.0024803701628385417,
+        "approximate_attention_work_ratio": 0.31254813562505895,
+        "coverage": 0.24074074074074073,
+        "fallback_adjusted_arithmetic_speedup": 1.1983190044084135,
+        "fallback_adjusted_attention_work_ratio": 0.8345023289467735,
+        "record_error_max": 0.01355899663239373,
+        "record_error_p95": 0.00962923635374688,
+        "records": 216,
+        "threshold": 0.9845690131187439
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 24,
+          "transitional": 4
+        },
+        "accepted_records": 28,
+        "aggregate_output_relative_l2": 0.0026350712985985267,
+        "approximate_attention_work_ratio": 0.3125501482644339,
+        "coverage": 0.25925925925925924,
+        "fallback_adjusted_arithmetic_speedup": 1.2168821556418308,
+        "fallback_adjusted_attention_work_ratio": 0.8217722606611495,
+        "record_error_max": 0.010922031347551986,
+        "record_error_p95": 0.010162394384559511,
+        "records": 108,
+        "threshold": 0.9845690131187439
+      }
+    },
+    {
+      "density": "0.25",
+      "method": "centroid",
+      "tail_group_size": "8",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 47,
+          "transitional": 5
+        },
+        "accepted_records": 52,
+        "aggregate_output_relative_l2": 0.0022374570367451746,
+        "approximate_attention_work_ratio": 0.3594075795998869,
+        "coverage": 0.24074074074074073,
+        "fallback_adjusted_arithmetic_speedup": 1.1823359395598723,
+        "fallback_adjusted_attention_work_ratio": 0.8457833061999728,
+        "record_error_max": 0.013190782826947047,
+        "record_error_p95": 0.008562939167419603,
+        "records": 216,
+        "threshold": 0.9845690131187439
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 24,
+          "transitional": 4
+        },
+        "accepted_records": 28,
+        "aggregate_output_relative_l2": 0.0023248506992762296,
+        "approximate_attention_work_ratio": 0.35940934065934055,
+        "coverage": 0.25925925925925924,
+        "fallback_adjusted_arithmetic_speedup": 1.1991544423803728,
+        "fallback_adjusted_attention_work_ratio": 0.8339209401709401,
+        "record_error_max": 0.009853097047869283,
+        "record_error_p95": 0.008943628984134136,
+        "records": 108,
+        "threshold": 0.9845690131187439
+      }
+    },
+    {
+      "density": "0.25",
+      "method": "centroid",
+      "tail_group_size": "4",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 47,
+          "transitional": 5
+        },
+        "accepted_records": 52,
+        "aggregate_output_relative_l2": 0.0018006694725295805,
+        "approximate_attention_work_ratio": 0.45315347046116233,
+        "coverage": 0.24074074074074073,
+        "fallback_adjusted_arithmetic_speedup": 1.1516070381193493,
+        "fallback_adjusted_attention_work_ratio": 0.8683517614073168,
+        "record_error_max": 0.011644278508996853,
+        "record_error_p95": 0.006500721391944632,
+        "records": 216,
+        "threshold": 0.9845690131187439
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 24,
+          "transitional": 4
+        },
+        "accepted_records": 28,
+        "aggregate_output_relative_l2": 0.0018287515092413728,
+        "approximate_attention_work_ratio": 0.45315497994069404,
+        "coverage": 0.25925925925925924,
+        "fallback_adjusted_arithmetic_speedup": 1.1651951114287316,
+        "fallback_adjusted_attention_work_ratio": 0.8582253651698095,
+        "record_error_max": 0.007261736330335764,
+        "record_error_p95": 0.007053712813605644,
+        "records": 108,
+        "threshold": 0.9845690131187439
+      }
+    },
+    {
+      "density": "0.375",
+      "method": "centroid",
+      "tail_group_size": "16",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 51,
+          "transitional": 9
+        },
+        "accepted_records": 60,
+        "aggregate_output_relative_l2": 0.001858190247035797,
+        "approximate_attention_work_ratio": 0.42976800976800933,
+        "coverage": 0.2777777777777778,
+        "fallback_adjusted_arithmetic_speedup": 1.188209786489776,
+        "fallback_adjusted_attention_work_ratio": 0.8416022249355581,
+        "record_error_max": 0.013542800080338228,
+        "record_error_p95": 0.009843754002440254,
+        "records": 216,
+        "threshold": 0.9820646047592163
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 25,
+          "transitional": 6
+        },
+        "accepted_records": 31,
+        "aggregate_output_relative_l2": 0.001768490830293847,
+        "approximate_attention_work_ratio": 0.4297530426562687,
+        "coverage": 0.28703703703703703,
+        "fallback_adjusted_arithmetic_speedup": 1.19571741422662,
+        "fallback_adjusted_attention_work_ratio": 0.8363180029846697,
+        "record_error_max": 0.012942395350322256,
+        "record_error_p95": 0.006055678906318514,
+        "records": 108,
+        "threshold": 0.9820646047592163
+      }
+    },
+    {
+      "density": "0.375",
+      "method": "centroid",
+      "tail_group_size": "8",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 51,
+          "transitional": 9
+        },
+        "accepted_records": 60,
+        "aggregate_output_relative_l2": 0.0016809914032955532,
+        "approximate_attention_work_ratio": 0.4688125763125759,
+        "coverage": 0.2777777777777778,
+        "fallback_adjusted_arithmetic_speedup": 1.1730921685434725,
+        "fallback_adjusted_attention_work_ratio": 0.8524479378646044,
+        "record_error_max": 0.012444649971912712,
+        "record_error_p95": 0.009107539061352313,
+        "records": 216,
+        "threshold": 0.9820646047592163
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 25,
+          "transitional": 6
+        },
+        "accepted_records": 31,
+        "aggregate_output_relative_l2": 0.0015286899603740311,
+        "approximate_attention_work_ratio": 0.4687994800898028,
+        "coverage": 0.28703703703703703,
+        "fallback_adjusted_arithmetic_speedup": 1.1799051161636676,
+        "fallback_adjusted_attention_work_ratio": 0.8475257766924434,
+        "record_error_max": 0.011674729760612549,
+        "record_error_p95": 0.005090930281489899,
+        "records": 108,
+        "threshold": 0.9820646047592163
+      }
+    },
+    {
+      "density": "0.375",
+      "method": "centroid",
+      "tail_group_size": "4",
+      "test": {
+        "accepted_head_roles": {
+          "localized": 51,
+          "transitional": 17
+        },
+        "accepted_records": 68,
+        "aggregate_output_relative_l2": 0.0016604940972373239,
+        "approximate_attention_work_ratio": 0.5469313366372187,
+        "coverage": 0.3148148148148148,
+        "fallback_adjusted_arithmetic_speedup": 1.166361292185688,
+        "fallback_adjusted_attention_work_ratio": 0.8573672726450503,
+        "record_error_max": 0.01585651411685511,
+        "record_error_p95": 0.0073778455814574005,
+        "records": 216,
+        "threshold": 0.9758663773536682
+      },
+      "validation": {
+        "accepted_head_roles": {
+          "localized": 26,
+          "transitional": 11
+        },
+        "accepted_records": 37,
+        "aggregate_output_relative_l2": 0.002482693801088015,
+        "approximate_attention_work_ratio": 0.5469227469227471,
+        "coverage": 0.3425925925925926,
+        "fallback_adjusted_arithmetic_speedup": 1.1837414215817477,
+        "fallback_adjusted_attention_work_ratio": 0.8447790892235338,
+        "record_error_max": 0.013717635269937205,
+        "record_error_p95": 0.011442530712189584,
+        "records": 108,
+        "threshold": 0.9758663773536682
+      }
+    }
+  ],
+  "chosen_without_test_selection": {
+    "density": "0.25",
+    "method": "centroid",
+    "tail_group_size": "16",
+    "test": {
+      "accepted_head_roles": {
+        "localized": 47,
+        "transitional": 5
+      },
+      "accepted_records": 52,
+      "aggregate_output_relative_l2": 0.0024803701628385417,
+      "approximate_attention_work_ratio": 0.31254813562505895,
+      "coverage": 0.24074074074074073,
+      "fallback_adjusted_arithmetic_speedup": 1.1983190044084135,
+      "fallback_adjusted_attention_work_ratio": 0.8345023289467735,
+      "record_error_max": 0.01355899663239373,
+      "record_error_p95": 0.00962923635374688,
+      "records": 216,
+      "threshold": 0.9845690131187439
+    },
+    "validation": {
+      "accepted_head_roles": {
+        "localized": 24,
+        "transitional": 4
+      },
+      "accepted_records": 28,
+      "aggregate_output_relative_l2": 0.0026350712985985267,
+      "approximate_attention_work_ratio": 0.3125501482644339,
+      "coverage": 0.25925925925925924,
+      "fallback_adjusted_arithmetic_speedup": 1.2168821556418308,
+      "fallback_adjusted_attention_work_ratio": 0.8217722606611495,
+      "record_error_max": 0.010922031347551986,
+      "record_error_p95": 0.010162394384559511,
+      "records": 108,
+      "threshold": 0.9845690131187439
+    }
+  },
+  "gates": {
+    "aggregate_output_relative_l2": 0.0075,
+    "every_record_output_relative_l2": 0.015,
+    "fallback_adjusted_arithmetic_attention_speedup": 1.5,
+    "minimum_validation_coverage": 0.05
+  },
+  "methodology": "configuration and threshold maximize validation arithmetic speed under quality constraints; test errors are read only after the choice is frozen",
+  "verdict": "QUALITY_GO_SYSTEM_SPEED_NO_GO"
+}
