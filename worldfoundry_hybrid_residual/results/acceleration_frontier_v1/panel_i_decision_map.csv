@@ -1,0 +1,8 @@
+direction,fidelity_score,speed_potential_score,decision,score_source
+2-GPU CFG branch parallel,5,5,RUN,qualitative prior; not a measured metric
+F81 fused sparse attention,4,4,RUN,qualitative prior; not a measured metric
+F17 whole-block fusion,5,3,RUN,qualitative prior; not a measured metric
+parallel-in-time on 2 GPUs,5,1,STOP unless oracle wins,qualitative prior; not a measured metric
+continuous exact speculation,3,1,distribution-exact only,qualitative prior; not a measured metric
+RMT-guided mixed precision,3,2,CALIBRATION,qualitative prior; not a measured metric
+uniform low-rank / BCM,1,1,STOP,qualitative prior; not a measured metric

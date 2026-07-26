@@ -102,6 +102,17 @@ costs only `0.76%/1.42%` before routing. See
 [`results/entropy_structure_audit_v1/ENTROPY_STRUCTURE_AUDIT_20260726.zh-CN.md`](results/entropy_structure_audit_v1/ENTROPY_STRUCTURE_AUDIT_20260726.zh-CN.md)
 and its nine-panel source-bound dashboard.
 
+## Strict-Fidelity DiT Acceleration Frontier
+
+The latest audit separates same-trajectory exact optimization from
+target-distribution-exact speculative sampling and perceptual approximations.
+For the available two-H200 setup, exact CFG branch parallelism is the first
+priority, followed by fused F81 spatial/temporal sparse attention.  Global
+low-rank, static row sparsity, coarse NFE reduction, and two-device Picard
+parallelism fail either the fidelity gate or the hardware-economics gate.  See
+[`results/acceleration_frontier_v1/DIT_ACCELERATION_FRONTIER_20260726.zh-CN.md`](results/acceleration_frontier_v1/DIT_ACCELERATION_FRONTIER_20260726.zh-CN.md)
+and the source-bound dashboard in the same directory.
+
 ## Layout
 
 - `scripts/worldfoundry_hybrid_residual.py`: switchable dense/FP8/hybrid linear.
@@ -117,6 +128,14 @@ and its nine-panel source-bound dashboard.
 - `scripts/probe_wan_ffn_activation_structure.py`: cross-step/CFG FFN recorder.
 - `scripts/analyze_ffn_activation_quantization.py`: held-out activation quantization audit.
 - `scripts/plot_entropy_structure_audit.py`: source-bound nine-panel dashboard.
+- `scripts/analyze_acceleration_frontier.py`: CFG, NFE, speculation, Picard, attention, and RMT frontier.
+- `scripts/benchmark_h200_speculative_batch.py`: H200 target batch-verification economics.
+- `scripts/benchmark_wan_target_batch.py`: full-denoiser batch verification cost.
+- `scripts/probe_defect_rmt.py`: runtime-defect MP/null and cross-run subspace stability.
+- `scripts/plot_defect_rmt.py`: source-bound runtime-defect eigenspectrum dashboard.
+- `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
+- `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
+- `scripts/run_acceleration_frontier_h200_v1.sh`: idle-gated H200 experiment sequence.
 - `scripts/plot_ffn_attention_audit.py`: source-bound decision dashboard.
 - `scripts/search_tri_mode_oracle.py`: measured-cost conservative schedule search.
 - `scripts/generate_wan_hybrid_residual.py`: paired Wan generation runner.
@@ -130,6 +149,7 @@ and its nine-panel source-bound dashboard.
 - `results/tri_mode_oracle_v1/`: compact tri-mode report, CSV evidence, and figures.
 - `results/ffn_attention_audit_v1/`: FFN/attention audit, raw CSVs, and dashboard.
 - `results/entropy_structure_audit_v1/`: THW, MP, activation, function, and H200 audit.
+- `results/acceleration_frontier_v1/`: strict-fidelity theory, CSV evidence, and dashboard.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -149,6 +169,11 @@ python scripts/plot_tri_mode_evidence_dashboard.py \
 python scripts/plot_entropy_structure_audit.py \
   --raw-dir results/entropy_structure_audit_v1/raw \
   --output-dir results/entropy_structure_audit_v1/figures
+python scripts/analyze_acceleration_frontier.py
+python scripts/plot_defect_rmt.py \
+  --summary results/acceleration_frontier_h200_v1/defect_rmt/defect_rmt_summary.csv \
+  --eigenvalues results/acceleration_frontier_h200_v1/defect_rmt/defect_rmt_eigenvalues.csv \
+  --out-dir results/acceleration_frontier_h200_v1/defect_rmt
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the
