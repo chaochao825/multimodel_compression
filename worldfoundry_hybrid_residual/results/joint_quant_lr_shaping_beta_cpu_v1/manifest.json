@@ -1,0 +1,102 @@
+{
+  "arguments": {
+    "alternating_iterations": 2,
+    "bits": [
+      4
+    ],
+    "block_in": 128,
+    "block_out": 64,
+    "blocks": [
+      0,
+      24
+    ],
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "clip_multipliers": [
+      0.55,
+      0.65,
+      0.75
+    ],
+    "cpu_threads": 8,
+    "device": "cpu",
+    "max_rows_per_split": 0,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/joint_quant_lr_shaping_beta_cpu_v1",
+    "projection": "down",
+    "ranks": [
+      16,
+      64
+    ],
+    "ridge": 0.0001,
+    "samples": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_activation_structure_f17_v1/data/ffn_activation_samples.pt",
+    "seed": 20260726,
+    "shaping_strengths": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "sparse_ratios": [
+      0.02,
+      0.05
+    ],
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT"
+  },
+  "best_row": {
+    "alternating_iterations": 2,
+    "bits": 4,
+    "block": 0,
+    "calibration_defect_rank_energy": 0.9999009055064018,
+    "clip": 0.65,
+    "combined_gate": false,
+    "correction_vs_quant_error_cosine": -0.892151951789856,
+    "defect_energy_captured_test": 0.7957517860711365,
+    "estimated_extra_ops": 1740636160,
+    "estimated_stored_bits": 76810880,
+    "local_error_2pct_go": false,
+    "lowrank_values": 671744,
+    "method": "joint_residual_shaped_ptq_lr_block_sparse",
+    "projection": "down",
+    "rank": 64,
+    "rank_energy_07_go": true,
+    "residual_vs_correction_cosine": -0.02533499151468277,
+    "shaping_strength": 1.0,
+    "sparse_blocks": 84,
+    "sparse_ratio": 0.05,
+    "sparse_values": 688128,
+    "subspace_overlap": 0.577849268913269,
+    "subspace_overlap_07_go": false,
+    "test_relative_l2": 0.022646935656666756,
+    "validation_relative_l2": 0.0017564757727086544
+  },
+  "calibration_fit_steps": "even",
+  "calibration_run": "p00_seed20260723",
+  "calibration_selection_steps": "odd",
+  "device": "cpu",
+  "elapsed_seconds": 96.1985239982605,
+  "gates": {
+    "cross_run_subspace_overlap": 0.7,
+    "heldout_defect_energy": 0.7,
+    "local_output_relative_l2": 0.02
+  },
+  "methods": [
+    "joint_residual_shaped_ptq_lr",
+    "joint_residual_shaped_ptq_lr_block_sparse",
+    "joint_shaped_ptq_lr",
+    "joint_shaped_ptq_lr_block_sparse",
+    "ptq_activation_lr",
+    "ptq_only",
+    "ptq_weight_svd"
+  ],
+  "python": "3.11.15",
+  "records": 960,
+  "scope": "held-out activation-shaped PTQ + low-rank + block-sparse FFN probe",
+  "test_runs": [
+    "p00_seed20260724"
+  ],
+  "torch": "2.9.1+cu128",
+  "warnings": [
+    "Sampled F17 activation rows are an expressivity screen, not end-to-end video quality.",
+    "Estimated storage/ops assume fused low-rank and block-sparse correction kernels.",
+    "The sparse selector uses diagonal activation covariance for block scoring."
+  ]
+}

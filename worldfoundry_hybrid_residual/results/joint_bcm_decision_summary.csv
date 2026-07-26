@@ -1,0 +1,10 @@
+branch,variant,scope,parameters_per_head,rank,sparse_ratio,shaping_strength,heldout_mean_relative_l2,heldout_max_relative_l2,defect_energy_captured,subspace_overlap,estimated_stored_bits,estimated_extra_ops,decision
+attention_bcm,global_bccb_s1x4x4,F81_layer0_step0,2184,0,0,0,0.5719524821,1.2583775520,,,2184,,no_go
+attention_bcm,multi_bcm_s1x4x4_g1x2x2,F81_layer0_step0,63960,0,0,0,0.5490501287,1.2563498020,,,63960,,no_go
+attention_bcm,hier_bcm_s1x4x4_g1x2x2_f1x2x2_r1x4x4,F81_layer0_step0,80250,0,0,0,0.5041227825,1.2550172806,,,80250,,no_go
+ffn_quant,ptq_only_block0,F17_block0_down,,0,0,0,0.0302871279,,0,,55050240,0,no_go
+ffn_quant,residual_shaped_r16_s2_block0,F17_block0_down,,16,0.02,1.0,0.0255493615,,0.7109210287,0.5141449571,62194752,571473920,no_go
+ffn_quant,residual_shaped_r64_s5_block0,F17_block0_down,,64,0.05,1.0,0.0226469357,,0.7957517861,0.5778492689,76810880,1740636160,no_go
+ffn_quant,ptq_only_block24,F17_block24_down,,0,0,0,0.1195028648,,0,,55050240,0,no_go
+ffn_quant,residual_shaped_r16_s2_block24,F17_block24_down,,16,0.02,0.75,0.0801873133,,0.8370991367,0.6090843081,62194752,571473920,no_go
+ffn_quant,residual_shaped_r64_s5_block24,F17_block24_down,,64,0.05,1.0,0.0711185709,,0.9158066124,0.6103179455,76810880,1740636160,no_go

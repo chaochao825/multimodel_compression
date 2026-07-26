@@ -1,0 +1,16 @@
+method,model,rows,parameters_per_head,mean_attention_output_relative_l2,max_attention_output_relative_l2,strict_2pct_all_pass,relaxed_5pct_all_pass,mean_wrap_leakage_mass_delta
+global_coarse_bccb,global_bccb_s1x4x4,48,2184,0.5719524820645651,1.2583775520324707,False,False,0.07687179883942008
+query_block_multi_bcm,multi_bcm_s1x4x4_g1x2x2,48,63960,0.5490501287082831,1.256349802017212,False,False,
+coarse_tile_local_residual,hier_bcm_s1x4x4_g1x2x2_f1x2x2_r1x4x4,48,80250,0.5041227824985981,1.2550172805786133,False,False,
+query_block_multi_bcm,multi_bcm_s1x4x4_g2x4x4,48,511680,0.5499794967472553,1.2536823749542236,False,False,
+coarse_tile_local_residual,hier_bcm_s1x4x4_g2x4x4_f1x2x2_r1x4x4,48,530070,0.5046977512538433,1.2535371780395508,False,False,
+global_coarse_bccb,global_bccb_s1x8x8,48,588,0.6014873186747233,1.258166790008545,False,False,0.10073146736249328
+query_block_multi_bcm,multi_bcm_s1x8x8_g1x2x2,48,17056,0.5833835874994596,1.2563785314559937,False,False,
+coarse_tile_local_residual,hier_bcm_s1x8x8_g1x2x2_f1x2x2_r1x4x4,48,21620,0.5149301774799824,1.255112648010254,False,False,
+query_block_multi_bcm,multi_bcm_s1x8x8_g2x4x4,48,136448,0.584310861925284,1.2542213201522827,False,False,
+coarse_tile_local_residual,hier_bcm_s1x8x8_g2x4x4_f1x2x2_r1x4x4,48,143112,0.514627393335104,1.2540311813354492,False,False,
+global_coarse_bccb,global_bccb_s2x8x8,48,308,0.6072385236620903,1.2580863237380981,False,False,0.10474134376272559
+query_block_multi_bcm,multi_bcm_s2x8x8_g1x2x2,48,8736,0.5923782785733541,1.2562391757965088,False,False,
+coarse_tile_local_residual,hier_bcm_s2x8x8_g1x2x2_f1x2x2_r1x4x4,48,11220,0.5179309956729412,1.2550089359283447,False,False,
+query_block_multi_bcm,multi_bcm_s2x8x8_g2x4x4,48,69888,0.592868501941363,1.2537046670913696,False,False,
+coarse_tile_local_residual,hier_bcm_s2x8x8_g2x4x4_f1x2x2_r1x4x4,48,74472,0.5173322719832262,1.25350821018219,False,False,

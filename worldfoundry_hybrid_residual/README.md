@@ -104,6 +104,23 @@ Standalone FFN compile/graph is therefore stopped; only whole-segment graphing
 or a real GEMM epilogue remains as an F17 systems candidate. See
 [`results/FFN_EXACT_PATHS_H200_20260726.zh-CN.md`](results/FFN_EXACT_PATHS_H200_20260726.zh-CN.md).
 
+## Multi-Block BCM And Joint Error Shaping
+
+A calibration-frozen F81 probe rejects increasingly local fixed BCM attention
+tables. Global BCCB, query-block multi-BCM, and hierarchical coarse/tile/local
+BCM reach `57.20%`, `54.91%`, and `50.41%` mean held-out attention-output L2;
+the hierarchical model uses `36.7x` more parameters per head and still misses
+the relaxed `5%` gate by an order of magnitude. It helps selected heads but
+does not fix dynamic support or content-dependent value directions.
+
+Joint `Q(W-beta*L-S)+L+S` INT4 shaping is mechanistically real but also fails
+the deployment gate. Rank-16 plus 2% blocks raises held-out defect energy from
+`25.0%` to `71.1%` at block 0 and from `52.0%` to `89.1%` at block 24, yet
+output errors remain `2.555%/8.014%`. Rank-64 plus 5% blocks only reaches
+`2.265%/7.112%` while adding about `1.74B` estimated operations. A validation
+sweep over `beta={0,.25,.5,.75,1}` does not close the gap. See
+[`results/JOINT_ERROR_SHAPING_MULTIBLOCK_BCM_20260726.zh-CN.md`](results/JOINT_ERROR_SHAPING_MULTIBLOCK_BCM_20260726.zh-CN.md).
+
 ## Function-Aware Entropy And THW Structure Audit
 
 The follow-up separates parameter entropy, activation structure, and operator
@@ -163,6 +180,10 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `scripts/benchmark_wan_target_batch.py`: full-denoiser batch verification cost.
 - `scripts/probe_defect_rmt.py`: runtime-defect MP/null and cross-run subspace stability.
 - `scripts/plot_defect_rmt.py`: source-bound runtime-defect eigenspectrum dashboard.
+- `scripts/probe_joint_quant_lr_shaping.py`: activation-shaped INT4 plus low-rank/block-sparse probe.
+- `scripts/probe_multiblock_bcm_attention.py`: frozen global, query-block, and hierarchical BCM attention probe.
+- `scripts/plot_joint_quant_lr_shaping.py`: joint-shaping gate and generalization dashboard.
+- `scripts/plot_multiblock_bcm_attention.py`: BCM parameter, head, and wrap-leakage dashboard.
 - `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
 - `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
 - `scripts/run_phase2_head_role_factorial_v1.sh`: resumable F81 prompt/seed/step/CFG head-role capture.
@@ -183,6 +204,10 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `results/entropy_structure_audit_v1/`: THW, MP, activation, function, and H200 audit.
 - `results/acceleration_frontier_v1/`: strict-fidelity theory, CSV evidence, and dashboard.
 - `results/acceleration_frontier_h200_v1/`: measured target batching, defect RMT, and exact CFG evidence.
+- `results/joint_quant_lr_shaping_cpu_v2/`: rank-8/16 joint-shaping evidence and dashboard.
+- `results/joint_quant_lr_shaping_capacity_cpu_v1/`: rank-32/64 capacity ceiling.
+- `results/joint_quant_lr_shaping_beta_cpu_v1/`: validation-selected shaping-strength sweep.
+- `results/multiblock_bcm_attention_f81_cpu_v1/`: F81 multi-block BCM held-out evidence.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -209,6 +234,13 @@ python scripts/plot_defect_rmt.py \
   --summary results/acceleration_frontier_h200_v1/defect_rmt/defect_rmt_summary.csv \
   --eigenvalues results/acceleration_frontier_h200_v1/defect_rmt/defect_rmt_eigenvalues.csv \
   --out-dir results/acceleration_frontier_h200_v1/defect_rmt
+python scripts/plot_joint_quant_lr_shaping.py \
+  --input results/joint_quant_lr_shaping_cpu_v2/joint_quant_lr_shaping.csv \
+  --output-dir results/joint_quant_lr_shaping_cpu_v2
+python scripts/plot_multiblock_bcm_attention.py \
+  --heldout results/multiblock_bcm_attention_f81_cpu_v1/multiblock_bcm_attention_heldout.csv \
+  --summary results/multiblock_bcm_attention_f81_cpu_v1/multiblock_bcm_attention_summary.csv \
+  --output-dir results/multiblock_bcm_attention_f81_cpu_v1
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the

@@ -1,0 +1,626 @@
+{
+  "arguments": {
+    "bucket_scales": [
+      [
+        1,
+        4,
+        4
+      ],
+      [
+        1,
+        8,
+        8
+      ],
+      [
+        2,
+        8,
+        8
+      ]
+    ],
+    "calibration_sample_id": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740"
+    ],
+    "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/capture_index.csv",
+    "device": "cpu",
+    "fine_scale": [
+      1,
+      2,
+      2
+    ],
+    "heads": [],
+    "heldout_sample_id": [
+      "s02_p00_seed20260741",
+      "s03_p02_seed20260741"
+    ],
+    "local_radius": [
+      1,
+      4,
+      4
+    ],
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/multiblock_bcm_attention_f81_cpu_v1",
+    "query_group_grids": [
+      [
+        1,
+        2,
+        2
+      ],
+      [
+        2,
+        4,
+        4
+      ]
+    ],
+    "query_samples": 32,
+    "relaxed_error_target": 0.05,
+    "strict_error_target": 0.02
+  },
+  "cells": [
+    [
+      0,
+      0,
+      "cond"
+    ],
+    [
+      0,
+      0,
+      "uncond"
+    ]
+  ],
+  "cuda_runtime": "12.8",
+  "device": "cpu",
+  "elapsed_seconds": 56.0070743560791,
+  "methodology": {
+    "coarse_tile_local_residual": "physical global coarse table plus query-group coarse residual plus local fine residual",
+    "fit_target": "calibration attention probabilities; held-out replays never update tables",
+    "global_coarse_bccb": "shared per-head modulo THW displacement generator",
+    "normalization": "clamp fitted additive weights to non-negative values and normalize each query row",
+    "query_block_multi_bcm": "non-periodic physical-delta generator conditioned on a coarse query THW group",
+    "warning": "local pre-O-projection replay probe; no kernel or end-to-end speed claim",
+    "wrap_leakage": "mass on physically longer-than-half-axis pairs aliased by toroidal modulo coordinates"
+  },
+  "models": [
+    {
+      "coarse_scale": [
+        1,
+        4,
+        4
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "global_coarse_bccb",
+      "name": "global_bccb_s1x4x4",
+      "query_grid": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        4,
+        4
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "query_block_multi_bcm",
+      "name": "multi_bcm_s1x4x4_g1x2x2",
+      "query_grid": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        4,
+        4
+      ],
+      "fine_scale": [
+        1,
+        2,
+        2
+      ],
+      "local_radius": [
+        1,
+        4,
+        4
+      ],
+      "method": "coarse_tile_local_residual",
+      "name": "hier_bcm_s1x4x4_g1x2x2_f1x2x2_r1x4x4",
+      "query_grid": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        4,
+        4
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "query_block_multi_bcm",
+      "name": "multi_bcm_s1x4x4_g2x4x4",
+      "query_grid": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        4,
+        4
+      ],
+      "fine_scale": [
+        1,
+        2,
+        2
+      ],
+      "local_radius": [
+        1,
+        4,
+        4
+      ],
+      "method": "coarse_tile_local_residual",
+      "name": "hier_bcm_s1x4x4_g2x4x4_f1x2x2_r1x4x4",
+      "query_grid": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "global_coarse_bccb",
+      "name": "global_bccb_s1x8x8",
+      "query_grid": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "query_block_multi_bcm",
+      "name": "multi_bcm_s1x8x8_g1x2x2",
+      "query_grid": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        2,
+        2
+      ],
+      "local_radius": [
+        1,
+        4,
+        4
+      ],
+      "method": "coarse_tile_local_residual",
+      "name": "hier_bcm_s1x8x8_g1x2x2_f1x2x2_r1x4x4",
+      "query_grid": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "query_block_multi_bcm",
+      "name": "multi_bcm_s1x8x8_g2x4x4",
+      "query_grid": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "coarse_scale": [
+        1,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        2,
+        2
+      ],
+      "local_radius": [
+        1,
+        4,
+        4
+      ],
+      "method": "coarse_tile_local_residual",
+      "name": "hier_bcm_s1x8x8_g2x4x4_f1x2x2_r1x4x4",
+      "query_grid": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "coarse_scale": [
+        2,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "global_coarse_bccb",
+      "name": "global_bccb_s2x8x8",
+      "query_grid": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "coarse_scale": [
+        2,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "query_block_multi_bcm",
+      "name": "multi_bcm_s2x8x8_g1x2x2",
+      "query_grid": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "coarse_scale": [
+        2,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        2,
+        2
+      ],
+      "local_radius": [
+        1,
+        4,
+        4
+      ],
+      "method": "coarse_tile_local_residual",
+      "name": "hier_bcm_s2x8x8_g1x2x2_f1x2x2_r1x4x4",
+      "query_grid": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "coarse_scale": [
+        2,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        1,
+        1
+      ],
+      "local_radius": [
+        0,
+        0,
+        0
+      ],
+      "method": "query_block_multi_bcm",
+      "name": "multi_bcm_s2x8x8_g2x4x4",
+      "query_grid": [
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "coarse_scale": [
+        2,
+        8,
+        8
+      ],
+      "fine_scale": [
+        1,
+        2,
+        2
+      ],
+      "local_radius": [
+        1,
+        4,
+        4
+      ],
+      "method": "coarse_tile_local_residual",
+      "name": "hier_bcm_s2x8x8_g2x4x4_f1x2x2_r1x4x4",
+      "query_grid": [
+        2,
+        4,
+        4
+      ]
+    }
+  ],
+  "python": "3.11.15",
+  "relaxed_error_target": 0.05,
+  "result_rows": 720,
+  "splits": {
+    "calibration": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740"
+    ],
+    "heldout": [
+      "s02_p00_seed20260741",
+      "s03_p02_seed20260741"
+    ]
+  },
+  "strict_error_target": 0.02,
+  "summary": [
+    {
+      "max_attention_output_relative_l2": 1.2583775520324707,
+      "mean_attention_output_relative_l2": 0.5719524820645651,
+      "mean_wrap_leakage_mass_delta": 0.07687179883942008,
+      "method": "global_coarse_bccb",
+      "model": "global_bccb_s1x4x4",
+      "parameters_per_head": 2184,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.256349802017212,
+      "mean_attention_output_relative_l2": 0.5490501287082831,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "query_block_multi_bcm",
+      "model": "multi_bcm_s1x4x4_g1x2x2",
+      "parameters_per_head": 63960,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2550172805786133,
+      "mean_attention_output_relative_l2": 0.5041227824985981,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "coarse_tile_local_residual",
+      "model": "hier_bcm_s1x4x4_g1x2x2_f1x2x2_r1x4x4",
+      "parameters_per_head": 80250,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2536823749542236,
+      "mean_attention_output_relative_l2": 0.5499794967472553,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "query_block_multi_bcm",
+      "model": "multi_bcm_s1x4x4_g2x4x4",
+      "parameters_per_head": 511680,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2535371780395508,
+      "mean_attention_output_relative_l2": 0.5046977512538433,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "coarse_tile_local_residual",
+      "model": "hier_bcm_s1x4x4_g2x4x4_f1x2x2_r1x4x4",
+      "parameters_per_head": 530070,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.258166790008545,
+      "mean_attention_output_relative_l2": 0.6014873186747233,
+      "mean_wrap_leakage_mass_delta": 0.10073146736249328,
+      "method": "global_coarse_bccb",
+      "model": "global_bccb_s1x8x8",
+      "parameters_per_head": 588,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2563785314559937,
+      "mean_attention_output_relative_l2": 0.5833835874994596,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "query_block_multi_bcm",
+      "model": "multi_bcm_s1x8x8_g1x2x2",
+      "parameters_per_head": 17056,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.255112648010254,
+      "mean_attention_output_relative_l2": 0.5149301774799824,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "coarse_tile_local_residual",
+      "model": "hier_bcm_s1x8x8_g1x2x2_f1x2x2_r1x4x4",
+      "parameters_per_head": 21620,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2542213201522827,
+      "mean_attention_output_relative_l2": 0.584310861925284,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "query_block_multi_bcm",
+      "model": "multi_bcm_s1x8x8_g2x4x4",
+      "parameters_per_head": 136448,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2540311813354492,
+      "mean_attention_output_relative_l2": 0.514627393335104,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "coarse_tile_local_residual",
+      "model": "hier_bcm_s1x8x8_g2x4x4_f1x2x2_r1x4x4",
+      "parameters_per_head": 143112,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2580863237380981,
+      "mean_attention_output_relative_l2": 0.6072385236620903,
+      "mean_wrap_leakage_mass_delta": 0.10474134376272559,
+      "method": "global_coarse_bccb",
+      "model": "global_bccb_s2x8x8",
+      "parameters_per_head": 308,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2562391757965088,
+      "mean_attention_output_relative_l2": 0.5923782785733541,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "query_block_multi_bcm",
+      "model": "multi_bcm_s2x8x8_g1x2x2",
+      "parameters_per_head": 8736,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2550089359283447,
+      "mean_attention_output_relative_l2": 0.5179309956729412,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "coarse_tile_local_residual",
+      "model": "hier_bcm_s2x8x8_g1x2x2_f1x2x2_r1x4x4",
+      "parameters_per_head": 11220,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.2537046670913696,
+      "mean_attention_output_relative_l2": 0.592868501941363,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "query_block_multi_bcm",
+      "model": "multi_bcm_s2x8x8_g2x4x4",
+      "parameters_per_head": 69888,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    },
+    {
+      "max_attention_output_relative_l2": 1.25350821018219,
+      "mean_attention_output_relative_l2": 0.5173322719832262,
+      "mean_wrap_leakage_mass_delta": null,
+      "method": "coarse_tile_local_residual",
+      "model": "hier_bcm_s2x8x8_g2x4x4_f1x2x2_r1x4x4",
+      "parameters_per_head": 74472,
+      "relaxed_5pct_all_pass": false,
+      "rows": 48,
+      "strict_2pct_all_pass": false
+    }
+  ],
+  "torch": "2.9.1+cu128"
+}
