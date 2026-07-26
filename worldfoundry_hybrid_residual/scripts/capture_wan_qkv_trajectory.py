@@ -67,6 +67,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--capture-steps", type=parse_int_list, default=parse_int_list("0,9,19"))
     parser.add_argument("--capture-layers", type=parse_int_list, default=parse_int_list("0,14,29"))
     parser.add_argument("--sample-solver", choices=("unipc", "dpm++"), default="unipc")
+    parser.add_argument(
+        "--stop-after-last-capture",
+        action="store_true",
+        help="Stop each trajectory after the largest requested capture step.",
+    )
     parser.add_argument("--shift", type=float, default=5.0)
     parser.add_argument("--guide-scale", type=float, default=5.0)
     parser.add_argument("--negative-prompt", default="")
@@ -233,6 +238,7 @@ def capture_sample(
     no_sync: Callable[[], object] = getattr(pipeline.model, "no_sync", noop_no_sync)
     torch.cuda.synchronize(device)
     started = time.perf_counter()
+    executed_sampling_steps = 0
     with amp.autocast(dtype=pipeline.param_dtype), no_sync():
         for sampling_step, timestep in enumerate(timesteps):
             model_input = latent.unsqueeze(0)
@@ -275,7 +281,13 @@ def capture_sample(
                 generator=generator,
             )[0]
             latent = next_latent.squeeze(0)
+            executed_sampling_steps = sampling_step + 1
             del model_input, conditional, unconditional, guided, next_latent
+            if (
+                args.stop_after_last_capture
+                and sampling_step >= max(args.capture_steps)
+            ):
+                break
     torch.cuda.synchronize(device)
     sample_dir = args.out_dir / sample_id
     sample_dir.mkdir(parents=True, exist_ok=True)
@@ -286,6 +298,8 @@ def capture_sample(
         "seed": seed,
         "prompt": prompt,
         "seconds": time.perf_counter() - started,
+        "executed_sampling_steps": executed_sampling_steps,
+        "trajectory_complete": executed_sampling_steps == args.sampling_steps,
         "final_latent": str(sample_dir / "final_latent.pt"),
     }
 

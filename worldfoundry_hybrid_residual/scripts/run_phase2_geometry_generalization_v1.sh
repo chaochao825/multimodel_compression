@@ -48,8 +48,9 @@ CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   --sample-plan 0:20260740,1:20260740,0:20260741,2:20260741 \
   --frame-num 81 \
   --sampling-steps 20 \
-  --capture-steps 0,9,19 \
-  --capture-layers 0,14,29 \
+  --capture-steps 0 \
+  --capture-layers 0 \
+  --stop-after-last-capture \
   --seed 20260740 \
   --device cuda:0 \
   2>&1 | tee "$OUT/logs/qkv_capture.log"
@@ -79,4 +80,4 @@ CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   --out-dir "$OUT/geometry_analysis" \
   2>&1 | tee "$OUT/logs/geometry_generalization.plot.log"
 
-printf '[geometry-generalization] completed %s\n' "$OUT"
+printf '[geometry-generalization] pilot completed %s\n' "$OUT"

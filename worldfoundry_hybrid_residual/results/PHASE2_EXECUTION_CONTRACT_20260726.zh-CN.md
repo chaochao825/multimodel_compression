@@ -173,9 +173,10 @@ F17 microbenchmark 的 go 条件是完整 FFN 稳态至少 1.10x，且预计映�
 1. F17 exact cross-attention K/V cache：2 prompts x 2 repeats，交替顺序。
 2. F81 exact two-H200 CFG：4 prompts x 2 seed groups x 2 repeats，共 16 paired runs。
 3. F81 geometry smoke：现有 F17/F81 replay，6 masks，rank 0/4/8/16 oracle tail。
-4. F81 trajectory capture：4 个析因 sample，steps 0/9/19，layers 0/14/29，cond/uncond，共 72 QKV cells。
+4. F81 trajectory pilot：4 个析因 sample，step 0，layer 0，cond/uncond，共 8 QKV cells；最后一个目标 step 后立即停止 trajectory。
 5. F81 frozen-policy 泛化：prompt 0/seed A calibration；prompt 1/seed A validation；prompt 0/seed B 与 prompt 2/seed B independent test。
-6. F17/F81 full FFN exact-path benchmark：代表层、eager/compile/CUDA Graph。
+6. 只有 pilot 的 frozen defect basis 通过 validation/test 后，才扩展到 steps 0/9/19 与 layers 0/14/29 的 72-cell 矩阵。
+7. F17/F81 full FFN exact-path benchmark：代表层、eager/compile/CUDA Graph。
 
 GPU 队列使用同一 `flock` 串行化，并在 H200 2/3 连续三个采样点均空闲后启动。这样等待外部作业属于正常排队，不应被误判为卡死。
 
