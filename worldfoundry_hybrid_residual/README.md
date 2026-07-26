@@ -113,6 +113,14 @@ parallelism fail either the fidelity gate or the hardware-economics gate.  See
 [`results/acceleration_frontier_v1/DIT_ACCELERATION_FRONTIER_20260726.zh-CN.md`](results/acceleration_frontier_v1/DIT_ACCELERATION_FRONTIER_20260726.zh-CN.md)
 and the source-bound dashboard in the same directory.
 
+The completed F17 20-step paired run measures `1.7743x` mean end-to-end
+speedup from exact two-H200 CFG branch parallelism, with zero final-latent and
+decoded-pixel difference. Full-Wan speculative verification is nearly linear:
+batch-2 costs `1.952x` at F17 and `1.990x` at F81. Runtime-defect top-16
+subspace overlap is only `0.220-0.356`, rejecting one global low-rank
+correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
+`results/acceleration_frontier_h200_v1/`.
+
 ## Layout
 
 - `scripts/worldfoundry_hybrid_residual.py`: switchable dense/FP8/hybrid linear.
@@ -150,6 +158,7 @@ and the source-bound dashboard in the same directory.
 - `results/ffn_attention_audit_v1/`: FFN/attention audit, raw CSVs, and dashboard.
 - `results/entropy_structure_audit_v1/`: THW, MP, activation, function, and H200 audit.
 - `results/acceleration_frontier_v1/`: strict-fidelity theory, CSV evidence, and dashboard.
+- `results/acceleration_frontier_h200_v1/`: measured target batching, defect RMT, and exact CFG evidence.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -169,7 +178,9 @@ python scripts/plot_tri_mode_evidence_dashboard.py \
 python scripts/plot_entropy_structure_audit.py \
   --raw-dir results/entropy_structure_audit_v1/raw \
   --output-dir results/entropy_structure_audit_v1/figures
-python scripts/analyze_acceleration_frontier.py
+python scripts/analyze_acceleration_frontier.py \
+  --verification-benchmark results/acceleration_frontier_h200_v1/full_model_batch/wan_target_batch_benchmark.csv \
+  --cfg-summary results/acceleration_frontier_h200_v1/cfg_f17/cfg_parallel_summary.json
 python scripts/plot_defect_rmt.py \
   --summary results/acceleration_frontier_h200_v1/defect_rmt/defect_rmt_summary.csv \
   --eigenvalues results/acceleration_frontier_h200_v1/defect_rmt/defect_rmt_eigenvalues.csv \

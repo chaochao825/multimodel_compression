@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import math
 import sys
 from pathlib import Path
@@ -9,6 +10,7 @@ import pytest
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+RESULTS_DIR = SCRIPT_DIR.parent / "results" / "acceleration_frontier_h200_v1"
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
@@ -64,3 +66,26 @@ def test_rmt_edge_and_subspace_overlap() -> None:
     identity = torch.eye(4)
     assert math.isclose(subspace_overlap(identity[:, :2], identity[:, :2]), 1.0)
     assert math.isclose(subspace_overlap(identity[:, :2], identity[:, 2:]), 0.0)
+
+
+def test_measured_h200_evidence_contract() -> None:
+    target = pd.read_csv(
+        RESULTS_DIR / "full_model_batch" / "wan_target_batch_benchmark.csv"
+    )
+    batch_two = target[(target["batch"] == 2) & (target["status"] == "ok")]
+    assert set(batch_two["case"]) == {"F17", "F81"}
+    assert (batch_two["latency_ratio_vs_batch1"] > 1.8).all()
+
+    cfg = json.loads(
+        (RESULTS_DIR / "cfg_f17" / "cfg_parallel_summary.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert cfg["speedup_mean"] > 1.7
+    assert cfg["latent_relative_l2_max"] == 0.0
+    assert cfg["frame_ssim_min"] == 1.0
+
+    rmt = pd.read_csv(RESULTS_DIR / "defect_rmt" / "defect_rmt_summary.csv")
+    standardized = rmt[rmt["normalization"] == "channel_standardized"]
+    assert standardized["energy_rank_16"].max() < 0.8
+    assert standardized["subspace_overlap_mean"].max() < 0.8

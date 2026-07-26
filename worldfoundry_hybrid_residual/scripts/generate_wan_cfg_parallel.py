@@ -378,11 +378,11 @@ def main() -> None:
     if min(args.sampling_steps, args.warmup_steps, args.repeats) <= 0:
         raise ValueError("sampling steps, warmup steps, and repeats must be positive")
 
-    dist.init_process_group(backend="nccl")
-    rank = dist.get_rank()
     local_rank = int(os.environ["LOCAL_RANK"])
     device = torch.device("cuda", local_rank)
     torch.cuda.set_device(device)
+    dist.init_process_group(backend="nccl", device_id=device)
+    rank = dist.get_rank()
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)
     torch.set_grad_enabled(False)

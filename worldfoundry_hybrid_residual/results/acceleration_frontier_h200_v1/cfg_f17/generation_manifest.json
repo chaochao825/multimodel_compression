@@ -1,0 +1,50 @@
+{
+  "arguments": {
+    "alternate_method_order": true,
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "fps": 16,
+    "frame_num": 17,
+    "guide_scale": 5.0,
+    "height": 480,
+    "max_prompts": 0,
+    "methods": "sequential,cfg_parallel",
+    "negative_prompt": "",
+    "out_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/acceleration_frontier_h200_v1/cfg_f17",
+    "prompt": [],
+    "prompt_file": null,
+    "repeats": 2,
+    "sample_solver": "unipc",
+    "sampling_steps": 20,
+    "seed": 20260726,
+    "shift": 5.0,
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT",
+    "warmup_steps": 1,
+    "width": 832
+  },
+  "available_attention_backends": [
+    "fa3_bf16",
+    "fa3_fp8",
+    "sage_auto",
+    "sage_sm90_smooth"
+  ],
+  "cuda_runtime": "12.8",
+  "fidelity": "model-exact design with the same sampler, seed, and CFG arithmetic; the paired latent/video files are the required numerical evidence",
+  "gpus": [
+    "NVIDIA H200 NVL",
+    "NVIDIA H200 NVL"
+  ],
+  "grid_compatibility_installed": true,
+  "load_seconds_synchronized": 92.46206678898307,
+  "methods": [
+    "sequential",
+    "cfg_parallel"
+  ],
+  "prompts": [
+    "A red panda runs through a bamboo forest while the camera tracks smoothly."
+  ],
+  "python": "3.11.15",
+  "scope": "Wan2.1-T2V-1.3B paired sequential versus two-H200 CFG branch parallelism",
+  "timing": "wall time includes text encoding, denoising, communication, scheduler, and VAE decode",
+  "torch": "2.9.1+cu128",
+  "world_size": 2
+}

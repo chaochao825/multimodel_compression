@@ -1,0 +1,92 @@
+{
+  "arguments": {
+    "batches": [
+      1,
+      2,
+      4
+    ],
+    "device": "cuda:0",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/acceleration_frontier_h200_v1/speculative_batch",
+    "repetitions": 12,
+    "replay": [
+      "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+      "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt"
+    ],
+    "seed": 20260726,
+    "warmup": 5
+  },
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "elapsed_seconds": 3.170527458190918,
+  "methodology": {
+    "attention": "FA3 BF16 on repeated captured QKV",
+    "interpretation": "efficiency above 1 means batched verification is sublinear; this is necessary but not sufficient for speculative end-to-end speedup",
+    "linear": "BF16 random-weight shape proxy using captured Q as block input",
+    "timing": "CUDA events after warmup",
+    "warning": "operator batch scaling is an optimistic prerequisite test, not a full speculative rollout"
+  },
+  "python": "3.11.15",
+  "replays": [
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "F17",
+      "dtype": "torch.bfloat16",
+      "frame_num": 17,
+      "k_shape": [
+        1,
+        7800,
+        12,
+        128
+      ],
+      "layer": 0,
+      "path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+      "q_shape": [
+        1,
+        7800,
+        12,
+        128
+      ],
+      "replay_id": "f17_t1000_cond_l0_self",
+      "timestep": 1000,
+      "token_count": 7800,
+      "v_shape": [
+        1,
+        7800,
+        12,
+        128
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "F81",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt",
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "replay_id": "f81_t1000_cond_l0_self",
+      "timestep": 1000,
+      "token_count": 32760,
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ]
+    }
+  ],
+  "torch": "2.9.1+cu128"
+}

@@ -1,0 +1,21 @@
+{
+  "arguments": {
+    "device": "cuda:0",
+    "include_block_groups": false,
+    "max_rows": 8192,
+    "null_repeats": 4,
+    "out_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/acceleration_frontier_h200_v1/defect_rmt",
+    "samples": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/activation_defect_subspace_f17_v1/data/activation_defect_samples.pt",
+    "seed": 20260726,
+    "stability_rank": 16
+  },
+  "method": {
+    "empirical_null": "independent circular row shift per channel, 95th percentile of maximum eigenvalue",
+    "mp_edge": "mean covariance variance times (1 + sqrt(features / samples))^2",
+    "stability": "mean normalized projection overlap of top-r defect covariance subspaces across run_id"
+  },
+  "records": 360,
+  "samples": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/activation_defect_subspace_f17_v1/data/activation_defect_samples.pt",
+  "scope": "RMT screen of token-row sampled Wan activation defects",
+  "warning": "MP assumptions are approximate because video-token rows are correlated. Spikes are candidates for protection, not evidence that the remaining bulk is removable."
+}

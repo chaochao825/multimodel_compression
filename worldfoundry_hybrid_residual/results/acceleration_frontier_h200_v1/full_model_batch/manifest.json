@@ -1,0 +1,37 @@
+{
+  "arguments": {
+    "batches": "1,2,4",
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "device": "cuda:0",
+    "frame_nums": "17,81",
+    "height": 480,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/acceleration_frontier_h200_v1/full_model_batch",
+    "prompt": "A red panda runs through a bamboo forest.",
+    "repetitions": 4,
+    "sampling_steps": 20,
+    "seed": 20260726,
+    "shift": 5.0,
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT",
+    "warmup": 1,
+    "width": 832
+  },
+  "available_attention_backends": [
+    "fa3_bf16",
+    "fa3_fp8",
+    "sage_auto",
+    "sage_sm90_smooth"
+  ],
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "grid_compatibility_installed": true,
+  "load_seconds": 86.3914305170183,
+  "methodology": {
+    "precision": "BF16 model with FA3 BF16 attention",
+    "state": "initial-noise latent at the first 20-step UniPC timestep",
+    "timing": "CUDA events around the complete 30-block Wan model forward",
+    "warning": "This measures target verification cost but not draft acceptance, continuous residual sampling, or end-to-end speculative rollout."
+  },
+  "python": "3.11.15",
+  "scope": "full Wan denoiser batch-scaling prerequisite for future-step verification",
+  "torch": "2.9.1+cu128"
+}

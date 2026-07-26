@@ -8,12 +8,12 @@
 
 当前最合理的优先级不是继续做全局低秩或 BCM，而是：
 
-1. **双 H200 精确 CFG branch parallel**。条件分支和无条件分支在每一步读取同一 latent，彼此无依赖，可并行执行。这是当前唯一同时满足零模型近似、理论收益大、实现路径清晰的方向。
+1. **双 H200 精确 CFG branch parallel**。条件分支和无条件分支在每一步读取同一 latent，彼此无依赖，可并行执行。F17、20-step 实测端到端平均加速 `1.7743x`，final latent 与视频逐值完全一致。这是当前唯一已经同时满足零模型近似、明显实测收益和实现闭环的方向。
 2. **F81 fused structured sparse attention**。F81 中 self-attention 占 53.88%，2x attention kernel 对 denoiser 的 Amdahl 上限约 1.369x，3x 时约 1.561x。必须使用空间/时间 head-aware 的静态可编译 block pattern、少量动态 refresh 和融合 kernel。
 3. **F17 whole-block fusion / graph capture**。F17 self-attention 仅占 21.81%，elementwise/memory 占 47.76%。即使 attention 达到 4x，denoiser 上限也只有 1.196x，主要矛盾是 AdaLN、RoPE、残差、cast、launch 和 allocator 碎片。
 4. **timestep-bucketed FP8/W8A8**。保留，但必须做 timestep/channel outlier smoothing、静态 scale 和融合 GEMM。当前动态 FP8 路径的 cast/scale/launch 已经吞掉理论收益。
 5. **sample-adaptive cache/forecast**。可作为近似路线继续研究，但现有 Wan 20-step 严格 paired 证据尚未通过 SSIM 0.98，不能直接引用 FLUX/HunyuanVideo 的平均感知指标作为本模型结论。
-6. **DiT speculative / parallel-time sampling**。在 deterministic UniPC、20 步、只有 2 张 H200 时不应作为主线。先测完整 30-block target 对 2/4 个候选状态的 batch verification 扩展率；若接近线性，传统 LLM 式推测执行没有硬件收益。attention/QKV microbenchmark 只能作前置筛查，不能代替完整模型结论。
+6. **DiT speculative / parallel-time sampling**。在 deterministic UniPC、20 步、只有 2 张 H200 时判定 no-go。完整 30-block target 的 F17 batch-2/4 成本为 `1.952x/3.820x`，F81 为 `1.990x/4.058x`，几乎线性；传统 LLM 式推测执行没有硬件摊薄收益。
 
 全局 weight low-rank、静态 row-block sparse、BCM/CM 和 FFN 逐行/逐列 FFT 暂停作为主线。它们在当前模型上没有同时满足低误差和真实 H200 加速。
 
@@ -45,7 +45,17 @@
 T(N)=0.605819+0.269639N\ \mathrm{s},\qquad R^2=0.998659.
 \]
 
-这说明 20 步路径中大部分时间仍随 denoising step 线性增长，但存在约 0.606 秒文本/VAE/初始化固定成本。若乐观地把全部 per-step slope 都视为两个等长 CFG branch，通信占单步成本 0%、2.5%、5%、10% 时，端到端 envelope 分别约 1.817x、1.745x、1.679x、1.562x。scheduler、Python 和其他串行 step 工作尚未拆出，因此这些数是待实测校准的乐观包络，不是速度预测或保证。
+这说明 20 步路径中大部分时间仍随 denoising step 线性增长，但存在约 0.606 秒文本/VAE/初始化固定成本。若乐观地把全部 per-step slope 都视为两个等长 CFG branch，通信占单步成本 0%、2.5%、5%、10% 时，端到端 envelope 分别约 1.817x、1.745x、1.679x、1.562x。scheduler、Python 和其他串行 step 工作尚未拆出，因此这些数只是乐观包络。
+
+双 H200 实测校准如下，计时包含 text encoding、20-step denoising、通信、scheduler 和 VAE decode：
+
+| repeat | sequential (s) | CFG parallel (s) | speedup | final latent rel-L2 | frame SSIM |
+|---:|---:|---:|---:|---:|---:|
+| 0 | 5.8105 | 3.2985 | 1.7616x | 0 | 1.0 |
+| 1 | 5.8781 | 3.2893 | 1.7870x | 0 | 1.0 |
+| mean | 5.8443 | 3.2939 | **1.7743x** | **0** | **1.0** |
+
+两种方法交替顺序执行，pixel max-abs、latent max-abs 都为 0，说明这是同 sampler、同 seed、同轨迹的精确系统加速，不是感知近似。
 
 ### 3.2 低秩、稀疏和量化
 
@@ -54,6 +64,7 @@ T(N)=0.605819+0.269639N\ \mathrm{s},\qquad R^2=0.998659.
 - 全局 quantization/cache activation defect 的 rank-16 能量分别只有约 34.2%/76.1%，并且跨 layer、step、CFG branch 高度异质。
 - 真实 FFN activation 上，FP8 output error 约 1.54%，INT4 约 7.53%，spectral-r16 + INT4 约 6.89%。rank-16 只挽回约 9.4% 的 INT4 误差，仍远离严格无损。
 - Wan FFN 权重存在大量 MP outlier spikes，但 held-out activation error 并不随 spike 数简单下降。谱 spike 表示存在结构，不等于 bulk 可删除。
+- 本轮 runtime defect RMT 进一步显示：channel-standardized 后，Q/C/forecast 的 rank-16 只解释 `11.37%–14.38%` 协方差能量，跨 run top-16 subspace overlap 仅 `0.220–0.356`，远低于预设 `0.8` gate。raw-centered 的 forecast rank-16 可达 `75%–81%`，但主要由 channel-scale outlier 主导，标准化后立即消失，不能据此部署统一低秩补偿。
 
 ### 3.3 step 轴
 
@@ -221,6 +232,15 @@ S_{\mathrm{Picard}}\leq
 
 因此本项目对 speculative 的第一项实验不是端到端实现，而是 H200 target batch verification probe：先测 batch 1/2/4 的 attention、QKV、FFN latency，再以相同初始 latent 和 timestep 测完整 30-block Wan denoiser。只有完整模型 batch-2 成本显著小于 2 倍、stochastic sampler 被明确接受、且离线 acceptance 足够高，才进入完整 sampler。
 
+本轮完整模型结果已经完成这个 gate：
+
+| case | batch 1 (ms) | batch 2 ratio | batch 4 ratio | 100% acceptance、零 draft cost 的最好上界 |
+|---|---:|---:|---:|---:|
+| F17 | 133.058 | 1.952x | 3.820x | 1.047x |
+| F81 | 813.575 | 1.990x | 4.058x | 1.005x（batch 2），0.986x（batch 4） |
+
+最后一列已经是假设所有 draft 都接受且 draft 免费的不可实现乐观上界；任何拒绝、draft 模型和 residual sampling 都只会继续降低收益。因此当前配置不再实现完整 speculative sampler。若未来切换到 50–1000 step stochastic sampler、更多 GPU 或明显更小的 draft model，应重新运行同一 gate，而不是外推本结论。
+
 ## 7. 从 LLM 压缩路线得到的正确迁移
 
 LLM 压缩真正成功的路线不是只看权重谱，而是逐步转向：
@@ -249,6 +269,7 @@ DiT 应做对应但不同的迁移：
 - 指标：E2E、denoiser、通信比例、peak memory、逐帧 SSIM/PSNR、exact pixel fraction。
 - 数值等价先看 final latent max-abs、relative L2 和 exact fraction，再看有损编码视频；没有 latent 证据时不得声明同轨迹精确。
 - Go：paired SSIM >= 0.999 且 F17 >= 1.45x；若 <1.30x，优先查通信/模型副本/同步，不进入更多近似实验。
+- **结果：通过。** 两次 F17 平均 `1.7743x`，latent 与像素逐值一致；下一步扩展 F81、多 prompt、多 seed，并测跨卡通信占比。
 
 ### E1：speculative batch economics
 
@@ -257,6 +278,7 @@ DiT 应做对应但不同的迁移：
 - 计算 verification ratio \(r_b=T_{batch=b}/T_{batch=1}\)。
 - 用 acceptance \(p\) 的离线曲线计算收益边界，并计入 draft cost。
 - No-go：deterministic same-seed 路线直接停止；若 stochastic target-law 路线的完整模型 \(r_2\geq1.8\)，在两卡 CFG 可用时停止完整 speculative sampler；若 \(r_2<1.4\)，再做 latent forecast acceptance probe。
+- **结果：no-go。** F17/F81 完整模型 \(r_2=1.952/1.990\)，且 F81 batch-4 已慢于严格线性基准。
 
 ### E2：F81 sparse-high-rank attention
 
@@ -272,6 +294,7 @@ DiT 应做对应但不同的迁移：
 - 比较 raw、centered、whitened defect ESD；bootstrap MP edge 和 eigenvector stability。
 - 同时测 rank energy 与 trajectory-weighted energy，不只测 Frobenius energy。
 - No-go：rank-16 trajectory-weighted energy <80% 或 subspace stability <0.8 时，不做 low-rank correction。
+- **结果：统一 correction no-go。** 当前标准化 rank-16 energy 和稳定性均远低于 gate；仅允许后续按 layer × step bucket 重新筛选极少数局部 spike，并要求融合进主 kernel。
 
 ### E4：forecast/Hermite 仅作严格 gate 复验
 
@@ -306,19 +329,17 @@ DiT 应做对应但不同的迁移：
 - speculative acceptance/cost 与 Picard device/window 理论边界；
 - RMT spike 与真实 activation rescue 的功能对照；
 - H200 attention/QKV/FFN microbenchmark 与完整 30-block Wan target-batch benchmark；
-- 真实 activation defect 的 MP/null/stability probe 及独立 dashboard 脚本；
-- 双 H200 exact CFG generation、配对视频汇总和安全 runner。
+- 真实 activation defect 的 MP/null/stability probe 及独立 dashboard；
+- 双 H200 CFG 1-step smoke；
+- F17 20-step sequential/CFG-parallel 交替双重复及 latent/video 严格配对。
 
-待 H200 空闲后自动执行顺序：
+下一轮只保留三项：
 
-1. F17/F81 attention/QKV/FFN microbenchmark；
-2. F17/F81 完整 Wan target-batch benchmark；
-3. 真实 quantization/cache defect RMT probe；
-4. dual-H200 CFG 1-step smoke；
-5. F17 20-step sequential vs CFG-parallel paired run；
-6. 通过后扩展 F81 和更多 prompt/seed。
+1. 把精确 CFG 扩展到 F81、至少 4 prompts × 2 seeds；
+2. 对 F81 做 head-aware sparse-high-rank attention oracle 和 fused kernel；
+3. 对 F17 做 exact cross-attention K/V cache、whole-block compile/graph/fusion。
 
-当前 H200 2/3 被其他独立训练作业持续占用，不能用竞争状态下的数据作为论文时延。runner 会要求连续多个轮询无 compute process 后再开始。
+runner 后续应在每个正式时延阶段前重新执行空闲门控，避免长流程中途有外部作业插入。本轮正式数据在外部全 GPU 作业启动前已经完成；原始 manifest 记录了设备、版本、参数与完成时间。
 
 ## 10. 最终路线判断
 
@@ -329,7 +350,7 @@ DiT 应做对应但不同的迁移：
 3. **时变低精度**：timestep/channel grouped FP8/W8A8，且必须融合。
 4. **轨迹预测**：sample-adaptive forecast，仅在 strict oracle 证明后保留。
 5. **低秩**：只保留为 attention marginal tail 或显著 RMT defect spike correction。
-6. **speculative/Picard**：多 GPU、多 step 情景有潜力；当前 2-H200、20-step 不是主线。
+6. **speculative/Picard**：当前 2-H200、20-step 已由完整模型 batch probe 判定 no-go；只在更多 step/GPU 的 stochastic 场景重开。
 7. **BCM/FFT/静态 FFN 稀疏**：除非出现稳定几何频谱优势并有融合 kernel，否则停止。
 
 这也解释了当前加速比“异常低”的根因：此前主要优化的是 F17 中占比不高的 GEMM/attention 子项，并额外引入了 unfused residual、动态 scale 和 kernel launch；数学 FLOP 减少没有落到 dominant kernel，也没有减少 HBM traffic。F81 attention 与双分支 CFG 才是能够形成明显端到端收益的主矛盾。

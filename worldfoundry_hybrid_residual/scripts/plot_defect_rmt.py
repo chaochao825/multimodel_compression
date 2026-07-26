@@ -14,6 +14,18 @@ import pandas as pd
 COLORS = ("#16697a", "#d08c32", "#4f772d", "#b33a3a", "#64727d")
 
 
+def short_series(operator: str, normalization: str) -> str:
+    operator_label = {
+        "C": "C",
+        "C_FORECAST_0.5": "F0.50",
+        "C_FORECAST_0.75": "F0.75",
+        "C_FORECAST_1": "F1.00",
+        "Q": "Q",
+    }.get(operator, operator)
+    normalization_label = "std" if normalization == "channel_standardized" else "raw"
+    return f"{operator_label} {normalization_label}"
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--summary", type=Path, required=True)
@@ -35,7 +47,14 @@ def main() -> None:
     if summary.empty or eigenvalues.empty:
         raise ValueError("RMT inputs contain no all_blocks rows")
 
-    summary["series"] = summary["operator"] + " / " + summary["normalization"]
+    summary["series"] = [
+        short_series(operator, normalization)
+        for operator, normalization in zip(summary["operator"], summary["normalization"])
+    ]
+    operator_colors = {
+        operator: COLORS[index % len(COLORS)]
+        for index, operator in enumerate(sorted(summary["operator"].unique()))
+    }
     eigenvalues = eigenvalues.merge(
         summary[["operator", "normalization", "series", "spike_threshold"]],
         on=["operator", "normalization"],
@@ -62,14 +81,16 @@ def main() -> None:
             "grid.alpha": 0.25,
         }
     )
-    fig, axes = plt.subplots(2, 2, figsize=(12.2, 8.2), constrained_layout=True)
+    fig, axes = plt.subplots(2, 2, figsize=(13.4, 8.8), constrained_layout=True)
 
     for index, (series, frame) in enumerate(eigenvalues.groupby("series", sort=True)):
-        color = COLORS[index % len(COLORS)]
+        operator = str(frame["operator"].iloc[0])
+        normalization = str(frame["normalization"].iloc[0])
         axes[0, 0].plot(
             frame["index"],
             frame["eigenvalue_over_threshold"],
-            color=color,
+            color=operator_colors[operator],
+            linestyle="--" if normalization == "channel_standardized" else "-",
             linewidth=1.8,
             label=series,
         )
@@ -78,19 +99,19 @@ def main() -> None:
     axes[0, 0].set_xlabel("Eigenvalue rank")
     axes[0, 0].set_ylabel("Eigenvalue / spike threshold")
     axes[0, 0].set_title("A  Runtime-defect eigenspectrum")
-    axes[0, 0].legend(frameon=False, fontsize=7)
+    axes[0, 0].legend(frameon=False, fontsize=7, ncol=2)
 
     positions = np.arange(len(summary))
-    labels = summary["series"].str.replace("channel_standardized", "standardized")
+    labels = summary["series"]
     axes[0, 1].bar(
         positions,
         summary["spike_energy_ratio"],
-        color=[COLORS[index % len(COLORS)] for index in positions],
+        color=[operator_colors[operator] for operator in summary["operator"]],
     )
     axes[0, 1].set_xticks(positions, labels, rotation=24, ha="right")
     axes[0, 1].set_ylim(0.0, 1.0)
-    axes[0, 1].set_ylabel("Energy above MP/null threshold")
-    axes[0, 1].set_title("B  Statistically coherent energy")
+    axes[0, 1].set_ylabel("Energy above conservative edge")
+    axes[0, 1].set_title("B  Candidate energy above MP/null edge")
 
     width = 0.24
     for offset, rank in enumerate((8, 16, 32)):
@@ -107,22 +128,17 @@ def main() -> None:
     axes[1, 0].set_title("C  Low-rank energy is necessary, not sufficient")
     axes[1, 0].legend(frameon=False)
 
-    marker_sizes = 35.0 + 8.0 * summary["spike_count"].clip(lower=0)
-    axes[1, 1].scatter(
-        summary["spike_energy_ratio"],
-        summary["subspace_overlap_mean"],
-        s=marker_sizes,
-        c=[COLORS[index % len(COLORS)] for index in positions],
-        edgecolor="white",
-        linewidth=0.8,
-    )
+    marker_sizes = 35.0 + 1.8 * summary["spike_count"].clip(lower=0)
     for index, (_, row) in enumerate(summary.iterrows()):
-        axes[1, 1].annotate(
-            str(row["series"]).replace("channel_standardized", "std"),
-            (row["spike_energy_ratio"], row["subspace_overlap_mean"]),
-            xytext=(5, 5 + 10 * (index % 3)),
-            textcoords="offset points",
-            fontsize=7,
+        axes[1, 1].scatter(
+            row["spike_energy_ratio"],
+            row["subspace_overlap_mean"],
+            s=marker_sizes.iloc[index],
+            color=operator_colors[str(row["operator"])],
+            marker="s" if row["normalization"] == "channel_standardized" else "o",
+            edgecolor="white",
+            linewidth=0.8,
+            label=row["series"],
         )
     axes[1, 1].axhline(0.8, color="#17222b", linestyle="--", linewidth=1.1)
     axes[1, 1].set_xlim(0.0, 1.0)
@@ -130,6 +146,7 @@ def main() -> None:
     axes[1, 1].set_xlabel("Spike energy ratio")
     axes[1, 1].set_ylabel("Cross-run top-r subspace overlap")
     axes[1, 1].set_title("D  Stability gate for fused correction")
+    axes[1, 1].legend(frameon=False, fontsize=7, ncol=2, loc="upper right")
 
     fig.suptitle(
         "Wan activation-defect RMT probe: significance, compressibility, stability",

@@ -60,6 +60,8 @@ CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   --repetitions 12 \
   2>&1 | tee "$OUT/logs/speculative_batch.log"
 
+wait_for_idle_pair
+
 CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   "$PROBE_ROOT/scripts/benchmark_wan_target_batch.py" \
   --wan-source "$WAN_SOURCE" \
@@ -73,6 +75,8 @@ CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   --repetitions 4 \
   2>&1 | tee "$OUT/logs/full_model_batch.log"
 
+wait_for_idle_pair
+
 CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   "$PROBE_ROOT/scripts/probe_defect_rmt.py" \
   --samples \
@@ -83,6 +87,8 @@ CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   --null-repeats 4 \
   --stability-rank 16 \
   2>&1 | tee "$OUT/logs/defect_rmt.log"
+
+wait_for_idle_pair
 
 CUDA_VISIBLE_DEVICES="$GPU_PAIR" "$PY" -m torch.distributed.run \
   --standalone --nproc-per-node=2 \
@@ -96,6 +102,8 @@ CUDA_VISIBLE_DEVICES="$GPU_PAIR" "$PY" -m torch.distributed.run \
   --warmup-steps 1 \
   --repeats 1 \
   2>&1 | tee "$OUT/logs/cfg_smoke.log"
+
+wait_for_idle_pair
 
 CUDA_VISIBLE_DEVICES="$GPU_PAIR" "$PY" -m torch.distributed.run \
   --standalone --nproc-per-node=2 \

@@ -9,6 +9,7 @@ step reduction, and parallel-in-time methods.  This prevents a distributional
 from __future__ import annotations
 
 import argparse
+import json
 import math
 from pathlib import Path
 
@@ -41,7 +42,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--verification-benchmark",
         type=Path,
-        help="Optional H200 batch-verification CSV produced by benchmark_h200_speculative_batch.py.",
+        help="Optional full-Wan H200 batch-verification CSV produced by benchmark_wan_target_batch.py.",
+    )
+    parser.add_argument(
+        "--cfg-summary",
+        type=Path,
+        help="Optional paired CFG summary JSON produced by summarize_cfg_parallel.py.",
     )
     return parser.parse_args()
 
@@ -407,6 +413,16 @@ def plot_dashboard(
         linewidth=2.2,
     )
     axes[0, 1].axhline(1.0, color=COLORS["ink"], linewidth=0.9)
+    if "measured_f17_speedup" in cfg and cfg["measured_f17_speedup"].notna().any():
+        measured = float(cfg["measured_f17_speedup"].dropna().iloc[0])
+        axes[0, 1].axhline(
+            measured,
+            color=COLORS["red"],
+            linestyle="--",
+            linewidth=1.5,
+            label=f"measured F17: {measured:.3f}x",
+        )
+        axes[0, 1].legend(frameon=False, fontsize=8)
     axes[0, 1].set_title("B  Exact CFG optimistic envelope", loc="left", fontweight="bold")
     axes[0, 1].set_xlabel("communication cost / sequential step (%)")
     axes[0, 1].set_ylabel("predicted end-to-end speedup")
@@ -426,10 +442,10 @@ def plot_dashboard(
     nfe.to_csv(output_dir / "panel_c_nfe_quality.csv", index=False)
 
     speculative = frontier["speculative"]
-    for block, group in speculative.groupby("block"):
+    for (case, block), group in speculative.groupby(["case", "block"]):
         axes[1, 0].plot(
             group["accept_probability"], group["speedup_upper_bound"],
-            label=f"draft block {block}", linewidth=2,
+            label=f"{case}, draft block {block}", linewidth=2,
         )
     axes[1, 0].axhline(1.0, color=COLORS["ink"], linewidth=0.9)
     axes[1, 0].set_title("D  Speculation needs sublinear verification", loc="left", fontweight="bold")
@@ -556,6 +572,16 @@ def main() -> None:
     if args.verification_benchmark is not None and args.verification_benchmark.exists():
         verification = pd.read_csv(args.verification_benchmark)
     frontier = build_frontier(data, verification)
+    if args.cfg_summary is not None and args.cfg_summary.exists():
+        summary = json.loads(args.cfg_summary.read_text(encoding="utf-8"))
+        frontier["cfg"]["measured_f17_speedup"] = float(summary["speedup_mean"])
+        frontier["cfg"]["measured_f17_pairs"] = int(summary["pairs"])
+        frontier["cfg"]["measured_f17_latent_relative_l2_max"] = float(
+            summary["latent_relative_l2_max"]
+        )
+        frontier["cfg"]["measured_f17_frame_ssim_min"] = float(
+            summary["frame_ssim_min"]
+        )
     for name, frame in frontier.items():
         frame.to_csv(args.output_dir / f"{name}.csv", index=False, lineterminator="\n")
     plot_dashboard(data, frontier, args.output_dir)

@@ -1,0 +1,14 @@
+{
+  "exact_pixel_fraction_mean": 1.0,
+  "frame_ssim_mean": 1.0,
+  "frame_ssim_min": 1.0,
+  "interpretation": "The implementation is model-exact by construction only if the paired final-latent metrics confirm numerical equivalence.",
+  "latent_exact_fraction_mean": 1.0,
+  "latent_max_abs_max": 0.0,
+  "latent_relative_l2_max": 0.0,
+  "pairs": 2,
+  "pixel_max_abs_max": 0.0,
+  "speedup_max": 1.7870290461829506,
+  "speedup_mean": 1.774305810498019,
+  "speedup_min": 1.7615825748130873
+}
