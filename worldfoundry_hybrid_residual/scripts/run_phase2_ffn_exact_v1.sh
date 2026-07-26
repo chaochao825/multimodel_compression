@@ -8,6 +8,7 @@ WAN_SOURCE="${WAN_SOURCE:-$BASE_ROOT/wan_runtime/MonarchRT}"
 CHECKPOINT="${CHECKPOINT:-$WAN_SOURCE/wan_models/Wan2.1-T2V-1.3B}"
 OUT="${OUT:-$PROBE_ROOT/results/ffn_exact_h200_v1}"
 GPU="${GPU:-2}"
+GPU_CANDIDATES="${GPU_CANDIDATES:-2,3}"
 LOCK_PATH="${LOCK_PATH:-/tmp/codex_phase2_strict_h200_v1.lock}"
 WAIT_FOR_IDLE="${WAIT_FOR_IDLE:-1}"
 IDLE_POLLS="${IDLE_POLLS:-3}"
@@ -18,8 +19,9 @@ COMPILE_MODES="${COMPILE_MODES:-default,reduce-overhead,max-autotune}"
 mkdir -p "$OUT/logs"
 
 gpu_process_count() {
+  local gpu="${1:-$GPU}"
   nvidia-smi --query-compute-apps=gpu_uuid --format=csv,noheader \
-    --id="$GPU" 2>/dev/null | sed '/^[[:space:]]*$/d' | wc -l
+    --id="$gpu" 2>/dev/null | sed '/^[[:space:]]*$/d' | wc -l
 }
 
 wait_for_idle_gpu() {
@@ -40,6 +42,57 @@ wait_for_idle_gpu() {
     if (( consecutive < IDLE_POLLS )); then
       sleep "$POLL_SECONDS"
     fi
+  done
+}
+
+select_gpu() {
+  if [[ "$GPU" != "auto" ]]; then
+    wait_for_idle_gpu
+    return
+  fi
+
+  local candidates=()
+  IFS=',' read -r -a candidates <<< "$GPU_CANDIDATES"
+  if (( ${#candidates[@]} == 0 )); then
+    printf '[ffn-exact] GPU_CANDIDATES must not be empty\n' >&2
+    return 2
+  fi
+  local candidate
+  for candidate in "${candidates[@]}"; do
+    candidate="${candidate//[[:space:]]/}"
+    if [[ ! "$candidate" =~ ^[0-9]+$ ]]; then
+      printf '[ffn-exact] invalid GPU candidate: %s\n' "$candidate" >&2
+      return 2
+    fi
+  done
+  if [[ "$WAIT_FOR_IDLE" != "1" ]]; then
+    GPU="${candidates[0]//[[:space:]]/}"
+    printf '[ffn-exact] selected GPU %s without idle wait\n' "$GPU"
+    return
+  fi
+
+  declare -A idle_counts=()
+  while true; do
+    for candidate in "${candidates[@]}"; do
+      candidate="${candidate//[[:space:]]/}"
+      local count
+      count="$(gpu_process_count "$candidate")"
+      if [[ "$count" == "0" ]]; then
+        idle_counts[$candidate]=$(( ${idle_counts[$candidate]:-0} + 1 ))
+        printf '[ffn-exact] GPU %s idle poll %d/%d\n' \
+          "$candidate" "${idle_counts[$candidate]}" "$IDLE_POLLS"
+        if (( idle_counts[$candidate] >= IDLE_POLLS )); then
+          GPU="$candidate"
+          printf '[ffn-exact] selected first-idle GPU %s\n' "$GPU"
+          return
+        fi
+      else
+        idle_counts[$candidate]=0
+        printf '[ffn-exact] waiting: %s compute processes still use GPU %s\n' \
+          "$count" "$candidate"
+      fi
+    done
+    sleep "$POLL_SECONDS"
   done
 }
 
@@ -97,7 +150,7 @@ exec 9>"$LOCK_PATH"
 printf '[ffn-exact] waiting for lock %s\n' "$LOCK_PATH"
 flock 9
 printf '[ffn-exact] acquired lock %s\n' "$LOCK_PATH"
-wait_for_idle_gpu
+select_gpu
 
 STOP_FILE="$OUT/logs/gpu-monitor-stop.$BASHPID.$RANDOM"
 RUN_ID="$(date +%s)"
