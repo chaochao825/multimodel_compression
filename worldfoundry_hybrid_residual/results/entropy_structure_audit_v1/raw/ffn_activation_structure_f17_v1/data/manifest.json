@@ -1,0 +1,89 @@
+{
+  "arguments": {
+    "blocks": "0,12,24,29",
+    "branches": "0,1",
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "device": "cuda:0",
+    "frame_num": 17,
+    "grid_height": 30,
+    "grid_width": 52,
+    "guide_scale": 5.0,
+    "height": 480,
+    "max_prompts": 1,
+    "negative_prompt": "",
+    "out_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_activation_structure_f17_v1/data",
+    "prompt_file": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/scripts/prompts_pilot8.txt",
+    "sample_rows": 16,
+    "sample_solver": "unipc",
+    "sampling_steps": 20,
+    "seed": 20260726,
+    "seeds": "20260723,20260724",
+    "shift": 5.0,
+    "spectral_channels": 32,
+    "spectral_density": 0.125,
+    "spectral_steps": "0,5,10,15,19",
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT",
+    "width": 832
+  },
+  "blocks": [
+    0,
+    12,
+    24,
+    29
+  ],
+  "branches": [
+    0,
+    1
+  ],
+  "compute_capability": [
+    9,
+    0
+  ],
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA H200 NVL",
+  "grid_compatibility_installed": true,
+  "load_seconds": 87.37634438602254,
+  "platform": "Linux-5.4.0-42-generic-x86_64-with-glibc2.31",
+  "prompts": [
+    "A red panda runs through a bamboo forest while the camera tracks smoothly."
+  ],
+  "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+  "records": 960,
+  "runs": [
+    {
+      "activation_records_total": 480,
+      "cross_attention_calls": 1200,
+      "prompt_index": 0,
+      "run_id": "p00_seed20260723",
+      "seconds": 17.218125830986537,
+      "seed": 20260723,
+      "self_attention_calls": 1200,
+      "spectrum_records_total": 240
+    },
+    {
+      "activation_records_total": 960,
+      "cross_attention_calls": 1200,
+      "prompt_index": 0,
+      "run_id": "p00_seed20260724",
+      "seconds": 6.846835792006459,
+      "seed": 20260724,
+      "self_attention_calls": 1200,
+      "spectrum_records_total": 480
+    }
+  ],
+  "scope": "exact dense F17 FFN activation structure and calibration probe",
+  "seeds": [
+    20260723,
+    20260724
+  ],
+  "spectral_steps": [
+    0,
+    5,
+    10,
+    15,
+    19
+  ],
+  "spectrum_records": 480,
+  "torch": "2.9.1+cu128",
+  "warning": "sampled-row quantization and sampled-channel spectra are proxies, not rollout perturbations"
+}

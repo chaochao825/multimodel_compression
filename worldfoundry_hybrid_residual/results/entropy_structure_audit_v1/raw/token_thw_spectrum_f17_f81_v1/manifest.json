@@ -1,0 +1,95 @@
+{
+  "arguments": {
+    "channel_samples": 64,
+    "densities": [
+      0.015625,
+      0.0625,
+      0.125,
+      0.25
+    ],
+    "device": "cuda:0",
+    "grid_height": 30,
+    "grid_width": 52,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/token_thw_spectrum_f17_f81_v1",
+    "replay": [
+      "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+      "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt"
+    ],
+    "seed": 20260726
+  },
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "elapsed_seconds": 1.0463485717773438,
+  "geometry_rows": 54,
+  "methodology": {
+    "centering": "raw and per-channel THW-mean removed",
+    "channel_sampling": "evenly spaced flattened head channels",
+    "controls": "token shuffle, frame shuffle, spatial shuffle, matched Gaussian",
+    "frequency_axis": "true Wan latent patch grid T x H x W",
+    "lowpass": "shared isotropic radius mask with complete radius ties",
+    "warning": "frequency energy is a representation probe, not an FFT-kernel speedup"
+  },
+  "python": "3.11.15",
+  "replays": [
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "f17_l0_t1000",
+      "dtype": "torch.bfloat16",
+      "frame_num": 17,
+      "k_shape": [
+        1,
+        7800,
+        12,
+        128
+      ],
+      "layer": 0,
+      "path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+      "q_shape": [
+        1,
+        7800,
+        12,
+        128
+      ],
+      "timestep": 1000,
+      "token_count": 7800,
+      "v_shape": [
+        1,
+        7800,
+        12,
+        128
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "f81_l0_t1000",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt",
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "timestep": 1000,
+      "token_count": 32760,
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ]
+    }
+  ],
+  "spectral_rows": 240,
+  "torch": "2.9.1+cu128"
+}

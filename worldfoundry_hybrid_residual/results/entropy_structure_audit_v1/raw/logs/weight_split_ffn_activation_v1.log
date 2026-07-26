@@ -1,0 +1,9 @@
+[activation-split] blocks.0.ffn.0.weight
+[activation-split] blocks.0.ffn.2.weight
+[activation-split] blocks.12.ffn.0.weight
+[activation-split] blocks.12.ffn.2.weight
+[activation-split] blocks.24.ffn.0.weight
+[activation-split] blocks.24.ffn.2.weight
+[activation-split] blocks.29.ffn.0.weight
+[activation-split] blocks.29.ffn.2.weight
+[activation-split] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/weight_split_ffn_activation_v1

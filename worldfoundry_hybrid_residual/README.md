@@ -82,6 +82,26 @@ a standalone post-GEMM Triton bias/GELU kernel is not sufficient. See
 [`results/ffn_attention_audit_v1/FFN_ATTENTION_AUDIT_20260726.zh-CN.md`](results/ffn_attention_audit_v1/FFN_ATTENTION_AUDIT_20260726.zh-CN.md)
 and its source-bound dashboard and CSV evidence.
 
+## Function-Aware Entropy And THW Structure Audit
+
+The follow-up separates parameter entropy, activation structure, and operator
+fidelity instead of treating hidden-channel FFT failure as evidence that Wan is
+incompressible. Six Wan FFN matrices have 124-153 eigenvalues above the
+Marchenko-Pastur upper edge, while entry-shuffled and matched-Gaussian controls
+have none. These spectral outliers are functionally relevant on held-out FFN
+activations, but a BF16 rank-16 tail only reduces group-INT4 local output error
+from `7.533%` to `6.891%`, so it does not make training-free INT4 a main path.
+
+The correct geometric axis is the video token grid. At 12.5% true THW
+low-frequency density, F81 Q/K retain `91.94%/94.59%` centered energy, but K
+low-pass still produces `44.77%` attention-output relative error. Q low-pass
+reaches `85.77%` exact top-128 recall and is retained only as a coarse-router
+feature. An eager H200 cost gate rejects online FFT: F81 Q/QK round trips cost
+`20.97%/41.86%` of FA3 BF16 attention, while spatial pool2 feature extraction
+costs only `0.76%/1.42%` before routing. See
+[`results/entropy_structure_audit_v1/ENTROPY_STRUCTURE_AUDIT_20260726.zh-CN.md`](results/entropy_structure_audit_v1/ENTROPY_STRUCTURE_AUDIT_20260726.zh-CN.md)
+and its nine-panel source-bound dashboard.
+
 ## Layout
 
 - `scripts/worldfoundry_hybrid_residual.py`: switchable dense/FP8/hybrid linear.
@@ -91,6 +111,12 @@ and its source-bound dashboard and CSV evidence.
 - `scripts/probe_ffn_spectral.py`: Wan/Llama FFN spectral and circulant controls.
 - `scripts/benchmark_h200_ffn_transforms.py`: H200 FFT and pointwise fusion probes.
 - `scripts/probe_attention_block_tail_oracle.py`: F81 token-to-tile tail oracle.
+- `scripts/probe_token_thw_spectrum.py`: true T x H x W activation spectra and controls.
+- `scripts/probe_spectral_qk_router.py`: sampled-query softmax and support-recall gate.
+- `scripts/probe_weight_mp_outliers.py`: MP bulk/spike and mixed-bit controls.
+- `scripts/probe_wan_ffn_activation_structure.py`: cross-step/CFG FFN recorder.
+- `scripts/analyze_ffn_activation_quantization.py`: held-out activation quantization audit.
+- `scripts/plot_entropy_structure_audit.py`: source-bound nine-panel dashboard.
 - `scripts/plot_ffn_attention_audit.py`: source-bound decision dashboard.
 - `scripts/search_tri_mode_oracle.py`: measured-cost conservative schedule search.
 - `scripts/generate_wan_hybrid_residual.py`: paired Wan generation runner.
@@ -103,6 +129,7 @@ and its source-bound dashboard and CSV evidence.
 - `results/h200_live/figures/`: publication PNG/PDF plus source-bound CSV files.
 - `results/tri_mode_oracle_v1/`: compact tri-mode report, CSV evidence, and figures.
 - `results/ffn_attention_audit_v1/`: FFN/attention audit, raw CSVs, and dashboard.
+- `results/entropy_structure_audit_v1/`: THW, MP, activation, function, and H200 audit.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -119,6 +146,9 @@ python figures/worldfoundry_hybrid_results_plot.py
 python scripts/plot_tri_mode_evidence_dashboard.py \
   --results-root results/tri_mode_oracle_v1 \
   --out-dir results/tri_mode_oracle_v1
+python scripts/plot_entropy_structure_audit.py \
+  --raw-dir results/entropy_structure_audit_v1/raw \
+  --output-dir results/entropy_structure_audit_v1/figures
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the

@@ -1,0 +1,11 @@
+[thw-bench] case=f17_l0_t1000 operation=fa3_bf16_attention
+[thw-bench] case=f17_l0_t1000 operation=q_thw_lowpass_roundtrip_fp32
+[thw-bench] case=f17_l0_t1000 operation=qk_thw_lowpass_roundtrip_fp32
+[thw-bench] case=f17_l0_t1000 operation=q_spatial_pool2_bf16
+[thw-bench] case=f17_l0_t1000 operation=qk_spatial_pool2_bf16
+[thw-bench] case=f81_l0_t1000 operation=fa3_bf16_attention
+[thw-bench] case=f81_l0_t1000 operation=q_thw_lowpass_roundtrip_fp32
+[thw-bench] case=f81_l0_t1000 operation=qk_thw_lowpass_roundtrip_fp32
+[thw-bench] case=f81_l0_t1000 operation=q_spatial_pool2_bf16
+[thw-bench] case=f81_l0_t1000 operation=qk_spatial_pool2_bf16
+[thw-bench] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/h200_thw_router_f17_f81_v1

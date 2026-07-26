@@ -1,0 +1,44 @@
+{
+  "arguments": {
+    "bucket_size": 5,
+    "device": "cuda:0",
+    "group_size": 128,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_activation_structure_f17_v1/analysis",
+    "samples": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_activation_structure_f17_v1/data/ffn_activation_samples.pt",
+    "scale_margins": [
+      1.0,
+      1.05,
+      1.1,
+      1.25
+    ]
+  },
+  "calibration_records": 480,
+  "calibration_run": "p00_seed20260723",
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "elapsed_seconds": 14.174428701400757,
+  "evaluation_records": 480,
+  "evaluation_runs": [
+    "p00_seed20260724"
+  ],
+  "methodology": {
+    "dynamic_upper_bounds": [
+      "tensor_dynamic",
+      "token_dynamic",
+      "token_group128_dynamic"
+    ],
+    "fixed_scales": [
+      "tensor_global",
+      "tensor_bucket",
+      "tensor_step",
+      "tensor_branch_bucket",
+      "channel_global",
+      "channel_bucket"
+    ],
+    "split": "first lexicographic run calibrates scales; remaining runs are held out",
+    "warning": "sampled activation rows; local error is not end-to-end video quality"
+  },
+  "python": "3.11.15",
+  "records_total": 960,
+  "torch": "2.9.1+cu128"
+}

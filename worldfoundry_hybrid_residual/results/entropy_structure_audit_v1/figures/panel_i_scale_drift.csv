@@ -1,0 +1,13 @@
+block,signal,max_abs_scale_drift
+0,ffn_hidden_post_gelu,1.291044776119403
+0,ffn_input,1.3656387665198237
+0,ffn_output,2.7846153846153845
+12,ffn_hidden_post_gelu,1.7235023041474655
+12,ffn_input,1.1896551724137931
+12,ffn_output,1.6933333333333334
+24,ffn_hidden_post_gelu,3.689922480620155
+24,ffn_input,1.265625
+24,ffn_output,2.453781512605042
+29,ffn_hidden_post_gelu,1.46524064171123
+29,ffn_input,1.9357429718875503
+29,ffn_output,2.9401709401709404

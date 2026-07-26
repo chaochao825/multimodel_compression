@@ -1,0 +1,7 @@
+[thw] case=f17_l0_t1000 signal=q
+[thw] case=f17_l0_t1000 signal=k
+[thw] case=f17_l0_t1000 signal=v
+[thw] case=f81_l0_t1000 signal=q
+[thw] case=f81_l0_t1000 signal=k
+[thw] case=f81_l0_t1000 signal=v
+[thw] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/token_thw_spectrum_f17_f81_v1

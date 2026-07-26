@@ -1,0 +1,38 @@
+{
+  "arguments": {
+    "blocks": [
+      0,
+      12,
+      24,
+      29
+    ],
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+    "device": "cuda:0",
+    "evaluation_run": "p00_seed20260724",
+    "group_size": 128,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/weight_split_ffn_activation_v1",
+    "ranks": [
+      0,
+      8,
+      16,
+      32,
+      64
+    ],
+    "samples": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_activation_structure_f17_v1/data/ffn_activation_samples.pt",
+    "seed": 20260726
+  },
+  "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "elapsed_seconds": 1.1903367042541504,
+  "evaluation_run": "p00_seed20260724",
+  "methodology": {
+    "activation": "all sampled FFN rows from held-out run across 20 steps and both CFG branches",
+    "mixed_bit": "BF16 rank-r spectral or random left subspace plus row-group INT4 residual",
+    "warning": "local linear output error; no fused kernel or diffusion rollout"
+  },
+  "python": "3.11.15",
+  "rows": 80,
+  "samples": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_activation_structure_f17_v1/data/ffn_activation_samples.pt",
+  "torch": "2.9.1+cu128"
+}

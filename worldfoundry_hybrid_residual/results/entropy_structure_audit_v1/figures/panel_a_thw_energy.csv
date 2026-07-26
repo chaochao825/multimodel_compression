@@ -1,0 +1,13 @@
+resolution,signal,control,lowpass_retained_energy
+F17,k,original,0.9251869916915894
+F17,k,token_shuffled,0.1214314103126525
+F17,q,original,0.8812949657440186
+F17,q,token_shuffled,0.1251755803823471
+F17,v,original,0.1235730797052383
+F17,v,token_shuffled,0.1255411803722381
+F81,k,original,0.9459295868873596
+F81,k,token_shuffled,0.1240564286708831
+F81,q,original,0.919408917427063
+F81,q,token_shuffled,0.127137616276741
+F81,v,original,0.1255630254745483
+F81,v,token_shuffled,0.1253304928541183

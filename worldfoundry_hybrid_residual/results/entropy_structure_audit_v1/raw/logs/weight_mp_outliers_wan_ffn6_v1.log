@@ -1,0 +1,7 @@
+[mp] blocks.0.ffn.0.weight
+[mp] blocks.0.ffn.2.weight
+[mp] blocks.15.ffn.0.weight
+[mp] blocks.15.ffn.2.weight
+[mp] blocks.29.ffn.0.weight
+[mp] blocks.29.ffn.2.weight
+[mp] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/weight_mp_outliers_wan_ffn6_v1

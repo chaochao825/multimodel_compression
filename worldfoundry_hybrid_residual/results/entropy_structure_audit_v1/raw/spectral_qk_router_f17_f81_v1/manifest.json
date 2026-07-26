@@ -1,0 +1,97 @@
+{
+  "arguments": {
+    "densities": [
+      0.015625,
+      0.0625,
+      0.125,
+      0.25
+    ],
+    "device": "cuda:0",
+    "grid_height": 30,
+    "grid_width": 52,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/spectral_qk_router_f17_f81_v1",
+    "query_samples": 256,
+    "replay": [
+      "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+      "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt"
+    ],
+    "router_topk": [
+      64,
+      128,
+      256
+    ]
+  },
+  "cuda_runtime": "12.8",
+  "detail_rows": 288,
+  "device": "NVIDIA H200 NVL",
+  "elapsed_seconds": 2.1195168495178223,
+  "methodology": {
+    "attention": "dense sampled-query softmax in FP32",
+    "capture_scope": "post-RoPE Q/K passed to Wan self-attention; V is unchanged",
+    "router": "top-k selected from approximate attention, scored against exact attention",
+    "warning": "FFT reconstruction still computes dense QK and is not a deployable speedup"
+  },
+  "python": "3.11.15",
+  "replays": [
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "f17_l0_t1000",
+      "dtype": "torch.bfloat16",
+      "frame_num": 17,
+      "k_shape": [
+        1,
+        7800,
+        12,
+        128
+      ],
+      "layer": 0,
+      "path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f17_t1000_l0/f17_t1000_cond_l0_self.pt",
+      "q_shape": [
+        1,
+        7800,
+        12,
+        128
+      ],
+      "timestep": 1000,
+      "token_count": 7800,
+      "v_shape": [
+        1,
+        7800,
+        12,
+        128
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "f81_l0_t1000",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt",
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "timestep": 1000,
+      "token_count": 32760,
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ]
+    }
+  ],
+  "router_rows": 864,
+  "torch": "2.9.1+cu128"
+}

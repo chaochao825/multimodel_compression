@@ -1,0 +1,7 @@
+[quant] records=80/480
+[quant] records=160/480
+[quant] records=240/480
+[quant] records=320/480
+[quant] records=400/480
+[quant] records=480/480
+[quant] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/ffn_activation_structure_f17_v1/analysis

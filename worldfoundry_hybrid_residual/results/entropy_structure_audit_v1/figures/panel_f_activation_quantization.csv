@@ -1,0 +1,13 @@
+dtype,scheme,mean_relative_l2
+fp8_e4m3,tensor_bucket,0.02640779259769864
+fp8_e4m3,tensor_global,0.02635616950768352
+fp8_e4m3,tensor_step,0.027050050014319472
+fp8_e4m3,token_group128_dynamic,0.02367408144831031
+int4,tensor_bucket,0.5887539878487588
+int4,tensor_global,0.6347843434040745
+int4,tensor_step,0.5647630309065182
+int4,token_group128_dynamic,0.1967889243426422
+int8,tensor_bucket,0.04088449961661047
+int8,tensor_global,0.04871258065492531
+int8,tensor_step,0.03779872281787292
+int8,token_group128_dynamic,0.011149514129889774
