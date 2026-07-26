@@ -1,0 +1,88 @@
+{
+  "arguments": {
+    "capture_layers": [
+      0
+    ],
+    "capture_steps": [
+      0
+    ],
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "device": "cuda:0",
+    "frame_num": 81,
+    "guide_scale": 5.0,
+    "height": 480,
+    "max_prompts": 3,
+    "negative_prompt": "",
+    "out_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays",
+    "prompt": [],
+    "prompt_file": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/scripts/prompts_pilot8.txt",
+    "sample_plan": [
+      [
+        0,
+        20260740
+      ],
+      [
+        1,
+        20260740
+      ],
+      [
+        0,
+        20260741
+      ],
+      [
+        2,
+        20260741
+      ]
+    ],
+    "sample_solver": "unipc",
+    "sampling_steps": 20,
+    "seed": 20260740,
+    "shift": 5.0,
+    "stop_after_last_capture": true,
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT",
+    "width": 832
+  },
+  "capture_bytes": 2415355976,
+  "capture_complete": true,
+  "capture_count": 8,
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "expected_capture_count": 8,
+  "grid_compatibility_installed": true,
+  "grid_size": [
+    21,
+    30,
+    52
+  ],
+  "load_seconds": 84.62180627603084,
+  "prompts": [
+    "A red panda runs through a bamboo forest while the camera tracks smoothly.",
+    "A dancer in a flowing red dress spins in the rain on a reflective city street, cinematic slow camera orbit.",
+    "A silver sports car drifts around a mountain road at sunset, tire smoke trailing behind, smooth tracking shot."
+  ],
+  "python": "3.11.15",
+  "sample_plan": [
+    {
+      "prompt_index": 0,
+      "sample_id": "s00_p00_seed20260740",
+      "seed": 20260740
+    },
+    {
+      "prompt_index": 1,
+      "sample_id": "s01_p01_seed20260740",
+      "seed": 20260740
+    },
+    {
+      "prompt_index": 0,
+      "sample_id": "s02_p00_seed20260741",
+      "seed": 20260741
+    },
+    {
+      "prompt_index": 2,
+      "sample_id": "s03_p02_seed20260741",
+      "seed": 20260741
+    }
+  ],
+  "scope": "full post-RoPE Q/K/V from selected cells on production UniPC CFG trajectories",
+  "torch": "2.9.1+cu128"
+}

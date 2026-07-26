@@ -94,6 +94,14 @@ def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
         writer.writerows(rows)
 
 
+def json_safe_argument(value: object) -> object:
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, (list, tuple)):
+        return [json_safe_argument(item) for item in value]
+    return value
+
+
 def replay_paths_from_index(path: Path) -> list[Path]:
     with path.open(newline="", encoding="utf-8") as handle:
         rows = list(csv.DictReader(handle))
@@ -606,11 +614,7 @@ def main() -> None:
     write_csv(args.output_dir / "geometry_attention_gates.csv", gate_rows)
     manifest = {
         "arguments": {
-            key: [str(item) for item in value]
-            if key in {"replay", "replay_dir"}
-            else str(value)
-            if isinstance(value, Path)
-            else value
+            key: json_safe_argument(value)
             for key, value in vars(args).items()
         },
         "geometry_specs": [asdict(spec) for spec in DEFAULT_SPECS],

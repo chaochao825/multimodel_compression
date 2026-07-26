@@ -8,7 +8,8 @@ WAN_SOURCE="${WAN_SOURCE:-$BASE_ROOT/wan_runtime/MonarchRT}"
 CHECKPOINT="${CHECKPOINT:-$WAN_SOURCE/wan_models/Wan2.1-T2V-1.3B}"
 PROMPT_FILE="${PROMPT_FILE:-$BASE_ROOT/scripts/prompts_pilot8.txt}"
 OUT="${OUT:-$PROBE_ROOT/results/geometry_generalization_h200_v1}"
-GPU_PAIR="${GPU_PAIR:-2,3}"
+# This numerical replay capture uses one GPU and makes no latency claim.
+GPU_PAIR="${GPU_PAIR:-2}"
 IDLE_POLLS="${IDLE_POLLS:-3}"
 POLL_SECONDS="${POLL_SECONDS:-30}"
 

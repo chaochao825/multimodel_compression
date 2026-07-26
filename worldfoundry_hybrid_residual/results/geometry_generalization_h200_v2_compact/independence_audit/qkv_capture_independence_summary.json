@@ -1,0 +1,23 @@
+{
+  "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/capture_index.csv",
+  "cells": [
+    {
+      "content_independence_ratio": 0.25,
+      "layer": 0,
+      "nominal_replays": 8,
+      "nominal_test_samples": 2,
+      "sampling_step": 0,
+      "unique_qkv_content_groups": 2,
+      "unique_test_qkv_content_groups": 1
+    }
+  ],
+  "cross_split_content_independent": false,
+  "cross_split_duplicate_pairs": 4,
+  "interpretation": "Sample IDs are not independent evidence when their captured Q/K/V tensors are bit-exact. At layer 0 before cross-attention, prompt and CFG branch may be structurally unobservable.",
+  "nominal_splits": {
+    "s00_p00_seed20260740": "calibration",
+    "s01_p01_seed20260740": "validation",
+    "s02_p00_seed20260741": "test",
+    "s03_p02_seed20260741": "test"
+  }
+}

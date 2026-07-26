@@ -1,0 +1,216 @@
+{
+  "calibration_sample_id": "s00_p00_seed20260740",
+  "evaluation_cells": 36,
+  "independent_test_gate_passed": false,
+  "mask_split_results": [
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s01_p01_seed20260740",
+      "split": "validation"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_temporal_pm2",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s01_p01_seed20260740",
+      "split": "validation"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_tfull",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s01_p01_seed20260740",
+      "split": "validation"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_tfull_anchor12",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s01_p01_seed20260740",
+      "split": "validation"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s5",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s01_p01_seed20260740",
+      "split": "validation"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s5_tfull",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s01_p01_seed20260740",
+      "split": "validation"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s02_p00_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_temporal_pm2",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s02_p00_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_tfull",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s02_p00_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_tfull_anchor12",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s02_p00_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s5",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s02_p00_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s5_tfull",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s02_p00_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s03_p02_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_temporal_pm2",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s03_p02_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_tfull",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s03_p02_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s3_tfull_anchor12",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s03_p02_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s5",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s03_p02_seed20260741",
+      "split": "test"
+    },
+    {
+      "all_cells_passed": false,
+      "cells": 2,
+      "gate_pass_rate": 0.0,
+      "mask": "s5_tfull",
+      "max_dense_heads": 12,
+      "max_output_relative_l2": 0.0,
+      "mean_effective_execution_density": 1.0,
+      "sample_id": "s03_p02_seed20260741",
+      "split": "test"
+    }
+  ],
+  "policy_heads": 144,
+  "scope": "pre-output-projection energy proxy with a calibration-frozen per-cell head policy",
+  "selection_source": "validation sample only; test samples never select masks",
+  "test_results_for_validation_selected_masks": [],
+  "test_sample_ids": [
+    "s02_p00_seed20260741",
+    "s03_p02_seed20260741"
+  ],
+  "validation_go_masks": [],
+  "validation_sample_id": "s01_p01_seed20260740",
+  "warning": "this is not end-to-end quality or fused-kernel latency evidence"
+}

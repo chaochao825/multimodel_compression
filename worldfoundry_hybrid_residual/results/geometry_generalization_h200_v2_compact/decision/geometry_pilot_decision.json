@@ -1,0 +1,101 @@
+{
+  "basis_rank16": [
+    {
+      "coefficient_oracle_error_max": 0.18685689568519592,
+      "frozen_basis_energy_p05": 0.7568697854500506,
+      "mask": "s3_temporal_pm2",
+      "rank": 16,
+      "ridge_error_max": 0.2766067385673523,
+      "subspace_overlap_p05": 0.6655883193016052
+    },
+    {
+      "coefficient_oracle_error_max": 0.2309075891971588,
+      "frozen_basis_energy_p05": 0.7732952666137922,
+      "mask": "s3_tfull",
+      "rank": 16,
+      "ridge_error_max": 0.5556820631027222,
+      "subspace_overlap_p05": 0.6644972562789917
+    },
+    {
+      "coefficient_oracle_error_max": 0.2255956083536148,
+      "frozen_basis_energy_p05": 0.7706554135926067,
+      "mask": "s3_tfull_anchor12",
+      "rank": 16,
+      "ridge_error_max": 0.5562777519226074,
+      "subspace_overlap_p05": 0.6592938303947449
+    }
+  ],
+  "decision": {
+    "best_rank16_coefficient_oracle": {
+      "coefficient_oracle_error_max": 0.18685689568519592,
+      "frozen_basis_energy_p05": 0.7568697854500506,
+      "mask": "s3_temporal_pm2",
+      "rank": 16,
+      "ridge_error_max": 0.2766067385673523,
+      "subspace_overlap_p05": 0.6655883193016052
+    },
+    "best_rank16_ridge": {
+      "coefficient_oracle_error_max": 0.18685689568519592,
+      "frozen_basis_energy_p05": 0.7568697854500506,
+      "mask": "s3_temporal_pm2",
+      "rank": 16,
+      "ridge_error_max": 0.2766067385673523,
+      "subspace_overlap_p05": 0.6655883193016052
+    },
+    "cross_split_content_independent": false,
+    "nominal_replays": 8,
+    "nominal_test_samples": 2,
+    "overall_fixed_geometry_frozen_basis_go": false,
+    "rank16_coefficient_oracle_relaxed_go": false,
+    "rank16_coefficient_oracle_strict_go": false,
+    "rank16_ridge_relaxed_go": false,
+    "scope": "Layer-0 step-0 QKV has only two independent seed-defined content groups; prompt and CFG-branch transfer are not observable in this capture.",
+    "static_geometry_validation_go": false,
+    "unique_qkv_content_groups": 2,
+    "unique_test_qkv_content_groups": 1
+  },
+  "static_geometry": [
+    {
+      "all_validation_cells_have_sparse_head": false,
+      "mask": "s3",
+      "max_sparse_heads": 0,
+      "min_sparse_heads": 0,
+      "validation_cells": 2
+    },
+    {
+      "all_validation_cells_have_sparse_head": false,
+      "mask": "s3_temporal_pm2",
+      "max_sparse_heads": 0,
+      "min_sparse_heads": 0,
+      "validation_cells": 2
+    },
+    {
+      "all_validation_cells_have_sparse_head": false,
+      "mask": "s3_tfull",
+      "max_sparse_heads": 0,
+      "min_sparse_heads": 0,
+      "validation_cells": 2
+    },
+    {
+      "all_validation_cells_have_sparse_head": false,
+      "mask": "s3_tfull_anchor12",
+      "max_sparse_heads": 0,
+      "min_sparse_heads": 0,
+      "validation_cells": 2
+    },
+    {
+      "all_validation_cells_have_sparse_head": false,
+      "mask": "s5",
+      "max_sparse_heads": 0,
+      "min_sparse_heads": 0,
+      "validation_cells": 2
+    },
+    {
+      "all_validation_cells_have_sparse_head": false,
+      "mask": "s5_tfull",
+      "max_sparse_heads": 0,
+      "min_sparse_heads": 0,
+      "validation_cells": 2
+    }
+  ]
+}

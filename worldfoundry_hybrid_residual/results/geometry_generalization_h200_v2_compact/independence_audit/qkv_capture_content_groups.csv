@@ -1,0 +1,3 @@
+layer,sampling_step,content_group,replay_count,sample_count,labels,samples,branches,nominal_splits,cross_split_duplicate
+0,0,0,4,2,s00_p00_seed20260740:cond|s00_p00_seed20260740:uncond|s01_p01_seed20260740:cond|s01_p01_seed20260740:uncond,s00_p00_seed20260740|s01_p01_seed20260740,cond|uncond,calibration|validation,True
+0,0,1,4,2,s02_p00_seed20260741:cond|s02_p00_seed20260741:uncond|s03_p02_seed20260741:cond|s03_p02_seed20260741:uncond,s02_p00_seed20260741|s03_p02_seed20260741,cond|uncond,test,False

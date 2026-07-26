@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
 
 try:
     import torch
@@ -14,6 +15,7 @@ from probe_geometry_sparse_attention import (
     geometry_mask,
     grid_from_metadata,
     infer_grid,
+    json_safe_argument,
 )
 
 
@@ -48,3 +50,8 @@ def test_larger_spatial_tile_window_never_reduces_coverage() -> None:
         queries, shape, GeometrySpec("dense", 1, 0, False, 0), 2, 3
     )
     assert torch.logical_or(~sparse, dense).all()
+
+
+def test_manifest_arguments_serialize_replay_index_paths() -> None:
+    value = [Path("captures/a.csv"), Path("captures/b.csv")]
+    assert json_safe_argument(value) == ["captures/a.csv", "captures/b.csv"]

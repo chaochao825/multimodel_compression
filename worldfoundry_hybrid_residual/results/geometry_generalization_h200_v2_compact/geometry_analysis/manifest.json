@@ -1,0 +1,531 @@
+{
+  "arguments": {
+    "device": "cpu",
+    "error_targets": [
+      0.02,
+      0.05
+    ],
+    "grid_height": 30,
+    "grid_width": 52,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/geometry_analysis",
+    "query_samples": 128,
+    "replay": [],
+    "replay_dir": [],
+    "replay_index": [
+      "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/capture_index.csv"
+    ],
+    "tail_ranks": [
+      0,
+      8,
+      16
+    ],
+    "tile_height": 8,
+    "tile_width": 8
+  },
+  "cuda_runtime": "12.8",
+  "curve_rows": 1872,
+  "device": "x86_64",
+  "elapsed_seconds": 25.32667589187622,
+  "gate_rows": 288,
+  "geometry_specs": [
+    {
+      "full_temporal_tube": false,
+      "global_anchor_tiles": 0,
+      "name": "s3",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": false,
+      "global_anchor_tiles": 0,
+      "name": "s5",
+      "spatial_radius_tiles": 2,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": true,
+      "global_anchor_tiles": 0,
+      "name": "s3_tfull",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": true,
+      "global_anchor_tiles": 0,
+      "name": "s5_tfull",
+      "spatial_radius_tiles": 2,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": false,
+      "global_anchor_tiles": 0,
+      "name": "s3_temporal_pm2",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 2
+    },
+    {
+      "full_temporal_tube": true,
+      "global_anchor_tiles": 12,
+      "name": "s3_tfull_anchor12",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 0
+    }
+  ],
+  "head_rows": 576,
+  "methodology": {
+    "fallback": "highest defect-energy heads are restored to dense attention",
+    "grid_provenance": "T is derived from frame_num and Wan temporal stride 4; H/W are explicit CLI values validated against the 480x832, VAE-stride-8, patch-size-2 capture",
+    "mask": "content-independent 1x8x8 THW tile union of a spatial/temporal window, an optional all-frame same-space tube, and optional fixed global tiles",
+    "sparse_attention": "exact sampled-query softmax restricted and renormalized on the geometry mask",
+    "tail": "best rank-r SVD of the sampled pre-output-projection activation defect; its coefficients are oracle-only and are not a deployable speedup",
+    "warning": "quality metrics are local pre-o-projection replay probes, not end-to-end video evidence; actual acceleration requires a fused block-sparse kernel"
+  },
+  "python": "3.11.15",
+  "query_rows": 73728,
+  "replays": [
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "s00_p00_seed20260740_f81_l0_t999.0_cond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+      "prompt": "A red panda runs through a bamboo forest while the camera tracks smoothly.",
+      "prompt_index": 0,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s00_p00_seed20260740",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260740,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "uncond",
+      "case": "s00_p00_seed20260740_f81_l0_t999.0_uncond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_uncond_l00_self.pt",
+      "prompt": "A red panda runs through a bamboo forest while the camera tracks smoothly.",
+      "prompt_index": 0,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s00_p00_seed20260740",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260740,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "s01_p01_seed20260740_f81_l0_t999.0_cond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l00_self.pt",
+      "prompt": "A dancer in a flowing red dress spins in the rain on a reflective city street, cinematic slow camera orbit.",
+      "prompt_index": 1,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s01_p01_seed20260740",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260740,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "uncond",
+      "case": "s01_p01_seed20260740_f81_l0_t999.0_uncond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_uncond_l00_self.pt",
+      "prompt": "A dancer in a flowing red dress spins in the rain on a reflective city street, cinematic slow camera orbit.",
+      "prompt_index": 1,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s01_p01_seed20260740",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260740,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "s02_p00_seed20260741_f81_l0_t999.0_cond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+      "prompt": "A red panda runs through a bamboo forest while the camera tracks smoothly.",
+      "prompt_index": 0,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s02_p00_seed20260741",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260741,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "uncond",
+      "case": "s02_p00_seed20260741_f81_l0_t999.0_uncond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_uncond_l00_self.pt",
+      "prompt": "A red panda runs through a bamboo forest while the camera tracks smoothly.",
+      "prompt_index": 0,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s02_p00_seed20260741",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260741,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "s03_p02_seed20260741_f81_l0_t999.0_cond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s03_p02_seed20260741/s03_p02_seed20260741_step00_t999_cond_l00_self.pt",
+      "prompt": "A silver sports car drifts around a mountain road at sunset, tire smoke trailing behind, smooth tracking shot.",
+      "prompt_index": 2,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s03_p02_seed20260741",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260741,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    },
+    {
+      "attention_kind": "self",
+      "branch": "uncond",
+      "case": "s03_p02_seed20260741_f81_l0_t999.0_uncond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "grid_size": [
+        21,
+        30,
+        52
+      ],
+      "input_height": 480,
+      "input_width": 832,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "patch_size": [
+        1,
+        2,
+        2
+      ],
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s03_p02_seed20260741/s03_p02_seed20260741_step00_t999_uncond_l00_self.pt",
+      "prompt": "A silver sports car drifts around a mountain road at sunset, tire smoke trailing behind, smooth tracking shot.",
+      "prompt_index": 2,
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "sample_id": "s03_p02_seed20260741",
+      "sample_solver": "unipc",
+      "sampling_step": 0,
+      "sampling_steps": 20,
+      "seed": 20260741,
+      "timestep": 999.0,
+      "token_count": 32760,
+      "token_flatten_order": "t,h,w",
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "vae_stride": [
+        4,
+        8,
+        8
+      ]
+    }
+  ],
+  "resolved_replay_paths": [
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_uncond_l00_self.pt",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l00_self.pt",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_uncond_l00_self.pt",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_uncond_l00_self.pt",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s03_p02_seed20260741/s03_p02_seed20260741_step00_t999_cond_l00_self.pt",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s03_p02_seed20260741/s03_p02_seed20260741_step00_t999_uncond_l00_self.pt"
+  ],
+  "tail_rows": 1728,
+  "torch": "2.9.1+cu128"
+}

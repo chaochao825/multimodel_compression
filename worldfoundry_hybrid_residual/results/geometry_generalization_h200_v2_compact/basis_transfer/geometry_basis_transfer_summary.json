@@ -1,0 +1,196 @@
+{
+  "all_test_basis_energy_overlap_go": false,
+  "all_test_coefficient_oracle_relaxed_go": false,
+  "all_test_coefficient_oracle_strict_go": false,
+  "all_test_ridge_relaxed_go": false,
+  "all_test_ridge_strict_go": false,
+  "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/capture_index.csv",
+  "cells": [
+    {
+      "branch": "cond",
+      "layer": 0,
+      "sampling_step": 0
+    },
+    {
+      "branch": "uncond",
+      "layer": 0,
+      "sampling_step": 0
+    }
+  ],
+  "coefficient_oracle_warning": "D_heldout @ V_cal uses held-out dense defects to obtain coefficients and is an oracle upper bound, not a deployable correction",
+  "cuda_runtime": "12.8",
+  "device": "x86_64",
+  "elapsed_seconds": 46.64221167564392,
+  "masks": [
+    "s3_temporal_pm2",
+    "s3_tfull",
+    "s3_tfull_anchor12"
+  ],
+  "python": "3.11.15",
+  "query_samples": 128,
+  "ranks": [
+    8,
+    16
+  ],
+  "scope_warning": "sampled pre-output-projection attention replay is not end-to-end video quality or fused-kernel latency evidence",
+  "selection_contract": "basis and ridge weights use calibration only; ridge feature/lambda use validation only; test samples are evaluated exactly once and never select",
+  "splits": {
+    "calibration": [
+      "s00_p00_seed20260740"
+    ],
+    "test": [
+      "s02_p00_seed20260741",
+      "s03_p02_seed20260741"
+    ],
+    "validation": [
+      "s01_p01_seed20260740"
+    ]
+  },
+  "strict_coverage": {
+    "cells_per_sample": 2,
+    "heads_per_cell": 12,
+    "query_indices_identical_across_samples": true,
+    "samples": 4
+  },
+  "test_stop_go": [
+    {
+      "basis_energy_overlap_go": false,
+      "coefficient_oracle_error_max": 0.2529633939266205,
+      "coefficient_oracle_error_mean": 0.1231527195001642,
+      "coefficient_oracle_error_p95": 0.2529633939266205,
+      "coefficient_oracle_relaxed_5pct_go": false,
+      "coefficient_oracle_strict_2pct_go": false,
+      "evaluations": 48,
+      "frozen_basis_energy_mean": 0.7587392234590721,
+      "frozen_basis_energy_p05": 0.4844784218860443,
+      "mask": "s3_temporal_pm2",
+      "rank": 8,
+      "ridge_enabled": true,
+      "ridge_error_max": 0.3103669583797455,
+      "ridge_error_mean": 0.18937231972813606,
+      "ridge_error_p95": 0.3103669583797455,
+      "ridge_relaxed_5pct_go": false,
+      "ridge_strict_2pct_go": false,
+      "split": "test",
+      "subspace_overlap_mean": 0.6634081055720648,
+      "subspace_overlap_p05": 0.3805713653564453
+    },
+    {
+      "basis_energy_overlap_go": false,
+      "coefficient_oracle_error_max": 0.18685689568519592,
+      "coefficient_oracle_error_mean": 0.08628308726474643,
+      "coefficient_oracle_error_p95": 0.18685689568519592,
+      "coefficient_oracle_relaxed_5pct_go": false,
+      "coefficient_oracle_strict_2pct_go": false,
+      "evaluations": 48,
+      "frozen_basis_energy_mean": 0.8963526776180811,
+      "frozen_basis_energy_p05": 0.7568697854500506,
+      "mask": "s3_temporal_pm2",
+      "rank": 16,
+      "ridge_enabled": true,
+      "ridge_error_max": 0.2766067385673523,
+      "ridge_error_mean": 0.1763644473006328,
+      "ridge_error_p95": 0.2766067385673523,
+      "ridge_relaxed_5pct_go": false,
+      "ridge_strict_2pct_go": false,
+      "split": "test",
+      "subspace_overlap_mean": 0.7467437734206518,
+      "subspace_overlap_p05": 0.6655883193016052
+    },
+    {
+      "basis_energy_overlap_go": false,
+      "coefficient_oracle_error_max": 0.3465281128883362,
+      "coefficient_oracle_error_mean": 0.18917789806922278,
+      "coefficient_oracle_error_p95": 0.3465281128883362,
+      "coefficient_oracle_relaxed_5pct_go": false,
+      "coefficient_oracle_strict_2pct_go": false,
+      "evaluations": 48,
+      "frozen_basis_energy_mean": 0.761183169074362,
+      "frozen_basis_energy_p05": 0.5589448117898973,
+      "mask": "s3_tfull",
+      "rank": 8,
+      "ridge_enabled": true,
+      "ridge_error_max": 0.5485888719558716,
+      "ridge_error_mean": 0.31174655134479207,
+      "ridge_error_p95": 0.5485888719558716,
+      "ridge_relaxed_5pct_go": false,
+      "ridge_strict_2pct_go": false,
+      "split": "test",
+      "subspace_overlap_mean": 0.7110805809497833,
+      "subspace_overlap_p05": 0.6326887011528015
+    },
+    {
+      "basis_energy_overlap_go": false,
+      "coefficient_oracle_error_max": 0.2309075891971588,
+      "coefficient_oracle_error_mean": 0.13176604608694711,
+      "coefficient_oracle_error_p95": 0.2309075891971588,
+      "coefficient_oracle_relaxed_5pct_go": false,
+      "coefficient_oracle_strict_2pct_go": false,
+      "evaluations": 48,
+      "frozen_basis_energy_mean": 0.8940687491858106,
+      "frozen_basis_energy_p05": 0.7732952666137922,
+      "mask": "s3_tfull",
+      "rank": 16,
+      "ridge_enabled": true,
+      "ridge_error_max": 0.5556820631027222,
+      "ridge_error_mean": 0.30390083603560925,
+      "ridge_error_p95": 0.5556820631027222,
+      "ridge_relaxed_5pct_go": false,
+      "ridge_strict_2pct_go": false,
+      "split": "test",
+      "subspace_overlap_mean": 0.759421115120252,
+      "subspace_overlap_p05": 0.6644972562789917
+    },
+    {
+      "basis_energy_overlap_go": false,
+      "coefficient_oracle_error_max": 0.33839792013168335,
+      "coefficient_oracle_error_mean": 0.17662625014781952,
+      "coefficient_oracle_error_p95": 0.33839792013168335,
+      "coefficient_oracle_relaxed_5pct_go": false,
+      "coefficient_oracle_strict_2pct_go": false,
+      "evaluations": 48,
+      "frozen_basis_energy_mean": 0.75010683643947,
+      "frozen_basis_energy_p05": 0.5545755498810976,
+      "mask": "s3_tfull_anchor12",
+      "rank": 8,
+      "ridge_enabled": true,
+      "ridge_error_max": 0.5456750392913818,
+      "ridge_error_mean": 0.30026610133548576,
+      "ridge_error_p95": 0.5456750392913818,
+      "ridge_relaxed_5pct_go": false,
+      "ridge_strict_2pct_go": false,
+      "split": "test",
+      "subspace_overlap_mean": 0.7030895501375198,
+      "subspace_overlap_p05": 0.6119981408119202
+    },
+    {
+      "basis_energy_overlap_go": false,
+      "coefficient_oracle_error_max": 0.2255956083536148,
+      "coefficient_oracle_error_mean": 0.12179247227807839,
+      "coefficient_oracle_error_p95": 0.2255956083536148,
+      "coefficient_oracle_relaxed_5pct_go": false,
+      "coefficient_oracle_strict_2pct_go": false,
+      "evaluations": 48,
+      "frozen_basis_energy_mean": 0.8894000001082797,
+      "frozen_basis_energy_p05": 0.7706554135926067,
+      "mask": "s3_tfull_anchor12",
+      "rank": 16,
+      "ridge_enabled": true,
+      "ridge_error_max": 0.5562777519226074,
+      "ridge_error_mean": 0.2954804301261902,
+      "ridge_error_p95": 0.5562777519226074,
+      "ridge_relaxed_5pct_go": false,
+      "ridge_strict_2pct_go": false,
+      "split": "test",
+      "subspace_overlap_mean": 0.7601724117994308,
+      "subspace_overlap_p05": 0.6592938303947449
+    }
+  ],
+  "thresholds": {
+    "frozen_basis_energy_p05": 0.8,
+    "relaxed_output_relative_l2": 0.05,
+    "strict_output_relative_l2": 0.02,
+    "subspace_overlap_p05": 0.5
+  },
+  "torch": "2.9.1+cu128"
+}
