@@ -342,7 +342,8 @@ def main() -> None:
         raise FileNotFoundError(f"missing replay files: {missing[:3]}")
     args.output_dir.mkdir(parents=True, exist_ok=True)
     device = torch.device(args.device)
-    torch.cuda.set_device(device)
+    if device.type == "cuda":
+        torch.cuda.set_device(device)
     head_rows: list[dict[str, object]] = []
     query_rows: list[dict[str, object]] = []
     tail_rows: list[dict[str, object]] = []
@@ -593,7 +594,8 @@ def main() -> None:
                 flush=True,
             )
             del reference
-            torch.cuda.empty_cache()
+            if device.type == "cuda":
+                torch.cuda.empty_cache()
         del payload, q_all, k_all, v_all, masks, states
 
     write_csv(args.output_dir / "geometry_mask_catalog.csv", mask_catalog_rows)
@@ -637,7 +639,11 @@ def main() -> None:
         "python": platform.python_version(),
         "torch": torch.__version__,
         "cuda_runtime": torch.version.cuda,
-        "device": torch.cuda.get_device_name(device),
+        "device": (
+            torch.cuda.get_device_name(device)
+            if device.type == "cuda"
+            else platform.processor() or "cpu"
+        ),
         "elapsed_seconds": time.time() - started,
         "head_rows": len(head_rows),
         "query_rows": len(query_rows),

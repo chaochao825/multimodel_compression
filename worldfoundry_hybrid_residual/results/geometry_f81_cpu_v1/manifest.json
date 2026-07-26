@@ -1,0 +1,121 @@
+{
+  "arguments": {
+    "device": "cpu",
+    "error_targets": [
+      0.02,
+      0.05
+    ],
+    "grid_height": 30,
+    "grid_width": 52,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_f81_cpu_v1",
+    "query_samples": 128,
+    "replay": [
+      "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt"
+    ],
+    "replay_dir": [],
+    "replay_index": [],
+    "tail_ranks": [
+      0,
+      8,
+      16
+    ],
+    "tile_height": 8,
+    "tile_width": 8
+  },
+  "cuda_runtime": "12.8",
+  "curve_rows": 234,
+  "device": "x86_64",
+  "elapsed_seconds": 3.782348871231079,
+  "gate_rows": 36,
+  "geometry_specs": [
+    {
+      "full_temporal_tube": false,
+      "global_anchor_tiles": 0,
+      "name": "s3",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": false,
+      "global_anchor_tiles": 0,
+      "name": "s5",
+      "spatial_radius_tiles": 2,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": true,
+      "global_anchor_tiles": 0,
+      "name": "s3_tfull",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": true,
+      "global_anchor_tiles": 0,
+      "name": "s5_tfull",
+      "spatial_radius_tiles": 2,
+      "window_temporal_radius": 0
+    },
+    {
+      "full_temporal_tube": false,
+      "global_anchor_tiles": 0,
+      "name": "s3_temporal_pm2",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 2
+    },
+    {
+      "full_temporal_tube": true,
+      "global_anchor_tiles": 12,
+      "name": "s3_tfull_anchor12",
+      "spatial_radius_tiles": 1,
+      "window_temporal_radius": 0
+    }
+  ],
+  "head_rows": 72,
+  "methodology": {
+    "fallback": "highest defect-energy heads are restored to dense attention",
+    "grid_provenance": "T is derived from frame_num and Wan temporal stride 4; H/W are explicit CLI values validated against the 480x832, VAE-stride-8, patch-size-2 capture",
+    "mask": "content-independent 1x8x8 THW tile union of a spatial/temporal window, an optional all-frame same-space tube, and optional fixed global tiles",
+    "sparse_attention": "exact sampled-query softmax restricted and renormalized on the geometry mask",
+    "tail": "best rank-r SVD of the sampled pre-output-projection activation defect; its coefficients are oracle-only and are not a deployable speedup",
+    "warning": "quality metrics are local pre-o-projection replay probes, not end-to-end video evidence; actual acceleration requires a fused block-sparse kernel"
+  },
+  "python": "3.11.15",
+  "query_rows": 9216,
+  "replays": [
+    {
+      "attention_kind": "self",
+      "branch": "cond",
+      "case": "f81_l0_t1000_cond",
+      "dtype": "torch.bfloat16",
+      "frame_num": 81,
+      "k_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "layer": 0,
+      "path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt",
+      "q_shape": [
+        1,
+        32760,
+        12,
+        128
+      ],
+      "timestep": 1000,
+      "token_count": 32760,
+      "v_shape": [
+        1,
+        32760,
+        12,
+        128
+      ]
+    }
+  ],
+  "resolved_replay_paths": [
+    "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt"
+  ],
+  "tail_rows": 216,
+  "torch": "2.9.1+cu128"
+}
