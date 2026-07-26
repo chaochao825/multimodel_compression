@@ -165,6 +165,8 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `scripts/plot_defect_rmt.py`: source-bound runtime-defect eigenspectrum dashboard.
 - `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
 - `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
+- `scripts/run_phase2_head_role_factorial_v1.sh`: resumable F81 prompt/seed/step/CFG head-role capture.
+- `scripts/summarize_attention_head_factorial.py`: factor-separated router-stability gates and dashboard.
 - `scripts/run_acceleration_frontier_h200_v1.sh`: idle-gated H200 experiment sequence.
 - `scripts/plot_ffn_attention_audit.py`: source-bound decision dashboard.
 - `scripts/search_tri_mode_oracle.py`: measured-cost conservative schedule search.
