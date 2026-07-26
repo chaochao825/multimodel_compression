@@ -1,0 +1,7 @@
+[h200] rows=7800 width=1536
+[h200] rows=7800 width=8960
+[h200] rows=32760 width=1536
+[h200] rows=32760 width=8960
+[h200] Wan FFN rows=7800
+[h200] Wan FFN rows=32760
+[h200] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/h200_ffn_transform_v2

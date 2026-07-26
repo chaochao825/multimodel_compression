@@ -1,0 +1,5 @@
+finding,value,criterion,decision
+wan_fft2_lowfreq_12p5,0.12877220724933688,must materially exceed scalar density and shuffled/Gaussian controls,fail
+wan_circulant_capture,0.015814364063528482,must materially exceed 1/block_size random expectation,fail
+f17_fft_only_over_full_ffn,2.1719927812304105,must be below one before adding spectral contraction,fail
+f81_fft_only_over_full_ffn,2.024828108587954,must be below one before adding spectral contraction,fail

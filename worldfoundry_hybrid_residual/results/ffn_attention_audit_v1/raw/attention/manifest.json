@@ -1,0 +1,61 @@
+{
+  "arguments": {
+    "qkv_file": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/results/qkv_replay_f81_t1000_l0_v1/f81_t1000_cond_l0_self.pt",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_block_tail_f81_v1",
+    "device": "cuda:0",
+    "query_samples": 512,
+    "token_budgets": [
+      64,
+      128,
+      256,
+      512,
+      1024
+    ],
+    "block_sizes": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "ranks": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "seed": 20260726
+  },
+  "capture_metadata": {
+    "frame_num": 81,
+    "timestep": 1000,
+    "branch": "cond",
+    "token_count": 32760,
+    "layer": 0,
+    "attention_kind": "self",
+    "q_shape": [
+      1,
+      32760,
+      12,
+      128
+    ],
+    "k_shape": [
+      1,
+      32760,
+      12,
+      128
+    ],
+    "v_shape": [
+      1,
+      32760,
+      12,
+      128
+    ],
+    "dtype": "torch.bfloat16"
+  },
+  "python": "3.11.15",
+  "torch": "2.9.1+cu128",
+  "device": "NVIDIA H200 NVL",
+  "elapsed_seconds": 2.999126434326172,
+  "scope": "exact-mass representation oracle on sampled queries",
+  "warning": "block selection uses dense attention and is not a mask-search or fused-kernel benchmark"
+}

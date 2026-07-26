@@ -1,0 +1,16 @@
+[spectral] wan2.1-1.3b blocks.0.ffn.0.weight: 40 blocks
+[spectral] wan2.1-1.3b blocks.0.ffn.2.weight: 40 blocks
+[spectral] wan2.1-1.3b blocks.15.ffn.0.weight: 40 blocks
+[spectral] wan2.1-1.3b blocks.15.ffn.2.weight: 40 blocks
+[spectral] wan2.1-1.3b blocks.29.ffn.0.weight: 40 blocks
+[spectral] wan2.1-1.3b blocks.29.ffn.2.weight: 40 blocks
+[spectral] llama2-7b model.layers.0.mlp.gate_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.0.mlp.up_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.0.mlp.down_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.15.mlp.gate_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.15.mlp.up_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.15.mlp.down_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.31.mlp.gate_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.31.mlp.up_proj.weight: 40 blocks
+[spectral] llama2-7b model.layers.31.mlp.down_proj.weight: 40 blocks
+[spectral] wrote worldfoundry_hybrid_residual/results/ffn_spectral_audit_v1

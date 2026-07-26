@@ -62,12 +62,36 @@ global eager residual path. See
 [`results/tri_mode_oracle_v1/TRI_MODE_ORACLE_REPORT.zh-CN.md`](results/tri_mode_oracle_v1/TRI_MODE_ORACLE_REPORT.zh-CN.md)
 and the source-bound dashboard in the same directory.
 
+## F81 Attention And FFN Spectral Audit
+
+The next-stage audit keeps `sparse high-rank critical attention + low-rank
+marginal tail + cache-aware refresh` as the F81 research direction, while
+making the current evidence boundary explicit: the measured compression is a
+post-softmax representation oracle, not yet a deployable sparse attention
+kernel. Moving from token top-k to contiguous GPU tiles creates a measurable
+quality gap, so coarse routing, shared normalization, and a fused H200 kernel
+are required before claiming end-to-end acceleration.
+
+For FFN, static row/column/2D FFT sparsification and a hidden-channel BCM main
+path are stopped. Across sampled Wan and Llama weights, low-frequency energy
+matches the scalar budget and shuffled/Gaussian controls, while the nearest
+circulant projection captures only the random-subspace expectation. On H200,
+the input and hidden FP32 rFFT round trips alone cost more than `2x` the full
+BF16 FFN latency. F17 therefore moves to whole-segment pointwise/kernel fusion;
+a standalone post-GEMM Triton bias/GELU kernel is not sufficient. See
+[`results/ffn_attention_audit_v1/FFN_ATTENTION_AUDIT_20260726.zh-CN.md`](results/ffn_attention_audit_v1/FFN_ATTENTION_AUDIT_20260726.zh-CN.md)
+and its source-bound dashboard and CSV evidence.
+
 ## Layout
 
 - `scripts/worldfoundry_hybrid_residual.py`: switchable dense/FP8/hybrid linear.
 - `scripts/trajectory_budget_runtime.py`: mutually exclusive D/Q/C block runtime.
 - `scripts/generate_wan_tri_mode_oracle.py`: paired tri-mode rollout runner.
 - `scripts/activation_defect_runtime.py`: dense-preserving Q/C defect recorder.
+- `scripts/probe_ffn_spectral.py`: Wan/Llama FFN spectral and circulant controls.
+- `scripts/benchmark_h200_ffn_transforms.py`: H200 FFT and pointwise fusion probes.
+- `scripts/probe_attention_block_tail_oracle.py`: F81 token-to-tile tail oracle.
+- `scripts/plot_ffn_attention_audit.py`: source-bound decision dashboard.
 - `scripts/search_tri_mode_oracle.py`: measured-cost conservative schedule search.
 - `scripts/generate_wan_hybrid_residual.py`: paired Wan generation runner.
 - `scripts/summarize_hybrid_residual.py`: prompt/seed paired video analysis.
@@ -78,6 +102,7 @@ and the source-bound dashboard in the same directory.
 - `results/h200_live/hybrid_worldfoundry_report.md`: consolidated final report.
 - `results/h200_live/figures/`: publication PNG/PDF plus source-bound CSV files.
 - `results/tri_mode_oracle_v1/`: compact tri-mode report, CSV evidence, and figures.
+- `results/ffn_attention_audit_v1/`: FFN/attention audit, raw CSVs, and dashboard.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and

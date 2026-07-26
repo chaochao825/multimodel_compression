@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/h200_ffn_transform_v2",
+    "device": "cuda:0",
+    "rows": "7800,32760",
+    "widths": "1536,8960",
+    "warmup": 8,
+    "iterations": 20,
+    "repeats": 5,
+    "seed": 20260726
+  },
+  "python": "3.11.15",
+  "torch": "2.9.1+cu128",
+  "cuda": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "triton": "3.5.1",
+  "elapsed_seconds": 7.378556251525879,
+  "interpretation": "FFT timings include BF16-to-FP32 conversion and exclude spectral sparse contraction. The Triton pointwise path fuses bias and tanh-GELU after an ordinary no-bias GEMM; it is not yet a GEMM epilogue."
+}
