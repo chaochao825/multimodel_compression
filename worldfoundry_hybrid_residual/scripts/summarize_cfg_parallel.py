@@ -18,8 +18,21 @@ from compare_paired_videos import compare, read_video
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--run-dir", type=Path, required=True)
+    parser.add_argument(
+        "--run-dir",
+        type=Path,
+        action="append",
+        required=True,
+        help="Generation directory. Repeat to aggregate independent seed runs.",
+    )
     parser.add_argument("--out-dir", type=Path)
+    parser.add_argument("--bootstrap-samples", type=int, default=10_000)
+    parser.add_argument("--bootstrap-seed", type=int, default=20260726)
+    parser.add_argument(
+        "--require-exact",
+        action="store_true",
+        help="Fail after writing metrics unless every paired final latent is bit exact.",
+    )
     return parser.parse_args()
 
 
@@ -45,13 +58,24 @@ def finite_mean(values: list[float]) -> float:
     return float(np.mean(finite)) if finite else float("nan")
 
 
-def main() -> None:
-    args = parse_args()
-    run_dir = args.run_dir.resolve()
-    out_dir = (args.out_dir or run_dir).resolve()
-    out_dir.mkdir(parents=True, exist_ok=True)
-    source_rows = read_rows(run_dir / "generation_runs.csv")
+def bootstrap_mean_interval(
+    values: list[float], samples: int, seed: int
+) -> tuple[float, float]:
+    finite = np.asarray([value for value in values if math.isfinite(value)], dtype=np.float64)
+    if finite.size == 0:
+        return float("nan"), float("nan")
+    if finite.size == 1 or samples <= 0:
+        value = float(finite[0])
+        return value, value
+    generator = np.random.default_rng(seed)
+    indices = generator.integers(0, finite.size, size=(samples, finite.size))
+    means = finite[indices].mean(axis=1)
+    lower, upper = np.quantile(means, [0.025, 0.975])
+    return float(lower), float(upper)
 
+
+def pair_run(run_dir: Path) -> list[dict[str, object]]:
+    source_rows = read_rows(run_dir / "generation_runs.csv")
     grouped: dict[tuple[int, int, int], dict[str, dict[str, str]]] = defaultdict(dict)
     for row in source_rows:
         if row.get("status") != "ok" or not row.get("video_file"):
@@ -94,10 +118,14 @@ def main() -> None:
         parallel_seconds = float(parallel["seconds_including_text_and_vae"])
         paired.append(
             {
+                "source_run": run_dir.name,
+                "source_run_dir": str(run_dir),
                 "prompt_index": key[0],
                 "seed": key[1],
                 "repeat": key[2],
                 "prompt": sequential["prompt"],
+                "sequential_order_index": int(sequential["method_order_index"]),
+                "cfg_parallel_order_index": int(parallel["method_order_index"]),
                 "sequential_seconds": sequential_seconds,
                 "cfg_parallel_seconds": parallel_seconds,
                 "speedup": sequential_seconds / parallel_seconds,
@@ -111,15 +139,61 @@ def main() -> None:
                 **metrics,
             }
         )
+    return paired
+
+
+def main() -> None:
+    args = parse_args()
+    run_dirs = [path.resolve() for path in args.run_dir]
+    if len(run_dirs) > 1 and args.out_dir is None:
+        raise ValueError("--out-dir is required when multiple --run-dir values are used")
+    out_dir = (args.out_dir or run_dirs[0]).resolve()
+    out_dir.mkdir(parents=True, exist_ok=True)
+    paired: list[dict[str, object]] = []
+    for run_dir in run_dirs:
+        paired.extend(pair_run(run_dir))
 
     if not paired:
         raise RuntimeError("no successful sequential/cfg_parallel pairs found")
     write_rows(out_dir / "cfg_parallel_paired_metrics.csv", paired)
+    speedups = [float(row["speedup"]) for row in paired]
+    speedup_ci_low, speedup_ci_high = bootstrap_mean_interval(
+        speedups, args.bootstrap_samples, args.bootstrap_seed
+    )
+    sequential_seconds = [float(row["sequential_seconds"]) for row in paired]
+    parallel_seconds = [float(row["cfg_parallel_seconds"]) for row in paired]
+    latent_exact = all(
+        float(row["latent_max_abs"]) == 0.0
+        and float(row["latent_relative_l2"]) == 0.0
+        and float(row["latent_exact_fraction"]) == 1.0
+        for row in paired
+    )
+    pixel_exact = all(
+        float(row["pixel_max_abs"]) == 0.0
+        and float(row["exact_pixel_fraction"]) == 1.0
+        for row in paired
+    )
     summary = {
+        "run_directories": [str(path) for path in run_dirs],
+        "runs": len(run_dirs),
         "pairs": len(paired),
-        "speedup_mean": finite_mean([float(row["speedup"]) for row in paired]),
-        "speedup_min": min(float(row["speedup"]) for row in paired),
-        "speedup_max": max(float(row["speedup"]) for row in paired),
+        "unique_prompts": len({str(row["prompt"]) for row in paired}),
+        "unique_seeds": len({int(row["seed"]) for row in paired}),
+        "sequential_first_pairs": sum(
+            int(row["sequential_order_index"]) == 0 for row in paired
+        ),
+        "cfg_parallel_first_pairs": sum(
+            int(row["cfg_parallel_order_index"]) == 0 for row in paired
+        ),
+        "sequential_seconds_mean": finite_mean(sequential_seconds),
+        "cfg_parallel_seconds_mean": finite_mean(parallel_seconds),
+        "aggregate_wall_time_speedup": sum(sequential_seconds) / sum(parallel_seconds),
+        "speedup_mean": finite_mean(speedups),
+        "speedup_median": float(np.median(speedups)),
+        "speedup_bootstrap_95ci_low": speedup_ci_low,
+        "speedup_bootstrap_95ci_high": speedup_ci_high,
+        "speedup_min": min(speedups),
+        "speedup_max": max(speedups),
         "frame_ssim_mean": finite_mean(
             [float(row["frame_ssim_mean"]) for row in paired]
         ),
@@ -135,6 +209,9 @@ def main() -> None:
         "exact_pixel_fraction_mean": finite_mean(
             [float(row["exact_pixel_fraction"]) for row in paired]
         ),
+        "latent_bit_exact_all_pairs": latent_exact,
+        "decoded_pixel_exact_all_pairs": pixel_exact,
+        "exact_gate_passed": latent_exact,
         "interpretation": (
             "The implementation is model-exact by construction only if the paired "
             "final-latent metrics confirm numerical equivalence."
@@ -144,6 +221,8 @@ def main() -> None:
         json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     print(json.dumps(summary, indent=2, sort_keys=True), flush=True)
+    if args.require_exact and not latent_exact:
+        raise RuntimeError("strict exactness gate failed for one or more paired latents")
 
 
 if __name__ == "__main__":
