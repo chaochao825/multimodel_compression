@@ -12,7 +12,9 @@ GPU_PAIR="${GPU_PAIR:-2,3}"
 WAIT_FOR_IDLE="${WAIT_FOR_IDLE:-1}"
 IDLE_POLLS="${IDLE_POLLS:-3}"
 POLL_SECONDS="${POLL_SECONDS:-30}"
-MONITOR_SECONDS="${MONITOR_SECONDS:-10}"
+MONITOR_SECONDS="${MONITOR_SECONDS:-5}"
+RUN_GEOMETRY_STAGE="${RUN_GEOMETRY_STAGE:-1}"
+RUN_CROSSATTN_CACHE_STAGE="${RUN_CROSSATTN_CACHE_STAGE:-1}"
 export TORCH_NCCL_ASYNC_ERROR_HANDLING=1
 
 mkdir -p "$OUT/logs" "$OUT/cfg_f81_matrix"
@@ -43,31 +45,91 @@ wait_for_idle_pair() {
   done
 }
 
+is_descendant_of() {
+  local current="$1"
+  local ancestor="$2"
+  while [[ "$current" =~ ^[0-9]+$ ]] && (( current > 1 )); do
+    if [[ "$current" == "$ancestor" ]]; then
+      return 0
+    fi
+    if [[ ! -r "/proc/$current/status" ]]; then
+      return 1
+    fi
+    current="$(awk '/^PPid:/ {print $2}' "/proc/$current/status")"
+  done
+  return 1
+}
+
 monitor_gpu_pair() {
   local stop_file="$1"
   local telemetry_file="$2"
+  local contamination_file="$3"
+  local owner_pid="$4"
+  local command_pid="$5"
+  local gpu_ids="$6"
   while [[ ! -e "$stop_file" ]]; do
     printf 'timestamp=%s\n' "$(date --iso-8601=seconds)" >> "$telemetry_file"
-    nvidia-smi --id="$GPU_PAIR" \
+    nvidia-smi --id="$gpu_ids" \
       --query-gpu=index,name,memory.used,memory.total,utilization.gpu,utilization.memory \
       --format=csv,noheader,nounits >> "$telemetry_file" 2>&1
-    nvidia-smi --id="$GPU_PAIR" \
+    local compute_rows
+    compute_rows="$(nvidia-smi --id="$gpu_ids" \
       --query-compute-apps=gpu_uuid,pid,process_name,used_memory \
-      --format=csv,noheader,nounits >> "$telemetry_file" 2>&1
+      --format=csv,noheader,nounits 2>&1 || true)"
+    printf '%s\n' "$compute_rows" >> "$telemetry_file"
+    while IFS=',' read -r gpu_uuid process_pid process_name used_memory; do
+      process_pid="${process_pid//[[:space:]]/}"
+      if [[ ! "$process_pid" =~ ^[0-9]+$ ]]; then
+        continue
+      fi
+      if ! is_descendant_of "$process_pid" "$owner_pid"; then
+        printf 'timestamp=%s gpu_uuid=%s pid=%s process=%s memory=%s\n' \
+          "$(date --iso-8601=seconds)" "$gpu_uuid" "$process_pid" \
+          "$process_name" "$used_memory" >> "$contamination_file"
+        if kill -0 "$command_pid" 2>/dev/null; then
+          kill -TERM "$command_pid"
+        fi
+      fi
+    done <<< "$compute_rows"
     sleep "$MONITOR_SECONDS"
   done
+}
+
+audit_gpu_stage() {
+  local stage="$1"
+  local telemetry_file="$2"
+  local audit_file="$3"
+  local gpu_ids="$4"
+  local contamination_file="$5"
+  local audit_args=(
+    --telemetry "$telemetry_file"
+    --output "$audit_file"
+    --stage "$stage"
+    --allowed-process-prefix "$PY"
+    --foreign-events "$contamination_file"
+    --require-exclusive
+  )
+  while IFS= read -r gpu_uuid; do
+    gpu_uuid="${gpu_uuid//[[:space:]]/}"
+    if [[ -n "$gpu_uuid" ]]; then
+      audit_args+=(--used-gpu-uuid "$gpu_uuid")
+    fi
+  done < <(nvidia-smi --id="$gpu_ids" --query-gpu=uuid --format=csv,noheader,nounits)
+  "$PY" "$PROBE_ROOT/scripts/audit_gpu_telemetry.py" "${audit_args[@]}"
 }
 
 run_cfg_stage() {
   local label="$1"
   local seed="$2"
   local stage_out="$OUT/$label"
+  local run_id="$(date +%s)"
   local stop_file="$OUT/logs/${label}.monitor-stop.$BASHPID.$RANDOM"
-  local telemetry_file="$OUT/logs/${label}.gpu-telemetry.log"
+  local telemetry_file="$OUT/logs/${label}.gpu-telemetry.${run_id}.log"
+  local contamination_file="$OUT/logs/${label}.contamination.${run_id}.log"
+  local audit_file="$stage_out/gpu_exclusivity_audit.json"
+  local owner_pid=$BASHPID
   mkdir -p "$stage_out"
   wait_for_idle_pair
-  monitor_gpu_pair "$stop_file" "$telemetry_file" &
-  local monitor_pid=$!
   set +e
   CUDA_VISIBLE_DEVICES="$GPU_PAIR" "$PY" -m torch.distributed.run \
     --standalone --nproc-per-node=2 \
@@ -84,11 +146,23 @@ run_cfg_stage() {
     --repeats 2 \
     --seed "$seed" \
     --alternate-method-order \
-    2>&1 | tee "$OUT/logs/${label}.log"
-  local command_status=${PIPESTATUS[0]}
-  set -e
+    > >(tee "$OUT/logs/${label}.log") 2>&1 &
+  local command_pid=$!
+  monitor_gpu_pair "$stop_file" "$telemetry_file" "$contamination_file" \
+    "$owner_pid" "$command_pid" "$GPU_PAIR" &
+  local monitor_pid=$!
+  wait "$command_pid"
+  local command_status=$?
   touch "$stop_file"
   wait "$monitor_pid"
+  local audit_status=0
+  audit_gpu_stage "$label" "$telemetry_file" "$audit_file" "$GPU_PAIR" \
+    "$contamination_file" || audit_status=$?
+  set -e
+  if (( audit_status != 0 )); then
+    printf '[phase2] invalid timing: foreign process overlap detected for %s\n' "$label"
+    return 86
+  fi
   if (( command_status != 0 )); then
     return "$command_status"
   fi
@@ -121,14 +195,17 @@ run_geometry_stage() {
 
 run_crossattn_cache_stage() {
   local stage_out="$OUT/crossattn_cache_f17"
+  local run_id="$(date +%s)"
   local stop_file="$OUT/logs/crossattn_cache_f17.monitor-stop.$BASHPID.$RANDOM"
-  local telemetry_file="$OUT/logs/crossattn_cache_f17.gpu-telemetry.log"
+  local telemetry_file="$OUT/logs/crossattn_cache_f17.gpu-telemetry.${run_id}.log"
+  local contamination_file="$OUT/logs/crossattn_cache_f17.contamination.${run_id}.log"
+  local audit_file="$stage_out/gpu_exclusivity_audit.json"
+  local used_gpu="${GPU_PAIR%%,*}"
+  local owner_pid=$BASHPID
   mkdir -p "$stage_out"
   wait_for_idle_pair
-  monitor_gpu_pair "$stop_file" "$telemetry_file" &
-  local monitor_pid=$!
   set +e
-  CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
+  CUDA_VISIBLE_DEVICES="$used_gpu" "$PY" \
     "$PROBE_ROOT/scripts/generate_wan_crossattn_cache.py" \
     --wan-source "$WAN_SOURCE" \
     --checkpoint "$CHECKPOINT" \
@@ -143,11 +220,23 @@ run_crossattn_cache_stage() {
     --seed 20260738 \
     --alternate-method-order \
     --device cuda:0 \
-    2>&1 | tee "$OUT/logs/crossattn_cache_f17.log"
-  local command_status=${PIPESTATUS[0]}
-  set -e
+    > >(tee "$OUT/logs/crossattn_cache_f17.log") 2>&1 &
+  local command_pid=$!
+  monitor_gpu_pair "$stop_file" "$telemetry_file" "$contamination_file" \
+    "$owner_pid" "$command_pid" "$used_gpu" &
+  local monitor_pid=$!
+  wait "$command_pid"
+  local command_status=$?
   touch "$stop_file"
   wait "$monitor_pid"
+  local audit_status=0
+  audit_gpu_stage crossattn_cache_f17 "$telemetry_file" "$audit_file" \
+    "$used_gpu" "$contamination_file" || audit_status=$?
+  set -e
+  if (( audit_status != 0 )); then
+    printf '[phase2] invalid timing: foreign process overlap detected for crossattn_cache_f17\n'
+    return 86
+  fi
   if (( command_status != 0 )); then
     return "$command_status"
   fi
@@ -158,8 +247,12 @@ run_crossattn_cache_stage() {
     2>&1 | tee "$OUT/logs/crossattn_cache_f17.summary.log"
 }
 
-run_geometry_stage
-run_crossattn_cache_stage
+if [[ "$RUN_GEOMETRY_STAGE" == "1" ]]; then
+  run_geometry_stage
+fi
+if [[ "$RUN_CROSSATTN_CACHE_STAGE" == "1" ]]; then
+  run_crossattn_cache_stage
+fi
 run_cfg_stage cfg_f81_seed20260730 20260730
 run_cfg_stage cfg_f81_seed20260734 20260734
 

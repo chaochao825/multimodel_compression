@@ -1,0 +1,3 @@
+stage,timing_valid,snapshots_total,snapshots_with_foreign_process,foreign_snapshot_fraction,estimated_foreign_overlap_seconds,foreign_pid_count,source
+crossattn_cache_f17_retro,False,21,12,0.5714285714285714,120.0,1,/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/strict_phase2_h200_v1/crossattn_cache_f17/gpu_exclusivity_audit_retro.json
+cfg_f81_seed20260730_partial_retro,False,41,40,0.975609756097561,400.0,2,/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/strict_phase2_h200_v1/cfg_f81_seed20260730/gpu_exclusivity_audit_retro.json

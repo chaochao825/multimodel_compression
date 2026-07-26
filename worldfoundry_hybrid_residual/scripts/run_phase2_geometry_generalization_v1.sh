@@ -12,7 +12,7 @@ GPU_PAIR="${GPU_PAIR:-2,3}"
 IDLE_POLLS="${IDLE_POLLS:-3}"
 POLL_SECONDS="${POLL_SECONDS:-30}"
 
-mkdir -p "$OUT/logs" "$OUT/qkv_replays" "$OUT/geometry_analysis"
+mkdir -p "$OUT/logs" "$OUT/qkv_replays" "$OUT/geometry_analysis" "$OUT/basis_transfer"
 
 gpu_process_count() {
   nvidia-smi --query-compute-apps=gpu_uuid --format=csv,noheader \
@@ -79,5 +79,20 @@ CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
   --cells-csv "$OUT/geometry_analysis/geometry_generalization_cells.csv" \
   --out-dir "$OUT/geometry_analysis" \
   2>&1 | tee "$OUT/logs/geometry_generalization.plot.log"
+
+wait_for_idle_pair
+CUDA_VISIBLE_DEVICES="${GPU_PAIR%%,*}" "$PY" \
+  "$PROBE_ROOT/scripts/probe_geometry_basis_transfer.py" \
+  --capture-index "$OUT/qkv_replays/capture_index.csv" \
+  --output-dir "$OUT/basis_transfer" \
+  --calibration-sample-id s00_p00_seed20260740 \
+  --validation-sample-id s01_p01_seed20260740 \
+  --test-sample-id s02_p00_seed20260741 \
+  --test-sample-id s03_p02_seed20260741 \
+  --masks s3_temporal_pm2,s3_tfull,s3_tfull_anchor12 \
+  --ranks 8,16 \
+  --query-samples 128 \
+  --device cuda:0 \
+  2>&1 | tee "$OUT/logs/geometry_basis_transfer.log"
 
 printf '[geometry-generalization] pilot completed %s\n' "$OUT"

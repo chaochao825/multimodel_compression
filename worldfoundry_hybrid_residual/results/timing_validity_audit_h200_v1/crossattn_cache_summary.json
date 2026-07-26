@@ -1,0 +1,19 @@
+{
+  "cache_bytes_max": 188743680,
+  "cache_hits_min": 1140,
+  "cache_misses_max": 60,
+  "exact_gate_passed": true,
+  "frame_ssim_min": 1.0,
+  "latent_bit_exact_all_pairs": true,
+  "latent_max_abs_max": 0.0,
+  "pairs": 4,
+  "peak_memory_delta_mib_mean": -0.3828125,
+  "speedup_bootstrap_95ci_high": 1.023088284623285,
+  "speedup_bootstrap_95ci_low": 0.9933350888104854,
+  "speedup_max": 1.028324084983747,
+  "speedup_mean": 1.009449272747846,
+  "speedup_median": 1.0119244448097675,
+  "speedup_min": 0.9856241163881018,
+  "unique_prompts": 2,
+  "unique_seeds": 2
+}

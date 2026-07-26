@@ -1,0 +1,49 @@
+{
+  "allowed_process_prefixes": [
+    "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python"
+  ],
+  "ancestry_foreign_event_count": 0,
+  "ancestry_foreign_events": [],
+  "estimated_foreign_overlap_seconds": 400.0,
+  "foreign_processes": [
+    {
+      "gpu_uuid": "GPU-4bffd208-6c43-9564-d8fd-76284154138e",
+      "pid": 1657874,
+      "process_name": "/home/wangmeiqi/miniconda3/envs/lgn/bin/python",
+      "used_memory_mib": 12682
+    },
+    {
+      "gpu_uuid": "GPU-63e6b34c-031a-a6b8-2d0c-784a9d963d0b",
+      "pid": 1657870,
+      "process_name": "/home/wangmeiqi/miniconda3/envs/lgn/bin/python",
+      "used_memory_mib": 14484
+    }
+  ],
+  "foreign_snapshot_fraction": 0.975609756097561,
+  "interpretation": "Latency is admissible only when timing_valid is true. Correctness and quality artifacts may still be used when timing is contaminated.",
+  "median_monitor_interval_seconds": 10.0,
+  "owned_processes": [
+    {
+      "gpu_uuid": "GPU-4bffd208-6c43-9564-d8fd-76284154138e",
+      "pid": 1660371,
+      "process_name": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+      "used_memory_mib": 15400
+    },
+    {
+      "gpu_uuid": "GPU-63e6b34c-031a-a6b8-2d0c-784a9d963d0b",
+      "pid": 1660368,
+      "process_name": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+      "used_memory_mib": 25860
+    }
+  ],
+  "snapshots_total": 41,
+  "snapshots_with_foreign_process": 40,
+  "snapshots_with_owned_process": 35,
+  "stage": "cfg_f81_seed20260730_partial_retro",
+  "telemetry": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/strict_phase2_h200_v1/logs/cfg_f81_seed20260730.gpu-telemetry.log",
+  "timing_valid": false,
+  "used_gpu_uuids": [
+    "GPU-4bffd208-6c43-9564-d8fd-76284154138e",
+    "GPU-63e6b34c-031a-a6b8-2d0c-784a9d963d0b"
+  ]
+}
