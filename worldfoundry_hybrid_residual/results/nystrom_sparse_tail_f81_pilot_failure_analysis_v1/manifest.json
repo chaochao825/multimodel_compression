@@ -1,0 +1,10 @@
+{
+  "all_head_selection_run_id": "nystrom-select-0396f2daa312-1785086675",
+  "analysis_scope": "registered layer14/step9/cond pilot only",
+  "figure_pdf_sha256": "47d2d8727d68ad16dfe1c48d156d7b5368f82602f223d218d70d77e493936faf",
+  "figure_png_sha256": "7d6011c4607c3c4cbb891a985b96a1529eaa1a82b58ae91bccd90773846411d7",
+  "probe_detail_sha256": "580ba8a49de85ec11a82eb9c06013053cf52d70b6e90303ce960ca20dd5b1005",
+  "probe_run_id": "nystrom-831276b91f3b-1785086663",
+  "schema_version": 1,
+  "transitional_selection_run_id": "nystrom-select-c1e8730ad943-1785086890"
+}

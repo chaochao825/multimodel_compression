@@ -138,6 +138,20 @@ head-role-aware executor with content-conditioned linear/low-rank marginal
 features and dense fallback for Gaussian-like diffuse heads. See
 [`results/DYNAMIC_SPARSE_LOWRANK_F81_20260726.zh-CN.md`](results/DYNAMIC_SPARSE_LOWRANK_F81_20260726.zh-CN.md).
 
+A registered follow-up rejects the first train-free content-generated tail.
+Segment Nyström/landmark candidates are selected on validation only and then
+evaluated under seed, prompt, and prompt-seed-combination holdouts. The best
+full-pilot post-hoc diagnostic has `22.684%` aggregate and `57.062%`
+worst-record output error despite a `3.821x` arithmetic upper bound; it is not
+a frozen test estimate. Validation-frozen test errors remain
+`20.804%-23.218%` aggregate, and calibration-frozen transitional heads still
+have about `20%` test error. Input captures are
+SHA256-pinned and the holdouts are explicitly labeled within-run because the
+same captures appeared in earlier exploratory probes. This stops the fixed
+landmark family, not learned sparse-linear tails. See
+[`results/CONTENT_STRUCTURE_ATTENTION_F81_20260726.zh-CN.md`](results/CONTENT_STRUCTURE_ATTENTION_F81_20260726.zh-CN.md)
+and [`docs/nystrom_sparse_tail_protocol.md`](docs/nystrom_sparse_tail_protocol.md).
+
 The completed 72-cell prompt/seed/step/CFG factorial sharpens that executor.
 CFG branches have `1.0` class agreement and localized-head Jaccard in all 36
 pairs, while step comparisons pass only `52.8%` of the stability gates. Layer
@@ -216,6 +230,11 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `scripts/plot_dynamic_sparse_lowrank_oracle.py`: dynamic/static transfer and normalization dashboard.
 - `scripts/plot_tail_aware_sparse_router.py`: fixed-objective versus alternating router comparison.
 - `scripts/plot_conditional_defect_basis_bank.py`: basis-bank transfer and overfit dashboard.
+- `scripts/probe_nystrom_sparse_tail.py`: associative Nyström/landmark capacity probe with capture integrity checks.
+- `scripts/select_nystrom_sparse_tail.py`: validation-only selection and frozen-head transfer evaluation.
+- `scripts/plot_nystrom_sparse_tail.py`: source-bound validation/test plots without test-driven selection.
+- `scripts/analyze_nystrom_sparse_tail_failure.py`: capacity, conditioning, role-transfer, and router-error diagnosis.
+- `scripts/experiment_artifacts.py`: atomic run state, provenance, hashing, and rectangular-sweep utilities.
 - `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
 - `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
 - `scripts/run_phase2_head_role_factorial_v1.sh`: resumable F81 prompt/seed/step/CFG head-role capture.
@@ -244,6 +263,10 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `results/tail_aware_sparse_router_f81_full_v1/`: alternating tail-aware router evidence.
 - `results/conditional_defect_basis_bank_f81_full_v1/`: cross-seed position basis-bank evidence.
 - `results/attention_head_factorial_f81_v1/summary/`: compact 72-cell factor-separated evidence.
+- `results/nystrom_sparse_tail_f81_pilot_v1/`: registered F81 numerical sweep and hashed input manifest.
+- `results/nystrom_sparse_tail_f81_pilot_selection_v1/`: validation-frozen all-head holdout decisions.
+- `results/nystrom_sparse_tail_f81_pilot_transitional_selection_v1/`: calibration-frozen transitional-head decisions.
+- `results/nystrom_sparse_tail_f81_pilot_failure_analysis_v1/`: six-panel failure analysis and source CSVs.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and

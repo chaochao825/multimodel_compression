@@ -1,0 +1,130 @@
+{
+  "arguments": {
+    "aggregate_target": 0.01,
+    "block_size": 64,
+    "branches": [
+      "cond"
+    ],
+    "capture_hash_mode": "sha256",
+    "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "densities": [
+      0.125,
+      0.25
+    ],
+    "device": "cuda:0",
+    "execution_resource_note": "shared_capacity_numerical_only",
+    "head_stats_index": "results/attention_head_factorial_f81_v1/head_stats/head_stats_index.csv",
+    "heads": [],
+    "landmark_modes": [
+      "segment"
+    ],
+    "landmarks": [
+      32,
+      64,
+      128
+    ],
+    "layers": [
+      14
+    ],
+    "max_work_ratio": 0.5,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/nystrom_sparse_tail_f81_pilot_v1",
+    "pinv_rtols": [
+      0.0001
+    ],
+    "query_tile_size": 64,
+    "query_tiles": 1,
+    "record_target": 0.02,
+    "seed": 20260727,
+    "speed_target": 1.5,
+    "split_config": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/configs/nystrom_split_protocols_f81_v1.json",
+    "steps": [
+      9
+    ]
+  },
+  "capture_index_sha256": "d8bc6f7fbb0accf4525d886839ba85f1fd6657fcdf5892a1a18c9f38a36fe088",
+  "captures": 4,
+  "config_sha256": "831276b91f3b27ff86edba4f395c54af8a4ff79861a7b519aeec292e84037c8a",
+  "cuda_runtime": "12.8",
+  "dense_mass_warning": "dense-reference selected mass diagnoses router error but is not a quality oracle because the approximate tail is not the exact marginal",
+  "deployable_methods": [
+    "landmark_linear",
+    "nystrom_signed",
+    "proxy_mass_landmark_partition",
+    "proxy_mass_nystrom_mixture"
+  ],
+  "device": "NVIDIA H200 NVL",
+  "diagnostic_only_methods": [
+    "dense_mass_landmark_partition_diagnostic",
+    "dense_mass_nystrom_mixture_diagnostic",
+    "nystrom_nonnegative_clamped"
+  ],
+  "elapsed_seconds": 8.895485401153564,
+  "execution_resource_note": "shared_capacity_numerical_only",
+  "fairness": "all methods share captures, query tiles, references, and method-specific arithmetic accounting",
+  "head_role_warning": "head roles use dense statistics for analysis only and never route outputs",
+  "input_manifest_sha256": "52205c6474676599ea3bbafebb3032e059cd0941879733cf40d4880580a0bf5d",
+  "known_cost_omissions": [
+    "landmark pooling",
+    "small m-by-m pseudoinverse",
+    "mask construction",
+    "gather and launch overhead",
+    "materialization strategy and kernel fusion"
+  ],
+  "python": "3.11.15",
+  "run_id": "nystrom-831276b91f3b-1785086663",
+  "sample_ids": [
+    "s00_p00_seed20260740",
+    "s01_p01_seed20260740",
+    "s02_p00_seed20260741",
+    "s03_p01_seed20260741"
+  ],
+  "schema_version": 1,
+  "scope": "current-Q/K/V Nystrom tail and sparse-critical hybrid numerical probe",
+  "speed_claim_boundary": "work ratios are projected full-attention arithmetic upper bounds, not measured H200 latency",
+  "split_config_sha256": "17b0e8d0bd602e92488c0c12b512c5cdab021a6d22a9dd53e28737adf4a1ac0f",
+  "split_protocols": [
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: both prompts are observed before test and seed 20260741 is held out; these captures were used in earlier exploratory probes.",
+      "name": "seed_holdout",
+      "test": [
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s01_p01_seed20260740"
+      ]
+    },
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: prompt 1 is absent from calibration and validation, while seeds are not held out; these captures were used in earlier exploratory probes.",
+      "name": "prompt_holdout",
+      "test": [
+        "s01_p01_seed20260740",
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s02_p00_seed20260741"
+      ]
+    },
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: the prompt-1/seed-20260741 pair is held out while each factor is observed separately; these captures were used in earlier exploratory probes.",
+      "name": "combination_holdout",
+      "test": [
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741"
+      ]
+    }
+  ],
+  "torch": "2.9.1+cu128"
+}

@@ -1,0 +1,11 @@
+{
+  "artifact_status": "SUCCESS",
+  "deployment_gate": "UNMEASURED",
+  "next_action": "STOP_THIS_TRAIN_FREE_FAMILY: do not expand this Nystrom/landmark sweep. A learned low-cost tail remains a separate, untested hypothesis.",
+  "numerical_gate": "FAIL",
+  "report_sha256": "64a70f0ec2b871d584e9afe8744fe877c836ec982345fd93be794310c287a36b",
+  "run_kind": "pilot",
+  "schema_version": 1,
+  "scientific_gate": "FAIL",
+  "selection_run_id": "nystrom-select-c1e8730ad943-1785086890"
+}

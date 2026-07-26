@@ -1,0 +1,9 @@
+{
+  "config_sha256": "0396f2daa3128fe73469d91b71f51e5af3a34ba5664aa35182c02244319b6fac",
+  "deployment_gate": "UNMEASURED",
+  "numerical_gate": "FAIL",
+  "protocols": 3,
+  "run_id": "nystrom-select-0396f2daa312-1785086675",
+  "scientific_gate": "FAIL",
+  "status": "SUCCESS"
+}

@@ -1,0 +1,8 @@
+{"capture_hash_mode":"sha256","captures":4,"event":"input_hashing_started","run_id":"nystrom-831276b91f3b-1785086663","time_unix":1785086663.0574322}
+{"captures":4,"event":"input_hashing_completed","run_id":"nystrom-831276b91f3b-1785086663","time_unix":1785086664.639786}
+{"captures":4,"config_sha256":"831276b91f3b27ff86edba4f395c54af8a4ff79861a7b519aeec292e84037c8a","event":"run_started","run_id":"nystrom-831276b91f3b-1785086663","time_unix":1785086664.6399465}
+{"branch":"cond","capture_index":0,"elapsed_seconds":2.5212602615356445,"event":"capture_completed","layer":14,"result_rows":396,"run_id":"nystrom-831276b91f3b-1785086663","sample_id":"s00_p00_seed20260740","sampling_step":9,"time_unix":1785086667.5785587}
+{"branch":"cond","capture_index":1,"elapsed_seconds":2.1224939823150635,"event":"capture_completed","layer":14,"result_rows":396,"run_id":"nystrom-831276b91f3b-1785086663","sample_id":"s01_p01_seed20260740","sampling_step":9,"time_unix":1785086669.7096128}
+{"branch":"cond","capture_index":2,"elapsed_seconds":2.024355888366699,"event":"capture_completed","layer":14,"result_rows":396,"run_id":"nystrom-831276b91f3b-1785086663","sample_id":"s02_p00_seed20260741","sampling_step":9,"time_unix":1785086671.738146}
+{"branch":"cond","capture_index":3,"elapsed_seconds":2.124148368835449,"event":"capture_completed","layer":14,"result_rows":396,"run_id":"nystrom-831276b91f3b-1785086663","sample_id":"s03_p01_seed20260741","sampling_step":9,"time_unix":1785086673.8627493}
+{"config_sha256":"831276b91f3b27ff86edba4f395c54af8a4ff79861a7b519aeec292e84037c8a","detail_rows":1584,"elapsed_seconds":8.896697998046875,"event":"run_completed","run_id":"nystrom-831276b91f3b-1785086663","status":"SUCCESS","summary_rows":33,"time_unix":1785086673.9552422}

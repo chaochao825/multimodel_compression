@@ -1,6 +1,6 @@
 # F81 Content-Structured Attention Probe 与路线收敛报告
 
-日期：2026-07-26
+日期：2026-07-27（Nyström/landmark follow-up）
 
 ## 1. 最终判断
 
@@ -20,6 +20,8 @@
 | localized displacement rank-64 oracle | `0.768%` 聚合、`9.24%` 最坏 | 平均可拟合，但最坏值仍不合格 | 不进入 kernel |
 | Q-only displacement gate | rank `8-64` 均约 `10.4%` 聚合 | 增 rank 不改善可部署 gate | 停止 Q-only gate |
 | 保守 moment-confidence fallback | `0.248%` 聚合、`1.356%` 最坏 | 算术 Attention 仅 `1.198x` | 仅保留为附属 expert |
+| train-free segment Nyström（full-pilot 事后诊断，非冻结 test estimate） | `22.684%` 聚合、`57.062%` 最坏 | `3.821x` 仅为算术上界，质量严重失败 | 停止扩大该函数族 |
+| 冻结 transitional-head Nyström | test `19.986%-20.989%` 聚合、`21.903%` 最坏 | 校准 head role 的 test 一致率仅 `60%` | 不进入 kernel/rollout |
 
 **主路线应继续采用动态高秩 sparse-critical + content-generated marginal tail；localized geometry/moment 只能作为置信度门控的边缘分支，不能主导 Attention。**
 
@@ -236,7 +238,7 @@ E_{\mathrm{trajectory}}(a,\theta)\le\epsilon.
 
 2. **Transitional：dynamic sparse-critical + content-generated tail**
    - sparse mask 必须由当前 Q/K 或低成本 router 生成；
-   - tail 应测试 Nyström/landmark、kernel feature 或少量可学习 linear branch；
+   - 训练免费的 segment Nyström/landmark 已在注册 pilot 中失败；下一步只保留 faithful SLA/SLA2 类 learned sparse-linear tail 或少量低成本适配；
    - correction 直接拟合 `AV` 或 rollout-weighted defect，不拟合概率 Frobenius 范数。
 
 3. **Localized：confidence-gated geometry/moment expert**
@@ -250,15 +252,15 @@ E_{\mathrm{trajectory}}(a,\theta)\le\epsilon.
 
 优先接入或忠实复现 Sparse-vDiT / SLA 类 dynamic sparse-linear Attention，先验证同一 Wan/World Foundry stack 上的 kernel 与质量。当前简单 BCM、block moments 与 Q-only displacement gate 均停止。
 
-### P1：content-generated tail probe
+### P1：learned content-generated tail（train-free landmark 已 stop）
 
 按以下顺序筛选：
 
-1. per-sample sparse-critical + Nyström/landmark tail oracle；
-2. layer-step bucket landmark selection；
-3. current pooled Q/K router；
-4. 少量 fine-tuning 的 linear tail；
-5. 与 FP8 bulk 的联合误差整形。
+1. 忠实复现 SLA/SLA2/Sparse-vDiT 的 dynamic sparse-linear baseline；
+2. 用 calibration-only 数据训练小型 Q/K-conditioned tail，并冻结后做 prompt/seed holdout；
+3. 直接拟合 sparse + quantization 后的 `AV` defect，而不是 attention probability；
+4. 与 FP8 bulk 做联合误差整形；
+5. 只有冻结 test 过质量门槛后，才实现融合 kernel。
 
 继续门槛：
 
@@ -294,7 +296,45 @@ Kernel 必须融合：
 - displacement capacity：`results/local_displacement_mixture_f81_capacity_v1/`
 - deployable confidence run：`results/block_moment_marginal_f81_confidence_v1/`
 - conservative confidence calibration：`results/block_moment_confidence_margin15_v1/`
+- Nyström/landmark 注册 pilot：`results/nystrom_sparse_tail_f81_pilot_v1/`
+- validation-only 选择结果：`results/nystrom_sparse_tail_f81_pilot_selection_v1/`
+- calibration-frozen transitional 选择结果：`results/nystrom_sparse_tail_f81_pilot_transitional_selection_v1/`
+- Nyström/landmark 失败分析：`results/nystrom_sparse_tail_f81_pilot_failure_analysis_v1/`
+
+![Nyström/landmark failure analysis](nystrom_sparse_tail_f81_pilot_failure_analysis_v1/nystrom_sparse_tail_failure_analysis.png)
 
 ## 12. 一句话结论
 
-**局部几何/BCM 类结构可以被置信度门控后安全用于少数 heads，但覆盖率决定它只能是附属分支；真正能越过 `1.5x` Attention 门槛的主路径必须同时处理占多数的 diffuse/transitional heads，因此应转向融合 FP8 dense + dynamic sparse-critical + richer content-generated tail，而不是继续扩大固定 BCM 或 frozen low-rank basis。**
+**局部几何/BCM 类结构可以被置信度门控后安全用于少数 heads，但只能是附属分支；训练免费的 current-Q/K segment Nyström/landmark tail 也未能修复 transitional/diffuse heads，因此主路径应收敛到融合 FP8 dense + dynamic sparse-critical + 低成本 learned content-generated tail，而不是继续扩大固定 BCM、frozen low-rank basis 或固定 landmark family。**
+
+## 13. Nyström/landmark follow-up：注册结果与停止边界
+
+### 13.1 协议与防泄漏约束
+
+- probe 固定在 F81、layer `14`、step `9`、`cond` branch，覆盖 `12 heads x 4 samples`；query tile 为 `64`，landmarks 为 `{32, 64, 128}`，critical density 为 `{12.5%, 25%}`。
+- 配置只在 validation 上选择，test 在配置冻结后读取；另用 calibration role 冻结 transitional head 集合，test role 仅作诊断，不能改变路由。
+- `seed_holdout`、`prompt_holdout`、`combination_holdout` 均是 **within-run holdout**。这些 captures 曾用于早期探索，因此不能写成 untouched external test。
+- 输入 capture 默认做 SHA256，metadata 与 payload 的 prompt、seed、step、timestep、branch、layer、Q/K/V shape、grid 和 softmax scale 逐项交叉检查；`SUCCESS.json` 最后原子写入。
+- 本轮在共享 H200 容量下只做数值 probe，不报告 wall-clock 或 kernel latency；`arithmetic_speedup_upper_bound` 不是实测加速。
+
+### 13.2 注册结果
+
+| 范围 | validation 最优 | test 结果 | 算术上界 | 判定 |
+|---|---:|---:|---:|---|
+| all heads / seed holdout | `17.895% / 27.534%` | `22.975% / 57.062%` | `3.821x` | FAIL |
+| all heads / prompt holdout | `20.932% / 40.534%` | `20.804% / 48.572%` | `3.764x` | FAIL |
+| all heads / combination holdout | `19.533% / 40.534%` | `23.218% / 48.572%` | `3.764x` | FAIL |
+| calibration-frozen transitional heads | validation `19.025%-19.048%` | test `19.986%-20.989%`，最坏 `21.903%` | `3.764x` | FAIL |
+
+表内误差依次为 aggregate / worst record relative `L2`。全部结果远高于注册门槛 `1% / 2%`，所以即使算术工作量看起来足够低，也没有实现可接受的质量-速度点。
+
+### 13.3 为什么失败
+
+1. **不是只差一个 router。** 事后 failure analysis 中，proxy selected-mass error 与输出误差 Pearson 仅 `0.380`；即使使用 dense-reference mass 的诊断版本，最好也只有 `18.561%` 聚合、`48.068%` 最坏。两者均不是冻结 test estimate，但足以作为失败归因诊断，说明主要瓶颈是 landmark tail 的函数类，而非单独的 mass gate。
+2. **landmark 系统随容量增加更病态。** landmarks 从 `32` 增至 `128` 时，中位条件数约从 `271` 增至 `3,632`，最大值达到 `2.275e6`；signed Nyström negative-mass ratio 从 `10.75%` 增至 `17.80%`。
+3. **head role 不足以稳定生成 correction。** calibration 冻结的 transitional heads 在 test 上 role agreement 仅 `60%`，且 test 最坏误差仍为 `21.903%`。
+4. **表示能力与可生成性必须区分。** 此前 per-sample dynamic sparse `12.5%` + adaptive rank-16 oracle 达到 `0.629%` 聚合、`1.85%` 最坏，说明 sparse-high-rank + low-rank-tail 分解存在；本轮失败说明当前 segment Q/K landmarks 无法低成本生成那个 tail。
+
+### 13.4 有界结论
+
+停止继续扩大本轮 **train-free segment Nyström/landmark family**，不运行完整 `3 x 3` 扫描、不写其 fused kernel，也不进入 F81 rollout。该 stop 不否定 learned content-conditioned tail；下一条可检验路线是 faithful sparse-linear baseline 与小型 Q/K-conditioned learned tail，并继续沿用相同的冻结 split、artifact 哈希、质量门槛和 H200 实测门槛。

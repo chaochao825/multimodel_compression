@@ -1,0 +1,81 @@
+{
+  "bounded_decision": "stop expanding this train-free Nystrom/landmark family; learned content-conditioned tails remain untested",
+  "calibration_frozen_transitional_aggregate_error_max": 0.20989117988986214,
+  "calibration_frozen_transitional_aggregate_error_min": 0.19024550729279105,
+  "calibration_frozen_transitional_role_test_agreement": 0.6,
+  "conditioning": [
+    {
+      "condition_number_max": 591560.7730398898,
+      "condition_number_median": 270.72153982790985,
+      "effective_rank_mean": 31.604166666666668,
+      "landmarks": 32,
+      "negative_mass_ratio_mean": 0.10749275500984368
+    },
+    {
+      "condition_number_max": 1387226.35223895,
+      "condition_number_median": 1751.5949307857368,
+      "effective_rank_mean": 61.875,
+      "landmarks": 64,
+      "negative_mass_ratio_mean": 0.13391763468825957
+    },
+    {
+      "condition_number_max": 2274551.124598746,
+      "condition_number_median": 3632.1957654655803,
+      "effective_rank_mean": 124.04166666666667,
+      "landmarks": 128,
+      "negative_mass_ratio_mean": 0.17800064864422893
+    }
+  ],
+  "gate": "FAIL",
+  "interpretation": [
+    "Increasing landmarks and density helps but remains far above the 1%/2% gates.",
+    "Diffuse heads are worst, but calibration-frozen transitional heads also fail by a wide margin.",
+    "Conditioning and signed negative mass worsen as landmark count increases.",
+    "Selected-mass error is only one contributor; dense-reference mass is not a quality oracle."
+  ],
+  "mass_error_output_error_pearson": 0.38022932054163106,
+  "posthoc_full_pilot_best_deployable_diagnostic": {
+    "aggregate_error": 0.22683915919366082,
+    "density": 0.25,
+    "deployable": true,
+    "landmark_mode": "segment",
+    "landmarks": 64,
+    "mass_absolute_error_mean": 0.06001981305113683,
+    "method": "proxy_mass_nystrom_mixture",
+    "pinv_rtol": "0.0001",
+    "records": 48,
+    "speedup_upper_bound": 3.820807106849156,
+    "work_ratio": 0.26172480631314937,
+    "worst_error": 0.5706188547978598
+  },
+  "role_metrics": [
+    {
+      "aggregate_error": 0.26058061786879005,
+      "mass_absolute_error_mean": 0.06579344508548578,
+      "records": 30,
+      "role": "diffuse",
+      "speedup_upper_bound": 3.8208219609627423,
+      "work_ratio": 0.2617237888121925,
+      "worst_error": 0.5706188547978598
+    },
+    {
+      "aggregate_error": 0.1374626202272336,
+      "mass_absolute_error_mean": 0.03691510623320937,
+      "records": 4,
+      "role": "localized",
+      "speedup_upper_bound": 3.820881378572068,
+      "work_ratio": 0.2617197188083651,
+      "worst_error": 0.18804365621757926
+    },
+    {
+      "aggregate_error": 0.16945686174880867,
+      "mass_absolute_error_mean": 0.05424908921122551,
+      "records": 14,
+      "role": "transitional",
+      "speedup_upper_bound": 3.820754057386303,
+      "work_ratio": 0.26172844024513814,
+      "worst_error": 0.24139207063976723
+    }
+  ],
+  "schema_version": 2
+}

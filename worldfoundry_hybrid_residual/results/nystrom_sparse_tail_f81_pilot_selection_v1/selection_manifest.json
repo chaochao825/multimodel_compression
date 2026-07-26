@@ -1,0 +1,86 @@
+{
+  "artifact_status": "SUCCESS",
+  "claim_warning": "Four captures support pilot evidence only, not a population-level claim",
+  "config_sha256": "0396f2daa3128fe73469d91b71f51e5af3a34ba5664aa35182c02244319b6fac",
+  "deployment_gate": "UNMEASURED",
+  "development_reuse_warning": "These captures were used in prior exploratory probes; test isolation is within-run only and an untouched confirmatory set is still required",
+  "numerical_gate": "FAIL",
+  "probe_config_sha256": "831276b91f3b27ff86edba4f395c54af8a4ff79861a7b519aeec292e84037c8a",
+  "probe_detail_sha256": "580ba8a49de85ec11a82eb9c06013053cf52d70b6e90303ce960ca20dd5b1005",
+  "probe_execution_resource_note": "shared_capacity_numerical_only",
+  "probe_run_id": "nystrom-831276b91f3b-1785086663",
+  "protocols": [
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: both prompts are observed before test and seed 20260741 is held out; these captures were used in earlier exploratory probes.",
+      "name": "seed_holdout",
+      "test": [
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s01_p01_seed20260740"
+      ]
+    },
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: prompt 1 is absent from calibration and validation, while seeds are not held out; these captures were used in earlier exploratory probes.",
+      "name": "prompt_holdout",
+      "test": [
+        "s01_p01_seed20260740",
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s02_p00_seed20260741"
+      ]
+    },
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: the prompt-1/seed-20260741 pair is held out while each factor is observed separately; these captures were used in earlier exploratory probes.",
+      "name": "combination_holdout",
+      "test": [
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741"
+      ]
+    }
+  ],
+  "python": "3.11.15",
+  "role_isolation": "head_role_diagnostic_only is ignored by selection and aggregation",
+  "run_id": "nystrom-select-0396f2daa312-1785086675",
+  "schema_version": 1,
+  "scientific_gate": "FAIL",
+  "selection_rule": "validation only: fastest candidate satisfying all thresholds; otherwise lowest validation aggregate error within the cost budget",
+  "selector_config": {
+    "deployable_methods": [
+      "landmark_linear",
+      "nystrom_signed",
+      "proxy_mass_landmark_partition",
+      "proxy_mass_nystrom_mixture"
+    ],
+    "diagnostic_methods": [
+      "dense_mass_landmark_partition_diagnostic",
+      "dense_mass_nystrom_mixture_diagnostic",
+      "nystrom_nonnegative_clamped"
+    ],
+    "probe_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/nystrom_sparse_tail_f81_pilot_v1",
+    "split_config": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/configs/nystrom_split_protocols_f81_v1.json",
+    "thresholds": {
+      "aggregate_error": 0.01,
+      "max_work_ratio": 0.5,
+      "record_error": 0.02,
+      "speedup": 1.5
+    }
+  },
+  "speed_claim_boundary": "speed thresholds use arithmetic upper bounds; measured H200 latency is required before the scientific gate can pass",
+  "split_config_sha256": "17b0e8d0bd602e92488c0c12b512c5cdab021a6d22a9dd53e28737adf4a1ac0f",
+  "test_isolation": "test metrics are computed only after CandidateConfig is frozen"
+}

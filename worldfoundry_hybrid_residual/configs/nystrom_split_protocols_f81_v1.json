@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "protocols": [
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: both prompts are observed before test and seed 20260741 is held out; these captures were used in earlier exploratory probes.",
+      "name": "seed_holdout",
+      "test": [
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s01_p01_seed20260740"
+      ]
+    },
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: prompt 1 is absent from calibration and validation, while seeds are not held out; these captures were used in earlier exploratory probes.",
+      "name": "prompt_holdout",
+      "test": [
+        "s01_p01_seed20260740",
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s02_p00_seed20260741"
+      ]
+    },
+    {
+      "calibration": [
+        "s00_p00_seed20260740"
+      ],
+      "claim_boundary": "Within-run holdout only: the prompt-1/seed-20260741 pair is held out while each factor is observed separately; these captures were used in earlier exploratory probes.",
+      "name": "combination_holdout",
+      "test": [
+        "s03_p01_seed20260741"
+      ],
+      "validation": [
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741"
+      ]
+    }
+  ]
+}

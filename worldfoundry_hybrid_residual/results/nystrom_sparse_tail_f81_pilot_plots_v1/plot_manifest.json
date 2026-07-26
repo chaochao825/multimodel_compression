@@ -1,0 +1,13 @@
+{
+  "all_config_metrics_sha256": "de74a233bc2fffcfdc5df23f8ebd92c80841157c1d088cb70ffe2f1f062bc812",
+  "figure_pdf_sha256": "6d8523e6a9a0f1bf84d583c755192f680694b8a50d14f85424aa563e17c43806",
+  "figure_png_sha256": "834061b9d46f58a5b1177fa38f622a588616df3177630eb8e59753a26bc53b12",
+  "matplotlib": "3.10.8",
+  "python": "3.11.15",
+  "schema_version": 1,
+  "selected_metrics_sha256": "a945ce64340bd86dca57ea36a2aac84696eb3638c1a425f886962790ba344d08",
+  "selection_manifest_sha256": "39bb80ef17c5e826e94d32cf1bed1a16a3f37446496b971f22750217657c0b00",
+  "selection_run_id": "nystrom-select-0396f2daa312-1785086675",
+  "selection_scientific_gate": "FAIL",
+  "test_visualization_rule": "all-candidate Pareto uses validation only; test appears only for the validation-frozen configuration"
+}
