@@ -9,7 +9,13 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from summarize_attention_head_factorial import build_comparisons, pair_type, summarize_types
+from summarize_attention_head_factorial import (
+    build_comparisons,
+    pair_type,
+    summarize_layers,
+    summarize_step_pairs,
+    summarize_types,
+)
 
 
 def metadata(label: str, prompt: int, seed: int, step: int, branch: str) -> dict[str, object]:
@@ -71,6 +77,14 @@ class AttentionHeadFactorialTests(unittest.TestCase):
         self.assertTrue(all(row["router_class_pilot_go"] for row in comparisons))
         summary = summarize_types(comparisons)
         self.assertTrue(all(row["go_fraction"] == 1.0 for row in summary))
+        layer_summary = summarize_layers(comparisons)
+        self.assertTrue(all(row["layer"] == 0 for row in layer_summary))
+        self.assertTrue(all(row["go_fraction"] == 1.0 for row in layer_summary))
+        step_summary = summarize_step_pairs(comparisons)
+        self.assertEqual(len(step_summary), 1)
+        self.assertEqual(step_summary[0]["left_step"], 0)
+        self.assertEqual(step_summary[0]["right_step"], 9)
+        self.assertEqual(step_summary[0]["go_fraction"], 1.0)
 
     def test_runner_contract(self) -> None:
         runner = (SCRIPT_DIR / "run_phase2_head_role_factorial_v1.sh").read_text(encoding="utf-8")

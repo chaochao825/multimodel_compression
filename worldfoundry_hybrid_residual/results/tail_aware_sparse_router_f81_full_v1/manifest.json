@@ -1,0 +1,33 @@
+{
+  "arguments": {
+    "branch": "cond",
+    "calibration_sample_id": "s00_p00_seed20260740",
+    "capture_index": "results/geometry_generalization_h200_v2/qkv_replays/capture_index.csv",
+    "densities": [
+      0.0625,
+      0.125
+    ],
+    "device": "cuda:0",
+    "error_target": 0.02,
+    "heads": [],
+    "iterations": 2,
+    "key_block_size": 64,
+    "layer": 0,
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/tail_aware_sparse_router_f81_full_v1",
+    "query_tile_size": 64,
+    "query_tiles": 4,
+    "ranks": [
+      16
+    ],
+    "sampling_step": 0,
+    "test_sample_id": "s02_p00_seed20260741"
+  },
+  "calibration_path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA GeForce RTX 4090",
+  "elapsed_seconds": 5.076449394226074,
+  "method": "alternating renormalized sparse routing on the rank-r basis orthogonal complement",
+  "python": "3.11.15",
+  "test_path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+  "torch": "2.9.1+cu128"
+}

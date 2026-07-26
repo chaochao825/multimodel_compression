@@ -1,0 +1,68 @@
+{
+  "arguments": {
+    "branch": "cond",
+    "calibration_sample_id": "s00_p00_seed20260740",
+    "capture_index": "results/geometry_generalization_h200_v2/qkv_replays/capture_index.csv",
+    "densities": [
+      0.03125,
+      0.0625,
+      0.125,
+      0.25
+    ],
+    "device": "cuda:0",
+    "error_target": 0.02,
+    "heads": [],
+    "key_block_size": 64,
+    "layer": 0,
+    "max_deployable_density": 0.125,
+    "max_deployable_rank": 16,
+    "methods": [
+      "mass_topk",
+      "contribution_norm",
+      "dense_output_greedy",
+      "renorm_output_greedy"
+    ],
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/dynamic_sparse_lowrank_oracle_f81_full_v1",
+    "query_tile_size": 64,
+    "query_tiles": 4,
+    "ranks": [
+      0,
+      8,
+      16
+    ],
+    "sampling_step": 0,
+    "test_sample_id": "s02_p00_seed20260741"
+  },
+  "budgets": {
+    "0.03125": 16,
+    "0.0625": 32,
+    "0.125": 64,
+    "0.25": 128
+  },
+  "calibration_path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA GeForce RTX 4090",
+  "elapsed_seconds": 334.6244692802429,
+  "key_blocks": 512,
+  "methodology": {
+    "critical_granularity": "one shared contiguous key-block mask per contiguous query tile and head",
+    "limitations": [
+      "only captured layer/step/CFG cells are represented",
+      "only two bit-distinct step-0 contents currently exist",
+      "no quantization is included in this first sparse-plus-tail oracle",
+      "no end-to-end trajectory or fused-kernel timing is inferred"
+    ],
+    "objective": "pre-output-projection AV relative L2, not attention-probability Frobenius error",
+    "tail": "best output-channel rank-r projection; coefficients are oracle-only",
+    "transfer": "calibration mask and/or right singular basis frozen on a different-seed replay"
+  },
+  "python": "3.11.15",
+  "query_starts": [
+    0,
+    10880,
+    21760,
+    32640
+  ],
+  "test_path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+  "torch": "2.9.1+cu128"
+}

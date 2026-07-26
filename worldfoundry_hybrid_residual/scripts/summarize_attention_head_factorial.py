@@ -195,6 +195,96 @@ def summarize_types(rows: list[dict[str, object]]) -> list[dict[str, object]]:
     return output
 
 
+def summarize_layers(rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    groups: dict[tuple[str, int], list[dict[str, object]]] = defaultdict(list)
+    for row in rows:
+        groups[(str(row["comparison_type"]), int(row["layer"]))].append(row)
+    output = []
+    for comparison_type in COMPARISON_ORDER:
+        layers = sorted(layer for kind, layer in groups if kind == comparison_type)
+        for layer in layers:
+            group = groups[(comparison_type, layer)]
+            metrics = {
+                name: [float(row[name]) for row in group]
+                for name in (
+                    "entropy_correlation",
+                    "geometry_correlation",
+                    "class_agreement",
+                    "localized_jaccard",
+                )
+            }
+            output.append(
+                {
+                    "comparison_type": comparison_type,
+                    "layer": layer,
+                    "pairs": len(group),
+                    "go_fraction": sum(
+                        bool(row["router_class_pilot_go"]) for row in group
+                    )
+                    / len(group),
+                    **{
+                        f"{name}_{suffix}": statistic(values)
+                        for name, values in metrics.items()
+                        for suffix, statistic in (
+                            ("min", min),
+                            ("p05", lambda items: quantile(items, 0.05)),
+                            ("median", lambda items: quantile(items, 0.50)),
+                        )
+                    },
+                }
+            )
+    return output
+
+
+def summarize_step_pairs(rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    groups: dict[tuple[int, int, int], list[dict[str, object]]] = defaultdict(list)
+    for row in rows:
+        if row["comparison_type"] != "step":
+            continue
+        groups[
+            (int(row["layer"]), int(row["left_step"]), int(row["right_step"]))
+        ].append(row)
+    output = []
+    for (layer, left_step, right_step), group in sorted(groups.items()):
+        output.append(
+            {
+                "layer": layer,
+                "left_step": left_step,
+                "right_step": right_step,
+                "pairs": len(group),
+                "go_fraction": sum(
+                    bool(row["router_class_pilot_go"]) for row in group
+                )
+                / len(group),
+                "entropy_correlation_min": min(
+                    float(row["entropy_correlation"]) for row in group
+                ),
+                "entropy_correlation_median": quantile(
+                    [float(row["entropy_correlation"]) for row in group], 0.50
+                ),
+                "geometry_correlation_min": min(
+                    float(row["geometry_correlation"]) for row in group
+                ),
+                "geometry_correlation_median": quantile(
+                    [float(row["geometry_correlation"]) for row in group], 0.50
+                ),
+                "class_agreement_min": min(
+                    float(row["class_agreement"]) for row in group
+                ),
+                "class_agreement_median": quantile(
+                    [float(row["class_agreement"]) for row in group], 0.50
+                ),
+                "localized_jaccard_min": min(
+                    float(row["localized_jaccard"]) for row in group
+                ),
+                "localized_jaccard_median": quantile(
+                    [float(row["localized_jaccard"]) for row in group], 0.50
+                ),
+            }
+        )
+    return output
+
+
 def write_csv(path: Path, rows: list[dict[str, object]]) -> None:
     if not rows:
         raise ValueError(f"cannot write empty CSV: {path}")
@@ -302,14 +392,42 @@ def main() -> None:
     }
     comparisons = build_comparisons(index_rows, runs, gates)
     type_summary = summarize_types(comparisons)
+    layer_summary = summarize_layers(comparisons)
+    step_pair_summary = summarize_step_pairs(comparisons)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     write_csv(args.output_dir / "attention_head_factorial_pairs.csv", comparisons)
     write_csv(args.output_dir / "attention_head_factorial_summary.csv", type_summary)
+    write_csv(args.output_dir / "attention_head_factorial_layer_summary.csv", layer_summary)
+    write_csv(
+        args.output_dir / "attention_head_factorial_step_pair_summary.csv",
+        step_pair_summary,
+    )
     summary_by_type = {str(row["comparison_type"]): row for row in type_summary}
 
     def passes(name: str) -> bool:
         row = summary_by_type.get(name)
         return bool(row) and float(row["go_fraction"]) >= 0.95 and float(row["class_agreement_p05"]) >= gates["class"]
+
+    layer_summary_by_key = {
+        (str(row["comparison_type"]), int(row["layer"])): row
+        for row in layer_summary
+    }
+
+    def layer_passes(name: str, layer: int) -> bool:
+        row = layer_summary_by_key.get((name, layer))
+        return bool(row) and float(row["go_fraction"]) >= 0.95 and float(
+            row["class_agreement_p05"]
+        ) >= gates["class"]
+
+    layer_decisions = {
+        str(layer): {
+            "fixed_layer_step_router_go": layer_passes("seed", layer)
+            and layer_passes("prompt", layer),
+            "step_agnostic_router_go": layer_passes("step", layer),
+            "branch_shared_router_go": layer_passes("branch", layer),
+        }
+        for layer in sorted({int(row["layer"]) for row in index_rows})
+    }
 
     payload = {
         "scope": "F81 attention head-role prompt/seed/step/CFG factorial gate",
@@ -317,6 +435,9 @@ def main() -> None:
         "comparisons": len(comparisons),
         "gates": gates,
         "type_summary": type_summary,
+        "layer_summary": layer_summary,
+        "step_pair_summary": step_pair_summary,
+        "layer_decisions": layer_decisions,
         "decisions": {
             "fixed_layer_step_router_go": passes("seed") and passes("prompt"),
             "step_agnostic_router_go": passes("step"),

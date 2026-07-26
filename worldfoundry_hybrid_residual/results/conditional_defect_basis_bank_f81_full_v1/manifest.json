@@ -1,0 +1,53 @@
+{
+  "arguments": {
+    "bank_counts": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "branch": "cond",
+    "calibration_sample_id": "s00_p00_seed20260740",
+    "capture_index": "results/geometry_generalization_h200_v2/qkv_replays/capture_index.csv",
+    "density": 0.125,
+    "device": "cuda:0",
+    "error_target": 0.02,
+    "heads": [],
+    "key_block_size": 64,
+    "layer": 0,
+    "method": "mass_topk",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/conditional_defect_basis_bank_f81_full_v1",
+    "query_tile_size": 64,
+    "query_tiles": 16,
+    "rank": 16,
+    "sampling_step": 0,
+    "test_sample_id": "s02_p00_seed20260741"
+  },
+  "calibration_path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA GeForce RTX 4090",
+  "elapsed_seconds": 36.37876629829407,
+  "methodology": "frozen calibration sparse masks and position-bucketed calibration defect bases, test oracle coefficients",
+  "python": "3.11.15",
+  "query_starts": [
+    0,
+    2176,
+    4352,
+    6528,
+    8704,
+    10880,
+    13056,
+    15232,
+    17408,
+    19584,
+    21760,
+    23936,
+    26112,
+    28288,
+    30464,
+    32640
+  ],
+  "test_path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/geometry_generalization_h200_v2/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+  "torch": "2.9.1+cu128"
+}

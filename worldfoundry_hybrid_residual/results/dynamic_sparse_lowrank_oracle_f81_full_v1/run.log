@@ -1,0 +1,27 @@
+[dynamic-oracle] sample=s00_p00_seed20260740 head=0 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=1 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=2 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=3 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=4 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=5 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=6 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=7 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=8 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=9 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=10 tiles=4 blocks=512
+[dynamic-oracle] sample=s00_p00_seed20260740 head=11 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=0 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=1 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=2 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=3 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=4 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=5 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=6 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=7 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=8 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=9 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=10 tiles=4 blocks=512
+[dynamic-oracle] sample=s02_p00_seed20260741 head=11 tiles=4 blocks=512
+[dynamic-oracle] verdict=GO_CONDITIONAL_ROUTER_REQUIRED
+[dynamic-oracle] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/dynamic_sparse_lowrank_oracle_f81_full_v1
+[plot] wrote /home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/dynamic_sparse_lowrank_oracle_f81_full_v1

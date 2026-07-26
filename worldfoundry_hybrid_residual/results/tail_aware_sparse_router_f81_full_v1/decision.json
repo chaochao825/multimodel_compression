@@ -1,0 +1,38 @@
+{
+  "best_dynamic": {
+    "accepted_iterations_mean": 0.5,
+    "basis_overlap_mean": 0.7066381126642227,
+    "density": 0.125,
+    "dynamic_go": true,
+    "frozen_structure_go": false,
+    "heads": 12,
+    "mask_jaccard_mean": 0.6612989933540424,
+    "rank": 16,
+    "test_dynamic_calibration_basis_relative_l2": 0.02701135102530113,
+    "test_dynamic_final_relative_l2": 0.0062169848104683244,
+    "test_dynamic_initial_relative_l2": 0.006238321941984472,
+    "test_frozen_calibration_basis_relative_l2": 0.027782245752606752,
+    "test_frozen_self_relative_l2": 0.0062900699187647315,
+    "test_tail_energy_mean": 0.9679655432701111
+  },
+  "best_frozen_structure": {
+    "accepted_iterations_mean": 0.5,
+    "basis_overlap_mean": 0.7066381126642227,
+    "density": 0.125,
+    "dynamic_go": true,
+    "frozen_structure_go": false,
+    "heads": 12,
+    "mask_jaccard_mean": 0.6612989933540424,
+    "rank": 16,
+    "test_dynamic_calibration_basis_relative_l2": 0.02701135102530113,
+    "test_dynamic_final_relative_l2": 0.0062169848104683244,
+    "test_dynamic_initial_relative_l2": 0.006238321941984472,
+    "test_frozen_calibration_basis_relative_l2": 0.027782245752606752,
+    "test_frozen_self_relative_l2": 0.0062900699187647315,
+    "test_tail_energy_mean": 0.9679655432701111
+  },
+  "dynamic_go": true,
+  "error_target": 0.02,
+  "frozen_structure_go": false,
+  "warning": "alternating greedy routing is a heuristic witness, not a globally optimal mask certificate"
+}

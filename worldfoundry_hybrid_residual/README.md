@@ -121,6 +121,32 @@ output errors remain `2.555%/8.014%`. Rank-64 plus 5% blocks only reaches
 sweep over `beta={0,.25,.5,.75,1}` does not close the gap. See
 [`results/JOINT_ERROR_SHAPING_MULTIBLOCK_BCM_20260726.zh-CN.md`](results/JOINT_ERROR_SHAPING_MULTIBLOCK_BCM_20260726.zh-CN.md).
 
+## Dynamic Sparse Critical And Conditional Tail
+
+The output-aware F81 follow-up finds a real but still oracle-only
+representation opportunity. At 12.5% `64x64` key-block density, a
+sample-adaptive rank-16 output tail reaches `0.629%` aggregate relative L2 and
+`1.84%` worst-head error across all 12 heads. Freezing the calibration mask
+barely changes the aggregate error (`0.630%`), while freezing the calibration
+basis raises it to `2.68-2.76%` and leaves diffuse head 9 above `10%`.
+
+More router complexity does not close this transfer gap. Tail-aware
+alternation improves only `0.07-0.34%` relative, and splitting a static basis
+into 2/4/8/16 position banks bottoms out at `2.82%` aggregate error while the
+worst head remains above `12%`. The main path is therefore narrowed to a
+head-role-aware executor with content-conditioned linear/low-rank marginal
+features and dense fallback for Gaussian-like diffuse heads. See
+[`results/DYNAMIC_SPARSE_LOWRANK_F81_20260726.zh-CN.md`](results/DYNAMIC_SPARSE_LOWRANK_F81_20260726.zh-CN.md).
+
+The completed 72-cell prompt/seed/step/CFG factorial sharpens that executor.
+CFG branches have `1.0` class agreement and localized-head Jaccard in all 36
+pairs, while step comparisons pass only `52.8%` of the stability gates. Layer
+0 is stable across every tested factor; layer 14 requires dynamic content/step
+conditioning; layer 29 is sample-stable but step-dependent. This supports
+sharing operator classes across CFG, not activations, masks, scales, or frozen
+correction bases. See
+[`results/ATTENTION_HEAD_FACTORIAL_F81_20260726.zh-CN.md`](results/ATTENTION_HEAD_FACTORIAL_F81_20260726.zh-CN.md).
+
 ## Function-Aware Entropy And THW Structure Audit
 
 The follow-up separates parameter entropy, activation structure, and operator
@@ -184,6 +210,12 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `scripts/probe_multiblock_bcm_attention.py`: frozen global, query-block, and hierarchical BCM attention probe.
 - `scripts/plot_joint_quant_lr_shaping.py`: joint-shaping gate and generalization dashboard.
 - `scripts/plot_multiblock_bcm_attention.py`: BCM parameter, head, and wrap-leakage dashboard.
+- `scripts/probe_dynamic_sparse_lowrank_oracle.py`: output-aware block-sparse and cross-seed tail transfer probe.
+- `scripts/probe_tail_aware_sparse_router.py`: alternating routing on the low-rank-unrepairable residual.
+- `scripts/probe_conditional_defect_basis_bank.py`: frozen position-bucketed defect basis-bank audit.
+- `scripts/plot_dynamic_sparse_lowrank_oracle.py`: dynamic/static transfer and normalization dashboard.
+- `scripts/plot_tail_aware_sparse_router.py`: fixed-objective versus alternating router comparison.
+- `scripts/plot_conditional_defect_basis_bank.py`: basis-bank transfer and overfit dashboard.
 - `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
 - `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
 - `scripts/run_phase2_head_role_factorial_v1.sh`: resumable F81 prompt/seed/step/CFG head-role capture.
@@ -208,6 +240,10 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `results/joint_quant_lr_shaping_capacity_cpu_v1/`: rank-32/64 capacity ceiling.
 - `results/joint_quant_lr_shaping_beta_cpu_v1/`: validation-selected shaping-strength sweep.
 - `results/multiblock_bcm_attention_f81_cpu_v1/`: F81 multi-block BCM held-out evidence.
+- `results/dynamic_sparse_lowrank_oracle_f81_full_v1/`: output-aware dynamic/static transfer evidence.
+- `results/tail_aware_sparse_router_f81_full_v1/`: alternating tail-aware router evidence.
+- `results/conditional_defect_basis_bank_f81_full_v1/`: cross-seed position basis-bank evidence.
+- `results/attention_head_factorial_f81_v1/summary/`: compact 72-cell factor-separated evidence.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -241,6 +277,16 @@ python scripts/plot_multiblock_bcm_attention.py \
   --heldout results/multiblock_bcm_attention_f81_cpu_v1/multiblock_bcm_attention_heldout.csv \
   --summary results/multiblock_bcm_attention_f81_cpu_v1/multiblock_bcm_attention_summary.csv \
   --output-dir results/multiblock_bcm_attention_f81_cpu_v1
+python scripts/plot_dynamic_sparse_lowrank_oracle.py \
+  --summary results/dynamic_sparse_lowrank_oracle_f81_full_v1/dynamic_sparse_lowrank_summary.csv \
+  --output-dir results/dynamic_sparse_lowrank_oracle_f81_full_v1 --rank 16
+python scripts/plot_tail_aware_sparse_router.py \
+  --baseline-summary results/dynamic_sparse_lowrank_oracle_f81_full_v1/dynamic_sparse_lowrank_summary.csv \
+  --tail-aware-summary results/tail_aware_sparse_router_f81_full_v1/tail_aware_sparse_router_summary.csv \
+  --output-dir results/tail_aware_sparse_router_f81_full_v1 --rank 16
+python scripts/plot_conditional_defect_basis_bank.py \
+  --summary results/conditional_defect_basis_bank_f81_full_v1/conditional_basis_bank_summary.csv \
+  --output-dir results/conditional_defect_basis_bank_f81_full_v1
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the

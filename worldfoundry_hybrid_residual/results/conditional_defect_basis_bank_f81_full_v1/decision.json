@@ -1,0 +1,21 @@
+{
+  "error_target": 0.02,
+  "interpretation": "oracle coefficients with a frozen position bucket; coefficient prediction and H200 timing remain unverified",
+  "selected": {
+    "aggregate_go": false,
+    "aggregate_relative_l2": 0.028229057703058103,
+    "all_heads_go": false,
+    "bank_count": 2,
+    "basis_fp16_mib": 0.09375,
+    "basis_overlap_mean": 0.7341570382316908,
+    "basis_parameters": 49152,
+    "captured_energy_mean": 0.9130351040512323,
+    "head_error_max": 0.12126148580230593,
+    "head_error_median": 0.029789246171929518,
+    "heads": 12,
+    "mask_jaccard_mean": 0.8084282477696737,
+    "tile_error_max": 0.1694555984227598,
+    "worst_head": 9
+  },
+  "verdict": "NO_GO_POSITION_ONLY_BANK"
+}
