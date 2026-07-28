@@ -1,0 +1,6 @@
+{
+  "decision": "STOP_TRAINFREE_TAIL",
+  "figure": "trainfree_tail_oracle_analysis.png",
+  "head_figure": "trainfree_tail_oracle_head_diagnostics.png",
+  "status": "SUCCESS"
+}

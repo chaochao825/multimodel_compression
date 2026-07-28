@@ -1,0 +1,9 @@
+{
+  "claim_boundary": "Post-hoc function-class capacity diagnostic on previously explored captures. Dense attention may choose critical blocks and per-record oracle candidates; no transfer, deployment, or latency claim is permitted.",
+  "kernel_authorized": false,
+  "latency_claim_authorized": false,
+  "oracle_gate_passed_families": [],
+  "run_kind": "registered",
+  "schema_version": 1,
+  "status": "STOP_TRAINFREE_TAIL"
+}

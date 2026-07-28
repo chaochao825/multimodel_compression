@@ -1,0 +1,10 @@
+{
+  "config_sha256": "7a67eea53abd288c79f4fd8b80e76a1b5868ef1cf557e58dccf46aeaafeddfef",
+  "decision": "STOP_TRAINFREE_TAIL",
+  "detail_rows": 6912,
+  "elapsed_seconds": 114.42019271850586,
+  "head_rows": 2304,
+  "run_id": "tail-oracle-7a67eea53abd-1785203774",
+  "run_kind": "registered",
+  "status": "SUCCESS"
+}

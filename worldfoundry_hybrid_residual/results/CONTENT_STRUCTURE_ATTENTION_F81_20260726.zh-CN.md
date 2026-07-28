@@ -338,3 +338,21 @@ Kernel 必须融合：
 ### 13.4 有界结论
 
 停止继续扩大本轮 **train-free segment Nyström/landmark family**，不运行完整 `3 x 3` 扫描、不写其 fused kernel，也不进入 F81 rollout。该 stop 不否定 learned content-conditioned tail；下一条可检验路线是 faithful sparse-linear baseline 与小型 Q/K-conditioned learned tail，并继续沿用相同的冻结 split、artifact 哈希、质量门槛和 H200 实测门槛。
+
+## 14. 强免训练 residual-tail 最终筛选
+
+在普通 segment Nyström 失败后，按预注册顺序完成了三类更强的函数类：value-aware K/V/THW coreset、删除 critical 后的 1-4 阶 polynomial，以及 rank-4/8/16 K/V covariance moments。所有方法都把 exact 与 approximate numerator/denominator 一次性共享归一化。
+
+| 方法族 | 注册集合最优固定配置 | 后验 sample/head envelope | 最坏 sample/head | 结论 |
+|---|---:|---:|---:|---|
+| Value-aware coreset | `5.426%` | `5.409%` | `14.617%` | FAIL |
+| Residual-tail polynomial | `4.952%` | `4.952%` | `10.134%` | FAIL |
+| Covariance moments | `7.876%` | `6.719%` | `21.938%` | FAIL |
+
+门槛为 oracle aggregate `<=0.5%`、worst `<=1%`。后验 envelope 可以为每个 sample/head 选择不同候选，critical mask 和 value-aware 权重也读取 dense reference，因此它比部署条件更乐观；三类方法仍全部失败。
+
+关键归因是：25% exact critical 后的 tail score 平均范围仍为 `18.523`，低阶 Taylor 的平滑前提不成立；value-aware landmarks 虽相对 K-only 改善约 `6.7%`，但 query-tile 共享 centroid 无法保留 query-dependent K/V 高阶相关；完整 covariance 的实现通过精确重建测试，但 Gaussian 二阶 closure 比 centroid 更差，说明瓶颈是分布失配而非 rank 不足。失败稳定集中在 head 6/7/9，四个 prompt/seed 组合均未接近门槛。
+
+因此正式停止这条 train-free tail family，不开发 kernel、不进入 rollout。该结论不否定 adaptive low-rank output witness，而是说明免训练生成器无法恢复随内容旋转的 subspace。下一步只保留冻结 QKV 的小型 learned Q/K-conditioned sparse-linear tail，并要求独立 split、冻结 test、`<=1%/2%` 质量门和 whole-Attention H200 `>=1.5x` 后才继续。
+
+详细审计见 [`TRAINFREE_RESIDUAL_TAIL_ORACLE_F81_20260728.zh-CN.md`](TRAINFREE_RESIDUAL_TAIL_ORACLE_F81_20260728.zh-CN.md)，原始注册结果与图表分别位于 `results/trainfree_tail_oracle_f81_registered_v1/` 和 `results/trainfree_tail_oracle_f81_registered_analysis_v1/`。

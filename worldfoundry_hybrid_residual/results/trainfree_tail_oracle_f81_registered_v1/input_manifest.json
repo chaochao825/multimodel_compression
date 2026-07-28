@@ -1,0 +1,52 @@
+{
+  "capture_hash_mode": "sha256",
+  "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+  "capture_index_sha256": "d8bc6f7fbb0accf4525d886839ba85f1fd6657fcdf5892a1a18c9f38a36fe088",
+  "captures": [
+    {
+      "branch": "cond",
+      "bytes": 301919488,
+      "hash_mode": "sha256",
+      "layer": 14,
+      "mtime_ns": 1785073337999465175,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step09_t859_cond_l14_self.pt",
+      "sample_id": "s00_p00_seed20260740",
+      "sampling_step": 9,
+      "sha256": "51053e3738ad1d88c47862158be2d5a6df3aef095a58b84c26d8da815c5b82c6"
+    },
+    {
+      "branch": "cond",
+      "bytes": 301919488,
+      "hash_mode": "sha256",
+      "layer": 14,
+      "mtime_ns": 1785073382031467792,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step09_t859_cond_l14_self.pt",
+      "sample_id": "s01_p01_seed20260740",
+      "sampling_step": 9,
+      "sha256": "378b622ba1994fa49c46913f904977ca2399f46cf2271cdfb0b901b1fb989006"
+    },
+    {
+      "branch": "cond",
+      "bytes": 301919488,
+      "hash_mode": "sha256",
+      "layer": 14,
+      "mtime_ns": 1785073425039470349,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step09_t859_cond_l14_self.pt",
+      "sample_id": "s02_p00_seed20260741",
+      "sampling_step": 9,
+      "sha256": "2be28034e830e128d4f9eb98f33ecf6d0c5007d388867bd2e2923d612741126f"
+    },
+    {
+      "branch": "cond",
+      "bytes": 301919488,
+      "hash_mode": "sha256",
+      "layer": 14,
+      "mtime_ns": 1785073466143472792,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step09_t859_cond_l14_self.pt",
+      "sample_id": "s03_p01_seed20260741",
+      "sampling_step": 9,
+      "sha256": "c9faf8b70307701fe6399aa156a321ee6db59a6ca23ac92fbc463ac2bb55bf8a"
+    }
+  ],
+  "schema_version": 1
+}

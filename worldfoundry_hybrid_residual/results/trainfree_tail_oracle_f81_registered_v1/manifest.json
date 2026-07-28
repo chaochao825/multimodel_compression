@@ -1,0 +1,129 @@
+{
+  "arguments": {
+    "capture_hash_mode": "sha256",
+    "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "device": "cuda:0",
+    "execution_resource_note": "exclusive visible RTX4090 GPU_INDEX=1 numerical oracle; no latency claim",
+    "families": [
+      "value_aware_coreset",
+      "residual_tail_polynomial",
+      "lowrank_covariance"
+    ],
+    "head_stats_index": null,
+    "heads": [],
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/trainfree_tail_oracle_f81_registered_v1",
+    "protocol_config": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/configs/trainfree_tail_oracle_f81_v1.json",
+    "query_tiles_override": 0,
+    "run_kind": "registered",
+    "sample_limit": 0
+  },
+  "capture_index_sha256": "d8bc6f7fbb0accf4525d886839ba85f1fd6657fcdf5892a1a18c9f38a36fe088",
+  "captures": 4,
+  "claim_boundary": "Post-hoc function-class capacity diagnostic on previously explored captures. Dense attention may choose critical blocks and per-record oracle candidates; no transfer, deployment, or latency claim is permitted.",
+  "config_sha256": "7a67eea53abd288c79f4fd8b80e76a1b5868ef1cf557e58dccf46aeaafeddfef",
+  "cost_boundary": "query arithmetic is reported where defined; online clustering, moment/SVD formation, kernel launch, gather, and fusion costs are omitted",
+  "critical_router": "tile-shared dense attention mass oracle; not deployable",
+  "cuda_runtime": "12.8",
+  "decision": {
+    "claim_boundary": "Post-hoc function-class capacity diagnostic on previously explored captures. Dense attention may choose critical blocks and per-record oracle candidates; no transfer, deployment, or latency claim is permitted.",
+    "kernel_authorized": false,
+    "latency_claim_authorized": false,
+    "oracle_gate_passed_families": [],
+    "run_kind": "registered",
+    "schema_version": 1,
+    "status": "STOP_TRAINFREE_TAIL"
+  },
+  "device": "NVIDIA GeForce RTX 4090",
+  "elapsed_seconds": 114.41932272911072,
+  "execution_resource_note": "exclusive visible RTX4090 GPU_INDEX=1 numerical oracle; no latency claim",
+  "families": [
+    "value_aware_coreset",
+    "residual_tail_polynomial",
+    "lowrank_covariance"
+  ],
+  "input_manifest_sha256": "52205c6474676599ea3bbafebb3032e059cd0941879733cf40d4880580a0bf5d",
+  "normalization": "exact and approximate numerator/denominator terms share one normalization",
+  "oracle_envelope": "per sample/head post-hoc minimum output error; not a frozen test estimate",
+  "protocol": {
+    "claim_boundary": "Post-hoc function-class capacity diagnostic on previously explored captures. Dense attention may choose critical blocks and per-record oracle candidates; no transfer, deployment, or latency claim is permitted.",
+    "gates": {
+      "deployment_aggregate_output_relative_l2": 0.01,
+      "deployment_worst_record_output_relative_l2": 0.02,
+      "max_projected_query_work_ratio": 0.5,
+      "oracle_aggregate_output_relative_l2": 0.005,
+      "oracle_worst_record_output_relative_l2": 0.01,
+      "whole_attention_measured_speedup": 1.5
+    },
+    "lowrank_covariance": {
+      "components_per_block": [
+        1,
+        2
+      ],
+      "include_centroid": true,
+      "include_diagonal_gaussian": true,
+      "ranks": [
+        4,
+        8,
+        16
+      ]
+    },
+    "residual_tail_polynomial": {
+      "centers": [
+        "mean",
+        "midrange"
+      ],
+      "orders": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "schema_version": 1,
+    "scope": {
+      "block_size": 64,
+      "branches": [
+        "cond"
+      ],
+      "densities": [
+        0.125,
+        0.25
+      ],
+      "layers": [
+        14
+      ],
+      "query_tile_size": 64,
+      "query_tiles": 3,
+      "sample_ids": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ],
+      "sampling_steps": [
+        9
+      ]
+    },
+    "value_aware_coreset": {
+      "fit_tokens": 4096,
+      "kmeans_iterations": 4,
+      "landmarks": [
+        64,
+        128
+      ],
+      "restarts": 1,
+      "variants": [
+        "k_only",
+        "joint_kv",
+        "value_aware_kv_thw"
+      ]
+    }
+  },
+  "protocol_sha256": "d066bbde7a18e885743dfa95500f7d7eb8a6a75bfbb8bb2d7d3b4b914786dfce",
+  "python": "3.11.15",
+  "run_id": "tail-oracle-7a67eea53abd-1785203774",
+  "run_kind": "registered",
+  "schema_version": 1,
+  "scope": "stronger train-free sparse-critical residual-tail function-class oracle",
+  "torch": "2.9.1+cu128"
+}

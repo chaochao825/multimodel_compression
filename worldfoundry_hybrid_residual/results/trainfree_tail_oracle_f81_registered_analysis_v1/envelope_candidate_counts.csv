@@ -1,0 +1,11 @@
+family,configuration,records
+lowrank_covariance,"diag_gaussian, rank=0, components=2, density=25.0%",35
+lowrank_covariance,"lowrank_gaussian, rank=8, components=1, density=25.0%",4
+lowrank_covariance,"diag_gaussian, rank=0, components=1, density=25.0%",3
+lowrank_covariance,"centroid, rank=0, components=2, density=25.0%",2
+lowrank_covariance,"lowrank_gaussian, rank=16, components=1, density=25.0%",2
+lowrank_covariance,"lowrank_gaussian, rank=4, components=1, density=25.0%",2
+residual_tail_polynomial,"mean, order=4, density=25.0%",46
+residual_tail_polynomial,"midrange, order=4, density=25.0%",2
+value_aware_coreset,"value_aware_kv_thw, m=128, density=25.0%",38
+value_aware_coreset,"k_only, m=128, density=25.0%",10

@@ -152,6 +152,18 @@ landmark family, not learned sparse-linear tails. See
 [`results/CONTENT_STRUCTURE_ATTENTION_F81_20260726.zh-CN.md`](results/CONTENT_STRUCTURE_ATTENTION_F81_20260726.zh-CN.md)
 and [`docs/nystrom_sparse_tail_protocol.md`](docs/nystrom_sparse_tail_protocol.md).
 
+The final bounded train-free screen tests value-aware K/V/THW coresets,
+critical-removed order-1/4 polynomial tails, and rank-4/8/16 K/V covariance
+moments under strict shared normalization. Even a per-sample/head post-hoc
+envelope reaches only `4.952%-6.719%` aggregate error and
+`10.134%-21.938%` worst-record error, versus the registered `0.5%/1%`
+oracle gate. The tail score range remains `18.523` after 25% exact critical
+selection, and full-covariance Gaussian moments are worse than centroids.
+This closes the remaining train-free tail family without authorizing an H200
+kernel or rollout; it does not reject the previously observed adaptive
+rank-16 output witness. See
+[`results/TRAINFREE_RESIDUAL_TAIL_ORACLE_F81_20260728.zh-CN.md`](results/TRAINFREE_RESIDUAL_TAIL_ORACLE_F81_20260728.zh-CN.md).
+
 The completed 72-cell prompt/seed/step/CFG factorial sharpens that executor.
 CFG branches have `1.0` class agreement and localized-head Jaccard in all 36
 pairs, while step comparisons pass only `52.8%` of the stability gates. Layer
@@ -234,6 +246,9 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `scripts/select_nystrom_sparse_tail.py`: validation-only selection and frozen-head transfer evaluation.
 - `scripts/plot_nystrom_sparse_tail.py`: source-bound validation/test plots without test-driven selection.
 - `scripts/analyze_nystrom_sparse_tail_failure.py`: capacity, conditioning, role-transfer, and router-error diagnosis.
+- `scripts/trainfree_tail_oracle_core.py`: shared-normalization coreset, polynomial, and covariance kernels.
+- `scripts/probe_trainfree_tail_oracles.py`: registered stronger train-free residual-tail capacity screen.
+- `scripts/analyze_trainfree_tail_oracles.py`: source-bound capacity and per-head failure dashboards.
 - `scripts/experiment_artifacts.py`: atomic run state, provenance, hashing, and rectangular-sweep utilities.
 - `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
 - `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
@@ -267,6 +282,8 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `results/nystrom_sparse_tail_f81_pilot_selection_v1/`: validation-frozen all-head holdout decisions.
 - `results/nystrom_sparse_tail_f81_pilot_transitional_selection_v1/`: calibration-frozen transitional-head decisions.
 - `results/nystrom_sparse_tail_f81_pilot_failure_analysis_v1/`: six-panel failure analysis and source CSVs.
+- `results/trainfree_tail_oracle_f81_registered_v1/`: SHA256-pinned registered train-free tail evidence.
+- `results/trainfree_tail_oracle_f81_registered_analysis_v1/`: source CSVs and two failure dashboards.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -310,6 +327,9 @@ python scripts/plot_tail_aware_sparse_router.py \
 python scripts/plot_conditional_defect_basis_bank.py \
   --summary results/conditional_defect_basis_bank_f81_full_v1/conditional_basis_bank_summary.csv \
   --output-dir results/conditional_defect_basis_bank_f81_full_v1
+python scripts/analyze_trainfree_tail_oracles.py \
+  --probe-dir results/trainfree_tail_oracle_f81_registered_v1 \
+  --output-dir results/trainfree_tail_oracle_f81_registered_analysis_v1
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the

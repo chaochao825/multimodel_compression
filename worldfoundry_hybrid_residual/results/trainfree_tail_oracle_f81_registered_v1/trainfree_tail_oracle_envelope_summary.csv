@@ -1,0 +1,4 @@
+family,records,residual_sq,reference_sq,aggregate_output_relative_l2,record_error_max,projected_query_work_ratio_mean,arithmetic_speedup_upper_bound,selected_attention_mass_mean,negative_tail_weight_fraction_mean,tail_score_range_mean,oracle_aggregate_target,oracle_worst_target,oracle_quality_gate,claim_boundary
+lowrank_covariance,48,1268.3956004371867,280958.95431518555,0.06719019856595546,0.21937562344415149,0.30613044363044367,3.266581357087065,0.8540340533687009,nan,nan,0.005,0.01,FAIL,posthoc_per_record_oracle_capacity_only
+residual_tail_polynomial,48,688.988611246401,280958.95431518555,0.04952045001749854,0.10133995719398393,nan,nan,0.8540340533687009,0.0,18.52321257856157,0.005,0.01,FAIL,posthoc_per_record_oracle_capacity_only
+value_aware_coreset,48,821.9543443365255,280958.95431518555,0.054088185039085954,0.14616951476758797,0.2538715913715914,3.938999218452536,0.8540340533687009,nan,nan,0.005,0.01,FAIL,posthoc_per_record_oracle_capacity_only

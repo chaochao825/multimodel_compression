@@ -1,0 +1,24 @@
+{
+  "claim_boundary": "posthoc_oracle_capacity_only",
+  "decision": {
+    "claim_boundary": "Post-hoc function-class capacity diagnostic on previously explored captures. Dense attention may choose critical blocks and per-record oracle candidates; no transfer, deployment, or latency claim is permitted.",
+    "kernel_authorized": false,
+    "latency_claim_authorized": false,
+    "oracle_gate_passed_families": [],
+    "run_kind": "registered",
+    "schema_version": 1,
+    "status": "STOP_TRAINFREE_TAIL"
+  },
+  "envelope_heads_sha256": "25776d78541e7144bbcf87f7d3a0f09f398b5720916e2076f3d935bd8e8bf8df",
+  "envelope_sha256": "9054cf2e1f311c461f0fb9fb4e86a12f52ca236f0b5963f6932e2d3f357d4e2a",
+  "figure": "trainfree_tail_oracle_analysis.png",
+  "head_figure": "trainfree_tail_oracle_head_diagnostics.png",
+  "head_pdf": "trainfree_tail_oracle_head_diagnostics.pdf",
+  "pdf": "trainfree_tail_oracle_analysis.pdf",
+  "probe_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/trainfree_tail_oracle_f81_registered_v1",
+  "probe_manifest_sha256": "5c833bf2b2d84dc788999da19f9b14cced78a6521f4a6a9aee82989b26c338f6",
+  "probe_success_sha256": "6489621bf147a2ca420197e9776e746a6f37925f5377b23ca91856f6e5182d13",
+  "run_kind": "registered",
+  "schema_version": 1,
+  "summary_sha256": "aadb13b2188c33506bb57b0b8ab6a6314272198e5859c1d56ca543753cf9c8df"
+}

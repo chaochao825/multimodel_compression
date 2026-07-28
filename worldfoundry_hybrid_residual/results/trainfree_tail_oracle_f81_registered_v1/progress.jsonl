@@ -1,0 +1,7 @@
+{"captures":4,"event":"input_hashing_started","mode":"sha256","run_id":"tail-oracle-7a67eea53abd-1785203774","time_unix":1785203774.9111114}
+{"captures":4,"event":"input_hashing_completed","run_id":"tail-oracle-7a67eea53abd-1785203774","time_unix":1785203776.4934456}
+{"capture_index":0,"elapsed_seconds":29.233484745025635,"event":"capture_completed","rows":1728,"run_id":"tail-oracle-7a67eea53abd-1785203774","sample_id":"s00_p00_seed20260740","time_unix":1785203806.088066}
+{"capture_index":1,"elapsed_seconds":27.798604726791382,"event":"capture_completed","rows":1728,"run_id":"tail-oracle-7a67eea53abd-1785203774","sample_id":"s01_p01_seed20260740","time_unix":1785203833.8900642}
+{"capture_index":2,"elapsed_seconds":28.65360736846924,"event":"capture_completed","rows":1728,"run_id":"tail-oracle-7a67eea53abd-1785203774","sample_id":"s02_p00_seed20260741","time_unix":1785203862.544126}
+{"capture_index":3,"elapsed_seconds":28.400259017944336,"event":"capture_completed","rows":1728,"run_id":"tail-oracle-7a67eea53abd-1785203774","sample_id":"s03_p01_seed20260741","time_unix":1785203890.9448817}
+{"config_sha256":"7a67eea53abd288c79f4fd8b80e76a1b5868ef1cf557e58dccf46aeaafeddfef","decision":"STOP_TRAINFREE_TAIL","detail_rows":6912,"elapsed_seconds":114.42019271850586,"event":"run_completed","head_rows":2304,"run_id":"tail-oracle-7a67eea53abd-1785203774","run_kind":"registered","status":"SUCCESS","time_unix":1785203891.2756793}

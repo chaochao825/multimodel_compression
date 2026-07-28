@@ -1,0 +1,4 @@
+family,variant,density,landmarks,order,rank,components,restart,records,residual_sq,reference_sq,aggregate_output_relative_l2,record_error_max,projected_query_work_ratio_mean,arithmetic_speedup_upper_bound,selected_attention_mass_mean,negative_tail_weight_fraction_mean,tail_score_range_mean
+value_aware_coreset,value_aware_kv_thw,0.25,128,0,0,0,0,48,827.0510708052898,280958.95431518555,0.05425561931464891,0.14616951476758797,0.2538715913715914,3.938999218452536,0.8540340533687009,nan,nan
+residual_tail_polynomial,mean,0.25,0,4,0,0,0,48,689.073797492194,280958.95431518555,0.049523511266098295,0.10133995719398393,nan,nan,0.8540340533687009,0.0,18.52321257856157
+lowrank_covariance,centroid,0.25,0,0,0,2,0,48,1742.7260641492903,280958.95431518555,0.07875771806332592,0.23380461294520305,0.2734076109076109,3.657542658305577,0.8540340533687009,nan,nan

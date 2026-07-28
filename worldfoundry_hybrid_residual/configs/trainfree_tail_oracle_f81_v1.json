@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "claim_boundary": "Post-hoc function-class capacity diagnostic on previously explored captures. Dense attention may choose critical blocks and per-record oracle candidates; no transfer, deployment, or latency claim is permitted.",
+  "scope": {
+    "sample_ids": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740",
+      "s02_p00_seed20260741",
+      "s03_p01_seed20260741"
+    ],
+    "layers": [14],
+    "sampling_steps": [9],
+    "branches": ["cond"],
+    "query_tile_size": 64,
+    "query_tiles": 3,
+    "block_size": 64,
+    "densities": [0.125, 0.25]
+  },
+  "value_aware_coreset": {
+    "landmarks": [64, 128],
+    "variants": ["k_only", "joint_kv", "value_aware_kv_thw"],
+    "kmeans_iterations": 4,
+    "fit_tokens": 4096,
+    "restarts": 1
+  },
+  "residual_tail_polynomial": {
+    "orders": [1, 2, 3, 4],
+    "centers": ["mean", "midrange"]
+  },
+  "lowrank_covariance": {
+    "ranks": [4, 8, 16],
+    "components_per_block": [1, 2],
+    "include_centroid": true,
+    "include_diagonal_gaussian": true
+  },
+  "gates": {
+    "oracle_aggregate_output_relative_l2": 0.005,
+    "oracle_worst_record_output_relative_l2": 0.01,
+    "deployment_aggregate_output_relative_l2": 0.01,
+    "deployment_worst_record_output_relative_l2": 0.02,
+    "whole_attention_measured_speedup": 1.5,
+    "max_projected_query_work_ratio": 0.5
+  }
+}
