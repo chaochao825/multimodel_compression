@@ -1,0 +1,18 @@
+{
+  "artifact_sha256": {
+    "adaptive_rank16_pregate.pdf": "eb9cc5a0f1f4ccfb905b7d4aef0a77e683a8197765aa105c1523b2a5e1906449",
+    "adaptive_rank16_pregate.png": "339614de165497f647c27cb1d67212b0b790240992cddb807aa51c054230be66",
+    "analysis_summary.json": "c745da45e76224d506a58f14a6ab0b5e50e2e81aeeee809ea7d16209a84ae09f",
+    "best_candidates.csv": "2bc19f2e03fa61be3255fc4c820e851ba31443811a797945d436d231df8c4576",
+    "cross_holdout_frontier.csv": "48ca40290674de86f4ee746c6c2c071f85b1457f0b8fa411cb45e503a5ef383d",
+    "head_fallback_frontier.csv": "74c99b93ba4b20f89b73ba46fed2cf50e4ac40731e6b37736673aabcfe7fbbc7",
+    "hybrid_head_fallback_upper_bound.pdf": "ba03e821e8de8e33bb8d17cb6bf757ab3d901a779a4c77355bde337e82b71aa8",
+    "hybrid_head_fallback_upper_bound.png": "ad46663a7ed0d5ea77081d8d805a6cfbd7be057898a236cb0aec157e80578a7d",
+    "restricted_rotation_error_by_M.pdf": "7e76bad2ae34d0323fe2b41394deecbb9420350330fa382130285008f17d874a",
+    "restricted_rotation_error_by_M.png": "d46a8e577626af5709a7a29548c86d70782f557a0341ccd39a61b5084465bc7b",
+    "rotation_plot_source.csv": "3093ad875846a64f0e50c2aab78ceed518aedbd36714b8e9ec240b6d752ed149",
+    "rotation_quality_payload_pareto.pdf": "59adabb1ebd08acee1164acf612028fa4cf391f14b68e3b5b17a23e04d1af925",
+    "rotation_quality_payload_pareto.png": "33e2dc18e03a757c6fa394b890a21c0ff0fc87c8653eb948287de37fb24b03eb"
+  },
+  "verdict": "STOP_RESTRICTED_ROTATION_ORACLE_FAILS"
+}

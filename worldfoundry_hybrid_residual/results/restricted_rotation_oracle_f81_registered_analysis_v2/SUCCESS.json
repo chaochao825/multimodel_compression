@@ -1,0 +1,18 @@
+{
+  "artifact_sha256": {
+    "adaptive_rank16_pregate.pdf": "1eb1d89bf6073755246e8084cf7aece9a5bb0f896a0869da59dd83ed066f0fa7",
+    "adaptive_rank16_pregate.png": "75755abd1fa9b356470b6532af079fabde4a5af49658c1ca09d9913c00e2f921",
+    "analysis_summary.json": "23044d500b2502f939b37ad1c66816d39404929660446965a759722ea22f3ccb",
+    "best_candidates.csv": "98649c7d5fefa886903a964cd1eee30fbfe9957aff3ab33017a3da4d3a99d6e2",
+    "cross_holdout_frontier.csv": "eed76dd3acc1f6a882cd49c5929ea32fe6b32e4eb70dc4b96dab06779b72fb4f",
+    "head_fallback_frontier.csv": "a0f210325b1563c56abebfab91b2d55afb33aed41dad9f33e54f39370f4a0fe7",
+    "hybrid_head_fallback_upper_bound.pdf": "011bc95d382ab99ce46a2529db84e29cd383514a4d3e718212d3ec525c82814d",
+    "hybrid_head_fallback_upper_bound.png": "d6531c19485a53ba21dcf20be3723d64d22002074df88272692bcd203ecf5eea",
+    "restricted_rotation_error_by_M.pdf": "bc4f71f7677cf8dd6743ccdd913f67ce0d053eed3d55fb486e898d867e3a669e",
+    "restricted_rotation_error_by_M.png": "1a809135f79e3f4bbf8a3b097cee9b6faa0edcfbe0ccb24348f2ad5ca57c4a1f",
+    "rotation_plot_source.csv": "c85dddb467630b507ee3d8f50fbee07d0d962b1f5c293f6cdb5abdf2fafa1fc6",
+    "rotation_quality_payload_pareto.pdf": "62100d628e42cc7a03437422242335bfba733f8d4963ed697870c4738dab85a9",
+    "rotation_quality_payload_pareto.png": "eb346aa3b2d044afe35b7256e0a134eb37b416a2168d0ed93011492410b6d536"
+  },
+  "verdict": "STOP_LOW_DIMENSION_ROTATION_DYNAMIC_PAYLOAD_DEGENERATES_TO_BASIS_GENERATION"
+}

@@ -164,6 +164,19 @@ kernel or rollout; it does not reject the previously observed adaptive
 rank-16 output witness. See
 [`results/TRAINFREE_RESIDUAL_TAIL_ORACLE_F81_20260728.zh-CN.md`](results/TRAINFREE_RESIDUAL_TAIL_ORACLE_F81_20260728.zh-CN.md).
 
+A registered restricted-rotation oracle then tests whether the moving rank-16
+tail can be generated from a source basis with at most 16 Givens,
+Householder, orthogonal block-circulant, DCD, or Butterfly factors. Only the
+layer-0/step-0 capacity control passes the adaptive `0.5%/1%` pre-gate;
+layer 14 fails at steps 0/9/19 even with a fresh per-record SVD. Householder-16
+matches the adaptive ceiling but emits 2,048 dynamic scalars, exactly the
+payload of a `128x16` basis. The best <=512-scalar candidate, Butterfly-8,
+improves to `0.285%` aggregate and `1.082%` worst error after a 600-step,
+four-restart refinement and still misses the worst-case gate. Post-hoc dense
+fallback for heads 7/9 leaves a `2.66x` ideal layer-0 attention-work upper
+bound, but no universal rotation gate or H200 kernel is authorized. See
+[`results/RESTRICTED_ROTATION_ORACLE_F81_20260728.zh-CN.md`](results/RESTRICTED_ROTATION_ORACLE_F81_20260728.zh-CN.md).
+
 The completed 72-cell prompt/seed/step/CFG factorial sharpens that executor.
 CFG branches have `1.0` class agreement and localized-head Jaccard in all 36
 pairs, while step comparisons pass only `52.8%` of the stability gates. Layer
@@ -249,6 +262,9 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `scripts/trainfree_tail_oracle_core.py`: shared-normalization coreset, polynomial, and covariance kernels.
 - `scripts/probe_trainfree_tail_oracles.py`: registered stronger train-free residual-tail capacity screen.
 - `scripts/analyze_trainfree_tail_oracles.py`: source-bound capacity and per-head failure dashboards.
+- `scripts/restricted_rotation_oracle_core.py`: Givens, Householder, orthogonal BCM, DCD, Butterfly, and cost-model primitives.
+- `scripts/probe_restricted_rotation_oracle.py`: SHA256-bound layer/step/head/tile post-hoc rotation-capacity screen.
+- `scripts/analyze_restricted_rotation_oracle.py`: cross-holdout, payload, and universal-head-fallback analysis.
 - `scripts/experiment_artifacts.py`: atomic run state, provenance, hashing, and rectangular-sweep utilities.
 - `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
 - `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
@@ -284,6 +300,10 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `results/nystrom_sparse_tail_f81_pilot_failure_analysis_v1/`: six-panel failure analysis and source CSVs.
 - `results/trainfree_tail_oracle_f81_registered_v1/`: SHA256-pinned registered train-free tail evidence.
 - `results/trainfree_tail_oracle_f81_registered_analysis_v1/`: source CSVs and two failure dashboards.
+- `results/restricted_rotation_oracle_f81_registered_v1/`: registered raw rotation records and control-closure evidence.
+- `results/restricted_rotation_oracle_f81_registered_analysis_v2/`: cross-holdout and head-fallback source CSVs/figures.
+- `results/restricted_rotation_oracle_f81_refinement_v1/`: 600-step, four-restart BCM-8/Butterfly-8 convergence audit.
+- `results/restricted_rotation_oracle_f81_refinement_analysis_v2/`: refinement frontier and fallback upper bounds.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -330,6 +350,9 @@ python scripts/plot_conditional_defect_basis_bank.py \
 python scripts/analyze_trainfree_tail_oracles.py \
   --probe-dir results/trainfree_tail_oracle_f81_registered_v1 \
   --output-dir results/trainfree_tail_oracle_f81_registered_analysis_v1
+python scripts/analyze_restricted_rotation_oracle.py \
+  --input-dir results/restricted_rotation_oracle_f81_registered_v1 \
+  --output-dir results/restricted_rotation_oracle_f81_registered_analysis_v2
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the

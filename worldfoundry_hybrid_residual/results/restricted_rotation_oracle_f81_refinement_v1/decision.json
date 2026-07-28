@@ -1,0 +1,94 @@
+{
+  "adaptive_pregate_failures": [],
+  "best_candidate": null,
+  "candidate_gates": [
+    {
+      "all_holdouts_present": true,
+      "anti_tautology_gate_all_holdouts": false,
+      "cell": "layer00_step00_capacity_control",
+      "density": 0.25,
+      "dynamic_scalars": 512,
+      "extra_work_ratio": 0.00057997557997558,
+      "family": "butterfly",
+      "generators": 8,
+      "holdouts_seen": [
+        "prompt_holdout",
+        "seed_holdout"
+      ],
+      "method": "contribution_norm",
+      "requested_gate_all_holdouts": false,
+      "worst_aggregate_output_relative_l2": 0.0028528603361111316,
+      "worst_output_relative_l2": 0.010815378712283625
+    },
+    {
+      "all_holdouts_present": true,
+      "anti_tautology_gate_all_holdouts": false,
+      "cell": "layer00_step00_capacity_control",
+      "density": 0.25,
+      "dynamic_scalars": 24,
+      "extra_work_ratio": 0.0004898313492063492,
+      "family": "givens",
+      "generators": 8,
+      "holdouts_seen": [
+        "prompt_holdout",
+        "seed_holdout"
+      ],
+      "method": "contribution_norm",
+      "requested_gate_all_holdouts": false,
+      "worst_aggregate_output_relative_l2": 0.01534623402154081,
+      "worst_output_relative_l2": 0.08176134244471012
+    },
+    {
+      "all_holdouts_present": true,
+      "anti_tautology_gate_all_holdouts": false,
+      "cell": "layer00_step00_capacity_control",
+      "density": 0.25,
+      "dynamic_scalars": 1024,
+      "extra_work_ratio": 0.0006105006105006105,
+      "family": "householder",
+      "generators": 8,
+      "holdouts_seen": [
+        "prompt_holdout",
+        "seed_holdout"
+      ],
+      "method": "contribution_norm",
+      "requested_gate_all_holdouts": false,
+      "worst_aggregate_output_relative_l2": 0.010668608337901299,
+      "worst_output_relative_l2": 0.06566745800898548
+    },
+    {
+      "all_holdouts_present": true,
+      "anti_tautology_gate_all_holdouts": false,
+      "cell": "layer00_step00_capacity_control",
+      "density": 0.25,
+      "dynamic_scalars": 448,
+      "extra_work_ratio": 0.001098901098901099,
+      "family": "orthogonal_bcm",
+      "generators": 8,
+      "holdouts_seen": [
+        "prompt_holdout",
+        "seed_holdout"
+      ],
+      "method": "contribution_norm",
+      "requested_gate_all_holdouts": false,
+      "worst_aggregate_output_relative_l2": 0.003170694615954192,
+      "worst_output_relative_l2": 0.011953234942226842
+    }
+  ],
+  "gate_definitions": {
+    "max_dynamic_scalars": 512,
+    "max_extra_work_ratio": 0.05,
+    "max_generators": 16,
+    "oracle_aggregate_output_relative_l2": 0.005,
+    "oracle_worst_record_output_relative_l2": 0.01,
+    "whole_attention_measured_speedup_for_future_kernel": 1.5
+  },
+  "interpretation": {
+    "full_procrustes": "tautological control that exactly exposes the adaptive rank-r ceiling",
+    "payload_guard": "prevents M dense Householder/DCD generators from being mislabeled as a low-dimensional gate",
+    "restricted_families": "fit post-hoc to held-out AV defects; no Q/K/V parameter generator exists yet",
+    "speed_warning": "arithmetic work is not measured H200 latency and excludes parameter-generation overhead",
+    "stop_rule": "no Q/K/V-conditioned gate is trained unless both prompt and seed holdouts pass all gates"
+  },
+  "verdict": "STOP_RESTRICTED_ROTATION_ORACLE_FAILS"
+}

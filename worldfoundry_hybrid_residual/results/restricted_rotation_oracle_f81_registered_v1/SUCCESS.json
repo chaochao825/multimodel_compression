@@ -1,0 +1,12 @@
+{
+  "artifact_sha256": {
+    "adaptive_pregate.csv": "b43dd6fedf36b73062367ad2a9fc6677dd7bd2fabe429bda9d16450bfa4f0b1b",
+    "decision.json": "7eaf1a149f6fa8390122cef72a7badcb340cdbbd28ec5e5e29c47f4b7cc55f3f",
+    "manifest.json": "690aa4bf55239272070d90c2d22645a4f1fad89054070fcf1150020273d93be2",
+    "rotation_records.csv": "17c189ab3f8ef7f0c464178213d63cab60d2245ce1146111c2302d5fa712badf",
+    "rotation_summary.csv": "c85dddb467630b507ee3d8f50fbee07d0d962b1f5c293f6cdb5abdf2fafa1fc6"
+  },
+  "completed_unix": 1785207580.452696,
+  "run_id": "restricted-rotation-7176a23c78ac",
+  "verdict": "STOP_LOW_DIMENSION_ROTATION_DYNAMIC_PAYLOAD_DEGENERATES_TO_BASIS_GENERATION"
+}

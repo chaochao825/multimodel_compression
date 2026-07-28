@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "claim_boundary": "Post-hoc convergence refinement for the two closest low-payload structured rotations on the previously registered capacity-control cell. No transfer, deployment, quality, or latency claim is permitted.",
+  "scope": {
+    "sample_ids": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740",
+      "s02_p00_seed20260741",
+      "s03_p01_seed20260741"
+    ],
+    "cells": [
+      {
+        "name": "layer00_step00_capacity_control",
+        "layer": 0,
+        "sampling_step": 0
+      }
+    ],
+    "branch": "cond",
+    "query_tile_size": 64,
+    "query_tiles": 3,
+    "key_block_size": 64,
+    "critical_methods": [
+      "contribution_norm"
+    ],
+    "densities": [
+      0.25
+    ],
+    "rank": 16
+  },
+  "holdouts": [
+    {
+      "name": "seed_holdout",
+      "source": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740"
+      ],
+      "target": [
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ]
+    },
+    {
+      "name": "prompt_holdout",
+      "source": [
+        "s00_p00_seed20260740",
+        "s02_p00_seed20260741"
+      ],
+      "target": [
+        "s01_p01_seed20260740",
+        "s03_p01_seed20260741"
+      ]
+    }
+  ],
+  "families": {
+    "generator_counts": [
+      8
+    ],
+    "optimized_families": [
+      "orthogonal_bcm",
+      "butterfly"
+    ],
+    "optimization_steps": 600,
+    "learning_rate": 0.03,
+    "restarts": 4,
+    "givens": {
+      "grid_points": 33
+    },
+    "orthogonal_bcm": {
+      "block_size": 16
+    },
+    "dcd": {
+      "max_log_scale": 0.25
+    },
+    "butterfly": {}
+  },
+  "gates": {
+    "oracle_aggregate_output_relative_l2": 0.005,
+    "oracle_worst_record_output_relative_l2": 0.01,
+    "max_generators": 16,
+    "max_extra_work_ratio": 0.05,
+    "max_dynamic_scalars": 512,
+    "whole_attention_measured_speedup_for_future_kernel": 1.5
+  }
+}

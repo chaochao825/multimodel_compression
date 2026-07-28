@@ -1,0 +1,88 @@
+{
+  "best_candidate": null,
+  "best_low_payload_cross_holdout": {
+    "anti_tautology_gate_all_holdouts": false,
+    "cell": "layer00_step00_capacity_control",
+    "density": 0.25,
+    "dynamic_scalars": 512,
+    "extra_work_ratio": 0.00057997557997558,
+    "family": "butterfly",
+    "generators": 8,
+    "holdout_count": 2,
+    "holdouts": "prompt_holdout;seed_holdout",
+    "max_aggregate_output_relative_l2": 0.0028528603361111316,
+    "max_worst_record_output_relative_l2": 0.010815378712283625,
+    "method": "contribution_norm",
+    "min_subspace_overlap_mean": 0.644995513120445,
+    "requested_gate_all_holdouts": false
+  },
+  "figures": [
+    "adaptive_rank16_pregate.png",
+    "restricted_rotation_error_by_M.png",
+    "rotation_quality_payload_pareto.png",
+    "hybrid_head_fallback_upper_bound.png"
+  ],
+  "input_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/restricted_rotation_oracle_f81_refinement_v1",
+  "input_success_sha256": "a5deaf2a21785fd3c723c3d5d99ef2c8ade2e54c2006c12852c28954def02b45",
+  "oracle_hybrid_candidates": [
+    {
+      "cell": "layer00_step00_capacity_control",
+      "claim_warning": "fallback heads and transform parameters are selected post-hoc from held-out dense defects",
+      "density": 0.25,
+      "dynamic_scalars": 512,
+      "effective_attention_work_ratio_upper_bound": 0.37548331298331294,
+      "extra_work_ratio": 0.00057997557997558,
+      "fallback_head_count": 2,
+      "fallback_heads": "7;9",
+      "family": "butterfly",
+      "generators": 8,
+      "ideal_attention_speedup_upper_bound": 2.663234198225053,
+      "max_kept_aggregate_output_relative_l2": 0.0024303766705936606,
+      "max_kept_worst_record_output_relative_l2": 0.00660086564672644,
+      "method": "contribution_norm",
+      "oracle_hybrid_gate": true,
+      "payload_gate": true,
+      "quality_gate_after_oracle_head_fallback": true,
+      "speed_upper_bound_gate": true,
+      "total_heads": 12
+    },
+    {
+      "cell": "layer00_step00_capacity_control",
+      "claim_warning": "fallback heads and transform parameters are selected post-hoc from held-out dense defects",
+      "density": 0.25,
+      "dynamic_scalars": 448,
+      "effective_attention_work_ratio_upper_bound": 0.3759157509157509,
+      "extra_work_ratio": 0.001098901098901099,
+      "fallback_head_count": 2,
+      "fallback_heads": "7;9",
+      "family": "orthogonal_bcm",
+      "generators": 8,
+      "ideal_attention_speedup_upper_bound": 2.6601705237515225,
+      "max_kept_aggregate_output_relative_l2": 0.0027150292393548123,
+      "max_kept_worst_record_output_relative_l2": 0.00692893759978513,
+      "method": "contribution_norm",
+      "oracle_hybrid_gate": true,
+      "payload_gate": true,
+      "quality_gate_after_oracle_head_fallback": true,
+      "speed_upper_bound_gate": true,
+      "total_heads": 12
+    }
+  ],
+  "pregate_failures": [],
+  "pregate_passes": [
+    {
+      "adaptive_pregate_pass": "True",
+      "adaptive_rank_output_relative_l2": "0.0009857617314856704",
+      "adaptive_rank_worst_record_relative_l2": "0.004008543678069952",
+      "aggregate_gate": "1.0",
+      "cell": "layer00_step00_capacity_control",
+      "critical_output_relative_l2": "0.10053385299076971",
+      "density": "0.25",
+      "method": "contribution_norm",
+      "records": "144",
+      "selected_attention_mass_mean": "0.6975654653377004",
+      "worst_gate": "1.0"
+    }
+  ],
+  "verdict": "STOP_RESTRICTED_ROTATION_ORACLE_FAILS"
+}

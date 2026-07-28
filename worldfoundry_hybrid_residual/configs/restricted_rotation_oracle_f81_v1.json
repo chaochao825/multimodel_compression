@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "claim_boundary": "Post-hoc restricted-rotation capacity diagnostic on existing dense Q/K/V captures. Critical masks, target bases, transform parameters, and tail coefficients may inspect held-out AV defects. No transfer, deployment, quality, or H200 latency claim is permitted.",
+  "scope": {
+    "sample_ids": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740",
+      "s02_p00_seed20260741",
+      "s03_p01_seed20260741"
+    ],
+    "cells": [
+      {
+        "name": "layer00_step00_capacity_control",
+        "layer": 0,
+        "sampling_step": 0
+      },
+      {
+        "name": "layer14_step00_early",
+        "layer": 14,
+        "sampling_step": 0
+      },
+      {
+        "name": "layer14_step09_middle",
+        "layer": 14,
+        "sampling_step": 9
+      },
+      {
+        "name": "layer14_step19_late",
+        "layer": 14,
+        "sampling_step": 19
+      }
+    ],
+    "branch": "cond",
+    "query_tile_size": 64,
+    "query_tiles": 3,
+    "key_block_size": 64,
+    "critical_methods": [
+      "contribution_norm"
+    ],
+    "densities": [
+      0.125,
+      0.25
+    ],
+    "rank": 16
+  },
+  "holdouts": [
+    {
+      "name": "seed_holdout",
+      "source": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740"
+      ],
+      "target": [
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ],
+      "interpretation": "Source basis uses seed 20260740; post-hoc target rotations are evaluated on seed 20260741."
+    },
+    {
+      "name": "prompt_holdout",
+      "source": [
+        "s00_p00_seed20260740",
+        "s02_p00_seed20260741"
+      ],
+      "target": [
+        "s01_p01_seed20260740",
+        "s03_p01_seed20260741"
+      ],
+      "interpretation": "Source basis uses prompt 0; post-hoc target rotations are evaluated on prompt 1."
+    }
+  ],
+  "families": {
+    "generator_counts": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "optimization_steps": 120,
+    "learning_rate": 0.05,
+    "restarts": 2,
+    "givens": {
+      "grid_points": 33
+    },
+    "orthogonal_bcm": {
+      "block_size": 16,
+      "definition": "Product of fixed-permutation-conjugated real orthogonal circulant channel blocks."
+    },
+    "dcd": {
+      "max_log_scale": 0.25,
+      "definition": "Product of bounded diagonal-circulant-diagonal factors with QR stabilization."
+    },
+    "butterfly": {
+      "definition": "Product of radix-2 orthogonal Givens stages; pair strides cycle after log2(channels) stages."
+    }
+  },
+  "gates": {
+    "oracle_aggregate_output_relative_l2": 0.005,
+    "oracle_worst_record_output_relative_l2": 0.01,
+    "max_generators": 16,
+    "max_extra_work_ratio": 0.05,
+    "max_dynamic_scalars": 512,
+    "whole_attention_measured_speedup_for_future_kernel": 1.5
+  }
+}

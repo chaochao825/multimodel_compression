@@ -1,0 +1,11 @@
+{"config_sha256":"6643b4aa47f3d76bf8a7e608015c189ea989315a0b4155826d6940619275fd96","event":"run_started","run_id":"restricted-rotation-f34385387041","run_kind":"registered","time_unix":1785207760.6337178}
+{"captures":4,"event":"capture_fingerprints_complete","mode":"sha256","run_id":"restricted-rotation-f34385387041","time_unix":1785207762.3215358}
+{"captures":4,"cell":"layer00_step00_capacity_control","event":"capture_processed","index":0,"records":36,"run_id":"restricted-rotation-f34385387041","sample_id":"s00_p00_seed20260740","time_unix":1785207763.1094432}
+{"captures":4,"cell":"layer00_step00_capacity_control","event":"capture_processed","index":1,"records":36,"run_id":"restricted-rotation-f34385387041","sample_id":"s01_p01_seed20260740","time_unix":1785207763.5305166}
+{"captures":4,"cell":"layer00_step00_capacity_control","event":"capture_processed","index":2,"records":36,"run_id":"restricted-rotation-f34385387041","sample_id":"s02_p00_seed20260741","time_unix":1785207763.9417152}
+{"captures":4,"cell":"layer00_step00_capacity_control","event":"capture_processed","index":3,"records":36,"run_id":"restricted-rotation-f34385387041","sample_id":"s03_p01_seed20260741","time_unix":1785207764.328463}
+{"config":["layer00_step00_capacity_control","contribution_norm",0.25],"event":"structured_family_complete","family":"orthogonal_bcm","generators":8,"run_id":"restricted-rotation-f34385387041","split":"seed_holdout","time_unix":1785207802.4765732}
+{"config":["layer00_step00_capacity_control","contribution_norm",0.25],"event":"structured_family_complete","family":"butterfly","generators":8,"run_id":"restricted-rotation-f34385387041","split":"seed_holdout","time_unix":1785207838.3979573}
+{"config":["layer00_step00_capacity_control","contribution_norm",0.25],"event":"structured_family_complete","family":"orthogonal_bcm","generators":8,"run_id":"restricted-rotation-f34385387041","split":"prompt_holdout","time_unix":1785207875.1170502}
+{"config":["layer00_step00_capacity_control","contribution_norm",0.25],"event":"structured_family_complete","family":"butterfly","generators":8,"run_id":"restricted-rotation-f34385387041","split":"prompt_holdout","time_unix":1785207909.205765}
+{"event":"run_completed","run_id":"restricted-rotation-f34385387041","time_unix":1785207909.2405832,"verdict":"STOP_RESTRICTED_ROTATION_ORACLE_FAILS"}

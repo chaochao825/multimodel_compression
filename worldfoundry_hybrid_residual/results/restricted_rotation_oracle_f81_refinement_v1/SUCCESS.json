@@ -1,0 +1,12 @@
+{
+  "artifact_sha256": {
+    "adaptive_pregate.csv": "469d7e9de2d5d7cab7ed24b69b3dbddb522110529e8e470d306edbfe2308fdf4",
+    "decision.json": "3393acb0f5915ab58add8d27067a89ec340968a9771345a05939e0e18183a12a",
+    "manifest.json": "596060439666ab7b1f4d71c17712fbc1b8772f17111f90b84a1b49b73710221a",
+    "rotation_records.csv": "9b62c8dd8aab33883fa98e302b57d008ad8d6069820a7d30b0fc0800c430494a",
+    "rotation_summary.csv": "3093ad875846a64f0e50c2aab78ceed518aedbd36714b8e9ec240b6d752ed149"
+  },
+  "completed_unix": 1785207909.2400968,
+  "run_id": "restricted-rotation-f34385387041",
+  "verdict": "STOP_RESTRICTED_ROTATION_ORACLE_FAILS"
+}

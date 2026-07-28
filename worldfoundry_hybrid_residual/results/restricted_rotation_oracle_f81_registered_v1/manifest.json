@@ -1,0 +1,238 @@
+{
+  "arguments": {
+    "capture_hash_mode": "sha256",
+    "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "device": "cuda:0",
+    "execution_resource_note": "exclusive visible RTX4090 GPU_INDEX=0 numerical oracle; no latency claim",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/restricted_rotation_oracle_f81_registered_v1",
+    "protocol_config": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/configs/restricted_rotation_oracle_f81_v1.json",
+    "run_kind": "registered"
+  },
+  "candidate_records": 10656,
+  "capture_fingerprints": [
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+      "sha256": "a3abd2a56d184b5b3dcee1647aaf73e928ab0fe7a3d4a217c61a153a1293b361"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l14_self.pt",
+      "sha256": "05ecd41d55d24129208cd6bfd22e00e21c0d6e9bed335bf35691253c4b166973"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step09_t859_cond_l14_self.pt",
+      "sha256": "51053e3738ad1d88c47862158be2d5a6df3aef095a58b84c26d8da815c5b82c6"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step19_t208_cond_l14_self.pt",
+      "sha256": "11a411fde2fdbee604a41a89571f3dcb87a419ae8beba54726fb144fb49441a1"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l00_self.pt",
+      "sha256": "93c1fff51156ca9a3c5d28623f239f003d69656ba145b1fd266558fdbdef6a03"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l14_self.pt",
+      "sha256": "a8bca528e89ca7c16b31362526dd1750ba7f194f444aa482ac3d4f071c07ef65"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step09_t859_cond_l14_self.pt",
+      "sha256": "378b622ba1994fa49c46913f904977ca2399f46cf2271cdfb0b901b1fb989006"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step19_t208_cond_l14_self.pt",
+      "sha256": "6caf31becaba4fe3be9a5a46b28be224ad310ba7503f8c39dad53a5cdfd269da"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+      "sha256": "f35dbea4bfc6c5c339cf739ae5bc230bc68d64aba7d0438530a5a167468615ca"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l14_self.pt",
+      "sha256": "f315ad01a203992c33fc6563d437381f8050bf003700317bdcd0f8b695a7a556"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step09_t859_cond_l14_self.pt",
+      "sha256": "2be28034e830e128d4f9eb98f33ecf6d0c5007d388867bd2e2923d612741126f"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step19_t208_cond_l14_self.pt",
+      "sha256": "0f1f61483b3285ef898e151c7abb78c3f39cbc82e8ce2dbab8f7533585895139"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step00_t999_cond_l00_self.pt",
+      "sha256": "9d3ecf33454851eb808f11f59e8413a5e86dc438f3aa2b0f923d8adeb380da1d"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step00_t999_cond_l14_self.pt",
+      "sha256": "b5d78aed107b55948d4c51e9079cecc145d75698cf0ff9a1edf7489c6dc30d49"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step09_t859_cond_l14_self.pt",
+      "sha256": "c9faf8b70307701fe6399aa156a321ee6db59a6ca23ac92fbc463ac2bb55bf8a"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step19_t208_cond_l14_self.pt",
+      "sha256": "1889d852c8b8786334aff10ba87da654758d905f114bebd64632e3e0a49a57d7"
+    }
+  ],
+  "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+  "capture_index_sha256": "d8bc6f7fbb0accf4525d886839ba85f1fd6657fcdf5892a1a18c9f38a36fe088",
+  "claim_boundary": "Post-hoc restricted-rotation capacity diagnostic on existing dense Q/K/V captures. Critical masks, target bases, transform parameters, and tail coefficients may inspect held-out AV defects. No transfer, deployment, quality, or H200 latency claim is permitted.",
+  "elapsed_seconds": 479.2147626876831,
+  "eligible_capacity_cells": [
+    [
+      "layer00_step00_capacity_control",
+      "contribution_norm",
+      0.125
+    ],
+    [
+      "layer00_step00_capacity_control",
+      "contribution_norm",
+      0.25
+    ]
+  ],
+  "environment": {
+    "cuda_runtime": "12.8",
+    "device": "NVIDIA GeForce RTX 4090",
+    "execution_resource_note": "exclusive visible RTX4090 GPU_INDEX=0 numerical oracle; no latency claim",
+    "python": "3.11.15",
+    "tf32_matmul": false,
+    "torch": "2.9.1+cu128"
+  },
+  "methodology": {
+    "adaptive_pregate": "restricted families run only where adaptive rank-r meets the registered 0.5%/1% gates",
+    "anti_tautology": "dynamic scalar payload is checked separately from generator count and arithmetic work",
+    "coefficients": "oracle projection coefficients for every family",
+    "critical_path": "per-record block mask selected with dense attention; renormalized sparse output",
+    "granularity": "layer x step bucket x head x contiguous 64-query tile",
+    "rotation_access": "restricted transforms are fit directly to held-out target defects",
+    "tail_objective": "direct pre-output-projection AV residual relative L2"
+  },
+  "protocol": {
+    "claim_boundary": "Post-hoc restricted-rotation capacity diagnostic on existing dense Q/K/V captures. Critical masks, target bases, transform parameters, and tail coefficients may inspect held-out AV defects. No transfer, deployment, quality, or H200 latency claim is permitted.",
+    "families": {
+      "butterfly": {
+        "definition": "Product of radix-2 orthogonal Givens stages; pair strides cycle after log2(channels) stages."
+      },
+      "dcd": {
+        "definition": "Product of bounded diagonal-circulant-diagonal factors with QR stabilization.",
+        "max_log_scale": 0.25
+      },
+      "generator_counts": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "givens": {
+        "grid_points": 33
+      },
+      "learning_rate": 0.05,
+      "optimization_steps": 120,
+      "orthogonal_bcm": {
+        "block_size": 16,
+        "definition": "Product of fixed-permutation-conjugated real orthogonal circulant channel blocks."
+      },
+      "restarts": 2
+    },
+    "gates": {
+      "max_dynamic_scalars": 512,
+      "max_extra_work_ratio": 0.05,
+      "max_generators": 16,
+      "oracle_aggregate_output_relative_l2": 0.005,
+      "oracle_worst_record_output_relative_l2": 0.01,
+      "whole_attention_measured_speedup_for_future_kernel": 1.5
+    },
+    "holdouts": [
+      {
+        "interpretation": "Source basis uses seed 20260740; post-hoc target rotations are evaluated on seed 20260741.",
+        "name": "seed_holdout",
+        "source": [
+          "s00_p00_seed20260740",
+          "s01_p01_seed20260740"
+        ],
+        "target": [
+          "s02_p00_seed20260741",
+          "s03_p01_seed20260741"
+        ]
+      },
+      {
+        "interpretation": "Source basis uses prompt 0; post-hoc target rotations are evaluated on prompt 1.",
+        "name": "prompt_holdout",
+        "source": [
+          "s00_p00_seed20260740",
+          "s02_p00_seed20260741"
+        ],
+        "target": [
+          "s01_p01_seed20260740",
+          "s03_p01_seed20260741"
+        ]
+      }
+    ],
+    "schema_version": 1,
+    "scope": {
+      "branch": "cond",
+      "cells": [
+        {
+          "layer": 0,
+          "name": "layer00_step00_capacity_control",
+          "sampling_step": 0
+        },
+        {
+          "layer": 14,
+          "name": "layer14_step00_early",
+          "sampling_step": 0
+        },
+        {
+          "layer": 14,
+          "name": "layer14_step09_middle",
+          "sampling_step": 9
+        },
+        {
+          "layer": 14,
+          "name": "layer14_step19_late",
+          "sampling_step": 19
+        }
+      ],
+      "critical_methods": [
+        "contribution_norm"
+      ],
+      "densities": [
+        0.125,
+        0.25
+      ],
+      "key_block_size": 64,
+      "query_tile_size": 64,
+      "query_tiles": 3,
+      "rank": 16,
+      "sample_ids": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ]
+    }
+  },
+  "protocol_sha256": "dadc95ccbfb48f21e8a2afbbd01c7712710e188268bc1b4a09e1273ac890dc19",
+  "records": 1152,
+  "run_id": "restricted-rotation-7176a23c78ac",
+  "run_kind": "registered",
+  "schema_version": 1
+}

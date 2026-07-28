@@ -1,0 +1,151 @@
+{
+  "arguments": {
+    "capture_hash_mode": "sha256",
+    "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "device": "cuda:0",
+    "execution_resource_note": "exclusive visible RTX4090 GPU_INDEX=0 convergence refinement; no latency claim",
+    "output_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/restricted_rotation_oracle_f81_refinement_v1",
+    "protocol_config": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/configs/restricted_rotation_oracle_f81_refinement_v1.json",
+    "run_kind": "registered"
+  },
+  "candidate_records": 1008,
+  "capture_fingerprints": [
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+      "sha256": "a3abd2a56d184b5b3dcee1647aaf73e928ab0fe7a3d4a217c61a153a1293b361"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l00_self.pt",
+      "sha256": "93c1fff51156ca9a3c5d28623f239f003d69656ba145b1fd266558fdbdef6a03"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+      "sha256": "f35dbea4bfc6c5c339cf739ae5bc230bc68d64aba7d0438530a5a167468615ca"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step00_t999_cond_l00_self.pt",
+      "sha256": "9d3ecf33454851eb808f11f59e8413a5e86dc438f3aa2b0f923d8adeb380da1d"
+    }
+  ],
+  "capture_index": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+  "capture_index_sha256": "d8bc6f7fbb0accf4525d886839ba85f1fd6657fcdf5892a1a18c9f38a36fe088",
+  "claim_boundary": "Post-hoc convergence refinement for the two closest low-payload structured rotations on the previously registered capacity-control cell. No transfer, deployment, quality, or latency claim is permitted.",
+  "elapsed_seconds": 148.60603857040405,
+  "eligible_capacity_cells": [
+    [
+      "layer00_step00_capacity_control",
+      "contribution_norm",
+      0.25
+    ]
+  ],
+  "environment": {
+    "cuda_runtime": "12.8",
+    "device": "NVIDIA GeForce RTX 4090",
+    "execution_resource_note": "exclusive visible RTX4090 GPU_INDEX=0 convergence refinement; no latency claim",
+    "python": "3.11.15",
+    "tf32_matmul": false,
+    "torch": "2.9.1+cu128"
+  },
+  "methodology": {
+    "adaptive_pregate": "restricted families run only where adaptive rank-r meets the registered 0.5%/1% gates",
+    "anti_tautology": "dynamic scalar payload is checked separately from generator count and arithmetic work",
+    "coefficients": "oracle projection coefficients for every family",
+    "critical_path": "per-record block mask selected with dense attention; renormalized sparse output",
+    "granularity": "layer x step bucket x head x contiguous 64-query tile",
+    "rotation_access": "restricted transforms are fit directly to held-out target defects",
+    "tail_objective": "direct pre-output-projection AV residual relative L2"
+  },
+  "protocol": {
+    "claim_boundary": "Post-hoc convergence refinement for the two closest low-payload structured rotations on the previously registered capacity-control cell. No transfer, deployment, quality, or latency claim is permitted.",
+    "families": {
+      "butterfly": {},
+      "dcd": {
+        "max_log_scale": 0.25
+      },
+      "generator_counts": [
+        8
+      ],
+      "givens": {
+        "grid_points": 33
+      },
+      "learning_rate": 0.03,
+      "optimization_steps": 600,
+      "optimized_families": [
+        "orthogonal_bcm",
+        "butterfly"
+      ],
+      "orthogonal_bcm": {
+        "block_size": 16
+      },
+      "restarts": 4
+    },
+    "gates": {
+      "max_dynamic_scalars": 512,
+      "max_extra_work_ratio": 0.05,
+      "max_generators": 16,
+      "oracle_aggregate_output_relative_l2": 0.005,
+      "oracle_worst_record_output_relative_l2": 0.01,
+      "whole_attention_measured_speedup_for_future_kernel": 1.5
+    },
+    "holdouts": [
+      {
+        "name": "seed_holdout",
+        "source": [
+          "s00_p00_seed20260740",
+          "s01_p01_seed20260740"
+        ],
+        "target": [
+          "s02_p00_seed20260741",
+          "s03_p01_seed20260741"
+        ]
+      },
+      {
+        "name": "prompt_holdout",
+        "source": [
+          "s00_p00_seed20260740",
+          "s02_p00_seed20260741"
+        ],
+        "target": [
+          "s01_p01_seed20260740",
+          "s03_p01_seed20260741"
+        ]
+      }
+    ],
+    "schema_version": 1,
+    "scope": {
+      "branch": "cond",
+      "cells": [
+        {
+          "layer": 0,
+          "name": "layer00_step00_capacity_control",
+          "sampling_step": 0
+        }
+      ],
+      "critical_methods": [
+        "contribution_norm"
+      ],
+      "densities": [
+        0.25
+      ],
+      "key_block_size": 64,
+      "query_tile_size": 64,
+      "query_tiles": 3,
+      "rank": 16,
+      "sample_ids": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ]
+    }
+  },
+  "protocol_sha256": "6643b4aa47f3d76bf8a7e608015c189ea989315a0b4155826d6940619275fd96",
+  "records": 144,
+  "run_id": "restricted-rotation-f34385387041",
+  "run_kind": "registered",
+  "schema_version": 1
+}

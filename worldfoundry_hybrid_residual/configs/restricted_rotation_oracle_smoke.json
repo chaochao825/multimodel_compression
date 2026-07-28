@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "claim_boundary": "Synthetic-scale integration smoke on one existing capture pair; no scientific claim.",
+  "scope": {
+    "sample_ids": [
+      "s00_p00_seed20260740",
+      "s02_p00_seed20260741"
+    ],
+    "cells": [
+      {
+        "name": "smoke_layer00_step00",
+        "layer": 0,
+        "sampling_step": 0
+      }
+    ],
+    "branch": "cond",
+    "query_tile_size": 16,
+    "query_tiles": 1,
+    "key_block_size": 64,
+    "critical_methods": [
+      "contribution_norm"
+    ],
+    "densities": [
+      0.25
+    ],
+    "rank": 4
+  },
+  "holdouts": [
+    {
+      "name": "smoke_holdout",
+      "source": [
+        "s00_p00_seed20260740"
+      ],
+      "target": [
+        "s02_p00_seed20260741"
+      ]
+    }
+  ],
+  "families": {
+    "generator_counts": [
+      1,
+      2,
+      4
+    ],
+    "optimization_steps": 5,
+    "learning_rate": 0.05,
+    "restarts": 1,
+    "givens": {
+      "grid_points": 9
+    },
+    "orthogonal_bcm": {
+      "block_size": 16
+    },
+    "dcd": {
+      "max_log_scale": 0.25
+    },
+    "butterfly": {}
+  },
+  "gates": {
+    "oracle_aggregate_output_relative_l2": 1.0,
+    "oracle_worst_record_output_relative_l2": 1.0,
+    "max_generators": 4,
+    "max_extra_work_ratio": 1.0,
+    "max_dynamic_scalars": 100000,
+    "whole_attention_measured_speedup_for_future_kernel": 1.5
+  }
+}

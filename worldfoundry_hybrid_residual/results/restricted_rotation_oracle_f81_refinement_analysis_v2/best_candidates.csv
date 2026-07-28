@@ -1,0 +1,15 @@
+split,cell,method,density,family,generators,aggregate_output_relative_l2,worst_record_output_relative_l2,subspace_overlap_mean,dynamic_scalars,extra_work_ratio,requested_gate_pass,anti_tautology_gate_pass
+prompt_holdout,layer00_step00_capacity_control,contribution_norm,0.25,adaptive,0,0.0009857616290537606,0.004008543329691168,1.0,2048,0.0014652014652014652,True,False
+prompt_holdout,layer00_step00_capacity_control,contribution_norm,0.25,butterfly,8,0.0015809552093904691,0.006851168294219719,0.814553318050194,512,0.00057997557997558,True,True
+prompt_holdout,layer00_step00_capacity_control,contribution_norm,0.25,frozen,0,0.0016846163531801213,0.007166522353951401,0.8058119520758202,0,0.0004884004884004884,True,True
+prompt_holdout,layer00_step00_capacity_control,contribution_norm,0.25,full_procrustes,128,0.0009857616290537606,0.004008543329691168,1.0,2048,0.0014652014652014652,False,False
+prompt_holdout,layer00_step00_capacity_control,contribution_norm,0.25,givens,8,0.0016842922977516332,0.007166522353951401,0.8059098772119154,24,0.0004898313492063492,True,True
+prompt_holdout,layer00_step00_capacity_control,contribution_norm,0.25,householder,8,0.0011413836801245076,0.004562327915728316,0.9714418116426516,1024,0.0006105006105006105,True,False
+prompt_holdout,layer00_step00_capacity_control,contribution_norm,0.25,orthogonal_bcm,8,0.0016141319805871338,0.006987155539027719,0.8110560401756749,448,0.001098901098901099,True,True
+seed_holdout,layer00_step00_capacity_control,contribution_norm,0.25,adaptive,0,0.000999478418732335,0.004008543329691168,1.0,2048,0.0014652014652014652,True,False
+seed_holdout,layer00_step00_capacity_control,contribution_norm,0.25,butterfly,8,0.0028528603361111316,0.010815378712283625,0.644995513120445,512,0.00057997557997558,False,False
+seed_holdout,layer00_step00_capacity_control,contribution_norm,0.25,frozen,0,0.01816918749331232,0.08176134244471012,0.6529472310282838,0,0.0004884004884004884,False,False
+seed_holdout,layer00_step00_capacity_control,contribution_norm,0.25,full_procrustes,128,0.000999478418732335,0.004008543329691168,1.0,2048,0.0014652014652014652,False,False
+seed_holdout,layer00_step00_capacity_control,contribution_norm,0.25,givens,8,0.01534623402154081,0.08176134244471012,0.6515354772174978,24,0.0004898313492063492,False,False
+seed_holdout,layer00_step00_capacity_control,contribution_norm,0.25,householder,8,0.010668608337901299,0.06566745800898548,0.8497673450680803,1024,0.0006105006105006105,False,False
+seed_holdout,layer00_step00_capacity_control,contribution_norm,0.25,orthogonal_bcm,8,0.003170694615954192,0.011953234942226842,0.6220106349890611,448,0.001098901098901099,False,False

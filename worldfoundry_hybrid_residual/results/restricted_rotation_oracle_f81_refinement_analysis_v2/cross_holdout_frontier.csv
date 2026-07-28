@@ -1,0 +1,5 @@
+cell,method,density,family,generators,holdouts,holdout_count,max_aggregate_output_relative_l2,max_worst_record_output_relative_l2,min_subspace_overlap_mean,dynamic_scalars,extra_work_ratio,requested_gate_all_holdouts,anti_tautology_gate_all_holdouts
+layer00_step00_capacity_control,contribution_norm,0.25,butterfly,8,prompt_holdout;seed_holdout,2,0.0028528603361111316,0.010815378712283625,0.644995513120445,512,0.00057997557997558,False,False
+layer00_step00_capacity_control,contribution_norm,0.25,givens,8,prompt_holdout;seed_holdout,2,0.01534623402154081,0.08176134244471012,0.6515354772174978,24,0.0004898313492063492,False,False
+layer00_step00_capacity_control,contribution_norm,0.25,householder,8,prompt_holdout;seed_holdout,2,0.010668608337901299,0.06566745800898548,0.8497673450680803,1024,0.0006105006105006105,False,False
+layer00_step00_capacity_control,contribution_norm,0.25,orthogonal_bcm,8,prompt_holdout;seed_holdout,2,0.003170694615954192,0.011953234942226842,0.6220106349890611,448,0.001098901098901099,False,False

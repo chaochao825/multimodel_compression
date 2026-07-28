@@ -1,0 +1,2 @@
+cell,method,density,records,critical_output_relative_l2,adaptive_rank_output_relative_l2,adaptive_rank_worst_record_relative_l2,selected_attention_mass_mean,aggregate_gate,worst_gate,adaptive_pregate_pass
+layer00_step00_capacity_control,contribution_norm,0.25,144,0.10053385299076971,0.0009857617314856704,0.004008543678069952,0.6975654653377004,1.0,1.0,True
