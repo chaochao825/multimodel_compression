@@ -175,6 +175,68 @@ def plot_baseline(directory: Path) -> None:
     save(fig, directory / "baseline_comparison")
 
 
+def plot_same_test_decomposition(directory: Path) -> None:
+    data = rows(directory / "same_test_error_decomposition_rank64.csv")
+    if len(data) != 3:
+        raise ValueError("expected three same-test error stages")
+    labels = ["Capacity\n(all-record fit)", "Frozen\nfeature map", "QKV-only\nproxy"]
+    errors = 100 * np.array(
+        [float(row["per_tile_rank16_output_relative_l2"]) for row in data]
+    )
+    shares = 100 * np.array(
+        [float(row["incremental_squared_error_fraction_of_proxy"]) for row in data]
+    )
+    colors = [COLORS["capacity"], COLORS["frozen"], COLORS["proxy"]]
+
+    fig, axes = plt.subplots(1, 2, figsize=(8.8, 3.6))
+    bars = axes[0].bar(np.arange(3), errors, color=colors)
+    axes[0].bar_label(bars, labels=[f"{value:.3f}%" for value in errors], padding=3)
+    axes[0].axhline(0.5, color="black", linestyle=":", linewidth=1)
+    axes[0].axhline(1.0, color="black", linestyle="--", linewidth=1)
+    axes[0].set_xticks(np.arange(3), labels)
+    axes[0].set_ylabel("Same-test per-tile rel-L2 (%)")
+    for value, label in ((0.5, "Oracle gate"), (1.0, "Deployment gate")):
+        axes[0].text(
+            0.98,
+            value + 0.015,
+            label,
+            transform=axes[0].get_yaxis_transform(),
+            ha="right",
+            va="bottom",
+            fontsize=8,
+            bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.8, "pad": 1.5},
+        )
+
+    left = 0.0
+    for label, value, color in zip(("Capacity floor", "Transfer", "Routing"), shares, colors):
+        axes[1].barh([0], [value], left=left, color=color, label=label)
+        if value >= 4:
+            axes[1].text(left + value / 2, 0, f"{value:.1f}%", ha="center", va="center", color="white")
+        else:
+            axes[1].annotate(
+                f"{value:.1f}%",
+                xy=(left + value / 2, 0),
+                xytext=(left + value / 2, -0.5),
+                ha="center",
+                va="center",
+                arrowprops={"arrowstyle": "-", "color": color, "linewidth": 1.2},
+            )
+        left += value
+    axes[1].set_xlim(0, 100)
+    axes[1].set_ylim(-0.65, 0.65)
+    axes[1].set_yticks([])
+    axes[1].set_xlabel("Fraction of final proxy squared error (%)")
+    axes[1].legend(
+        frameon=False,
+        fontsize=8,
+        loc="lower center",
+        bbox_to_anchor=(0.5, 1.01),
+        ncol=3,
+    )
+    fig.tight_layout()
+    save(fig, directory / "same_test_error_decomposition_rank64")
+
+
 def main() -> None:
     args = parse_args()
     style()
@@ -182,6 +244,7 @@ def main() -> None:
     plot_router(args.analysis_dir)
     plot_heads(args.analysis_dir)
     plot_baseline(args.analysis_dir)
+    plot_same_test_decomposition(args.analysis_dir)
     print(f"[content-tail-plots] wrote {args.analysis_dir}")
 
 

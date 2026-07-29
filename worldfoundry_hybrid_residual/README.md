@@ -205,6 +205,15 @@ See
 [`results/CONTENT_GENERATED_SPARSE_LINEAR_TAIL_F81_20260730.zh-CN.md`](results/CONTENT_GENERATED_SPARSE_LINEAR_TAIL_F81_20260730.zh-CN.md)
 and `results/content_generated_tail_f81_analysis_v1/`.
 
+A same-test statistical audit corrects an important comparison boundary: the
+all-capture `1.179%` capacity result must not be directly subtracted from
+held-out errors. On the identical test capture, capacity, frozen, and proxy
+errors are `1.325%/1.332%/1.488%`; squared-error accounting attributes
+`79.3%/0.8%/19.9%` to the current function-class floor, freezing increment,
+and routing increment. This is descriptive accounting, not a causal lower
+bound. See `results/content_generated_tail_f81_analysis_v2/` and
+[`results/CONTENT_TAIL_ICLR_ASSESSMENT_F81_20260730.zh-CN.md`](results/CONTENT_TAIL_ICLR_ASSESSMENT_F81_20260730.zh-CN.md).
+
 The completed 72-cell prompt/seed/step/CFG factorial sharpens that executor.
 CFG branches have `1.0` class agreement and localized-head Jaccard in all 36
 pairs, while step comparisons pass only `52.8%` of the stability gates. Layer

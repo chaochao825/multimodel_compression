@@ -57,6 +57,93 @@ def metric(row: dict[str, str], name: str) -> float:
     return float(row[name])
 
 
+def aggregate_record_subset(
+    rows: list[dict[str, str]],
+    *,
+    variant: str,
+    route: str,
+    sample_ids: set[str],
+    stage: str,
+    evidence: str,
+) -> dict[str, object]:
+    """Aggregate one method on an identical sample subset.
+
+    This avoids comparing a transductive all-sample aggregate with a held-out
+    test aggregate. Residuals are summed before taking the relative L2 root.
+    """
+    selected = [
+        row
+        for row in rows
+        if row["model_variant"] == variant
+        and row["route"] == route
+        and row["sample_id"] in sample_ids
+    ]
+    if not selected:
+        raise ValueError(f"no records for {(variant, route, sorted(sample_ids))}")
+    observed_ids = {row["sample_id"] for row in selected}
+    if observed_ids != sample_ids:
+        raise ValueError(
+            f"record subset mismatch for {stage}: expected {sorted(sample_ids)}, "
+            f"found {sorted(observed_ids)}"
+        )
+    reference_sq = sum(float(row["reference_sq"]) for row in selected)
+    if reference_sq <= 0:
+        raise ValueError(f"non-positive reference energy for {stage}")
+
+    def relative_l2(field: str) -> float:
+        return math.sqrt(sum(float(row[field]) for row in selected) / reference_sq)
+
+    return {
+        "stage": stage,
+        "model_variant": variant,
+        "route": route,
+        "evidence": evidence,
+        "sample_ids": "|".join(sorted(sample_ids)),
+        "samples": len(sample_ids),
+        "records": len(selected),
+        "reference_sq": reference_sq,
+        "content_output_relative_l2": relative_l2("content_residual_sq"),
+        "shared_rank16_output_relative_l2": relative_l2(
+            "post_adaptive_rank16_residual_sq"
+        ),
+        "per_tile_rank16_output_relative_l2": relative_l2(
+            "post_adaptive_rank16_per_tile_residual_sq"
+        ),
+        "worst_shared_record_relative_l2": max(
+            float(row["post_adaptive_rank16_output_relative_l2"]) for row in selected
+        ),
+        "worst_tile_relative_l2": max(
+            float(row["post_adaptive_rank16_worst_tile_relative_l2"])
+            for row in selected
+        ),
+    }
+
+
+def add_squared_error_accounting(
+    stages: list[dict[str, object]],
+) -> list[dict[str, object]]:
+    """Add same-test squared-error increments normalized by final proxy error."""
+    if len(stages) != 3:
+        raise ValueError("expected capacity, frozen, and proxy stages")
+    energies = [float(row["per_tile_rank16_output_relative_l2"]) ** 2 for row in stages]
+    if energies[-1] <= 0:
+        raise ValueError("final proxy error energy must be positive")
+    previous = 0.0
+    output = []
+    for row, energy in zip(stages, energies):
+        increment = energy - previous
+        output.append(
+            {
+                **row,
+                "per_tile_rank16_relative_squared_error": energy,
+                "incremental_squared_error": increment,
+                "incremental_squared_error_fraction_of_proxy": increment / energies[-1],
+            }
+        )
+        previous = energy
+    return output
+
+
 def pct(value: float) -> str:
     return f"{100.0 * value:.3f}%"
 
@@ -200,6 +287,43 @@ def main() -> None:
         )
     write_csv(output / "head_errors_rank64.csv", head_rows)
 
+    test_ids = {
+        row["sample_id"]
+        for row in records[64]
+        if row["model_variant"] == "calibration_frozen" and row["split"] == "test"
+    }
+    if not test_ids:
+        raise ValueError("rank-64 records do not contain a frozen test subset")
+    same_test_stages = add_squared_error_accounting(
+        [
+            aggregate_record_subset(
+                records[64],
+                variant="transductive_capacity",
+                route="oracle_trajectory_width_family",
+                sample_ids=test_ids,
+                stage="capacity_same_test",
+                evidence="all_record_fit_plus_dense_AV_support_on_test_subset",
+            ),
+            aggregate_record_subset(
+                records[64],
+                variant="calibration_frozen",
+                route="oracle_trajectory_width_family",
+                sample_ids=test_ids,
+                stage="frozen_same_test",
+                evidence="calibration_fit_plus_dense_AV_support_on_test_subset",
+            ),
+            aggregate_record_subset(
+                records[64],
+                variant="calibration_frozen",
+                route=selected_proxy,
+                sample_ids=test_ids,
+                stage="proxy_same_test",
+                evidence="calibration_fit_plus_validation_selected_QKV_proxy_on_test_subset",
+            ),
+        ]
+    )
+    write_csv(output / "same_test_error_decomposition_rank64.csv", same_test_stages)
+
     baseline_rows = read_csv(
         root / "results/support_manifold_oracle_f81_screen_v1_merged/support_summary.csv"
     )
@@ -301,6 +425,31 @@ def main() -> None:
                 proxy64, "post_adaptive_rank16_worst_tile_relative_l2"
             ),
         },
+        "same_test_squared_error_accounting": {
+            "warning": (
+                "Descriptive accounting on one identical test subset, not a causal or "
+                "mathematical lower-bound decomposition. Fractions use squared aggregate "
+                "relative L2 because relative L2 values are not additive."
+            ),
+            "capacity_per_tile_aggregate": float(
+                same_test_stages[0]["per_tile_rank16_output_relative_l2"]
+            ),
+            "frozen_per_tile_aggregate": float(
+                same_test_stages[1]["per_tile_rank16_output_relative_l2"]
+            ),
+            "proxy_per_tile_aggregate": float(
+                same_test_stages[2]["per_tile_rank16_output_relative_l2"]
+            ),
+            "capacity_floor_fraction_of_proxy_squared_error": float(
+                same_test_stages[0]["incremental_squared_error_fraction_of_proxy"]
+            ),
+            "frozen_transfer_increment_fraction_of_proxy_squared_error": float(
+                same_test_stages[1]["incremental_squared_error_fraction_of_proxy"]
+            ),
+            "proxy_routing_increment_fraction_of_proxy_squared_error": float(
+                same_test_stages[2]["incremental_squared_error_fraction_of_proxy"]
+            ),
+        },
         "matched_baseline_change": {
             "content_error_relative_change": float(capacity["content_error"])
             / float(old["content_error"])
@@ -340,6 +489,24 @@ and {pct(metric(frozen64, 'post_adaptive_rank16_worst_tile_relative_l2'))} worst
 error. The validation-selected train-free proxy (`{selected_proxy}`) reaches
 {pct(metric(proxy64, 'post_adaptive_rank16_per_tile_output_relative_l2'))} and
 {pct(metric(proxy64, 'post_adaptive_rank16_worst_tile_relative_l2'))}.
+
+## Same-Test Error Accounting
+
+The headline transductive value above aggregates all four captures, whereas frozen and
+proxy values use the held-out test capture. They must not be directly subtracted. On the
+identical test capture and granularity, capacity, frozen, and proxy per-tile errors are
+{pct(float(same_test_stages[0]['per_tile_rank16_output_relative_l2']))},
+{pct(float(same_test_stages[1]['per_tile_rank16_output_relative_l2']))}, and
+{pct(float(same_test_stages[2]['per_tile_rank16_output_relative_l2']))}.
+
+Using squared aggregate error only as descriptive accounting, the current function-class
+floor contributes {100.0 * float(same_test_stages[0]['incremental_squared_error_fraction_of_proxy']):.1f}%
+of final proxy error energy, calibration-to-test freezing adds
+{100.0 * float(same_test_stages[1]['incremental_squared_error_fraction_of_proxy']):.1f}%,
+and proxy routing adds
+{100.0 * float(same_test_stages[2]['incremental_squared_error_fraction_of_proxy']):.1f}%.
+This supports capacity mismatch as the dominant observed term, but it is not a causal
+decomposition or an impossibility proof for all sparse-linear methods.
 
 ## What Improved
 
@@ -381,6 +548,8 @@ but require a new registered hypothesis rather than widening this feature map.
 - The support search is a monotone projected-rank heuristic, not a global optimum.
 - Arithmetic speedup is an upper bound; no fused H200 kernel or end-to-end rollout was measured.
 - Figures compare per-tile rank-16 only where the old baseline uses the same granularity.
+- Cross-stage error accounting uses the same held-out test records and squared errors;
+  the all-sample `1.179%` capacity number is not subtracted from held-out metrics.
 
 ## Related Boundaries
 
