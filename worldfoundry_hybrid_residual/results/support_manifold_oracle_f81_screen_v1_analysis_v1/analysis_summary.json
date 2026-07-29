@@ -1,0 +1,348 @@
+{
+  "best_layer14_frontier": {
+    "all_cells_pass": false,
+    "cells": 3,
+    "density_target": 0.25,
+    "family": "support_family_oracle",
+    "max_aggregate_output_relative_l2": 0.020436525144971275,
+    "max_execution_density": 0.2500610500610494,
+    "max_kernel_tile_multiplier": 3.9375,
+    "max_p95_record_output_relative_l2": 0.03994785223341532,
+    "max_rank_required_for_record_gate": 48,
+    "max_worst_record_output_relative_l2": 0.05109547023597866,
+    "mean_rank_aware_relative_improvement": 0.02025055037018964
+  },
+  "claim_warning": "All masks, family choices, tails, and fallback heads are held-out post-hoc oracles. Speed values are arithmetic upper bounds, not H200 measurements.",
+  "decision": {
+    "best_layer14_candidate": {
+      "all_layer14_cells_pass": false,
+      "cells": 3,
+      "density_target": 0.25,
+      "family": "support_family_oracle",
+      "max_aggregate_output_relative_l2": 0.020436525144971275,
+      "max_execution_density": 0.2500610500610494,
+      "max_kernel_tile_multiplier": 3.9375,
+      "max_worst_record_output_relative_l2": 0.05109547023597866
+    },
+    "claim_boundary": "Registered post-hoc support-family screen on existing dense F81 Q/K/V captures. Every support, family choice, adaptive rank-16 basis, and coefficient may inspect the evaluated dense AV defect. Monotone screen search is followed by targeted high-iteration refinement only for candidates near the quality gate.",
+    "layer14_candidates": [
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.125,
+        "family": "fixed64",
+        "max_aggregate_output_relative_l2": 0.03556339399652182,
+        "max_execution_density": 0.1250305250305247,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.1243776978574962
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.25,
+        "family": "fixed64",
+        "max_aggregate_output_relative_l2": 0.020812110485331846,
+        "max_execution_density": 0.2500610500610494,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.053121968369769824
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.125,
+        "family": "hierarchical32",
+        "max_aggregate_output_relative_l2": 0.03363966035387346,
+        "max_execution_density": 0.1250305250305247,
+        "max_kernel_tile_multiplier": 4.0,
+        "max_worst_record_output_relative_l2": 0.11015370035764756
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.25,
+        "family": "hierarchical32",
+        "max_aggregate_output_relative_l2": 0.021174012635451985,
+        "max_execution_density": 0.2500610500610494,
+        "max_kernel_tile_multiplier": 4.0,
+        "max_worst_record_output_relative_l2": 0.052802265591410415
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.125,
+        "family": "motion_warp8x8",
+        "max_aggregate_output_relative_l2": 0.08716201738305525,
+        "max_execution_density": 0.1250305250305247,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.20087524199191722
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.25,
+        "family": "motion_warp8x8",
+        "max_aggregate_output_relative_l2": 0.03761621615398335,
+        "max_execution_density": 0.2500610500610494,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.11539117463852169
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.125,
+        "family": "shifted32",
+        "max_aggregate_output_relative_l2": 0.033708730150862544,
+        "max_execution_density": 0.1250305250305247,
+        "max_kernel_tile_multiplier": 4.0,
+        "max_worst_record_output_relative_l2": 0.1122272612394789
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.25,
+        "family": "shifted32",
+        "max_aggregate_output_relative_l2": 0.021292053979652024,
+        "max_execution_density": 0.2500610500610494,
+        "max_kernel_tile_multiplier": 4.0,
+        "max_worst_record_output_relative_l2": 0.052396753021724925
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.125,
+        "family": "shifted64",
+        "max_aggregate_output_relative_l2": 0.035700626657348244,
+        "max_execution_density": 0.1250305250305247,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.12541109407558668
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.25,
+        "family": "shifted64",
+        "max_aggregate_output_relative_l2": 0.020837818123159584,
+        "max_execution_density": 0.2500610500610494,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.052312745687890475
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.125,
+        "family": "support_family_oracle",
+        "max_aggregate_output_relative_l2": 0.03263970735933831,
+        "max_execution_density": 0.1250305250305247,
+        "max_kernel_tile_multiplier": 3.7291666666666665,
+        "max_worst_record_output_relative_l2": 0.11015370035764756
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.25,
+        "family": "support_family_oracle",
+        "max_aggregate_output_relative_l2": 0.020436525144971275,
+        "max_execution_density": 0.2500610500610494,
+        "max_kernel_tile_multiplier": 3.9375,
+        "max_worst_record_output_relative_l2": 0.05109547023597866
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.125,
+        "family": "thw8x8",
+        "max_aggregate_output_relative_l2": 0.04916459986434294,
+        "max_execution_density": 0.1250305250305247,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.16432815484901317
+      },
+      {
+        "all_layer14_cells_pass": false,
+        "cells": 3,
+        "density_target": 0.25,
+        "family": "thw8x8",
+        "max_aggregate_output_relative_l2": 0.02338324979824904,
+        "max_execution_density": 0.2500610500610494,
+        "max_kernel_tile_multiplier": 1.0,
+        "max_worst_record_output_relative_l2": 0.07402064093513552
+      }
+    ],
+    "next_stage_allowed": false,
+    "passing_deployable_supports": [],
+    "passing_support_family_oracle": [],
+    "verdict": "STOP_SUPPORT_SHAPING_RANK16_PREGATE_FAILS"
+  },
+  "head_fallback_quality_candidates": [
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.125,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "fixed64",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.25,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "fixed64",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.125,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "hierarchical32",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.25,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "hierarchical32",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.125,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "motion_warp8x8",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.25,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "motion_warp8x8",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.125,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "shifted32",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.25,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "shifted32",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.125,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "shifted64",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.25,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "shifted64",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.125,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "support_family_oracle",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.25,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "support_family_oracle",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.125,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "thw8x8",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    },
+    {
+      "claim_warning": "fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored",
+      "density_target": 0.25,
+      "fallback_head_count": 12,
+      "fallback_heads": "0,1,2,3,4,5,6,7,8,9,10,11",
+      "family": "thw8x8",
+      "ideal_attention_arithmetic_speedup_upper_bound": 1.0,
+      "kept_aggregate_output_relative_l2": 0.0,
+      "kept_worst_record_output_relative_l2": 0.0,
+      "quality_gate": true,
+      "total_heads": 12
+    }
+  ],
+  "input_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/support_manifold_oracle_f81_screen_v1_merged",
+  "input_success_sha256": "dfc948a87e80abb240f49773d3f17148a23bb3dffc9e6e1e52d285354da4ad3c",
+  "input_verdict": "STOP_SUPPORT_SHAPING_RANK16_PREGATE_FAILS"
+}

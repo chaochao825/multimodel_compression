@@ -1,0 +1,8 @@
+{
+  "artifact_sha256": {
+    "continuous_support_relaxation.csv": "2476cff1a4e2f45357aa4636995f20eefc77fa22d5bf17ba7508d3245d7b1c7c",
+    "decision.json": "c1e0b9112cfb1ada5dd2e69775e63ca69d65212620f316067fcefeb24ee29f3a",
+    "manifest.json": "0da062314c18dc887da09b870d5fc57ca04bb7b9e8b534b973f18ab04a3f2517"
+  },
+  "verdict": "CONTINUOUS_SUPPORT_UPPER_BOUND_ONLY"
+}

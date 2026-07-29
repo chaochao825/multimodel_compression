@@ -1,0 +1,15 @@
+family,density_target,fallback_heads,fallback_head_count,total_heads,kept_aggregate_output_relative_l2,kept_worst_record_output_relative_l2,quality_gate,ideal_attention_arithmetic_speedup_upper_bound,claim_warning
+fixed64,0.125,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+fixed64,0.25,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+hierarchical32,0.125,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+hierarchical32,0.25,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+motion_warp8x8,0.125,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+motion_warp8x8,0.25,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+shifted32,0.125,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+shifted32,0.25,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+shifted64,0.125,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+shifted64,0.25,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+support_family_oracle,0.125,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+support_family_oracle,0.25,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+thw8x8,0.125,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored
+thw8x8,0.25,"0,1,2,3,4,5,6,7,8,9,10,11",12,12,0.0,0.0,True,1.0,fallback heads are selected post-hoc from all evaluated dense layer-14 defects; routing and launch overhead are ignored

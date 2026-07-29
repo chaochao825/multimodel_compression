@@ -1,0 +1,19 @@
+{
+  "artifact_sha256": {
+    "analysis_summary.json": "da8e1e7163d531ea88d400e227d166dbbe135ab6a887bf09329e0516b4cdb0f0",
+    "layer14_head_fallback_frontier.csv": "773e0e0e4b7c4bd42ab620443720860760f9ff97fc520d7c8f9dfd0000d8eb05",
+    "layer14_support_frontier.csv": "bbe39b06b0e3b09bc0a6d13c9910cb6cd7f41a9965bb2aaa02ce6d585257b403",
+    "support_family_choices.csv": "92d16eaf2a8c908eb235833086baa1a43f1d7ecae76f3ee01d8701b18376337a",
+    "support_intrinsic_rank_requirement.pdf": "cdb7fd8240238d48d81755b787322f90bafa5f4667c3fa90f65ea24c2c2bb6ab",
+    "support_intrinsic_rank_requirement.png": "67502b6137b4c0340dbe0ca5247d99c8bef3519b5010cc3f6b7b1887644efdb0",
+    "support_plot_source.csv": "8ebf0986b0472eb9d361399f06f97cf0465dbaa23e4968982cfbbadb34c89b13",
+    "support_quality_kernel_tile_pareto.pdf": "16b81e69a3f851c11faf2336436210b89ddc34f602f447d34e7a1ebeee6eb787",
+    "support_quality_kernel_tile_pareto.png": "00b69388a08914d632450a256e37deade9cb3737a0a5a2c5a9381c8a09396a67",
+    "support_rank16_worst_heatmap.pdf": "c04ec20b05c99f18cfb66bc1e643e63efaebd643ba1dc8945918afdd82dd915a",
+    "support_rank16_worst_heatmap.png": "931edfe77ef7af3e2af3b5cf58f794950df3cfe495521fe04c26078b9228f255",
+    "support_rank_budget_curve.pdf": "b6353aac8473745e323c3423bd7078534e6409487550e28c40d152d5bb27d4e9",
+    "support_rank_budget_curve.png": "6a3792d12b4adb46aaa65c439f2111bbd0fbe2d9c642b147768493ddd941d24d",
+    "support_rank_budget_frontier.csv": "9253d9c7f1b2ff1ad61424e0900b631a5408823afd299524f001b52fbae88234"
+  },
+  "verdict": "STOP_SUPPORT_SHAPING_RANK16_PREGATE_FAILS"
+}

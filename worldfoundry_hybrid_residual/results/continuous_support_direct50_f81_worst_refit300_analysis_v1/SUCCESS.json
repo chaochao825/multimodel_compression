@@ -1,0 +1,9 @@
+{
+  "artifact_sha256": {
+    "analysis_summary.json": "dde6c7a4b2008821c6f6668aa1158080b921e7d62b9815ab22e4346fefb9af8e",
+    "continuous_support_density_tradeoff.csv": "a676a74947610ee263d54b4cc1e013626532b06266a6012894b4dac15baea738",
+    "continuous_support_density_tradeoff.pdf": "23869ae24ee3e5b81aefb1689edffb3bd89bbc609db466c8bcc078e209db160b",
+    "continuous_support_density_tradeoff.png": "0dfcad9db120521e7c5c1d173f74a4071f5d182c3c6175fe8371b31c5bc89878"
+  },
+  "verdict": "POSTHOC_WEIGHTED_SUPPORT_CAPACITY_GATE_PASSES"
+}

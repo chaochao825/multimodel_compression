@@ -177,6 +177,19 @@ fallback for heads 7/9 leaves a `2.66x` ideal layer-0 attention-work upper
 bound, but no universal rotation gate or H200 kernel is authorized. See
 [`results/RESTRICTED_ROTATION_ORACLE_F81_20260728.zh-CN.md`](results/RESTRICTED_ROTATION_ORACLE_F81_20260728.zh-CN.md).
 
+The support-manifold follow-up then compares equal-cost fixed, shifted,
+hierarchical, THW, and motion-warp tile families on four registered F81
+samples. At 25% density, even a per-record family oracle plus adaptive rank-16
+has `2.044%` aggregate and `5.110%` worst-record output error; 32x32 support
+uses about `4x` the kernel tiles without closing the gate. A stronger
+post-hoc amplitude refit reveals a capacity point at 56.25% density
+(`0.951%` worst over the three selected Layer-14 worst records and `1.778x`
+ideal tile arithmetic), but requires up to 1,152 dense-AV-derived weights per
+64-query tile and a fresh adaptive tail. This is not a deployable router or an
+H200 speed result. The next gate is therefore a calibration-fixed, at-most-16
+coordinate support/amplitude chart, not more BCM or rotation factors. See
+[`results/SUPPORT_MANIFOLD_CO_DESIGN_F81_20260729.zh-CN.md`](results/SUPPORT_MANIFOLD_CO_DESIGN_F81_20260729.zh-CN.md).
+
 The completed 72-cell prompt/seed/step/CFG factorial sharpens that executor.
 CFG branches have `1.0` class agreement and localized-head Jaccard in all 36
 pairs, while step comparisons pass only `52.8%` of the stability gates. Layer
@@ -265,6 +278,12 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `scripts/restricted_rotation_oracle_core.py`: Givens, Householder, orthogonal BCM, DCD, Butterfly, and cost-model primitives.
 - `scripts/probe_restricted_rotation_oracle.py`: SHA256-bound layer/step/head/tile post-hoc rotation-capacity screen.
 - `scripts/analyze_restricted_rotation_oracle.py`: cross-holdout, payload, and universal-head-fallback analysis.
+- `scripts/support_manifold_oracle_core.py`: equal-cost support families and rank-aware search primitives.
+- `scripts/probe_support_manifold_oracle.py`: registered F81 binary-support capacity screen.
+- `scripts/merge_support_manifold_shards.py`: exact-key and sample-coverage checked shard merge.
+- `scripts/analyze_support_manifold_oracle.py`: rank, support-family, fallback, and tile-cost analysis.
+- `scripts/probe_continuous_support_relaxation.py`: continuous and selected-amplitude post-hoc capacity probe.
+- `scripts/analyze_continuous_support_relaxation.py`: density, payload, and arithmetic-bound dashboard.
 - `scripts/experiment_artifacts.py`: atomic run state, provenance, hashing, and rectangular-sweep utilities.
 - `scripts/generate_wan_cfg_parallel.py`: exact two-H200 CFG branch executor.
 - `scripts/summarize_cfg_parallel.py`: paired video fidelity and speed summary.
@@ -304,6 +323,10 @@ correction. Raw H200 CSV/JSON evidence and the defect RMT dashboard live in
 - `results/restricted_rotation_oracle_f81_registered_analysis_v2/`: cross-holdout and head-fallback source CSVs/figures.
 - `results/restricted_rotation_oracle_f81_refinement_v1/`: 600-step, four-restart BCM-8/Butterfly-8 convergence audit.
 - `results/restricted_rotation_oracle_f81_refinement_analysis_v2/`: refinement frontier and fallback upper bounds.
+- `results/support_manifold_oracle_f81_screen_v1_merged/`: registered four-sample binary-support evidence.
+- `results/support_manifold_oracle_f81_screen_v1_analysis_v1/`: source CSVs and support/rank dashboards.
+- `results/continuous_support_relaxation_f81_worst_weighted_refit300_v1/`: strongest selected-record amplitude capacity probe.
+- `results/continuous_support_relaxation_f81_worst_weighted_refit300_analysis_v1/`: density/payload capacity dashboard.
 - `results/`: prior matrix, activation, H200, NFE, and TeaCache evidence.
 
 Generated MP4 files, model weights, external repositories, checkpoints, and
@@ -353,6 +376,12 @@ python scripts/analyze_trainfree_tail_oracles.py \
 python scripts/analyze_restricted_rotation_oracle.py \
   --input-dir results/restricted_rotation_oracle_f81_registered_v1 \
   --output-dir results/restricted_rotation_oracle_f81_registered_analysis_v2
+python scripts/analyze_support_manifold_oracle.py \
+  --input-dir results/support_manifold_oracle_f81_screen_v1_merged \
+  --output-dir results/support_manifold_oracle_f81_screen_v1_analysis_v1
+python scripts/analyze_continuous_support_relaxation.py \
+  --input-dir results/continuous_support_relaxation_f81_worst_weighted_refit300_v1 \
+  --output-dir results/continuous_support_relaxation_f81_worst_weighted_refit300_analysis_v1
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the

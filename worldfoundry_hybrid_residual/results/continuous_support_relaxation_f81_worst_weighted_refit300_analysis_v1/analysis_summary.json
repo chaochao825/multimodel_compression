@@ -1,0 +1,250 @@
+{
+  "claim_boundary": "Worst-record post-hoc oracle only; no deployable router or H200 sparse kernel is evaluated.",
+  "corresponding_ideal_tile_arithmetic_speedup_upper_bound": 1.7777777777777777,
+  "fractional_candidate_weight_count": 2048,
+  "fractional_effective_atoms": [
+    1650.361083984375,
+    1118.581787109375,
+    1088.0662841796875
+  ],
+  "fractional_near_binary_fraction": [
+    0.0693359375,
+    0.35791015625,
+    0.3623046875
+  ],
+  "ideal_tile_arithmetic_speedup_target": 1.5,
+  "input_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/continuous_support_relaxation_f81_worst_weighted_refit300_v1",
+  "input_success_sha256": "4e1fbb720790106de168a31971115aeb6f8614d3fc1002a7621235ec33eba293",
+  "input_verdict": "CONTINUOUS_SUPPORT_UPPER_BOUND_ONLY",
+  "minimum_refit_weighted_topk_density_passing_1pct": 0.5625,
+  "minimum_weighted_topk_density_passing_1pct": 0.5625,
+  "modes": [
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 4.0,
+      "max_dynamic_tile_scalars": 0,
+      "max_output_relative_l2": 0.052802265591410415,
+      "mode": "binary support",
+      "tile_density": 0.25
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 4.0,
+      "max_dynamic_tile_scalars": 512,
+      "max_output_relative_l2": 0.30507775650247376,
+      "mode": "raw weighted top-k 1x",
+      "tile_density": 0.25
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 4.0,
+      "max_dynamic_tile_scalars": 512,
+      "max_output_relative_l2": 0.2768133244395538,
+      "mode": "refit weighted top-k 1x",
+      "tile_density": 0.25
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 3.2,
+      "max_dynamic_tile_scalars": 640,
+      "max_output_relative_l2": 0.29780268116941166,
+      "mode": "raw weighted top-k 1.25x",
+      "tile_density": 0.3125
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 3.2,
+      "max_dynamic_tile_scalars": 640,
+      "max_output_relative_l2": 0.2659073804143779,
+      "mode": "refit weighted top-k 1.25x",
+      "tile_density": 0.3125
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 2.6666666666666665,
+      "max_dynamic_tile_scalars": 768,
+      "max_output_relative_l2": 0.2754676459397823,
+      "mode": "raw weighted top-k 1.5x",
+      "tile_density": 0.375
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 2.6666666666666665,
+      "max_dynamic_tile_scalars": 768,
+      "max_output_relative_l2": 0.23827540346775747,
+      "mode": "refit weighted top-k 1.5x",
+      "tile_density": 0.375
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 2.2857142857142856,
+      "max_dynamic_tile_scalars": 896,
+      "max_output_relative_l2": 0.07385916223922083,
+      "mode": "raw weighted top-k 1.75x",
+      "tile_density": 0.4375
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 2.2857142857142856,
+      "max_dynamic_tile_scalars": 896,
+      "max_output_relative_l2": 0.047359346823710624,
+      "mode": "refit weighted top-k 1.75x",
+      "tile_density": 0.4375
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 2.0,
+      "max_dynamic_tile_scalars": 1024,
+      "max_output_relative_l2": 0.02240335981991344,
+      "mode": "raw weighted top-k 2x",
+      "tile_density": 0.5
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 2.0,
+      "max_dynamic_tile_scalars": 1024,
+      "max_output_relative_l2": 0.012879702329422826,
+      "mode": "refit weighted top-k 2x",
+      "tile_density": 0.5
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.7777777777777777,
+      "max_dynamic_tile_scalars": 1152,
+      "max_output_relative_l2": 0.01593307581883191,
+      "mode": "raw weighted top-k 2.25x",
+      "tile_density": 0.5625
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.7777777777777777,
+      "max_dynamic_tile_scalars": 1152,
+      "max_output_relative_l2": 0.009514199775107009,
+      "mode": "refit weighted top-k 2.25x",
+      "tile_density": 0.5625
+    },
+    {
+      "all_records_pass_1pct": false,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.6,
+      "max_dynamic_tile_scalars": 1280,
+      "max_output_relative_l2": 0.012555790909418205,
+      "mode": "raw weighted top-k 2.5x",
+      "tile_density": 0.625
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.6,
+      "max_dynamic_tile_scalars": 1280,
+      "max_output_relative_l2": 0.007078779546712629,
+      "mode": "refit weighted top-k 2.5x",
+      "tile_density": 0.625
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.4545454545454546,
+      "max_dynamic_tile_scalars": 1408,
+      "max_output_relative_l2": 0.009688808228487136,
+      "mode": "raw weighted top-k 2.75x",
+      "tile_density": 0.6875
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.4545454545454546,
+      "max_dynamic_tile_scalars": 1408,
+      "max_output_relative_l2": 0.0053806188345723255,
+      "mode": "refit weighted top-k 2.75x",
+      "tile_density": 0.6875
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.3333333333333333,
+      "max_dynamic_tile_scalars": 1536,
+      "max_output_relative_l2": 0.007305255764106481,
+      "mode": "raw weighted top-k 3x",
+      "tile_density": 0.75
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.3333333333333333,
+      "max_dynamic_tile_scalars": 1536,
+      "max_output_relative_l2": 0.004203998487667495,
+      "mode": "refit weighted top-k 3x",
+      "tile_density": 0.75
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.2307692307692308,
+      "max_dynamic_tile_scalars": 1664,
+      "max_output_relative_l2": 0.005304204118858596,
+      "mode": "raw weighted top-k 3.25x",
+      "tile_density": 0.8125
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.2307692307692308,
+      "max_dynamic_tile_scalars": 1664,
+      "max_output_relative_l2": 0.003542268110647853,
+      "mode": "refit weighted top-k 3.25x",
+      "tile_density": 0.8125
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.1428571428571428,
+      "max_dynamic_tile_scalars": 1792,
+      "max_output_relative_l2": 0.0039034140560487503,
+      "mode": "raw weighted top-k 3.5x",
+      "tile_density": 0.875
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.1428571428571428,
+      "max_dynamic_tile_scalars": 1792,
+      "max_output_relative_l2": 0.0031834153546192443,
+      "mode": "refit weighted top-k 3.5x",
+      "tile_density": 0.875
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.0666666666666667,
+      "max_dynamic_tile_scalars": 1920,
+      "max_output_relative_l2": 0.0033464333304679167,
+      "mode": "raw weighted top-k 3.75x",
+      "tile_density": 0.9375
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.0666666666666667,
+      "max_dynamic_tile_scalars": 1920,
+      "max_output_relative_l2": 0.0027849697557302718,
+      "mode": "refit weighted top-k 3.75x",
+      "tile_density": 0.9375
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.0,
+      "max_dynamic_tile_scalars": 2048,
+      "max_output_relative_l2": 0.0032059627157141977,
+      "mode": "continuous fractional",
+      "tile_density": 1.0
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.0,
+      "max_dynamic_tile_scalars": 2048,
+      "max_output_relative_l2": 0.003205958209821584,
+      "mode": "raw weighted top-k 4x",
+      "tile_density": 1.0
+    },
+    {
+      "all_records_pass_1pct": true,
+      "ideal_tile_arithmetic_speedup_upper_bound": 1.0,
+      "max_dynamic_tile_scalars": 2048,
+      "max_output_relative_l2": 0.0005058062098625144,
+      "mode": "refit weighted top-k 4x",
+      "tile_density": 1.0
+    }
+  ],
+  "posthoc_arithmetic_quality_gate_pass": true,
+  "quality_speed_joint_gate_pass": true,
+  "verdict": "POSTHOC_WEIGHTED_SUPPORT_CAPACITY_GATE_PASSES"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "claim_boundary": "Smoke-only post-hoc support and adaptive-tail capacity diagnostic. No transfer, quality, latency, or deployment claim is permitted.",
+  "scope": {
+    "sample_ids": [
+      "s00_p00_seed20260740"
+    ],
+    "cells": [
+      {
+        "name": "layer14_step09_middle",
+        "layer": 14,
+        "sampling_step": 9
+      }
+    ],
+    "branch": "cond",
+    "query_tile_size": 64,
+    "query_tiles": 1,
+    "densities": [
+      0.25
+    ],
+    "rank": 16
+  },
+  "support_search": {
+    "families": [
+      "fixed64",
+      "shifted64",
+      "hierarchical32",
+      "shifted32",
+      "thw8x8",
+      "motion_warp8x8"
+    ],
+    "alternations": 0,
+    "swap_steps": 0,
+    "swap_shortlist": 4,
+    "thw_tile_height": 8,
+    "thw_tile_width": 8
+  },
+  "gates": {
+    "oracle_aggregate_output_relative_l2": 0.005,
+    "oracle_worst_record_output_relative_l2": 0.01,
+    "max_execution_density": 0.255,
+    "max_kernel_tile_multiplier": 4.1,
+    "future_whole_attention_measured_speedup": 1.5
+  }
+}

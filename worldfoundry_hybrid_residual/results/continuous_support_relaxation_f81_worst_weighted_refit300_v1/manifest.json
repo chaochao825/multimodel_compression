@@ -1,0 +1,33 @@
+{
+  "arguments": {
+    "capture_index": "results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "density": 0.25,
+    "device": "cuda:0",
+    "family": "hierarchical32",
+    "learning_rate": 0.05,
+    "output_dir": "results/continuous_support_relaxation_f81_worst_weighted_refit300_v1",
+    "rank": 16,
+    "records_per_cell": 1,
+    "refit_steps": 300,
+    "restarts": 3,
+    "steps": 300,
+    "support_records": "results/support_manifold_oracle_f81_screen_v1_merged/support_records.csv",
+    "temperature": 0.5
+  },
+  "capture_index_sha256": "d8bc6f7fbb0accf4525d886839ba85f1fd6657fcdf5892a1a18c9f38a36fe088",
+  "capture_sha256": {
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step19_t208_cond_l14_self.pt": "11a411fde2fdbee604a41a89571f3dcb87a419ae8beba54726fb144fb49441a1",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l14_self.pt": "a8bca528e89ca7c16b31362526dd1750ba7f194f444aa482ac3d4f071c07ef65",
+    "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step09_t859_cond_l14_self.pt": "378b622ba1994fa49c46913f904977ca2399f46cf2271cdfb0b901b1fb989006"
+  },
+  "claim_boundary": "Post-hoc nondeployable continuous tile-weight upper bound on records selected as worst by the completed discrete screen.",
+  "elapsed_seconds": 148.28082585334778,
+  "environment": {
+    "cuda": "12.8",
+    "device_name": "NVIDIA H200 NVL",
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "schema_version": 1,
+  "support_records_sha256": "dc53ed97e446f51d99121f4f31e39c8dfb6f12c8e72323798fbad9b8ee87cb02"
+}

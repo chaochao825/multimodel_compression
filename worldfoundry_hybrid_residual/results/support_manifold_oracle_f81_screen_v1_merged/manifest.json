@@ -1,0 +1,201 @@
+{
+  "capture_fingerprints": [
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l00_self.pt",
+      "sha256": "a3abd2a56d184b5b3dcee1647aaf73e928ab0fe7a3d4a217c61a153a1293b361"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step00_t999_cond_l14_self.pt",
+      "sha256": "05ecd41d55d24129208cd6bfd22e00e21c0d6e9bed335bf35691253c4b166973"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step09_t859_cond_l14_self.pt",
+      "sha256": "51053e3738ad1d88c47862158be2d5a6df3aef095a58b84c26d8da815c5b82c6"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step19_t208_cond_l14_self.pt",
+      "sha256": "11a411fde2fdbee604a41a89571f3dcb87a419ae8beba54726fb144fb49441a1"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l00_self.pt",
+      "sha256": "f35dbea4bfc6c5c339cf739ae5bc230bc68d64aba7d0438530a5a167468615ca"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step00_t999_cond_l14_self.pt",
+      "sha256": "f315ad01a203992c33fc6563d437381f8050bf003700317bdcd0f8b695a7a556"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step09_t859_cond_l14_self.pt",
+      "sha256": "2be28034e830e128d4f9eb98f33ecf6d0c5007d388867bd2e2923d612741126f"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step19_t208_cond_l14_self.pt",
+      "sha256": "0f1f61483b3285ef898e151c7abb78c3f39cbc82e8ce2dbab8f7533585895139"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l00_self.pt",
+      "sha256": "93c1fff51156ca9a3c5d28623f239f003d69656ba145b1fd266558fdbdef6a03"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step00_t999_cond_l14_self.pt",
+      "sha256": "a8bca528e89ca7c16b31362526dd1750ba7f194f444aa482ac3d4f071c07ef65"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step09_t859_cond_l14_self.pt",
+      "sha256": "378b622ba1994fa49c46913f904977ca2399f46cf2271cdfb0b901b1fb989006"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step19_t208_cond_l14_self.pt",
+      "sha256": "6caf31becaba4fe3be9a5a46b28be224ad310ba7503f8c39dad53a5cdfd269da"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step00_t999_cond_l00_self.pt",
+      "sha256": "9d3ecf33454851eb808f11f59e8413a5e86dc438f3aa2b0f923d8adeb380da1d"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step00_t999_cond_l14_self.pt",
+      "sha256": "b5d78aed107b55948d4c51e9079cecc145d75698cf0ff9a1edf7489c6dc30d49"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step09_t859_cond_l14_self.pt",
+      "sha256": "c9faf8b70307701fe6399aa156a321ee6db59a6ca23ac92fbc463ac2bb55bf8a"
+    },
+    {
+      "bytes": 301919488,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step19_t208_cond_l14_self.pt",
+      "sha256": "1889d852c8b8786334aff10ba87da654758d905f114bebd64632e3e0a49a57d7"
+    }
+  ],
+  "elapsed_seconds": 0.3416619300842285,
+  "environment": {
+    "cuda": "12.8",
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "kind": "merged_disjoint_sample_shards",
+  "protocol": {
+    "claim_boundary": "Registered post-hoc support-family screen on existing dense F81 Q/K/V captures. Every support, family choice, adaptive rank-16 basis, and coefficient may inspect the evaluated dense AV defect. Monotone screen search is followed by targeted high-iteration refinement only for candidates near the quality gate.",
+    "gates": {
+      "future_whole_attention_measured_speedup": 1.5,
+      "max_execution_density": 0.255,
+      "max_kernel_tile_multiplier": 4.1,
+      "oracle_aggregate_output_relative_l2": 0.005,
+      "oracle_worst_record_output_relative_l2": 0.01
+    },
+    "schema_version": 1,
+    "scope": {
+      "branch": "cond",
+      "cells": [
+        {
+          "layer": 0,
+          "name": "layer00_step00_capacity_control",
+          "sampling_step": 0
+        },
+        {
+          "layer": 14,
+          "name": "layer14_step00_early",
+          "sampling_step": 0
+        },
+        {
+          "layer": 14,
+          "name": "layer14_step09_middle",
+          "sampling_step": 9
+        },
+        {
+          "layer": 14,
+          "name": "layer14_step19_late",
+          "sampling_step": 19
+        }
+      ],
+      "densities": [
+        0.125,
+        0.25
+      ],
+      "query_tile_size": 64,
+      "query_tiles": 3,
+      "rank": 16,
+      "sample_ids": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ]
+    },
+    "support_search": {
+      "alternations": 1,
+      "families": [
+        "fixed64",
+        "shifted64",
+        "hierarchical32",
+        "shifted32",
+        "thw8x8",
+        "motion_warp8x8"
+      ],
+      "search_warning": "The screen is a monotone heuristic witness, not a globally optimal support certificate. Near-gate candidates require the separately registered high-iteration refinement.",
+      "swap_shortlist": 8,
+      "swap_steps": 1,
+      "thw_tile_height": 8,
+      "thw_tile_width": 8
+    }
+  },
+  "protocol_object_sha256": "2d8fe6222316db5cbebdcdf53b36a0137908bce0ae9527774c870d4e836b98f6",
+  "protocol_sha256": "6680dcf157c26919725bab1234ef568876da10db7936b2756cae62665666db7e",
+  "records": 8064,
+  "sample_ids": [
+    "s00_p00_seed20260740",
+    "s01_p01_seed20260740",
+    "s02_p00_seed20260741",
+    "s03_p01_seed20260741"
+  ],
+  "schema_version": 1,
+  "semantics": {
+    "claim_boundary": "Registered post-hoc support-family screen on existing dense F81 Q/K/V captures. Every support, family choice, adaptive rank-16 basis, and coefficient may inspect the evaluated dense AV defect. Monotone screen search is followed by targeted high-iteration refinement only for candidates near the quality gate.",
+    "merge": "raw records concatenated after exact-key duplicate and sample-coverage checks; summaries and decisions recomputed from the master protocol",
+    "sample_shards": "disjoint by registered sample_id; all layer/step cells occur in every shard"
+  },
+  "shard_sources": [
+    {
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/support_manifold_oracle_f81_screen_v1_shard0",
+      "records": 4032,
+      "run_id": "5ce76586ccbe41e4b93561fd4af424ae",
+      "sample_shard": {
+        "count": 2,
+        "index": 0,
+        "sample_ids": [
+          "s00_p00_seed20260740",
+          "s02_p00_seed20260741"
+        ]
+      },
+      "success_sha256": "b053f8078982dbb55adacc4c046ad3686d7a328a6519129516707c2bd0cea75a"
+    },
+    {
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/support_manifold_oracle_f81_screen_v1_shard1",
+      "records": 4032,
+      "run_id": "30c84a122c1449679c42904576683568",
+      "sample_shard": {
+        "count": 2,
+        "index": 1,
+        "sample_ids": [
+          "s01_p01_seed20260740",
+          "s03_p01_seed20260741"
+        ]
+      },
+      "success_sha256": "7738b94ddd0ce86510b70afd8018eaae7dbe806c11d805d5ab551e1c1aea54c1"
+    }
+  ]
+}

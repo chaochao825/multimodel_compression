@@ -1,0 +1,9 @@
+{
+  "artifact_sha256": {
+    "decision.json": "a2a639a9707bab4731d409105e619362b579ff00acca30a52c43d5e3881f25f0",
+    "manifest.json": "f76b270156cb1c8698b06b7d8ca6bdf56e83bca8a6cc98224d7441c30314eb74",
+    "support_records.csv": "dc53ed97e446f51d99121f4f31e39c8dfb6f12c8e72323798fbad9b8ee87cb02",
+    "support_summary.csv": "8ebf0986b0472eb9d361399f06f97cf0465dbaa23e4968982cfbbadb34c89b13"
+  },
+  "verdict": "STOP_SUPPORT_SHAPING_RANK16_PREGATE_FAILS"
+}
