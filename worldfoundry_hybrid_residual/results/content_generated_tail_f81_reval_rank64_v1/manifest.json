@@ -1,0 +1,15 @@
+{
+  "metrics": {
+    "per_tile": "one adaptive rank-16 basis independently fit to each 64-query tile",
+    "shared": "one adaptive rank-16 basis shared by all three sampled tiles per sample/head"
+  },
+  "protocol_sha256": "c828c413a03cf8c3a0da35d9807042a172681d9a389e3dbb49511b341eec642f",
+  "rank": 64,
+  "schema_version": 1,
+  "source_checkpoint_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/content_generated_tail_f81_rank64_v1",
+  "source_checkpoint_sha256": {
+    "calibration_frozen": "3a3dd6d3a91bf1822e49b7c70e9c70e5f6ffb5e26fb2b6253916a0873665f215",
+    "transductive_capacity": "496bbe160618c727eebae91e83aeabbcf70e9276aa8eb4d7d4a89253f4a80f5c"
+  },
+  "warning": "This is deterministic checkpoint re-evaluation, not retraining."
+}

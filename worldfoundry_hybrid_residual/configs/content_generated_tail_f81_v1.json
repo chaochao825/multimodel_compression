@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "claim_boundary": "Pilot function-class and transfer diagnostic on previously explored F81 Q/K/V captures. Calibration-frozen and transductive results are kept separate. Held-out dense-AV support selection is oracle-only; a confirmatory claim requires newly registered prompts and seeds.",
+  "seed": 20260730,
+  "scope": {
+    "sample_ids": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740",
+      "s02_p00_seed20260741",
+      "s03_p01_seed20260741"
+    ],
+    "layer": 14,
+    "sampling_step": 9,
+    "branch": "cond",
+    "query_tile_size": 64,
+    "query_tiles": 3,
+    "block_size": 64,
+    "density": 0.25,
+    "ranks": [16, 32, 48, 64]
+  },
+  "split": {
+    "calibration_sample_ids": [
+      "s00_p00_seed20260740",
+      "s01_p01_seed20260740"
+    ],
+    "validation_sample_ids": ["s02_p00_seed20260741"],
+    "test_sample_ids": ["s03_p01_seed20260741"]
+  },
+  "training": {
+    "initial_steps": 300,
+    "refine_steps": 150,
+    "learning_rate": 0.002,
+    "refine_learning_rate": 0.0002,
+    "weight_decay": 0.0001,
+    "partition_loss_weight": 0.001,
+    "gradient_clip_norm": 1.0,
+    "log_every_steps": 50
+  },
+  "routers": {
+    "trajectory_add_chunk": 8,
+    "value_weight": 0.25
+  },
+  "gates": {
+    "post_tail_adaptive_rank": 16,
+    "oracle_aggregate_output_relative_l2": 0.005,
+    "oracle_worst_record_output_relative_l2": 0.01,
+    "deployment_aggregate_output_relative_l2": 0.01,
+    "deployment_worst_record_output_relative_l2": 0.02,
+    "whole_attention_measured_speedup": 1.5
+  }
+}

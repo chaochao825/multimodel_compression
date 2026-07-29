@@ -1,0 +1,116 @@
+{
+  "arguments": {
+    "capture_index": "results/attention_head_factorial_f81_v1/qkv_replays/capture_index.csv",
+    "device": "cuda:0",
+    "execution_resource_note": "exclusive H200 physical GPU2 after idle confirmation; numerical probe only; no measured latency claim",
+    "output_dir": "results/content_generated_tail_f81_rank64_v1",
+    "protocol_config": "configs/content_generated_tail_f81_v1.json",
+    "rank": 64,
+    "run_kind": "diagnostic"
+  },
+  "capture_fingerprints": [
+    {
+      "bytes": 301919488,
+      "mtime_ns": 1785073337999465175,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s00_p00_seed20260740/s00_p00_seed20260740_step09_t859_cond_l14_self.pt",
+      "sample_id": "s00_p00_seed20260740"
+    },
+    {
+      "bytes": 301919488,
+      "mtime_ns": 1785073382031467792,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s01_p01_seed20260740/s01_p01_seed20260740_step09_t859_cond_l14_self.pt",
+      "sample_id": "s01_p01_seed20260740"
+    },
+    {
+      "bytes": 301919488,
+      "mtime_ns": 1785073425039470349,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s02_p00_seed20260741/s02_p00_seed20260741_step09_t859_cond_l14_self.pt",
+      "sample_id": "s02_p00_seed20260741"
+    },
+    {
+      "bytes": 301919488,
+      "mtime_ns": 1785073466143472792,
+      "path": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/attention_head_factorial_f81_v1/qkv_replays/s03_p01_seed20260741/s03_p01_seed20260741_step09_t859_cond_l14_self.pt",
+      "sample_id": "s03_p01_seed20260741"
+    }
+  ],
+  "cuda_runtime": "12.8",
+  "device": "NVIDIA H200 NVL",
+  "elapsed_seconds": 95.74342584609985,
+  "execution_resource_note": "exclusive H200 physical GPU2 after idle confirmation; numerical probe only; no measured latency claim",
+  "protocol": {
+    "claim_boundary": "Pilot function-class and transfer diagnostic on previously explored F81 Q/K/V captures. Calibration-frozen and transductive results are kept separate. Held-out dense-AV support selection is oracle-only; a confirmatory claim requires newly registered prompts and seeds.",
+    "gates": {
+      "deployment_aggregate_output_relative_l2": 0.01,
+      "deployment_worst_record_output_relative_l2": 0.02,
+      "oracle_aggregate_output_relative_l2": 0.005,
+      "oracle_worst_record_output_relative_l2": 0.01,
+      "post_tail_adaptive_rank": 16,
+      "whole_attention_measured_speedup": 1.5
+    },
+    "routers": {
+      "trajectory_add_chunk": 8,
+      "value_weight": 0.25
+    },
+    "schema_version": 1,
+    "scope": {
+      "block_size": 64,
+      "branch": "cond",
+      "density": 0.25,
+      "layer": 14,
+      "query_tile_size": 64,
+      "query_tiles": 3,
+      "ranks": [
+        16,
+        32,
+        48,
+        64
+      ],
+      "sample_ids": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740",
+        "s02_p00_seed20260741",
+        "s03_p01_seed20260741"
+      ],
+      "sampling_step": 9
+    },
+    "seed": 20260730,
+    "split": {
+      "calibration_sample_ids": [
+        "s00_p00_seed20260740",
+        "s01_p01_seed20260740"
+      ],
+      "test_sample_ids": [
+        "s03_p01_seed20260741"
+      ],
+      "validation_sample_ids": [
+        "s02_p00_seed20260741"
+      ]
+    },
+    "training": {
+      "gradient_clip_norm": 1.0,
+      "initial_steps": 300,
+      "learning_rate": 0.002,
+      "log_every_steps": 50,
+      "partition_loss_weight": 0.001,
+      "refine_learning_rate": 0.0002,
+      "refine_steps": 150,
+      "weight_decay": 0.0001
+    }
+  },
+  "protocol_sha256": "c828c413a03cf8c3a0da35d9807042a172681d9a389e3dbb49511b341eec642f",
+  "python": "3.11.15",
+  "run_kind": "diagnostic",
+  "schema_version": 1,
+  "seed": 453413407,
+  "semantics": {
+    "adaptive_rank16": "post-hoc dense-AV oracle used only as a chart-resume pregate",
+    "calibration_frozen": "feature-map parameters and normalization statistics use calibration only",
+    "fixed_budget": "all routes execute the same count of padded 64-key groups",
+    "normalization": "positive linear full-kernel numerator/denominator with selected interactions replaced by exact exp(QK), followed by one shared normalization",
+    "svg2_label": "SVG2-style semantic permutation proxy; not paper-faithful",
+    "trajectory_width_search": "bounded greedy selection scored in the current rank-r basis orthogonal complement; a heuristic witness, not a global support optimum",
+    "transductive_capacity": "all evaluated captures may fit feature maps and support"
+  },
+  "torch": "2.9.1+cu128"
+}

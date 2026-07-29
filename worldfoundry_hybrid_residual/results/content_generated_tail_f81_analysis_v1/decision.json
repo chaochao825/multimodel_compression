@@ -1,0 +1,33 @@
+{
+  "chart_resume_gate_pass": false,
+  "claim_boundary": "Previously explored four-capture diagnostic at Layer14/step9/cond with three sampled query tiles. No end-to-end rollout or measured kernel speed claim.",
+  "do_not_continue": [
+    "larger positive linear feature rank",
+    "rotation or chart coordinate predictor",
+    "additional fixed BCM or support-family expansion",
+    "1k-2k adaptation of this tail family because its transductive oracle did not pass"
+  ],
+  "layer14_runtime_assignment": "FP8_OR_BF16_DENSE",
+  "matched_baseline_change": {
+    "content_error_relative_change": -0.12227965410980712,
+    "per_tile_rank16_error_relative_change": -0.25534343046935193,
+    "worst_tile_relative_change": -0.27176143102611117
+  },
+  "rank16_to_rank64_capacity_relative_change": -0.0010642456618500384,
+  "rank64_metrics": {
+    "frozen_support_oracle_per_tile_aggregate": 0.013316773933685192,
+    "frozen_support_oracle_worst_tile": 0.03233793764407113,
+    "selected_proxy_per_tile_aggregate": 0.014877893219893584,
+    "selected_proxy_worst_tile": 0.03631635591523004,
+    "transductive_per_tile_aggregate": 0.01179208400221229,
+    "transductive_shared_aggregate": 0.018505247721152907,
+    "transductive_worst_tile": 0.03384895157078648
+  },
+  "rank64_transductive_capacity_pass": false,
+  "retained_system_paths": [
+    "diffuse heads: fused FP8/BF16 dense attention",
+    "localized heads: confidence-gated geometry or semantic sparse proxy",
+    "other transitional cells: separately certified learned sparse-linear methods only"
+  ],
+  "verdict": "STOP_TRAIN_FREE_CONTENT_TAIL_FOR_LAYER14_STEP09"
+}

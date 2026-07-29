@@ -190,6 +190,21 @@ H200 speed result. The next gate is therefore a calibration-fixed, at-most-16
 coordinate support/amplitude chart, not more BCM or rotation factors. See
 [`results/SUPPORT_MANIFOLD_CO_DESIGN_F81_20260729.zh-CN.md`](results/SUPPORT_MANIFOLD_CO_DESIGN_F81_20260729.zh-CN.md).
 
+The next registered probe deliberately stops chart work and tests whether a
+content-generated positive sparse-linear tail changes that lower bound. Every
+tail rank (`16/32/48/64`) receives a fresh 25% support search, semantic and
+value-aware permutations are compared at equal budget, and sparse/linear
+branches share one numerator and denominator. Rank-64 transductive capacity
+improves the granularity-matched per-tile rank-16 error from `1.584%` to
+`1.179%` and worst-tile error from `4.648%` to `3.385%`, but still misses the
+registered `0.5%/1%` gate. Rank 16 to 64 is flat, and the validation-selected
+train-free proxy reaches only `1.488%/3.632%`. Layer 14/step 9 is therefore
+assigned to FP8/BF16 dense fallback; larger versions of this feature family,
+rotation/chart recovery, and more fixed BCM/support families remain stopped.
+See
+[`results/CONTENT_GENERATED_SPARSE_LINEAR_TAIL_F81_20260730.zh-CN.md`](results/CONTENT_GENERATED_SPARSE_LINEAR_TAIL_F81_20260730.zh-CN.md)
+and `results/content_generated_tail_f81_analysis_v1/`.
+
 The completed 72-cell prompt/seed/step/CFG factorial sharpens that executor.
 CFG branches have `1.0` class agreement and localized-head Jaccard in all 36
 pairs, while step comparisons pass only `52.8%` of the stability gates. Layer
@@ -382,6 +397,8 @@ python scripts/analyze_support_manifold_oracle.py \
 python scripts/analyze_continuous_support_relaxation.py \
   --input-dir results/continuous_support_relaxation_f81_worst_weighted_refit300_v1 \
   --output-dir results/continuous_support_relaxation_f81_worst_weighted_refit300_analysis_v1
+python scripts/analyze_content_generated_tail.py --help
+python scripts/plot_content_generated_tail.py --help
 ```
 
 The contact-sheet script additionally expects the selected MP4 files at the
