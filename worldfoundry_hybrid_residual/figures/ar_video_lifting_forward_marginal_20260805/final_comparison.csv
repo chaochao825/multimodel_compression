@@ -1,0 +1,4 @@
+method,label,aggregate_av_l2_percent,worst_head_av_l2_percent,logical_bf16_cache_compression_ratio
+kv_detail_energy,K/V energy,7.677701516269531,14.123959839344025,1.5028880917844127
+adaptive_tail_singleton_selector,Singleton AV,4.58649668978138,8.375173062086105,1.5028880917844127
+adaptive_tail_forward_marginal_greedy,Forward marginal,4.363938644936197,7.6020970940589905,1.5028880917844127

@@ -1,0 +1,24 @@
+{
+  "capture_dir": "captures",
+  "capture_files": [
+    {
+      "bytes": 120262444,
+      "path": "captures/20260805_heldout_v1/test_nonrigid_s3__l14__f015__c01.pt",
+      "sha256": "575e76c36ce26baebb5fe941da2badf96894901606060243b17993c800a7ecbe"
+    },
+    {
+      "bytes": 120262499,
+      "path": "captures/20260805_heldout_v1/valid_multi_object_s2__l14__f015__c01.pt",
+      "sha256": "866b5c75d010cbab992f2c2b625939e7e2c7a119b8d8b4924c51fa260f447c20"
+    }
+  ],
+  "complete": true,
+  "cuda_version": "12.8",
+  "device": "cuda:0",
+  "evaluated_capture_count": 2,
+  "protocol_id": "ar-video-lifting-forward-marginal-l14-screen-v4",
+  "protocol_sha256": "8678e685bb5e794bd7414df0b360b749eccd4d518ae6e19c94e430ce5885c426",
+  "required_capture_count": 2,
+  "source_protocol_sha256": "6262bc0d5ddc498c01a669fef3cd20f461aafd074eb9f348ebc3ac2270196181",
+  "torch_version": "2.9.1+cu128"
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-lifting-forward-marginal-l14-screen-v4",
+  "status": "frozen_after_independent_singleton_oracle_audit",
+  "source_protocol_id": "ar-video-residual-memory-longlive-v1",
+  "incumbent_result": "results/lifting_detail_oracle_primary_full_20260805a",
+  "decision_question": "At the same padded 24-block budget, does forward-marginal dense-label search materially improve the singleton selector on the held-out Layer-14 hard cell, and does the selected payload survive BF16 coefficient round-trip?",
+  "scope": {
+    "prompt_ids": [
+      "valid_multi_object_s2",
+      "test_nonrigid_s3"
+    ],
+    "cells": [
+      {"layer": 14, "current_start_frame": 15, "denoising_call_index": 1}
+    ],
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3,
+    "height": 30,
+    "width": 52,
+    "detail_tile_size": 64,
+    "retained_detail_blocks": 24,
+    "pad_partial_detail_tiles": true
+  },
+  "transform": {
+    "key_domain": "canonical_pre_rope",
+    "shift_scope": "shared",
+    "key_weight": 1.0,
+    "value_weight": 2.0,
+    "shift_candidates": [
+      [0, 0],
+      [-1, 0], [1, 0], [0, -1], [0, 1],
+      [-2, 0], [2, 0], [0, -2], [0, 2],
+      [-1, -1], [-1, 1], [1, -1], [1, 1],
+      [-4, 0], [4, 0], [0, -4], [0, 4]
+    ]
+  },
+  "methods": {
+    "baseline": "adaptive_tail_singleton_selector",
+    "primary": "adaptive_tail_forward_marginal_greedy",
+    "energy_control": "kv_detail_energy",
+    "adaptive_residual_rank": 16,
+    "payload_dtype": "bfloat16"
+  },
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2_after_adaptive_rank16_and_bf16_coefficient_roundtrip",
+    "dense_reference_parity_gate": 0.005,
+    "adaptive_aggregate_gate": 0.005,
+    "adaptive_worst_head_gate": 0.01,
+    "minimum_logical_bf16_cache_compression": 1.5,
+    "minimum_relative_improvement_over_singleton": 0.2,
+    "measured_attention_speedup_claim_allowed": false
+  },
+  "leakage_policy": [
+    "All three outcome-aware selectors read same-record dense AV and are explicitly non-deployable.",
+    "Forward marginal search re-evaluates the complete selected set after every candidate addition.",
+    "No selector, basis, predictor, or hyperparameter is fit for later reuse.",
+    "The captures are development-exposed; this gate diagnoses representation headroom only."
+  ],
+  "stop_rules": [
+    "Do not train a router or implement a kernel unless BF16 forward-marginal quality passes both gates.",
+    "A forward-greedy failure is strong evidence but not a global combinatorial impossibility proof.",
+    "Do not claim deployability, attention speedup, rollout quality, or prompt generalization."
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-butterfly-lifting-memory-screen-v1",
+  "status": "frozen_before_any_lifting_evaluation_on_existing_captures",
+  "source_protocol_id": "ar-video-residual-memory-longlive-v1",
+  "source_result": "results/20260805_full_v1",
+  "decision_question": "Can a causal invertible Butterfly-lifting representation with low-rank coarse memory, tile-sparse high-rank details, and K/V-selected cyclic motion predictors preserve LongLive attention output at at least 1.5x cache compression?",
+  "scope": {
+    "prompt_ids": [
+      "calib_rigid_s0",
+      "calib_fluid_s1",
+      "valid_multi_object_s2",
+      "test_nonrigid_s3"
+    ],
+    "cells": [
+      {"layer": 14, "current_start_frame": 15, "denoising_call_index": 1},
+      {"layer": 29, "current_start_frame": 18, "denoising_call_index": 1}
+    ],
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3,
+    "height": 30,
+    "width": 52,
+    "detail_tile_size": 64
+  },
+  "transform": {
+    "key_weight": 1.0,
+    "value_weight": 2.0,
+    "shift_candidates": [
+      [0, 0],
+      [-1, 0], [1, 0], [0, -1], [0, 1],
+      [-2, 0], [2, 0], [0, -2], [0, 2],
+      [-1, -1], [-1, 1], [1, -1], [1, 1],
+      [-4, 0], [4, 0], [0, -4], [0, 4]
+    ]
+  },
+  "methods": {
+    "primary": {
+      "name": "canonical_shared_shift_d0p20",
+      "key_domain": "canonical_pre_rope",
+      "shift_scope": "shared",
+      "detail_fraction": 0.2
+    },
+    "baseline": {
+      "name": "canonical_identity_d0p20",
+      "key_domain": "canonical_pre_rope",
+      "shift_scope": "identity",
+      "detail_fraction": 0.2
+    },
+    "variants": [
+      {"name": "canonical_identity_d0p10", "key_domain": "canonical_pre_rope", "shift_scope": "identity", "detail_fraction": 0.1},
+      {"name": "canonical_identity_d0p20", "key_domain": "canonical_pre_rope", "shift_scope": "identity", "detail_fraction": 0.2},
+      {"name": "canonical_shared_shift_d0p05", "key_domain": "canonical_pre_rope", "shift_scope": "shared", "detail_fraction": 0.05},
+      {"name": "canonical_shared_shift_d0p10", "key_domain": "canonical_pre_rope", "shift_scope": "shared", "detail_fraction": 0.1},
+      {"name": "canonical_shared_shift_d0p20", "key_domain": "canonical_pre_rope", "shift_scope": "shared", "detail_fraction": 0.2},
+      {"name": "canonical_per_head_shift_d0p20", "key_domain": "canonical_pre_rope", "shift_scope": "per_head", "detail_fraction": 0.2},
+      {"name": "postrope_shared_shift_d0p20", "key_domain": "post_rope", "shift_scope": "shared", "detail_fraction": 0.2}
+    ],
+    "adaptive_residual_rank": 16
+  },
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2",
+    "dense_reference_parity_gate": 0.005,
+    "direct_aggregate_gate": 0.01,
+    "direct_worst_head_gate": 0.02,
+    "adaptive_aggregate_gate": 0.005,
+    "adaptive_worst_head_gate": 0.01,
+    "minimum_cache_compression": 1.5,
+    "minimum_shift_relative_improvement": 0.1,
+    "measured_attention_speedup_claim_allowed": false
+  },
+  "leakage_policy": [
+    "Shift IDs and sparse detail tiles may use only the current record's K/V reconstruction energy; dense attention and dense AV are evaluation-only.",
+    "Adaptive rank-16 correction reads the same-record dense defect and is an explicitly non-deployable capacity diagnostic.",
+    "Validation and test records may not select candidates, detail fraction, K/V weights, exact frames, rank, or quality gates.",
+    "The existing captures are development-exposed and support an exploratory gate only; confirmation requires newly registered captures."
+  ],
+  "stop_rules": [
+    "Stop learned detail predictors, lazy decode kernels, and rollout work if the primary adaptive rank-16 capacity misses either adaptive quality gate.",
+    "If adaptive capacity passes but direct reconstruction fails, continue only as a bounded content-generated residual probe.",
+    "If shared cyclic prediction improves less than 10 percent over identity at the same detail budget, remove the circulant predictor from the candidate.",
+    "Do not claim attention or end-to-end speedup from cache compression or dense replay."
+  ]
+}

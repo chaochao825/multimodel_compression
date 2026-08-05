@@ -1,0 +1,6050 @@
+[
+  {
+    "capture": [
+      "calib_fluid_s1",
+      14,
+      15,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952033914389826,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.0012280609225854278
+  },
+  {
+    "capture": [
+      "calib_fluid_s1",
+      29,
+      18,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5983592785795275,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 792,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4999978481225782,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1560,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5983592785795275,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 792,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4999978481225782,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1560,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4999956962513306,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1560,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5048209853873018,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1520,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.0012173298746347427
+  },
+  {
+    "capture": [
+      "calib_rigid_s0",
+      14,
+      15,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4999978481225782,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1560,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5048209853873018,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1520,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5048188196554355,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1520,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4999978481225782,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1560,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.0013198975939303637
+  },
+  {
+    "capture": [
+      "calib_rigid_s0",
+      29,
+      18,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952033914389826,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ],
+              [
+                0,
+                -4
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ],
+              [
+                0,
+                -2
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4999978481225782,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1560,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.0012809491017833352
+  },
+  {
+    "capture": [
+      "test_nonrigid_s3",
+      14,
+      15,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952033914389826,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.001319877221249044
+  },
+  {
+    "capture": [
+      "test_nonrigid_s3",
+      29,
+      18,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952033914389826,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.00133819121401757
+  },
+  {
+    "capture": [
+      "valid_multi_object_s2",
+      14,
+      15,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952033914389826,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.0012964833294972777
+  },
+  {
+    "capture": [
+      "valid_multi_object_s2",
+      29,
+      18,
+      1
+    ],
+    "variants": [
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_identity_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_identity_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.6467267606585607,
+        "name": "canonical_shared_shift_d0p05",
+        "retained_blocks": 7,
+        "retained_tokens": 448,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.5929189861829653,
+        "name": "canonical_shared_shift_d0p10",
+        "retained_blocks": 13,
+        "retained_tokens": 832,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "canonical_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952033914389826,
+        "name": "canonical_per_head_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                -1
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "candidate_blocks": 125,
+        "compression_ratio": 1.4952055295822484,
+        "name": "postrope_shared_shift_d0p20",
+        "retained_blocks": 25,
+        "retained_tokens": 1600,
+        "shifts": [
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              3,
+              4
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              5,
+              6
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          },
+          {
+            "frames": [
+              7,
+              8
+            ],
+            "shifts": [
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        ]
+      }
+    ],
+    "worst_dense_reference_parity": 0.0012536660069599748
+  }
+]

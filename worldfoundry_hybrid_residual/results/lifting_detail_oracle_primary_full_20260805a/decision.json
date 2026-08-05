@@ -1,0 +1,42 @@
+{
+  "action": "stop_butterfly_lifting_and_detail_routing",
+  "baseline": {
+    "aggregate_relative_av_l2": 0.0800634926451269,
+    "captures": 4,
+    "correction": "adaptive_rank16",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.04429313929964943,
+    "method": "kv_detail_energy",
+    "minimum_cache_compression_ratio": 1.5028880917844127,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.15300102531909943
+  },
+  "classification": "null",
+  "complete": true,
+  "decision_scope": "held_out",
+  "does_not_support": [
+    "The oracle is not a deployable selector.",
+    "No attention speedup or rollout-quality claim is permitted."
+  ],
+  "guards": {
+    "compression_pass": true,
+    "mechanism_pass": true,
+    "parity_pass": true,
+    "quality_pass": false
+  },
+  "primary": {
+    "aggregate_relative_av_l2": 0.021756215796277158,
+    "captures": 4,
+    "correction": "adaptive_rank16",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.0226659876263966,
+    "method": "adaptive_tail_singleton_oracle",
+    "minimum_cache_compression_ratio": 1.5126029333920756,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.0837501809000969
+  },
+  "protocol_id": "ar-video-lifting-detail-oracle-screen-v3",
+  "relative_improvement_over_energy": 0.7282629688326323
+}

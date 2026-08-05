@@ -1,0 +1,5 @@
+method,label,layer,aggregate_av_l2_percent,worst_head_av_l2_percent
+adaptive_tail_singleton_oracle,Singleton AV selector 19%,14,4.586592106770702,8.37501809000969
+adaptive_tail_singleton_oracle,Singleton AV selector 19%,29,0.4351637349082423,1.5861138701438904
+kv_detail_energy,K/V-energy details 19%,14,7.677177674529739,14.122338593006134
+kv_detail_energy,K/V-energy details 19%,29,8.095708322559226,15.300102531909943

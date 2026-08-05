@@ -1,0 +1,62 @@
+{
+  "action": "stop_lifting_predictor_kernel_and_rollout",
+  "classification": "null",
+  "complete": true,
+  "decision_scope": "held_out",
+  "does_not_support": [
+    "No attention, H200 kernel, rollout, or end-to-end speedup claim.",
+    "No generalization beyond the registered LongLive cells and development-exposed captures."
+  ],
+  "guards": {
+    "adaptive_capacity_pass": false,
+    "circulant_mechanism_pass": false,
+    "compression_pass": false,
+    "direct_quality_pass": false,
+    "parity_pass": true
+  },
+  "primary": {
+    "aggregate_relative_av_l2": 0.14128667912804618,
+    "captures": 4,
+    "correction": "none",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.09994285829210033,
+    "method": "canonical_shared_shift_d0p20",
+    "minimum_cache_compression_ratio": 1.4952055295822484,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.2544906437397003
+  },
+  "primary_adaptive": {
+    "aggregate_relative_av_l2": 0.0800187392237783,
+    "captures": 4,
+    "correction": "adaptive_rank16",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.04418348705318446,
+    "method": "canonical_shared_shift_d0p20",
+    "minimum_cache_compression_ratio": 1.4952055295822484,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.15300102531909943
+  },
+  "protocol_id": "ar-video-butterfly-lifting-memory-screen-v1",
+  "relative_shift_improvement_over_identity": 0.008237894073952257,
+  "same_budget_identity_adaptive": {
+    "aggregate_relative_av_l2": 0.08068340053087794,
+    "captures": 4,
+    "correction": "adaptive_rank16",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.045418903639074415,
+    "method": "canonical_identity_d0p20",
+    "minimum_cache_compression_ratio": 1.4952055295822484,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.15300102531909943
+  },
+  "supports": [
+    "A support statement is added only if the corresponding guard passes."
+  ],
+  "unknown": [
+    "Query-guided lazy detail decoding and token-count reduction were not evaluated.",
+    "Long-horizon rollout quality was not evaluated."
+  ]
+}

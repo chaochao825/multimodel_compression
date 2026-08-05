@@ -1,0 +1,62 @@
+{
+  "action": "stop_lifting_predictor_kernel_and_rollout",
+  "classification": "null",
+  "complete": true,
+  "decision_scope": "held_out",
+  "does_not_support": [
+    "No attention, H200 kernel, rollout, or end-to-end speedup claim.",
+    "No generalization beyond the registered LongLive cells and development-exposed captures."
+  ],
+  "guards": {
+    "adaptive_capacity_pass": false,
+    "circulant_mechanism_pass": false,
+    "compression_pass": true,
+    "direct_quality_pass": false,
+    "parity_pass": true
+  },
+  "primary": {
+    "aggregate_relative_av_l2": 0.1459073056456549,
+    "captures": 4,
+    "correction": "none",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.10163379820975631,
+    "method": "canonical_window_staggered_d0p19",
+    "minimum_cache_compression_ratio": 1.5028827895555785,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.26657840609550476
+  },
+  "primary_adaptive": {
+    "aggregate_relative_av_l2": 0.08280382323995787,
+    "captures": 4,
+    "correction": "adaptive_rank16",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.045560225829831325,
+    "method": "canonical_window_staggered_d0p19",
+    "minimum_cache_compression_ratio": 1.5028827895555785,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.1595250368118286
+  },
+  "protocol_id": "ar-video-windowed-lifting-memory-screen-v2",
+  "relative_shift_improvement_over_identity": -0.034226967926283214,
+  "same_budget_identity_adaptive": {
+    "aggregate_relative_av_l2": 0.0800634926451269,
+    "captures": 4,
+    "correction": "adaptive_rank16",
+    "maximum_dense_reference_parity": 0.00133819121401757,
+    "mean_head_relative_av_l2": 0.04429313929964943,
+    "method": "canonical_global_shared_d0p19",
+    "minimum_cache_compression_ratio": 1.5028880917844127,
+    "records": 48,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.15300102531909943
+  },
+  "supports": [
+    "A support statement is added only if the corresponding guard passes."
+  ],
+  "unknown": [
+    "Query-guided lazy detail decoding and token-count reduction were not evaluated.",
+    "Long-horizon rollout quality was not evaluated."
+  ]
+}

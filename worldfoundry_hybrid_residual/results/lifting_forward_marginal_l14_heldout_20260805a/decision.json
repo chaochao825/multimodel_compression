@@ -1,0 +1,55 @@
+{
+  "action": "stop_router_and_kernel_for_current_transform",
+  "classification": "null",
+  "complete": true,
+  "decision_scope": "held_out",
+  "does_not_support": [
+    "Forward greedy is not a globally optimal combinatorial oracle.",
+    "The selector and adaptive correction read same-record dense AV.",
+    "No deployability, attention speedup, rollout quality, or prompt generalization claim is permitted."
+  ],
+  "energy_control": {
+    "aggregate_relative_av_l2": 0.0767770151626953,
+    "captures": 2,
+    "correction": "adaptive_rank16_bf16_coeff",
+    "maximum_dense_reference_parity": 0.001319877221249044,
+    "mean_head_relative_av_l2": 0.06480775920984645,
+    "method": "kv_detail_energy",
+    "minimum_cache_compression_ratio": 1.5028880917844127,
+    "records": 24,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.14123959839344025
+  },
+  "guards": {
+    "compression_pass": true,
+    "mechanism_pass": false,
+    "parity_pass": true,
+    "quality_pass": false
+  },
+  "primary": {
+    "aggregate_relative_av_l2": 0.043639386449361973,
+    "captures": 2,
+    "correction": "adaptive_rank16_bf16_coeff",
+    "maximum_dense_reference_parity": 0.001319877221249044,
+    "mean_head_relative_av_l2": 0.03913235703172783,
+    "method": "adaptive_tail_forward_marginal_greedy",
+    "minimum_cache_compression_ratio": 1.5028880917844127,
+    "records": 24,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.0760209709405899
+  },
+  "protocol_id": "ar-video-lifting-forward-marginal-l14-screen-v4",
+  "relative_improvement_over_singleton": 0.04852462781474076,
+  "singleton_baseline": {
+    "aggregate_relative_av_l2": 0.045864966897813796,
+    "captures": 2,
+    "correction": "adaptive_rank16_bf16_coeff",
+    "maximum_dense_reference_parity": 0.001319877221249044,
+    "mean_head_relative_av_l2": 0.04024733059729139,
+    "method": "adaptive_tail_singleton_selector",
+    "minimum_cache_compression_ratio": 1.5028880917844127,
+    "records": 24,
+    "scope": "held_out",
+    "worst_head_relative_av_l2": 0.08375173062086105
+  }
+}

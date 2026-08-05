@@ -1,0 +1,11 @@
+{
+  "artifacts": [
+    "metrics.csv",
+    "summary.csv",
+    "decision.json",
+    "debug.json",
+    "manifest.json"
+  ],
+  "classification": "null",
+  "protocol_id": "ar-video-butterfly-lifting-memory-screen-v1"
+}

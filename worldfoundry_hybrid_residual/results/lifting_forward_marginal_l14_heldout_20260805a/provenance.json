@@ -1,0 +1,46 @@
+{
+  "recorded_after_run": true,
+  "recorded_reason": "Backfill code, command, and hardware identity after an independent reproducibility audit; original manifest and decision are unchanged.",
+  "host": "amax",
+  "ssh_profile": "236-via-238",
+  "physical_gpu_index": 1,
+  "gpu_name": "NVIDIA GeForce RTX 4090",
+  "nvidia_driver": "580.82.07",
+  "python_executable": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+  "remote_workdir": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805",
+  "completed_at": "2026-08-06T00:41:48+08:00",
+  "base_git_commit": "0032cba",
+  "command": [
+    "env",
+    "CUDA_VISIBLE_DEVICES=1",
+    "PYTHONPATH=scripts",
+    "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+    "scripts/probe_ar_video_lifting_forward_marginal.py",
+    "--protocol",
+    "configs/ar_video_lifting_forward_marginal_l14_screen_v4.json",
+    "--source-protocol",
+    "configs/ar_video_residual_memory_longlive_v1.json",
+    "--capture-dir",
+    "captures",
+    "--output-dir",
+    "results/lifting_forward_marginal_l14_heldout_20260805a",
+    "--device",
+    "cuda:0",
+    "--query-chunk-size",
+    "64"
+  ],
+  "source_sha256": {
+    "scripts/ar_video_butterfly_lifting_core.py": "575f9c6b864678277830aab63798961b9efe16357a090e9af54e67c40ce33dbd",
+    "scripts/probe_ar_video_lifting_forward_marginal.py": "ba37a91a450cd9203043c5e14f9eca5bc9244184a487521e539549c8eb05204d",
+    "configs/ar_video_lifting_forward_marginal_l14_screen_v4.json": "8678e685bb5e794bd7414df0b360b749eccd4d518ae6e19c94e430ce5885c426",
+    "configs/ar_video_residual_memory_longlive_v1.json": "6262bc0d5ddc498c01a669fef3cd20f461aafd074eb9f348ebc3ac2270196181"
+  },
+  "artifact_sha256": {
+    "SUCCESS.json": "3334af6eb6295f410c4a7fa04a90c16bec1efbc8f702653c916d8a978eeacaa4",
+    "debug.json": "b32f06f2db67883498b405ed6e2cd70b4625c8834725d7961649903549b5e2ba",
+    "decision.json": "4c93c027ebc53ed90da819d6ef24a7d1d00de1f79348d83d0ccf78388870caae",
+    "manifest.json": "084ab327d472aef18f54612a3b9f295ae12004400a1fbe91eb7bdbbc88635c95",
+    "metrics.csv": "66c8dd41ce685ae37f45583b751a44fec79c0bacd24e9f43c1f6925ac782c503",
+    "summary.csv": "15abf25f89478d824681f4abe2cfb2b8496205eba39fd4166679602b1a0a4840"
+  }
+}

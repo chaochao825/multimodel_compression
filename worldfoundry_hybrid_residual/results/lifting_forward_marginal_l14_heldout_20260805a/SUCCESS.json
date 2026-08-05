@@ -1,0 +1,11 @@
+{
+  "artifacts": [
+    "metrics.csv",
+    "summary.csv",
+    "decision.json",
+    "debug.json",
+    "manifest.json"
+  ],
+  "classification": "null",
+  "protocol_id": "ar-video-lifting-forward-marginal-l14-screen-v4"
+}

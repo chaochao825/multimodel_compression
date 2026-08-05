@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-windowed-lifting-memory-screen-v2",
+  "status": "frozen_after_v1_global_shift_null_before_windowed_evaluation",
+  "source_protocol_id": "ar-video-residual-memory-longlive-v1",
+  "source_result": "results/20260805_full_v1",
+  "incumbent_result": "results/butterfly_lifting_primary_full_20260805a",
+  "decision_question": "Does hardware-regular 8x8 local cyclic prediction with staggered Butterfly windows concentrate K/V lifting details enough to cross the strict AV gate at at least 1.5x cache compression?",
+  "scope": {
+    "prompt_ids": [
+      "calib_rigid_s0",
+      "calib_fluid_s1",
+      "valid_multi_object_s2",
+      "test_nonrigid_s3"
+    ],
+    "cells": [
+      {"layer": 14, "current_start_frame": 15, "denoising_call_index": 1},
+      {"layer": 29, "current_start_frame": 18, "denoising_call_index": 1}
+    ],
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3,
+    "height": 30,
+    "width": 52,
+    "detail_tile_size": 64
+  },
+  "transform": {
+    "key_weight": 1.0,
+    "value_weight": 2.0,
+    "window_shape": [8, 8],
+    "window_offset_schedules": {
+      "fixed": [[0, 0]],
+      "staggered": [[0, 0], [4, 4], [0, 4]]
+    },
+    "shift_candidates": [
+      [0, 0],
+      [-1, 0], [1, 0], [0, -1], [0, 1],
+      [-2, 0], [2, 0], [0, -2], [0, 2],
+      [-1, -1], [-1, 1], [1, -1], [1, 1],
+      [-4, 0], [4, 0], [0, -4], [0, 4]
+    ]
+  },
+  "methods": {
+    "primary": {
+      "name": "canonical_window_staggered_d0p19",
+      "key_domain": "canonical_pre_rope",
+      "shift_scope": "window_shared",
+      "window_schedule": "staggered",
+      "detail_fraction": 0.19
+    },
+    "baseline": {
+      "name": "canonical_global_shared_d0p19",
+      "key_domain": "canonical_pre_rope",
+      "shift_scope": "shared",
+      "detail_fraction": 0.19
+    },
+    "variants": [
+      {"name": "canonical_identity_d0p19", "key_domain": "canonical_pre_rope", "shift_scope": "identity", "detail_fraction": 0.19},
+      {"name": "canonical_global_shared_d0p19", "key_domain": "canonical_pre_rope", "shift_scope": "shared", "detail_fraction": 0.19},
+      {"name": "canonical_window_fixed_d0p10", "key_domain": "canonical_pre_rope", "shift_scope": "window_shared", "window_schedule": "fixed", "detail_fraction": 0.1},
+      {"name": "canonical_window_fixed_d0p19", "key_domain": "canonical_pre_rope", "shift_scope": "window_shared", "window_schedule": "fixed", "detail_fraction": 0.19},
+      {"name": "canonical_window_staggered_d0p10", "key_domain": "canonical_pre_rope", "shift_scope": "window_shared", "window_schedule": "staggered", "detail_fraction": 0.1},
+      {"name": "canonical_window_staggered_d0p19", "key_domain": "canonical_pre_rope", "shift_scope": "window_shared", "window_schedule": "staggered", "detail_fraction": 0.19}
+    ],
+    "adaptive_residual_rank": 16
+  },
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2",
+    "dense_reference_parity_gate": 0.005,
+    "direct_aggregate_gate": 0.01,
+    "direct_worst_head_gate": 0.02,
+    "adaptive_aggregate_gate": 0.005,
+    "adaptive_worst_head_gate": 0.01,
+    "minimum_cache_compression": 1.5,
+    "minimum_shift_relative_improvement": 0.2,
+    "measured_attention_speedup_claim_allowed": false
+  },
+  "leakage_policy": [
+    "Each 8x8 window selects a shift from current K/V prediction energy only; dense attention and dense AV are evaluation-only.",
+    "Window schedules, 19 percent detail budget, K/V weights, exact frames, and gates are frozen before any v2 evaluation.",
+    "Adaptive rank-16 uses the same-record dense defect and is a non-deployable capacity diagnostic.",
+    "Development-exposed captures can only close this exploratory function-class gate."
+  ],
+  "stop_rules": [
+    "Stop local-shift, learned-flow, kernel, and rollout work if adaptive capacity misses either strict gate.",
+    "Stop the windowed cyclic component if it improves less than 20 percent over the same-budget global-shift incumbent.",
+    "A quality pass without at least 1.5x cache compression is an adverse systems result.",
+    "Do not infer attention or end-to-end speedup from dense replay."
+  ]
+}

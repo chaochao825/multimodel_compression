@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-lifting-detail-oracle-screen-v3",
+  "status": "frozen_after_v2_windowed_null_before_dense_defect_oracle",
+  "source_protocol_id": "ar-video-residual-memory-longlive-v1",
+  "incumbent_result": "results/windowed_lifting_primary_full_20260805a",
+  "decision_question": "At the same 19 percent regular detail budget, can a dense-defect singleton oracle select global-shift lifting blocks that meet the adaptive rank-16 AV capacity gate?",
+  "scope": {
+    "prompt_ids": [
+      "calib_rigid_s0",
+      "calib_fluid_s1",
+      "valid_multi_object_s2",
+      "test_nonrigid_s3"
+    ],
+    "cells": [
+      {"layer": 14, "current_start_frame": 15, "denoising_call_index": 1},
+      {"layer": 29, "current_start_frame": 18, "denoising_call_index": 1}
+    ],
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3,
+    "height": 30,
+    "width": 52,
+    "detail_tile_size": 64,
+    "detail_fraction": 0.19
+  },
+  "transform": {
+    "key_domain": "canonical_pre_rope",
+    "shift_scope": "shared",
+    "key_weight": 1.0,
+    "value_weight": 2.0,
+    "shift_candidates": [
+      [0, 0],
+      [-1, 0], [1, 0], [0, -1], [0, 1],
+      [-2, 0], [2, 0], [0, -2], [0, 2],
+      [-1, -1], [-1, 1], [1, -1], [1, 1],
+      [-4, 0], [4, 0], [0, -4], [0, 4]
+    ]
+  },
+  "methods": {
+    "baseline": "kv_detail_energy",
+    "primary": "adaptive_tail_singleton_oracle",
+    "adaptive_residual_rank": 16
+  },
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2_after_adaptive_rank16",
+    "dense_reference_parity_gate": 0.005,
+    "adaptive_aggregate_gate": 0.005,
+    "adaptive_worst_head_gate": 0.01,
+    "minimum_cache_compression": 1.5,
+    "minimum_relative_improvement_over_energy": 0.2,
+    "measured_attention_speedup_claim_allowed": false
+  },
+  "leakage_policy": [
+    "The singleton oracle reads each same-record dense AV defect and is explicitly non-deployable.",
+    "The energy baseline reads only current K/V and remains the runtime-observable incumbent.",
+    "No reusable selector, basis, or predictor is fit from validation or test records.",
+    "This development-exposed oracle can only diagnose function-class headroom."
+  ],
+  "stop_rules": [
+    "If the oracle misses either adaptive capacity gate, stop Butterfly-lifting, local cyclic, learned-flow, and detail-router work.",
+    "If the oracle passes quality but improves less than 20 percent over energy, do not train a selector.",
+    "Do not claim deployability, attention speedup, or rollout quality from oracle selection."
+  ]
+}
