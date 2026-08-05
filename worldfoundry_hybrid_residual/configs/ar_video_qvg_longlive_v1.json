@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-qvg-longlive-v1",
+  "status": "frozen_before_any_qvg_evaluation_on_existing_captures",
+  "frozen_at": "2026-08-05",
+  "source_protocol_id": "ar-video-residual-memory-longlive-v1",
+  "source_result": "results/20260805_full_v1",
+  "model": {
+    "name": "Efficient-Large-Model/LongLive-1.3B",
+    "code_commit": "e52d9ef6865d843282a6b5e9d46d03b35f88929d"
+  },
+  "reference": {
+    "name": "Quant VideoGen",
+    "paper": "https://arxiv.org/abs/2602.02958",
+    "repository": "https://github.com/svg-project/Quant-VideoGen",
+    "repository_commit": "0601468f2dbba6a17ac7086faec6d41527cad188"
+  },
+  "capture": {
+    "expected_records": 96,
+    "height": 30,
+    "width": 52,
+    "query_frames": 3,
+    "key_frames": 12,
+    "query_tokens_saved": 768,
+    "key_tokens": 18720,
+    "heads": 12,
+    "head_dim": 128,
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3
+  },
+  "quantization": {
+    "centroids_per_head": 256,
+    "kmeans_iterations": 2,
+    "scale_precision": "float8_e4m3fn",
+    "cluster_id_precision": "uint8",
+    "residual_packing": "uint8",
+    "deterministic_seed": 20260805,
+    "key_domain": "inverse_rope_then_restore_original_rope"
+  },
+  "methods": [
+    {
+      "name": "rtn_int2_b64_all",
+      "kind": "naive_block_quantization",
+      "bits": 2,
+      "stages": 0,
+      "block_size": 64,
+      "exact_policy": "none"
+    },
+    {
+      "name": "qvg_int2_s1_b64_all",
+      "kind": "semantic_residual_quantization",
+      "bits": 2,
+      "stages": 1,
+      "block_size": 64,
+      "exact_policy": "none",
+      "primary": true
+    },
+    {
+      "name": "qvg_int2_s1_b64_sink_recent",
+      "kind": "semantic_residual_quantization",
+      "bits": 2,
+      "stages": 1,
+      "block_size": 64,
+      "exact_policy": "sink_recent"
+    },
+    {
+      "name": "qvg_int4_s1_b64_all",
+      "kind": "semantic_residual_quantization",
+      "bits": 4,
+      "stages": 1,
+      "block_size": 64,
+      "exact_policy": "none"
+    },
+    {
+      "name": "qvg_pro_int2_s4_b16_all",
+      "kind": "semantic_residual_quantization",
+      "bits": 2,
+      "stages": 4,
+      "block_size": 16,
+      "exact_policy": "none"
+    }
+  ],
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2",
+    "report_k_relative_l2": true,
+    "report_v_relative_l2": true,
+    "report_per_head": true,
+    "report_actual_tensor_bytes": true,
+    "dense_reference_parity_gate": 0.005,
+    "aggregate_av_gate": 0.01,
+    "worst_head_av_gate": 0.02,
+    "minimum_primary_cache_compression": 6.0,
+    "measured_attention_speedup_claim_allowed": false
+  },
+  "leakage_policy": [
+    "Each record is quantized only from its current K and V tensors; dense AV is evaluation-only.",
+    "Validation and test records do not select bit width, stage count, block size, exact frames, or centroids.",
+    "K-means is per-record and training-free, matching runtime-observable QVG semantics rather than fitting a held-out codebook.",
+    "Captured K is post-RoPE; the probe deterministically removes captured 3D RoPE, quantizes canonical K, and restores the original per-token RoPE before attention.",
+    "The saved queries cover four 64-token tiles per query frame, so AV fidelity is a sampled-query result, not a full-grid rollout result."
+  ],
+  "decision_rules": [
+    "If the primary INT2 method fails either AV quality gate, do not build query-selective residual decoding on this representation.",
+    "If quality passes but compression is below 6x, retain QVG only as a baseline and inspect metadata overhead before extending it.",
+    "A passing cache result supports a memory direction only; it does not support an attention or end-to-end speedup claim.",
+    "Only after the primary method passes may a separate frozen protocol test centroid-only, partial-residual, and exact-token refinement for compute reduction.",
+    "Because a 12-frame cache makes exact sink/recent storage expensive, that arm is a quality sensitivity test rather than the primary compression claim."
+  ]
+}

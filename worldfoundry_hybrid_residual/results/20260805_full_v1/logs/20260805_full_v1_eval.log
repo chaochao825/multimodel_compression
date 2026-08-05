@@ -1,0 +1,133 @@
+[evaluate 1/96] ('calib_fluid_s1', 0, 15, 1)
+[evaluate 2/96] ('calib_fluid_s1', 0, 15, 3)
+[evaluate 3/96] ('calib_fluid_s1', 0, 18, 1)
+[evaluate 4/96] ('calib_fluid_s1', 0, 18, 3)
+[evaluate 5/96] ('calib_fluid_s1', 14, 15, 1)
+[evaluate 6/96] ('calib_fluid_s1', 14, 15, 3)
+[evaluate 7/96] ('calib_fluid_s1', 14, 18, 1)
+[evaluate 8/96] ('calib_fluid_s1', 14, 18, 3)
+[evaluate 9/96] ('calib_fluid_s1', 29, 15, 1)
+[evaluate 10/96] ('calib_fluid_s1', 29, 15, 3)
+[evaluate 11/96] ('calib_fluid_s1', 29, 18, 1)
+[evaluate 12/96] ('calib_fluid_s1', 29, 18, 3)
+[evaluate 13/96] ('calib_fluid_s5', 0, 15, 1)
+[evaluate 14/96] ('calib_fluid_s5', 0, 15, 3)
+[evaluate 15/96] ('calib_fluid_s5', 0, 18, 1)
+[evaluate 16/96] ('calib_fluid_s5', 0, 18, 3)
+[evaluate 17/96] ('calib_fluid_s5', 14, 15, 1)
+[evaluate 18/96] ('calib_fluid_s5', 14, 15, 3)
+[evaluate 19/96] ('calib_fluid_s5', 14, 18, 1)
+[evaluate 20/96] ('calib_fluid_s5', 14, 18, 3)
+[evaluate 21/96] ('calib_fluid_s5', 29, 15, 1)
+[evaluate 22/96] ('calib_fluid_s5', 29, 15, 3)
+[evaluate 23/96] ('calib_fluid_s5', 29, 18, 1)
+[evaluate 24/96] ('calib_fluid_s5', 29, 18, 3)
+[evaluate 25/96] ('calib_rigid_s4', 0, 15, 1)
+[evaluate 26/96] ('calib_rigid_s4', 0, 15, 3)
+[evaluate 27/96] ('calib_rigid_s4', 0, 18, 1)
+[evaluate 28/96] ('calib_rigid_s4', 0, 18, 3)
+[evaluate 29/96] ('calib_rigid_s4', 14, 15, 1)
+[evaluate 30/96] ('calib_rigid_s4', 14, 15, 3)
+[evaluate 31/96] ('calib_rigid_s4', 14, 18, 1)
+[evaluate 32/96] ('calib_rigid_s4', 14, 18, 3)
+[evaluate 33/96] ('calib_rigid_s4', 29, 15, 1)
+[evaluate 34/96] ('calib_rigid_s4', 29, 15, 3)
+[evaluate 35/96] ('calib_rigid_s4', 29, 18, 1)
+[evaluate 36/96] ('calib_rigid_s4', 29, 18, 3)
+[evaluate 37/96] ('test_nonrigid_s3', 0, 15, 1)
+[evaluate 38/96] ('test_nonrigid_s3', 0, 15, 3)
+[evaluate 39/96] ('test_nonrigid_s3', 0, 18, 1)
+[evaluate 40/96] ('test_nonrigid_s3', 0, 18, 3)
+[evaluate 41/96] ('test_nonrigid_s3', 14, 15, 1)
+[evaluate 42/96] ('test_nonrigid_s3', 14, 15, 3)
+[evaluate 43/96] ('test_nonrigid_s3', 14, 18, 1)
+[evaluate 44/96] ('test_nonrigid_s3', 14, 18, 3)
+[evaluate 45/96] ('test_nonrigid_s3', 29, 15, 1)
+[evaluate 46/96] ('test_nonrigid_s3', 29, 15, 3)
+[evaluate 47/96] ('test_nonrigid_s3', 29, 18, 1)
+[evaluate 48/96] ('test_nonrigid_s3', 29, 18, 3)
+[evaluate 49/96] ('test_nonrigid_s7', 0, 15, 1)
+[evaluate 50/96] ('test_nonrigid_s7', 0, 15, 3)
+[evaluate 51/96] ('test_nonrigid_s7', 0, 18, 1)
+[evaluate 52/96] ('test_nonrigid_s7', 0, 18, 3)
+[evaluate 53/96] ('test_nonrigid_s7', 14, 15, 1)
+[evaluate 54/96] ('test_nonrigid_s7', 14, 15, 3)
+[evaluate 55/96] ('test_nonrigid_s7', 14, 18, 1)
+[evaluate 56/96] ('test_nonrigid_s7', 14, 18, 3)
+[evaluate 57/96] ('test_nonrigid_s7', 29, 15, 1)
+[evaluate 58/96] ('test_nonrigid_s7', 29, 15, 3)
+[evaluate 59/96] ('test_nonrigid_s7', 29, 18, 1)
+[evaluate 60/96] ('test_nonrigid_s7', 29, 18, 3)
+[evaluate 61/96] ('valid_multi_object_s2', 0, 15, 1)
+[evaluate 62/96] ('valid_multi_object_s2', 0, 15, 3)
+[evaluate 63/96] ('valid_multi_object_s2', 0, 18, 1)
+[evaluate 64/96] ('valid_multi_object_s2', 0, 18, 3)
+[evaluate 65/96] ('valid_multi_object_s2', 14, 15, 1)
+[evaluate 66/96] ('valid_multi_object_s2', 14, 15, 3)
+[evaluate 67/96] ('valid_multi_object_s2', 14, 18, 1)
+[evaluate 68/96] ('valid_multi_object_s2', 14, 18, 3)
+[evaluate 69/96] ('valid_multi_object_s2', 29, 15, 1)
+[evaluate 70/96] ('valid_multi_object_s2', 29, 15, 3)
+[evaluate 71/96] ('valid_multi_object_s2', 29, 18, 1)
+[evaluate 72/96] ('valid_multi_object_s2', 29, 18, 3)
+[evaluate 73/96] ('valid_multi_object_s6', 0, 15, 1)
+[evaluate 74/96] ('valid_multi_object_s6', 0, 15, 3)
+[evaluate 75/96] ('valid_multi_object_s6', 0, 18, 1)
+[evaluate 76/96] ('valid_multi_object_s6', 0, 18, 3)
+[evaluate 77/96] ('valid_multi_object_s6', 14, 15, 1)
+[evaluate 78/96] ('valid_multi_object_s6', 14, 15, 3)
+[evaluate 79/96] ('valid_multi_object_s6', 14, 18, 1)
+[evaluate 80/96] ('valid_multi_object_s6', 14, 18, 3)
+[evaluate 81/96] ('valid_multi_object_s6', 29, 15, 1)
+[evaluate 82/96] ('valid_multi_object_s6', 29, 15, 3)
+[evaluate 83/96] ('valid_multi_object_s6', 29, 18, 1)
+[evaluate 84/96] ('valid_multi_object_s6', 29, 18, 3)
+[evaluate 85/96] ('calib_rigid_s0', 0, 15, 1)
+[evaluate 86/96] ('calib_rigid_s0', 0, 15, 3)
+[evaluate 87/96] ('calib_rigid_s0', 0, 18, 1)
+[evaluate 88/96] ('calib_rigid_s0', 0, 18, 3)
+[evaluate 89/96] ('calib_rigid_s0', 14, 15, 1)
+[evaluate 90/96] ('calib_rigid_s0', 14, 15, 3)
+[evaluate 91/96] ('calib_rigid_s0', 14, 18, 1)
+[evaluate 92/96] ('calib_rigid_s0', 14, 18, 3)
+[evaluate 93/96] ('calib_rigid_s0', 29, 15, 1)
+[evaluate 94/96] ('calib_rigid_s0', 29, 15, 3)
+[evaluate 95/96] ('calib_rigid_s0', 29, 18, 1)
+[evaluate 96/96] ('calib_rigid_s0', 29, 18, 3)
+{
+  "primary_method": "phasealigned_recency_g1_event_0p05",
+  "primary_rank": 16,
+  "adaptive_oracle": {
+    "scope": "held_out",
+    "method": "phasealigned_recency_g1_event_0p05",
+    "correction": "adaptive_rank_oracle",
+    "rank": 16,
+    "aggregate_relative_av_l2": 0.11463667101508913,
+    "mean_head_relative_av_l2": 0.03916112316518491,
+    "p95_head_relative_av_l2": 0.13324256241321564,
+    "worst_head_relative_av_l2": 0.34130626916885376,
+    "minimum_arithmetic_reduction": 1.6375087473757872,
+    "mean_arithmetic_reduction": 1.6375087473757952,
+    "head_records": 576
+  },
+  "frozen_basis_transfer_oracle_coefficients": {
+    "scope": "held_out",
+    "method": "phasealigned_recency_g1_event_0p05",
+    "correction": "frozen_calibration_basis_oracle_coefficients",
+    "rank": 16,
+    "aggregate_relative_av_l2": 0.16438566874695554,
+    "mean_head_relative_av_l2": 0.06450702470586596,
+    "p95_head_relative_av_l2": 0.18273058533668518,
+    "worst_head_relative_av_l2": 0.47025322914123535,
+    "minimum_arithmetic_reduction": 1.6375087473757872,
+    "mean_arithmetic_reduction": 1.6375087473757952,
+    "head_records": 576
+  },
+  "speedup_claim_allowed": false,
+  "note": "Adaptive and frozen-basis coefficients use dense defects. Passing this gate would justify predictor work, not a deployment or speedup claim.",
+  "adaptive_quality_pass": false,
+  "arithmetic_screen_pass": true,
+  "frozen_basis_transfer_pass": false,
+  "classification": "null",
+  "action": "stop_predictor_and_kernel_work_for_primary_candidate"
+}

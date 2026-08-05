@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-qvg-attribution-int4-calibration-v1",
+  "protocol_sha256": "9be9dcc63754a03b028610f9f520c4a1b501f1236708a978b5121f5b10fc9aaa",
+  "qvg_protocol_sha256": "cb47ac734a7a301ddd573c7c9ac9f48ff191f71b91200ba6a6dbd829a3c4c045",
+  "source_protocol_sha256": "6262bc0d5ddc498c01a669fef3cd20f461aafd074eb9f348ebc3ac2270196181",
+  "qvg_repository_commit": "0601468f2dbba6a17ac7086faec6d41527cad188",
+  "environment": {
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA H200 NVL"
+  },
+  "manifests": [
+    {
+      "schema_version": 1,
+      "protocol_id": "ar-video-residual-memory-longlive-v1",
+      "source_commit": "e52d9ef6865d843282a6b5e9d46d03b35f88929d",
+      "runtime_config": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/configs/longlive_capture_f21.yaml",
+      "runtime_config_sha256": "b6717cc6ee69553140008328d112e58bdb03ad305a931c439e962d3124f3345f",
+      "protocol_path": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/configs/ar_video_residual_memory_longlive_v1.json",
+      "protocol_sha256": "6262bc0d5ddc498c01a669fef3cd20f461aafd074eb9f348ebc3ac2270196181",
+      "generator_checkpoint": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/weights/LongLive-1.3B/models/longlive_base.pt",
+      "generator_sha256": "10a2aa8fcf89c77d9033f4c117405412a690e289625766619d293f0c5a208ee7",
+      "lora_checkpoint": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/weights/LongLive-1.3B/models/lora.pt",
+      "lora_sha256": "c4e43b87d62d4b0614b496773639f1ab170a7ee486dc23407901e9d3a5ebc07a",
+      "torch_version": "2.9.1+cu128",
+      "cuda_version": "12.8",
+      "fa3_output_only_compatibility": true,
+      "python_executable": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+      "package_versions": {
+        "transformers": "4.49.0",
+        "diffusers": "0.31.0",
+        "peft": "0.14.0",
+        "omegaconf": "2.3.0",
+        "accelerate": "1.2.1"
+      },
+      "device": "NVIDIA H200 NVL",
+      "captures": [
+        "calib_rigid_s4__l00__f015__c01.pt",
+        "calib_rigid_s4__l14__f015__c01.pt",
+        "calib_rigid_s4__l29__f015__c01.pt",
+        "calib_rigid_s4__l00__f015__c03.pt",
+        "calib_rigid_s4__l14__f015__c03.pt",
+        "calib_rigid_s4__l29__f015__c03.pt",
+        "calib_rigid_s4__l00__f018__c01.pt",
+        "calib_rigid_s4__l14__f018__c01.pt",
+        "calib_rigid_s4__l29__f018__c01.pt",
+        "calib_rigid_s4__l00__f018__c03.pt",
+        "calib_rigid_s4__l14__f018__c03.pt",
+        "calib_rigid_s4__l29__f018__c03.pt",
+        "calib_fluid_s1__l00__f015__c01.pt",
+        "calib_fluid_s1__l14__f015__c01.pt",
+        "calib_fluid_s1__l29__f015__c01.pt",
+        "calib_fluid_s1__l00__f015__c03.pt",
+        "calib_fluid_s1__l14__f015__c03.pt",
+        "calib_fluid_s1__l29__f015__c03.pt",
+        "calib_fluid_s1__l00__f018__c01.pt",
+        "calib_fluid_s1__l14__f018__c01.pt",
+        "calib_fluid_s1__l29__f018__c01.pt",
+        "calib_fluid_s1__l00__f018__c03.pt",
+        "calib_fluid_s1__l14__f018__c03.pt",
+        "calib_fluid_s1__l29__f018__c03.pt",
+        "calib_fluid_s5__l00__f015__c01.pt",
+        "calib_fluid_s5__l14__f015__c01.pt",
+        "calib_fluid_s5__l29__f015__c01.pt",
+        "calib_fluid_s5__l00__f015__c03.pt",
+        "calib_fluid_s5__l14__f015__c03.pt",
+        "calib_fluid_s5__l29__f015__c03.pt",
+        "calib_fluid_s5__l00__f018__c01.pt",
+        "calib_fluid_s5__l14__f018__c01.pt",
+        "calib_fluid_s5__l29__f018__c01.pt",
+        "calib_fluid_s5__l00__f018__c03.pt",
+        "calib_fluid_s5__l14__f018__c03.pt",
+        "calib_fluid_s5__l29__f018__c03.pt"
+      ],
+      "manifest_path": "captures/20260805_calibration_remaining_v1/capture_manifest.json"
+    },
+    {
+      "schema_version": 1,
+      "protocol_id": "ar-video-residual-memory-longlive-v1",
+      "source_commit": "e52d9ef6865d843282a6b5e9d46d03b35f88929d",
+      "runtime_config": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/configs/longlive_capture_f21.yaml",
+      "runtime_config_sha256": "b6717cc6ee69553140008328d112e58bdb03ad305a931c439e962d3124f3345f",
+      "protocol_path": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/configs/ar_video_residual_memory_longlive_v1.json",
+      "protocol_sha256": "6262bc0d5ddc498c01a669fef3cd20f461aafd074eb9f348ebc3ac2270196181",
+      "generator_checkpoint": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/weights/LongLive-1.3B/models/longlive_base.pt",
+      "generator_sha256": "10a2aa8fcf89c77d9033f4c117405412a690e289625766619d293f0c5a208ee7",
+      "lora_checkpoint": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/weights/LongLive-1.3B/models/lora.pt",
+      "lora_sha256": "c4e43b87d62d4b0614b496773639f1ab170a7ee486dc23407901e9d3a5ebc07a",
+      "torch_version": "2.9.1+cu128",
+      "cuda_version": "12.8",
+      "fa3_output_only_compatibility": true,
+      "python_executable": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+      "package_versions": {
+        "transformers": "4.49.0",
+        "diffusers": "0.31.0",
+        "peft": "0.14.0",
+        "omegaconf": "2.3.0",
+        "accelerate": "1.2.1"
+      },
+      "device": "NVIDIA H200 NVL",
+      "captures": [
+        "valid_multi_object_s2__l00__f015__c01.pt",
+        "valid_multi_object_s2__l14__f015__c01.pt",
+        "valid_multi_object_s2__l29__f015__c01.pt",
+        "valid_multi_object_s2__l00__f015__c03.pt",
+        "valid_multi_object_s2__l14__f015__c03.pt",
+        "valid_multi_object_s2__l29__f015__c03.pt",
+        "valid_multi_object_s2__l00__f018__c01.pt",
+        "valid_multi_object_s2__l14__f018__c01.pt",
+        "valid_multi_object_s2__l29__f018__c01.pt",
+        "valid_multi_object_s2__l00__f018__c03.pt",
+        "valid_multi_object_s2__l14__f018__c03.pt",
+        "valid_multi_object_s2__l29__f018__c03.pt",
+        "valid_multi_object_s6__l00__f015__c01.pt",
+        "valid_multi_object_s6__l14__f015__c01.pt",
+        "valid_multi_object_s6__l29__f015__c01.pt",
+        "valid_multi_object_s6__l00__f015__c03.pt",
+        "valid_multi_object_s6__l14__f015__c03.pt",
+        "valid_multi_object_s6__l29__f015__c03.pt",
+        "valid_multi_object_s6__l00__f018__c01.pt",
+        "valid_multi_object_s6__l14__f018__c01.pt",
+        "valid_multi_object_s6__l29__f018__c01.pt",
+        "valid_multi_object_s6__l00__f018__c03.pt",
+        "valid_multi_object_s6__l14__f018__c03.pt",
+        "valid_multi_object_s6__l29__f018__c03.pt",
+        "test_nonrigid_s3__l00__f015__c01.pt",
+        "test_nonrigid_s3__l14__f015__c01.pt",
+        "test_nonrigid_s3__l29__f015__c01.pt",
+        "test_nonrigid_s3__l00__f015__c03.pt",
+        "test_nonrigid_s3__l14__f015__c03.pt",
+        "test_nonrigid_s3__l29__f015__c03.pt",
+        "test_nonrigid_s3__l00__f018__c01.pt",
+        "test_nonrigid_s3__l14__f018__c01.pt",
+        "test_nonrigid_s3__l29__f018__c01.pt",
+        "test_nonrigid_s3__l00__f018__c03.pt",
+        "test_nonrigid_s3__l14__f018__c03.pt",
+        "test_nonrigid_s3__l29__f018__c03.pt",
+        "test_nonrigid_s7__l00__f015__c01.pt",
+        "test_nonrigid_s7__l14__f015__c01.pt",
+        "test_nonrigid_s7__l29__f015__c01.pt",
+        "test_nonrigid_s7__l00__f015__c03.pt",
+        "test_nonrigid_s7__l14__f015__c03.pt",
+        "test_nonrigid_s7__l29__f015__c03.pt",
+        "test_nonrigid_s7__l00__f018__c01.pt",
+        "test_nonrigid_s7__l14__f018__c01.pt",
+        "test_nonrigid_s7__l29__f018__c01.pt",
+        "test_nonrigid_s7__l00__f018__c03.pt",
+        "test_nonrigid_s7__l14__f018__c03.pt",
+        "test_nonrigid_s7__l29__f018__c03.pt"
+      ],
+      "manifest_path": "captures/20260805_heldout_v1/capture_manifest.json"
+    },
+    {
+      "schema_version": 1,
+      "protocol_id": "ar-video-residual-memory-longlive-v1",
+      "source_commit": "e52d9ef6865d843282a6b5e9d46d03b35f88929d",
+      "runtime_config": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/configs/longlive_capture_f21.yaml",
+      "runtime_config_sha256": "b6717cc6ee69553140008328d112e58bdb03ad305a931c439e962d3124f3345f",
+      "protocol_path": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/configs/ar_video_residual_memory_longlive_v1.json",
+      "protocol_sha256": "6262bc0d5ddc498c01a669fef3cd20f461aafd074eb9f348ebc3ac2270196181",
+      "generator_checkpoint": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/weights/LongLive-1.3B/models/longlive_base.pt",
+      "generator_sha256": "10a2aa8fcf89c77d9033f4c117405412a690e289625766619d293f0c5a208ee7",
+      "lora_checkpoint": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/weights/LongLive-1.3B/models/lora.pt",
+      "lora_sha256": "c4e43b87d62d4b0614b496773639f1ab170a7ee486dc23407901e9d3a5ebc07a",
+      "torch_version": "2.9.1+cu128",
+      "cuda_version": "12.8",
+      "fa3_output_only_compatibility": true,
+      "python_executable": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/.venv/bin/python",
+      "package_versions": {
+        "transformers": "4.49.0",
+        "diffusers": "0.31.0",
+        "peft": "0.14.0",
+        "omegaconf": "2.3.0",
+        "accelerate": "1.2.1"
+      },
+      "device": "NVIDIA H200 NVL",
+      "captures": [
+        "calib_rigid_s0__l00__f015__c01.pt",
+        "calib_rigid_s0__l14__f015__c01.pt",
+        "calib_rigid_s0__l29__f015__c01.pt",
+        "calib_rigid_s0__l00__f015__c03.pt",
+        "calib_rigid_s0__l14__f015__c03.pt",
+        "calib_rigid_s0__l29__f015__c03.pt",
+        "calib_rigid_s0__l00__f018__c01.pt",
+        "calib_rigid_s0__l14__f018__c01.pt",
+        "calib_rigid_s0__l29__f018__c01.pt",
+        "calib_rigid_s0__l00__f018__c03.pt",
+        "calib_rigid_s0__l14__f018__c03.pt",
+        "calib_rigid_s0__l29__f018__c03.pt"
+      ],
+      "manifest_path": "captures/20260805_smoke_v2/capture_manifest.json"
+    }
+  ],
+  "records": [
+    {
+      "identity": [
+        "calib_fluid_s1",
+        0,
+        15,
+        1
+      ],
+      "record_seed": 166636089,
+      "dense_capture_parity_aggregate": 0.0011624721810221672,
+      "key_state_bytes": {
+        "centroids_list": 786432,
+        "cluster_ids_list": 224640,
+        "residual_quant": 14376960,
+        "scales": 449280,
+        "zeros": 0
+      },
+      "value_state_bytes": {
+        "centroids_list": 786432,
+        "cluster_ids_list": 224640,
+        "residual_quant": 14376960,
+        "scales": 449280,
+        "zeros": 0
+      },
+      "bf16_kv_bytes": 115015680,
+      "packed_kv_bytes": 31674624
+    },
+    {
+      "identity": [
+        "calib_fluid_s1",
+        14,
+        15,
+        1
+      ],
+      "record_seed": 920040592,
+      "dense_capture_parity_aggregate": 0.0009278799989260733,
+      "key_state_bytes": {
+        "centroids_list": 786432,
+        "cluster_ids_list": 224640,
+        "residual_quant": 14376960,
+        "scales": 449280,
+        "zeros": 0
+      },
+      "value_state_bytes": {
+        "centroids_list": 786432,
+        "cluster_ids_list": 224640,
+        "residual_quant": 14376960,
+        "scales": 449280,
+        "zeros": 0
+      },
+      "bf16_kv_bytes": 115015680,
+      "packed_kv_bytes": 31674624
+    },
+    {
+      "identity": [
+        "calib_fluid_s1",
+        29,
+        15,
+        1
+      ],
+      "record_seed": 167366274,
+      "dense_capture_parity_aggregate": 0.0008243427146226168,
+      "key_state_bytes": {
+        "centroids_list": 786432,
+        "cluster_ids_list": 224640,
+        "residual_quant": 14376960,
+        "scales": 449280,
+        "zeros": 0
+      },
+      "value_state_bytes": {
+        "centroids_list": 786432,
+        "cluster_ids_list": 224640,
+        "residual_quant": 14376960,
+        "scales": 449280,
+        "zeros": 0
+      },
+      "bf16_kv_bytes": 115015680,
+      "packed_kv_bytes": 31674624
+    }
+  ],
+  "variant_summaries": [
+    {
+      "variant": "qvg_k_only",
+      "aggregate_relative_av_l2": 0.013462258842128162,
+      "worst_head_relative_av_l2": 0.03195774927735329,
+      "head_records": 36
+    },
+    {
+      "variant": "qvg_v_only",
+      "aggregate_relative_av_l2": 0.042088421664537336,
+      "worst_head_relative_av_l2": 0.07133518904447556,
+      "head_records": 36
+    },
+    {
+      "variant": "qvg_both",
+      "aggregate_relative_av_l2": 0.04412643155471133,
+      "worst_head_relative_av_l2": 0.07347413897514343,
+      "head_records": 36
+    },
+    {
+      "variant": "centroid_k_only",
+      "aggregate_relative_av_l2": 0.13089162567698062,
+      "worst_head_relative_av_l2": 0.2999055087566376,
+      "head_records": 36
+    },
+    {
+      "variant": "centroid_v_only",
+      "aggregate_relative_av_l2": 0.4248535683011257,
+      "worst_head_relative_av_l2": 0.6584907174110413,
+      "head_records": 36
+    },
+    {
+      "variant": "centroid_both",
+      "aggregate_relative_av_l2": 0.4357610955927153,
+      "worst_head_relative_av_l2": 0.6599427461624146,
+      "head_records": 36
+    }
+  ]
+}

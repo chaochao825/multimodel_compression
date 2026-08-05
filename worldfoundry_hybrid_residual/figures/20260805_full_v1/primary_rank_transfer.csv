@@ -1,0 +1,8 @@
+correction,rank,aggregate_error_percent,worst_error_percent,scope
+none,0,21.143022666265075,58.37509632110596,held_out
+adaptive_rank_oracle,4,16.65296019364372,48.10062646865845,held_out
+adaptive_rank_oracle,8,14.417004521039864,42.14666187763214,held_out
+adaptive_rank_oracle,16,11.463667101508914,34.130626916885376,held_out
+frozen_calibration_basis_oracle_coefficients,4,19.12575400757098,53.892648220062256,held_out
+frozen_calibration_basis_oracle_coefficients,8,18.140563290236976,51.25856399536133,held_out
+frozen_calibration_basis_oracle_coefficients,16,16.438566874695553,47.025322914123535,held_out

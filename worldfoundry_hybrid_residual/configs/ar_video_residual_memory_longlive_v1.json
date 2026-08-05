@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-residual-memory-longlive-v1",
+  "status": "frozen_before_model_capture",
+  "model": {
+    "name": "Efficient-Large-Model/LongLive-1.3B",
+    "code_repository": "https://github.com/NVlabs/LongLive",
+    "code_ref": "v1.0",
+    "code_commit": "e52d9ef6865d843282a6b5e9d46d03b35f88929d",
+    "base_model_path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "checkpoint_path": "/home/wangmeiqi/codex_runs/ar_video_multiresidual_20260805/weights/LongLive-1.3B",
+    "generator_sha256": "10a2aa8fcf89c77d9033f4c117405412a690e289625766619d293f0c5a208ee7",
+    "lora_sha256": "c4e43b87d62d4b0614b496773639f1ab170a7ee486dc23407901e9d3a5ebc07a"
+  },
+  "capture": {
+    "frame_seq_len": 1560,
+    "num_frame_per_block": 3,
+    "sink_frames": 3,
+    "local_attention_frames": 12,
+    "output_frames": 21,
+    "layer_indices": [0, 14, 29],
+    "current_start_frames": [15, 18],
+    "denoising_call_indices": [1, 3],
+    "query_tile_size": 64,
+    "query_tiles_per_record": 4,
+    "heads": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "prompts": [
+      {
+        "id": "calib_rigid_s0",
+        "split": "calibration",
+        "seed": 0,
+        "text": "A silver robot walks steadily through a bright laboratory while the camera tracks sideways."
+      },
+      {
+        "id": "calib_rigid_s4",
+        "split": "calibration",
+        "seed": 4,
+        "text": "A silver robot walks steadily through a bright laboratory while the camera tracks sideways."
+      },
+      {
+        "id": "calib_fluid_s1",
+        "split": "calibration",
+        "seed": 1,
+        "text": "Ocean waves roll toward a rocky shore under moving clouds, with spray and reflections."
+      },
+      {
+        "id": "calib_fluid_s5",
+        "split": "calibration",
+        "seed": 5,
+        "text": "Ocean waves roll toward a rocky shore under moving clouds, with spray and reflections."
+      },
+      {
+        "id": "valid_multi_object_s2",
+        "split": "validation",
+        "seed": 2,
+        "text": "Two red racing cars pass each other on a wet city street as pedestrians move in the background."
+      },
+      {
+        "id": "valid_multi_object_s6",
+        "split": "validation",
+        "seed": 6,
+        "text": "Two red racing cars pass each other on a wet city street as pedestrians move in the background."
+      },
+      {
+        "id": "test_nonrigid_s3",
+        "split": "test",
+        "seed": 3,
+        "text": "A dancer in flowing fabric spins through a crowded night market with handheld camera motion."
+      },
+      {
+        "id": "test_nonrigid_s7",
+        "split": "test",
+        "seed": 7,
+        "text": "A dancer in flowing fabric spins through a crowded night market with handheld camera motion."
+      }
+    ]
+  },
+  "methods": {
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3,
+    "primary_candidate": {
+      "summary_key_mode": "phase_aligned",
+      "summary_group_count": 1,
+      "event_tile_fraction": 0.05,
+      "low_rank_residual_rank": 16
+    },
+    "summary_key_modes": ["post_rope", "phase_aligned"],
+    "summary_group_counts": [1, 2, 3, 4],
+    "event_tile_size": 64,
+    "event_tile_fractions": [0.0, 0.05, 0.1],
+    "low_rank_residual_ranks": [0, 4, 8, 16]
+  },
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2",
+    "dense_reference_parity_gate": 0.005,
+    "aggregate_oracle_gate": 0.005,
+    "worst_oracle_gate": 0.01,
+    "aggregate_transfer_gate": 0.01,
+    "worst_transfer_gate": 0.02,
+    "minimum_primary_arithmetic_reduction": 1.5,
+    "drop_middle_reference_reduction": 2.0,
+    "minimum_measured_whole_attention_speedup": 1.5,
+    "maximum_router_overhead_fraction": 0.05,
+    "report_per_head": true,
+    "shared_softmax_normalization_required": true
+  },
+  "stop_rules": [
+    "Stop before predictor or kernel work if the preregistered primary candidate's per-record adaptive rank-16 oracle misses either oracle quality gate.",
+    "Stop the frozen low-rank branch if the preregistered primary candidate's calibration-only output basis misses either transfer gate.",
+    "Do not claim speedup until an H200 kernel measures at least 1.5x whole-attention speedup after fallback and routing overhead.",
+    "Any capture identity, split, or dense-reference mismatch invalidates the affected run rather than updating the scientific claim."
+  ]
+}

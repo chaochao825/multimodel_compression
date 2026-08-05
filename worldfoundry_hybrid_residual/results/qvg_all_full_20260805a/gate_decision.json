@@ -1,0 +1,25 @@
+{
+  "protocol_id": "ar-video-qvg-longlive-v1",
+  "primary_method": "qvg_int2_s1_b64_all",
+  "primary_held_out": {
+    "scope": "held_out",
+    "method": "qvg_int2_s1_b64_all",
+    "aggregate_relative_av_l2": 0.3582994592839881,
+    "mean_head_relative_av_l2": 0.18938333864045692,
+    "p95_head_relative_av_l2": 0.4694112241268158,
+    "worst_head_relative_av_l2": 0.5359067916870117,
+    "aggregate_relative_k_l2": 0.15858830415894917,
+    "aggregate_relative_v_l2": 0.4833042507595812,
+    "minimum_cache_compression_ratio": 6.649203036895618,
+    "mean_cache_compression_ratio": 6.649203036895621,
+    "capture_records": 48,
+    "head_records": 576,
+    "measured_attention_speedup": null
+  },
+  "measured_attention_speedup_claim_allowed": false,
+  "capture_parity_pass": true,
+  "quality_pass": false,
+  "compression_pass": true,
+  "classification": "null",
+  "action": "stop_query_selective_residual_decoding_for_qvg_representation"
+}

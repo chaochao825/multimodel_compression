@@ -1,0 +1,37 @@
+{
+  "primary_method": "phasealigned_recency_g1_event_0p05",
+  "primary_rank": 16,
+  "adaptive_oracle": {
+    "scope": "held_out",
+    "method": "phasealigned_recency_g1_event_0p05",
+    "correction": "adaptive_rank_oracle",
+    "rank": 16,
+    "aggregate_relative_av_l2": 0.11463667101508913,
+    "mean_head_relative_av_l2": 0.03916112316518491,
+    "p95_head_relative_av_l2": 0.13324256241321564,
+    "worst_head_relative_av_l2": 0.34130626916885376,
+    "minimum_arithmetic_reduction": 1.6375087473757872,
+    "mean_arithmetic_reduction": 1.6375087473757952,
+    "head_records": 576
+  },
+  "frozen_basis_transfer_oracle_coefficients": {
+    "scope": "held_out",
+    "method": "phasealigned_recency_g1_event_0p05",
+    "correction": "frozen_calibration_basis_oracle_coefficients",
+    "rank": 16,
+    "aggregate_relative_av_l2": 0.16438566874695554,
+    "mean_head_relative_av_l2": 0.06450702470586596,
+    "p95_head_relative_av_l2": 0.18273058533668518,
+    "worst_head_relative_av_l2": 0.47025322914123535,
+    "minimum_arithmetic_reduction": 1.6375087473757872,
+    "mean_arithmetic_reduction": 1.6375087473757952,
+    "head_records": 576
+  },
+  "speedup_claim_allowed": false,
+  "note": "Adaptive and frozen-basis coefficients use dense defects. Passing this gate would justify predictor work, not a deployment or speedup claim.",
+  "adaptive_quality_pass": false,
+  "arithmetic_screen_pass": true,
+  "frozen_basis_transfer_pass": false,
+  "classification": "null",
+  "action": "stop_predictor_and_kernel_work_for_primary_candidate"
+}

@@ -1,0 +1,4 @@
+role,method,selection_scope
+Preregistered primary,phasealigned_recency_g1_event_0p05,preregistered
+Calibration-selected >=1.5x,postrope_recency_g2_event_0,calibration
+Calibration-selected quality,postrope_recency_g4_event_0p1,calibration

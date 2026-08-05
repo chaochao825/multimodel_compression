@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-qvg-attribution-int4-calibration-v1",
+  "status": "frozen_before_attribution_evaluation",
+  "frozen_at": "2026-08-05",
+  "source_qvg_protocol": "configs/ar_video_qvg_longlive_v1.json",
+  "selection": {
+    "prompt_id": "calib_fluid_s1",
+    "layers": [0, 14, 29],
+    "current_start_frame": 15,
+    "denoising_call_index": 1,
+    "expected_records": 3
+  },
+  "method": {
+    "name": "qvg_int4_s1_b64_all",
+    "bits": 4,
+    "stages": 1,
+    "block_size": 64,
+    "centroids_per_head": 256,
+    "kmeans_iterations": 2,
+    "asymmetric": false
+  },
+  "variants": [
+    "qvg_k_only",
+    "qvg_v_only",
+    "qvg_both",
+    "centroid_k_only",
+    "centroid_v_only",
+    "centroid_both"
+  ],
+  "analysis": {
+    "attention_mass_by_key_frame": true,
+    "value_leverage_by_key_frame": true,
+    "state_byte_breakdown": true,
+    "primary_reference": "recomputed_dense_attention"
+  },
+  "leakage_policy": [
+    "Only calibration prompt calib_fluid_s1 is used.",
+    "No validation or test capture may be read by this attribution probe.",
+    "The probe diagnoses a frozen INT4 comparison and may not alter the original QVG gate decision."
+  ]
+}
