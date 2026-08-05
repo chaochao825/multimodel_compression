@@ -1,0 +1,83 @@
+{
+  "complete": true,
+  "comparisons": [
+    {
+      "event_fraction": 0.05,
+      "width": {
+        "scope": "held_out",
+        "selector": "residual_width_singleton_oracle",
+        "event_fraction": 0.05,
+        "correction": "adaptive_rank_oracle",
+        "rank": 16,
+        "aggregate_relative_av_l2": 0.03195195608798742,
+        "mean_head_relative_av_l2": 0.03341187475257357,
+        "p95_head_relative_av_l2": 0.10369990766048431,
+        "worst_head_relative_av_l2": 0.12136400490999222,
+        "minimum_arithmetic_reduction": 1.6375087473757872,
+        "mean_arithmetic_reduction": 1.6403835871710397,
+        "head_records": 48
+      },
+      "strongest_baseline": {
+        "scope": "held_out",
+        "selector": "value_leverage_oracle",
+        "event_fraction": 0.05,
+        "correction": "adaptive_rank_oracle",
+        "rank": 16,
+        "aggregate_relative_av_l2": 0.03214989490471756,
+        "mean_head_relative_av_l2": 0.03345408022346419,
+        "p95_head_relative_av_l2": 0.10729784518480301,
+        "worst_head_relative_av_l2": 0.1285788118839264,
+        "minimum_arithmetic_reduction": 1.6375087473757872,
+        "mean_arithmetic_reduction": 1.6403835871710397,
+        "head_records": 48
+      },
+      "relative_improvement": 0.00615674848445924,
+      "strict_quality_pass": false,
+      "mechanism_improvement_pass": false,
+      "arithmetic_screen_pass": true
+    },
+    {
+      "event_fraction": 0.1,
+      "width": {
+        "scope": "held_out",
+        "selector": "residual_width_singleton_oracle",
+        "event_fraction": 0.1,
+        "correction": "adaptive_rank_oracle",
+        "rank": 16,
+        "aggregate_relative_av_l2": 0.026514483456090296,
+        "mean_head_relative_av_l2": 0.028138323418716027,
+        "p95_head_relative_av_l2": 0.08449503779411316,
+        "worst_head_relative_av_l2": 0.10195592790842056,
+        "minimum_arithmetic_reduction": 1.5757575757575757,
+        "mean_arithmetic_reduction": 1.5784193284193284,
+        "head_records": 48
+      },
+      "strongest_baseline": {
+        "scope": "held_out",
+        "selector": "value_leverage_oracle",
+        "event_fraction": 0.1,
+        "correction": "adaptive_rank_oracle",
+        "rank": 16,
+        "aggregate_relative_av_l2": 0.027377272578738752,
+        "mean_head_relative_av_l2": 0.027547432183913163,
+        "p95_head_relative_av_l2": 0.09504074603319168,
+        "worst_head_relative_av_l2": 0.11446090042591095,
+        "minimum_arithmetic_reduction": 1.5810810810810811,
+        "mean_arithmetic_reduction": 1.5810810810810814,
+        "head_records": 48
+      },
+      "relative_improvement": 0.03151479462269369,
+      "strict_quality_pass": false,
+      "mechanism_improvement_pass": false,
+      "arithmetic_screen_pass": true
+    }
+  ],
+  "strict_quality_pass": false,
+  "mechanism_improvement_pass": false,
+  "arithmetic_screen_pass": true,
+  "deployable": false,
+  "measured_speedup_claim_allowed": false,
+  "note": "Residual-width, dense-mass, and value-leverage selectors are same-record oracles. A pass opens predictor work only and cannot support a speed claim.",
+  "classification": "null",
+  "action": "stop_residual_width_memory_direction"
+}

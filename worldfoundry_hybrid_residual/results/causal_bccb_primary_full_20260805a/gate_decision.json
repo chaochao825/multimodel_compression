@@ -1,0 +1,38 @@
+{
+  "primary_method": "dynamic_tile_bccb_hybrid_event_0p05",
+  "primary_rank": 16,
+  "adaptive_oracle": {
+    "scope": "held_out",
+    "method": "dynamic_tile_bccb_hybrid_event_0p05",
+    "correction": "adaptive_rank_oracle",
+    "rank": 16,
+    "aggregate_relative_av_l2": 0.16115966367596987,
+    "mean_head_relative_av_l2": 0.048988129125064006,
+    "p95_head_relative_av_l2": 0.16394488513469696,
+    "worst_head_relative_av_l2": 0.41055554151535034,
+    "minimum_arithmetic_reduction": 1.734073762821743,
+    "mean_arithmetic_reduction": 1.7340737628217306,
+    "head_records": 576
+  },
+  "frozen_basis_transfer_oracle_coefficients": {
+    "scope": "held_out",
+    "method": "dynamic_tile_bccb_hybrid_event_0p05",
+    "correction": "frozen_calibration_basis_oracle_coefficients",
+    "rank": 16,
+    "aggregate_relative_av_l2": 0.22447056585314973,
+    "mean_head_relative_av_l2": 0.0837332151956313,
+    "p95_head_relative_av_l2": 0.24016793072223663,
+    "worst_head_relative_av_l2": 0.5905563831329346,
+    "minimum_arithmetic_reduction": 1.734073762821743,
+    "mean_arithmetic_reduction": 1.7340737628217306,
+    "head_records": 576
+  },
+  "measured_speedup_claim_allowed": false,
+  "kernel_construction_cost_accounted": false,
+  "note": "The dynamic kernel reads runtime Q/K, while low-rank diagnostics read dense defects. The FFT proxy excludes kernel construction and cannot support a speed claim.",
+  "adaptive_quality_pass": false,
+  "frozen_basis_transfer_pass": false,
+  "arithmetic_screen_pass": true,
+  "classification": "null",
+  "action": "stop_recurrent_bccb_and_do_not_build_kernel"
+}

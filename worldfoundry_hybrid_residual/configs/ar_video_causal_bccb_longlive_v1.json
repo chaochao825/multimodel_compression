@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-causal-bccb-longlive-v1",
+  "status": "frozen_before_any_bccb_evaluation_on_existing_captures",
+  "source_protocol_id": "ar-video-residual-memory-longlive-v1",
+  "source_result": "results/20260805_full_v1",
+  "capture": {
+    "frame_seq_len": 1560,
+    "height": 30,
+    "width": 52,
+    "query_frames": 3,
+    "key_frames": 12,
+    "query_tile_size": 64,
+    "query_tiles_per_frame": 4,
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3,
+    "event_tile_size": 64
+  },
+  "methods": {
+    "primary_candidate": "dynamic_tile_bccb_hybrid_event_0p05",
+    "primary_low_rank_residual_rank": 16,
+    "low_rank_residual_ranks": [0, 8, 16],
+    "variants": [
+      {
+        "name": "dynamic_global_bccb_full",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "global",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "none",
+        "event_fraction": 0.0
+      },
+      {
+        "name": "dynamic_global_bccb_hybrid",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "global",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.0
+      },
+      {
+        "name": "dynamic_global_bccb_hybrid_event_0p05",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "global",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.05
+      },
+      {
+        "name": "dynamic_relative_bccb_hybrid_event_0p05",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "global",
+        "temporal_sharing": "relative_frame_offset",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.05
+      },
+      {
+        "name": "dynamic_tile_bccb_hybrid",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "capture_tiles",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.0
+      },
+      {
+        "name": "dynamic_tile_bccb_hybrid_event_0p05",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "capture_tiles",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.05
+      },
+      {
+        "name": "dynamic_tile_bccb_hybrid_event_0p1",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "capture_tiles",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.1
+      },
+      {
+        "name": "dynamic_tile_toeplitz_hybrid_event_0p05",
+        "kernel_source": "record_qk_projection",
+        "spatial_structure": "nonperiodic_toeplitz",
+        "query_groups": "capture_tiles",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.05
+      },
+      {
+        "name": "frozen_global_bccb_hybrid_event_0p05",
+        "kernel_source": "calibration_mean",
+        "spatial_structure": "periodic_bccb",
+        "query_groups": "global",
+        "temporal_sharing": "frame_pair",
+        "exact_policy": "sink_recent",
+        "event_fraction": 0.05
+      }
+    ]
+  },
+  "cost_model": {
+    "fft_constant_factor": 4.0,
+    "dense_pair_cost": "query_frames * key_frames * spatial^2",
+    "periodic_pair_cost": "fft_constant_factor * query_groups * spatial * log2(spatial)",
+    "toeplitz_pair_cost": "fft_constant_factor * query_groups * padded_spatial * log2(padded_spatial)",
+    "measured_speedup_claim_allowed": false
+  },
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2",
+    "dense_reference_parity_gate": 0.005,
+    "aggregate_oracle_gate": 0.005,
+    "worst_oracle_gate": 0.01,
+    "aggregate_transfer_gate": 0.01,
+    "worst_transfer_gate": 0.02,
+    "minimum_primary_arithmetic_reduction": 1.5,
+    "minimum_measured_whole_attention_speedup": 1.5,
+    "shared_softmax_normalization_required": true
+  },
+  "leakage_policy": [
+    "Record-generated kernels may use current Q and K because they are runtime-observable, but may not use dense AV targets.",
+    "Only calibration records fit a frozen BCCB kernel or frozen output basis.",
+    "Validation and test defects may only provide explicitly labelled oracle coefficients and final metrics.",
+    "The sampled-query projection is an optimistic screen for the captured tiles, not a full-grid deployment result."
+  ],
+  "stop_rules": [
+    "Stop predictor, rollout, and kernel work if the primary adaptive rank-16 oracle misses either quality gate.",
+    "Do not claim a BCCB speedup from the FFT arithmetic proxy.",
+    "If sampled-query BCCB passes, recapture full-grid Q before implementing a fused H200 kernel.",
+    "Keep failed layer-head cells on FP8 or BF16 dense fallback."
+  ]
+}

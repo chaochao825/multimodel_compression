@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "protocol_id": "ar-video-residual-width-write-screen-v1",
+  "status": "frozen_after_bccb_null_before_residual_width_evaluation",
+  "source_protocol_id": "ar-video-residual-memory-longlive-v1",
+  "source_result": "results/20260805_full_v1",
+  "motivation": "Select exact episodic writes by reduction of the rank-16 AV defect tail rather than attention mass, temporal decay, or K/V deviation.",
+  "scope": {
+    "prompt_ids": [
+      "calib_rigid_s0",
+      "calib_fluid_s1",
+      "valid_multi_object_s2",
+      "test_nonrigid_s3"
+    ],
+    "cells": [
+      {"layer": 14, "current_start_frame": 15, "denoising_call_index": 1},
+      {"layer": 29, "current_start_frame": 18, "denoising_call_index": 1}
+    ],
+    "exact_sink_frames": 3,
+    "exact_recent_frames": 3,
+    "summary_groups": 1,
+    "summary_key_mode": "phase_aligned",
+    "event_tile_size": 64,
+    "event_tile_fractions": [0.05, 0.1],
+    "low_rank_residual_rank": 16
+  },
+  "selectors": [
+    "kv_deviation",
+    "dense_attention_mass_oracle",
+    "value_leverage_oracle",
+    "residual_width_singleton_oracle"
+  ],
+  "evaluation": {
+    "primary_metric": "dense_relative_av_l2_after_adaptive_rank16",
+    "aggregate_oracle_gate": 0.005,
+    "worst_oracle_gate": 0.01,
+    "minimum_relative_improvement_over_strongest_baseline": 0.2,
+    "minimum_arithmetic_reduction": 1.5,
+    "shared_softmax_normalization_required": true
+  },
+  "leakage_policy": [
+    "The residual-width selector reads the same-record dense AV defect and is an explicitly non-deployable oracle.",
+    "Dense mass and value leverage selectors read full dense attention and are explicitly non-deployable oracle baselines.",
+    "The K/V-deviation selector may use runtime Q/K/V but never dense attention or dense AV.",
+    "No held-out record may fit a reusable basis, selector, or predictor in this screen."
+  ],
+  "stop_rules": [
+    "Stop residual-width predictor and kernel work if the width oracle misses both strict quality gates.",
+    "Treat a relative improvement without a strict quality pass as a mechanism signal only, not a deployable result.",
+    "Do not claim speedup from token-count arithmetic reduction or from any oracle selector."
+  ]
+}

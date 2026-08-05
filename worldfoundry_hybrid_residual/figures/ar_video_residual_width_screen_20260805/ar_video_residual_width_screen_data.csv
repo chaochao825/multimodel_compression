@@ -1,0 +1,49 @@
+panel,method,budget,layer,metric,value_percent
+bccb_gate,No correction,5% event,all,aggregate,28.223737383827796
+bccb_gate,No correction,5% event,all,worst_head,69.28466558456421
+bccb_gate,Adaptive rank 8,5% event,all,aggregate,19.871867735958425
+bccb_gate,Adaptive rank 8,5% event,all,worst_head,49.90057945251465
+bccb_gate,Adaptive rank 16,5% event,all,aggregate,16.115966367596986
+bccb_gate,Adaptive rank 16,5% event,all,worst_head,41.055554151535034
+bccb_gate,Frozen-basis rank 16,5% event,all,aggregate,22.44705658531497
+bccb_gate,Frozen-basis rank 16,5% event,all,worst_head,59.05563831329346
+width_budget,Dense mass oracle,5%,all,aggregate,3.240563807016189
+width_budget,Dense mass oracle,5%,all,worst_head,12.69785761833191
+width_budget,Dense mass oracle,10%,all,aggregate,2.795525152566878
+width_budget,Dense mass oracle,10%,all,worst_head,10.995407402515411
+width_budget,K/V deviation,5%,all,aggregate,10.759388466939738
+width_budget,K/V deviation,5%,all,worst_head,21.84092104434967
+width_budget,K/V deviation,10%,all,aggregate,9.354436435532318
+width_budget,K/V deviation,10%,all,worst_head,20.099353790283203
+width_budget,Residual-width oracle,5%,all,aggregate,3.195195608798742
+width_budget,Residual-width oracle,5%,all,worst_head,12.136400490999222
+width_budget,Residual-width oracle,10%,all,aggregate,2.6514483456090296
+width_budget,Residual-width oracle,10%,all,worst_head,10.195592790842056
+width_budget,Value leverage oracle,5%,all,aggregate,3.214989490471756
+width_budget,Value leverage oracle,5%,all,worst_head,12.85788118839264
+width_budget,Value leverage oracle,10%,all,aggregate,2.737727257873875
+width_budget,Value leverage oracle,10%,all,worst_head,11.446090042591095
+width_layer,Dense mass oracle,10%,14,aggregate,5.831952296184625
+width_layer,Dense mass oracle,10%,29,aggregate,0.7166968991240305
+width_layer,K/V deviation,10%,14,aggregate,7.633900899769963
+width_layer,K/V deviation,10%,29,aggregate,9.780180525880162
+width_layer,Residual-width oracle,10%,14,aggregate,5.536519096440677
+width_layer,Residual-width oracle,10%,29,aggregate,0.6680040456063641
+width_layer,Value leverage oracle,10%,14,aggregate,5.730894367363388
+width_layer,Value leverage oracle,10%,29,aggregate,0.6560395981591428
+selector_overlap,K/V deviation,10%,K/V deviation,jaccard,100.0
+selector_overlap,K/V deviation,10%,Dense mass oracle,jaccard,10.55452928297756
+selector_overlap,K/V deviation,10%,Value leverage oracle,jaccard,14.24055829228243
+selector_overlap,K/V deviation,10%,Residual-width oracle,jaccard,11.383415435139572
+selector_overlap,Dense mass oracle,10%,K/V deviation,jaccard,10.55452928297756
+selector_overlap,Dense mass oracle,10%,Dense mass oracle,jaccard,100.0
+selector_overlap,Dense mass oracle,10%,Value leverage oracle,jaccard,69.15680745982603
+selector_overlap,Dense mass oracle,10%,Residual-width oracle,jaccard,53.54294827979038
+selector_overlap,Value leverage oracle,10%,K/V deviation,jaccard,14.24055829228243
+selector_overlap,Value leverage oracle,10%,Dense mass oracle,jaccard,69.15680745982603
+selector_overlap,Value leverage oracle,10%,Value leverage oracle,jaccard,100.0
+selector_overlap,Value leverage oracle,10%,Residual-width oracle,jaccard,60.510651629072676
+selector_overlap,Residual-width oracle,10%,K/V deviation,jaccard,11.383415435139572
+selector_overlap,Residual-width oracle,10%,Dense mass oracle,jaccard,53.54294827979038
+selector_overlap,Residual-width oracle,10%,Value leverage oracle,jaccard,60.510651629072676
+selector_overlap,Residual-width oracle,10%,Residual-width oracle,jaccard,100.0
