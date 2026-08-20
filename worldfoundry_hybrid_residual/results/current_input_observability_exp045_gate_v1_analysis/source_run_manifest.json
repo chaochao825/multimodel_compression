@@ -1,0 +1,460 @@
+{
+  "arguments": {
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "config": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/configs/wan_current_input_observability_exp045_v1.json",
+    "device": "cuda:0",
+    "guide_scale": 5.0,
+    "negative_prompt": "",
+    "out_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/current_input_observability_exp045_gate_v1",
+    "prompt_file": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/configs/wan_current_input_observability_prompts_exp045.txt",
+    "sample_indices": "0,1,2,3,4,5,6,7",
+    "sample_solver": "unipc",
+    "shift": 5.0,
+    "verify_equivalence": false,
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT"
+  },
+  "compute_capability": [
+    9,
+    0
+  ],
+  "cuda_runtime": "12.8",
+  "equivalence_dense_seconds": 0.0,
+  "experiment_id": "EXP-045",
+  "gate_id": "G-024",
+  "gpu": "NVIDIA H200 NVL",
+  "grid_compatibility_installed": true,
+  "load_seconds": 84.49227230995893,
+  "platform": "Linux-5.4.0-42-generic-x86_64-with-glibc2.31",
+  "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+  "sample_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "sample_summaries": [
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 0,
+          "seed": 2026082001,
+          "split": "calibration"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p00_seed2026082001",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 35.29167998209596,
+      "generation_seconds": 14.148348266258836,
+      "latent_norm": 645.1490103910128,
+      "metric_rows": 1160,
+      "prompt_index": 0,
+      "sample_id": "p00_seed2026082001",
+      "sample_index": 0,
+      "seed": 2026082001,
+      "split": "calibration"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 1,
+          "seed": 2026082002,
+          "split": "calibration"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p01_seed2026082002",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 33.11084228567779,
+      "generation_seconds": 12.532076008152217,
+      "latent_norm": 589.0069485024217,
+      "metric_rows": 1160,
+      "prompt_index": 1,
+      "sample_id": "p01_seed2026082002",
+      "sample_index": 1,
+      "seed": 2026082002,
+      "split": "calibration"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 2,
+          "seed": 2026082003,
+          "split": "calibration"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p02_seed2026082003",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 32.461744598113,
+      "generation_seconds": 11.47778743924573,
+      "latent_norm": 446.9680830520708,
+      "metric_rows": 1160,
+      "prompt_index": 2,
+      "sample_id": "p02_seed2026082003",
+      "sample_index": 2,
+      "seed": 2026082003,
+      "split": "calibration"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 3,
+          "seed": 2026082004,
+          "split": "calibration"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p03_seed2026082004",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 33.21050205826759,
+      "generation_seconds": 12.20060684485361,
+      "latent_norm": 716.3677675783289,
+      "metric_rows": 1160,
+      "prompt_index": 3,
+      "sample_id": "p03_seed2026082004",
+      "sample_index": 3,
+      "seed": 2026082004,
+      "split": "calibration"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 4,
+          "seed": 2026082005,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p04_seed2026082005",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 31.333763062022626,
+      "generation_seconds": 11.20338437287137,
+      "latent_norm": 474.0378859680995,
+      "metric_rows": 1280,
+      "prompt_index": 4,
+      "sample_id": "p04_seed2026082005",
+      "sample_index": 4,
+      "seed": 2026082005,
+      "split": "selection"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 5,
+          "seed": 2026082006,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p05_seed2026082006",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 31.973413165658712,
+      "generation_seconds": 11.48366969730705,
+      "latent_norm": 511.88304961439565,
+      "metric_rows": 1280,
+      "prompt_index": 5,
+      "sample_id": "p05_seed2026082006",
+      "sample_index": 5,
+      "seed": 2026082006,
+      "split": "selection"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 6,
+          "seed": 2026082007,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p06_seed2026082007",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 35.9332502130419,
+      "generation_seconds": 11.18801057105884,
+      "latent_norm": 538.0586100437994,
+      "metric_rows": 1280,
+      "prompt_index": 6,
+      "sample_id": "p06_seed2026082007",
+      "sample_index": 6,
+      "seed": 2026082007,
+      "split": "selection"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6749352960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 7,
+          "seed": 2026082008,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 8,
+        "record_count": 140,
+        "run_id": "p07_seed2026082008",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 30.666624834295362,
+      "generation_seconds": 9.845301215071231,
+      "latent_norm": 445.59159752434755,
+      "metric_rows": 1280,
+      "prompt_index": 7,
+      "sample_id": "p07_seed2026082008",
+      "sample_index": 7,
+      "seed": 2026082008,
+      "split": "selection"
+    }
+  ],
+  "scope": "Wan denoising-time current-input observability; not physical-time video prediction",
+  "torch": "2.9.1+cu128",
+  "warning": "component observability evidence only; no rollout or speed claim"
+}

@@ -1,0 +1,63 @@
+{
+  "experiment_id": "EXP-045-smoke",
+  "gate_id": "engineering-only",
+  "scope": "Single-cell implementation smoke; never use for G-024",
+  "sampling_steps": 20,
+  "frame_num": 17,
+  "height": 480,
+  "width": 832,
+  "latent_grid": [5, 30, 52],
+  "capture_steps": [0, 1, 2, 3, 4, 5, 6],
+  "target_steps": [4, 6],
+  "horizons": [1, 2, 3],
+  "blocks": [24],
+  "branches": [0, 1],
+  "branch_order": ["conditional", "unconditional"],
+  "qk_rows_per_projection": 8,
+  "qk_sketch_semantics": "fixed evenly spaced pre-RMSNorm projection rows from current self-attention input",
+  "ridge": 0.0001,
+  "methods": [
+    "taylor1",
+    "online_ar2",
+    "diagonal",
+    "broyden2",
+    "transport2_history",
+    "transport2_qk",
+    "dplr8"
+  ],
+  "method_horizons": {
+    "taylor1": [1, 2, 3],
+    "online_ar2": [1, 2],
+    "diagonal": [1, 2, 3],
+    "broyden2": [1, 2, 3],
+    "transport2_history": [1, 2, 3],
+    "transport2_qk": [1, 2, 3],
+    "dplr8": [1]
+  },
+  "gate_candidate_methods": [
+    "diagonal",
+    "broyden2",
+    "transport2_history",
+    "transport2_qk",
+    "dplr8"
+  ],
+  "oracle": "target_visible_transport75_token_ls",
+  "sample_plan": [
+    {"prompt_index": 0, "seed": 2026082001, "split": "calibration"}
+  ],
+  "allowed_initial_splits": ["calibration"],
+  "cost_model": {
+    "qk_sketch_macs": "2*N*D*qk_rows_per_projection",
+    "transport_router_macs": "75*N*(2*qk_rows_per_projection)",
+    "transport_apply_macs_per_expert": "2*N*D",
+    "broyden_apply_macs_per_secant": "2*N*D"
+  },
+  "gate": {
+    "minimum_risk_reduction": 2.0,
+    "minimum_passing_layers_per_step": 6,
+    "minimum_oracle_recovery": 0.5,
+    "maximum_branch_harm_ratio": 1.1,
+    "maximum_open_loop_risk_ratio": 1.0,
+    "router_width_after_pass": 32
+  }
+}

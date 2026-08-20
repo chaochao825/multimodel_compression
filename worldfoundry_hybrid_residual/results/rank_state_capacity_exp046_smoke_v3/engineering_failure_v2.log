@@ -1,0 +1,15 @@
+QUEUE_START=2026-08-20T18:54:15+08:00
+GPU_ACQUIRED=2026-08-20T18:54:45+08:00 gpu=3
+Traceback (most recent call last):
+  File "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/scripts/run_wan_rank_state_capacity.py", line 412, in <module>
+    main()
+  File "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/scripts/run_wan_rank_state_capacity.py", line 227, in main
+    from wan.configs import WAN_CONFIGS
+  File "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan/__init__.py", line 1, in <module>
+    from . import configs, distributed, modules
+  File "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan/modules/__init__.py", line 2, in <module>
+    from .model import WanModel
+  File "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan/modules/model.py", line 6, in <module>
+    from diffusers.configuration_utils import ConfigMixin, register_to_config
+ModuleNotFoundError: No module named 'diffusers'
+QUEUE_END=2026-08-20T18:54:48+08:00 status=1

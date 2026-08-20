@@ -1,0 +1,16 @@
+QUEUE_START=2026-08-20T18:00:44+08:00
+QUEUE_START=2026-08-20T18:03:42+08:00
+GPU_ACQUIRED=2026-08-20T18:52:12+08:00 gpu=3
+Traceback (most recent call last):
+  File "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/scripts/run_wan_rank_state_capacity.py", line 412, in <module>
+    main()
+  File "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/scripts/run_wan_rank_state_capacity.py", line 227, in main
+    from wan.configs import WAN_CONFIGS
+  File "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan/__init__.py", line 1, in <module>
+    from . import configs, distributed, modules
+  File "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan/configs/__init__.py", line 2, in <module>
+    from .wan_t2v_14B import t2v_14B
+  File "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan/configs/wan_t2v_14B.py", line 2, in <module>
+    from easydict import EasyDict
+ModuleNotFoundError: No module named 'easydict'
+QUEUE_END=2026-08-20T18:52:15+08:00 status=1

@@ -1,0 +1,52 @@
+{
+  "capture": {
+    "estimated_host_bytes": 6718776960,
+    "grid_size": [
+      5,
+      30,
+      52
+    ],
+    "metadata": {
+      "frame_num": 17,
+      "prompt_index": 6,
+      "seed": 2026082207,
+      "split": "selection"
+    },
+    "qk_rows_per_projection": 1,
+    "record_count": 140,
+    "run_id": "p06_seed2026082207",
+    "timesteps": [
+      999.0,
+      989.0,
+      978.0,
+      965.0,
+      952.0,
+      937.0,
+      920.0,
+      902.0,
+      882.0,
+      859.0,
+      833.0,
+      803.0,
+      768.0,
+      728.0,
+      681.0,
+      624.0,
+      555.0,
+      468.0,
+      356.0,
+      208.0
+    ]
+  },
+  "equivalence_exact": null,
+  "equivalence_relative_l2": null,
+  "evaluation_seconds": 10.060660875868052,
+  "generation_seconds": 11.895482937339693,
+  "latent_norm": 647.5369338486679,
+  "metric_rows": 720,
+  "prompt_index": 6,
+  "sample_id": "p06_seed2026082207",
+  "sample_index": 6,
+  "seed": 2026082207,
+  "split": "selection"
+}

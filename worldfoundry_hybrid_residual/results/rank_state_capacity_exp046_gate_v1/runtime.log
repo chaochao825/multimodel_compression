@@ -1,0 +1,10 @@
+QUEUE_START=2026-08-20T19:00:16+08:00
+GPU_ACQUIRED=2026-08-20T19:00:16+08:00 gpu=3
+/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/scripts/run_wan_current_input_observability.py:405: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with amp.autocast(dtype=pipeline.param_dtype), no_sync():
+DONE sample=p04_seed2026082205 generation=14.88s evaluation=12.79s rows=720
+DONE sample=p05_seed2026082206 generation=12.36s evaluation=10.74s rows=720
+DONE sample=p06_seed2026082207 generation=11.90s evaluation=10.06s rows=720
+DONE sample=p07_seed2026082208 generation=11.17s evaluation=10.10s rows=720
+{"decision": "FAIL", "experiment_id": "EXP-046", "final_split_opened": false, "gate_id": "G-025", "sample_count": 4, "selection_complete": true, "split": "selection"}
+QUEUE_END=2026-08-20T19:03:36+08:00 status=0

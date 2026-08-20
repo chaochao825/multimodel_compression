@@ -1,0 +1,248 @@
+{
+  "arguments": {
+    "checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B",
+    "config": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/configs/wan_rank_state_capacity_exp046_v1.json",
+    "device": "cuda:0",
+    "guide_scale": 5.0,
+    "negative_prompt": "",
+    "out_dir": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/results/rank_state_capacity_exp046_gate_v1",
+    "prompt_file": "/home/wangmeiqi/codex_runs/robuq_structured_probe_20260723/worldfoundry_hybrid_residual/configs/wan_rank_state_capacity_prompts_exp046.txt",
+    "sample_indices": "4,5,6,7",
+    "sample_solver": "unipc",
+    "shift": 5.0,
+    "verify_equivalence": false,
+    "wan_source": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT"
+  },
+  "compute_capability": [
+    9,
+    0
+  ],
+  "cuda_runtime": "12.8",
+  "equivalence_dense_seconds": 0.0,
+  "experiment_id": "EXP-046",
+  "gate_id": "G-025",
+  "gpu": "NVIDIA H200 NVL",
+  "grid_compatibility_installed": true,
+  "load_seconds": 88.18218810111284,
+  "platform": "Linux-5.4.0-42-generic-x86_64-with-glibc2.31",
+  "python": "3.11.15 (main, Mar 11 2026, 17:20:07) [GCC 14.3.0]",
+  "sample_indices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "sample_summaries": [
+    {
+      "capture": {
+        "estimated_host_bytes": 6718776960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 4,
+          "seed": 2026082205,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 1,
+        "record_count": 140,
+        "run_id": "p04_seed2026082205",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 12.787634035106748,
+      "generation_seconds": 14.87742915097624,
+      "latent_norm": 489.2337255122739,
+      "metric_rows": 720,
+      "prompt_index": 4,
+      "sample_id": "p04_seed2026082205",
+      "sample_index": 4,
+      "seed": 2026082205,
+      "split": "selection"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6718776960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 5,
+          "seed": 2026082206,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 1,
+        "record_count": 140,
+        "run_id": "p05_seed2026082206",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 10.740962650161237,
+      "generation_seconds": 12.361441253684461,
+      "latent_norm": 505.50933680781503,
+      "metric_rows": 720,
+      "prompt_index": 5,
+      "sample_id": "p05_seed2026082206",
+      "sample_index": 5,
+      "seed": 2026082206,
+      "split": "selection"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6718776960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 6,
+          "seed": 2026082207,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 1,
+        "record_count": 140,
+        "run_id": "p06_seed2026082207",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 10.060660875868052,
+      "generation_seconds": 11.895482937339693,
+      "latent_norm": 647.5369338486679,
+      "metric_rows": 720,
+      "prompt_index": 6,
+      "sample_id": "p06_seed2026082207",
+      "sample_index": 6,
+      "seed": 2026082207,
+      "split": "selection"
+    },
+    {
+      "capture": {
+        "estimated_host_bytes": 6718776960,
+        "grid_size": [
+          5,
+          30,
+          52
+        ],
+        "metadata": {
+          "frame_num": 17,
+          "prompt_index": 7,
+          "seed": 2026082208,
+          "split": "selection"
+        },
+        "qk_rows_per_projection": 1,
+        "record_count": 140,
+        "run_id": "p07_seed2026082208",
+        "timesteps": [
+          999.0,
+          989.0,
+          978.0,
+          965.0,
+          952.0,
+          937.0,
+          920.0,
+          902.0,
+          882.0,
+          859.0,
+          833.0,
+          803.0,
+          768.0,
+          728.0,
+          681.0,
+          624.0,
+          555.0,
+          468.0,
+          356.0,
+          208.0
+        ]
+      },
+      "equivalence_exact": null,
+      "equivalence_relative_l2": null,
+      "evaluation_seconds": 10.102096893358976,
+      "generation_seconds": 11.165797384921461,
+      "latent_norm": 506.6237385152622,
+      "metric_rows": 720,
+      "prompt_index": 7,
+      "sample_id": "p07_seed2026082208",
+      "sample_index": 7,
+      "seed": 2026082208,
+      "split": "selection"
+    }
+  ],
+  "scope": "Wan denoising-time whole-block defect rank-state capacity; target-visible representation oracle only",
+  "torch": "2.9.1+cu128",
+  "warning": "target-visible representation capacity only; no observer, rollout, latency, or speed claim"
+}

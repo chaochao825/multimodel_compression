@@ -1,0 +1,7 @@
+rank,target_step,horizon,passing_layers,total_layers,coverage_pass
+64,4,1,0,1,False
+64,4,2,0,1,False
+64,4,3,0,1,False
+96,4,1,0,1,False
+96,4,2,0,1,False
+96,4,3,0,1,False

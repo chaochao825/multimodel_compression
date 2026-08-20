@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP-046-SMOKE",
+  "gate_id": "G-025-ENGINEERING-SMOKE",
+  "scope": "Engineering-only dense-equivalence and rank-state runtime smoke",
+  "sampling_steps": 20,
+  "frame_num": 17,
+  "height": 480,
+  "width": 832,
+  "latent_grid": [5, 30, 52],
+  "capture_steps": [0, 1, 2, 3, 4],
+  "target_steps": [4],
+  "horizons": [1, 2, 3],
+  "blocks": [24],
+  "branches": [0, 1],
+  "branch_order": ["conditional", "unconditional"],
+  "qk_rows_per_projection": 1,
+  "ridge": 0.0001,
+  "base_renderer": "causal_current_input_channel_diagonal",
+  "ranks": [8, 16, 32, 64, 96],
+  "randomized_svd": {
+    "oversample": 16,
+    "power_iterations": 2,
+    "seed": 2026082046,
+    "cell_seed_formula": "seed + 10000*block + 1000*branch + 10*target_step + horizon"
+  },
+  "hidden_size": 1536,
+  "ffn_size": 8960,
+  "sample_plan": [
+    {"prompt_index": 0, "seed": 2026082201, "split": "calibration"}
+  ],
+  "allowed_initial_splits": ["calibration"],
+  "gate": {
+    "decision_rank": 64,
+    "diagnostic_rank": 96,
+    "maximum_aggregate_output_relative_l2": 0.005,
+    "maximum_worst_output_relative_l2": 0.01,
+    "minimum_passing_layers_per_step_horizon": 1,
+    "maximum_render_to_exact_macs": 0.1,
+    "required_selection_identities": 4
+  }
+}

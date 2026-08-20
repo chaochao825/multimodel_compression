@@ -1,0 +1,9 @@
+{
+  "decision": "FAIL",
+  "experiment_id": "EXP-046",
+  "final_split_opened": false,
+  "gate_id": "G-025",
+  "sample_count": 4,
+  "selection_complete": true,
+  "split": "selection"
+}
