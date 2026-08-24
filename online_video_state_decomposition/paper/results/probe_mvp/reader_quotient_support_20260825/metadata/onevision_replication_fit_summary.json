@@ -1,0 +1,61 @@
+{
+  "claim_tier": "calibration_only_onevision_feature_codec",
+  "codec_path": "/home/spco/online_video_state_decomposition/remote_results/onevision_reader_quotient_replication_20_20260825_v1/codec/onevision_feature_pca_rank384.pt",
+  "explained_energy_ratio": 0.9748875498771667,
+  "extraction_seconds": 24.42885337001644,
+  "feature_pool_frames": 16,
+  "fit_seconds": 1.7559897578321397,
+  "frame_budget": 8,
+  "hidden_size": 3584,
+  "model_parameter_bytes": 2759680,
+  "niter": 4,
+  "rank": 384,
+  "sample_count": 20,
+  "sample_ids": [
+    "object_existence_0061",
+    "object_existence_0099",
+    "object_existence_0148",
+    "object_existence_0193",
+    "state_change_0007",
+    "state_change_0063",
+    "state_change_0077",
+    "state_change_0088",
+    "scene_transition_0148",
+    "scene_transition_0178",
+    "scene_transition_0180",
+    "scene_transition_0197",
+    "action_sequence_0028",
+    "action_sequence_0102",
+    "action_sequence_0188",
+    "action_sequence_0198",
+    "moving_direction_0050",
+    "moving_direction_0124",
+    "moving_direction_0158",
+    "moving_direction_0186"
+  ],
+  "sampled_frames": 32,
+  "samples_per_task": 4,
+  "seed": 20260825,
+  "selection_seed": 20260825,
+  "source_feature_shape": [
+    16,
+    196,
+    3584
+  ],
+  "state_accounting": {
+    "compressed_state_bytes": 2867328,
+    "compression_ratio": 7.8396500156243025,
+    "dense_state_bytes_bf16": 22478848,
+    "latent_bytes_fp16": 2408448,
+    "residual_index_bytes_int16": 128,
+    "residual_value_bytes_fp16": 458752
+  },
+  "tasks": [
+    "object_existence",
+    "state_change",
+    "scene_transition",
+    "action_sequence",
+    "moving_direction"
+  ],
+  "training_tokens": 62720
+}
