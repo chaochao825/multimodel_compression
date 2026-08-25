@@ -35,14 +35,40 @@ full analysis, negative control, novelty boundary, and staged sampler/rollout
 plan. Reproduction uses `scripts/probe_action_dit_transport_cache.py`; the
 frozen protocol is `protocols/action_dit_transport_cache_geometry_20260826.md`.
 
+## Independent-noise state and sampler follow-up
+
+The follow-up separates representation capacity from sampler deployability.
+Across all three PushT checkpoints, a calibration-only state-plus-noise bridge
+recovers 99.55%--99.92% of the independent-noise oracle gap at less than 1% of
+the replaced FFN `linear2` arithmetic cost. It remains stable for one, two, and
+four consecutive skips, although the excess error above the oracle floor grows
+with the skip horizon.
+
+The same mechanism does not pass the real DDPM sampler gate. With common random
+numbers, exact refresh every five denoising steps, and all eight FFNs replaced,
+executed-step relative error is 3.51% and first-approximation P95 error is
+17.86%. A late-only schedule does not repair the failure. Layer attribution
+shows that layer 0 dominates, but even the frozen `{1,2}` subset misses the
+registered first-action P95 threshold on two untouched checkpoints. Closed-loop
+PushT rollout and speed claims are therefore not authorized.
+
+Read `reports/ACTION_DIT_TQC_NOISE_STATE_SAMPLER_20260826.zh-CN.md` for the full
+mechanism/sampler analysis. Reproduction uses
+`scripts/probe_action_dit_noise_response_bridge.py`,
+`scripts/probe_action_dit_multiskip_state.py`, and
+`scripts/probe_action_dit_independent_sampler.py`; the preregistered additions
+are recorded in `protocols/action_dit_noise_response_bridge_20260826.md`.
+Summary CSV data and PNG/PDF/SVG figures use the `figures/action_dit_tqc_*`
+prefix.
+
 ## Reproduction
 
-Run `scripts/probe_action_dit_structured_correction.py` or
-`scripts/probe_action_dit_transport_cache.py` with a compatible Diffusion
-Policy checkpoint and dataset. Scientific settings and stop rules are frozen
-under `protocols/`. Unit tests cover schedule bucketing, non-periodic
-boundaries, local-plus-global defect recovery, horizon shifting, equal-budget
-reuse, and bounded low-rank payload.
+Run `scripts/probe_action_dit_structured_correction.py` or one of the TQC probe
+scripts with a compatible Diffusion Policy checkpoint and dataset. Scientific
+settings and stop rules are frozen under `protocols/`. Unit tests cover
+schedule bucketing, non-periodic boundaries, local-plus-global defect recovery,
+horizon shifting, equal-budget reuse, noise-state bridges, and bounded
+low-rank payload.
 
 Raw CSV/JSON outputs for all three checkpoints are under `results/`. The
 publication plots and their bound CSV data are under `figures/`.

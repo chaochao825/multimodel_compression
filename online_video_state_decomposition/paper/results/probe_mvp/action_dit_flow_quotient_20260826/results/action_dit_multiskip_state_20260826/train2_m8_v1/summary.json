@@ -1,0 +1,148 @@
+{
+  "scope": "Frozen PushT teacher-forced denoising-time coefficient recurrence; exact previous-control cache and exact current latent; no sampler, environment, repeated-control, quantization, or speed claim",
+  "checkpoint": "/home/wangmeiqi/zhuoziying/diffusion_policy/diffusion_policy/pusht_experiments_lowdim/diffusion_transformer/train_2/checkpoints/epoch=0750-test_mean_score=0.934.ckpt",
+  "control_offset": 8,
+  "horizon": 10,
+  "calibration_transitions": 96,
+  "evaluation_transitions": 48,
+  "endpoint_count": 9,
+  "late_flow_count": 3,
+  "skips": [
+    1,
+    2,
+    4
+  ],
+  "decision": {
+    "gate": "MULTISKIP_4_STABLE",
+    "one_step_pass": true,
+    "two_step_pass": true,
+    "four_step_pass": true,
+    "skip1_teacher_max_abs": 0.0,
+    "state_noise_oracle_gap_recovery": {
+      "1": 0.9962295338750559,
+      "2": 0.9826911872025641,
+      "4": 0.9451911693611121
+    }
+  },
+  "exact_suffix": {
+    "all": {
+      "raw_reuse": {
+        "velocity_relative_l2": 0.22075337682520127,
+        "velocity_mean_relative_l2": 0.10940207540988922,
+        "velocity_p95_relative_l2": 0.6167508214712143
+      },
+      "shift_reuse": {
+        "velocity_relative_l2": 0.2046026301584839,
+        "velocity_mean_relative_l2": 0.1088445633649826,
+        "velocity_p95_relative_l2": 0.626318633556366
+      },
+      "shift_local_r2": {
+        "velocity_relative_l2": 0.12052089112866894,
+        "velocity_mean_relative_l2": 0.06880468130111694,
+        "velocity_p95_relative_l2": 0.3335162177681923
+      },
+      "shift_rank8_oracle": {
+        "velocity_relative_l2": 0.026224967392723005,
+        "velocity_mean_relative_l2": 0.021996870636940002,
+        "velocity_p95_relative_l2": 0.084830392152071
+      },
+      "state_skip1": {
+        "velocity_relative_l2": 0.028168276971393142,
+        "velocity_mean_relative_l2": 0.022897737100720406,
+        "velocity_p95_relative_l2": 0.08810274302959442
+      },
+      "state_skip2": {
+        "velocity_relative_l2": 0.03259999734318245,
+        "velocity_mean_relative_l2": 0.024937568232417107,
+        "velocity_p95_relative_l2": 0.09426437877118587
+      },
+      "state_skip4": {
+        "velocity_relative_l2": 0.04075234069096355,
+        "velocity_mean_relative_l2": 0.028630737215280533,
+        "velocity_p95_relative_l2": 0.10783707350492477
+      },
+      "state_noise_skip1": {
+        "velocity_relative_l2": 0.026551324765023986,
+        "velocity_mean_relative_l2": 0.0222475528717041,
+        "velocity_p95_relative_l2": 0.08711273781955242
+      },
+      "state_noise_skip2": {
+        "velocity_relative_l2": 0.027652885920803234,
+        "velocity_mean_relative_l2": 0.023127034306526184,
+        "velocity_p95_relative_l2": 0.09111600555479527
+      },
+      "state_noise_skip4": {
+        "velocity_relative_l2": 0.030742570352436663,
+        "velocity_mean_relative_l2": 0.02536361664533615,
+        "velocity_p95_relative_l2": 0.10410060919821262
+      }
+    },
+    "late": {
+      "raw_reuse": {
+        "velocity_relative_l2": 0.25660900985911456,
+        "velocity_mean_relative_l2": 0.15561100840568542,
+        "velocity_p95_relative_l2": 0.735429903864861
+      },
+      "shift_reuse": {
+        "velocity_relative_l2": 0.2241822049983631,
+        "velocity_mean_relative_l2": 0.15169483423233032,
+        "velocity_p95_relative_l2": 0.649250990152359
+      },
+      "shift_local_r2": {
+        "velocity_relative_l2": 0.1500213550939862,
+        "velocity_mean_relative_l2": 0.11091820150613785,
+        "velocity_p95_relative_l2": 0.40105726867914204
+      },
+      "shift_rank8_oracle": {
+        "velocity_relative_l2": 0.04561331953532496,
+        "velocity_mean_relative_l2": 0.04499268904328346,
+        "velocity_p95_relative_l2": 0.1322127848863602
+      },
+      "state_skip1": {
+        "velocity_relative_l2": 0.0499614377439854,
+        "velocity_mean_relative_l2": 0.047615692019462585,
+        "velocity_p95_relative_l2": 0.14596506953239446
+      },
+      "state_skip2": {
+        "velocity_relative_l2": 0.059686018701820616,
+        "velocity_mean_relative_l2": 0.05360111966729164,
+        "velocity_p95_relative_l2": 0.16333075761795046
+      },
+      "state_skip4": {
+        "velocity_relative_l2": 0.07694608424588857,
+        "velocity_mean_relative_l2": 0.06426332145929337,
+        "velocity_p95_relative_l2": 0.1931432686746122
+      },
+      "state_noise_skip1": {
+        "velocity_relative_l2": 0.04628660746893236,
+        "velocity_mean_relative_l2": 0.04565288498997688,
+        "velocity_p95_relative_l2": 0.1378363095223904
+      },
+      "state_noise_skip2": {
+        "velocity_relative_l2": 0.048704134945251464,
+        "velocity_mean_relative_l2": 0.048159852623939514,
+        "velocity_p95_relative_l2": 0.14523781985044482
+      },
+      "state_noise_skip4": {
+        "velocity_relative_l2": 0.0554004713360436,
+        "velocity_mean_relative_l2": 0.05450323224067688,
+        "velocity_p95_relative_l2": 0.16938350796699528
+      }
+    }
+  },
+  "cost": {
+    "rank": 8,
+    "replaced_linear2_macs_per_step": 524288,
+    "basis_reconstruction_macs_per_step": 4096,
+    "state_noise_map_macs_per_step": 232,
+    "basis_coordinate_macs_at_bucket_change": 64,
+    "state_noise_fraction_per_step": 0.0083770751953125
+  },
+  "elapsed_seconds": 90.3646342754364,
+  "versions": {
+    "python": "3.9.23",
+    "numpy": "1.23.3",
+    "torch": "2.5.1.post303",
+    "cuda": "NVIDIA A800 80GB PCIe"
+  }
+}

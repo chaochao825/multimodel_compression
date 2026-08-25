@@ -251,6 +251,9 @@ def collect_geometry(
 
     capture = FFNCapture(model)
     records = {
+        "previous_noise": [],
+        "current_noise": [],
+        "previous_noisy": [],
         "current_noisy": [],
         "exact_output": [],
         "previous_input": [],
@@ -299,6 +302,9 @@ def collect_geometry(
             previous_timestep,
             current_condition,
         )
+        records["previous_noise"].append(previous_noise.float().cpu().numpy())
+        records["current_noise"].append(current_noise.float().cpu().numpy())
+        records["previous_noisy"].append(previous_noisy.float().cpu().numpy())
         records["current_noisy"].append(current_noisy.float().cpu().numpy())
         records["exact_output"].append(exact_output)
         records["previous_input"].append(previous_input)

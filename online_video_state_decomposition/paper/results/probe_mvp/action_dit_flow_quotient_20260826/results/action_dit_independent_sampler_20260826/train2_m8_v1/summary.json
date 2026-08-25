@@ -1,0 +1,83 @@
+{
+  "scope": "Frozen PushT independent-noise DDPM sampler with common random numbers; full versus simulated TQC; no environment or speed claim",
+  "checkpoint": "/home/wangmeiqi/zhuoziying/diffusion_policy/diffusion_policy/pusht_experiments_lowdim/diffusion_transformer/train_2/checkpoints/epoch=0750-test_mean_score=0.934.ckpt",
+  "control_offset": 8,
+  "horizon": 10,
+  "executed_actions": 8,
+  "sampler_steps": 100,
+  "calibration_transitions": 96,
+  "evaluation_transitions": 48,
+  "rank": 8,
+  "metrics": {
+    "all_interval5": {
+      "horizon": {
+        "relative_l2": 0.038832444697618484,
+        "mean_relative_l2": 0.04006778076291084,
+        "p95_relative_l2": 0.06802897173911332,
+        "rmse": 11.038324356079102,
+        "max_abs": 61.88145446777344
+      },
+      "executed": {
+        "relative_l2": 0.03387242183089256,
+        "mean_relative_l2": 0.0340263806283474,
+        "p95_relative_l2": 0.05985785033553838,
+        "rmse": 9.648043632507324,
+        "max_abs": 61.88145446777344
+      },
+      "first": {
+        "relative_l2": 0.0831661969423294,
+        "mean_relative_l2": 0.08188565820455551,
+        "p95_relative_l2": 0.16663855537772176,
+        "rmse": 23.310195922851562,
+        "max_abs": 61.88145446777344
+      }
+    },
+    "late20_interval5": {
+      "horizon": {
+        "relative_l2": 0.03814327344298363,
+        "mean_relative_l2": 0.039284657686948776,
+        "p95_relative_l2": 0.06645411252975462,
+        "rmse": 10.842423439025879,
+        "max_abs": 55.98051452636719
+      },
+      "executed": {
+        "relative_l2": 0.033724378794431686,
+        "mean_relative_l2": 0.033735327422618866,
+        "p95_relative_l2": 0.05436696372926235,
+        "rmse": 9.605875968933105,
+        "max_abs": 55.98051452636719
+      },
+      "first": {
+        "relative_l2": 0.08260304480791092,
+        "mean_relative_l2": 0.0817752406001091,
+        "p95_relative_l2": 0.15829626843333244,
+        "rmse": 23.152353286743164,
+        "max_abs": 55.98051452636719
+      }
+    }
+  },
+  "schedule": {
+    "all_interval5": {
+      "approximate_steps": 80,
+      "total_steps": 100
+    },
+    "late20_interval5": {
+      "approximate_steps": 16,
+      "total_steps": 100
+    }
+  },
+  "decision": {
+    "gate": "NO_GO",
+    "schedule_pass": {
+      "all_interval5": false,
+      "late20_interval5": false
+    }
+  },
+  "elapsed_seconds": 17.801619291305542,
+  "versions": {
+    "python": "3.9.23",
+    "numpy": "1.23.3",
+    "torch": "2.5.1.post303",
+    "cuda": "NVIDIA A800 80GB PCIe"
+  }
+}

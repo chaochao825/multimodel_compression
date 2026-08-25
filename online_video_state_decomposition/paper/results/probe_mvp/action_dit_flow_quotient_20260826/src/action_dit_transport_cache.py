@@ -153,6 +153,19 @@ class RidgeMap:
         x = (features.astype(np.float64) - self.x_mean) / self.x_scale
         return (x @ self.weight + self.y_mean).astype(features.dtype)
 
+    @property
+    def parameter_count(self) -> int:
+        return int(
+            self.weight.size
+            + self.x_mean.size
+            + self.x_scale.size
+            + self.y_mean.size
+        )
+
+    @property
+    def macs_per_sample(self) -> int:
+        return int(self.weight.size)
+
 
 @dataclass
 class FrozenBasis:
@@ -203,3 +216,35 @@ def coefficient_r2(prediction: np.ndarray, target: np.ndarray) -> float:
     centered = target - target.mean(axis=0)
     denominator = np.linalg.norm(centered) ** 2
     return float(1.0 - residual / (denominator + EPS))
+
+
+def flatten_feature_groups(*groups: np.ndarray) -> np.ndarray:
+    if not groups:
+        raise ValueError("at least one feature group is required")
+    sample_count = len(groups[0])
+    if any(len(group) != sample_count for group in groups):
+        raise ValueError("all feature groups must have the same sample count")
+    return np.concatenate(
+        [group.reshape(sample_count, -1) for group in groups], axis=1
+    )
+
+
+def oracle_gap_recovery(baseline: float, candidate: float, oracle: float) -> float:
+    denominator = baseline - oracle
+    if denominator <= EPS:
+        raise ValueError("oracle must improve on the baseline")
+    return float((baseline - candidate) / denominator)
+
+
+def transfer_basis_coefficients(
+    coefficients: np.ndarray,
+    source: FrozenBasis,
+    target: FrozenBasis,
+) -> np.ndarray:
+    if source.sample_shape != target.sample_shape:
+        raise ValueError("source and target bases must describe the same sample shape")
+    if coefficients.shape[1] != source.basis.shape[0]:
+        raise ValueError("coefficient width does not match the source basis rank")
+    rotation = source.basis @ target.basis.T
+    offset = (source.mean - target.mean) @ target.basis.T
+    return coefficients @ rotation + offset
