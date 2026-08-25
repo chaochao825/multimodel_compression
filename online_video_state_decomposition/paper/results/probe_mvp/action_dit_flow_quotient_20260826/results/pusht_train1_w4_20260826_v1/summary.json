@@ -1,0 +1,241 @@
+{
+  "scope": "Frozen PushT action Diffusion Transformer; fake W4/W8 numerical probe; no environment-success or integer-kernel speed claim",
+  "checkpoint": "/home/wangmeiqi/zhuoziying/diffusion_policy/diffusion_policy/pusht_experiments_lowdim/diffusion_transformer/train_1/checkpoints/epoch=0950-test_mean_score=0.952.ckpt",
+  "calibration_samples": 128,
+  "evaluation_samples": 64,
+  "requested_num_inference_steps": 100,
+  "executed_num_inference_steps": 100,
+  "bucket_count": 10,
+  "gate": {
+    "decision": "GO",
+    "best_deployable_method": "toeplitz_r2_rank4",
+    "action_relative_improvement": 0.2944298910179225,
+    "guards": {
+      "action_relative_improvement_at_least_25pct": true,
+      "p95_not_worse": true,
+      "endpoint_not_worse_by_10pct": true,
+      "acceleration_not_worse_by_10pct": true,
+      "teacher_forced_improves": true,
+      "correction_work_at_most_5pct": true
+    }
+  },
+  "teacher_forced_metrics": [
+    {
+      "method": "w4_plain",
+      "denoiser_output_relative_l2": 0.02546741225356797,
+      "defect_residual_relative_l2": 0.9999999999998886,
+      "captured_defect_energy": 1.2323475573339238e-14,
+      "p95_call_relative_l2": 0.05804253574460743,
+      "parameter_count": 0,
+      "macs_per_sample": 0,
+      "mac_fraction_of_denoiser": 0.0
+    },
+    {
+      "method": "bucket_mean",
+      "denoiser_output_relative_l2": 0.023500366646621806,
+      "defect_residual_relative_l2": 0.9227622505434098,
+      "captured_defect_energy": 0.14850982897188236,
+      "p95_call_relative_l2": 0.05290005113929507,
+      "parameter_count": 200,
+      "macs_per_sample": 0,
+      "mac_fraction_of_denoiser": 0.0
+    },
+    {
+      "method": "channel_affine",
+      "denoiser_output_relative_l2": 0.021047373663740643,
+      "defect_residual_relative_l2": 0.8264433564815591,
+      "captured_defect_energy": 0.31699137852735104,
+      "p95_call_relative_l2": 0.04818629268556827,
+      "parameter_count": 40,
+      "macs_per_sample": 20,
+      "mac_fraction_of_denoiser": 2.542204664965898e-07
+    },
+    {
+      "method": "circulant_r2",
+      "denoiser_output_relative_l2": 0.018487323111932078,
+      "defect_residual_relative_l2": 0.7259208073361193,
+      "captured_defect_energy": 0.4730389814763659,
+      "p95_call_relative_l2": 0.04620694331824779,
+      "parameter_count": 420,
+      "macs_per_sample": 400,
+      "mac_fraction_of_denoiser": 5.084409329931796e-06
+    },
+    {
+      "method": "toeplitz_r2",
+      "denoiser_output_relative_l2": 0.018420011280602503,
+      "defect_residual_relative_l2": 0.7232776968935984,
+      "captured_defect_energy": 0.47686937317618183,
+      "p95_call_relative_l2": 0.04595306254923336,
+      "parameter_count": 420,
+      "macs_per_sample": 400,
+      "mac_fraction_of_denoiser": 5.084409329931796e-06
+    },
+    {
+      "method": "reduced_rank_r4",
+      "denoiser_output_relative_l2": 0.02169985458513766,
+      "defect_residual_relative_l2": 0.8520635849877173,
+      "captured_defect_energy": 0.2739876471377263,
+      "p95_call_relative_l2": 0.05023720655590287,
+      "parameter_count": 4200,
+      "macs_per_sample": 400,
+      "mac_fraction_of_denoiser": 5.084409329931796e-06
+    },
+    {
+      "method": "toeplitz_r2_rank4",
+      "denoiser_output_relative_l2": 0.018199504161817648,
+      "defect_residual_relative_l2": 0.7146192938886393,
+      "captured_defect_energy": 0.48931926480199517,
+      "p95_call_relative_l2": 0.04398866631090637,
+      "parameter_count": 4620,
+      "macs_per_sample": 800,
+      "mac_fraction_of_denoiser": 1.0168818659863592e-05
+    },
+    {
+      "method": "dense_ridge_ceiling",
+      "denoiser_output_relative_l2": 0.018425577225079873,
+      "defect_residual_relative_l2": 0.723496195439118,
+      "captured_defect_energy": 0.47655325518501146,
+      "p95_call_relative_l2": 0.045093474723398655,
+      "parameter_count": 16200,
+      "macs_per_sample": 1600,
+      "mac_fraction_of_denoiser": 2.0337637319727183e-05
+    }
+  ],
+  "rollout_metrics": [
+    {
+      "method": "full_precision",
+      "action_relative_l2": 0.0,
+      "p95_sample_relative_l2": 0.0,
+      "velocity_relative_l2": 0.0,
+      "acceleration_relative_l2": 0.0,
+      "mean_endpoint_l2": 0.0,
+      "executed_action_mae_raw_units": 0.0
+    },
+    {
+      "method": "w4_plain",
+      "action_relative_l2": 0.026764281329817043,
+      "p95_sample_relative_l2": 0.04888797383755443,
+      "velocity_relative_l2": 0.08758249520599279,
+      "acceleration_relative_l2": 0.10697919696525524,
+      "mean_endpoint_l2": 0.01260561216622591,
+      "executed_action_mae_raw_units": 1.6803216934204102
+    },
+    {
+      "method": "w8_plain",
+      "action_relative_l2": 0.0011370031133132346,
+      "p95_sample_relative_l2": 0.002131017798092215,
+      "velocity_relative_l2": 0.002721669287854362,
+      "acceleration_relative_l2": 0.0029464882390202738,
+      "mean_endpoint_l2": 0.0006135515868663788,
+      "executed_action_mae_raw_units": 0.07460406422615051
+    },
+    {
+      "method": "bucket_mean",
+      "action_relative_l2": 0.0228330951729192,
+      "p95_sample_relative_l2": 0.04307990856468674,
+      "velocity_relative_l2": 0.0817736982448266,
+      "acceleration_relative_l2": 0.0992217967377759,
+      "mean_endpoint_l2": 0.01135739590972662,
+      "executed_action_mae_raw_units": 1.4245529174804688
+    },
+    {
+      "method": "channel_affine",
+      "action_relative_l2": 0.022559204716499866,
+      "p95_sample_relative_l2": 0.040745137818157647,
+      "velocity_relative_l2": 0.0775642316811682,
+      "acceleration_relative_l2": 0.09033732372064548,
+      "mean_endpoint_l2": 0.01108858734369278,
+      "executed_action_mae_raw_units": 1.4046076536178589
+    },
+    {
+      "method": "circulant_r2",
+      "action_relative_l2": 0.022166148312840164,
+      "p95_sample_relative_l2": 0.039119204133749,
+      "velocity_relative_l2": 0.07602787494531887,
+      "acceleration_relative_l2": 0.09041132381614819,
+      "mean_endpoint_l2": 0.010815095156431198,
+      "executed_action_mae_raw_units": 1.3380262851715088
+    },
+    {
+      "method": "toeplitz_r2",
+      "action_relative_l2": 0.022190305323880725,
+      "p95_sample_relative_l2": 0.039620465412735936,
+      "velocity_relative_l2": 0.07585950180677795,
+      "acceleration_relative_l2": 0.08958998571426453,
+      "mean_endpoint_l2": 0.010751510970294476,
+      "executed_action_mae_raw_units": 1.3455557823181152
+    },
+    {
+      "method": "reduced_rank_r4",
+      "action_relative_l2": 0.019005500022012217,
+      "p95_sample_relative_l2": 0.03982211351394651,
+      "velocity_relative_l2": 0.07672553502314537,
+      "acceleration_relative_l2": 0.09303574834190967,
+      "mean_endpoint_l2": 0.010200440883636475,
+      "executed_action_mae_raw_units": 1.2052721977233887
+    },
+    {
+      "method": "toeplitz_r2_rank4",
+      "action_relative_l2": 0.018884076894705993,
+      "p95_sample_relative_l2": 0.03958136755973099,
+      "velocity_relative_l2": 0.07086359131520553,
+      "acceleration_relative_l2": 0.08519759817382899,
+      "mean_endpoint_l2": 0.009790021926164627,
+      "executed_action_mae_raw_units": 1.2173681259155273
+    },
+    {
+      "method": "dense_ridge_ceiling",
+      "action_relative_l2": 0.019011358321511775,
+      "p95_sample_relative_l2": 0.04003242179751396,
+      "velocity_relative_l2": 0.07161705838451563,
+      "acceleration_relative_l2": 0.0864802685137669,
+      "mean_endpoint_l2": 0.009994440712034702,
+      "executed_action_mae_raw_units": 1.2196834087371826
+    }
+  ],
+  "frozen_basis_transfer": [
+    {
+      "rank": 1,
+      "residual_relative_l2": 0.8084336297926644,
+      "captured_energy": 0.34643506622011966
+    },
+    {
+      "rank": 2,
+      "residual_relative_l2": 0.7201930771208819,
+      "captured_energy": 0.4813219316670464
+    },
+    {
+      "rank": 4,
+      "residual_relative_l2": 0.6375504083469556,
+      "captured_energy": 0.5935294768165446
+    },
+    {
+      "rank": 8,
+      "residual_relative_l2": 0.5028870898679286,
+      "captured_energy": 0.7471045748441127
+    }
+  ],
+  "model_profile": {
+    "model_parameter_count": 8963586,
+    "selected_ffn_weight_count": 4718592,
+    "selected_ffn_module_count": 18,
+    "selected_weight_fraction": 0.5264178867698709,
+    "bf16_parameter_bytes": 17927172,
+    "selective_w4_parameter_bytes": 10849284,
+    "parameter_storage_compression": 1.6523829590966557,
+    "estimated_denoiser_macs_per_sample": 78671872,
+    "estimated_selected_ffn_macs_per_sample": 43515904,
+    "selected_ffn_mac_fraction": 0.5531316707450409,
+    "attention_score_mac_fraction": 0.006768365700005207,
+    "ideal_forward_speedup_if_selected_ffn_2x": 1.3822957898524648,
+    "ideal_forward_speedup_if_selected_ffn_4x": 1.7089598718747219,
+    "measured_fp_forward_ms_batch1_a800": 4.484853820800781
+  },
+  "elapsed_seconds": 15.240644931793213,
+  "versions": {
+    "python": "3.9.23",
+    "numpy": "1.23.3",
+    "torch": "2.5.1.post303",
+    "cuda": "NVIDIA A800 80GB PCIe"
+  }
+}

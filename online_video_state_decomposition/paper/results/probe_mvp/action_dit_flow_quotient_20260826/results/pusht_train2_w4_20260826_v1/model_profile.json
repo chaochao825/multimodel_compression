@@ -1,0 +1,16 @@
+{
+  "model_parameter_count": 8963586,
+  "selected_ffn_weight_count": 4718592,
+  "selected_ffn_module_count": 18,
+  "selected_weight_fraction": 0.5264178867698709,
+  "bf16_parameter_bytes": 17927172,
+  "selective_w4_parameter_bytes": 10849284,
+  "parameter_storage_compression": 1.6523829590966557,
+  "estimated_denoiser_macs_per_sample": 78671872,
+  "estimated_selected_ffn_macs_per_sample": 43515904,
+  "selected_ffn_mac_fraction": 0.5531316707450409,
+  "attention_score_mac_fraction": 0.006768365700005207,
+  "ideal_forward_speedup_if_selected_ffn_2x": 1.3822957898524648,
+  "ideal_forward_speedup_if_selected_ffn_4x": 1.7089598718747219,
+  "measured_fp_forward_ms_batch1_a800": 4.357959594726562
+}
