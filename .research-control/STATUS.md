@@ -1,16 +1,15 @@
 # Research status
 
-Updated: 2026-08-20
+Updated: 2026-08-26
 
 ## Current decision surface
 
 - North star: faithful, materially faster Wan video generation through a
   scientifically defensible training-and-system co-design.
-- Primary claim: none; C-025 is refuted within the registered EXP-046 boundary.
-- Administrative mainline: L-025 is decided and closed; its successor is
-  unresolved pending the next protected researcher decision.
-- Active plan: PLAN-055 decision-only successor selection. No experiment or
-  Gate is active; PLAN-054 / EXP-046 / G-025 are complete.
+- Primary claim: C-026, the released unquantized rCM four-step H200
+  quality/latency baseline.
+- Mainline: L-026 is active under accepted RDR-030; L-025 remains parked.
+- Active plan: PLAN-056. EXP-047 / G-026 are active; PLAN-055 is complete.
 - L-024 remains parked; no additional rank, shift, router, rollout, or kernel
   work is authorized inside EXP-045.
 - Locked data: the EXP-046 final four identities remain unopened and cannot be
@@ -68,9 +67,11 @@ Fixed BCM/BCCB/Butterfly attention, local finite-jump width/rank growth,
 post-hoc whole-block rank-state growth, and rollout/kernel work for
 L-022/L-023/L-024/L-025 remain closed.
 
-## Next protected decision
+## Active Gate
 
-RDR-030 proposes a released Wan-compatible few-step H200 baseline before any
-new state student. It remains proposed until the researcher accepts or rejects
-it. Neither option is automatically authorized by EXP-046. Physical-time
-long-video transport remains separate.
+EXP-047 compares native 20-step UniPC, unchanged native four-step UniPC, and the
+official unquantized four-step rCM release on one H200. It freezes four prompts,
+two seeds, F81 generation, component timing, eight VBench dimensions, and
+inter-seed diversity. A valid pass requires at least 3.5x denoiser and 2.5x
+end-to-end speedup while retaining the registered teacher-normalized quality
+and diversity guards. Physical-time long-video transport remains separate.

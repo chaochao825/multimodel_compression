@@ -1,0 +1,70 @@
+{
+  "experiment_id": "EXP-047",
+  "gate_id": "G-026",
+  "source": {
+    "repository": "https://github.com/NVlabs/rcm.git",
+    "commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+    "checkpoint_url": "https://huggingface.co/worstcoder/rcm-Wan/blob/main/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "checkpoint_sha256": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+    "teacher_checkpoint_sha256": "96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f"
+  },
+  "remote": {
+    "root": "/opt/data/wangmeiqi/rcm_exp047_20260826",
+    "rcm_root": "/opt/data/wangmeiqi/rcm_exp047_20260826/rcm",
+    "checkpoint": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "teacher_model": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+    "vae": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+    "text_encoder": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth",
+    "output_root": "/opt/data/wangmeiqi/rcm_exp047_20260826/outputs"
+  },
+  "generation": {
+    "model_size": "1.3B",
+    "resolution": "480p",
+    "aspect_ratio": "16:9",
+    "num_frames": 81,
+    "fps": 16,
+    "formal_prompt_file": "worldfoundry_hybrid_residual/configs/wan_rcm_baseline_prompts_exp047.txt",
+    "formal_seeds": [2026082701, 2026082702],
+    "smoke_prompt": "A ceramic toy robot walks three steps across a wooden table while the camera remains fixed.",
+    "smoke_seed": 2026082700
+  },
+  "methods": {
+    "teacher20": {
+      "kind": "native_unipc",
+      "num_steps": 20,
+      "guidance_scale": 5.0,
+      "timestep_shift": 8.0
+    },
+    "native4": {
+      "kind": "native_unipc",
+      "num_steps": 4,
+      "guidance_scale": 5.0,
+      "timestep_shift": 8.0
+    },
+    "rcm4": {
+      "kind": "rcm",
+      "num_steps": 4,
+      "sigma_max": 80.0
+    }
+  },
+  "timing": {
+    "smoke_warmups": 1,
+    "smoke_repeats": 3,
+    "formal_timing_prompt_index": 0,
+    "formal_timing_seed": 2026082701
+  },
+  "metrics": {
+    "vbench_dimensions": [
+      "subject_consistency",
+      "background_consistency",
+      "temporal_flickering",
+      "motion_smoothness",
+      "dynamic_degree",
+      "aesthetic_quality",
+      "imaging_quality",
+      "overall_consistency"
+    ],
+    "paired_diagnostics": ["ssim", "psnr"],
+    "diversity": ["video_embedding_distance", "frame_lpips", "frame_l1"]
+  }
+}

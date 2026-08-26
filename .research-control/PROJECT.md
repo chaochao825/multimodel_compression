@@ -1,6 +1,6 @@
 # multimodel_compression_block_butterfly_20260802
 
-Updated: 2026-08-20
+Updated: 2026-08-26
 
 ## North star
 
@@ -11,8 +11,9 @@ NFE reduction, per-step acceleration, and end-to-end wall-clock.
 
 ## Primary falsifiable claim
 
-There is no active primary claim pending the next protected researcher
-decision. C-022--C-025 are refuted within their registered boundaries.
+C-026 tests whether the official unquantized four-step rCM Wan2.1-T2V-1.3B
+release establishes a useful single-H200 quality/latency incumbent against
+native 20-step UniPC on frozen F81 prompt-seed identities.
 
 ## Scientific value
 
@@ -35,6 +36,11 @@ EXP-046 separated representation from observability using the best
 target-visible rank-state correction after the causal diagonal renderer. Rank
 64 and diagnostic rank 96 both passed 0/60 cells, so the program stopped before
 learning state coordinates, opening final identities, rollout, or kernel work.
+
+RDR-030 therefore selects a released full-observability few-step student before
+another state architecture. EXP-047 isolates NFE reduction with unquantized
+rCM, native 20-step, and native four-step controls; sparse attention,
+quantization, cache, and custom kernels remain disabled in this first Gate.
 
 ## Success envelope
 
@@ -76,9 +82,9 @@ learning state coordinates, opening final identities, rollout, or kernel work.
 - C-024 is refuted; L-024 is the closed incumbent after EXP-045 while protected
   successor selection remained pending.
 - C-025 is refuted and L-025 is parked after the valid EXP-046 capacity null.
-- L-025 remains the decided administrative mainline until a successor is
-  accepted; released few-step integration and a training-native state with a
-  different renderer remain separate options under proposed RDR-030.
+- L-025 is parked after its capacity null. L-026 is the active mainline under
+  accepted RDR-030; it measures the released rCM four-step H200 Pareto before
+  any training-native state architecture is selected.
 - Exact dual-H200 CFG branch parallelism remains a valid independent system
   optimization; it is not part of C-022's algorithmic claim.
 

@@ -1,6 +1,6 @@
 # PLAN-055: Select the post-EXP-046 successor
 
-- Status: active decision-only plan
+- Status: complete
 - Owner: researcher
 - Current administrative mainline: L-025 (decided; no further runs)
 - Active experiment/Gate: none
@@ -27,8 +27,7 @@ Option 1 first. It establishes the quality/latency target that any new state
 student must beat and has lower scientific and engineering risk. It does not
 authorize using EXP-046 target-visible factors as training labels.
 
-## Stop rule
+## Outcome
 
-No implementation, model download, final-split access, training, rollout, or GPU
-run until the researcher accepts one option through a new RDR. Close this plan
-when that decision is recorded.
+RDR-030 accepted option 1. PLAN-055 closes and PLAN-056 opens the released rCM
+H200 baseline Gate. EXP-046 final identities remain locked.

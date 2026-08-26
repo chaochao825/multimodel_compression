@@ -1,8 +1,10 @@
-# RDR-030: Propose a released few-step H200 baseline after EXP-046
+# RDR-030: Accept a released few-step H200 baseline after EXP-046
 
-- Status: proposed
+- Status: accepted
 - Date: 2026-08-20
-- Decider: researcher
+- Decider: researcher through the explicit request to continue only when the
+  successor has evidence of potential and moves toward the original faithful
+  Wan acceleration objective
 - Supersedes: none
 
 ## Context
@@ -29,18 +31,32 @@ student without that baseline would leave its practical target undefined.
    exact dual-H200 CFG, FP8/BF16 dense attention, and separately validated
    sparse-attention candidates.
 
-## Proposed decision
+## Decision
 
-Accept option 1. The baseline Gate must distinguish NFE reduction from per-step
-acceleration, include text/DiT/VAE timing, VRAM, multi-prompt/multi-seed quality
-and temporal metrics, and make no claim that the student validates EXP-046.
+Accept option 1 and register C-026, L-026, EXP-047, G-026, and PLAN-056. The
+primary candidate is the official unquantized four-step rCM checkpoint for
+Wan2.1-T2V-1.3B. Native 20-step UniPC is the incumbent and the unchanged native
+four-step model is the matched NFE control. TurboDiffusion is literature and
+future system context only because it combines distillation, sparse attention,
+quantization, and custom kernels.
 
-## Consequences if accepted
+The Gate must distinguish NFE reduction from per-step acceleration, include
+text/DiT/VAE timing, VRAM, multi-prompt/multi-seed quality and temporal metrics,
+and make no claim that the student validates EXP-046. Paired SSIM/PSNR are
+diagnostic because a distilled generator need not preserve the teacher's
+sample-wise trajectory; semantic, temporal, and diversity metrics decide the
+quality guard.
 
-- A new candidate, claim, protocol, and bounded H200 Gate may be registered.
+## Consequences
+
+- L-026 becomes the sole active mainline and EXP-047 becomes the sole active
+  experiment Gate.
 - EXP-046 final identities remain locked and are not reused automatically.
 - No training-native state work begins until the released baseline is measured
   or a later accepted decision supersedes this ordering.
+- The official repository and checkpoint are pinned before the first scientific
+  output. A one-prompt integration smoke may repair engineering issues but may
+  not alter the formal prompts, seeds, methods, thresholds, or metrics.
 
 ## Revisit condition
 
