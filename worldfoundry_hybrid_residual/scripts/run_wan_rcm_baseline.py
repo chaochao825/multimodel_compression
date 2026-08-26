@@ -190,6 +190,16 @@ def verify_checkpoint(config: dict[str, Any], method: str) -> tuple[Path, str]:
     return path, actual
 
 
+def configure_offline_model_cache(config: dict[str, Any]) -> Path:
+    cache = Path(config["remote"]["hf_home"]).resolve()
+    if not cache.is_dir():
+        raise FileNotFoundError(f"offline Hugging Face cache does not exist: {cache}")
+    os.environ["HF_HOME"] = str(cache)
+    os.environ["HF_HUB_OFFLINE"] = "1"
+    os.environ["TRANSFORMERS_OFFLINE"] = "1"
+    return cache
+
+
 def import_runtime(config: dict[str, Any]) -> dict[str, Any]:
     source_root = config["remote"]["rcm_root"]
     if source_root not in sys.path:
@@ -484,6 +494,8 @@ def main() -> None:
         path=str(checkpoint_path),
         sha256=checkpoint_sha256,
     )
+    offline_cache = configure_offline_model_cache(config)
+    log.emit("offline_model_cache_configured", path=str(offline_cache))
     runtime = import_runtime(config)
     torch = runtime["torch"]
     if not torch.cuda.is_available():

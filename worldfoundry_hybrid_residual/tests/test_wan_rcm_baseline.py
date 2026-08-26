@@ -5,6 +5,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
@@ -92,6 +93,17 @@ class WanRcmBaselineTest(unittest.TestCase):
             config["source"]["checkpoint_sha256"] = "0" * 64
             with self.assertRaisesRegex(RuntimeError, "checkpoint mismatch"):
                 baseline.verify_checkpoint(config, "rcm4")
+
+    def test_offline_model_cache_is_explicit(self) -> None:
+        config = json.loads(json.dumps(self.config))
+        with tempfile.TemporaryDirectory() as directory:
+            config["remote"]["hf_home"] = directory
+            with patch.dict(baseline.os.environ):
+                cache = baseline.configure_offline_model_cache(config)
+                self.assertEqual(cache, Path(directory).resolve())
+                self.assertEqual(baseline.os.environ["HF_HOME"], str(cache))
+                self.assertEqual(baseline.os.environ["HF_HUB_OFFLINE"], "1")
+                self.assertEqual(baseline.os.environ["TRANSFORMERS_OFFLINE"], "1")
 
     def test_config_identity_rejects_wrong_gate(self) -> None:
         bad = json.loads(json.dumps(self.config))

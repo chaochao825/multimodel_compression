@@ -11,6 +11,7 @@
   "remote": {
     "root": "/opt/data/wangmeiqi/rcm_exp047_20260826",
     "rcm_root": "/opt/data/wangmeiqi/rcm_exp047_20260826/rcm",
+    "hf_home": "/opt/data/wangmeiqi/rcm_exp047_20260826/hf_home",
     "checkpoint": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
     "teacher_model": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
     "vae": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
