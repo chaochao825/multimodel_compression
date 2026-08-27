@@ -1,0 +1,5 @@
+{"event":"run_start","run_id":"EXP-048-calibration","sample_indices":[0],"split":"calibration","time_unix":1787806237.2581449}
+{"count":1,"event":"prompts_encoded","run_id":"EXP-048-calibration","time_unix":1787806274.6655056}
+{"event":"networks_loaded","run_id":"EXP-048-calibration","time_unix":1787806279.2489178}
+{"event":"sample_complete","run_id":"EXP-048-calibration","sample_id":"cal00_glassblower","time_unix":1787806288.391156}
+{"event":"run_complete","metric_rows":0,"run_id":"EXP-048-calibration","time_unix":1787806288.8235333}

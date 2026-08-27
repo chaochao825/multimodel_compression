@@ -1,0 +1,8 @@
+{"event":"run_start","run_id":"EXP-048-calibration","sample_indices":[0,1,2,3],"split":"calibration","time_unix":1787806349.224827}
+{"count":4,"event":"prompts_encoded","run_id":"EXP-048-calibration","time_unix":1787806380.2821226}
+{"event":"networks_loaded","run_id":"EXP-048-calibration","time_unix":1787806385.8607438}
+{"event":"sample_complete","run_id":"EXP-048-calibration","sample_id":"cal00_glassblower","time_unix":1787806392.644784}
+{"event":"sample_complete","run_id":"EXP-048-calibration","sample_id":"cal01_fox_snow","time_unix":1787806399.9113746}
+{"event":"sample_complete","run_id":"EXP-048-calibration","sample_id":"cal02_train_bridge","time_unix":1787806407.60859}
+{"event":"sample_complete","run_id":"EXP-048-calibration","sample_id":"cal03_ink_water","time_unix":1787806417.2220528}
+{"event":"run_complete","metric_rows":0,"run_id":"EXP-048-calibration","time_unix":1787806418.6784248}

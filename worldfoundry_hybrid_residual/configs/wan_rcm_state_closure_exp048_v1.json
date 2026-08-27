@@ -1,0 +1,125 @@
+{
+  "experiment_id": "EXP-048",
+  "gate_id": "G-027",
+  "models": ["teacher", "rcm"],
+  "trajectories": ["native4", "rcm4"],
+  "source": {
+    "repository": "https://github.com/NVlabs/rcm.git",
+    "commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+    "teacher_checkpoint_sha256": "96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f",
+    "rcm_checkpoint_sha256": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a"
+  },
+  "remote": {
+    "root": "/opt/data/wangmeiqi/rcm_closure_exp048",
+    "rcm_root": "/opt/data/wangmeiqi/rcm_exp047_20260826/rcm",
+    "teacher_checkpoint": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+    "rcm_checkpoint": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "text_encoder": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth",
+    "tokenizer": "/opt/data/wangmeiqi/rcm_exp047_20260826/tokenizers/umt5-xxl"
+  },
+  "generation": {
+    "model_size": "1.3B",
+    "num_frames": 17,
+    "latent_shape": [16, 5, 60, 104],
+    "text_length": 512
+  },
+  "methods": {
+    "native4": {
+      "num_steps": 4,
+      "guidance_scale": 5.0,
+      "timestep_shift": 8.0
+    },
+    "rcm4": {
+      "num_steps": 4,
+      "sigma_max": 80.0,
+      "middle_sigmas": [1.5, 1.4, 1.0]
+    }
+  },
+  "capture": {
+    "blocks": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+    "calibration_sampled_tokens": 256
+  },
+  "state": {
+    "ranks": [16, 32, 64],
+    "fit": {
+      "oversampling": 16,
+      "power_iterations": 2,
+      "ridge": 1e-6,
+      "seed": 2026082703
+    }
+  },
+  "splits": {
+    "calibration": [0, 1, 2, 3],
+    "selection": [4, 5, 6, 7]
+  },
+  "identities": [
+    {
+      "index": 0,
+      "id": "cal00_glassblower",
+      "split": "calibration",
+      "seed": 2026082801,
+      "prompt": "A glassblower slowly rotates a glowing vessel while a fixed camera observes sparks and reflections in a dark workshop."
+    },
+    {
+      "index": 1,
+      "id": "cal01_fox_snow",
+      "split": "calibration",
+      "seed": 2026082802,
+      "prompt": "A red fox crosses a snowy clearing from left to right as loose snow falls from pine branches."
+    },
+    {
+      "index": 2,
+      "id": "cal02_train_bridge",
+      "split": "calibration",
+      "seed": 2026082803,
+      "prompt": "An old green train travels across a stone bridge while the camera pans gently to follow it."
+    },
+    {
+      "index": 3,
+      "id": "cal03_ink_water",
+      "split": "calibration",
+      "seed": 2026082804,
+      "prompt": "Blue and gold ink plumes mix in clear water, forming detailed curls under soft studio lighting."
+    },
+    {
+      "index": 4,
+      "id": "sel00_potter",
+      "split": "selection",
+      "seed": 2026082805,
+      "prompt": "A potter shapes a tall clay vase on a spinning wheel while the camera remains close to the hands."
+    },
+    {
+      "index": 5,
+      "id": "sel01_dog_beach",
+      "split": "selection",
+      "seed": 2026082806,
+      "prompt": "A small dog runs along a windy beach and leaps over a shallow stream as waves move in the background."
+    },
+    {
+      "index": 6,
+      "id": "sel02_market_dolly",
+      "split": "selection",
+      "seed": 2026082807,
+      "prompt": "The camera dollies through a colorful night market as vendors gesture and hanging lanterns sway."
+    },
+    {
+      "index": 7,
+      "id": "sel03_honey",
+      "split": "selection",
+      "seed": 2026082808,
+      "prompt": "A ribbon of honey pours onto stacked pancakes in a macro shot, creating glossy folds and tiny bubbles."
+    }
+  ],
+  "gate": {
+    "maximum_capacity_aggregate": 0.005,
+    "maximum_capacity_worst": 0.01,
+    "maximum_h1_aggregate": 0.01,
+    "maximum_h1_worst": 0.02,
+    "minimum_passing_layers": 6,
+    "minimum_weight_improvement": 1.25,
+    "maximum_open_loop_aggregate": 0.02,
+    "maximum_open_loop_worst": 0.04,
+    "maximum_history_advantage": 1.10,
+    "maximum_shared_basis_penalty": 1.25
+  }
+}

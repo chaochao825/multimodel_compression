@@ -64,6 +64,23 @@ class WanRcmBaselineTest(unittest.TestCase):
         cleaned = baseline.remove_rcm_training_metadata(state)
         self.assertEqual(cleaned, {"blocks.0.weight": 9})
 
+    def test_partial_rcm_training_metadata_is_accepted(self) -> None:
+        state = {
+            baseline.RCM_TRAINING_METADATA_KEYS[1]: 1,
+            "blocks.0.weight": 9,
+        }
+        cleaned = baseline.remove_rcm_training_metadata(state)
+        self.assertEqual(cleaned, {"blocks.0.weight": 9})
+
+    def test_prefixed_rcm_training_metadata_is_removed_after_normalization(self) -> None:
+        state = {
+            f"net.{baseline.RCM_TRAINING_METADATA_KEYS[0]}": 1,
+            "net.blocks.0.weight": 9,
+        }
+        normalized = baseline.normalize_state_dict_keys(state)
+        cleaned = baseline.remove_rcm_training_metadata(normalized)
+        self.assertEqual(cleaned, {"blocks.0.weight": 9})
+
     def test_timing_summary_uses_median(self) -> None:
         fields = (
             "text_seconds",

@@ -1,0 +1,356 @@
+{
+  "experiment_id": "EXP-048",
+  "gate": {
+    "capacity_pass_layers": [],
+    "h1_pass_layers": [],
+    "history_pass": true,
+    "joint_capacity_h1_layers": [],
+    "outcome": "null/adverse",
+    "shared_basis_pass": true,
+    "stability_pass": false,
+    "weight_pass_layers": []
+  },
+  "gate_id": "G-027",
+  "mechanism_sweep": [
+    {
+      "captured_residual_energy": 0.9203138387760065,
+      "input_trajectory": "native4",
+      "method": "capacity",
+      "model": "teacher",
+      "output_relative_l2": 0.13177437779863607,
+      "rank": 16,
+      "residual_relative_l2": 0.28228737347602617,
+      "residual_to_output_scale": 0.46680932333598435,
+      "rows": 120,
+      "worst_output_relative_l2": 0.18514117635088764
+    },
+    {
+      "captured_residual_energy": 0.7941627909949356,
+      "input_trajectory": "native4",
+      "method": "drift",
+      "model": "teacher",
+      "output_relative_l2": 0.21178805584206506,
+      "rank": 16,
+      "residual_relative_l2": 0.45369285756452504,
+      "residual_to_output_scale": 0.46680932333598435,
+      "rows": 120,
+      "worst_output_relative_l2": 0.5756512397890645
+    },
+    {
+      "captured_residual_energy": 0.934760415495013,
+      "input_trajectory": "native4",
+      "method": "capacity",
+      "model": "teacher",
+      "output_relative_l2": 0.11923262753418268,
+      "rank": 32,
+      "residual_relative_l2": 0.2554204073776937,
+      "residual_to_output_scale": 0.46680932333598435,
+      "rows": 120,
+      "worst_output_relative_l2": 0.17379113571539095
+    },
+    {
+      "captured_residual_energy": 0.8015792617125217,
+      "input_trajectory": "native4",
+      "method": "drift",
+      "model": "teacher",
+      "output_relative_l2": 0.20793761194051244,
+      "rank": 32,
+      "residual_relative_l2": 0.4454444278330107,
+      "residual_to_output_scale": 0.46680932333598435,
+      "rows": 120,
+      "worst_output_relative_l2": 0.5753366239045514
+    },
+    {
+      "captured_residual_energy": 0.9472550437443985,
+      "input_trajectory": "native4",
+      "method": "capacity",
+      "model": "teacher",
+      "output_relative_l2": 0.10720869007471766,
+      "rank": 64,
+      "residual_relative_l2": 0.2296627010543973,
+      "residual_to_output_scale": 0.46680932333598435,
+      "rows": 120,
+      "worst_output_relative_l2": 0.16035555257718234
+    },
+    {
+      "captured_residual_energy": 0.8076597631071208,
+      "input_trajectory": "native4",
+      "method": "drift",
+      "model": "teacher",
+      "output_relative_l2": 0.20472675120385192,
+      "rank": 64,
+      "residual_relative_l2": 0.4385661146199956,
+      "residual_to_output_scale": 0.46680932333598435,
+      "rows": 120,
+      "worst_output_relative_l2": 0.5752237954375126
+    },
+    {
+      "captured_residual_energy": 0.8857667412976211,
+      "input_trajectory": "rcm4",
+      "method": "capacity",
+      "model": "teacher",
+      "output_relative_l2": 0.1589599253427159,
+      "rank": 16,
+      "residual_relative_l2": 0.3379841101329749,
+      "residual_to_output_scale": 0.4703177474236154,
+      "rows": 120,
+      "worst_output_relative_l2": 0.3219781230298775
+    },
+    {
+      "captured_residual_energy": 0.7477289186968084,
+      "input_trajectory": "rcm4",
+      "method": "drift",
+      "model": "teacher",
+      "output_relative_l2": 0.23622458870108345,
+      "rank": 16,
+      "residual_relative_l2": 0.502265946788344,
+      "residual_to_output_scale": 0.4703177474236154,
+      "rows": 120,
+      "worst_output_relative_l2": 0.6130888910814635
+    },
+    {
+      "captured_residual_energy": 0.9044769929825142,
+      "input_trajectory": "rcm4",
+      "method": "capacity",
+      "model": "teacher",
+      "output_relative_l2": 0.14536014912109116,
+      "rank": 32,
+      "residual_relative_l2": 0.3090679650456933,
+      "residual_to_output_scale": 0.4703177474236154,
+      "rows": 120,
+      "worst_output_relative_l2": 0.2975995628811323
+    },
+    {
+      "captured_residual_energy": 0.7571583601157367,
+      "input_trajectory": "rcm4",
+      "method": "drift",
+      "model": "teacher",
+      "output_relative_l2": 0.23176771849343492,
+      "rank": 32,
+      "residual_relative_l2": 0.49278965074792647,
+      "residual_to_output_scale": 0.4703177474236154,
+      "rows": 120,
+      "worst_output_relative_l2": 0.6127621389670381
+    },
+    {
+      "captured_residual_energy": 0.9240959848006521,
+      "input_trajectory": "rcm4",
+      "method": "capacity",
+      "model": "teacher",
+      "output_relative_l2": 0.12957575324118573,
+      "rank": 64,
+      "residual_relative_l2": 0.27550683330790154,
+      "residual_to_output_scale": 0.4703177474236154,
+      "rows": 120,
+      "worst_output_relative_l2": 0.2631657612790792
+    },
+    {
+      "captured_residual_energy": 0.7637888385121484,
+      "input_trajectory": "rcm4",
+      "method": "drift",
+      "model": "teacher",
+      "output_relative_l2": 0.22858176125856325,
+      "rank": 64,
+      "residual_relative_l2": 0.48601559798822463,
+      "residual_to_output_scale": 0.4703177474236154,
+      "rows": 120,
+      "worst_output_relative_l2": 0.6124879624614602
+    },
+    {
+      "captured_residual_energy": 0.7777801668416746,
+      "input_trajectory": "native4",
+      "method": "capacity",
+      "model": "rcm",
+      "output_relative_l2": 0.2610905885786126,
+      "rank": 16,
+      "residual_relative_l2": 0.4714019867992978,
+      "residual_to_output_scale": 0.5538597542860453,
+      "rows": 120,
+      "worst_output_relative_l2": 0.4316514616450275
+    },
+    {
+      "captured_residual_energy": 0.6608428785305489,
+      "input_trajectory": "native4",
+      "method": "drift",
+      "model": "rcm",
+      "output_relative_l2": 0.32255240097569154,
+      "rank": 16,
+      "residual_relative_l2": 0.5823719786094202,
+      "residual_to_output_scale": 0.5538597542860453,
+      "rows": 120,
+      "worst_output_relative_l2": 0.609455345920084
+    },
+    {
+      "captured_residual_energy": 0.8040742962590851,
+      "input_trajectory": "native4",
+      "method": "capacity",
+      "model": "rcm",
+      "output_relative_l2": 0.24515768763560478,
+      "rank": 32,
+      "residual_relative_l2": 0.4426349553988195,
+      "residual_to_output_scale": 0.5538597542860453,
+      "rows": 120,
+      "worst_output_relative_l2": 0.4108980914132878
+    },
+    {
+      "captured_residual_energy": 0.6667673113026483,
+      "input_trajectory": "native4",
+      "method": "drift",
+      "model": "rcm",
+      "output_relative_l2": 0.3197227997201944,
+      "rank": 32,
+      "residual_relative_l2": 0.5772631017979165,
+      "residual_to_output_scale": 0.5538597542860453,
+      "rows": 120,
+      "worst_output_relative_l2": 0.607124676081358
+    },
+    {
+      "captured_residual_energy": 0.8339560973660418,
+      "input_trajectory": "native4",
+      "method": "capacity",
+      "model": "rcm",
+      "output_relative_l2": 0.2256894586614378,
+      "rank": 64,
+      "residual_relative_l2": 0.4074848495759789,
+      "residual_to_output_scale": 0.5538597542860453,
+      "rows": 120,
+      "worst_output_relative_l2": 0.3827631574548385
+    },
+    {
+      "captured_residual_energy": 0.6713316484627696,
+      "input_trajectory": "native4",
+      "method": "drift",
+      "model": "rcm",
+      "output_relative_l2": 0.317525604841459,
+      "rank": 64,
+      "residual_relative_l2": 0.5732960417944907,
+      "residual_to_output_scale": 0.5538597542860453,
+      "rows": 120,
+      "worst_output_relative_l2": 0.6046195514341883
+    },
+    {
+      "captured_residual_energy": 0.7620050411675763,
+      "input_trajectory": "rcm4",
+      "method": "capacity",
+      "model": "rcm",
+      "output_relative_l2": 0.26288325308034205,
+      "rank": 16,
+      "residual_relative_l2": 0.4878472699856214,
+      "residual_to_output_scale": 0.5388638396768934,
+      "rows": 120,
+      "worst_output_relative_l2": 0.39147890581826017
+    },
+    {
+      "captured_residual_energy": 0.6519325002298694,
+      "input_trajectory": "rcm4",
+      "method": "drift",
+      "model": "rcm",
+      "output_relative_l2": 0.31791482336915083,
+      "rank": 16,
+      "residual_relative_l2": 0.5899724567894086,
+      "residual_to_output_scale": 0.5388638396768934,
+      "rows": 120,
+      "worst_output_relative_l2": 0.5748545905295397
+    },
+    {
+      "captured_residual_energy": 0.7924127233652243,
+      "input_trajectory": "rcm4",
+      "method": "capacity",
+      "model": "rcm",
+      "output_relative_l2": 0.24551577792759652,
+      "rank": 32,
+      "residual_relative_l2": 0.4556174674381742,
+      "residual_to_output_scale": 0.5388638396768934,
+      "rows": 120,
+      "worst_output_relative_l2": 0.36394350895443817
+    },
+    {
+      "captured_residual_energy": 0.6637443954855153,
+      "input_trajectory": "rcm4",
+      "method": "drift",
+      "model": "rcm",
+      "output_relative_l2": 0.3124739426529101,
+      "rank": 32,
+      "residual_relative_l2": 0.5798755077725604,
+      "residual_to_output_scale": 0.5388638396768934,
+      "rows": 120,
+      "worst_output_relative_l2": 0.5737018865610366
+    },
+    {
+      "captured_residual_energy": 0.8262729974718124,
+      "input_trajectory": "rcm4",
+      "method": "capacity",
+      "model": "rcm",
+      "output_relative_l2": 0.2246015269961357,
+      "rank": 64,
+      "residual_relative_l2": 0.4168057131664436,
+      "residual_to_output_scale": 0.5388638396768934,
+      "rows": 120,
+      "worst_output_relative_l2": 0.3302971753135433
+    },
+    {
+      "captured_residual_energy": 0.6723890567485669,
+      "input_trajectory": "rcm4",
+      "method": "drift",
+      "model": "rcm",
+      "output_relative_l2": 0.3084311558719757,
+      "rank": 64,
+      "residual_relative_l2": 0.5723730804741198,
+      "residual_to_output_scale": 0.5388638396768934,
+      "rows": 120,
+      "worst_output_relative_l2": 0.5727812606497641
+    }
+  ],
+  "pooled": {
+    "h2": {
+      "aggregate": 0.330961716556579,
+      "rows": 80,
+      "worst": 0.5404701818238066
+    },
+    "h3": {
+      "aggregate": 0.3573436509692751,
+      "rows": 40,
+      "worst": 0.5688395478830927
+    },
+    "shared_basis_penalty": 0.0004865718677176112,
+    "two_lag_advantage": 0.0013686021974574913
+  },
+  "rank_sweep": [
+    {
+      "aggregate": 0.26288325308034205,
+      "method": "capacity",
+      "rank": 16,
+      "worst": 0.39147890581826017
+    },
+    {
+      "aggregate": 0.31791482336915083,
+      "method": "drift",
+      "rank": 16,
+      "worst": 0.5748545905295397
+    },
+    {
+      "aggregate": 0.24551577792759652,
+      "method": "capacity",
+      "rank": 32,
+      "worst": 0.36394350895443817
+    },
+    {
+      "aggregate": 0.3124739426529101,
+      "method": "drift",
+      "rank": 32,
+      "worst": 0.5737018865610366
+    },
+    {
+      "aggregate": 0.2246015269961357,
+      "method": "capacity",
+      "rank": 64,
+      "worst": 0.3302971753135433
+    },
+    {
+      "aggregate": 0.3084311558719757,
+      "method": "drift",
+      "rank": 64,
+      "worst": 0.5727812606497641
+    }
+  ]
+}

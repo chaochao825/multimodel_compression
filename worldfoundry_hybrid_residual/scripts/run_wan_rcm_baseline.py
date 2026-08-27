@@ -156,7 +156,8 @@ def normalize_state_dict_keys(state_dict: dict[str, Any]) -> dict[str, Any]:
 
 def remove_rcm_training_metadata(state_dict: dict[str, Any]) -> dict[str, Any]:
     for key in RCM_TRAINING_METADATA_KEYS:
-        del state_dict[key]
+        if key in state_dict:
+            del state_dict[key]
     return state_dict
 
 

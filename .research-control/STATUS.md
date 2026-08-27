@@ -1,6 +1,6 @@
 # Research status
 
-Updated: 2026-08-26
+Updated: 2026-08-27
 
 ## Current decision surface
 
@@ -10,12 +10,27 @@ Updated: 2026-08-26
   quality/latency baseline.
 - Mainline: L-026 is active under accepted RDR-030; L-025 remains parked.
 - Active plan: PLAN-056. EXP-047 / G-026 are active; PLAN-055 is complete.
+- PLAN-057 / EXP-048 / G-027 are complete with a valid `null/adverse` result.
+  L-027 is parked, C-027 is refuted, and no side probe remains active. EXP-047
+  remains the unchanged sole mainline.
 - L-024 remains parked; no additional rank, shift, router, rollout, or kernel
   work is authorized inside EXP-045.
 - Locked data: the EXP-046 final four identities remain unopened and cannot be
   repurposed without a new accepted protocol.
 
 ## Latest belief-changing evidence
+
+- EXP-048 completed the frozen 2x2 teacher/rCM weight by native4/rCM4 trajectory
+  cross over four calibration and four untouched selection F17 identities.
+- rCM/rCM4 rank-64 capacity and H1 output L2 were 22.460% and 30.843%, with
+  0/10 layers passing both absolute gates. H2/H3 rose to 33.096%/35.734%.
+- At fixed native4 and rCM4 inputs, rCM weights worsened H1 by 55.10% and
+  34.93%; no layer improved at least 25% on both trajectories. The rCM4
+  on-policy trajectory compensated only 2.86% of rCM H1 error.
+- Two-lag history improved only 0.137% and a globally shared basis changed H1
+  by only 0.049%. The null is therefore not explained by one missing lag or a
+  simple teacher/rCM hidden gauge. Ordinary few-step distillation did not
+  create the registered low-rate internal closure.
 
 - EXP-046 completed four fresh selection identities with 2,880 finite rows.
   Target-visible rank 64 reached 4.833% aggregate and 11.093% worst
@@ -65,7 +80,8 @@ training, or trainable sparse attention.
 
 Fixed BCM/BCCB/Butterfly attention, local finite-jump width/rank growth,
 post-hoc whole-block rank-state growth, and rollout/kernel work for
-L-022/L-023/L-024/L-025 remain closed.
+L-022/L-023/L-024/L-025/L-027 remain closed. Released-rCM deployment evidence
+continues only through L-026/EXP-047.
 
 ## Active Gate
 

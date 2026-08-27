@@ -1,0 +1,216 @@
+{
+  "basis_diagnostics": {
+    "model_specific": {
+      "rcm": {
+        "20": {
+          "captured_energy_ratio": 0.7874475309092147,
+          "channels": 1536.0,
+          "orthogonality_error": 2.0205974578857422e-05,
+          "rows": 8192.0
+        },
+        "21": {
+          "captured_energy_ratio": 0.9275234879514664,
+          "channels": 1536.0,
+          "orthogonality_error": 2.1457672119140625e-05,
+          "rows": 8192.0
+        },
+        "22": {
+          "captured_energy_ratio": 0.7062973778803671,
+          "channels": 1536.0,
+          "orthogonality_error": 5.65648078918457e-05,
+          "rows": 8192.0
+        },
+        "23": {
+          "captured_energy_ratio": 0.7375029952975826,
+          "channels": 1536.0,
+          "orthogonality_error": 2.104043960571289e-05,
+          "rows": 8192.0
+        },
+        "24": {
+          "captured_energy_ratio": 0.8524676500006185,
+          "channels": 1536.0,
+          "orthogonality_error": 2.1696090698242188e-05,
+          "rows": 8192.0
+        },
+        "25": {
+          "captured_energy_ratio": 0.8061322971501846,
+          "channels": 1536.0,
+          "orthogonality_error": 2.3663043975830078e-05,
+          "rows": 8192.0
+        },
+        "26": {
+          "captured_energy_ratio": 0.7121051421788938,
+          "channels": 1536.0,
+          "orthogonality_error": 2.6702880859375e-05,
+          "rows": 8192.0
+        },
+        "27": {
+          "captured_energy_ratio": 0.7701272897905742,
+          "channels": 1536.0,
+          "orthogonality_error": 2.288818359375e-05,
+          "rows": 8192.0
+        },
+        "28": {
+          "captured_energy_ratio": 0.7400577340326104,
+          "channels": 1536.0,
+          "orthogonality_error": 2.4139881134033203e-05,
+          "rows": 8192.0
+        },
+        "29": {
+          "captured_energy_ratio": 0.9787910605410112,
+          "channels": 1536.0,
+          "orthogonality_error": 2.2709369659423828e-05,
+          "rows": 8192.0
+        }
+      },
+      "teacher": {
+        "20": {
+          "captured_energy_ratio": 0.8574765392454524,
+          "channels": 1536.0,
+          "orthogonality_error": 1.4901161193847656e-05,
+          "rows": 8192.0
+        },
+        "21": {
+          "captured_energy_ratio": 0.9850567454706278,
+          "channels": 1536.0,
+          "orthogonality_error": 2.1338462829589844e-05,
+          "rows": 8192.0
+        },
+        "22": {
+          "captured_energy_ratio": 0.8691388310502338,
+          "channels": 1536.0,
+          "orthogonality_error": 2.5212764739990234e-05,
+          "rows": 8192.0
+        },
+        "23": {
+          "captured_energy_ratio": 0.8873365468552707,
+          "channels": 1536.0,
+          "orthogonality_error": 1.913309097290039e-05,
+          "rows": 8192.0
+        },
+        "24": {
+          "captured_energy_ratio": 0.959605885812213,
+          "channels": 1536.0,
+          "orthogonality_error": 1.5676021575927734e-05,
+          "rows": 8192.0
+        },
+        "25": {
+          "captured_energy_ratio": 0.9594530263595338,
+          "channels": 1536.0,
+          "orthogonality_error": 1.9431114196777344e-05,
+          "rows": 8192.0
+        },
+        "26": {
+          "captured_energy_ratio": 0.9150404728336605,
+          "channels": 1536.0,
+          "orthogonality_error": 1.7523765563964844e-05,
+          "rows": 8192.0
+        },
+        "27": {
+          "captured_energy_ratio": 0.9488600600517813,
+          "channels": 1536.0,
+          "orthogonality_error": 1.7881393432617188e-05,
+          "rows": 8192.0
+        },
+        "28": {
+          "captured_energy_ratio": 0.938646818024469,
+          "channels": 1536.0,
+          "orthogonality_error": 1.811981201171875e-05,
+          "rows": 8192.0
+        },
+        "29": {
+          "captured_energy_ratio": 0.9953939135792187,
+          "channels": 1536.0,
+          "orthogonality_error": 1.424551010131836e-05,
+          "rows": 8192.0
+        }
+      }
+    },
+    "shared": {
+      "20": {
+        "captured_energy_ratio": 0.8024001314609235,
+        "channels": 1536.0,
+        "orthogonality_error": 1.8715858459472656e-05,
+        "rows": 16384.0
+      },
+      "21": {
+        "captured_energy_ratio": 0.9648243278160817,
+        "channels": 1536.0,
+        "orthogonality_error": 1.8358230590820312e-05,
+        "rows": 16384.0
+      },
+      "22": {
+        "captured_energy_ratio": 0.7634675365964532,
+        "channels": 1536.0,
+        "orthogonality_error": 1.6510486602783203e-05,
+        "rows": 16384.0
+      },
+      "23": {
+        "captured_energy_ratio": 0.7898495465952603,
+        "channels": 1536.0,
+        "orthogonality_error": 1.6391277313232422e-05,
+        "rows": 16384.0
+      },
+      "24": {
+        "captured_energy_ratio": 0.9010355492270452,
+        "channels": 1536.0,
+        "orthogonality_error": 1.9729137420654297e-05,
+        "rows": 16384.0
+      },
+      "25": {
+        "captured_energy_ratio": 0.8786383559846237,
+        "channels": 1536.0,
+        "orthogonality_error": 1.6689300537109375e-05,
+        "rows": 16384.0
+      },
+      "26": {
+        "captured_energy_ratio": 0.7683413447274868,
+        "channels": 1536.0,
+        "orthogonality_error": 2.1457672119140625e-05,
+        "rows": 16384.0
+      },
+      "27": {
+        "captured_energy_ratio": 0.8277595588860202,
+        "channels": 1536.0,
+        "orthogonality_error": 1.9431114196777344e-05,
+        "rows": 16384.0
+      },
+      "28": {
+        "captured_energy_ratio": 0.805149769938873,
+        "channels": 1536.0,
+        "orthogonality_error": 2.2113323211669922e-05,
+        "rows": 16384.0
+      },
+      "29": {
+        "captured_energy_ratio": 0.9844146059924312,
+        "channels": 1536.0,
+        "orthogonality_error": 1.6987323760986328e-05,
+        "rows": 16384.0
+      }
+    }
+  },
+  "blocks": [
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "calibration_samples": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "experiment_id": "EXP-048",
+  "ranks": [
+    16,
+    32,
+    64
+  ]
+}

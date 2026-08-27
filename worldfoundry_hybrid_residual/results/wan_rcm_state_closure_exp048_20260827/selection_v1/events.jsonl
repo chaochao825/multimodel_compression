@@ -1,0 +1,8 @@
+{"event":"run_start","run_id":"EXP-048-selection","sample_indices":[4,5,6,7],"split":"selection","time_unix":1787806496.2907293}
+{"count":4,"event":"prompts_encoded","run_id":"EXP-048-selection","time_unix":1787806530.9518054}
+{"event":"networks_loaded","run_id":"EXP-048-selection","time_unix":1787806536.2530184}
+{"event":"sample_complete","run_id":"EXP-048-selection","sample_id":"sel00_potter","time_unix":1787806824.7125847}
+{"event":"sample_complete","run_id":"EXP-048-selection","sample_id":"sel01_dog_beach","time_unix":1787807108.3573384}
+{"event":"sample_complete","run_id":"EXP-048-selection","sample_id":"sel02_market_dolly","time_unix":1787807385.7515013}
+{"event":"sample_complete","run_id":"EXP-048-selection","sample_id":"sel03_honey","time_unix":1787807668.512682}
+{"event":"run_complete","metric_rows":22080,"run_id":"EXP-048-selection","time_unix":1787807668.9464893}

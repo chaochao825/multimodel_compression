@@ -1,0 +1,41 @@
+{
+  "calibration_samples": 4,
+  "elapsed_seconds": 32.78556643379852,
+  "engineering_smoke": false,
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "python": "3.11.14",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-048",
+  "gate_id": "G-027",
+  "gpu": {
+    "compute_capability": [
+      9,
+      0
+    ],
+    "name": "NVIDIA H200 NVL",
+    "total_memory_bytes": 150110011392
+  },
+  "identity": {
+    "rcm_checkpoint_sha256": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+    "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+    "teacher_checkpoint_sha256": "96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f"
+  },
+  "metric_rows": 0,
+  "sample_ids": [
+    "cal00_glassblower",
+    "cal01_fox_snow",
+    "cal02_train_bridge",
+    "cal03_ink_water"
+  ],
+  "sample_indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "split": "calibration",
+  "verify_equivalence": false
+}
