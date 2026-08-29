@@ -1,7 +1,7 @@
 # Reader-Quotient Structured Memory probes
 
 This package contains the bounded LLaVA-v1.5 and LLaVA-OneVision experiments
-completed through 2026-08-29. It keeps protocols, aggregate/per-sample metrics,
+completed through 2026-08-30. It keeps protocols, aggregate/per-sample metrics,
 analysis scripts, reports, and publication figures together without model
 weights, MVBench videos, native feature tensors, or remote runtime logs.
 
@@ -32,6 +32,15 @@ weights, MVBench videos, native feature tensors, or remote runtime logs.
    formal reserve was not run. Residual-swap-r128 reduced mismatches to 4 with
    no harmful flips but did not pass the continuous-risk gates, exposing a
    reader-risk versus feature-energy Pareto split.
+8. A fresh VSI calibration audit then equalized the three covariance budgets,
+   cross-fit reader-risk over three disjoint folds, and evaluated fixed-rank
+   CMRQ candidates. Risk-32 improved mean KL by 25.45% versus pooled PCA and
+   boundary mixing improved it by 29.56%, but static candidates did not jointly
+   dominate continuous and discrete risk. A compressed-margin-zero exact tier
+   removed the only harmful boundary-mix flip with 7/72 fallbacks and retained
+   a conservative 4.46x state-transfer ratio. This is a calibration-only
+   conditional signal; the frozen 60-scene selection and 63-scene formal sets
+   remain untouched.
 
 No result in this package establishes strict strong-reader interchangeability,
 a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
@@ -47,7 +56,7 @@ a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
 - `metadata/`: calibration summaries for the two OneVision PCA bases.
 
 The latest evidence and next-method boundary are summarized in
-`reports/VIDEOMME_ONEVISION_DOMAIN_RESIDUAL_RANK456_20260829.zh-CN.md`.
+`reports/ONEVISION_READER_QUOTIENT_CMRQ_20260830.zh-CN.md`.
 
 The canonical model-side runners and tests live under
 `online_video_state_decomposition/experiments/` in this repository.

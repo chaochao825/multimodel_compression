@@ -1,0 +1,68 @@
+{
+  "cross_domain_full": [
+    {
+      "left": "source",
+      "median_squared_cosine": 0.9647665619850159,
+      "minimum_squared_cosine": 0.00013829479576088488,
+      "overlap": 0.8618164658546448,
+      "replicate": -1,
+      "right": "target",
+      "sample_size": "full"
+    },
+    {
+      "left": "source",
+      "median_squared_cosine": 0.9585098028182983,
+      "minimum_squared_cosine": 9.689977559901308e-06,
+      "overlap": 0.8499259352684021,
+      "replicate": -1,
+      "right": "vsi",
+      "sample_size": "full"
+    },
+    {
+      "left": "target",
+      "median_squared_cosine": 0.9567429423332214,
+      "minimum_squared_cosine": 0.00019785271433647722,
+      "overlap": 0.8503823280334473,
+      "replicate": -1,
+      "right": "vsi",
+      "sample_size": "full"
+    }
+  ],
+  "domain_spectra": [
+    {
+      "absolute_eigengap": 0.00018656253814697266,
+      "domain": "source",
+      "rank": 456,
+      "relative_eigengap": 0.000744284363463521,
+      "rows": 376320,
+      "tail_energy_fraction": 0.024967104196548462,
+      "videos": 120
+    },
+    {
+      "absolute_eigengap": 0.0003122687339782715,
+      "domain": "target",
+      "rank": 456,
+      "relative_eigengap": 0.0008802088559605181,
+      "rows": 376320,
+      "tail_energy_fraction": 0.03642755746841431,
+      "videos": 120
+    },
+    {
+      "absolute_eigengap": 0.0003573596477508545,
+      "domain": "vsi",
+      "rank": 456,
+      "relative_eigengap": 0.001319100265391171,
+      "rows": 376320,
+      "tail_energy_fraction": 0.028179390355944633,
+      "videos": 120
+    }
+  ],
+  "rank": 456,
+  "replicates": 8,
+  "sample_sizes": [
+    20,
+    60,
+    120
+  ],
+  "seed": 20260830
+}

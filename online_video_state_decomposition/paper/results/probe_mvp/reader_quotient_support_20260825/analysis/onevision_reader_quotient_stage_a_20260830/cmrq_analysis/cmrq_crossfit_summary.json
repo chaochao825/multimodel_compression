@@ -1,0 +1,64 @@
+{
+  "calibration_only": true,
+  "claim_boundary": "No formal generalization, task-accuracy, reader-compute, or latency claim.",
+  "compressed_state_bytes": 2860032,
+  "decision": "calibration_conditional_go_to_fresh_selection",
+  "dense_state_bytes": 22478848,
+  "progressive_margin_zero": {
+    "boundary_mix_w0p3": {
+      "conservative_transfer_ratio": 4.45524861878453,
+      "effective_candidate_kl_mean": 0.0012818180904206303,
+      "effective_candidate_kl_p95": 0.0032183318398892897,
+      "effective_feature_l2_mean": 0.13582690784500706,
+      "fallback_count": 7,
+      "fallback_rate": 0.09722222222222222,
+      "ideal_preroute_transfer_ratio": 4.715100131559713,
+      "margin_threshold": 0.0,
+      "method": "cmrq_mix_g32_w0p3_r456",
+      "remaining_harmful_count": 0,
+      "remaining_mismatch_count": 1,
+      "sample_count": 72
+    },
+    "hard_risk32": {
+      "conservative_transfer_ratio": 4.195629552549428,
+      "effective_candidate_kl_mean": 0.0013598511270376751,
+      "effective_candidate_kl_p95": 0.005186342308297759,
+      "effective_feature_l2_mean": 0.13378802148832214,
+      "fallback_count": 8,
+      "fallback_rate": 0.1111111111111111,
+      "ideal_preroute_transfer_ratio": 4.460176991150443,
+      "margin_threshold": 0.0,
+      "method": "cmrq_risk_atoms32_r456",
+      "remaining_harmful_count": 0,
+      "remaining_mismatch_count": 1,
+      "sample_count": 72
+    }
+  },
+  "rank": 456,
+  "sample_count": 72,
+  "selection_or_formal_used": false,
+  "static": {
+    "boundary_mix_w0p3": {
+      "agreement": 0.9722222222222222,
+      "beneficial_count": 0,
+      "candidate_kl_mean": 0.0014143298354206814,
+      "candidate_kl_p95": 0.0032183318398892897,
+      "feature_relative_l2_mean": 0.1504650724430879,
+      "harmful_count": 1,
+      "method": "cmrq_mix_g32_w0p3_r456",
+      "mismatch_count": 2,
+      "sample_count": 72
+    },
+    "hard_risk32": {
+      "agreement": 0.9861111111111112,
+      "beneficial_count": 0,
+      "candidate_kl_mean": 0.001496860836697225,
+      "candidate_kl_p95": 0.005186342308297759,
+      "feature_relative_l2_mean": 0.15047050764163336,
+      "harmful_count": 0,
+      "method": "cmrq_risk_atoms32_r456",
+      "mismatch_count": 1,
+      "sample_count": 72
+    }
+  }
+}

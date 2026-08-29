@@ -1,0 +1,67 @@
+{
+  "elapsed_seconds": 34.84843811998144,
+  "feature_risk_commutator_ratio": 0.09015148878097534,
+  "linearity": {
+    "source_pca_r456": {
+      "all": {
+        "adverse_sign_agreement": 0.695652186870575,
+        "flip_agreement": 0.9710144996643066,
+        "pearson": 0.687423586845398,
+        "relative_l2": 0.7809778451919556
+      },
+      "low_margin_quartile": {
+        "adverse_sign_agreement": 0.699999988079071,
+        "flip_agreement": 0.8999999761581421,
+        "pearson": 0.7293932437896729,
+        "relative_l2": 0.7305659055709839
+      }
+    },
+    "vsi_pca_r456": {
+      "all": {
+        "adverse_sign_agreement": 0.7536231875419617,
+        "flip_agreement": 0.9710144996643066,
+        "pearson": 0.6461390852928162,
+        "relative_l2": 0.8560405373573303
+      },
+      "low_margin_quartile": {
+        "adverse_sign_agreement": 0.800000011920929,
+        "flip_agreement": 0.8999999761581421,
+        "pearson": 0.7368518710136414,
+        "relative_l2": 0.7554418444633484
+      }
+    }
+  },
+  "margin_floor": 0.05,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "rank": 456,
+  "risk_tail_energy_fraction": 0.06230917572975159,
+  "role": "calibration_only",
+  "sample_count": 24,
+  "sample_ids": [
+    "vsi_question_5012",
+    "vsi_question_1036",
+    "vsi_question_1007",
+    "vsi_question_3636",
+    "vsi_question_1031",
+    "vsi_question_2976",
+    "vsi_question_1837",
+    "vsi_question_5100",
+    "vsi_question_3138",
+    "vsi_question_5045",
+    "vsi_question_2167",
+    "vsi_question_4961",
+    "vsi_question_1062",
+    "vsi_question_2066",
+    "vsi_question_3061",
+    "vsi_question_3607",
+    "vsi_question_5027",
+    "vsi_question_1326",
+    "vsi_question_5026",
+    "vsi_question_969",
+    "vsi_question_1967",
+    "vsi_question_3021",
+    "vsi_question_1420",
+    "vsi_question_5031"
+  ],
+  "sample_offset": 48
+}

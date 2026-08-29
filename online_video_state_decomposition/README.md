@@ -109,6 +109,17 @@ the
 and the
 [complete evidence synthesis](paper/results/probe_mvp/reader_quotient_support_20260825/reports/UNDERSTANDING_STRUCTURED_STATE_TRANSFER_SYNTHESIS_20260825.zh-CN.md).
 
+A fresh equal-budget VSI calibration audit now separates feature energy,
+reader-risk, and decision-margin effects. At fixed rank 456, a 32-atom
+reader-risk boundary lowered cross-fit mean KL by 25.45% versus pooled PCA;
+a coupled boundary mix lowered it by 29.56% but retained one harmful static
+flip. Using the compressed reader's own zero top-1 margin as an exact-state
+trigger removed that harmful event with 7/72 fallbacks and a conservative
+4.46x state-transfer ratio. This is a calibration-only conditional result:
+the frozen selection/formal sets remain untouched, and there is still no
+reader-compute or latency claim. See the
+[CMRQ audit](paper/results/probe_mvp/reader_quotient_support_20260825/reports/ONEVISION_READER_QUOTIENT_CMRQ_20260830.zh-CN.md).
+
 ![Accuracy versus retained state](paper/results/probe_mvp/mvbench_independent_replication_300_20260722/aggregate/accuracy_vs_state.png)
 
 ![Native Fisher capacity and static-transfer failure](paper/results/probe_mvp/reader_quotient_support_20260825/figures/reader_quotient_transfer_gap.png)
@@ -120,6 +131,8 @@ and the
 ![OneVision PCA-r456 Video-MME cross-domain replication](paper/results/probe_mvp/reader_quotient_support_20260825/figures/videomme_onevision_pca_replication.png)
 
 ![OneVision same-rank domain-residual gate](paper/results/probe_mvp/reader_quotient_support_20260825/figures/videomme_onevision_domain_residual_rank456.png)
+
+![OneVision three-spectrum and progressive CMRQ audit](paper/results/probe_mvp/reader_quotient_support_20260825/figures/onevision_reader_quotient_cmrq_stage_b.png)
 
 The audited official baseline reproductions are also complete. CausalMem
 scores 206/250 (82.4%) and OASIS 209/250 (83.6%) on the same StreamingBench
