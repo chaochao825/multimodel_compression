@@ -91,3 +91,14 @@ two seeds, F81 generation, component timing, eight VBench dimensions, and
 inter-seed diversity. A valid pass requires at least 3.5x denoiser and 2.5x
 end-to-end speedup while retaining the registered teacher-normalized quality
 and diversity guards. Physical-time long-video transport remains separate.
+
+## EXP-049 Boundary
+
+EXP-049 compared one conditional innovation family at the self-attention, FFN,
+and whole-block boundaries on the exposed EXP-003 split. No target passed the
+local promotion conjunction. At the frozen 1% policy, attention covered 5.926%
+of calls at 1.127%/1.314% deployable error and only a 1.033x zero-renderer
+end-to-end ceiling; FFN covered 1.759%; whole block covered none. The closest
+attention quality point covered only 0.741% of calls. G-028 therefore closed at
+its registered early stop without fresh suffix capture, training, or H200
+timing. EXP-047 remains unchanged.

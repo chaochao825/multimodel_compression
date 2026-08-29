@@ -1,0 +1,43 @@
+{
+  "experiment_id": "EXP-049",
+  "gate_id": "G-028",
+  "scope": "target-separated Wan denoising-time conditional rate-distortion",
+  "screen_source": "EXP-003 exposed sampled-row dense trajectories",
+  "sampling_steps": 20,
+  "frame_num": 81,
+  "blocks": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+  "branches": [0, 1],
+  "target_steps": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+  "targets": ["self_attn", "ffn", "whole_block"],
+  "methods": ["reuse", "ar2", "diagonal", "target_visible_diagonal"],
+  "ridge": 0.0001,
+  "screen_split": {
+    "calibration": ["p00_seed202608100"],
+    "selection": ["p01_seed202608101"],
+    "heldout": ["p02_seed202608102", "p03_seed202608103"]
+  },
+  "screen_policy_threshold": 0.01,
+  "frontier_thresholds": [0.0025, 0.005, 0.0075, 0.01, 0.015, 0.02],
+  "optimistic_target_runtime_share": {
+    "self_attn": 0.5388086760322437,
+    "ffn": 0.1239,
+    "whole_block": 1.0
+  },
+  "screen_gate": {
+    "target_visible_aggregate": 0.005,
+    "target_visible_worst": 0.01,
+    "deployable_aggregate": 0.01,
+    "deployable_worst": 0.02,
+    "minimum_oracle_recovery": 0.70,
+    "minimum_e2e_speedup_ceiling": 1.20
+  },
+  "formal_gate": {
+    "target_visible_suffix_aggregate": 0.005,
+    "target_visible_suffix_worst": 0.01,
+    "deployable_suffix_aggregate": 0.01,
+    "deployable_suffix_worst": 0.02,
+    "minimum_oracle_recovery": 0.70,
+    "maximum_branch_harm_ratio": 1.10,
+    "minimum_measured_e2e_speedup": 1.20
+  }
+}

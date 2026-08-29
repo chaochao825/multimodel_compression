@@ -1,0 +1,77 @@
+{
+  "calibration_ids": [
+    "p00_seed202608100"
+  ],
+  "device": "cuda:0",
+  "experiment_id": "EXP-049",
+  "frontier_row_count": 18,
+  "gate_eligible": false,
+  "heldout_ids": [
+    "p02_seed202608102",
+    "p03_seed202608103"
+  ],
+  "limitation": "EXP-003 sampled-row additive local screen; no suffix intervention or H200 candidate timing",
+  "policy_rows": [
+    {
+      "ar2_risk": 0.01249043060596884,
+      "deployable_risk": 0.011269324449597282,
+      "deployable_worst": 0.013141322641282573,
+      "evidence_scope": "exposed_sampled_rows_local_additive_screen",
+      "local_quality_pass": false,
+      "optimistic_target_runtime_share": 0.5388086760322437,
+      "oracle_gap_recovery": 0.18189656907633395,
+      "screen_pass": false,
+      "selected_cells": 64,
+      "selected_fraction": 0.05925925925925926,
+      "selection_threshold": 0.01,
+      "target": "self_attn",
+      "target_visible_risk": 0.005777241002820726,
+      "target_visible_worst": 0.007212340210483885,
+      "total_cells": 1080,
+      "zero_renderer_e2e_speedup_ceiling": 1.0329825150395813
+    },
+    {
+      "ar2_risk": 0.018810828773806056,
+      "deployable_risk": 0.019010295618761486,
+      "deployable_worst": 0.027189793067284515,
+      "evidence_scope": "exposed_sampled_rows_local_additive_screen",
+      "local_quality_pass": false,
+      "optimistic_target_runtime_share": 0.1239,
+      "oracle_gap_recovery": -0.020181499990024516,
+      "screen_pass": false,
+      "selected_cells": 19,
+      "selected_fraction": 0.017592592592592594,
+      "selection_threshold": 0.01,
+      "target": "ffn",
+      "target_visible_risk": 0.008927180628027742,
+      "target_visible_worst": 0.012495640029832441,
+      "total_cells": 1080,
+      "zero_renderer_e2e_speedup_ceiling": 1.0021844837900835
+    },
+    {
+      "ar2_risk": Infinity,
+      "deployable_risk": Infinity,
+      "deployable_worst": Infinity,
+      "evidence_scope": "exposed_sampled_rows_local_additive_screen",
+      "local_quality_pass": false,
+      "optimistic_target_runtime_share": 1.0,
+      "oracle_gap_recovery": NaN,
+      "screen_pass": false,
+      "selected_cells": 0,
+      "selected_fraction": 0.0,
+      "selection_threshold": 0.01,
+      "target": "whole_block",
+      "target_visible_risk": Infinity,
+      "target_visible_worst": Infinity,
+      "total_cells": 1080,
+      "zero_renderer_e2e_speedup_ceiling": 1.0
+    }
+  ],
+  "policy_threshold": 0.01,
+  "promoted_targets": [],
+  "row_count": 38880,
+  "selection_ids": [
+    "p01_seed202608101"
+  ],
+  "stage": "exposed_local_screen"
+}
