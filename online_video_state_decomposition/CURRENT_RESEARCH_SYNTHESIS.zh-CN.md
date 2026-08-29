@@ -1,5 +1,7 @@
 # 在线视频理解研究现状与本项目执行边界
 
+> **状态说明（2026-08-29）**：本文保留为 2026-07-16 的历史研究边界，不能再作为当前结果摘要。最新完成证据包括 300 样本独立非劣复现、两批共 800 样本的 writer/codec 迁移、Reader-Quotient support capacity、静态 Fisher prior 反向迁移，以及 LLaVA-OneVision 同字节 rank/support sweep。当前权威综合见 [视频理解结构状态迁移、baseline 与后续方法收敛](paper/results/probe_mvp/reader_quotient_support_20260825/reports/UNDERSTANDING_STRUCTURED_STATE_TRANSFER_SYNTHESIS_20260825.zh-CN.md)，仓库入口与可视化见 [README](README.md)。
+
 证据截止日期：2026-07-16。本文只总结论文原文和当前仓库已验证结果，不把论文自报结果写成本项目结论。
 
 ## 一、当前研究已经做到什么
