@@ -62,29 +62,34 @@ candidate KL by 190.65%, and its P95 error is 3.297x the Euclidean support.
 The useful support therefore rotates with query and content rather than being
 a stable positional mask.
 
-LLaVA-OneVision reproduces the capacity signal but not a stable endpoint. The
-best same-byte Fisher allocation (`r438+s1`) improves paired KL by 24.19%,
-just below the frozen 25% gate, with a confidence interval crossing zero. A
-simpler `PCA-r456+s0` state has the lowest absolute KL in that sweep, preserves
-60% answer accuracy, needs no query gradients, and suggests that the strong
-reader's residual is predominantly diffuse bulk at this budget. It remains a
-selection-set result; untouched-task confirmation and serialization/prefill
-timing have not been authorized or completed.
+LLaVA-OneVision reproduces the capacity signal but not strict per-sample
+equivalence. The best same-byte Fisher allocation (`r438+s1`) improves paired
+KL by 24.19%, just below the frozen 25% gate. The simpler `PCA-r456+s0` state
+was subsequently frozen and evaluated on five untouched tasks and 500 samples:
+accuracy changed from 54.2% to 55.2%, the one-sided harmful-event upper 95%
+bound was 1.543%, and tensor payload fell from 21.44 MiB to 2.73 MiB (7.86x).
+Prediction agreement was 96.8%, below the preregistered 98% gate, so the result
+is `BOUNDARY`, not a PASS.
 
-The current status is therefore asymmetric: **writer/codec preservation is a
-positive result; dynamic reader-aware support is a capacity result with a
-failed static transfer path**. Do not restart BCM/BCCB or a Fisher scorer from
-these data. The only defensible continuation is a separately frozen
-untouched-task confirmation of the simple PCA allocation, followed by
-serialization, reconstruction, prefill, peak-memory, and TTFT measurement if
-that confirmation passes. See the
-[complete 2026-08-25 synthesis](paper/results/probe_mvp/reader_quotient_support_20260825/reports/UNDERSTANDING_STRUCTURED_STATE_TRANSFER_SYNTHESIS_20260825.zh-CN.md).
+The current status is therefore asymmetric: **writer/codec preservation and
+diffuse-bulk capacity are positive; strict strong-reader interchangeability
+and low-cost dynamic support remain unresolved**. Do not restart BCM/BCCB or a
+Fisher scorer from these data, relax the agreement gate, or claim compute
+speedup. The codec reconstructs the original visual-token count, so the present
+result directly supports state/storage/transfer reduction rather than lower LLM
+prefill FLOPs. Any continuation should use an independent model or video domain,
+not tune rank on these 500 samples. See the
+[2026-08-29 confirmation report](paper/results/probe_mvp/reader_quotient_support_20260825/reports/ONEVISION_PCA_R456_CONFIRMATION_20260829.zh-CN.md)
+and the
+[complete evidence synthesis](paper/results/probe_mvp/reader_quotient_support_20260825/reports/UNDERSTANDING_STRUCTURED_STATE_TRANSFER_SYNTHESIS_20260825.zh-CN.md).
 
 ![Accuracy versus retained state](paper/results/probe_mvp/mvbench_independent_replication_300_20260722/aggregate/accuracy_vs_state.png)
 
 ![Native Fisher capacity and static-transfer failure](paper/results/probe_mvp/reader_quotient_support_20260825/figures/reader_quotient_transfer_gap.png)
 
 ![OneVision same-byte rank/support allocation](paper/results/probe_mvp/reader_quotient_support_20260825/figures/onevision_rank_support_allocation.png)
+
+![OneVision PCA-r456 untouched-task confirmation](paper/results/probe_mvp/reader_quotient_support_20260825/figures/onevision_pca_r456_confirmation.png)
 
 The audited official baseline reproductions are also complete. CausalMem
 scores 206/250 (82.4%) and OASIS 209/250 (83.6%) on the same StreamingBench

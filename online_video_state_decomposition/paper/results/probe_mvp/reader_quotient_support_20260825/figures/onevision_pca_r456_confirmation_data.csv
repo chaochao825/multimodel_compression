@@ -1,0 +1,10 @@
+candidate_kl_mean,count,feature_relative_l2_mean,full,label,panel,pca
+,,,0.33,fine_grained_action,task_accuracy,0.33
+,,,0.76,action_antonym,task_accuracy,0.77
+,,,0.77,unexpected_action,task_accuracy,0.8
+,,,0.43,counterfactual_inference,task_accuracy,0.42
+,,,0.42,action_count,task_accuracy,0.44
+0.003765745753768351,484,0.164215253943131,,Agreement,prediction_outcome,
+0.0059180185198783875,3,0.12642329186201096,,Harmful,prediction_outcome,
+0.0470803112257272,8,0.16823101229965687,,Beneficial,prediction_outcome,
+0.01196375284343958,5,0.18588039875030518,,Wrong-to-wrong,prediction_outcome,

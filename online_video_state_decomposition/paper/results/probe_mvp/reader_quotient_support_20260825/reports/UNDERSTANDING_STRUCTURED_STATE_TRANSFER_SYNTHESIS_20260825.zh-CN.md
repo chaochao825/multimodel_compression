@@ -120,6 +120,22 @@ Standard pixel forward、手工 token injection 与 gradient instrumentation 的
 - StreamingTOM 的 CTR、OQM write 和 selection 已有上游核心微基准，但测量域不同，不能相加成请求延迟。
 - StateKV 明确还有完整 per-frame decode cache，因此“prefill recurrent state 固定”不等于系统总状态固定。
 
+### 2.9 OneVision PCA-r456 untouched-task confirmation（2026-08-29）
+
+冻结的 `PCA-r456+s0` 在五个未参与 calibration、reader replication 或
+rank/support selection 的任务上完成了 500 样本确认。Full 与压缩态准确率分别为
+`54.20%` 和 `55.20%`，配对差为 `+1.00pp`，bootstrap 95% 区间为
+`[-0.20,+2.40]pp`。3 个 harmful flip 的单侧 95% Clopper-Pearson 上界为
+`1.543%`，低于 2% 非劣门槛；tensor payload 从 `21.44 MiB` 降至
+`2.73 MiB`，为 `7.86x`。
+
+但 prediction agreement 只有 `96.80%`，未通过冻结的 98% 门槛，因此正式判决
+仍为 `BOUNDARY`。这增强了“强 reader 的 diffuse semantic bulk 可压缩”证据，
+没有证明压缩态与完整态逐样本可交换，也没有授权 serialization、prefill 或 TTFT
+profiling。16 个变化预测中有 3 个 harmful、8 个 beneficial 和 5 个
+wrong-to-wrong；不一致样本的平均 KL 约为一致样本的 7.5 倍，而 feature L2
+几乎相同，进一步否定了 raw feature MSE 作为唯一风险度量。
+
 ## 3. 为什么历史结构在这里表现不同
 
 跨 DiT、AR、WAM 和视频理解的结果可由同一个条件宽度解释：
@@ -193,13 +209,17 @@ M=R_{recent}\oplus U a\oplus I_{sparse}.
 
 同字节 nested allocation 已完成且没有 GO，因此停止 diagonal-Fisher support/scorer 主线。结果不支持继续调 mixture 权重或加入 rotation/BCM；它支持的更简单假设是 OneVision residual 在该预算下更偏 diffuse bulk。
 
-`PCA-r456+s0` 可保留为 deployable allocation candidate，但当前只是 selection-set positive。若继续，应单独冻结 untouched-task confirmation；确认后才测 serialization、decode、LLM prefill、峰值显存和 TTFT。若系统收益不足，则转向 STC/Script 一类 encoder/token-count 优化，而不是恢复动态 Fisher。
+`PCA-r456+s0` 的 untouched-task confirmation 已完成，但因 96.8% agreement
+未过 98% 门槛而停留在 `BOUNDARY`。不能事后放宽门槛，也不进入
+serialization、decode、LLM prefill、峰值显存或 TTFT profiling。若未来继续，
+应换独立模型或视频域验证 reader quotient；若目标是计算加速，则应转向
+STC/Script 一类 encoder/token-count 优化，而不是恢复动态 Fisher。
 
 ## 7. 当前结论边界
 
-可以主张：冻结结构 codec 在十个 MVBench 任务、两批共 800 个原生样本上保持了预测，且状态约缩小 `7.84x`；query-specific native Fisher 在弱 reader 上显著优于欧氏 support，并在强 reader 上保留正向但不稳定的 capacity 信号。
+可以主张：冻结结构 codec 在十个 MVBench 任务、两批共 800 个原生样本上保持了预测，且状态约缩小 `7.84x`；强 reader 的简单 PCA bulk 又在五个 untouched tasks、500 样本上实现 `7.86x` payload 缩减、无 aggregate accuracy loss 和低于 2% 的 harmful 上界；query-specific native Fisher 在弱 reader 上显著优于欧氏 support，并在强 reader 上保留正向但不稳定的 capacity 信号。
 
-不能主张：query reader 跨任务有效、原生 confidence 可以可靠选路、静态 Fisher 可部署、strong-reader oracle 已稳定通过、learned scorer 已有效、优于 CausalMem/SelectStream/StateKV 官方实现、已有真实 TTFT 加速、BCM/低秩存在普遍视频定理，或当前结果足以支持完整论文。
+不能主张：压缩态与 strong reader 逐样本等价、query reader 跨任务有效、原生 confidence 可以可靠选路、静态 Fisher 可部署、learned scorer 已有效、优于 CausalMem/SelectStream/StateKV 官方实现、已有真实 TTFT 加速、BCM/低秩存在普遍视频定理，或当前结果足以支持完整论文。
 
 最重要的新 insight 是：
 

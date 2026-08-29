@@ -1,0 +1,6 @@
+task,samples,reference_accuracy,candidate_accuracy,accuracy_delta,harmful_flips,beneficial_flips,prediction_agreement,candidate_kl_mean
+fine_grained_action,100,0.33,0.33,0.0,0,0,0.96,0.006969624198895587
+action_antonym,100,0.76,0.77,0.01,0,1,0.99,0.0028755660371416526
+unexpected_action,100,0.77,0.8,0.03,0,3,0.97,0.008385712213448358
+counterfactual_inference,100,0.43,0.42,-0.01,2,1,0.97,0.0022245333723549267
+action_count,100,0.42,0.44,0.02,1,3,0.95,0.002312926722224802
