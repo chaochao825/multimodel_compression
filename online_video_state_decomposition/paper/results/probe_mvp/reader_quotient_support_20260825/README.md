@@ -19,6 +19,11 @@ weights, MVBench videos, native feature tensors, or remote runtime logs.
    samples. Accuracy changed from 54.2% to 55.2%, the harmful-event upper 95%
    bound was 1.543%, and state payload fell 7.86x. Prediction agreement was
    96.8%, below the frozen 98% gate, so the confirmation remains `BOUNDARY`.
+6. Without changing the codec, a cross-domain replication then used 600 unique
+   Video-MME videos, balanced across short, medium, and long durations. Accuracy
+   changed from 55.17% to 54.17%, state payload again fell 7.86x, and all
+   duration losses stayed within two points. Agreement was 95.83% and the
+   harmful-event upper 95% bound was 2.603%, so this result is also `BOUNDARY`.
 
 No result in this package establishes strict strong-reader interchangeability,
 a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.

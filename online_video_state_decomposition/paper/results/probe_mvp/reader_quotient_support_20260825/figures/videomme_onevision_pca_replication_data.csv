@@ -1,0 +1,13 @@
+accuracy_delta,candidate_kl_mean,full,label,panel,pca,samples
+,,0.66,short,duration_accuracy,0.64,200
+,,0.505,medium,duration_accuracy,0.495,200
+,,0.49,long,duration_accuracy,0.49,200
+0.0,,,Artistic Performance,domain_delta,,78
+0.0,,,Film & Television,domain_delta,,80
+0.00558659217877095,,,Knowledge,domain_delta,,179
+-0.020833333333333332,,,Life Record,domain_delta,,144
+0.0,,,Multilingual,domain_delta,,19
+-0.04,,,Sports Competition,domain_delta,,100
+,0.04022745218955808,,Harmful,prediction_outcome,,9
+,0.04111982509493828,,Beneficial,prediction_outcome,,3
+,0.09615874863587894,,Wrong-to-wrong,prediction_outcome,,13

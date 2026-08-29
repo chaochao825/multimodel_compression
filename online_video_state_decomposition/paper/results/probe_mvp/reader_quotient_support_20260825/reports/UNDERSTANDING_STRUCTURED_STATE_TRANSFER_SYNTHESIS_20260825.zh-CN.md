@@ -136,6 +136,21 @@ profiling。16 个变化预测中有 3 个 harmful、8 个 beneficial 和 5 个
 wrong-to-wrong；不一致样本的平均 KL 约为一致样本的 7.5 倍，而 feature L2
 几乎相同，进一步否定了 raw feature MSE 作为唯一风险度量。
 
+### 2.10 OneVision PCA-r456 Video-MME 跨域复现（2026-08-29）
+
+同一个 MVBench calibration-only `PCA-r456+s0` codec 未经重拟合，转移到
+600 个唯一 Video-MME 视频，short/medium/long 各 200 个。Full 与 PCA 准确率
+为 `55.17%/54.17%`，配对变化 `-1.00pp`，bootstrap 95% 区间
+`[-2.17,+0.17]pp`；三个时长组分别变化 `-2/-1/0pp`。状态仍从
+`21.44 MiB` 降到 `2.73 MiB`，即 `7.86x`。
+
+判决仍为 `BOUNDARY`：prediction agreement 为 `95.83%`，低于 98% 门槛；
+9 个 harmful flip 的单侧 95% 上界为 `2.603%`，高于 2% 门槛。25 个变化预测
+包含 9 harmful、3 beneficial 和 13 wrong-to-wrong。Video-MME 的平均 candidate
+KL 为 `0.010884`，是 MVBench untouched confirmation 的 `2.39x`；feature L2
+只从 `16.43%` 增至 `19.42%`，约 `1.18x`。这说明跨域主要改变 reader-induced
+风险几何，而不只是均匀增加欧氏重建误差。
+
 ## 3. 为什么历史结构在这里表现不同
 
 跨 DiT、AR、WAM 和视频理解的结果可由同一个条件宽度解释：
@@ -209,17 +224,19 @@ M=R_{recent}\oplus U a\oplus I_{sparse}.
 
 同字节 nested allocation 已完成且没有 GO，因此停止 diagonal-Fisher support/scorer 主线。结果不支持继续调 mixture 权重或加入 rotation/BCM；它支持的更简单假设是 OneVision residual 在该预算下更偏 diffuse bulk。
 
-`PCA-r456+s0` 的 untouched-task confirmation 已完成，但因 96.8% agreement
-未过 98% 门槛而停留在 `BOUNDARY`。不能事后放宽门槛，也不进入
-serialization、decode、LLM prefill、峰值显存或 TTFT profiling。若未来继续，
-应换独立模型或视频域验证 reader quotient；若目标是计算加速，则应转向
-STC/Script 一类 encoder/token-count 优化，而不是恢复动态 Fisher。
+`PCA-r456+s0` 的 untouched-task confirmation 与 Video-MME 跨域复现均已完成，
+但分别因 `96.8%/95.83%` agreement 未过 98% 门槛而停留在 `BOUNDARY`；后者的
+harmful 上界也未过 2%。不能事后放宽门槛，也不进入 serialization、decode、
+LLM prefill、峰值显存或 TTFT profiling。若未来继续，应换不同 reader，或另行
+冻结 multi-domain calibration / reader-weighted bulk 假设；不能在这两个已观察
+endpoint 上调 rank。若目标是计算加速，则应转向 STC/Script 一类
+encoder/token-count 优化，而不是恢复动态 Fisher。
 
 ## 7. 当前结论边界
 
-可以主张：冻结结构 codec 在十个 MVBench 任务、两批共 800 个原生样本上保持了预测，且状态约缩小 `7.84x`；强 reader 的简单 PCA bulk 又在五个 untouched tasks、500 样本上实现 `7.86x` payload 缩减、无 aggregate accuracy loss 和低于 2% 的 harmful 上界；query-specific native Fisher 在弱 reader 上显著优于欧氏 support，并在强 reader 上保留正向但不稳定的 capacity 信号。
+可以主张：冻结结构 codec 在十个 MVBench 任务、两批共 800 个原生样本上保持了预测，且状态约缩小 `7.84x`；强 reader 的简单 PCA bulk 在五个 untouched tasks、500 样本上实现 `7.86x` payload 缩减、无 aggregate accuracy loss 和低于 2% 的 harmful 上界，并在 600 个独立 Video-MME 视频上保持同样压缩率、总体仅损失 `1pp` 且各时长损失不超过 `2pp`；query-specific native Fisher 在弱 reader 上显著优于欧氏 support，并在强 reader 上保留正向但不稳定的 capacity 信号。
 
-不能主张：压缩态与 strong reader 逐样本等价、query reader 跨任务有效、原生 confidence 可以可靠选路、静态 Fisher 可部署、learned scorer 已有效、优于 CausalMem/SelectStream/StateKV 官方实现、已有真实 TTFT 加速、BCM/低秩存在普遍视频定理，或当前结果足以支持完整论文。
+不能主张：压缩态与 strong reader 逐样本等价、MVBench basis 跨视频域普遍有效、query reader 跨任务有效、原生 confidence 可以可靠选路、静态 Fisher 可部署、learned scorer 已有效、优于 CausalMem/SelectStream/StateKV 官方实现、已有真实 TTFT 加速、BCM/低秩存在普遍视频定理，或当前结果足以支持完整论文。
 
 最重要的新 insight 是：
 

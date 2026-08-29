@@ -1,0 +1,200 @@
+[
+  {
+    "row": {
+      "sample_id": "videomme_006-1",
+      "question_id": "006-1",
+      "video_id": "40BlVzjxu-I",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning",
+      "answer_index": 3,
+      "reference_candidate_prediction": 3,
+      "reference_candidate_correct": 1,
+      "feature_relative_l2": 0.22666795551776886,
+      "native_feature_state_bytes": 2860032,
+      "dense_native_feature_bytes": 22478848,
+      "state_compression_ratio": 7.859649122807017,
+      "vision_seconds": 2.18011014116928,
+      "inference_seconds": 0.01932977605611086,
+      "injection_max_abs": 0.0,
+      "prediction_match": 1,
+      "harmful_flip": 0,
+      "beneficial_flip": 0,
+      "candidate_kl": 1.4362274214363424e-07,
+      "vocabulary_kl": 1.0816241768907275e-07,
+      "candidate_top1_match": 1,
+      "candidate_prediction": 3,
+      "candidate_correct": 1,
+      "answer_logprob": -4.768360213347478e-06,
+      "answer_logprob_delta": -8.344613888766617e-07
+    },
+    "metadata": {
+      "sample_id": "videomme_006-1",
+      "pool_indices": [
+        100,
+        300,
+        501,
+        701,
+        901,
+        1102,
+        1302,
+        1503,
+        1703,
+        1904,
+        2104,
+        2305,
+        2505,
+        2705,
+        2906,
+        3106
+      ],
+      "selected_positions": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "pool_feature_shape": [
+        16,
+        196,
+        3584
+      ]
+    }
+  },
+  {
+    "row": {
+      "sample_id": "videomme_310-1",
+      "question_id": "310-1",
+      "video_id": "A9fQPzZ1-hg",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem",
+      "answer_index": 1,
+      "reference_candidate_prediction": 1,
+      "reference_candidate_correct": 1,
+      "feature_relative_l2": 0.1876656711101532,
+      "native_feature_state_bytes": 2860032,
+      "dense_native_feature_bytes": 22478848,
+      "state_compression_ratio": 7.859649122807017,
+      "vision_seconds": 0.009200827684253454,
+      "inference_seconds": 0.020094246603548527,
+      "injection_max_abs": 0.0,
+      "prediction_match": 0,
+      "harmful_flip": 1,
+      "beneficial_flip": 0,
+      "candidate_kl": 0.028793003410100937,
+      "vocabulary_kl": 0.0287904292345047,
+      "candidate_top1_match": 0,
+      "candidate_prediction": 0,
+      "candidate_correct": 0,
+      "answer_logprob": -1.2199881076812744,
+      "answer_logprob_delta": -0.3076256513595581
+    },
+    "metadata": {
+      "sample_id": "videomme_310-1",
+      "pool_indices": [
+        289,
+        867,
+        1445,
+        2023,
+        2601,
+        3180,
+        3758,
+        4336,
+        4914,
+        5492,
+        6070,
+        6649,
+        7227,
+        7805,
+        8383,
+        8961
+      ],
+      "selected_positions": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "pool_feature_shape": [
+        16,
+        196,
+        3584
+      ]
+    }
+  },
+  {
+    "row": {
+      "sample_id": "videomme_615-1",
+      "question_id": "615-1",
+      "video_id": "LCfBYE97rFk",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning",
+      "answer_index": 2,
+      "reference_candidate_prediction": 1,
+      "reference_candidate_correct": 0,
+      "feature_relative_l2": 0.18423312902450562,
+      "native_feature_state_bytes": 2860032,
+      "dense_native_feature_bytes": 22478848,
+      "state_compression_ratio": 7.859649122807017,
+      "vision_seconds": 0.009844241198152304,
+      "inference_seconds": 0.02036760374903679,
+      "injection_max_abs": 0.0,
+      "prediction_match": 1,
+      "harmful_flip": 0,
+      "beneficial_flip": 0,
+      "candidate_kl": 0.0003343236166983843,
+      "vocabulary_kl": 0.00033440033439546824,
+      "candidate_top1_match": 1,
+      "candidate_prediction": 1,
+      "candidate_correct": 0,
+      "answer_logprob": -3.113745927810669,
+      "answer_logprob_delta": -0.0028200149536132812
+    },
+    "metadata": {
+      "sample_id": "videomme_615-1",
+      "pool_indices": [
+        1840,
+        5522,
+        9203,
+        12884,
+        16566,
+        20247,
+        23928,
+        27610,
+        31291,
+        34973,
+        38654,
+        42335,
+        46017,
+        49698,
+        53379,
+        57061
+      ],
+      "selected_positions": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11,
+        13,
+        15
+      ],
+      "pool_feature_shape": [
+        16,
+        196,
+        3584
+      ]
+    }
+  }
+]

@@ -71,15 +71,26 @@ bound was 1.543%, and tensor payload fell from 21.44 MiB to 2.73 MiB (7.86x).
 Prediction agreement was 96.8%, below the preregistered 98% gate, so the result
 is `BOUNDARY`, not a PASS.
 
+The unchanged codec was then evaluated on an independently frozen Video-MME
+split with 600 unique videos, 200 per duration. Full/PCA accuracy was
+55.17%/54.17% (`-1.00` point, paired 95% interval `[-2.17,+0.17]`), while the
+state remained 7.86x smaller. The loss was bounded across duration groups, but
+agreement fell to 95.83% and the harmful-event upper 95% bound rose to 2.603%.
+This cross-domain result is therefore also `BOUNDARY`: the shared semantic bulk
+partly transfers, but the MVBench-calibrated reader-null space is not universal.
+
 The current status is therefore asymmetric: **writer/codec preservation and
 diffuse-bulk capacity are positive; strict strong-reader interchangeability
-and low-cost dynamic support remain unresolved**. Do not restart BCM/BCCB or a
-Fisher scorer from these data, relax the agreement gate, or claim compute
-speedup. The codec reconstructs the original visual-token count, so the present
-result directly supports state/storage/transfer reduction rather than lower LLM
-prefill FLOPs. Any continuation should use an independent model or video domain,
-not tune rank on these 500 samples. See the
-[2026-08-29 confirmation report](paper/results/probe_mvp/reader_quotient_support_20260825/reports/ONEVISION_PCA_R456_CONFIRMATION_20260829.zh-CN.md)
+and low-cost dynamic support remain unresolved, including after a video-domain
+shift**. Do not restart BCM/BCCB or a Fisher scorer from these data, relax the
+agreement gate, or claim compute speedup. The codec reconstructs the original
+visual-token count, so the present result directly supports state/storage
+reduction rather than lower LLM prefill FLOPs. Any continuation should use a
+different reader or a separately frozen multi-domain codec hypothesis, not tune
+rank on either observed endpoint. See the
+[2026-08-29 confirmation report](paper/results/probe_mvp/reader_quotient_support_20260825/reports/ONEVISION_PCA_R456_CONFIRMATION_20260829.zh-CN.md),
+the
+[Video-MME cross-domain report](paper/results/probe_mvp/reader_quotient_support_20260825/reports/VIDEOMME_ONEVISION_PCA_CROSS_DOMAIN_REPLICATION_20260829.zh-CN.md),
 and the
 [complete evidence synthesis](paper/results/probe_mvp/reader_quotient_support_20260825/reports/UNDERSTANDING_STRUCTURED_STATE_TRANSFER_SYNTHESIS_20260825.zh-CN.md).
 
@@ -90,6 +101,8 @@ and the
 ![OneVision same-byte rank/support allocation](paper/results/probe_mvp/reader_quotient_support_20260825/figures/onevision_rank_support_allocation.png)
 
 ![OneVision PCA-r456 untouched-task confirmation](paper/results/probe_mvp/reader_quotient_support_20260825/figures/onevision_pca_r456_confirmation.png)
+
+![OneVision PCA-r456 Video-MME cross-domain replication](paper/results/probe_mvp/reader_quotient_support_20260825/figures/videomme_onevision_pca_replication.png)
 
 The audited official baseline reproductions are also complete. CausalMem
 scores 206/250 (82.4%) and OASIS 209/250 (83.6%) on the same StreamingBench

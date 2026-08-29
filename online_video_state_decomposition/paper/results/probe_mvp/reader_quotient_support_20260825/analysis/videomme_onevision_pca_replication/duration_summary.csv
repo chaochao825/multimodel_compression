@@ -1,0 +1,4 @@
+duration,samples,reference_accuracy,candidate_accuracy,accuracy_delta,harmful_flips,beneficial_flips,prediction_agreement,candidate_kl_mean
+short,200,0.66,0.64,-0.02,4,0,0.965,0.0075470789771846115
+medium,200,0.505,0.495,-0.01,3,1,0.96,0.014004715002131504
+long,200,0.49,0.49,0.0,2,2,0.95,0.011100548370128535

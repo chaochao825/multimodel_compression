@@ -1,0 +1,4240 @@
+{
+  "protocol_id": "videomme_onevision_pca_cross_domain_600_20260829_v1",
+  "selection_seed": 20260829,
+  "samples_per_duration": 200,
+  "historical_video_exclusions": [
+    "0ncLRRLvdfk",
+    "0w4OTD4L0GQ",
+    "20gUIdXGuAs",
+    "40BlVzjxu-I",
+    "8np5YKYx3sU",
+    "A9fQPzZ1-hg",
+    "CxBbw8eT624",
+    "EeTmrsVW8qE",
+    "FcP0mzWFCQU",
+    "Huj-zXv4DEw",
+    "KlbDo9o5SC8",
+    "LCfBYE97rFk",
+    "Lyv_2usFQA0",
+    "M69Sn3OERZo",
+    "M_lwC5zPkyo",
+    "NagvWwLvRik",
+    "QdlP8ai8trw",
+    "QhL6ICNQ_So",
+    "VmNBt1tzC6k",
+    "Zjl2vmy02As",
+    "_tvmjsKXTu8",
+    "aqTIB_q40bo",
+    "dTUaWnvIOp4",
+    "fJ-hp5Jlbv0",
+    "iZYLeIJwe4w",
+    "ooqdg9Wr-mo",
+    "p9uIBCDhyr0",
+    "txdfCHpxzVg",
+    "uhYiRmGURwE",
+    "yU5kPoc7sL4"
+  ],
+  "frame_policy": "uniform16_pool_uniform8_reader",
+  "samples": [
+    {
+      "question_id": "119-2",
+      "video_id": "-ApL8d6tX5U",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "069-1",
+      "video_id": "-O6mJ0VBTc4",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "212-1",
+      "video_id": "026dzf-vc5g",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "102-1",
+      "video_id": "0IdYJGBmguM",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "007-1",
+      "video_id": "0ay2Qy3wBe8",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "197-2",
+      "video_id": "1q-5IIyZL20",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "154-3",
+      "video_id": "1tidNDIpKSY",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "080-1",
+      "video_id": "21q-lDikdBg",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "182-2",
+      "video_id": "2QTiAmvygC4",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "266-2",
+      "video_id": "2gFxZmb0dMo",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "250-3",
+      "video_id": "2iHmlBmLKUE",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "165-2",
+      "video_id": "2yGaTOzaGIA",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "260-3",
+      "video_id": "3E4Zca1p64s",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "208-1",
+      "video_id": "44ivpEIcBhE",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "206-3",
+      "video_id": "4H8hcvNeWtg",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "265-2",
+      "video_id": "5-4Od1qn53s",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "180-1",
+      "video_id": "54YD3Gv-3MI",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "016-3",
+      "video_id": "5_fXicEnKKk",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "149-2",
+      "video_id": "5fPtlxR3s3c",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "177-2",
+      "video_id": "6DO8yOVYXr0",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "284-1",
+      "video_id": "6EIrArTyLVU",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "248-1",
+      "video_id": "6NVr0cNiHPM",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "134-2",
+      "video_id": "6Z_XNM_iT4g",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "147-2",
+      "video_id": "7R1eNHvfspk",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "139-1",
+      "video_id": "80p80ynsZ78",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "174-1",
+      "video_id": "84EpEwIVFdU",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "060-2",
+      "video_id": "8TNPeimqOO0",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "264-3",
+      "video_id": "8e05W-wi38g",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "162-3",
+      "video_id": "8y2Hj7GDcwI",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "064-2",
+      "video_id": "9_M4bNOxsYs",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "157-3",
+      "video_id": "9dQXiqS56Y4",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "043-3",
+      "video_id": "9jjTGpWmc5U",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "263-3",
+      "video_id": "AyIqI6P8eN8",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "230-1",
+      "video_id": "B_OL2TSrpKM",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "225-3",
+      "video_id": "BiJtPU9uP0c",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "156-2",
+      "video_id": "BkiTScinYOQ",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "217-3",
+      "video_id": "BrrDT_uYQsg",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "159-2",
+      "video_id": "ByUONqA1IJY",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "169-1",
+      "video_id": "CHlJdMVLV2s",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "255-1",
+      "video_id": "CQUphYL0vY8",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "058-1",
+      "video_id": "D52rTzibFRc",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "220-1",
+      "video_id": "D61jenC5oBA",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "053-2",
+      "video_id": "DF_J3vCcbBA",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "168-1",
+      "video_id": "DK6bKtXUE1c",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "292-1",
+      "video_id": "DoFmXBjRGmk",
+      "duration": "short",
+      "domain": "Multilingual",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "170-2",
+      "video_id": "E895PNqSgEI",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "128-3",
+      "video_id": "EJ_yarUrgVQ",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "037-3",
+      "video_id": "EQ-67udZEeg",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "205-1",
+      "video_id": "EVnzXA9b7Ww",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "081-1",
+      "video_id": "FjS2LzrHEO8",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "222-3",
+      "video_id": "FlcVBKTSjRs",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "103-2",
+      "video_id": "G267g0DpCVg",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "038-3",
+      "video_id": "GqeRnxSuLFI",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "277-3",
+      "video_id": "H8fbAFOMTp4",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "003-1",
+      "video_id": "HIjX8OPuf-w",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "131-1",
+      "video_id": "HdBsD5VspVM",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "184-1",
+      "video_id": "HiJb_2dvuHc",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "111-1",
+      "video_id": "HmnKbBmYii8",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "113-1",
+      "video_id": "HqAfzcJurMM",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "074-2",
+      "video_id": "HvjgQqNOq9A",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "004-1",
+      "video_id": "HwnB8aCn8yE",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "229-3",
+      "video_id": "IKtnfFHjERg",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "178-2",
+      "video_id": "IPevXMMEVQ0",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "290-3",
+      "video_id": "IRDp5HcZyVA",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "099-3",
+      "video_id": "Ij-FYOrklFE",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "071-2",
+      "video_id": "IzQ2siryQrM",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "151-3",
+      "video_id": "JP67IM1LX-M",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "055-2",
+      "video_id": "K0mjUgHKfJo",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "213-3",
+      "video_id": "KEy2iCzpce4",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "076-2",
+      "video_id": "KOwR0Ln46Ks",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "231-1",
+      "video_id": "KfTtpoIovuk",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "273-2",
+      "video_id": "Kn10Jf1x24Q",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "140-3",
+      "video_id": "Kv1JXuOkAfk",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "061-1",
+      "video_id": "LCtOpCi5r2s",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "200-2",
+      "video_id": "LeBG88YT3rU",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "136-2",
+      "video_id": "LlajSKnbcGk",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "295-1",
+      "video_id": "Lv7cYKTYE2g",
+      "duration": "short",
+      "domain": "Multilingual",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "036-2",
+      "video_id": "MXKDvuEkSF0",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "282-3",
+      "video_id": "MiPw-RZMHCQ",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "236-2",
+      "video_id": "NAahAX62MZ0",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "059-2",
+      "video_id": "NEFG7YcIDcI",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "238-3",
+      "video_id": "NXeHeEHj9Xc",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "183-1",
+      "video_id": "NjxJY7P-Qpo",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "017-3",
+      "video_id": "O0qVPW1fUn4",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "249-1",
+      "video_id": "OGQ7KwUXuBk",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "226-3",
+      "video_id": "OQAf_rTw7n8",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "010-3",
+      "video_id": "PSt_op3fQck",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "293-1",
+      "video_id": "PYZSjin_Pe8",
+      "duration": "short",
+      "domain": "Multilingual",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "152-1",
+      "video_id": "PYqmI0Hiaho",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "262-1",
+      "video_id": "PaC3CEkCD6k",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "144-2",
+      "video_id": "QUmkzhUQoEA",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "110-1",
+      "video_id": "Qgr4dcsY-60",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "252-1",
+      "video_id": "RP1AL2DU6vQ",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "259-3",
+      "video_id": "RU8IfXp7LbE",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "207-3",
+      "video_id": "RqA3LAo75kw",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "049-2",
+      "video_id": "RvnC--JjDBw",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "280-1",
+      "video_id": "S1nUMsPC1-0",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "289-2",
+      "video_id": "SFmocFLXg0Y",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "031-2",
+      "video_id": "TPS22HRRY1k",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "028-2",
+      "video_id": "TVkck1ACKDQ",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "021-2",
+      "video_id": "TbaCxIJ_VP4",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "175-2",
+      "video_id": "TblFD8H4j94",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "150-2",
+      "video_id": "Tn70NxIMk2Q",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "068-2",
+      "video_id": "UZvydHZKyww",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "283-2",
+      "video_id": "UbIVqUDZOs0",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "287-3",
+      "video_id": "UcL6WlcyBcI",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "239-3",
+      "video_id": "VnvG08masio",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "072-2",
+      "video_id": "VsuShNWghXk",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "115-1",
+      "video_id": "W86cTIoMv2U",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "047-3",
+      "video_id": "WTQ7_e8bnfM",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "079-1",
+      "video_id": "WViSvPFUVd8",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "056-1",
+      "video_id": "WmVLcj-XKnM",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "032-2",
+      "video_id": "X30VlGh3HwQ",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "039-3",
+      "video_id": "XOJKiOw8Xqo",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "026-1",
+      "video_id": "XWfqBKeC0g8",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "237-2",
+      "video_id": "YZ11C-U7S8I",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "272-3",
+      "video_id": "YsPwg3dUwjQ",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "122-2",
+      "video_id": "Z-rHofd6g2Q",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "117-3",
+      "video_id": "Z7PlUGbsXlQ",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "275-2",
+      "video_id": "ZHWZf1Z4B5k",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "269-3",
+      "video_id": "ZXoaMa6jlO4",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "153-1",
+      "video_id": "_KU4X06VNiE",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "104-1",
+      "video_id": "_cZXyj6rYVg",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "108-2",
+      "video_id": "a0AGwUACt7E",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "256-1",
+      "video_id": "aFfMGy94sjE",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "261-2",
+      "video_id": "aWBRHk_-5as",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "106-1",
+      "video_id": "bYXhA8VG8Lw",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "034-2",
+      "video_id": "blSnLEZe-sI",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "124-3",
+      "video_id": "c0siCya457M",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "090-3",
+      "video_id": "c9arR8T0Qts",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "095-3",
+      "video_id": "djr6T2C8Gfs",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "189-3",
+      "video_id": "eICN548E2TU",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "063-1",
+      "video_id": "eTLMWnsStuk",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "025-3",
+      "video_id": "ebzbKa32kuk",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "001-1",
+      "video_id": "fFjv93ACGo8",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "194-1",
+      "video_id": "fRf2aYYPrkc",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "219-2",
+      "video_id": "fSDq8CPXHQM",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "179-3",
+      "video_id": "fkJv7LRa6Pc",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "065-1",
+      "video_id": "fo-mVfOsC-E",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "044-3",
+      "video_id": "fo0Hmch2YS0",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "246-1",
+      "video_id": "frX8GujpmkI",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "224-2",
+      "video_id": "g1MCVp5xICM",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "299-1",
+      "video_id": "g7PjwIzqyCQ",
+      "duration": "short",
+      "domain": "Multilingual",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "192-1",
+      "video_id": "gTBRQaBRiSs",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "145-3",
+      "video_id": "gvtvz-keDmE",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "085-2",
+      "video_id": "hUrjmA0fhsc",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "279-3",
+      "video_id": "hsKmC7RwHvo",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "187-2",
+      "video_id": "iOOseoPiw8E",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "241-2",
+      "video_id": "jb-To6qJcxU",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "024-3",
+      "video_id": "jkNxmTrrZSk",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "218-2",
+      "video_id": "jmE9y0vv2aM",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "193-3",
+      "video_id": "jznsxDcKSnE",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "201-2",
+      "video_id": "k74LDvXSnHM",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "042-1",
+      "video_id": "kRlhlCWplqk",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "253-2",
+      "video_id": "kePBvNotYy4",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "083-2",
+      "video_id": "lKoG2_zdoSA",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "196-1",
+      "video_id": "lNKtsi2Cu0E",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "211-2",
+      "video_id": "lNO6cYxqMZk",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "242-3",
+      "video_id": "lokFoo_QD8c",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "141-3",
+      "video_id": "lsfEHOtYGyk",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "082-1",
+      "video_id": "m4qhFFdHTCc",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "300-1",
+      "video_id": "mBD-TPIHbUs",
+      "duration": "short",
+      "domain": "Multilingual",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "203-2",
+      "video_id": "mD_7mhnPS_Y",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "022-1",
+      "video_id": "n3IYmdy6d4Y",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "209-2",
+      "video_id": "n7q1yYzx2g8",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "125-3",
+      "video_id": "nKtWkDNGNOw",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "294-3",
+      "video_id": "nbOXpuv7K4Q",
+      "duration": "short",
+      "domain": "Multilingual",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "160-3",
+      "video_id": "njc90ODIbLc",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "138-3",
+      "video_id": "of62s85uMMs",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "285-1",
+      "video_id": "p_-ocKiob4w",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "204-3",
+      "video_id": "pcm_E7UoKLo",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "116-3",
+      "video_id": "qK4G2KpmqFU",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "012-3",
+      "video_id": "qvwfWyU9Gfc",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "105-2",
+      "video_id": "rQhLWHtHyiM",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "257-2",
+      "video_id": "s-lM2uwiwyQ",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "120-3",
+      "video_id": "s50vvwTystA",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "009-1",
+      "video_id": "sUDY-SMREtA",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "199-2",
+      "video_id": "sxsjigV9S-Y",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "087-3",
+      "video_id": "tF4DML7FIWk",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "118-1",
+      "video_id": "tGdL-34L-GE",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "129-1",
+      "video_id": "tNQo2GTbP6s",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "027-2",
+      "video_id": "tS4a6I4-Yjo",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "018-1",
+      "video_id": "tX8a00l_Dfs",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "173-1",
+      "video_id": "tbKTfX5Az6w",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "101-3",
+      "video_id": "tiMaUSvlzIU",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "158-3",
+      "video_id": "uJFbOrNrL3w",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "228-2",
+      "video_id": "ufZMrlZRn8o",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "097-2",
+      "video_id": "uoJDGnaVuTg",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "014-3",
+      "video_id": "uqILuTcux_o",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "075-1",
+      "video_id": "uz6rjbw0ZA0",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "191-2",
+      "video_id": "vQTQJ1Mlzqo",
+      "duration": "short",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "274-1",
+      "video_id": "vszWsYOdnPg",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "176-3",
+      "video_id": "wGfRSojH0PE",
+      "duration": "short",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "054-1",
+      "video_id": "wVlfyhs64IY",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "066-2",
+      "video_id": "x6jPuXwtxCM",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "126-1",
+      "video_id": "y6ReUXtm_VE",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "271-3",
+      "video_id": "yXl0Vrk5ssk",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "130-3",
+      "video_id": "ykJ7pyr87Qc",
+      "duration": "short",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "041-1",
+      "video_id": "yl5ZXQmrtP0",
+      "duration": "short",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "232-1",
+      "video_id": "zPx3EibuO_w",
+      "duration": "short",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "482-1",
+      "video_id": "-3t1rj8g6yg",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "536-1",
+      "video_id": "-c8eATXUui8",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "548-3",
+      "video_id": "-fbRaGwfqRw",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "527-3",
+      "video_id": "-gnfUTPmnNU",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "599-1",
+      "video_id": "0JjgoicpYkU",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "445-2",
+      "video_id": "0Y9-MQ44MdU",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "522-2",
+      "video_id": "0ag_Qi5OEd0",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "389-3",
+      "video_id": "0rCbfsuKdYw",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "573-1",
+      "video_id": "1NcGHbFWBFA",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "314-3",
+      "video_id": "1pHkv4KUiFY",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "504-3",
+      "video_id": "1sTNqJVrqx8",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "496-3",
+      "video_id": "1uqupftxFOM",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "334-2",
+      "video_id": "257wV-AbKaE",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "380-3",
+      "video_id": "2Bns2m5Bg4M",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "456-3",
+      "video_id": "2Gg4OQo7-zA",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "447-2",
+      "video_id": "2NOcM1HoRRg",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "397-1",
+      "video_id": "2za5RwplXdI",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "483-3",
+      "video_id": "323v_FtWqvo",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "419-3",
+      "video_id": "3EQLFHRHpag",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "526-2",
+      "video_id": "3EQzRz-V7uE",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "329-2",
+      "video_id": "3uV8XZcIBbk",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "542-2",
+      "video_id": "3x8pvm0g5AU",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "597-2",
+      "video_id": "5R64pAPUZmk",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "533-2",
+      "video_id": "5xi1iD4fkhc",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "382-2",
+      "video_id": "6DAFkaGUiT4",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "540-3",
+      "video_id": "6DbsOZU8mBM",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "450-1",
+      "video_id": "7E6i3E-fsj4",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "321-2",
+      "video_id": "7Hk9jct2ozY",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "360-3",
+      "video_id": "7Ni4gcl4tpE",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "371-1",
+      "video_id": "7fnVcXfPe5c",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "600-1",
+      "video_id": "91fi6egFsyA",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "497-3",
+      "video_id": "9HPFkUhOp1Q",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "424-3",
+      "video_id": "9QXXL96y3A0",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "421-3",
+      "video_id": "9SEMSQDO-pg",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "333-1",
+      "video_id": "9XCKnN6o19k",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "418-2",
+      "video_id": "9Y-YJEtxHeo",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "561-3",
+      "video_id": "A30IuIjQYYg",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "446-3",
+      "video_id": "ACvLYz9nHvg",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "342-3",
+      "video_id": "AmrrSfiMxGA",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "315-3",
+      "video_id": "B2zhLYz4pYo",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "416-2",
+      "video_id": "B7-6lRo2m4Y",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "485-2",
+      "video_id": "BEIVOKz4zXw",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "574-3",
+      "video_id": "BVJGvKaFG7U",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "317-3",
+      "video_id": "Bkheu99K5lY",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "379-2",
+      "video_id": "BxrolAZXZFg",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "481-1",
+      "video_id": "CwzjlmBLfrQ",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "384-2",
+      "video_id": "ECgVLceb_LE",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "444-3",
+      "video_id": "EavQ0LtEICY",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "493-3",
+      "video_id": "F4v0BZtrSbY",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "591-2",
+      "video_id": "FMdEkj5HEqg",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "422-1",
+      "video_id": "FkZn5u3MIiY",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "473-1",
+      "video_id": "G-mmtUxSt5k",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "338-1",
+      "video_id": "GFTKKyYSCKs",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "344-3",
+      "video_id": "GQEYGAJIzAM",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "381-1",
+      "video_id": "GWNzRtKzIRA",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "433-1",
+      "video_id": "Gokw6n0qf-w",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "594-3",
+      "video_id": "GrO5sxp3n0E",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "437-1",
+      "video_id": "H54zMD-9Q-8",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "425-1",
+      "video_id": "HK13nVxBYxI",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "348-2",
+      "video_id": "HLxvq_M4218",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "525-2",
+      "video_id": "HZJXPm0nhgY",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "415-3",
+      "video_id": "HeEyJo838PA",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "368-2",
+      "video_id": "Hel5dqvImSw",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "354-1",
+      "video_id": "HooZ84rpovQ",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "475-1",
+      "video_id": "Hw5qjcnhrW4",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "363-1",
+      "video_id": "HwpzzAefx9M",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "596-1",
+      "video_id": "I48vtTxdaeQ",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "399-2",
+      "video_id": "I5cFBi02O34",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "440-3",
+      "video_id": "IN8t1d3pRMY",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "316-3",
+      "video_id": "IaTaaNinolU",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "572-2",
+      "video_id": "IjSISLZCKPs",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "592-2",
+      "video_id": "InHaW59CmDw",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "398-1",
+      "video_id": "Jm0MLlE4x0U",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "583-2",
+      "video_id": "JwxALozuKfY",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "411-1",
+      "video_id": "K759eXmaMTY",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "512-1",
+      "video_id": "KD1yxRyFAZQ",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "576-2",
+      "video_id": "LFGE_8SoYVA",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "580-1",
+      "video_id": "LVRcD_-ht3g",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "500-1",
+      "video_id": "MZdvZBy1bE8",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "319-3",
+      "video_id": "MrRvX5I8PyY",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "560-1",
+      "video_id": "NeLj-gLWgug",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "432-2",
+      "video_id": "OApAF--FqLA",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "478-1",
+      "video_id": "PAI-gQ19pbs",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "453-3",
+      "video_id": "PYOyMK2Jw7g",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "537-2",
+      "video_id": "Pf1hNFndi60",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "565-2",
+      "video_id": "QHFy-nWNJYk",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "396-2",
+      "video_id": "QI9VIulqTCA",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "554-2",
+      "video_id": "QPzmsQ86_HM",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "304-1",
+      "video_id": "QTA8j5wSTx4",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "359-2",
+      "video_id": "QTK_bC00ilg",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "417-2",
+      "video_id": "QrmxMNBhH2Q",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "407-2",
+      "video_id": "QxYHkKLaFmY",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "312-3",
+      "video_id": "RBTiTcHm_ac",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "377-1",
+      "video_id": "RF86oSB6_bc",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "435-3",
+      "video_id": "Rh8sz6ZnXM4",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "423-1",
+      "video_id": "S6hF2ffyz2c",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "462-1",
+      "video_id": "SBssmtYTJpM",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "401-1",
+      "video_id": "TIK01MpwWGg",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "362-1",
+      "video_id": "TtJVJ9UP7M0",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "466-2",
+      "video_id": "UIX6f0xMQ2U",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "438-3",
+      "video_id": "UIvP4xyw9H8",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "507-1",
+      "video_id": "UTzl0lLoAJE",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "322-3",
+      "video_id": "UZTf3OXJDWA",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "487-3",
+      "video_id": "UeOy1WKeTRY",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "461-3",
+      "video_id": "UmIYanq5gH8",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "349-1",
+      "video_id": "V5M_grieetw",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "376-2",
+      "video_id": "VBygMK8jRoI",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "569-2",
+      "video_id": "VMJEY6uCX3k",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "347-2",
+      "video_id": "VQKpMmBDtZo",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "513-2",
+      "video_id": "VfSIqKSiguc",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "577-1",
+      "video_id": "VoJ-Ey6q8uM",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "495-2",
+      "video_id": "WNYi8LUGIZc",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "486-2",
+      "video_id": "WO86oRJt8lM",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "378-3",
+      "video_id": "WOGaS19VZ8Q",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "452-3",
+      "video_id": "Xim8-lUZnsA",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "556-3",
+      "video_id": "XkFulQe9EVE",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "448-1",
+      "video_id": "YPvxuoNLgPE",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "550-3",
+      "video_id": "Z7LJrU4443Q",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "336-1",
+      "video_id": "ZCFkWDdmXG8",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "470-1",
+      "video_id": "ZFtxvf72NxA",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "326-2",
+      "video_id": "ZGGDKC3GlrI",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "400-1",
+      "video_id": "ZN6kyy2SXnk",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "464-1",
+      "video_id": "ZQIZx5Oqw88",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "544-1",
+      "video_id": "_CqKv0Y1FB0",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "369-1",
+      "video_id": "_rC5V5vEprs",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "489-1",
+      "video_id": "_w4XRiUVfY4",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "579-3",
+      "video_id": "a3o9a6pBKz8",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "494-3",
+      "video_id": "a8IGDMrohnY",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "523-1",
+      "video_id": "aAxGTnVNJiE",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "501-3",
+      "video_id": "ad_higXixRA",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "480-1",
+      "video_id": "awHc8IySU-I",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "490-2",
+      "video_id": "azZZZbSwLQght",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "385-2",
+      "video_id": "bepwr1-CNRU",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "528-2",
+      "video_id": "biiLScgI3u4",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "477-1",
+      "video_id": "c66RN87YjNE",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "575-1",
+      "video_id": "cFqLEwAvaHI",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "443-1",
+      "video_id": "cPlpZdGLa5A",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "595-2",
+      "video_id": "cVIfe0Gxa64",
+      "duration": "medium",
+      "domain": "Multilingual",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "373-2",
+      "video_id": "ce_uHxXsUWA",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "491-3",
+      "video_id": "dez7DLniEJA",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "301-1",
+      "video_id": "dphq5X-rMew",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "517-3",
+      "video_id": "dy8AvyRlXpQ",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "436-2",
+      "video_id": "erjwCQ-UZyw",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "361-1",
+      "video_id": "gT2lNXqt2V0",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "479-2",
+      "video_id": "hQYRDNl-lGI",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "516-2",
+      "video_id": "hYTYb5sGznw",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "518-2",
+      "video_id": "hZ8DmOpRTVc",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "405-3",
+      "video_id": "hjNX33W-99I",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "457-1",
+      "video_id": "hwloS0JY6Ms",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "403-3",
+      "video_id": "iC54QQSe4_I",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "327-3",
+      "video_id": "iPi-QNYgAa4",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "529-3",
+      "video_id": "jWa2yrLGxCM",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "581-1",
+      "video_id": "kDo4y8-bZko",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "439-3",
+      "video_id": "kGR4r4Av1ig",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "442-2",
+      "video_id": "kjwjDjQupLc",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "505-1",
+      "video_id": "kq9Q9-U0vrc",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "578-3",
+      "video_id": "l73rmrLTHQc",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "584-1",
+      "video_id": "lNvBXLbInXE",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "562-1",
+      "video_id": "nhpAc7lUgis",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "340-2",
+      "video_id": "p7HKvqRI_Bo",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "558-2",
+      "video_id": "pQIGOTs6XWg",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "345-1",
+      "video_id": "pSHVbLPWA28",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "372-2",
+      "video_id": "phM_SYH6aA0",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "351-2",
+      "video_id": "pmF41T52nJs",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "339-2",
+      "video_id": "qFUuUzZNznY",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "492-3",
+      "video_id": "qNWL4S5bDt4",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "472-2",
+      "video_id": "qkRUcYHJ1JI",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "356-3",
+      "video_id": "rWp5ZpJAIAE",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "549-2",
+      "video_id": "skbELjWHyXA",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "567-1",
+      "video_id": "sr284c-q8oY",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "388-1",
+      "video_id": "t61Wl2HVwFo",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "331-2",
+      "video_id": "t6V9i8fFADI",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "564-2",
+      "video_id": "tPQX0lMk6U0",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "413-1",
+      "video_id": "tXb_zrHp4H8",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "532-3",
+      "video_id": "tdAVvYsU8q8",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "309-2",
+      "video_id": "tjrvKA4w9-Y",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "305-3",
+      "video_id": "tuZcS2Flabw",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "449-1",
+      "video_id": "uKIk-QbbcO8",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "409-3",
+      "video_id": "uMIohuKRq58",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "463-3",
+      "video_id": "u_f0697yLBI",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "499-3",
+      "video_id": "umfD-K4OTKk",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "429-1",
+      "video_id": "uw30kZ_z0Q8",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "467-3",
+      "video_id": "vf3sPa2W0sA",
+      "duration": "medium",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "568-1",
+      "video_id": "von_IMi97-w",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "426-3",
+      "video_id": "vv6ATRPUjrI",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "559-1",
+      "video_id": "wUnEDnAYTpE",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "353-3",
+      "video_id": "wdcXmerZWDc",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "408-1",
+      "video_id": "weOrNMHcDTI",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "308-2",
+      "video_id": "wgPymD-NBQU",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "546-3",
+      "video_id": "x8zGsWuu-e0",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "506-2",
+      "video_id": "xYdeRoM78h4",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "352-2",
+      "video_id": "xa6SdvFA3w0",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "412-1",
+      "video_id": "xr_nln2ZQw8",
+      "duration": "medium",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "370-3",
+      "video_id": "y3am4T5LuKU",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "551-2",
+      "video_id": "yfbeNtST6Fs",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "498-1",
+      "video_id": "z2I5J1ArmeM",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "332-3",
+      "video_id": "zIbNJCSCEjk",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "366-1",
+      "video_id": "zOgYnntFl-k",
+      "duration": "medium",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "587-2",
+      "video_id": "zPyWOtToo6E",
+      "duration": "medium",
+      "domain": "Life Record",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "511-1",
+      "video_id": "zbvamKv81o0",
+      "duration": "medium",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "743-3",
+      "video_id": "-QuCz7kxBr8",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "736-1",
+      "video_id": "-y1U0qk1vDs",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "751-3",
+      "video_id": "-yWE13LbFd4",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "673-1",
+      "video_id": "0Jbc3Ah4EIc",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "847-2",
+      "video_id": "0eJvnKwGThw",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Spatial Reasoning"
+    },
+    {
+      "question_id": "754-2",
+      "video_id": "0k2ey_okQ4E",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "884-2",
+      "video_id": "0kRsiSdDFYg",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "730-1",
+      "video_id": "1NH5dJ9VRvU",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "895-2",
+      "video_id": "1O1TfTrEnss",
+      "duration": "long",
+      "domain": "Multilingual",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "845-2",
+      "video_id": "1evyOuQz-jM",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "857-2",
+      "video_id": "25Pt1AZO9EM",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "883-3",
+      "video_id": "2LDriAWltwM",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "856-2",
+      "video_id": "3HEYqZgC4ko",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "822-2",
+      "video_id": "3MJNKd10kxM",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "875-2",
+      "video_id": "4IenX7OHumk",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "837-2",
+      "video_id": "4VniCsSusJs",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "747-3",
+      "video_id": "4qYqPmIO0v0",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "722-2",
+      "video_id": "54H8ppxnp8I",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "724-3",
+      "video_id": "54k2g9ddy4M",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "877-3",
+      "video_id": "5WIdIs3A9Ok",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "850-2",
+      "video_id": "5Z2_uRf7ckY",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "831-3",
+      "video_id": "6Pt3-NDxzRk",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "788-3",
+      "video_id": "6dmTmP4Dsw8",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "657-1",
+      "video_id": "74TEQfw6L60",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "660-2",
+      "video_id": "7MFKy7DJsCY",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "776-3",
+      "video_id": "7tLtu3QT2OI",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "892-1",
+      "video_id": "8UQFaVCV8S8",
+      "duration": "long",
+      "domain": "Multilingual",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "636-3",
+      "video_id": "9bbWYVrQgZ8",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "715-2",
+      "video_id": "9edWX7TTsLw",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "791-2",
+      "video_id": "9tBsMSDoDqk",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "681-1",
+      "video_id": "AF8d72mA41M",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "804-3",
+      "video_id": "AeEYQ62t8hA",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "695-3",
+      "video_id": "AnWKOvjFl8k",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "678-2",
+      "video_id": "B0-7MeWA2aI",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "811-1",
+      "video_id": "B6fvT2LKEDI",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "719-2",
+      "video_id": "B7Hh0PY1kks",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "716-1",
+      "video_id": "B9He5DVePvk",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "771-3",
+      "video_id": "Bgh-2z6P0ao",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "630-3",
+      "video_id": "BjmPvovl-V4",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "814-1",
+      "video_id": "BlTCkMMJM6o",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "608-2",
+      "video_id": "BoBapnk6TB8",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "773-1",
+      "video_id": "BrjwEoPXyxA",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "805-3",
+      "video_id": "C8Rk__S06_M",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "842-2",
+      "video_id": "CKYw_RG7i7w",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "800-1",
+      "video_id": "Cb91B0wZYLE",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "661-3",
+      "video_id": "CoPfYGgzCkM",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "795-1",
+      "video_id": "D97vMwfWxvI",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "728-3",
+      "video_id": "E-YnmCB6yjo",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "854-2",
+      "video_id": "E83XxGvEPtI",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "889-2",
+      "video_id": "EP2rD6lr2Xk",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "644-1",
+      "video_id": "EVBCLAaflaw",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "885-2",
+      "video_id": "EhLOdDfaC7Y",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "643-2",
+      "video_id": "Ei-TcECJVXU",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "613-2",
+      "video_id": "ElWG0_kjy_Y",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "817-1",
+      "video_id": "EuBhksmj0sQ",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "784-1",
+      "video_id": "FvZFBZB10LA",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "612-3",
+      "video_id": "GLW9omJfAdk",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "774-1",
+      "video_id": "GV5CuB4zPTY",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "819-1",
+      "video_id": "GsYi-l5PEEs",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "797-1",
+      "video_id": "H6Y2KRfpRVY",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "611-2",
+      "video_id": "H8fGd3fCJbg",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "755-1",
+      "video_id": "HGv87QeBYnc",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "772-3",
+      "video_id": "HKbJtgUrHGk",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "609-2",
+      "video_id": "HProiNnmGwI",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "704-2",
+      "video_id": "HTv4z899xgA",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "671-3",
+      "video_id": "HnS87Tw4amM",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "654-2",
+      "video_id": "HvKpnaXYUPU",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "699-1",
+      "video_id": "I2dv1jNM7gM",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "696-2",
+      "video_id": "I4yye8mUzWg",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "710-3",
+      "video_id": "IPqb_oDlGBU",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "835-2",
+      "video_id": "IXjkbgrdAkw",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "637-3",
+      "video_id": "J5Npf2xJpag",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "652-3",
+      "video_id": "K0m4xAfTVwM",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "860-2",
+      "video_id": "K37YKK9h9pA",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "622-3",
+      "video_id": "K3ksKkCOgTw",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "844-3",
+      "video_id": "K7YNoRZMv2k",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "659-2",
+      "video_id": "K946mptgzTU",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "677-3",
+      "video_id": "MYxL_JLseC8",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "810-3",
+      "video_id": "N62mrplIygc",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "684-2",
+      "video_id": "NCNeFSJexSY",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Spatial Perception"
+    },
+    {
+      "question_id": "610-1",
+      "video_id": "O7zcPvQDIMU",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "670-3",
+      "video_id": "P6Q7bQTnrjk",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "639-1",
+      "video_id": "PHe0bXAIuk0",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "655-2",
+      "video_id": "PXxscnWG8QA",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "651-1",
+      "video_id": "Pfyx5bEZK80",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "697-3",
+      "video_id": "Q8AZ16uBhr8",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "633-3",
+      "video_id": "QTyzyP2Afys",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "790-2",
+      "video_id": "RgJVug6iNs8",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "753-2",
+      "video_id": "RwdvZLz-aSk",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "658-1",
+      "video_id": "Ry2dJuJ-9UE",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "738-1",
+      "video_id": "S8w44Tl5atk",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "766-2",
+      "video_id": "SB4NLADmT_k",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "618-2",
+      "video_id": "Sm0lziolZyM",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "694-3",
+      "video_id": "Sp2nxlrQ89w",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "770-2",
+      "video_id": "SrqTAg6n798",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "741-3",
+      "video_id": "U9-Qy3H_UBY",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "683-3",
+      "video_id": "U9mJuUkhUzk",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "761-1",
+      "video_id": "UZhe_SVdXRc",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "726-2",
+      "video_id": "UyaKyS2wTQk",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "864-3",
+      "video_id": "VFntoBRGF1A",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "672-1",
+      "video_id": "Vu_NnDWxKY4",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "640-3",
+      "video_id": "W-Q9AOp2FW8",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "841-1",
+      "video_id": "WB4giHwiulE",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "893-2",
+      "video_id": "WQn-c_4dVWs",
+      "duration": "long",
+      "domain": "Multilingual",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "705-3",
+      "video_id": "X6UqTmRAApw",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "794-3",
+      "video_id": "XDq08lk5GnQ",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "740-1",
+      "video_id": "YcU9d-RPEog",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "628-1",
+      "video_id": "YdMCL9_UTE4",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "653-2",
+      "video_id": "YtAL8y2lACs",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "816-2",
+      "video_id": "Z2G9bTvffAw",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "626-3",
+      "video_id": "Z4Ug2ONxgYw",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "867-1",
+      "video_id": "ZLRyTFIZOIs",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "871-2",
+      "video_id": "ZkhAbUGoD18",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "861-2",
+      "video_id": "_T2Avd3tFHc",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "759-2",
+      "video_id": "aKLobzbLxuY",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "834-2",
+      "video_id": "aqFfjJrLkBA",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "839-3",
+      "video_id": "azJ5pk5reX0",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "690-3",
+      "video_id": "b0HfmY64eSE",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "821-2",
+      "video_id": "c03YTDzmsK8",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "645-1",
+      "video_id": "c08Zzc0xepI",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "706-1",
+      "video_id": "ctqn-UJGX5M",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "742-2",
+      "video_id": "cy40DIzOUow",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "807-1",
+      "video_id": "dLjOLXmu68M",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "826-2",
+      "video_id": "dXBREPP1hfo",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "693-1",
+      "video_id": "dXUXfyiX2lA",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "682-3",
+      "video_id": "eKVTFXQPAhs",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "803-3",
+      "video_id": "eQGSbBANfVg",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "880-2",
+      "video_id": "eZ2Rt2DVGdU",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "868-1",
+      "video_id": "eZ5lFBPpRkM",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "886-3",
+      "video_id": "elprD1hnDyU",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "663-3",
+      "video_id": "eqJPDJr_irE",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "846-3",
+      "video_id": "fLO5Ww0V2qU",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "707-2",
+      "video_id": "fuDNhWIa6KQ",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "669-2",
+      "video_id": "g1VFfVsZt7w",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "768-3",
+      "video_id": "g8UiXbc19og",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "762-2",
+      "video_id": "gTPHH880Cyc",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "714-3",
+      "video_id": "g_1oiJqE3OI",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "623-3",
+      "video_id": "gfikT_O4v9A",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "OCR Problems"
+    },
+    {
+      "question_id": "881-1",
+      "video_id": "goyWFUzCqF4",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "829-1",
+      "video_id": "h5Jx12SYKzk",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "756-2",
+      "video_id": "i1p5PAgNvR0",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "789-1",
+      "video_id": "i7ivyMFsw-w",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "625-3",
+      "video_id": "iCQmfRMwHfA",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "688-1",
+      "video_id": "j0J-favyUeQ",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "849-2",
+      "video_id": "j27UP4zz_6U",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "757-3",
+      "video_id": "jdQ-20JEmgc",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Temporal Perception"
+    },
+    {
+      "question_id": "798-1",
+      "video_id": "k2FIFQIYBvA",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "827-3",
+      "video_id": "k3zNTrWrbOU",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "746-2",
+      "video_id": "kg6L6LL523Q",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "642-2",
+      "video_id": "lAgwMGRvJrM",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "691-3",
+      "video_id": "lMxFbRc3Luk",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "624-3",
+      "video_id": "mAwgdX5VxGc",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "620-1",
+      "video_id": "mOiEOs3ZlT8",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "745-1",
+      "video_id": "mRgstQ4X5d4",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "649-3",
+      "video_id": "mvpbZGwZ6_4",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "666-1",
+      "video_id": "mzvHYBgD-tI",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "723-1",
+      "video_id": "n5DXniZGkME",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "897-1",
+      "video_id": "nO2B4haj2BQ",
+      "duration": "long",
+      "domain": "Multilingual",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "685-2",
+      "video_id": "nVtb2vNUOdU",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "635-2",
+      "video_id": "oue5A-7Hpx4",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "824-2",
+      "video_id": "p0qf48lXD4M",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "702-2",
+      "video_id": "p84O3JAp_IM",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "878-3",
+      "video_id": "p9CCSG3-dhI",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "853-3",
+      "video_id": "pKaPg9ZJ88Q",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "631-2",
+      "video_id": "pU_yyadYgG8",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "725-2",
+      "video_id": "p_4UPdFqgIQ",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "887-2",
+      "video_id": "proINILL4X4",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "882-3",
+      "video_id": "qVZOKel-gpE",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "721-1",
+      "video_id": "qd2ivr-5oEM",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "641-3",
+      "video_id": "rD5oDjk3IOU",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "863-1",
+      "video_id": "rSnQR7vGqMY",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "778-2",
+      "video_id": "rVPDIRSyS34",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "758-2",
+      "video_id": "rhDdA-7gEhs",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "763-1",
+      "video_id": "sDWOsWawxPc",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "750-1",
+      "video_id": "sxrx7oCrb3A",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "873-1",
+      "video_id": "t23Zi0DBSiI",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "859-2",
+      "video_id": "u4TU2A7eVj8",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "606-2",
+      "video_id": "uC8TK7GH85o",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "891-2",
+      "video_id": "uuCVnqV4cNc",
+      "duration": "long",
+      "domain": "Multilingual",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "862-1",
+      "video_id": "uzyYKAPcfmE",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "801-1",
+      "video_id": "v4YhsooE5xY",
+      "duration": "long",
+      "domain": "Artistic Performance",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "823-1",
+      "video_id": "vDzNVHXc66U",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "828-1",
+      "video_id": "vv2EiRK0Lmg",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "602-2",
+      "video_id": "w0Wmc8C0Eq0",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "614-3",
+      "video_id": "wCkQ138sg6M",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "876-2",
+      "video_id": "whksDmTR9YE",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "825-2",
+      "video_id": "wxff_4tDauo",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "664-1",
+      "video_id": "x1qEBVBxE10",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "708-1",
+      "video_id": "xGcfBRkJSWQ",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Action Reasoning"
+    },
+    {
+      "question_id": "732-3",
+      "video_id": "xvQOEdwAgj0",
+      "duration": "long",
+      "domain": "Sports Competition",
+      "task_type": "Action Recognition"
+    },
+    {
+      "question_id": "680-1",
+      "video_id": "y2kg3MOk1sY",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "713-1",
+      "video_id": "y4-CnqfK3pk",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Object Reasoning"
+    },
+    {
+      "question_id": "840-2",
+      "video_id": "y9Fne3oUwX4",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Object Recognition"
+    },
+    {
+      "question_id": "830-3",
+      "video_id": "yG0W82PGAcQ",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "687-1",
+      "video_id": "yGiM3kD12cU",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Attribute Perception"
+    },
+    {
+      "question_id": "627-2",
+      "video_id": "yQ6VOOd73MA",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "727-2",
+      "video_id": "yk4eWjYVNYg",
+      "duration": "long",
+      "domain": "Film & Television",
+      "task_type": "Counting Problem"
+    },
+    {
+      "question_id": "679-2",
+      "video_id": "z7SoAIq20lA",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Temporal Reasoning"
+    },
+    {
+      "question_id": "879-3",
+      "video_id": "zAXbdzvCeV8",
+      "duration": "long",
+      "domain": "Life Record",
+      "task_type": "Information Synopsis"
+    },
+    {
+      "question_id": "607-1",
+      "video_id": "zxKPjD8urG4",
+      "duration": "long",
+      "domain": "Knowledge",
+      "task_type": "Information Synopsis"
+    }
+  ]
+}

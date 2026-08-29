@@ -1,0 +1,273 @@
+{
+  "decision": "BOUNDARY",
+  "claim_tier": "onevision_pca_r456_cross_domain_replication",
+  "candidate": "pca_r456_s0",
+  "benchmark": "Video-MME",
+  "metrics": {
+    "samples": 600,
+    "expected_samples": 600,
+    "failed_samples": 0,
+    "duplicate_samples": 0,
+    "duplicate_videos": 0,
+    "nonfinite_metrics": 0,
+    "reference_accuracy": 0.5516666666666666,
+    "candidate_accuracy": 0.5416666666666666,
+    "accuracy_delta": -0.01,
+    "accuracy_delta_ci95_low": -0.021666666666666667,
+    "accuracy_delta_ci95_high": 0.0016666666666666668,
+    "prediction_agreement": 0.9583333333333334,
+    "harmful_flips": 9,
+    "beneficial_flips": 3,
+    "harmful_rate": 0.015,
+    "harmful_upper_95": 0.026029150283835623,
+    "candidate_kl_mean": 0.01088411411648155,
+    "candidate_kl_median": 0.0019472688436508179,
+    "candidate_kl_p95": 0.043237525038421154,
+    "vocabulary_kl_mean": 0.010883869979892572,
+    "feature_relative_l2_mean": 0.19419007015724976,
+    "max_injection_abs": 0.0,
+    "max_state_bytes": 2860032,
+    "min_compression_ratio": 7.859649122807017,
+    "minimum_duration_accuracy_delta": -0.02,
+    "vision_seconds_mean": 0.011301318417148043,
+    "inference_seconds_mean": 0.02045288496262704
+  },
+  "missing_sample_ids": [],
+  "duration_summary": [
+    {
+      "duration": "short",
+      "samples": 200,
+      "reference_accuracy": 0.66,
+      "candidate_accuracy": 0.64,
+      "accuracy_delta": -0.02,
+      "harmful_flips": 4,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.965,
+      "candidate_kl_mean": 0.0075470789771846115
+    },
+    {
+      "duration": "medium",
+      "samples": 200,
+      "reference_accuracy": 0.505,
+      "candidate_accuracy": 0.495,
+      "accuracy_delta": -0.01,
+      "harmful_flips": 3,
+      "beneficial_flips": 1,
+      "prediction_agreement": 0.96,
+      "candidate_kl_mean": 0.014004715002131504
+    },
+    {
+      "duration": "long",
+      "samples": 200,
+      "reference_accuracy": 0.49,
+      "candidate_accuracy": 0.49,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 2,
+      "beneficial_flips": 2,
+      "prediction_agreement": 0.95,
+      "candidate_kl_mean": 0.011100548370128535
+    }
+  ],
+  "domain_summary": [
+    {
+      "domain": "Artistic Performance",
+      "samples": 78,
+      "reference_accuracy": 0.5769230769230769,
+      "candidate_accuracy": 0.5769230769230769,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 1.0,
+      "candidate_kl_mean": 0.005240899254400889
+    },
+    {
+      "domain": "Film & Television",
+      "samples": 80,
+      "reference_accuracy": 0.6625,
+      "candidate_accuracy": 0.6625,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.975,
+      "candidate_kl_mean": 0.007668851955756395
+    },
+    {
+      "domain": "Knowledge",
+      "samples": 179,
+      "reference_accuracy": 0.5251396648044693,
+      "candidate_accuracy": 0.5307262569832403,
+      "accuracy_delta": 0.00558659217877095,
+      "harmful_flips": 2,
+      "beneficial_flips": 3,
+      "prediction_agreement": 0.9608938547486033,
+      "candidate_kl_mean": 0.011562556282781354
+    },
+    {
+      "domain": "Life Record",
+      "samples": 144,
+      "reference_accuracy": 0.5416666666666666,
+      "candidate_accuracy": 0.5208333333333334,
+      "accuracy_delta": -0.020833333333333332,
+      "harmful_flips": 3,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.9513888888888888,
+      "candidate_kl_mean": 0.01300680260397375
+    },
+    {
+      "domain": "Multilingual",
+      "samples": 19,
+      "reference_accuracy": 0.3684210526315789,
+      "candidate_accuracy": 0.3684210526315789,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.9473684210526315,
+      "candidate_kl_mean": 0.010695971089597535
+    },
+    {
+      "domain": "Sports Competition",
+      "samples": 100,
+      "reference_accuracy": 0.54,
+      "candidate_accuracy": 0.5,
+      "accuracy_delta": -0.04,
+      "harmful_flips": 4,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.92,
+      "candidate_kl_mean": 0.01362269571292714
+    }
+  ],
+  "task_type_summary": [
+    {
+      "task_type": "Action Reasoning",
+      "samples": 57,
+      "reference_accuracy": 0.5263157894736842,
+      "candidate_accuracy": 0.5263157894736842,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.9824561403508771,
+      "candidate_kl_mean": 0.007246987099075628
+    },
+    {
+      "task_type": "Action Recognition",
+      "samples": 82,
+      "reference_accuracy": 0.573170731707317,
+      "candidate_accuracy": 0.5609756097560976,
+      "accuracy_delta": -0.012195121951219513,
+      "harmful_flips": 1,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.9634146341463414,
+      "candidate_kl_mean": 0.011237981730756673
+    },
+    {
+      "task_type": "Attribute Perception",
+      "samples": 51,
+      "reference_accuracy": 0.5686274509803921,
+      "candidate_accuracy": 0.5882352941176471,
+      "accuracy_delta": 0.0196078431372549,
+      "harmful_flips": 0,
+      "beneficial_flips": 1,
+      "prediction_agreement": 0.9803921568627451,
+      "candidate_kl_mean": 0.009630017658858325
+    },
+    {
+      "task_type": "Counting Problem",
+      "samples": 68,
+      "reference_accuracy": 0.4117647058823529,
+      "candidate_accuracy": 0.35294117647058826,
+      "accuracy_delta": -0.058823529411764705,
+      "harmful_flips": 4,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.9264705882352942,
+      "candidate_kl_mean": 0.009856716147570457
+    },
+    {
+      "task_type": "Information Synopsis",
+      "samples": 68,
+      "reference_accuracy": 0.7205882352941176,
+      "candidate_accuracy": 0.7205882352941176,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.9852941176470589,
+      "candidate_kl_mean": 0.012901982108875179
+    },
+    {
+      "task_type": "OCR Problems",
+      "samples": 27,
+      "reference_accuracy": 0.5555555555555556,
+      "candidate_accuracy": 0.5555555555555556,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 1.0,
+      "candidate_kl_mean": 0.009402584889459022
+    },
+    {
+      "task_type": "Object Reasoning",
+      "samples": 101,
+      "reference_accuracy": 0.45544554455445546,
+      "candidate_accuracy": 0.44554455445544555,
+      "accuracy_delta": -0.009900990099009901,
+      "harmful_flips": 2,
+      "beneficial_flips": 1,
+      "prediction_agreement": 0.9207920792079208,
+      "candidate_kl_mean": 0.015192420420213815
+    },
+    {
+      "task_type": "Object Recognition",
+      "samples": 71,
+      "reference_accuracy": 0.647887323943662,
+      "candidate_accuracy": 0.6338028169014085,
+      "accuracy_delta": -0.014084507042253521,
+      "harmful_flips": 1,
+      "beneficial_flips": 0,
+      "prediction_agreement": 0.9436619718309859,
+      "candidate_kl_mean": 0.013355014163044418
+    },
+    {
+      "task_type": "Spatial Perception",
+      "samples": 11,
+      "reference_accuracy": 0.45454545454545453,
+      "candidate_accuracy": 0.45454545454545453,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 1.0,
+      "candidate_kl_mean": 0.0023089075911725972
+    },
+    {
+      "task_type": "Spatial Reasoning",
+      "samples": 15,
+      "reference_accuracy": 0.9333333333333333,
+      "candidate_accuracy": 0.9333333333333333,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 1.0,
+      "candidate_kl_mean": 0.004215579422462193
+    },
+    {
+      "task_type": "Temporal Perception",
+      "samples": 14,
+      "reference_accuracy": 0.6428571428571429,
+      "candidate_accuracy": 0.6428571428571429,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 0,
+      "beneficial_flips": 0,
+      "prediction_agreement": 1.0,
+      "candidate_kl_mean": 0.008998217670523445
+    },
+    {
+      "task_type": "Temporal Reasoning",
+      "samples": 35,
+      "reference_accuracy": 0.37142857142857144,
+      "candidate_accuracy": 0.37142857142857144,
+      "accuracy_delta": 0.0,
+      "harmful_flips": 1,
+      "beneficial_flips": 1,
+      "prediction_agreement": 0.9428571428571428,
+      "candidate_kl_mean": 0.005886752543405496
+    }
+  ]
+}
