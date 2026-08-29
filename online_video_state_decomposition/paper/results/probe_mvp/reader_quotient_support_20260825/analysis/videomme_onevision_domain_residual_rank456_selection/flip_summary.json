@@ -1,0 +1,333 @@
+{
+  "source_r456": {
+    "candidate": "source_r456",
+    "samples": 180,
+    "prediction_mismatches": 6,
+    "harmful_flips": 1,
+    "beneficial_flips": 1,
+    "overlap_with_source": 6,
+    "fixed_source_mismatches": 0,
+    "new_mismatches": 0,
+    "kl_better_than_source": 0,
+    "mismatch_sample_ids": [
+      "videomme_180-1",
+      "videomme_264-3",
+      "videomme_429-1",
+      "videomme_682-3",
+      "videomme_736-1",
+      "videomme_853-3"
+    ],
+    "fixed_source_sample_ids": [],
+    "new_mismatch_sample_ids": [],
+    "mismatch_domains": {
+      "Film & Television": 1,
+      "Knowledge": 1,
+      "Life Record": 2,
+      "Sports Competition": 2
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 2,
+      "Counting Problem": 1,
+      "Information Synopsis": 1,
+      "Object Reasoning": 1,
+      "Temporal Reasoning": 1
+    },
+    "mismatch_durations": {
+      "long": 3,
+      "medium": 1,
+      "short": 2
+    }
+  },
+  "target_mean_source_r456": {
+    "candidate": "target_mean_source_r456",
+    "samples": 180,
+    "prediction_mismatches": 8,
+    "harmful_flips": 2,
+    "beneficial_flips": 1,
+    "overlap_with_source": 6,
+    "fixed_source_mismatches": 0,
+    "new_mismatches": 2,
+    "kl_better_than_source": 78,
+    "mismatch_sample_ids": [
+      "videomme_134-2",
+      "videomme_180-1",
+      "videomme_264-3",
+      "videomme_429-1",
+      "videomme_500-1",
+      "videomme_682-3",
+      "videomme_736-1",
+      "videomme_853-3"
+    ],
+    "fixed_source_sample_ids": [],
+    "new_mismatch_sample_ids": [
+      "videomme_134-2",
+      "videomme_500-1"
+    ],
+    "mismatch_domains": {
+      "Artistic Performance": 1,
+      "Film & Television": 1,
+      "Knowledge": 1,
+      "Life Record": 2,
+      "Sports Competition": 3
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 3,
+      "Counting Problem": 1,
+      "Information Synopsis": 1,
+      "Object Reasoning": 1,
+      "Temporal Reasoning": 2
+    },
+    "mismatch_durations": {
+      "long": 3,
+      "medium": 2,
+      "short": 3
+    }
+  },
+  "residual_swap_r16": {
+    "candidate": "residual_swap_r16",
+    "samples": 180,
+    "prediction_mismatches": 5,
+    "harmful_flips": 0,
+    "beneficial_flips": 1,
+    "overlap_with_source": 5,
+    "fixed_source_mismatches": 1,
+    "new_mismatches": 0,
+    "kl_better_than_source": 89,
+    "mismatch_sample_ids": [
+      "videomme_264-3",
+      "videomme_429-1",
+      "videomme_682-3",
+      "videomme_736-1",
+      "videomme_853-3"
+    ],
+    "fixed_source_sample_ids": [
+      "videomme_180-1"
+    ],
+    "new_mismatch_sample_ids": [],
+    "mismatch_domains": {
+      "Film & Television": 1,
+      "Knowledge": 1,
+      "Life Record": 2,
+      "Sports Competition": 1
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 2,
+      "Information Synopsis": 1,
+      "Object Reasoning": 1,
+      "Temporal Reasoning": 1
+    },
+    "mismatch_durations": {
+      "long": 3,
+      "medium": 1,
+      "short": 1
+    }
+  },
+  "residual_swap_r32": {
+    "candidate": "residual_swap_r32",
+    "samples": 180,
+    "prediction_mismatches": 5,
+    "harmful_flips": 0,
+    "beneficial_flips": 1,
+    "overlap_with_source": 5,
+    "fixed_source_mismatches": 1,
+    "new_mismatches": 0,
+    "kl_better_than_source": 86,
+    "mismatch_sample_ids": [
+      "videomme_264-3",
+      "videomme_429-1",
+      "videomme_682-3",
+      "videomme_736-1",
+      "videomme_853-3"
+    ],
+    "fixed_source_sample_ids": [
+      "videomme_180-1"
+    ],
+    "new_mismatch_sample_ids": [],
+    "mismatch_domains": {
+      "Film & Television": 1,
+      "Knowledge": 1,
+      "Life Record": 2,
+      "Sports Competition": 1
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 2,
+      "Information Synopsis": 1,
+      "Object Reasoning": 1,
+      "Temporal Reasoning": 1
+    },
+    "mismatch_durations": {
+      "long": 3,
+      "medium": 1,
+      "short": 1
+    }
+  },
+  "residual_swap_r64": {
+    "candidate": "residual_swap_r64",
+    "samples": 180,
+    "prediction_mismatches": 8,
+    "harmful_flips": 2,
+    "beneficial_flips": 2,
+    "overlap_with_source": 6,
+    "fixed_source_mismatches": 0,
+    "new_mismatches": 2,
+    "kl_better_than_source": 107,
+    "mismatch_sample_ids": [
+      "videomme_134-2",
+      "videomme_180-1",
+      "videomme_264-3",
+      "videomme_319-3",
+      "videomme_429-1",
+      "videomme_682-3",
+      "videomme_736-1",
+      "videomme_853-3"
+    ],
+    "fixed_source_sample_ids": [],
+    "new_mismatch_sample_ids": [
+      "videomme_134-2",
+      "videomme_319-3"
+    ],
+    "mismatch_domains": {
+      "Film & Television": 1,
+      "Knowledge": 2,
+      "Life Record": 2,
+      "Sports Competition": 3
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 3,
+      "Counting Problem": 1,
+      "Information Synopsis": 1,
+      "Object Reasoning": 2,
+      "Temporal Reasoning": 1
+    },
+    "mismatch_durations": {
+      "long": 3,
+      "medium": 2,
+      "short": 3
+    }
+  },
+  "residual_swap_r96": {
+    "candidate": "residual_swap_r96",
+    "samples": 180,
+    "prediction_mismatches": 5,
+    "harmful_flips": 1,
+    "beneficial_flips": 0,
+    "overlap_with_source": 4,
+    "fixed_source_mismatches": 2,
+    "new_mismatches": 1,
+    "kl_better_than_source": 100,
+    "mismatch_sample_ids": [
+      "videomme_134-2",
+      "videomme_264-3",
+      "videomme_429-1",
+      "videomme_736-1",
+      "videomme_853-3"
+    ],
+    "fixed_source_sample_ids": [
+      "videomme_180-1",
+      "videomme_682-3"
+    ],
+    "new_mismatch_sample_ids": [
+      "videomme_134-2"
+    ],
+    "mismatch_domains": {
+      "Film & Television": 1,
+      "Life Record": 2,
+      "Sports Competition": 2
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 3,
+      "Information Synopsis": 1,
+      "Object Reasoning": 1
+    },
+    "mismatch_durations": {
+      "long": 2,
+      "medium": 1,
+      "short": 2
+    }
+  },
+  "residual_swap_r128": {
+    "candidate": "residual_swap_r128",
+    "samples": 180,
+    "prediction_mismatches": 4,
+    "harmful_flips": 0,
+    "beneficial_flips": 0,
+    "overlap_with_source": 4,
+    "fixed_source_mismatches": 2,
+    "new_mismatches": 0,
+    "kl_better_than_source": 99,
+    "mismatch_sample_ids": [
+      "videomme_264-3",
+      "videomme_429-1",
+      "videomme_736-1",
+      "videomme_853-3"
+    ],
+    "fixed_source_sample_ids": [
+      "videomme_180-1",
+      "videomme_682-3"
+    ],
+    "new_mismatch_sample_ids": [],
+    "mismatch_domains": {
+      "Film & Television": 1,
+      "Life Record": 2,
+      "Sports Competition": 1
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 2,
+      "Information Synopsis": 1,
+      "Object Reasoning": 1
+    },
+    "mismatch_durations": {
+      "long": 2,
+      "medium": 1,
+      "short": 1
+    }
+  },
+  "target_pca_r456": {
+    "candidate": "target_pca_r456",
+    "samples": 180,
+    "prediction_mismatches": 8,
+    "harmful_flips": 1,
+    "beneficial_flips": 1,
+    "overlap_with_source": 4,
+    "fixed_source_mismatches": 2,
+    "new_mismatches": 4,
+    "kl_better_than_source": 115,
+    "mismatch_sample_ids": [
+      "videomme_134-2",
+      "videomme_259-3",
+      "videomme_264-3",
+      "videomme_382-2",
+      "videomme_429-1",
+      "videomme_500-1",
+      "videomme_682-3",
+      "videomme_736-1"
+    ],
+    "fixed_source_sample_ids": [
+      "videomme_180-1",
+      "videomme_853-3"
+    ],
+    "new_mismatch_sample_ids": [
+      "videomme_134-2",
+      "videomme_259-3",
+      "videomme_382-2",
+      "videomme_500-1"
+    ],
+    "mismatch_domains": {
+      "Artistic Performance": 1,
+      "Film & Television": 1,
+      "Knowledge": 2,
+      "Life Record": 2,
+      "Sports Competition": 2
+    },
+    "mismatch_tasks": {
+      "Action Recognition": 4,
+      "Information Synopsis": 2,
+      "Temporal Reasoning": 2
+    },
+    "mismatch_durations": {
+      "long": 2,
+      "medium": 3,
+      "short": 3
+    }
+  }
+}

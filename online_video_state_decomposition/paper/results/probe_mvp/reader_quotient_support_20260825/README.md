@@ -24,6 +24,14 @@ weights, MVBench videos, native feature tensors, or remote runtime logs.
    changed from 55.17% to 54.17%, state payload again fell 7.86x, and all
    duration losses stayed within two points. Agreement was 95.83% and the
    harmful-event upper 95% bound was 2.603%, so this result is also `BOUNDARY`.
+7. A same-rank domain-residual gate then fit visual-only codecs on 120 balanced
+   Video-MME calibration videos and evaluated 180 disjoint selection videos.
+   Target PCA-r456 reduced mean KL, P95 KL, and feature L2 to
+   `0.521x/0.605x/0.852x` of the source codec, but increased prediction
+   mismatches from 6 to 8. The result is `CAPACITY_ONLY`; the frozen 255-video
+   formal reserve was not run. Residual-swap-r128 reduced mismatches to 4 with
+   no harmful flips but did not pass the continuous-risk gates, exposing a
+   reader-risk versus feature-energy Pareto split.
 
 No result in this package establishes strict strong-reader interchangeability,
 a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
@@ -37,6 +45,9 @@ a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
 - `figures/`: PNG/PDF/SVG figures plus bound plotting data where applicable.
 - `reports/`: Chinese evidence synthesis and method-boundary reports.
 - `metadata/`: calibration summaries for the two OneVision PCA bases.
+
+The latest evidence and next-method boundary are summarized in
+`reports/VIDEOMME_ONEVISION_DOMAIN_RESIDUAL_RANK456_20260829.zh-CN.md`.
 
 The canonical model-side runners and tests live under
 `online_video_state_decomposition/experiments/` in this repository.

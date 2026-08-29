@@ -79,6 +79,19 @@ agreement fell to 95.83% and the harmful-event upper 95% bound rose to 2.603%.
 This cross-domain result is therefore also `BOUNDARY`: the shared semantic bulk
 partly transfers, but the MVBench-calibrated reader-null space is not universal.
 
+A subsequent same-rank domain-residual selection gate separates capacity from
+reader stability more sharply. On 180 disjoint Video-MME selection videos,
+target-domain PCA-r456 reduced mean KL, P95 KL, and feature L2 to
+`0.521x/0.605x/0.852x` of the source codec at identical 2.73 MiB payload, but
+prediction mismatches increased from 6 to 8. Residual-swap-r128 instead reduced
+mismatches to 4 with no harmful flips, while failing the continuous-risk gates.
+The decision is `CAPACITY_ONLY`, so the frozen 255-video formal reserve was not
+run. This supports shared low-dimensional capacity plus domain residuals, but
+does not support the current feature-only same-rank PCA/swap family as a
+deployable fix. A future
+continuation must optimize a multi-domain reader-risk objective on fresh data,
+not tune another swap rank on this observed endpoint.
+
 The current status is therefore asymmetric: **writer/codec preservation and
 diffuse-bulk capacity are positive; strict strong-reader interchangeability
 and low-cost dynamic support remain unresolved, including after a video-domain
@@ -91,6 +104,8 @@ rank on either observed endpoint. See the
 [2026-08-29 confirmation report](paper/results/probe_mvp/reader_quotient_support_20260825/reports/ONEVISION_PCA_R456_CONFIRMATION_20260829.zh-CN.md),
 the
 [Video-MME cross-domain report](paper/results/probe_mvp/reader_quotient_support_20260825/reports/VIDEOMME_ONEVISION_PCA_CROSS_DOMAIN_REPLICATION_20260829.zh-CN.md),
+the
+[same-rank domain-residual report](paper/results/probe_mvp/reader_quotient_support_20260825/reports/VIDEOMME_ONEVISION_DOMAIN_RESIDUAL_RANK456_20260829.zh-CN.md),
 and the
 [complete evidence synthesis](paper/results/probe_mvp/reader_quotient_support_20260825/reports/UNDERSTANDING_STRUCTURED_STATE_TRANSFER_SYNTHESIS_20260825.zh-CN.md).
 
@@ -103,6 +118,8 @@ and the
 ![OneVision PCA-r456 untouched-task confirmation](paper/results/probe_mvp/reader_quotient_support_20260825/figures/onevision_pca_r456_confirmation.png)
 
 ![OneVision PCA-r456 Video-MME cross-domain replication](paper/results/probe_mvp/reader_quotient_support_20260825/figures/videomme_onevision_pca_replication.png)
+
+![OneVision same-rank domain-residual gate](paper/results/probe_mvp/reader_quotient_support_20260825/figures/videomme_onevision_domain_residual_rank456.png)
 
 The audited official baseline reproductions are also complete. CausalMem
 scores 206/250 (82.4%) and OASIS 209/250 (83.6%) on the same StreamingBench

@@ -151,6 +151,27 @@ KL 为 `0.010884`，是 MVBench untouched confirmation 的 `2.39x`；feature L2
 只从 `16.43%` 增至 `19.42%`，约 `1.18x`。这说明跨域主要改变 reader-induced
 风险几何，而不只是均匀增加欧氏重建误差。
 
+### 2.11 OneVision 同秩领域残差 Gate（2026-08-29）
+
+在不改变 rank、state bytes、reader 和 frame policy 的条件下，用 120 个平衡
+Video-MME calibration 视频拟合 target mean、五个 residual-swap basis 和完整
+target PCA-r456，再在 180 个零视频重叠 selection 样本上冻结比较。Target PCA
+将平均 KL、P95 KL 和 feature L2 降到 source codec 的
+`0.521x/0.605x/0.852x`，但 mismatch 从 6 增至 8，因此判决为
+`CAPACITY_ONLY`，未运行 255 视频正式保留集。
+
+Residual-swap-r128 呈现相反边界：mismatch 从 6 降至 4、harmful 从 1 降至
+0、correct 保持 102，但平均 KL、P95 KL 和 L2 只有
+`0.840x/1.109x/0.934x`，没有通过容量门槛。Flip 集合显示 r128 修复 source 的
+2 个 mismatch 且没有新增 mismatch；target PCA 同样修复 2 个，却新增 4 个。
+这证明 rank-456 容量不是主要下界，也证明按 feature variance 全量替换方向会删除
+少量跨域共享但具有高 reader leverage 的方向。
+
+下一假设不再是更多 PCA/swap rank，而是固定 rank-456、相同部署成本的多域
+reader-risk quotient：以 pooled PCA 初始化，用完整 reader 的候选 margin VJP 和
+CVaR 尾部风险离线优化一套静态 basis。该假设必须使用新独立数据；当前 selection
+已被观察，旧 formal reserve 又未获授权，均不能继续调参。
+
 ## 3. 为什么历史结构在这里表现不同
 
 跨 DiT、AR、WAM 和视频理解的结果可由同一个条件宽度解释：
@@ -232,11 +253,24 @@ LLM prefill、峰值显存或 TTFT profiling。若未来继续，应换不同 re
 endpoint 上调 rank。若目标是计算加速，则应转向 STC/Script 一类
 encoder/token-count 优化，而不是恢复动态 Fisher。
 
+同秩领域残差 gate 又进一步关闭了当前 feature-only domain PCA/swap 候选作为部署
+修复的路径。它保留一次有严格边界的后续机会：在新独立数据上验证多域 reader-margin
+CVaR basis。若该静态同秩 reader-risk basis 仍不能同时支配 Swap-128 的 mismatch
+安全性和 Target-PCA 的连续失真，则停止静态 quotient 适配，转向 query-conditioned
+retrieval 或训练原生 compact-state reader。
+
 ## 7. 当前结论边界
 
 可以主张：冻结结构 codec 在十个 MVBench 任务、两批共 800 个原生样本上保持了预测，且状态约缩小 `7.84x`；强 reader 的简单 PCA bulk 在五个 untouched tasks、500 样本上实现 `7.86x` payload 缩减、无 aggregate accuracy loss 和低于 2% 的 harmful 上界，并在 600 个独立 Video-MME 视频上保持同样压缩率、总体仅损失 `1pp` 且各时长损失不超过 `2pp`；query-specific native Fisher 在弱 reader 上显著优于欧氏 support，并在强 reader 上保留正向但不稳定的 capacity 信号。
 
+还可以主张：在同 rank、同字节 selection gate 中，target-domain PCA 显著降低连续
+失真但没有减少 reader mismatch；保守 residual swap 则出现相反趋势。这是
+reader-risk 与 feature-energy 分离的机制证据，不是正式泛化结果。
+
 不能主张：压缩态与 strong reader 逐样本等价、MVBench basis 跨视频域普遍有效、query reader 跨任务有效、原生 confidence 可以可靠选路、静态 Fisher 可部署、learned scorer 已有效、优于 CausalMem/SelectStream/StateKV 官方实现、已有真实 TTFT 加速、BCM/低秩存在普遍视频定理，或当前结果足以支持完整论文。
+
+同样不能主张：target PCA、任意 residual swap 或多域 reader-risk basis 已通过正式
+验证；本轮 `CAPACITY_ONLY` 明确不授权旧 formal reserve。
 
 最重要的新 insight 是：
 

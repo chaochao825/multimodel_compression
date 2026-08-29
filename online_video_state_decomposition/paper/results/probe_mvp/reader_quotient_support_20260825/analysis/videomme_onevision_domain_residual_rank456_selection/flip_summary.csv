@@ -1,0 +1,9 @@
+candidate,samples,prediction_mismatches,harmful_flips,beneficial_flips,overlap_with_source,fixed_source_mismatches,new_mismatches,kl_better_than_source
+source_r456,180,6,1,1,6,0,0,0
+target_mean_source_r456,180,8,2,1,6,0,2,78
+residual_swap_r16,180,5,0,1,5,1,0,89
+residual_swap_r32,180,5,0,1,5,1,0,86
+residual_swap_r64,180,8,2,2,6,0,2,107
+residual_swap_r96,180,5,1,0,4,2,1,100
+residual_swap_r128,180,4,0,0,4,2,0,99
+target_pca_r456,180,8,1,1,4,2,4,115
