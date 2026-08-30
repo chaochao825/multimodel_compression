@@ -59,4 +59,3 @@ ceiling; it does not establish task quality, deployment, latency, or novelty.
 - One isolated A800 on server 210, at most two GPU-hours.
 - One implementation repair is allowed for an engineering failure.
 - Stop after one valid classification or after the repair allowance is exhausted.
-

@@ -24,7 +24,6 @@ from probe_vsi_onevision_group_compaction_geometry import (
     REPRESENTATIVE_OFFSET,
     compact_group_tokens_and_offsets,
 )
-from probe_vsi_onevision_query_group_fallback_transfer import summarize_raw
 from probe_vsi_onevision_reader_risk_stage_a import (
     reconstruct,
     select_calibration_questions,
@@ -527,19 +526,18 @@ def main() -> int:
             for row in rows
             if int(row["selected_group_count"]) == selected_count
         ]
+        kl_values = np.asarray(
+            [float(row["weighted_candidate_kl"]) for row in selected_rows],
+            dtype=np.float64,
+        )
         weighted_summaries[str(selected_count)] = {
             "sample_count": len(selected_rows),
             "agreement": sum(
                 int(row["weighted_prediction_match"]) for row in selected_rows
             )
             / len(selected_rows),
-            "candidate_kl_mean": sum(
-                float(row["weighted_candidate_kl"]) for row in selected_rows
-            )
-            / len(selected_rows),
-            "candidate_kl_p95": summarize_raw(
-                [float(row["weighted_candidate_kl"]) for row in selected_rows]
-            )["p95"],
+            "candidate_kl_mean": float(kl_values.mean()),
+            "candidate_kl_p95": float(np.quantile(kl_values, 0.95)),
         }
 
     write_csv(args.out_dir / "same_kernel_mass_rows.csv", rows)
