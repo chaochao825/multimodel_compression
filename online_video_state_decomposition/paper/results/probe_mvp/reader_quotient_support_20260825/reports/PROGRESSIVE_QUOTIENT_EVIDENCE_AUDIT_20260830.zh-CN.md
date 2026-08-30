@@ -277,3 +277,22 @@ controller 不拟合 feature，而拟合排序和漏检风险：
 - `figures/risk_observable_writer_gate.{png,pdf,svg}`
 - `figures/risk_observable_writer_{selector,reader}_metrics.csv`
 - `analysis/onevision_reader_quotient_stage_a_20260830/`
+
+## 2026-08-30 后续校正：progressive read 并非天然单调
+
+后续离散 forward 诊断进一步限定了本报告中的 `oracle` 与 progressive 解释：
+
+- `target-gradient group oracle` 只是固定 dense slot 上的一阶 teacher，不是删除 token
+  后的可变长度 reader oracle；非零 support 的梯度排序跨重复运行并不稳定。
+- original-position compaction 在 `k=196` 可达到 `24/24` agreement 和 `0 harmful`，
+  说明位置几何确实是旧 compact path 的一个主要混杂因素，但其 KL 仍未通过严格
+  门槛。
+- reader-aligned singleton marginal 直接使用实际 compact reader，却仍得到
+  `NO_STATIC_READER_PATH`：已注册嵌套路径共有 `71` 次 KL regression，且 24/24
+  样本至少发生一次；singleton benefit 的加和严重高估真实改善。
+
+所以当前证据不再支持“只要 writer 看见 task-risk，progressive exact read 就会自然
+单调收敛”。更准确的复活条件是：先证明同 kernel 的 token-mass 表示等价，再验证
+current-support-conditioned marginal 能构造无 regression 的嵌套路径；只有存在这个
+函数类上限，才值得进行低成本 joint tokenizer-reader path-consistency adaptation。
+完整校正见 `TARGET_RISK_BUDGET_AND_COMPACTION_GEOMETRY_AUDIT_20260830.zh-CN.md`。

@@ -1,0 +1,23 @@
+{
+  "classification": "INVALID_ENGINEERING",
+  "claim_update": "none",
+  "protocol": "vsi_measure_preserving_compaction_diagnostic_20260830.md",
+  "attempts": [
+    {
+      "attempt": 1,
+      "remote_output_dir": "/home/spco/online_video_state_decomposition/remote_results/vsi_onevision_reader_quotient_stage_a_20260830_v1/measure_preserving_compaction_exposed_v1",
+      "failure": "all-mass-one mask changed positioned logits by 0.25",
+      "cause": "The equivalence guard compared full-vocabulary logits even though the frozen protocol registered candidate-token logits.",
+      "repair": "Narrow the equivalence guard to registered candidate-token logits only. The proportional-attention mechanism and scientific thresholds were unchanged."
+    },
+    {
+      "attempt": 2,
+      "remote_output_dir": "/home/spco/online_video_state_decomposition/remote_results/vsi_onevision_reader_quotient_stage_a_20260830_v1/measure_preserving_compaction_exposed_v2",
+      "failure": "all-mass-one mask changed positioned logits by 0.25",
+      "cause": "The explicit four-dimensional additive attention-mask path changed candidate logits relative to the model's ordinary two-dimensional attention-mask path, even when every token mass was one.",
+      "repair": "None. The registered one-repair allowance was exhausted."
+    }
+  ],
+  "interpretation": "The attempts do not test whether proportional attention or token-mass preservation helps. They show that this Hugging Face SDPA mask-path comparison was not numerically equivalent and is therefore invalid for a scientific method comparison.",
+  "data_boundary": "Only already exposed positions 73-96 were read. No result summary was produced. Positions 97-120, selection, and formal remained unread."
+}

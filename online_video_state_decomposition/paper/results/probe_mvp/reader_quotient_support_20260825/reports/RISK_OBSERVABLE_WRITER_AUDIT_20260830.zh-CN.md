@@ -185,3 +185,23 @@ BCM/BCCB/Butterfly 不能解决这里的核心缺失变量。它们可以改变 
 \]
 
 这不是“所有视频理解压缩失败”，而是对当前研究问题的清晰止损：如果不联合训练 reader 的表示与读取机制，就没有证据继续扩大 post-hoc writer/controller 家族。
+
+## 2026-08-30 后续校正：teacher 与 compaction path 的边界
+
+后续 target-risk budget、位置几何和 reader-aligned singleton 诊断不改变本报告的
+`NO_GO`，但需要收紧两处表述：
+
+1. 文中的 `target-gradient oracle` 应准确称为**固定槽位的一阶 target-gradient
+   teacher**。它在 dense reader 的固定 token 布局上排序 group，不能作为真正删除
+   token 后的可变长度 compaction oracle；其非零 support 排序还对 BF16/SDPA
+   backward 数值路径敏感。
+2. 新的 exact forward 诊断表明，保留原始位置可改善离散决策，但 reader-aligned
+   singleton benefit 仍不能静态相加。对嵌套 support 的真实边际
+   `Delta_g(Omega, q)` 强烈依赖当前 `Omega`；已注册路径出现 `71` 次 KL regression，
+   24/24 样本均受影响。
+
+因此问题不只是不够强的 writer 或 controller，而是 frozen reader 下的 compaction
+路径本身缺少 measure/position-aware 的 successive-refinement 一致性。若未来重开，
+应先通过同 kernel 的 mass-equivalence 与 current-support marginal Gate，再考虑训练
+quotient tokenizer、position/mass adapter 和 path-consistent router。完整后续证据见
+`TARGET_RISK_BUDGET_AND_COMPACTION_GEOMETRY_AUDIT_20260830.zh-CN.md`。

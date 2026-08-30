@@ -190,3 +190,17 @@ LongVU、FrameFusion、StreamingTOM 和 FlexMem 已覆盖 query-aware reduction�
 \]
 
 所以当时最有判别力的进一步实验不是拟合更复杂的固定结构，也不是给 scalar fallback 调阈值，而是让 memory writer 主动编码“未来问题可能需要的风险方向”。该 follow-up 已在 fresh calibration positions 73--96 上完成：joint writer-controller recall 仅 `30.70%`，reader agreement `70.83%`，同预算 target-gradient oracle 也只有 `91.67%` agreement，判决仍为 `NO_GO`。完整结果见 `RISK_OBSERVABLE_WRITER_AUDIT_20260830.zh-CN.md`；当前 post-hoc writer/controller 主线因此应 park。
+
+## 2026-08-30 后续校正：从风险可观测性到路径可实现性
+
+后续实验保留本报告的 controller `NO_GO`，同时排除了一个更隐蔽的假设：即使风险
+信号可见，也不能默认各 group 的 exact-read value 独立可加。固定槽位
+target-gradient 只是一阶 teacher；实际 compact reader 的 singleton benefit 在
+support 增长后出现强交互，注册路径共有 `71` 次 KL regression，24/24 样本均受影响。
+
+因此新的最小充分问题是：能否在原始位置与 token mass 被保留的条件下，构造
+reader-aligned、current-support-conditioned、无 adverse regression 的嵌套 split path。
+若该 train-free ceiling 不存在，增加 controller 容量没有意义；若 ceiling 存在而
+低带宽规则无法生成，才进入 quotient tokenizer、mass/position adapter 与 reader
+normalization 的小步联合训练。详见
+`TARGET_RISK_BUDGET_AND_COMPACTION_GEOMETRY_AUDIT_20260830.zh-CN.md`。
