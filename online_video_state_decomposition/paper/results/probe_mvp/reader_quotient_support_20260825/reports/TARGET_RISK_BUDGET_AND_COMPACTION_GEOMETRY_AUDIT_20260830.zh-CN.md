@@ -699,6 +699,223 @@ normalization 和跨层状态；局部信息增益不保证 suffix risk 单调�
 
 ![真实空间 2x2 上的 paper-faithful PPE 配对审计](../figures/true_2x2_ppe_control.png)
 
+## 9.6 Query-fixed visual measure：可组合性成立，但 centroid state 不充分
+
+PPE null 后没有继续修改 frozen self-attention，而是在 final-token query 固定的单层
+attention measure 上测试 9.2 的可加分解。每个样本仍有 1,568 个视觉 token，并以
+真实空间 `2x2` 组成 392 个节点；coarse 节点只保存 `mass=4`、mean post-RoPE key
+和 mean value。对 layers `0/13/27`、全部 28 heads，逐步将 coarse 节点恢复成四个
+exact leaves。测试的保留率为 `25/34.375/43.75/53.125/62.5/100%`。
+
+v1 engineering smoke 发现原 `exact_local_oracle` 只是一次性一阶分数，不是容量
+ceiling，因此正式 run 前冻结 v2：保留该方法为 `exact_local_score`，新增每次 split
+后重算真实 visual-output error 的 `exact_greedy_oracle`。第一次 formal attempt 又被
+预注册 replay guard 正确拒绝：只 replay 最后 query 的 BF16 GEMM 与模型一次计算全
+sequence 的 GEMM 形状不同，最大相对差为 `1.382e-3`。唯一一次 implementation
+repair 改为捕获模型真实 Q/K/V 和 pre-`o_proj` 输入，并按模型完整 query 形状 replay；
+repair run 的最大 replay error 为 `0`，局部 `Z/N` bound violation 和 certificate
+increase 均为 `0`。失败目录和日志均保留，未覆盖。
+
+在 `k=196`、即 62.5% visual-token retention 下，72 个 sample-layer cells 的结果为：
+
+| selector | visual mean / P95 / worst | full mean / P95 / worst |
+|---|---:|---:|
+| analytic remainder | 5.520% / 10.474% / 21.857% | 0.607% / 1.102% / 1.768% |
+| attention mass | 4.043% / 8.489% / 9.416% | 0.497% / 0.938% / 1.646% |
+| exact local score | **3.450% / 6.433% / 7.395%** | **0.424% / 0.746% / 1.236%** |
+| sequential exact greedy | 7.041% / 24.505% / 41.176% | 0.766% / 1.500% / 2.220% |
+| fixed random | 25.141% / 55.504% / 65.375% | 2.086% / 4.308% / 5.711% |
+
+正式判决为 `NO_REGISTERED_QUERY_FIXED_MEASURE_PATH`。该判决不能仅靠 sequential
+greedy 解释，因为 nested greedy 会陷入路径局部最优；但更有利的 cell-wise
+registered envelope 允许每个 cell 事后选择四种非随机路径，visual mean/P95/worst
+仍为 `3.252%/5.841%/6.332%`，没有一个 cell 达到 `<=1%`。所以 narrow null 不依赖
+某一个 selector 的异常，而是当前 true-`2x2` centroid state 与共享 regular split
+family 的共同边界；它仍不是所有 cardinality subset 的全局最优证明。
+
+### 9.6.1 深层退化和 full-output 稀释
+
+`exact_local_score` 的 visual error 随层显著增加：
+
+| layer | mean | P95 | worst |
+|---:|---:|---:|---:|
+| 0 | 1.300% | 1.464% | 1.497% |
+| 13 | 3.337% | 4.042% | 4.383% |
+| 27 | 5.714% | 7.161% | 7.395% |
+
+相反，full-attention mean 已降至 `0.424%`。这不是 visual memory 已安全，而是 exact
+non-visual numerator/denominator 稀释了视觉分支缺陷；若只看 full mean，会得到错误
+的 positive。visual measure 因而是本 Gate 的 primary capacity endpoint，full output
+只用于说明系统相关尺度。
+
+解析不等式本身没有失败：所有 local `epsilon_Z/epsilon_N` 都覆盖真实局部 defect，
+路径 certificate 也没有增加。但 finite denominator certificate 只覆盖 `11.01%`
+heads；分层为 layer 0 的 `33.0%`、layers 13/27 的 `0%`。analytic path 虽有单调
+certificate，真实 visual error 仍发生 10 次路径回退，说明不同节点之间存在明显
+error cancellation；对局部绝对值求和的 triangle envelope 在深层过于保守。
+
+### 9.6.2 与条件冗余和双时间理论的一致性
+
+这一结果没有反驳条件冗余分解，反而把缺失接口进一步定位。固定 query 后，后续
+query feedback、去噪时间和物理时间的交换缺陷已被排除；剩余误差来自 coarse state
+不是 softmax measure 的充分统计量。令 `k=bar k+delta k`、`v=bar v+delta v`，则
+
+\[
+\sum_j e^{q^T k_j}v_j
+=e^{q^T\bar k}
+\sum_j e^{q^T\delta k_j}(\bar v+\delta v_j).
+\]
+
+只保存 `bar k, bar v, mass` 会丢掉至少
+
+\[
+\Sigma_{vk}q
+=\mathbb E[\delta v\,\delta k^T]q
+\]
+
+以及更高阶 score-value coupling。layer 27 的退化说明该条件 innovation 随深度变得
+更重尾，而不是 query-fixed measure 不可加。与 EXP-004/005 的共同结论是：增加固定
+rank 或静态结构不能恢复未观测的条件坐标；`EXP-005` 的 current-input diagonal field
+之所以能达到 `1.937x`，正是因为它提高了当前状态带宽，而非因为 diagonal 比 DPLR
+更强。
+
+热力学/路径风险视角仍只提供 metric：应按下游 Jacobian、噪声阶段和 suffix 传播给
+innovation 加权。本 Gate 使用 `W=I` 的局部 attention-output 范数，因而只判断接口
+容量；它不能推出 reader task risk、video quality、denoising suffix 稳定或硬件收益。
+
+### 9.6.3 决策和唯一高信息后续
+
+train-free true-`2x2` centroid certificate 现已 parked，不再增加 BCM、PPE 或更多
+position rule。下一项若继续，只应先做一个更强上界分解：在相同 `k=196` 下允许
+per-head target-visible exact support，仍使用相同 coarse state。它回答：
+
+1. 若 per-head ceiling 通过 `1%/2%`，主要瓶颈是共享 support，后续才值得训练低带宽
+   head/group router；
+2. 若 per-head ceiling 仍失败，主要瓶颈是 coarse state，下一步只能比较
+   query-conditioned dipole/cross-moment state，而不能继续优化 selector；
+3. 若 richer state 只有在接近四个原 token 的存储和 MAC 下才通过，则该方向没有
+   压缩价值，应停止 external-measure 路线。
+
+cross-moment 或 multipole attention 本身已有 FMM 类先例；潜在独立点只能是以
+conditional innovation、下游风险和实测成本联合认证 state order，并对不可压缩
+heads exact fallback，不能主张首次使用 moment hierarchy。
+
+![Query-fixed visual measure 的预算曲线、分层退化与证书覆盖](../figures/query_fixed_measure_remainder.png)
+
+## 9.7 Per-head support ceiling：共享路由是主瓶颈，但不是全部瓶颈
+
+按照 9.6.3 的唯一后续，本轮保持同一 query、coarse state、true-`2x2` groups 和
+`k=196` 预算，只允许 28 个 heads 分别选择 exact nodes。上一轮
+`shared_exact_local` 在全部 `sample x layer x budget` cells 上逐项复现；full-shape
+Q/K/V replay error 为 `0`。position-73 smoke 首次因 permutation guard 的 CPU/CUDA
+device mismatch 在写结果前停止，唯一修复只改变检查张量 device；失败目录保留。
+
+24 个 exposed 样本的正式判决为 `HEADWISE_SUPPORT_PARTIAL`：
+
+| selector | visual mean / P95 / worst | full mean / P95 / worst |
+|---|---:|---:|
+| shared exact-local | 3.450% / 6.433% / 7.395% | 0.424% / 0.746% / 1.236% |
+| headwise attention mass | 1.493% / 2.905% / 3.280% | 0.197% / 0.316% / 0.432% |
+| headwise exact-local | **1.222% / 2.493% / 2.700%** | **0.145% / 0.239% / 0.368%** |
+| headwise sequential greedy | 9.165% / 16.935% / 21.343% | 1.617% / 2.897% / 4.727% |
+
+headwise exact-local 在所有 72 个 cells 上都是注册 headwise envelope 的 winner，相对
+shared support 将 visual mean 降低 `64.58%`。但 mean/P95 仍高于 `1%/2%`，因此
+不授权训练 support router。sequential greedy 再次显著恶化，说明 exact split 的误差
+集合不是 submodular；逐步最小化当前 error 会消耗后续需要的 cancellation，不能把
+“每步 target-visible”误称为全局 oracle。
+
+分层结果给出异构边界：
+
+| layer | shared mean | headwise mean / P95 / worst | relative gain |
+|---:|---:|---:|---:|
+| 0 | 1.300% | **0.400% / 0.459% / 0.482%** | 69.24% |
+| 13 | 3.338% | 1.142% / 1.425% / 1.511% | 65.80% |
+| 27 | 5.714% | 2.125% / 2.652% / 2.700% | 62.81% |
+
+因此共享 support 是三层的主要误差源，但 layer 27 即使拥有 target-visible per-head
+support 仍不能通过。一个统一 sparse router 不再合理；可行系统最多是 shallow
+headwise support、mid/deep richer state 或 exact fallback。更重要的是，本轮 support
+由 exact output 生成，不具备部署可观测性，所以 layer 0 的 capacity pass 也不是
+runtime method win。
+
+### 9.7.1 从 centroid 到 query-conditioned cross moment
+
+令 `a_j=q^T delta k_j` 且节点内 `sum delta k=sum delta v=0`，则
+
+\[
+Z_g(q)=e^{q^T\bar k}\sum_j e^{a_j},
+\qquad
+N_g(q)=e^{q^T\bar k}\sum_j e^{a_j}(\bar v+\delta v_j).
+\]
+
+centroid 是零阶近似。展开到二阶得到：
+
+\[
+Z_g(q)\approx e^{q^T\bar k}
+\left(m+\frac12\sum_j a_j^2\right),
+\]
+
+\[
+N_g(q)\approx e^{q^T\bar k}
+\left[
+\bar v\left(m+\frac12\sum_j a_j^2\right)
++\underbrace{\sum_j a_j\delta v_j}_{m\Sigma_{vk}q}
++\frac12\sum_j a_j^2\delta v_j
+\right].
+\]
+
+第一阶 cross term `Sigma_vk q` 会随当前 query/head 旋转，正好对应本轮观测到的
+head-specific support；固定 BCM、固定低秩 basis 和共享 support 都无法表达它。
+这不是把 low-rank 重新叠加回去，而是从 softmax measure 的充分统计量推导出的首个
+缺项。
+
+但成本边界同样严格：对 4-token node，`Sigma_vk` 的样本秩最多 3，直接保存/应用
+其 factors 与重新读取四个 leaves 同阶，几乎没有压缩意义。只有在更大的空间或时间
+node 中，cross-moment effective rank `r << m` 时才可能摊薄成本。因此下一 Gate 只
+先验证 order-1/2/3 Taylor state 的容量；低阶不通过就停止，低阶通过也必须再做
+larger-node rank/cost sweep，不能直接宣称加速。
+
+![Per-head support 的预算曲线、分层边界与相对收益](../figures/query_fixed_headwise_support_ceiling.png)
+
+## 9.8 Taylor smoke 的有效止损：odd-order expansion 不是正测度
+
+后续 Taylor capacity Gate 没有产生 decision-bearing 结果。v1 position-73 smoke 在
+写 row 前发现某些 odd-order truncated exponential 产生非正 group mass；没有 clamp，
+而是按正测度前提停止。v2 试图逐 cell 标记无效 order，但把 float32 `exp` underflow
+产生的数值零也判为物理负质量，导致 order-0 identity control 在汇总前停止。按照
+预注册的一次 repair 上限，本 Gate 记录为 invalid engineering/function-family attempt，
+不再进行第三次修复或 formal run；两个失败目录均保留。
+
+这不是 cross-moment 的负结果。它只说明直接使用 odd Taylor polynomial 不满足我们
+需要的 measure invariant。尤其
+
+\[
+p_2(a)=1+a+\frac12a^2
+=\frac12\left[(a+1)^2+1\right]>0
+\]
+
+对所有实数成立，而 `p_1` 和 `p_3` 都可能给 member 负权重。下一项若获授权，应是
+一个新的 **positive quadratic moment** Gate，而不是修补本 Gate：只测试 order-0
+与 order-2，区分数学负值和数值 underflow，并先把 node 扩到 `4x4` 或时空层次节点，
+同时限制 `Sigma_vk/Sigma_kk` factor rank 与实际 MAC/state bytes。只有在
+
+\[
+\text{visual mean/P95}\le 1\%/2\%,
+\qquad
+r\ll m,
+\qquad
+C_{\rm moment}<C_{\rm leaves}
+\]
+
+同时成立时，才训练 current-query-conditioned coefficient/router。这样得到的核心不再
+是 BCM、low-rank、sparse 的并列叠加，而是：
+
+> **以正的 query-conditioned measure state 表达稳定 bulk，以 per-head exact leaves
+> 表达条件 innovation，并按层认证 state order 与 fallback。**
+
+BCM/BCCB 只可能作为 larger-node 几何分组或离线 basis，不再进入 measure 主公式。
+
 ## 10. 工件
 
 - `analysis/.../target_risk_budget_frontier_exposed_v1/`
@@ -708,10 +925,14 @@ normalization 和跨层状态；局部信息增益不保证 suffix risk 单调�
 - `analysis/.../batched_current_support_marginal_exposed_v1/`
 - `analysis/.../true_2x2_geometry_exposed_v1/`
 - `analysis/.../true_2x2_ppe_exposed_v1/`
+- `analysis/.../query_fixed_measure_exposed_v2_repair1/`
+- `analysis/.../query_fixed_headwise_exposed_v1/`
 - `analysis/.../measure_preserving_compaction_invalid_attempts/`
 - `figures/target_risk_compaction_geometry_audit.{png,pdf,svg}`
 - `figures/reader_aligned_singleton_marginal_audit.{png,pdf,svg}`
 - `figures/batched_current_support_marginal_audit.{png,pdf,svg}`
 - `figures/true_2x2_geometry_control.{png,pdf,svg}`
 - `figures/true_2x2_ppe_control.{png,pdf,svg}`
+- `figures/query_fixed_measure_remainder.{png,pdf,svg}`
+- `figures/query_fixed_headwise_support_ceiling.{png,pdf,svg}`
 - 每张图对应的 bound CSV 位于同一 `figures/` 目录。
