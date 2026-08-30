@@ -373,6 +373,12 @@ def main() -> int:
     for suffix in (".png", ".pdf", ".svg"):
         figure.savefig(output_stem.with_suffix(suffix), dpi=300, bbox_inches="tight")
     plt.close(figure)
+    svg_path = output_stem.with_suffix(".svg")
+    svg_lines = svg_path.read_text(encoding="utf-8").splitlines()
+    svg_path.write_text(
+        "\n".join(line.rstrip() for line in svg_lines) + "\n",
+        encoding="utf-8",
+    )
     print(
         json.dumps(
             {
