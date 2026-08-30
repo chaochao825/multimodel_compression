@@ -1,0 +1,85 @@
+{
+  "analytic_active_state_ratio": 3.8419601837672284,
+  "batch_size": 2,
+  "claim_boundary": "Calibration-development oracle support capacity only. Both selectors read exact current-query statistics; confirmation, official selection/formal, deployable support generation, task behavior, writer cost, and latency remain untested.",
+  "confirmation_positions_unread": [
+    97,
+    120
+  ],
+  "decision": "NO_BOUNDARY_ADDITIVE_TAIL_PATH",
+  "development_positions": [
+    73,
+    96
+  ],
+  "elapsed_seconds": 142.83788416581228,
+  "exact_fraction": 0.25,
+  "feature_width": 32,
+  "layers": [
+    0,
+    13,
+    27
+  ],
+  "learning_rate": 0.001,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "role": "calibration_development_exact_boundary_additive_tail_oracle",
+  "seed": 20260830,
+  "selector_summaries": {
+    "effect_topk": {
+      "decision": "NO_BOUNDARY_ADDITIVE_TAIL_PATH",
+      "exact_only": {
+        "cell_count": 72,
+        "full_mean": 0.02516680672286182,
+        "full_p95": 0.059701420366764076,
+        "full_worst": 0.07062916457653046,
+        "visual_mean": 0.09237626986578107,
+        "visual_p95": 0.11878206096589566,
+        "visual_worst": 0.14647969603538513,
+        "visual_worst_head": 0.4788638949394226
+      },
+      "learned_tail": {
+        "cell_count": 72,
+        "full_mean": 0.003916246575600881,
+        "full_p95": 0.007919230964034797,
+        "full_worst": 0.011790799908339977,
+        "visual_mean": 0.023842933147938714,
+        "visual_p95": 0.04400569293648005,
+        "visual_worst": 0.05441896617412567,
+        "visual_worst_head": 0.4399048388004303
+      },
+      "visual_mean_relative_improvement": 0.7418933111005508
+    },
+    "mass_topk": {
+      "decision": "NO_BOUNDARY_ADDITIVE_TAIL_PATH",
+      "exact_only": {
+        "cell_count": 72,
+        "full_mean": 0.024671643539073154,
+        "full_p95": 0.058260198496282105,
+        "full_worst": 0.06871142983436584,
+        "visual_mean": 0.09227860211912128,
+        "visual_p95": 0.12277316749095918,
+        "visual_worst": 0.14203523099422455,
+        "visual_worst_head": 0.4480589032173157
+      },
+      "learned_tail": {
+        "cell_count": 72,
+        "full_mean": 0.0037181318459463203,
+        "full_p95": 0.0073341374518349775,
+        "full_worst": 0.011231820099055767,
+        "visual_mean": 0.023679522280063894,
+        "visual_p95": 0.045665361732244496,
+        "visual_worst": 0.0525190569460392,
+        "visual_worst_head": 0.4437454640865326
+      },
+      "visual_mean_relative_improvement": 0.7433909732453869
+    }
+  },
+  "selectors": [
+    "mass_topk",
+    "effect_topk"
+  ],
+  "steps": 1000,
+  "train_positions": [
+    1,
+    72
+  ]
+}

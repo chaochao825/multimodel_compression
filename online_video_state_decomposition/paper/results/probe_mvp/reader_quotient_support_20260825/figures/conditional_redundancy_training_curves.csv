@@ -1,0 +1,34 @@
+step,development_visual_mean,method
+1,0.7286770931548543,Whole visual additive state
+100,0.5567318167951372,Whole visual additive state
+200,0.4238242881579531,Whole visual additive state
+300,0.3800872762997945,Whole visual additive state
+400,0.36098681845598746,Whole visual additive state
+500,0.34835341965986627,Whole visual additive state
+600,0.33967577562563944,Whole visual additive state
+700,0.3324223142117262,Whole visual additive state
+800,0.3252163167215056,Whole visual additive state
+900,0.32033107222782237,Whole visual additive state
+1000,0.3150892710934082,Whole visual additive state
+1,0.21599614682296908,Exact effect boundary + tail
+100,0.03974415304967093,Exact effect boundary + tail
+200,0.028475269403619035,Exact effect boundary + tail
+300,0.027431653152840768,Exact effect boundary + tail
+400,0.025942752642246533,Exact effect boundary + tail
+500,0.0263696670946147,Exact effect boundary + tail
+600,0.025506354907217064,Exact effect boundary + tail
+700,0.0246424460007498,Exact effect boundary + tail
+800,0.02476438388435373,Exact effect boundary + tail
+900,0.024754352401942,Exact effect boundary + tail
+1000,0.0246440786738983,Exact effect boundary + tail
+1,0.21119013436449066,Exact mass boundary + tail
+100,0.038155778750984165,Exact mass boundary + tail
+200,0.0272533528041094,Exact mass boundary + tail
+300,0.026209150854912034,Exact mass boundary + tail
+400,0.025912368178574497,Exact mass boundary + tail
+500,0.025556173796455032,Exact mass boundary + tail
+600,0.026904625637042833,Exact mass boundary + tail
+700,0.0253828485211771,Exact mass boundary + tail
+800,0.024803442117344133,Exact mass boundary + tail
+900,0.024046093820490697,Exact mass boundary + tail
+1000,0.024368347134441068,Exact mass boundary + tail

@@ -39,8 +39,8 @@ weights, MVBench videos, native feature tensors, or remote runtime logs.
    dominate continuous and discrete risk. A compressed-margin-zero exact tier
    removed the only harmful boundary-mix flip with 7/72 fallbacks and retained
    a conservative 4.46x state-transfer ratio. This is a calibration-only
-   conditional signal; the frozen 60-scene selection and 63-scene formal sets
-   remain untouched.
+   conditional signal. The frozen 60-scene selection was subsequently opened
+   only for the fixed CMRQ candidate; the 63-scene formal set remains untouched.
 9. Three exposed query-conditioned diagnostics then tested stronger memory
    interfaces on calibration positions 73--96. Positive Gaussian closure and
    progressive exact regular pages both failed their frozen gates. A subsequent
@@ -50,6 +50,22 @@ weights, MVBench videos, native feature tensors, or remote runtime logs.
    `NO_PROTOTYPE_MIXTURE_PATH`. A post-hoc reverse-greedy support sensitivity
    improved mean error to 6.16% but remained 12.3x above the capacity gate; no
    writer training or hidden split was opened.
+10. Fixed CMRQ then failed official selection: boundary-mix mean/P95 KL was
+    `0.002656/0.010470`, agreement was `93.88%`, and the paired KL confidence
+    interval versus its permuted-risk null crossed zero. Progressive fallback
+    reached `97.959%` agreement with `3/49` fallbacks, still below the frozen
+    98% gate. Formal remained closed.
+11. A leakage-safe learned width-32 additive `N/Z` state was trained on VSI
+    positions 1--72 and selected on positions 73--96. It reduced visual error
+    by 57.1% but still ended at `31.51%/52.52%` mean/P95, yielding
+    `NO_ADDITIVE_NZ_FEATURE_STATE`.
+12. A new capacity oracle retained 25% exact visual tokens and trained the same
+    state only on the residual bulk. Mass-top support reached
+    `2.368%/4.567%/5.252%` visual mean/P95/worst and
+    `0.372%/0.733%` full mean/P95 at an analytic `3.842x` active-state ratio.
+    It improved strongly but failed the frozen visual Gate, so confirmation
+    positions 97--120 remained unread. FP64 geometry shows the tail still has
+    `0.90--0.94` normalized entropy and broad effective support.
 
 No result in this package establishes strict strong-reader interchangeability,
 a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
@@ -64,8 +80,8 @@ a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
 - `reports/`: Chinese evidence synthesis and method-boundary reports.
 - `metadata/`: calibration summaries for the two OneVision PCA bases.
 
-The latest evidence and next-method boundary are summarized in
-`reports/QUERY_FIXED_PROTOTYPE_MIXTURE_AUDIT_20260830.zh-CN.md`.
+The latest unified evidence and next-method boundary are summarized in
+`reports/CONDITIONAL_REDUNDANCY_CORE_AUDIT_20260830.zh-CN.md`.
 
 The canonical model-side runners and tests live under
 `online_video_state_decomposition/experiments/` in this repository.

@@ -1,0 +1,53 @@
+{
+  "analytic_state_ratio": 97.24031007751938,
+  "baseline": {
+    "cell_count": 72,
+    "full_mean": 0.04863081049794952,
+    "full_p95": 0.09340653568506242,
+    "full_worst": 0.13182500004768372,
+    "log_visual_mass_absolute_mean": 0.3415124817854828,
+    "visual_mean": 0.7340616352028317,
+    "visual_p95": 0.9492970615625381,
+    "visual_worst": 0.9700433611869812,
+    "visual_worst_head": 106219.28125
+  },
+  "batch_size": 2,
+  "claim_boundary": "Calibration-development additive-state capacity only. Confirmation positions 97-120, official selection/formal, reader task behavior, writer cost, kernel latency, and wall-clock remain untested.",
+  "confirmation_positions_unread": [
+    97,
+    120
+  ],
+  "decision": "NO_ADDITIVE_NZ_FEATURE_STATE",
+  "development_positions": [
+    73,
+    96
+  ],
+  "elapsed_seconds": 77.28306720918044,
+  "feature_width": 32,
+  "layers": [
+    0,
+    13,
+    27
+  ],
+  "learned": {
+    "cell_count": 72,
+    "full_mean": 0.02863050541943974,
+    "full_p95": 0.07452528923749926,
+    "full_worst": 0.09714847058057785,
+    "log_visual_mass_absolute_mean": 0.23914712972732055,
+    "visual_mean": 0.3150892710934083,
+    "visual_p95": 0.5251762390136718,
+    "visual_worst": 0.6517773866653442,
+    "visual_worst_head": 1.0488985776901245
+  },
+  "learning_rate": 0.001,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "role": "calibration_development_additive_nz_feature_state",
+  "seed": 20260830,
+  "steps": 1000,
+  "train_positions": [
+    1,
+    72
+  ],
+  "visual_mean_relative_improvement": 0.5707591079782495
+}
