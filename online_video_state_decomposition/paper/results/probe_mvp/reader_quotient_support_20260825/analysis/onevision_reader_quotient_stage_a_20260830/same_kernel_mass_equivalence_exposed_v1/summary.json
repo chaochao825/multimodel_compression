@@ -1,0 +1,41 @@
+{
+  "attention_implementation": "eager",
+  "claim_boundary": "Engineering equivalence Gate on already exposed positions 73-96. The eager harness is not a latency candidate. Weighted metrics are diagnostic only. Positions 97-120, selection, and formal remain unread.",
+  "decision": "SAME_KERNEL_MASS_VALID",
+  "elapsed_seconds": 49.920673173386604,
+  "maximum_full_vocab_dense_equivalence_error": 0.0,
+  "maximum_full_vocab_equal_mass_error": 0.0,
+  "maximum_full_vocab_repeatability_error": 0.0,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "registered_group_counts": [
+    0,
+    196,
+    392
+  ],
+  "role": "exposed_same_kernel_mass_equivalence",
+  "sample_count": 24,
+  "sample_positions": [
+    73,
+    96
+  ],
+  "weighted_diagnostics": {
+    "0": {
+      "agreement": 0.7083333333333334,
+      "candidate_kl_mean": 0.0546418409794569,
+      "candidate_kl_p95": 0.23258125111460667,
+      "sample_count": 24
+    },
+    "196": {
+      "agreement": 0.75,
+      "candidate_kl_mean": 0.026513702313726146,
+      "candidate_kl_p95": 0.13431793488562102,
+      "sample_count": 24
+    },
+    "392": {
+      "agreement": 1.0,
+      "candidate_kl_mean": 0.0,
+      "candidate_kl_p95": 0.0,
+      "sample_count": 24
+    }
+  }
+}

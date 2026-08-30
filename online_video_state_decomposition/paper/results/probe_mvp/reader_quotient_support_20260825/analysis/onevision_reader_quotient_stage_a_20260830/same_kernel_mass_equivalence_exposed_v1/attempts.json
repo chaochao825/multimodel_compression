@@ -1,0 +1,21 @@
+{
+  "classification": "VALID_AFTER_ONE_ENGINEERING_REPAIR",
+  "attempts": [
+    {
+      "attempt": 1,
+      "classification": "ENGINEERING_FAILURE",
+      "failure": "All 24 samples completed with zero equivalence error, but final summary aggregation passed scalar KL values to a helper that requires row dictionaries.",
+      "scientific_update": "none",
+      "preserved_remote_output": "/home/spco/online_video_state_decomposition/remote_results/vsi_onevision_reader_quotient_stage_a_20260830_v1/same_kernel_mass_equivalence_exposed_attempt1_engineering_failure",
+      "preserved_remote_log": "/home/spco/online_video_state_decomposition/remote_results/vsi_onevision_reader_quotient_stage_a_20260830_v1/logs/same_kernel_mass_equivalence_exposed_attempt1_engineering_failure.log"
+    },
+    {
+      "attempt": 2,
+      "classification": "VALID",
+      "repair": "Compute KL mean and P95 directly from the frozen scalar values with NumPy; no forward path, data, support, or threshold changed.",
+      "decision": "SAME_KERNEL_MASS_VALID",
+      "remote_output": "/home/spco/online_video_state_decomposition/remote_results/vsi_onevision_reader_quotient_stage_a_20260830_v1/same_kernel_mass_equivalence_exposed_v1",
+      "remote_log": "/home/spco/online_video_state_decomposition/remote_results/vsi_onevision_reader_quotient_stage_a_20260830_v1/logs/same_kernel_mass_equivalence_exposed_attempt2_20260830.log"
+    }
+  ]
+}
