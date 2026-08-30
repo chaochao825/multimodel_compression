@@ -411,12 +411,207 @@ Wan 仍应先完成 released rCM/few-step H200 incumbent；若后续训练 state
 的路线。当前最优动作是先完成 M0/M1 的函数类与数值等价诊断；只有它们通过，
 才值得投入小步适配与系统 kernel。
 
+## 9.1 M0 后续校正：同 kernel 的 mass 代数等价已通过
+
+M0 最终在 OneVision Qwen2 的 eager attention path 中通过。普通路径、显式
+all-mass-one 路径和重复执行在 24 个已暴露问题上的 full-vocabulary logits 最大
+误差均为 `0`；`k=392` 的 full-refinement 路径与 dense endpoint 误差也为 `0`。
+正式判决为 `SAME_KERNEL_MASS_VALID`。
+
+在此基础上加入 quotient token 的 `log m` bias 后，weighted diagnostics 为：
+
+| exact groups | agreement | KL mean / P95 |
+|---:|---:|---:|
+| 0 | 70.83% | 0.05464 / 0.23258 |
+| 196 | 75.00% | 0.02651 / 0.13432 |
+| 392 | 100% | 0 / 0 |
+
+这些数值只说明 proportional mass 已在相同 attention 实现中被正确表达，不说明
+它优于 equal mass，也不说明路径单调。eager harness 不是生产延迟候选；标准
+SDPA/FlashAttention 也没有直接暴露任意 per-key `log m` 接口，真实部署仍需融合
+`exp(score) * mass`、预变换或等价 kernel。M0 首次尝试在全部 forward 完成后因
+summary 聚合错误退出，按协议只修复一次聚合逻辑；失败尝试保留，第二次运行才是
+上述有效结果。
+
+## 9.2 理论导出的核心候选：风险有界的层次测度 memory
+
+M0/M1 的更深作用不是再证明一种 token score，而是指出当前 decoder
+self-attention 接口本身不利于渐进精化。一个更可证明的接口是把视觉状态作为经验
+测度，由独立 cross-attention reader 消费：
+
+\[
+\mu=\sum_i\delta_{(p_i,k_i,v_i)},\qquad
+Z(q)=\int e^{q^\top k}\,d\mu,\qquad
+N(q)=\int e^{q^\top k}v\,d\mu,\qquad
+A(q,\mu)=N(q)/Z(q).
+\]
+
+对层次节点 `g`，保存 mass `m_g`、centroid `bar k_g/bar v_g`、位置状态及半径
+`r_k/r_v`。若 `||q||<=Q`，centroid 近似的局部 denominator 余项满足：
+
+\[
+\epsilon^Z_g
+\le
+m_g e^{q^\top\bar k_g}
+\left(e^{Q r_{k,g}}-1\right),
+\]
+
+numerator 余项可保守界为：
+
+\[
+\epsilon^N_g
+\le
+m_g e^{q^\top\bar k_g}
+\left[
+e^{Q r_{k,g}}r_{v,g}
++
+\left(e^{Q r_{k,g}}-1\right)\|\bar v_g\|
+\right].
+\]
+
+`N/Z` 的全局误差再由 `sum_g epsilon_g`、`Z` 的正下界和 triangle inequality
+控制。实际误差可能因不同节点抵消而非单调，但可以递归保存 envelope：
+
+\[
+b_g=\max\left(\tilde b_g,\sum_{c\in\operatorname{child}(g)}b_c\right).
+\]
+
+这样把父节点拆成 children 后，未读风险上界按构造不增加。运行时选择：
+
+\[
+g^*=\arg\max_g
+\frac{b_g-\sum_{c\in\operatorname{child}(g)}b_c}
+{\Delta T_{\rm measured}(g)},
+\]
+
+并在校准后的 task-risk 上界低于门槛时停止，否则继续拆分或 exact fallback。
+这个结构把“稳定 bulk、精确 innovation、条件风险”统一成 adaptive quadrature，
+而不是 BCM、低秩和 controller 的并列叠加。
+
+它有四个必须保留的边界：
+
+1. 上述可加性只直接适用于 query 固定的单个 cross-attention memory 接口；在当前
+   多层 decoder self-attention 中，压缩会改变后续 query 和状态，不能套用该证明。
+2. 几何半径给出的 bound 可能很松，必须用 reader Jacobian/adverse loss 做校准；
+   校准证书只对相同数据分布提供统计覆盖，不是任意输入的绝对保证。
+3. [FMMformer](https://arxiv.org/abs/2108.02347)、
+   [H-Transformer-1D](https://arxiv.org/abs/2107.11906)、
+   [Fast Multipole Attention](https://arxiv.org/abs/2310.11960) 和
+   [MuSe](https://arxiv.org/abs/2509.10406) 已覆盖层次近远场、multipole 或
+   centroid/dipole 近似；不能声称首次层次 attention 或 multipole memory。
+4. 可能成立的独立点只能是 actual-reader adverse-risk calibration、可组合 remainder
+   envelope、progressive exact split 与实测成本共同决定的 fallback，并且必须在
+   相同 reader、token budget 和 latency 下胜过 ToMe/PPE/FMM 类 baseline。
+
+因此 M1 仍是必要 Gate：它先判断当前 frozen decoder 是否已经存在可利用的条件
+路径。若 M1 失败，先做同预算 `2x2` geometry/PPE 控制；该控制也失败后，应停止
+继续扩充 frozen self-attention controller，转而用单层 external memory prototype
+直接验证上述可加 bound 与一次性 support 选择。只有 prototype 同时通过风险和
+成本门槛，才训练小型 quotient/risk adapter。
+
+## 9.3 M1 结果：current-support 有 headroom，但没有安全渐进路径
+
+M1 在 positions 73--96 的 24 个已暴露问题上有效完成，未读取 positions
+97--120、selection 或 formal。每个样本包含 8 帧、1,568 个视觉 token 和 392 个
+展平连续的 4-token group；两种路径都保留原始位置，并在同一个 eager attention
+实现中比较 equal mass 与 group mass。离线 teacher 在当前 support 上逐一执行真实
+compact reader，按条件 KL benefit 选择下一批 49 个 group：
+
+\[
+\Delta_g(\Omega,q)
+=D_q(\Omega)-D_q(\Omega\cup\{g\}).
+\]
+
+该实验是 transductive 的 batched receding-horizon capacity diagnostic，不是精确
+逐 group greedy，也不是部署 router。完整运行耗时 `5,416.10 s`，得到 240 条路径
+记录和 61,152 条条件边际记录；正式判决为
+`NO_BATCHED_CURRENT_SUPPORT_PATH`。
+
+| mode | exact groups | retention | agreement | mismatch | harmful | KL mean / P95 |
+|---|---:|---:|---:|---:|---:|---:|
+| equal mass | 0 | 25.00% | 79.17% | 5 | 1 | 0.03348 / 0.09814 |
+| equal mass | 49 | 34.38% | 87.50% | 3 | 1 | 0.03162 / 0.07118 |
+| equal mass | 98 | 43.75% | 87.50% | 3 | 2 | 0.02487 / 0.08613 |
+| equal mass | 147 | 53.13% | 83.33% | 4 | 1 | 0.00946 / 0.02978 |
+| equal mass | 196 | 62.50% | **95.83%** | **1** | **1** | 0.01054 / 0.04010 |
+| group mass | 0 | 25.00% | 70.83% | 7 | 3 | 0.05464 / 0.23258 |
+| group mass | 49 | 34.38% | 91.67% | 2 | 0 | 0.02157 / 0.06893 |
+| group mass | 98 | 43.75% | 79.17% | 5 | 2 | 0.02218 / 0.08285 |
+| group mass | 147 | 53.13% | 91.67% | 2 | 1 | **0.00810** / 0.03330 |
+| group mass | 196 | 62.50% | 91.67% | 2 | 1 | 0.00951 / 0.02810 |
+
+两个 mode 的 strict budget 均为空。最接近门槛的 equal-mass `k=196` 仍有一个
+match-to-mismatch harmful flip，且 P95 是注册门槛 `0.02` 的约两倍；group-mass
+虽把 mean KL 降至 `0.00951`，却有两个 mismatch 和一个 harmful。两个 harmful
+样本的 compressed top-1 margin 都为 `0.125`，因此也不能用“只在近零 margin
+处失败”解释。
+
+### 9.3.1 路径非单调不是均值偶然波动
+
+| mode | match-to-mismatch transitions | KL-increase transitions | 有 KL 回退的样本 |
+|---|---:|---:|---:|
+| equal mass | 6 | 36 | 24/24 |
+| group mass | 8 | 33 | 22/24 |
+
+虽然每轮被选中的 49 个 singleton 中有 `71.7%--90.8%` 具有正条件收益，把这些
+单项收益相加仍严重高估联合更新。令：
+
+\[
+I_{49}
+=D_q(\Omega_{b+1})
+-\left[D_q(\Omega_b)-\sum_{g\in B_b}\Delta_g(\Omega_b,q)\right].
+\]
+
+equal-mass 四轮的 median `I_49` 为 `0.349/0.251/0.192/0.206`，正值样本分别为
+`24/24, 23/24, 23/24, 23/24`；group-mass 为
+`0.335/0.195/0.092/0.077`，正值样本为 `22/24, 22/24, 23/24, 19/24`。
+因此条件边际确有信息，但 49-group batch 内高度冗余并存在 error cancellation；
+它不是可直接相加的风险 certificate。
+
+这保留了一个很窄的可能性：更小 batch 或联合 support optimizer 可能改善
+transductive oracle。但精确逐 group teacher 约需把四轮扩展到近 196 轮，既昂贵
+又不可部署；当前证据不支持直接投入这种 brute-force oracle。
+
+### 9.3.2 proportional mass 是必要表示，不是通过机制
+
+在 `k=49/98/147/196`，group mass 相对 equal mass 的 mean KL 分别变化
+`-0.01005/-0.00269/-0.00135/-0.00102`，但逐样本 KL 胜出仅为
+`15/12/12/11` 个，决策净胜负分别为 `2:1, 2:4, 3:1, 1:2`。因此 mass 的均值
+收益由少量样本驱动且不稳定，不能把 M1 的剩余 headroom 归因于 mass；M0 只证明
+它被正确表达。
+
+### 9.3.3 结论边界与下一动作
+
+M1 相对历史 static singleton 明显降低 KL，说明 current support 是有价值的条件
+变量；但 historical static 使用 SDPA，而 M1 使用 eager，因此该比较只能是描述性
+诊断，不能作为严格 method win。M1 的有效 null 只关闭：
+
+> 原始位置、可选 proportional mass、展平连续 4-token group、每轮 49-group
+> current-support singleton teacher 组成的 frozen-reader 路径。
+
+它不关闭 exact sequential greedy、true `2x2` geometry、PPE、多节点 joint
+optimizer、external cross-attention memory 或训练原生 path consistency。由于当前
+展平连续 group 会在部分位置跨越 `14x14` 行边界，下一步只授权一个便宜、相同
+预算的 `flat-4 vs true-2x2 vs PPE` 几何控制；只有该控制有明显改善，才恢复完整
+current-support path。若无改善，则冻结 self-attention 的 train-free progressive
+quotient 应保持 parked，后续只比较：
+
+1. 单层 external memory 上的可加 numerator/denominator remainder bound；
+2. 冻结视觉 encoder/QKV，仅训练 quotient、position/mass adapter 和一次性 support
+   router 的 path-consistency 适配；
+3. ToMe、PPE、DyCoke、ForestPrune 和 FMM/MuSe 类同预算 baseline。
+
+![M1 current-support 路径、尾部误差与 49-group 交互](../figures/batched_current_support_marginal_audit.png)
+
 ## 10. 工件
 
 - `analysis/.../target_risk_budget_frontier_exposed_v1/`
 - `analysis/.../group_compaction_geometry_exposed_v1/`
 - `analysis/.../reader_aligned_singleton_marginal_exposed_v1/`
+- `analysis/.../same_kernel_mass_equivalence_exposed_v1/`
+- `analysis/.../batched_current_support_marginal_exposed_v1/`
 - `analysis/.../measure_preserving_compaction_invalid_attempts/`
 - `figures/target_risk_compaction_geometry_audit.{png,pdf,svg}`
 - `figures/reader_aligned_singleton_marginal_audit.{png,pdf,svg}`
+- `figures/batched_current_support_marginal_audit.{png,pdf,svg}`
 - 每张图对应的 bound CSV 位于同一 `figures/` 目录。
