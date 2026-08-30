@@ -1,0 +1,86 @@
+{
+  "attention_implementation": "eager",
+  "claim_boundary": "Empty-support topology control on exposed positions 73-96. It does not test PPE, current-support routing, selection, formal, or latency.",
+  "comparisons": {
+    "positioned_equal_mass": {
+      "harmful_delta": 1,
+      "mean_kl_ratio": 1.5247598089977554,
+      "mismatch_reduction": -1,
+      "p95_kl_ratio": 1.2015031320384555,
+      "paired_kl_wins": 12,
+      "prediction_match_losses": 2,
+      "prediction_match_wins": 1
+    },
+    "positioned_group_mass": {
+      "harmful_delta": -2,
+      "mean_kl_ratio": 0.8605734619988934,
+      "mismatch_reduction": 2,
+      "p95_kl_ratio": 0.7050547144304212,
+      "paired_kl_wins": 16,
+      "prediction_match_losses": 2,
+      "prediction_match_wins": 4
+    }
+  },
+  "decision": "TRUE_2X2_DECISION_HEADROOM",
+  "elapsed_seconds": 21.505148319993168,
+  "flat_prediction_repeat_mismatches": 0,
+  "geometries": [
+    "flat_contiguous_4",
+    "spatial_2x2"
+  ],
+  "maximum_flat_kl_repeat_error": 0.0,
+  "modes": [
+    "positioned_equal_mass",
+    "positioned_group_mass"
+  ],
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "representative_offset": 1,
+  "role": "exposed_true_2x2_geometry_control",
+  "sample_count": 24,
+  "sample_positions": [
+    73,
+    96
+  ],
+  "summaries": {
+    "positioned_equal_mass": {
+      "flat_contiguous_4": {
+        "agreement": 0.7916666666666666,
+        "candidate_kl_mean": 0.033483716853273414,
+        "candidate_kl_p95": 0.09814378023147574,
+        "harmful_count": 1,
+        "mismatch_count": 5,
+        "sample_count": 24,
+        "token_retention": 0.25
+      },
+      "spatial_2x2": {
+        "agreement": 0.75,
+        "candidate_kl_mean": 0.051054625713732094,
+        "candidate_kl_p95": 0.11792005933821197,
+        "harmful_count": 2,
+        "mismatch_count": 6,
+        "sample_count": 24,
+        "token_retention": 0.25
+      }
+    },
+    "positioned_group_mass": {
+      "flat_contiguous_4": {
+        "agreement": 0.7083333333333334,
+        "candidate_kl_mean": 0.0546418409794569,
+        "candidate_kl_p95": 0.23258125111460667,
+        "harmful_count": 3,
+        "mismatch_count": 7,
+        "sample_count": 24,
+        "token_retention": 0.25
+      },
+      "spatial_2x2": {
+        "agreement": 0.7916666666666666,
+        "candidate_kl_mean": 0.04702331826168423,
+        "candidate_kl_p95": 0.1639825075864791,
+        "harmful_count": 1,
+        "mismatch_count": 5,
+        "sample_count": 24,
+        "token_retention": 0.25
+      }
+    }
+  }
+}

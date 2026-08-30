@@ -18,11 +18,15 @@ target-risk budget、位置几何和 reader-aligned singleton 诊断。本文不
 3. 视频理解 reader 不是 diffusion。这里可借用的是条件风险、successive
    refinement 和 information-per-cost，不是 entropy production 的物理解释。
 
-本轮新增证据把瓶颈推进了一层：
+本轮新增证据把瓶颈推进了两层：
 
 > 失败不仅来自局部 writer 看不到全局 reader state；当前 frozen reader 的可变长度
 > quotient 路径本身也不满足单调 successive refinement。恢复更多 exact token
 > 可能使决策和 KL 反而变差。
+
+同预算的真实空间 `2x2` 控制进一步表明，几何邻接不是独立有效因素。它只在
+proportional group mass 同时存在时获得决策级 headroom；equal mass 下反而恶化。
+因此可复用对象更接近“带质量和位置的局部测度”，而不是一个无权 token 均值。
 
 因此当前最有潜力的核心不再是“更好的静态 support teacher”，而是：
 
@@ -591,9 +595,10 @@ M1 相对历史 static singleton 明显降低 KL，说明 current support 是有
 
 它不关闭 exact sequential greedy、true `2x2` geometry、PPE、多节点 joint
 optimizer、external cross-attention memory 或训练原生 path consistency。由于当前
-展平连续 group 会在部分位置跨越 `14x14` 行边界，下一步只授权一个便宜、相同
-预算的 `flat-4 vs true-2x2 vs PPE` 几何控制；只有该控制有明显改善，才恢复完整
-current-support path。若无改善，则冻结 self-attention 的 train-free progressive
+展平连续 group 会在部分位置跨越 `14x14` 行边界，因此先执行一个便宜、相同
+预算的 `flat-4 vs true-2x2` 几何控制。PPE 不能用代表位置近似，必须在 RoPE 内
+真正聚合多个 constituent position；只有几何控制达到预注册结果，才单独授权该
+paper-faithful PPE 控制。若无改善，则冻结 self-attention 的 train-free progressive
 quotient 应保持 parked，后续只比较：
 
 1. 单层 external memory 上的可加 numerator/denominator remainder bound；
@@ -603,6 +608,48 @@ quotient 应保持 parked，后续只比较：
 
 ![M1 current-support 路径、尾部误差与 49-group 交互](../figures/batched_current_support_marginal_audit.png)
 
+## 9.4 真实空间 2x2 控制：质量与几何必须联合表示
+
+冻结的 topology control 在相同 reader、rank、八帧和 `25%` token retention 下，
+比较原有展平连续四元组与每帧 `14x14` 网格上的非重叠真实 `2x2`。两条 flat
+路径逐位复现 M1 `k=0`：maximum KL repeat error 为 `0`，预测不一致数为 `0`。
+实验只读取 positions 73--96；positions 97--120、selection 和 formal 未读取。
+
+| mass mode | geometry | agreement | mismatch | harmful | KL mean / P95 |
+|---|---|---:|---:|---:|---:|
+| equal mass | flat contiguous-4 | 79.17% | 5 | 1 | 0.03348 / 0.09814 |
+| equal mass | spatial 2x2 | 75.00% | 6 | 2 | 0.05105 / 0.11792 |
+| group mass | flat contiguous-4 | 70.83% | 7 | 3 | 0.05464 / 0.23258 |
+| group mass | spatial 2x2 | **79.17%** | **5** | **1** | **0.04702 / 0.16398** |
+
+正式判决为 `TRUE_2X2_DECISION_HEADROOM`，不是 strict
+`TRUE_2X2_GEOMETRY_HEADROOM`。group-mass 路径满足 mismatch `7→5`、harmful
+`3→1` 和 mean/P95 ratio `0.861/0.705`；mean ratio 未达到 strict `0.8`。
+equal-mass 的 mean/P95 ratio 则为 `1.525/1.202`，决策和 harmful 也同时恶化。
+
+逐样本审计进一步限制了结论。group-mass 的 spatial `2x2` 在 `16/24` 个样本上
+降低 KL，单侧 sign-test 为 `p=0.0758`；mean KL delta 的 paired bootstrap 95%
+区间为 `[-0.0331, 0.0173]`，mean-ratio 区间为 `[0.434, 1.317]`。equal-mass
+仅 `12/23` 个非平局样本胜出，mean-ratio 区间为 `[0.748, 2.592]`。所以当前证据
+支持的是一个交互机制：
+
+\[
+\text{spatial topology} \times \text{proportional mass},
+\]
+
+而不是“真实 `2x2` 已经稳定优于 flat grouping”。这与层次测度解释一致：group
+mean 改变 support geometry，`log m_g` 恢复合并节点代表的 softmax measure；只做
+其中一个会产生位置或归一化 mismatch。
+
+按照预注册 outcome mapping，decision-only headroom **不授权**重跑 M1 的
+current-support teacher，只授权一次 paper-faithful multi-position/PPE 控制。该控制
+必须在 RoPE 变换中保留四个 constituent position 的贡献，不能继续用单个代表
+位置冒充 PPE。若 PPE 不能把 group-mass spatial `2x2` 推到 strict 门槛，则 frozen
+self-attention topology tuning 保持 parked，转向 query 固定的 external-memory
+remainder bound 或低成本 path-consistency adaptation。
+
+![真实空间 2x2 与展平四元组的配对审计](../figures/true_2x2_geometry_control.png)
+
 ## 10. 工件
 
 - `analysis/.../target_risk_budget_frontier_exposed_v1/`
@@ -610,8 +657,10 @@ quotient 应保持 parked，后续只比较：
 - `analysis/.../reader_aligned_singleton_marginal_exposed_v1/`
 - `analysis/.../same_kernel_mass_equivalence_exposed_v1/`
 - `analysis/.../batched_current_support_marginal_exposed_v1/`
+- `analysis/.../true_2x2_geometry_exposed_v1/`
 - `analysis/.../measure_preserving_compaction_invalid_attempts/`
 - `figures/target_risk_compaction_geometry_audit.{png,pdf,svg}`
 - `figures/reader_aligned_singleton_marginal_audit.{png,pdf,svg}`
 - `figures/batched_current_support_marginal_audit.{png,pdf,svg}`
+- `figures/true_2x2_geometry_control.{png,pdf,svg}`
 - 每张图对应的 bound CSV 位于同一 `figures/` 目录。

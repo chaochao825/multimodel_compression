@@ -1,0 +1,7 @@
+mode,geometry,agreement,mismatch_count,harmful_count,candidate_kl_mean,candidate_kl_p95,token_retention,mean_kl_delta,mean_kl_delta_ci_low,mean_kl_delta_ci_high,mean_kl_ratio,mean_kl_ratio_ci_low,mean_kl_ratio_ci_high,paired_kl_wins,paired_kl_losses,paired_kl_ties,one_sided_sign_pvalue,prediction_match_wins,prediction_match_losses,mismatch_reduction,harmful_delta
+positioned_equal_mass,flat_contiguous_4,0.7916666666666666,5,1,0.033483716853273414,0.09814378023147574,0.25,,,,,,,,,,,,,,
+positioned_equal_mass,spatial_2x2,0.75,6,2,0.051054625713732094,0.11792005933821197,0.25,,,,,,,,,,,,,,
+positioned_equal_mass,paired_spatial_vs_flat,,,,,,,0.017570908860458683,-0.008335058925634563,0.05821478801032447,1.5247598089977554,0.7475957292165406,2.59166034773253,12,11,1,0.5,1,2,-1,1
+positioned_group_mass,flat_contiguous_4,0.7083333333333334,7,3,0.0546418409794569,0.23258125111460667,0.25,,,,,,,,,,,,,,
+positioned_group_mass,spatial_2x2,0.7916666666666666,5,1,0.04702331826168423,0.1639825075864791,0.25,,,,,,,,,,,,,,
+positioned_group_mass,paired_spatial_vs_flat,,,,,,,-0.007618522717772673,-0.03309316301892977,0.017267609932847924,0.8605734619988934,0.4343421456577637,1.3172450018023945,16,8,0,0.07579481601715088,4,2,2,-2
