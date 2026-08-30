@@ -63,16 +63,19 @@ def strip_option_label(value: object) -> str:
     return re.sub(r"^[A-Z]\s*[.)]\s*", "", str(value).strip())
 
 
-def select_calibration_questions(
+def select_role_questions(
     *,
     split: dict[str, object],
     records: list[dict[str, object]],
     video_root: Path,
-    sample_count: int,
+    role: str,
+    sample_count: int | None,
 ) -> list[VSIReaderSample]:
+    if role not in split["roles"]:
+        raise ValueError(f"unknown VSI split role: {role}")
     by_id = {int(record["id"]): record for record in records}
     selected = []
-    for scene in split["roles"]["calibration"]:
+    for scene in split["roles"][role]:
         question_ids = [int(value) for value in scene["debiased_question_ids"]]
         if not question_ids:
             continue
@@ -89,11 +92,29 @@ def select_calibration_questions(
                 answer_index=answer_index,
             )
         )
-        if len(selected) == sample_count:
+        if sample_count is not None and len(selected) == sample_count:
             break
-    if len(selected) != sample_count:
-        raise ValueError(f"requested {sample_count} calibration questions, found {len(selected)}")
+    if sample_count is not None and len(selected) != sample_count:
+        raise ValueError(
+            f"requested {sample_count} {role} questions, found {len(selected)}"
+        )
     return selected
+
+
+def select_calibration_questions(
+    *,
+    split: dict[str, object],
+    records: list[dict[str, object]],
+    video_root: Path,
+    sample_count: int,
+) -> list[VSIReaderSample]:
+    return select_role_questions(
+        split=split,
+        records=records,
+        video_root=video_root,
+        role="calibration",
+        sample_count=sample_count,
+    )
 
 
 def reconstruct(

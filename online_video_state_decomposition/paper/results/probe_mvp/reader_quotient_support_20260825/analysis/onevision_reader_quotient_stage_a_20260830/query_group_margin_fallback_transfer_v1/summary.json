@@ -1,0 +1,70 @@
+{
+  "claim_boundary": "Calibration-to-calibration transfer only. The margin threshold is fit on the first 24 calibration questions and evaluated on the next 24; selection and formal roles remain unread. Token counts are an ideal reader-prefill proxy, not measured latency.",
+  "compressed_margin_threshold": 0.25,
+  "elapsed_seconds": 30.27754782093689,
+  "evaluation_count": 24,
+  "fit_count": 24,
+  "group_size": 4,
+  "progressive_evaluation": {
+    "baseline_accuracy": 0.3333333333333333,
+    "delivered_accuracy": 0.375,
+    "delivered_agreement": 0.9166666666666666,
+    "delivered_candidate_kl_mean": 0.00999195029726252,
+    "effective_token_count": 1274.0,
+    "effective_token_retention": 0.8125,
+    "fallback_count": 16,
+    "fallback_rate": 0.6666666666666666,
+    "ideal_reader_token_reduction": 1.2307692307692308,
+    "remaining_harmful_count": 0,
+    "remaining_mismatch_count": 2,
+    "sample_count": 24
+  },
+  "progressive_fit": {
+    "baseline_accuracy": 0.5,
+    "delivered_accuracy": 0.5,
+    "delivered_agreement": 1.0,
+    "delivered_candidate_kl_mean": 0.028873891880114872,
+    "effective_token_count": 1200.5,
+    "effective_token_retention": 0.765625,
+    "fallback_count": 14,
+    "fallback_rate": 0.5833333333333334,
+    "ideal_reader_token_reduction": 1.3061224489795917,
+    "remaining_harmful_count": 0,
+    "remaining_mismatch_count": 0,
+    "sample_count": 24
+  },
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "rank": 456,
+  "raw_evaluation": {
+    "agreement": 0.5833333333333334,
+    "baseline_accuracy": 0.3333333333333333,
+    "candidate_accuracy": 0.375,
+    "candidate_kl_mean": 0.04111655132146552,
+    "candidate_kl_p95": 0.15668164417147623,
+    "harmful_count": 2,
+    "mismatch_count": 10,
+    "sample_count": 24
+  },
+  "raw_fit": {
+    "agreement": 0.9166666666666666,
+    "baseline_accuracy": 0.5,
+    "candidate_accuracy": 0.4583333333333333,
+    "candidate_kl_mean": 0.06351428855365764,
+    "candidate_kl_p95": 0.29366861283779133,
+    "harmful_count": 1,
+    "mismatch_count": 2,
+    "sample_count": 24
+  },
+  "refined_group_count": 98,
+  "role": "calibration_fit_to_fresh_calibration_evaluation",
+  "transfer_gate": {
+    "conditions": {
+      "delivered_agreement_at_least_98pct": false,
+      "effective_token_retention_within_budget": false,
+      "fallback_rate_within_budget": false,
+      "remaining_harmful_zero": true,
+      "task_accuracy_loss_at_most_one_point": true
+    },
+    "decision": "NO_GO"
+  }
+}

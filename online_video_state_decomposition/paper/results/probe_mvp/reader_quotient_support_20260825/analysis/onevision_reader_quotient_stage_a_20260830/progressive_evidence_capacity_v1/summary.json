@@ -1,0 +1,70 @@
+{
+  "capacity_gate": {
+    "conditions": {
+      "oracle_agreement_at_least_98pct": false,
+      "oracle_halves_quotient_kl": true,
+      "oracle_harmful_zero": false,
+      "retrieved_token_retention_at_most_35pct": true
+    },
+    "decision": "NO_GO"
+  },
+  "claim_boundary": "Calibration capacity only. oracle_frame1 reads exact outcomes and is not deployable; no selection, formal, task-generalization, or speed claim.",
+  "elapsed_seconds": 30.301561741158366,
+  "full_token_count": 1568,
+  "method_summaries": {
+    "exact_pool49": {
+      "agreement": 0.5833333333333334,
+      "baseline_accuracy": 0.5,
+      "candidate_accuracy": 0.4166666666666667,
+      "candidate_kl_mean": 0.12371314897124346,
+      "candidate_kl_p95": 0.5671819344162938,
+      "harmful_count": 3,
+      "mismatch_count": 10,
+      "sample_count": 24,
+      "token_count": 392,
+      "token_retention": 0.25
+    },
+    "oracle_frame1": {
+      "agreement": 0.8333333333333334,
+      "baseline_accuracy": 0.5,
+      "candidate_accuracy": 0.4583333333333333,
+      "candidate_kl_mean": 0.03553922265564324,
+      "candidate_kl_p95": 0.11254051662981508,
+      "harmful_count": 1,
+      "mismatch_count": 4,
+      "sample_count": 24,
+      "token_count": 539,
+      "token_retention": 0.34375
+    },
+    "quotient_pool49": {
+      "agreement": 0.5416666666666666,
+      "baseline_accuracy": 0.5,
+      "candidate_accuracy": 0.4166666666666667,
+      "candidate_kl_mean": 0.12060277641285211,
+      "candidate_kl_p95": 0.5268193572759626,
+      "harmful_count": 3,
+      "mismatch_count": 11,
+      "sample_count": 24,
+      "token_count": 392,
+      "token_retention": 0.25
+    },
+    "residual_energy_frame1": {
+      "agreement": 0.5833333333333334,
+      "baseline_accuracy": 0.5,
+      "candidate_accuracy": 0.5,
+      "candidate_kl_mean": 0.09507192688761279,
+      "candidate_kl_p95": 0.44799894988536826,
+      "harmful_count": 3,
+      "mismatch_count": 10,
+      "sample_count": 24,
+      "token_count": 539,
+      "token_retention": 0.34375
+    }
+  },
+  "pooled_side": 7,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "rank": 456,
+  "residual_selector_oracle_improvement_recovery": 0.30013852463900453,
+  "role": "calibration_only_progressive_evidence_capacity",
+  "sample_count": 24
+}

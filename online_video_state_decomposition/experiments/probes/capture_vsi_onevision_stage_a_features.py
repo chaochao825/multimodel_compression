@@ -24,7 +24,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--video-root", type=Path, required=True)
     parser.add_argument("--model-dir", type=Path, required=True)
     parser.add_argument("--out-dir", type=Path, required=True)
-    parser.add_argument("--role", choices=("calibration",), default="calibration")
+    parser.add_argument(
+        "--role",
+        choices=("calibration", "selection"),
+        default="calibration",
+    )
     parser.add_argument("--feature-pool-frames", type=int, default=16)
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--shard-index", type=int, default=0)

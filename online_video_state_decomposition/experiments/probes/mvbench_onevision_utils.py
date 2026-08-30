@@ -185,6 +185,63 @@ def first_token_logits_from_features(
     return outputs.logits[0, -1]
 
 
+def first_token_logits_from_variable_video_tokens(
+    *,
+    model: torch.nn.Module,
+    input_ids: torch.Tensor,
+    attention_mask: torch.Tensor,
+    video_tokens: torch.Tensor,
+) -> torch.Tensor:
+    if input_ids.shape[0] != 1 or attention_mask.shape != input_ids.shape:
+        raise ValueError("variable video readout requires a single prompt batch")
+    if video_tokens.ndim != 2:
+        raise ValueError("video tokens must have shape [tokens, hidden]")
+    video_mask = input_ids[0] == model.config.video_token_index
+    positions = torch.nonzero(video_mask, as_tuple=False).flatten()
+    if positions.numel() == 0:
+        raise ValueError("prompt contains no video placeholder")
+    start = int(positions[0].item())
+    stop = int(positions[-1].item()) + 1
+    if positions.numel() != stop - start:
+        raise ValueError("video placeholders must form one contiguous span")
+
+    inputs_embeds = model.get_input_embeddings()(input_ids)
+    newline = model.model.image_newline[None, :].to(
+        device=video_tokens.device,
+        dtype=video_tokens.dtype,
+    )
+    inserted = torch.cat((video_tokens, newline), dim=0).to(inputs_embeds.dtype)
+    variable_embeds = torch.cat(
+        (
+            inputs_embeds[:, :start],
+            inserted.unsqueeze(0),
+            inputs_embeds[:, stop:],
+        ),
+        dim=1,
+    )
+    inserted_mask = torch.ones(
+        (1, inserted.shape[0]),
+        device=attention_mask.device,
+        dtype=attention_mask.dtype,
+    )
+    variable_mask = torch.cat(
+        (
+            attention_mask[:, :start],
+            inserted_mask,
+            attention_mask[:, stop:],
+        ),
+        dim=1,
+    )
+    outputs = model(
+        inputs_embeds=variable_embeds,
+        attention_mask=variable_mask,
+        use_cache=False,
+        return_dict=True,
+        logits_to_keep=1,
+    )
+    return outputs.logits[0, -1]
+
+
 def direct_first_token_logits(
     *,
     model: torch.nn.Module,
