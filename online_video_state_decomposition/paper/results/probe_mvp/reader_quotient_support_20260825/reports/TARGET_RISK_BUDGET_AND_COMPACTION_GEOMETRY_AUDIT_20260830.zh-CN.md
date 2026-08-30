@@ -41,6 +41,15 @@ harmful 并放大 P95 KL，正式判决为 `NO_PPE_HEADROOM`。因此位置完�
 这保留了最初的“稳定 bulk + sparse exact innovation + progressive read”动机，但
 否定了 frozen reader 上把各 group 风险独立相加的版本。
 
+后续 query-fixed 两个 Gate 又把这一判断收紧了一步。正值 Gaussian moment state
+即使允许 target-visible support，在 `25%` exact pages 下仍有
+`15.50%/25.28%/29.61%` 的 visual mean/P95/worst error；增加 covariance rank
+反而持续恶化。完全放弃 bulk 近似、只读取 exact pages 时，target-visible
+attention-mass oracle 在读取 `75%` pages、覆盖 `94.40%` attention mass 后仍有
+`3.37%` visual mean error。因此 frozen、规则 page 上的 hand-designed measure
+closure 和 exact-only retrieval 都已有效关闭。剩余方向必须同时改变节点语义、
+bulk state 和下游风险目标，而不能只增加 moment rank 或改 page selector。
+
 ## 1. 理论与历史实验是否一致
 
 ### 1.1 条件风险分解是正确主轴
@@ -916,6 +925,128 @@ C_{\rm moment}<C_{\rm leaves}
 
 BCM/BCCB 只可能作为 larger-node 几何分组或离线 basis，不再进入 measure 主公式。
 
+## 9.9 Positive Gaussian measure：失败来自闭包错误，不是 rank 不够
+
+为避免 odd Taylor 的非正权重，本轮直接使用严格正的 Gaussian moment-generating
+closure。对每个规则空间 node 保存 mean key/value 和低秩 key covariance，使用
+当前 query 解析计算正的 numerator/denominator；exact pages 仍读取真实 K/V。
+测试覆盖 exposed positions `73--96`、layers `0/13/27`、28 heads 和 rank
+`0/2/4/8/16`。full-exact identity 与模型 Q/K/V replay 最大误差均为 `0`。
+
+正式判决为 `NO_POSITIVE_GAUSSIAN_MEASURE_PATH`。最有利的 eligible 配置已经允许
+target-visible `oracle_local` support，但在 `25%` exact spatial pages 下仍为：
+
+| topology / rank / selector | active-read proxy | visual mean / P95 / worst | full mean / P95 |
+|---|---:|---:|---:|
+| spatial `7x7` / 0 / oracle-local | `3.698x` | `15.505% / 25.276% / 29.608%` | `1.747% / 2.535%` |
+
+rank 不是缺少的容量。相同 topology、selector 和 `25%` exact budget 下，rank
+`0/2/4/8/16` 的 visual mean 依次约为
+`15.50%/19.83%/46.18%/62.26%/70.98%`。rank 增加使误差系统性恶化，而不是形成
+逐渐饱和的 capacity curve。分层 rank-0 结果也从 layer 0 的
+`4.71%/5.40%/5.45%` 恶化到 layer 27 的
+`22.58%/27.77%/29.61%`。
+
+原因可以直接从 Gaussian MGF 看出。若 node 内 key 真服从单峰 Gaussian，则：
+
+\[
+\mathbb E[e^{q^T K}]
+=
+\exp\left(q^T\mu_k+\tfrac12q^T\Sigma_{kk}q\right).
+\]
+
+但真实 node 同时包含多模态 key、偏态/重尾 score 与 value-score coupling。
+covariance rank 越高，`exp(0.5 q^T Sigma q)` 越容易放大错误的方差方向；它不能
+恢复 `E[e^{q^T K}V]` 中随 query 旋转的联合分布。rank-0 最优因此是明确的
+**wrong-closure signal**，不是 low-rank state 的正向结果。继续增加 Gaussian
+mixture 数量虽能扩展函数类，却会快速接近读取 leaves 的 state/MAC，并且没有当前
+证据支持。
+
+![Positive Gaussian measure 的 rank、预算和分层失配](../figures/query_fixed_positive_gaussian_measure.png)
+
+## 9.10 Progressive exact pages：mass coverage 不能控制 value leverage
+
+第二个 Gate 完全删除 compact bulk：metadata 只负责选择或认证 pages，输出只由
+selected exact K/V 计算。它比较 deployable centroid score、Quest 风格 K-coordinate
+min/max box bound，以及 target-visible exact-mass 与 local-output selectors。测试
+使用同一 24 个 exposed 样本和三层；full-exact identity 为 `0`，Quest box 对所有
+真实 page score 都形成上界，最大 violation 为 `-4.018`。
+
+正式判决为 `NO_PROGRESSIVE_EXACT_PAGE_PATH`。`25%` spatial pages 的结果为：
+
+| selector | selected visual mass | visual mean / P95 / worst | leaf-only read proxy |
+|---|---:|---:|---:|
+| centroid score | `54.72%` | `32.98% / 57.09% / 65.29%` | `4.0x` |
+| Quest box bound | `48.66%` | `39.27% / 72.28% / 81.40%` | `4.0x` |
+| exact-mass oracle | `61.81%` | `22.27% / 35.99% / 37.95%` | `4.0x` |
+| local-output oracle | `60.81%` | `22.64% / 38.80% / 45.12%` | `4.0x` |
+
+更关键的是 exact-mass 的预算曲线。读取 `50/62.5/75%` pages、覆盖
+`83.04/89.57/94.40%` attention mass 时，visual mean error 仍为
+`9.23/5.81/3.37%`。若 `S` 是已读集合、tail mass 为 `tau`，renormalized exact
+output 满足：
+
+\[
+A-A_S
+=
+\sum_{j\notin S}a_j(v_j-A_S).
+\]
+
+所以小 `tau` 只有在遗漏 value 的 leverage 同时受控时才意味着小输出误差。当前
+结果直接否定了“保留 95% attention mass 即安全”的经验替代目标；选择器必须建模
+联合 numerator/denominator 缺陷或下游 reader risk。
+
+Quest-style bound 数学上有效但不可用。`25%` exact-mass 配置的平均 tail-bound
+looseness 约为 `10^10.63`；分层约为 `10^5.62/10^9.92/10^16.34`。高维
+coordinate box 把 K 各维极值当作可同时达到，丢失维间相关性，深层越发保守。
+因此 worst-case box 不能承担 progressive early-stop certificate；后续只能使用
+分布校准的 reader-risk quantile，并明确其覆盖域。
+
+![Progressive exact pages 的质量、mass 与证书松弛度](../figures/query_fixed_progressive_exact_pages.png)
+
+## 9.11 统一判决：条件冗余仍成立，但可压缩接口必须学习
+
+`EXP-004/005` 与 reader probes 并不矛盾。前者证明 current block input 可把部分 Wan
+late-layer conditional risk 从 AR(2) 的 `0.141061` 降到 `0.072832`，但只在
+layers `21/24/25` 通过 breadth gate；后者证明 query-aware support 有信息，却不能
+由固定规则 page、低阶 moment 或 attention mass 转换成严格 fidelity。共同结论是：
+
+\[
+\boxed{
+\text{conditional redundancy}
+\neq
+\text{fixed closure}
+\neq
+\text{cheap exact support}
+\neq
+\text{deployable speedup}
+}
+\]
+
+因此应停止三项工作：继续增加 Gaussian/Taylor rank、继续优化固定 `7x7` page
+selector、继续用 worst-case coordinate box 追求证书。当前唯一有信息增益的 reader
+后续是一个小步训练 Gate：冻结 vision encoder 和 LLM，仅联合学习
+
+1. semantic/event node construction；
+2. query-conditioned value-aware scorer；
+3. tiny node re-encoder，直接拟合联合 numerator/denominator innovation；
+4. empirical upper-quantile risk gate 与 exact-leaf fallback。
+
+训练目标必须比较 support-only、re-encoder-only 与 joint，并在相同 active-token、
+state byte 和读带宽下证明 joint 的独立增益。positions `1--72` 只用于训练，
+`73--96` 只用于选择，`97--120` 保持 untouched formal endpoint。selection 只有在
+visual mean/P95 `<=1%/2%`、reader KL mean/P95 `<=0.01/0.02`、无 harmful flip 且
+联合方法相对最佳单组件至少改善 `25%` 时才允许读取 formal。否则该 learned-memory
+方向关闭，不进入 kernel 或 wall-clock。
+
+这与 [Quest](https://arxiv.org/abs/2406.10774) 的 query-aware exact KV page selection、
+[QTSplus](https://arxiv.org/abs/2511.11910) 的语义压缩和
+[MemoryCard](https://arxiv.org/abs/2606.05917) 的 event/topic memory 有明显交集；不能
+声称首次 query-aware retrieval 或 event memory。可验证的差异只可能是：**用
+value-coupled downstream innovation 而非 attention mass 共同训练 node、support 与
+calibrated exact fallback**。若 joint 不能在公平预算下显著胜过这些单独机制，就
+没有足够的新方法贡献。
+
 ## 10. 工件
 
 - `analysis/.../target_risk_budget_frontier_exposed_v1/`
@@ -927,6 +1058,8 @@ BCM/BCCB 只可能作为 larger-node 几何分组或离线 basis，不再进入 
 - `analysis/.../true_2x2_ppe_exposed_v1/`
 - `analysis/.../query_fixed_measure_exposed_v2_repair1/`
 - `analysis/.../query_fixed_headwise_exposed_v1/`
+- `analysis/.../query_fixed_positive_gaussian_exposed_v1_repair4/`
+- `analysis/.../query_fixed_progressive_exact_pages_exposed_v1/`
 - `analysis/.../measure_preserving_compaction_invalid_attempts/`
 - `figures/target_risk_compaction_geometry_audit.{png,pdf,svg}`
 - `figures/reader_aligned_singleton_marginal_audit.{png,pdf,svg}`
@@ -935,4 +1068,6 @@ BCM/BCCB 只可能作为 larger-node 几何分组或离线 basis，不再进入 
 - `figures/true_2x2_ppe_control.{png,pdf,svg}`
 - `figures/query_fixed_measure_remainder.{png,pdf,svg}`
 - `figures/query_fixed_headwise_support_ceiling.{png,pdf,svg}`
+- `figures/query_fixed_positive_gaussian_measure.{png,pdf,svg}`
+- `figures/query_fixed_progressive_exact_pages.{png,pdf,svg}`
 - 每张图对应的 bound CSV 位于同一 `figures/` 目录。
