@@ -2,7 +2,7 @@
 
 日期：2026-08-30
 
-状态：固定风险基、帧级取回与免训练标量控制器均已关闭；任务风险教师显示边界潜力
+状态：固定风险基、帧级取回、免训练标量控制器与低带宽 tiny risk controller 均已关闭；任务风险教师仅保留为训练原生 memory writer 的动机
 
 ## 直接结论
 
@@ -19,7 +19,7 @@
 | 同预算 target-gradient group oracle | 接近通过但仍 `NO_GO` | task metric 显著有效，但一阶、43.75% 预算仍有重尾错误 |
 | query-score groups + scalar-margin fallback transfer | `NO_GO` | 免训练低带宽观测无法泛化，回退成本失控 |
 
-因此当前不能做 formal、速度或论文正向结论。仍有潜力的唯一方向是一个小型、明确受限的 group-risk controller，它从 full reader 的梯度风险中蒸馏“哪个精确 innovation 值得读取”，而不是继续拟合完整 feature 或固定矩阵。
+因此当前不能做 formal、速度或论文正向结论。后续 prospective Gate 已进一步否定固定 quotient/query/residual metadata 上的 width-32 group-risk controller：它只把 top-98 recall 提升到 `30.91%`，并以 `75%` fallback 换得 `95.83%` delivered agreement。仍有潜力的方向必须改变存储接口，让 writer 在写入时主动生成 task-risk-observable innovation key，而不是继续扩大同一 controller。
 
 ## 与 EXP-004/005 的一致性
 
@@ -232,23 +232,22 @@ controller 不拟合 feature，而拟合排序和漏检风险：
 - 风险 metric 决定怎样叠加，而不是把 Q/S/L/Hessian 机械堆叠；
 - BCM/BCCB 可作为离线编码或局部索引布局，但不能再充当跨问题 reader-risk basis。
 
-## 下一冻结 Gate
+## Prospective Gate 结果与下一边界
 
-建议只开一个低成本适配 gate，不再调无训练阈值：
+冻结的 tiny controller Gate 已执行并有效 `NO_GO`：
 
-| 项目 | 冻结设计 |
-|---|---|
-| teacher | first-order adverse margin risk，full reader 仅 calibration 使用 |
-| train/validation/test | 已用 first 24 训练；next 24 仅验证；再使用 24 个未读 calibration 问题作 prospective transfer；formal 继续保留 |
-| controller | width 32/64，两层 MLP 或低秩双线性 query-group scorer，原 OneVision 全冻结 |
-| 输入 | quotient group、query projection、时空位置、1/4/8-scalar residual sketch |
-| baselines | residual energy、query cosine、attention/importance score、FrameFusion-style similarity |
-| primary endpoint | delivered reader agreement 与 harmful flips，不以 teacher-risk correlation 代替 |
-| guards | agreement `>=98%`，harmful `0`，fallback `<=15%`，effective retention `<=53%`，accuracy loss `<=1 pp` |
-| cost | controller + metadata `<5%` full reader prefill；通过后才测 A800/H200 TTFT |
-| stop | 任一 prospective guard 失败即停止 controller 扩容，不读 formal |
+| 指标 | prospective | gate |
+|---|---:|---:|
+| controller top-98 recall | `30.91%` | 必须胜过 proxy，已满足 |
+| delivered agreement | `95.83%` | `>=98%`，失败 |
+| harmful | `0` | `0`，满足 |
+| fallback | `75.00%` | `<=15%`，失败 |
+| effective retention | `85.94%` | `<=53%`，失败 |
+| task accuracy loss | `0 pp` | `<=1 pp`，满足 |
 
-如果 tiny controller 仍失败，结论应是：当前 quotient/低比特 sketch 对 task-sensitive innovation 不充分，必须转向训练原生 tokenizer/memory，而不是继续加 BCM、rank 或 scalar gate。
+验证最大 mismatch margin 为 `0.625`，prospective 仍出现 margin `0.75` 的 mismatch，因此 scalar compressed margin 也不是可迁移证书。selection/formal 保持未读。
+
+下一步不再调 controller width、sketch dimension、BCM block 或 fallback threshold。只有重新冻结 fresh data 后，才可测试训练原生 risk-observable writer：冻结 OneVision reader，只训练写入端 innovation key、query-conditioned scorer 与遗漏风险上界，并严格比较 learned-writer-only、learned-controller-only 与 joint writer-controller。完整判决见 `TINY_GROUP_RISK_CONTROLLER_AUDIT_20260830.zh-CN.md`。
 
 ## 结论边界
 
@@ -257,7 +256,8 @@ controller 不拟合 feature，而拟合排序和漏检风险：
 - 视频理解状态中存在稳定 bulk 与任务条件 innovation；
 - reader-induced risk 比欧氏误差更能定位高价值精确证据；
 - 整帧取回、固定风险基和标量 margin 均不是充分接口；
-- 一个小型风险教师蒸馏 controller 有明确 oracle headroom 和判别实验。
+- task-risk teacher 有 oracle headroom，但当前低带宽 metadata controller 无法兑现该 headroom；
+- 稳定 bulk 可作为索引，不能被称为任务充分统计量。
 
 当前不支持：
 
@@ -272,4 +272,6 @@ controller 不拟合 feature，而拟合排序和漏检风险：
 - `figures/progressive_evidence_gates.{png,pdf,svg}`
 - `figures/progressive_evidence_gate_metrics.csv`
 - `figures/group_proxy_correlations.csv`
+- `figures/tiny_group_risk_controller_gate.{png,pdf,svg}`
+- `figures/tiny_group_risk_controller_{selector,reader,gate}_metrics.csv`
 - `analysis/onevision_reader_quotient_stage_a_20260830/`

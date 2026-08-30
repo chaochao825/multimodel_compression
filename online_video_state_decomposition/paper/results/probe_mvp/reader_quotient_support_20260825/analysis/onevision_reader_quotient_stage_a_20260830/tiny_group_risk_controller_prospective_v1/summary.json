@@ -1,0 +1,151 @@
+{
+  "best_epoch": 93,
+  "claim_boundary": "Calibration teacher-distillation result only. The prospective role is the third 24-question calibration slice; selection and formal roles are unread. Controller MACs and token counts are proxies, not measured latency.",
+  "controller_macs": 501760,
+  "controller_width": 32,
+  "counts": {
+    "prospective": 24,
+    "train": 24,
+    "validation": 24
+  },
+  "elapsed_seconds": 102.2607712992467,
+  "fallback_threshold": 0.625,
+  "group_size": 4,
+  "input_dim": 39,
+  "prospective_gate": {
+    "conditions": {
+      "controller_macs_below_one_million": true,
+      "controller_recall_exceeds_query": true,
+      "controller_recall_exceeds_residual": true,
+      "delivered_agreement_at_least_98pct": false,
+      "effective_token_retention_within_budget": false,
+      "fallback_rate_within_budget": false,
+      "remaining_harmful_zero": true,
+      "task_accuracy_loss_at_most_one_point": true
+    },
+    "decision": "NO_GO"
+  },
+  "prospective_progressive": {
+    "baseline_accuracy": 0.25,
+    "delivered_accuracy": 0.25,
+    "delivered_agreement": 0.9583333333333334,
+    "delivered_candidate_kl_mean": 0.008424394337149957,
+    "effective_token_count": 1347.5,
+    "effective_token_retention": 0.859375,
+    "fallback_count": 18,
+    "fallback_rate": 0.75,
+    "ideal_reader_token_reduction": 1.1636363636363636,
+    "remaining_harmful_count": 0,
+    "remaining_mismatch_count": 1,
+    "sample_count": 24
+  },
+  "prospective_reader": {
+    "query_cosine": {
+      "agreement": 0.8333333333333334,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.25,
+      "candidate_kl_mean": 0.0667698368197307,
+      "candidate_kl_p95": 0.19768322706222533,
+      "harmful_count": 1,
+      "mismatch_count": 4,
+      "sample_count": 24
+    },
+    "residual_energy": {
+      "agreement": 0.8333333333333334,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.125,
+      "candidate_kl_mean": 0.06106055031220118,
+      "candidate_kl_p95": 0.16215304359793647,
+      "harmful_count": 3,
+      "mismatch_count": 4,
+      "sample_count": 24
+    },
+    "tiny_controller": {
+      "agreement": 0.8333333333333334,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.25,
+      "candidate_kl_mean": 0.041741583321709186,
+      "candidate_kl_p95": 0.12060758322477334,
+      "harmful_count": 1,
+      "mismatch_count": 4,
+      "sample_count": 24
+    }
+  },
+  "prospective_selector_diagnostics": {
+    "query_cosine": {
+      "mean_risk_mass_capture": 0.26659922301769257,
+      "mean_topk_recall": 0.28316326530612246,
+      "minimum_topk_recall": 0.20408163265306123,
+      "sample_count": 24
+    },
+    "residual_energy": {
+      "mean_risk_mass_capture": 0.32078583538532257,
+      "mean_topk_recall": 0.28613945578231287,
+      "minimum_topk_recall": 0.22448979591836735,
+      "sample_count": 24
+    },
+    "tiny_controller": {
+      "mean_risk_mass_capture": 0.3254834009955327,
+      "mean_topk_recall": 0.30909863945578225,
+      "minimum_topk_recall": 0.24489795918367346,
+      "sample_count": 24
+    }
+  },
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "rank": 456,
+  "refined_group_count": 98,
+  "residual_metadata_scalars_per_group": 9,
+  "role": "tiny_group_risk_controller_prospective_calibration_gate",
+  "validation_reader": {
+    "query_cosine": {
+      "agreement": 0.5833333333333334,
+      "baseline_accuracy": 0.3333333333333333,
+      "candidate_accuracy": 0.375,
+      "candidate_kl_mean": 0.04111655132146552,
+      "candidate_kl_p95": 0.15668164417147623,
+      "harmful_count": 2,
+      "mismatch_count": 10,
+      "sample_count": 24
+    },
+    "residual_energy": {
+      "agreement": 0.7083333333333334,
+      "baseline_accuracy": 0.3333333333333333,
+      "candidate_accuracy": 0.3333333333333333,
+      "candidate_kl_mean": 0.06926501418153445,
+      "candidate_kl_p95": 0.2369698405265807,
+      "harmful_count": 2,
+      "mismatch_count": 7,
+      "sample_count": 24
+    },
+    "tiny_controller": {
+      "agreement": 0.625,
+      "baseline_accuracy": 0.3333333333333333,
+      "candidate_accuracy": 0.3333333333333333,
+      "candidate_kl_mean": 0.04531415286085879,
+      "candidate_kl_p95": 0.21230187714099866,
+      "harmful_count": 3,
+      "mismatch_count": 9,
+      "sample_count": 24
+    }
+  },
+  "validation_selector_diagnostics": {
+    "query_cosine": {
+      "mean_risk_mass_capture": 0.2792239213983218,
+      "mean_topk_recall": 0.28571428571428575,
+      "minimum_topk_recall": 0.17346938775510204,
+      "sample_count": 24
+    },
+    "residual_energy": {
+      "mean_risk_mass_capture": 0.2963623081644376,
+      "mean_topk_recall": 0.2865646258503401,
+      "minimum_topk_recall": 0.19387755102040816,
+      "sample_count": 24
+    },
+    "tiny_controller": {
+      "mean_risk_mass_capture": 0.3353536731253068,
+      "mean_topk_recall": 0.31079931972789115,
+      "minimum_topk_recall": 0.20408163265306123,
+      "sample_count": 24
+    }
+  }
+}

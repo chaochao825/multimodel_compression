@@ -1,0 +1,4 @@
+metric,actual,gate,direction
+Delivered agreement,0.9583333333333334,0.98,minimum
+Fallback rate,0.75,0.15,maximum
+Token retention,0.859375,0.53,maximum
