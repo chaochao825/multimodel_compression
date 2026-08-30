@@ -1,0 +1,51 @@
+{
+  "attention_implementation": "eager",
+  "baseline_prediction_repeat_mismatches": 0,
+  "claim_boundary": "Paper-faithful K=4 one-dimensional PPE control on the fixed true-2x2 group-mass quotient and exposed positions 73-96. It does not test support routing, progressive refinement, selection, formal, or latency.",
+  "comparison": {
+    "harmful_delta": 1,
+    "mean_kl_ratio": 1.0400450812392188,
+    "mismatch_reduction": 2,
+    "p95_kl_ratio": 1.4346609112606798,
+    "paired_kl_wins": 10,
+    "prediction_match_losses": 1,
+    "prediction_match_wins": 3
+  },
+  "decision": "NO_PPE_HEADROOM",
+  "elapsed_seconds": 20.418311418034136,
+  "maximum_baseline_kl_repeat_error": 0.0,
+  "maximum_standard_rotary_logit_error": 0.0,
+  "methods": [
+    "representative_position",
+    "ppe_center_ranked_k4"
+  ],
+  "ppe_capacity": 4,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "role": "exposed_true_2x2_ppe_control",
+  "rotary_pair_count": 64,
+  "sample_count": 24,
+  "sample_positions": [
+    73,
+    96
+  ],
+  "summaries": {
+    "ppe_center_ranked_k4": {
+      "agreement": 0.875,
+      "candidate_kl_mean": 0.048906370861611016,
+      "candidate_kl_p95": 0.23525929376482943,
+      "harmful_count": 2,
+      "mismatch_count": 3,
+      "sample_count": 24,
+      "token_retention": 0.25
+    },
+    "representative_position": {
+      "agreement": 0.7916666666666666,
+      "candidate_kl_mean": 0.04702331826168423,
+      "candidate_kl_p95": 0.1639825075864791,
+      "harmful_count": 1,
+      "mismatch_count": 5,
+      "sample_count": 24,
+      "token_retention": 0.25
+    }
+  }
+}

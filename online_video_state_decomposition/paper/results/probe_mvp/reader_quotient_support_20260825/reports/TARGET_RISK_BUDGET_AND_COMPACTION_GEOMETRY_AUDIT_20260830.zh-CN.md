@@ -27,6 +27,9 @@ target-risk budget、位置几何和 reader-aligned singleton 诊断。本文不
 同预算的真实空间 `2x2` 控制进一步表明，几何邻接不是独立有效因素。它只在
 proportional group mass 同时存在时获得决策级 headroom；equal mass 下反而恶化。
 因此可复用对象更接近“带质量和位置的局部测度”，而不是一个无权 token 均值。
+随后执行的 paper-faithful `K=4` PPE 虽将 mismatch 从 `5` 降至 `3`，却增加
+harmful 并放大 P95 KL，正式判决为 `NO_PPE_HEADROOM`。因此位置完整性也不能单独
+建立安全的 frozen-reader refinement path。
 
 因此当前最有潜力的核心不再是“更好的静态 support teacher”，而是：
 
@@ -650,6 +653,52 @@ remainder bound 或低成本 path-consistency adaptation。
 
 ![真实空间 2x2 与展平四元组的配对审计](../figures/true_2x2_geometry_control.png)
 
+## 9.5 Paper-faithful PPE：top-1 改善不等于风险改善
+
+按照 9.4 的 decision-only outcome mapping，本轮只执行一次 PPE 控制。模型仍为
+一维 Qwen2 RoPE，因此对每个真实 `2x2` quotient 使用 `K=4`：四个 member 按
+reconstructed feature 到 group mean 的平方 L2 距离由近到远稳定排序，64 个 RoPE
+frequency pair 均分成四组，每组绑定一个原始位置。非视觉 token、token value、
+group mass、causal mask、eager attention 和所有模型参数保持不变。将普通标量位置
+扩展到全部 frequency pair 时，24 个样本的 maximum full-vocabulary logit error 为
+`0`；incumbent 的 KL 和预测也逐位复现，说明差异只来自 multi-position rotation。
+
+| method | agreement | mismatch | harmful | KL mean / P95 |
+|---|---:|---:|---:|---:|
+| representative position | 79.17% | 5 | 1 | 0.04702 / 0.16398 |
+| PPE center-ranked K=4 | **87.50%** | **3** | 2 | 0.04891 / 0.23526 |
+
+PPE 获得三次 match gain、一次 match loss，因此 mismatch 净减少两项；但该 loss
+同时新增一个 harmful。mean/P95 ratio 为 `1.040/1.435`，逐样本 KL 仅 `10/24`
+胜出，单侧 sign-test 为 `p=0.798`。paired mean KL delta 的 bootstrap 95% 区间为
+`[-0.0115, 0.0144]`，mean-ratio 区间为 `[0.816, 1.408]`。正式判决为
+`NO_PPE_HEADROOM`。
+
+该结果不能解释为 PPE 一般无效；[PPE](https://openreview.net/forum?id=OV0AoK7QEr)
+在训练/架构适配过的 MLLM token compression 中保留多位置线索。本轮只说明：对该
+OneVision frozen-reader、该 true-`2x2` group-mass quotient 和暴露 endpoint，PPE
+在离散 top-1 与分布风险之间发生 trade-off，不能满足 adverse-risk guard。
+
+这也给条件冗余理论一个更精确的修正：
+
+\[
+I(Y;\text{position}\mid H)>0
+\quad\not\Rightarrow\quad
+R_{\mathrm{reader}}(\text{PPE})\le R_{\mathrm{reader}}(\text{representative}).
+\]
+
+位置确实携带信息，但 frozen self-attention 会让 token merge 改变后续 query、
+normalization 和跨层状态；局部信息增益不保证 suffix risk 单调。按预注册 stop rule，
+继续增加 train-free position/topology variant 现已 parked，不重跑 M1 current-support
+路径。后续只有两条与证据一致的路线：
+
+1. 在 query 固定的 external cross-attention memory 上验证可组合
+   numerator/denominator remainder envelope，使 split 按构造不增加风险上界；
+2. 冻结视觉 encoder/QKV，只训练 quotient position/mass adapter 与嵌套路径损失，
+   直接把 top-1/KL trade-off 纳入 path consistency，而不是事后选择 PPE 规则。
+
+![真实空间 2x2 上的 paper-faithful PPE 配对审计](../figures/true_2x2_ppe_control.png)
+
 ## 10. 工件
 
 - `analysis/.../target_risk_budget_frontier_exposed_v1/`
@@ -658,9 +707,11 @@ remainder bound 或低成本 path-consistency adaptation。
 - `analysis/.../same_kernel_mass_equivalence_exposed_v1/`
 - `analysis/.../batched_current_support_marginal_exposed_v1/`
 - `analysis/.../true_2x2_geometry_exposed_v1/`
+- `analysis/.../true_2x2_ppe_exposed_v1/`
 - `analysis/.../measure_preserving_compaction_invalid_attempts/`
 - `figures/target_risk_compaction_geometry_audit.{png,pdf,svg}`
 - `figures/reader_aligned_singleton_marginal_audit.{png,pdf,svg}`
 - `figures/batched_current_support_marginal_audit.{png,pdf,svg}`
 - `figures/true_2x2_geometry_control.{png,pdf,svg}`
+- `figures/true_2x2_ppe_control.{png,pdf,svg}`
 - 每张图对应的 bound CSV 位于同一 `figures/` 目录。

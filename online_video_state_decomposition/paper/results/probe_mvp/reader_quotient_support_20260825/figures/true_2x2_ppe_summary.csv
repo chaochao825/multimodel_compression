@@ -1,0 +1,4 @@
+method,agreement,mismatch_count,harmful_count,candidate_kl_mean,candidate_kl_p95,token_retention,mean_kl_delta,mean_kl_delta_ci_low,mean_kl_delta_ci_high,mean_kl_ratio,mean_kl_ratio_ci_low,mean_kl_ratio_ci_high,paired_kl_wins,paired_kl_losses,paired_kl_ties,one_sided_sign_pvalue,harmful_delta,mismatch_reduction,p95_kl_ratio,prediction_match_losses,prediction_match_wins
+representative_position,0.7916666666666666,5,1,0.04702331826168423,0.1639825075864791,0.25,,,,,,,,,,,,,,,
+ppe_center_ranked_k4,0.875,3,2,0.048906370861611016,0.23525929376482943,0.25,,,,,,,,,,,,,,,
+paired_ppe_vs_baseline,,,,,,,0.0018830525999267895,-0.011510077839678466,0.01436176146623135,1.0400450812392188,0.8157055841099309,1.4082294176838992,10,13,1,0.7975635528564453,1,2,1.4346609112606798,1,3
