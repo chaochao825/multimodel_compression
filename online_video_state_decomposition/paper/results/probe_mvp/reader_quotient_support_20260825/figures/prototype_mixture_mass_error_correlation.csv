@@ -1,0 +1,5 @@
+cluster_family,selector,spearman_mass_error
+key,oracle_local,0.2634087093201872
+key,prototype_mass,-0.09836744900510842
+key_value,oracle_local,-0.076352421438693
+key_value,prototype_mass,-0.014670334250229225

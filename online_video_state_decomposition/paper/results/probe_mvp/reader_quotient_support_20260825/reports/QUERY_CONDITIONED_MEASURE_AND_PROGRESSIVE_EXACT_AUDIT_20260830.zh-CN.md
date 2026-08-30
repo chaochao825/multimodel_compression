@@ -1,7 +1,8 @@
 # Query-conditioned measure 与 progressive exact memory 综合判决
 
 日期：2026-08-30
-状态：exposed diagnostic closed；下一 learned-memory Gate 待接受
+状态：exposed diagnostic closed；prototype-mixture capacity Gate 已关闭；下一
+learned-memory Gate 待接受
 范围：OneVision reader exposed positions `73--96`，以及 Wan `EXP-004/005` 的已验证结论。
 
 ## 1. 结论
@@ -22,6 +23,18 @@
 
 两者均为 fixed-query、single-layer、exposed calibration diagnostic；它们不建立任务
 精度、TTFT、端到端延迟或 Wan 视频质量结论。
+
+后续更强的 target-free writer capacity Gate 也得到
+`NO_PROTOTYPE_MIXTURE_PATH`：每个 sample/head 自适应的 K/KV k-means、最多 128 个
+positive prototypes 与 target-visible exact-cluster support 在 25% read budget 下，
+最佳 visual mean/P95/worst 仍为 `7.54%/13.06%/13.83%`。因此普通多模态 centroid
+也不能闭合簇内 query-value response；完整解释见
+`QUERY_FIXED_PROTOTYPE_MIXTURE_AUDIT_20260830.zh-CN.md`。
+
+为排除 registered local oracle 的组合排序混杂，post-hoc reverse exact-to-coarse
+greedy 又将 visual mean 降到 `6.16%`，但仍是容量门槛的 `12.3x`。这支持把主要
+瓶颈放在 unread-node state，而不是继续手工搜索 support；它不证明任意 subset 的
+全局不可能性，也不改变原 Gate 判决。
 
 ## 2. 与 Wan 历史结果的统一解释
 
@@ -152,11 +165,14 @@ re-encoder-only 和 Quest/QTSplus 风格 baseline，就应把该路线判为增�
 ## 6. 下一 Gate
 
 基础 OneVision vision encoder、QKV 和 LLM 全部冻结，只训练 node constructor、tiny
-re-encoder、support scorer 和 risk quantile head。数据边界固定为：
+re-encoder、support scorer 和 risk quantile head。权威协议包含 120 个 calibration、
+60 个 official selection 和 63 个 official formal 场景；数据边界固定为：
 
-- train/calibration：positions `1--72`；
-- model selection：positions `73--96`；
-- formal：positions `97--120`，selection 通过前禁止读取。
+- train/calibration：calibration positions `1--72`；
+- exposed development：calibration positions `73--96`；
+- one-shot calibration confirmation：calibration positions `97--120`；
+- official selection：60 个独立场景，只在 calibration confirmation 通过后读取；
+- official formal：63 个独立场景，只在 official selection 通过后读取一次。
 
 同预算比较四组：fixed-page Quest baseline、support-only、re-encoder-only、joint。
 event nodes 与 fixed pages 必须具有相同 active-token/read-byte budget。selection Gate：
@@ -168,14 +184,19 @@ event nodes 与 fixed pages 必须具有相同 active-token/read-byte budget。s
 - compact state、routing 和 exact reads 的总算术/字节成本低于 dense visual memory 的
   `35%`。
 
-任何一项失败都不读取 formal，也不开发 kernel。selection 全部通过后，formal 只运行
-一次；随后才在 H200 上测完整 operator，而不是用 active-read proxy 声称加速。
+`73--96` 已被用于多轮函数类选择，因此只能开发、不能确认。任何一项在
+calibration confirmation 失败都不读取 official selection；official selection 失败则
+不读取 formal，也不开发 kernel。formal 全部通过后，才在 H200 上测完整 operator，
+而不是用 active-read proxy 声称加速。
 
 ## 7. 工件
 
 - `analysis/.../query_fixed_positive_gaussian_exposed_v1_repair4/`
 - `analysis/.../query_fixed_progressive_exact_pages_exposed_v1/`
+- `analysis/.../query_fixed_prototype_mixture_exposed_v1/`
 - `figures/query_fixed_positive_gaussian_measure.{png,pdf,svg}`
 - `figures/query_fixed_progressive_exact_pages.{png,pdf,svg}`
+- `figures/query_fixed_prototype_mixture.{png,pdf,svg}`
 - `protocols/vsi_query_fixed_positive_gaussian_measure_20260830.md`
 - `protocols/vsi_query_fixed_progressive_exact_pages_20260830.md`
+- `protocols/vsi_query_fixed_prototype_mixture_20260830.md`

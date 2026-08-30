@@ -64,6 +64,8 @@ def test_rank_zero_is_exact_for_constant_group() -> None:
         key_max=torch.zeros(1, 1, 16),
         query_scaled=torch.zeros(1, 16),
         visual_value_norm_max=torch.linalg.vector_norm(value[:, 0], dim=-1),
+        member_key=torch.zeros(1, 1, 4, 16),
+        member_value=value.unsqueeze(2).expand(-1, -1, 4, -1),
     )
 
     state = positive_gaussian_measure(components, 0)
@@ -109,6 +111,8 @@ def test_log_domain_stabilizer_handles_large_gaussian_variance() -> None:
         key_max=torch.zeros(1, 1, 16),
         query_scaled=torch.ones(1, 16),
         visual_value_norm_max=torch.ones(1),
+        member_key=torch.zeros(1, 1, 49, 16),
+        member_value=torch.ones(1, 1, 49, 2),
     )
 
     state = positive_gaussian_measure(components, 16)

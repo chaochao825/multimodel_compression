@@ -1,0 +1,69 @@
+{
+  "active_token_budget": 392,
+  "claim_boundary": "Post-hoc exposed-only support-optimizer sensitivity; it cannot alter the registered prototype Gate decision or support a hidden-set, writer, accuracy, TTFT, or latency claim.",
+  "cluster_families": [
+    "key"
+  ],
+  "decision": "POSTHOC_RESIDUAL_GREEDY_SENSITIVITY",
+  "diagnostics": {
+    "best_diagnostic": {
+      "active_read_ratio": 4.090634107589722,
+      "active_token_count_max": 392,
+      "active_token_count_mean": 386.0625190734863,
+      "cell_count": 72,
+      "cluster_family": "key",
+      "exact_token_fraction_mean": 0.17945151486330563,
+      "full_mean": 0.017156262817378674,
+      "full_p95": 0.036009129509329815,
+      "full_worst": 0.05875883996486664,
+      "prototype_count": 128,
+      "selected_visual_mass_mean": 0.4957285552389092,
+      "selector": "oracle_residual_greedy",
+      "visual_mean": 0.12170979952336186,
+      "visual_p95": 0.22034363076090813,
+      "visual_worst": 0.264176607131958,
+      "visual_worst_head": 0.7793645858764648
+    }
+  },
+  "elapsed_seconds": 147.29303860105574,
+  "kmeans_iterations": 4,
+  "layers": [
+    0,
+    13,
+    27
+  ],
+  "maximum_replay_error": 0.0,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "prototype_counts": [
+    128
+  ],
+  "role": "exposed_query_fixed_prototype_measure_residual_greedy_diagnostic",
+  "sample_count": 24,
+  "sample_positions": [
+    73,
+    96
+  ],
+  "selectors": [
+    "oracle_residual_greedy"
+  ],
+  "summaries": [
+    {
+      "active_read_ratio": 4.090634107589722,
+      "active_token_count_max": 392,
+      "active_token_count_mean": 386.0625190734863,
+      "cell_count": 72,
+      "cluster_family": "key",
+      "exact_token_fraction_mean": 0.17945151486330563,
+      "full_mean": 0.017156262817378674,
+      "full_p95": 0.036009129509329815,
+      "full_worst": 0.05875883996486664,
+      "prototype_count": 128,
+      "selected_visual_mass_mean": 0.4957285552389092,
+      "selector": "oracle_residual_greedy",
+      "visual_mean": 0.12170979952336186,
+      "visual_p95": 0.22034363076090813,
+      "visual_worst": 0.264176607131958,
+      "visual_worst_head": 0.7793645858764648
+    }
+  ]
+}

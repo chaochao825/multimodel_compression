@@ -42,6 +42,10 @@ def synthetic_components() -> GaussianComponents:
         key_max=torch.tensor([[[0.5, 0.1], [-0.6, 0.1]]]),
         query_scaled=torch.tensor([[1.0, 0.0]]),
         visual_value_norm_max=torch.tensor([2.0]),
+        member_key=torch.tensor(
+            [[[[0.0, 0.0], [0.5, 0.1]], [[-1.0, 0.0], [-0.6, 0.1]]]]
+        ),
+        member_value=group_values.unsqueeze(2).expand(-1, -1, 2, -1),
     )
 
 

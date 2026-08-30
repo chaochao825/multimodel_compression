@@ -1,0 +1,2 @@
+cluster_family,prototype_count,selector,cell_count,active_token_count_mean,active_token_count_max,active_read_ratio,exact_token_fraction_mean,selected_visual_mass_mean,visual_mean,visual_p95,visual_worst,visual_worst_head,full_mean,full_p95,full_worst
+key,128,oracle_residual_greedy,72,386.0625190734863,392,4.090634107589722,0.17945151486330563,0.4957285552389092,0.12170979952336186,0.22034363076090813,0.264176607131958,0.7793645858764648,0.017156262817378674,0.036009129509329815,0.05875883996486664

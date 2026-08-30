@@ -60,6 +60,8 @@ class GaussianComponents:
     key_max: torch.Tensor
     query_scaled: torch.Tensor
     visual_value_norm_max: torch.Tensor
+    member_key: torch.Tensor
+    member_value: torch.Tensor
 
 
 @dataclass
@@ -370,6 +372,8 @@ def build_gaussian_components(
         visual_value_norm_max=torch.linalg.vector_norm(visual_value, dim=-1).amax(
             dim=1
         ),
+        member_key=member_key,
+        member_value=member_value,
     )
 
 

@@ -41,6 +41,15 @@ weights, MVBench videos, native feature tensors, or remote runtime logs.
    a conservative 4.46x state-transfer ratio. This is a calibration-only
    conditional signal; the frozen 60-scene selection and 63-scene formal sets
    remain untouched.
+9. Three exposed query-conditioned diagnostics then tested stronger memory
+   interfaces on calibration positions 73--96. Positive Gaussian closure and
+   progressive exact regular pages both failed their frozen gates. A subsequent
+   per-sample/head K/KV prototype mixture also failed even with target-visible
+   exact-cluster selection: its best 25%-read candidate reached only
+   7.54%/13.06%/13.83% visual mean/P95/worst error. The registered decision is
+   `NO_PROTOTYPE_MIXTURE_PATH`. A post-hoc reverse-greedy support sensitivity
+   improved mean error to 6.16% but remained 12.3x above the capacity gate; no
+   writer training or hidden split was opened.
 
 No result in this package establishes strict strong-reader interchangeability,
 a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
@@ -56,7 +65,7 @@ a deployable content scorer, TTFT reduction, or end-to-end GPU speedup.
 - `metadata/`: calibration summaries for the two OneVision PCA bases.
 
 The latest evidence and next-method boundary are summarized in
-`reports/ONEVISION_READER_QUOTIENT_CMRQ_20260830.zh-CN.md`.
+`reports/QUERY_FIXED_PROTOTYPE_MIXTURE_AUDIT_20260830.zh-CN.md`.
 
 The canonical model-side runners and tests live under
 `online_video_state_decomposition/experiments/` in this repository.

@@ -385,8 +385,9 @@ reader 的 train-free progressive quotient，不再增加 controller/BCM 容量�
 - 冻结视觉 encoder、原始 QKV 和绝大多数 reader 参数；
 - 只训练 quotient tokenizer、mass/position adapter、small support router 与
   normalization ratio；
-- 训练 positions 1--72，positions 73--96 只做 selection，positions 97--120
-  保持一次性最终验证；
+- calibration positions 1--72 用于训练，73--96 是已暴露 development，97--120
+  保持一次性 calibration confirmation；随后才允许读取独立的 official selection，
+  official formal 继续保持未读；
 - 公平比较 tokenizer-only、router-only、joint path-consistency，以及 ToMe、
   FrameFusion、LongVU 风格 baseline；
 - 最终必须补 stronger reader、完整任务、真实 token latency 和 end-to-end wall-clock。
@@ -1033,11 +1034,13 @@ selector、继续用 worst-case coordinate box 追求证书。当前唯一有信
 4. empirical upper-quantile risk gate 与 exact-leaf fallback。
 
 训练目标必须比较 support-only、re-encoder-only 与 joint，并在相同 active-token、
-state byte 和读带宽下证明 joint 的独立增益。positions `1--72` 只用于训练，
-`73--96` 只用于选择，`97--120` 保持 untouched formal endpoint。selection 只有在
-visual mean/P95 `<=1%/2%`、reader KL mean/P95 `<=0.01/0.02`、无 harmful flip 且
-联合方法相对最佳单组件至少改善 `25%` 时才允许读取 formal。否则该 learned-memory
-方向关闭，不进入 kernel 或 wall-clock。
+state byte 和读带宽下证明 joint 的独立增益。权威 split 是 120 calibration、60
+official selection 和 63 official formal 场景；calibration positions `1--72` 用于
+训练，`73--96` 已暴露且只能用于 development，`97--120` 保持一次性 calibration
+confirmation。confirmation 通过后才允许读取 official selection；selection 通过后
+才允许读取 official formal。各阶段都要求 visual mean/P95 `<=1%/2%`、reader KL
+mean/P95 `<=0.01/0.02`、无 harmful flip，且联合方法相对最佳单组件至少改善 `25%`。
+否则该 learned-memory 方向关闭，不进入下一数据角色、kernel 或 wall-clock。
 
 这与 [Quest](https://arxiv.org/abs/2406.10774) 的 query-aware exact KV page selection、
 [QTSplus](https://arxiv.org/abs/2511.11910) 的语义压缩和
