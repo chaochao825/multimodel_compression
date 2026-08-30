@@ -1,0 +1,186 @@
+{
+  "best_epochs": {
+    "fixed_controller": 84,
+    "joint_writer_controller": 17,
+    "writer_dot": 48
+  },
+  "claim_boundary": "Calibration prospective observability result only. Positions 97-120, selection, and formal remain unread. Writer bytes and MACs are proxies, not measured latency.",
+  "counts": {
+    "prospective": 24,
+    "reserved_calibration": 24,
+    "train": 48,
+    "validation": 24
+  },
+  "elapsed_seconds": 161.24927935982123,
+  "group_size": 4,
+  "prospective_gate": {
+    "conditions": {
+      "joint_agreement_at_least_22_of_24": false,
+      "joint_harmful_at_most_one": false,
+      "joint_kl_at_most_005": true,
+      "joint_no_accuracy_loss": true,
+      "joint_recall_at_least_45pct": false,
+      "joint_recall_three_points_above_fixed": false,
+      "joint_recall_three_points_above_writer": false,
+      "joint_risk_mass_at_least_50pct": false,
+      "joint_scorer_below_two_million_macs": true,
+      "writer_agreement_at_least_22_of_24": false,
+      "writer_harmful_at_most_one": false,
+      "writer_kl_at_most_005": false,
+      "writer_no_accuracy_loss": true,
+      "writer_recall_at_least_45pct": false,
+      "writer_risk_mass_at_least_50pct": false
+    },
+    "decision": "NO_GO"
+  },
+  "prospective_reader": {
+    "fixed_controller": {
+      "agreement": 0.75,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.25,
+      "candidate_kl_mean": 0.05126357628614642,
+      "candidate_kl_p95": 0.11239954568445679,
+      "harmful_count": 2,
+      "mismatch_count": 6,
+      "sample_count": 24
+    },
+    "joint_writer_controller": {
+      "agreement": 0.7083333333333334,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.25,
+      "candidate_kl_mean": 0.043246360476283975,
+      "candidate_kl_p95": 0.11482202522456637,
+      "harmful_count": 2,
+      "mismatch_count": 7,
+      "sample_count": 24
+    },
+    "query_cosine": {
+      "agreement": 0.75,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.25,
+      "candidate_kl_mean": 0.061162121361121535,
+      "candidate_kl_p95": 0.16098371297121045,
+      "harmful_count": 2,
+      "mismatch_count": 6,
+      "sample_count": 24
+    },
+    "residual_energy": {
+      "agreement": 0.75,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.125,
+      "candidate_kl_mean": 0.038607815688010305,
+      "candidate_kl_p95": 0.08113947547972199,
+      "harmful_count": 3,
+      "mismatch_count": 6,
+      "sample_count": 24
+    },
+    "target_gradient_risk": {
+      "agreement": 0.9166666666666666,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.16666666666666666,
+      "candidate_kl_mean": 0.029568313068011776,
+      "candidate_kl_p95": 0.10453936681151384,
+      "harmful_count": 2,
+      "mismatch_count": 2,
+      "sample_count": 24
+    },
+    "writer_dot": {
+      "agreement": 0.7083333333333334,
+      "baseline_accuracy": 0.25,
+      "candidate_accuracy": 0.25,
+      "candidate_kl_mean": 0.06822656066894221,
+      "candidate_kl_p95": 0.1456930838525295,
+      "harmful_count": 2,
+      "mismatch_count": 7,
+      "sample_count": 24
+    }
+  },
+  "prospective_selector_diagnostics": {
+    "fixed_controller": {
+      "mean_risk_mass_capture": 0.3022010928640763,
+      "mean_topk_recall": 0.302295918367347,
+      "minimum_topk_recall": 0.19387755102040816,
+      "sample_count": 24
+    },
+    "joint_writer_controller": {
+      "mean_risk_mass_capture": 0.3193413596600294,
+      "mean_topk_recall": 0.30697278911564624,
+      "minimum_topk_recall": 0.23469387755102042,
+      "sample_count": 24
+    },
+    "query_cosine": {
+      "mean_risk_mass_capture": 0.2761962879449129,
+      "mean_topk_recall": 0.27891156462585037,
+      "minimum_topk_recall": 0.21428571428571427,
+      "sample_count": 24
+    },
+    "residual_energy": {
+      "mean_risk_mass_capture": 0.2945743886133035,
+      "mean_topk_recall": 0.2916666666666667,
+      "minimum_topk_recall": 0.17346938775510204,
+      "sample_count": 24
+    },
+    "target_gradient_risk": {
+      "mean_risk_mass_capture": 0.8095081895589828,
+      "mean_topk_recall": 1.0,
+      "minimum_topk_recall": 1.0,
+      "sample_count": 24
+    },
+    "writer_dot": {
+      "mean_risk_mass_capture": 0.3161000677694877,
+      "mean_topk_recall": 0.30017006802721086,
+      "minimum_topk_recall": 0.17346938775510204,
+      "sample_count": 24
+    }
+  },
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "rank": 456,
+  "refined_group_count": 98,
+  "role": "risk_observable_writer_prospective_calibration_gate",
+  "validation_selector_diagnostics": {
+    "fixed_controller": {
+      "mean_risk_mass_capture": 0.3237221408635378,
+      "mean_topk_recall": 0.31462585034013607,
+      "minimum_topk_recall": 0.24489795918367346,
+      "sample_count": 24
+    },
+    "joint_writer_controller": {
+      "mean_risk_mass_capture": 0.32958025361100834,
+      "mean_topk_recall": 0.3210034013605442,
+      "minimum_topk_recall": 0.25510204081632654,
+      "sample_count": 24
+    },
+    "query_cosine": {
+      "mean_risk_mass_capture": 0.26660585465530556,
+      "mean_topk_recall": 0.28231292517006806,
+      "minimum_topk_recall": 0.20408163265306123,
+      "sample_count": 24
+    },
+    "residual_energy": {
+      "mean_risk_mass_capture": 0.3206613690902789,
+      "mean_topk_recall": 0.2848639455782313,
+      "minimum_topk_recall": 0.22448979591836735,
+      "sample_count": 24
+    },
+    "target_gradient_risk": {
+      "mean_risk_mass_capture": 0.796191523472468,
+      "mean_topk_recall": 1.0,
+      "minimum_topk_recall": 1.0,
+      "sample_count": 24
+    },
+    "writer_dot": {
+      "mean_risk_mass_capture": 0.30967905434469384,
+      "mean_topk_recall": 0.318452380952381,
+      "minimum_topk_recall": 0.24489795918367346,
+      "sample_count": 24
+    }
+  },
+  "writer": {
+    "joint_scorer_macs_per_question": 1456896,
+    "key_width": 32,
+    "mode_width": 8,
+    "one_time_writer_macs": 56698880,
+    "stored_key_bytes_fp16": 25088,
+    "writer_dot_macs_per_question": 131152
+  }
+}

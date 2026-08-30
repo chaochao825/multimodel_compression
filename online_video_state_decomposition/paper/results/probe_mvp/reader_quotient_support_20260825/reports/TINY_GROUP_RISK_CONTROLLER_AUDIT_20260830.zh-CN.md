@@ -2,7 +2,7 @@
 
 日期：2026-08-30
 
-状态：`NO_GO`；关闭当前 quotient/query/residual-metadata controller 家族，不读取 selection/formal
+状态：`NO_GO`；关闭当前 quotient/query/residual-metadata controller 家族；后续 risk-observable writer Gate 亦为 `NO_GO`
 
 ## 直接结论
 
@@ -189,4 +189,4 @@ LongVU、FrameFusion、StreamingTOM 和 FlexMem 已覆盖 query-aware reduction�
 }
 \]
 
-所以最有潜力的进一步提升不再是拟合更复杂的固定结构，也不是给 scalar fallback 调阈值，而是让 memory writer 主动编码“未来问题可能需要的风险方向”，并用独立数据校准可拒绝的读取边界。
+所以当时最有判别力的进一步实验不是拟合更复杂的固定结构，也不是给 scalar fallback 调阈值，而是让 memory writer 主动编码“未来问题可能需要的风险方向”。该 follow-up 已在 fresh calibration positions 73--96 上完成：joint writer-controller recall 仅 `30.70%`，reader agreement `70.83%`，同预算 target-gradient oracle 也只有 `91.67%` agreement，判决仍为 `NO_GO`。完整结果见 `RISK_OBSERVABLE_WRITER_AUDIT_20260830.zh-CN.md`；当前 post-hoc writer/controller 主线因此应 park。

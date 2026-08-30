@@ -247,7 +247,7 @@ controller 不拟合 feature，而拟合排序和漏检风险：
 
 验证最大 mismatch margin 为 `0.625`，prospective 仍出现 margin `0.75` 的 mismatch，因此 scalar compressed margin 也不是可迁移证书。selection/formal 保持未读。
 
-下一步不再调 controller width、sketch dimension、BCM block 或 fallback threshold。只有重新冻结 fresh data 后，才可测试训练原生 risk-observable writer：冻结 OneVision reader，只训练写入端 innovation key、query-conditioned scorer 与遗漏风险上界，并严格比较 learned-writer-only、learned-controller-only 与 joint writer-controller。完整判决见 `TINY_GROUP_RISK_CONTROLLER_AUDIT_20260830.zh-CN.md`。
+下一步没有继续调 controller width、sketch dimension、BCM block 或 fallback threshold，而是在 fresh calibration positions 73--96 上测试了 risk-observable writer。learned-writer-only、learned-controller-only 与 joint writer-controller 的 prospective recall 分别为 `30.02%/30.23%/30.70%`；joint reader agreement 为 `70.83%`，同预算 target-gradient oracle 也只有 `91.67%`。因此 follow-up 同样 `NO_GO`，完整判决见 `RISK_OBSERVABLE_WRITER_AUDIT_20260830.zh-CN.md`。
 
 ## 结论边界
 
@@ -274,4 +274,6 @@ controller 不拟合 feature，而拟合排序和漏检风险：
 - `figures/group_proxy_correlations.csv`
 - `figures/tiny_group_risk_controller_gate.{png,pdf,svg}`
 - `figures/tiny_group_risk_controller_{selector,reader,gate}_metrics.csv`
+- `figures/risk_observable_writer_gate.{png,pdf,svg}`
+- `figures/risk_observable_writer_{selector,reader}_metrics.csv`
 - `analysis/onevision_reader_quotient_stage_a_20260830/`
