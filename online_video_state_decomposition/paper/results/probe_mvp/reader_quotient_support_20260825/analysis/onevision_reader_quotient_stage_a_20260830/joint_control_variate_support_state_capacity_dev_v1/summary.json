@@ -1,0 +1,119 @@
+{
+  "analytic_active_state_ratio": 3.8419601837672284,
+  "batch_size": 2,
+  "claim_boundary": "Calibration-trained state with target-visible regular-page support on development. This is a function-class ceiling, not a deployable router, task, confirmation, formal, latency, or speed result.",
+  "confirmation_positions_unread": [
+    97,
+    120
+  ],
+  "decision": "NO_JOINT_SUPPORT_STATE_CAPACITY",
+  "development_positions": [
+    73,
+    96
+  ],
+  "diagnostic_methods": [
+    "independent_residual_correction",
+    "joint_mass_correction"
+  ],
+  "elapsed_seconds": 153.362966820132,
+  "exact_fraction": 0.25,
+  "feature_width": 32,
+  "joint_vs_independent": {
+    "baseline_method": "independent_mass_correction",
+    "bootstrap_lower_95": -1.422608634261279,
+    "bootstrap_upper_95": -0.002274288348532153,
+    "candidate_method": "joint_residual_correction",
+    "relative_risk_improvement": -0.6653640098530096
+  },
+  "joint_vs_state_only_change": {
+    "baseline_method": "joint_mass_correction",
+    "bootstrap_lower_95": -0.05544917145370579,
+    "bootstrap_upper_95": 0.6031941048229036,
+    "candidate_method": "joint_residual_correction",
+    "relative_risk_improvement": 0.3143651665217402
+  },
+  "joint_vs_support_only_change": {
+    "baseline_method": "independent_residual_correction",
+    "bootstrap_lower_95": 0.3200918670881407,
+    "bootstrap_upper_95": 0.7085176757756123,
+    "candidate_method": "joint_residual_correction",
+    "relative_risk_improvement": 0.5219753622808161
+  },
+  "layers": [
+    0,
+    13,
+    27
+  ],
+  "learning_rate": 0.0003,
+  "method_summaries": {
+    "exact_only_mass": {
+      "cell_count": 72,
+      "full_mean": 0.029479277656517096,
+      "full_p95": 0.06631743721663952,
+      "visual_mean": 0.13727550705273947,
+      "visual_p95": 0.21362808346748352,
+      "visual_risk_mean": 0.02067383019796883,
+      "visual_worst": 0.2332540601491928
+    },
+    "independent_mass_correction": {
+      "cell_count": 72,
+      "full_mean": 0.005346707498473633,
+      "full_p95": 0.010937475599348547,
+      "visual_mean": 0.04019118894615935,
+      "visual_p95": 0.07651134952902794,
+      "visual_risk_mean": 0.0020949186141984277,
+      "visual_worst": 0.10535504668951035
+    },
+    "independent_residual_correction": {
+      "cell_count": 72,
+      "full_mean": 0.009778136169188656,
+      "full_p95": 0.017587745748460296,
+      "visual_mean": 0.06591104108115865,
+      "visual_p95": 0.18059523701667793,
+      "visual_risk_mean": 0.00729837290459222,
+      "visual_worst": 0.23395556211471558
+    },
+    "joint_mass_correction": {
+      "cell_count": 72,
+      "full_mean": 0.006848058220283646,
+      "full_p95": 0.010912932176142934,
+      "visual_mean": 0.06322371825161907,
+      "visual_p95": 0.1255294695496559,
+      "visual_risk_mean": 0.0050884259277760675,
+      "visual_worst": 0.17076562345027924
+    },
+    "joint_residual_correction": {
+      "cell_count": 72,
+      "full_mean": 0.005478936006612558,
+      "full_p95": 0.012201268505305054,
+      "visual_mean": 0.042806141595873565,
+      "visual_p95": 0.1364168629050255,
+      "visual_risk_mean": 0.0034888020636572037,
+      "visual_worst": 0.21253682672977448
+    },
+    "state_only": {
+      "cell_count": 72,
+      "full_mean": 0.02863050523834924,
+      "full_p95": 0.07452528923749926,
+      "visual_mean": 0.31508927502565914,
+      "visual_p95": 0.5251762121915817,
+      "visual_risk_mean": 0.11099071314351426,
+      "visual_worst": 0.6517773270606995
+    }
+  },
+  "page_size": 4,
+  "primary_methods": [
+    "exact_only_mass",
+    "state_only",
+    "independent_mass_correction",
+    "joint_residual_correction"
+  ],
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "role": "calibration_joint_control_variate_support_state_capacity",
+  "seed": 20260901,
+  "steps_per_arm_per_layer": 1000,
+  "train_positions": [
+    1,
+    72
+  ]
+}

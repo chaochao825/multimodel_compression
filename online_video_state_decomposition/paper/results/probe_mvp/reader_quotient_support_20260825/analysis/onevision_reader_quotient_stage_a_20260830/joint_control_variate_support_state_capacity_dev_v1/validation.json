@@ -1,0 +1,10 @@
+{
+  "cells": 144,
+  "decision": "PASS",
+  "exact_page_budget_ok": true,
+  "finite_checkpoint_tensors": true,
+  "maximum_all_page_recovery_absolute_error": 3.5762786865234375e-06,
+  "maximum_all_page_recovery_relative_error": 2.3564508921936067e-07,
+  "maximum_state_replay_absolute_error": 4.76837158203125e-06,
+  "scope": "Read-only replay of both trained states on exposed development positions 73-96; no training, selection, or sealed-data access."
+}

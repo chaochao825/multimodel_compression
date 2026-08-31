@@ -1,0 +1,78 @@
+{
+  "analytic_active_state_ratio": 3.8419601837672284,
+  "bootstrap_repetitions": 10000,
+  "claim_boundary": "Development-only target-visible regular-page support capacity. The joint selector reads exact residual effects and is not deployable. No task, confirmation, formal, latency, or speed claim is authorized.",
+  "confirmation_positions_unread": [
+    97,
+    120
+  ],
+  "decision": "NO_SUPPORT_STATE_CAPACITY",
+  "development_positions": [
+    73,
+    96
+  ],
+  "elapsed_seconds": 3.760584081057459,
+  "exact_fraction": 0.25,
+  "feature_width": 32,
+  "greedy_round_size": 14,
+  "joint_vs_independent": {
+    "bootstrap_lower_95": 0.5001391075639042,
+    "bootstrap_upper_95": 0.6591489068107074,
+    "relative_risk_improvement": 0.5941403066911384
+  },
+  "layers": [
+    0,
+    13,
+    27
+  ],
+  "maximum_exact_recovery_error": 1.9550323486328125e-05,
+  "maximum_exact_recovery_relative_error": 1.1586765822357847e-06,
+  "maximum_state_replay_error": 5.245208740234375e-06,
+  "method_summaries": {
+    "exact_only_mass": {
+      "cell_count": 72,
+      "full_mean": 0.029479277656517096,
+      "full_p95": 0.06631743721663952,
+      "visual_mean": 0.13727550705273947,
+      "visual_p95": 0.21362808346748352,
+      "visual_risk_mean": 0.02067383019796883,
+      "visual_worst": 0.2332540601491928
+    },
+    "independent_mass_correction": {
+      "cell_count": 72,
+      "full_mean": 0.015342445850061873,
+      "full_p95": 0.026522647775709632,
+      "visual_mean": 0.11124074795386857,
+      "visual_p95": 0.19105735048651695,
+      "visual_risk_mean": 0.014067734429974936,
+      "visual_worst": 0.21329794824123383
+    },
+    "joint_residual_oracle": {
+      "cell_count": 72,
+      "full_mean": 0.008228719095414918,
+      "full_p95": 0.014453952806070449,
+      "visual_mean": 0.06758715835813847,
+      "visual_p95": 0.12566035725176336,
+      "visual_risk_mean": 0.005709526381300141,
+      "visual_worst": 0.1938333958387375
+    },
+    "state_only": {
+      "cell_count": 72,
+      "full_mean": 0.02863050523834924,
+      "full_p95": 0.07452528923749926,
+      "visual_mean": 0.31508927502565914,
+      "visual_p95": 0.5251762121915817,
+      "visual_risk_mean": 0.11099071314351426,
+      "visual_worst": 0.6517773270606995
+    }
+  },
+  "methods": [
+    "exact_only_mass",
+    "state_only",
+    "independent_mass_correction",
+    "joint_residual_oracle"
+  ],
+  "page_size": 4,
+  "protocol_id": "vsi_onevision_reader_quotient_stage_a_20260830_v1",
+  "role": "development_control_variate_support_state_capacity"
+}

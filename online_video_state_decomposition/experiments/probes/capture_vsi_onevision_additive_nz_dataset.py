@@ -89,6 +89,7 @@ def additive_nz_payload(
         "query_scaled": query_scaled.to(device="cpu", dtype=torch.bfloat16),
         "visual_key": visual_key.to(device="cpu", dtype=torch.bfloat16),
         "visual_value": visual_value.to(device="cpu", dtype=torch.bfloat16),
+        "exact_visual_exp": visual_exp.to(device="cpu", dtype=torch.float32),
         "exact_visual_output": exact_visual_output.to(
             device="cpu", dtype=torch.float32
         ),
