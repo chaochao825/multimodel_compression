@@ -60,6 +60,20 @@ CPU launch overhead 的占比。CUDA Graph 可以把一次固定 shape 的完整
 某些分配或 SDPA backend 也可能不可捕获。必须使用连续不同输入 replay 检查 stale state，
 不能只比较同一输入重复运行。
 
+只读源码计数进一步限定了预期。F81 一次 decode 包含 21 次完整 decoder 调用、
+33 个 CausalConv3d 模块在时间循环中的 693 次应用，以及至少 861 次
+Conv3d/Conv2d/Upsample 模块应用。这个静态重复表面支持测试 launch amortization。
+另一方面，20 次累计输出 `torch.cat` 共写入 860 个 output-frame units，相当于最终
+81 帧输出的 `10.62x`；CUDA Graph 不会删除这些 convolution 或 copy 工作。因此
+`1.12x` VAE 门槛不是预期必过值，而是区分 launch-bound 与 compute/memory-bound 的
+有效 stop rule。
+
+官方 PyTorch 文档要求 capture 前在 side stream 完成 warmup，并长期保留静态 input
+和 output；每次新输入先 `copy_` 到固定地址再 replay。NVIDIA 的约束文档也说明 graph
+引用的外部内存必须在 graph 生命周期内保持有效，capture 内分配由 graph-aware pool
+管理。[PyTorch CUDA semantics](https://docs.pytorch.org/docs/main/notes/cuda.html)、
+[NVIDIA CUDA Graph constraints](https://docs.nvidia.com/dl-cuda-graph/cuda-graph-basics/constraints.html)
+
 ## 4. 三候选的决策价值
 
 ### 4.1 exact VAE CUDA Graph
@@ -111,3 +125,4 @@ CPU launch overhead 的占比。CUDA Graph 可以把一次固定 shape 的完整
 - `wan_rcm_successor_plan066_20260901/candidate_frontier.csv`
 - `wan_rcm_successor_plan066_20260901/required_component_speedup.csv`
 - `wan_rcm_successor_plan066_20260901/summary.json`
+- `wan_rcm_successor_plan066_20260901/vae_graph_source_feasibility.json`

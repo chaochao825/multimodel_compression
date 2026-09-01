@@ -23,6 +23,13 @@ capture that fixed F81 sequence without changing frame grouping, operators,
 weights, BF16, or cache contents. This is a distinct exact execution question,
 not a repair of EXP-053.
 
+A read-only import of the official source with its production model dimensions
+counts 33 CausalConv3d modules, 693 CausalConv3d applications, and at least 861
+Conv3d/Conv2d/Upsample applications per F81 decode. The launch surface is large,
+but 20 cumulative output concatenations write 860 frame units, `10.62x` the
+final 81-frame output, and graph replay does not remove that data movement.
+Consequently the speed hypothesis is plausible but deliberately not assumed.
+
 PLAN-066 calculates that a `1.119x` VAE is sufficient for a `1.05x` resident
 request and `1.255x` VAE for a `1.10x` request. Measured Sage speed under
 optimistic full self-attention coverage reaches only a `1.070935x` request
@@ -52,11 +59,14 @@ but may not edit the source or checkpoint. Its action is exactly one
 
 - Generate or load three deterministic rCM4 on-policy F17 latents of the same
   shape.
-- Warm eager decode, capture one static graph, then copy each different latent
-  into the static input and replay in registered order.
+- Keep long-lived static input and output tensors. Warm eager decode on a side
+  stream, capture one static graph, then copy each different latent into the
+  static input and replay in registered order.
 - Compare every graph output to an independent eager decode with `torch.equal`.
 - Include static input copy, output handoff, and required synchronization in
   latency; do not time a bare replay that omits deployable work.
+- Retain all graph-referenced tensors and the private graph memory pool until
+  the final replay and memory measurement complete.
 - Stop as `engineering-null` if capture is unsupported after at most two bounded
   repairs; stop as `exactness-null` on any non-bitwise output or stale-state
   failure.

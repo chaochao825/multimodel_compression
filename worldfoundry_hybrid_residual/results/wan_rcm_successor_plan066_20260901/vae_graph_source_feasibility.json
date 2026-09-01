@@ -1,0 +1,36 @@
+{
+  "scope": "Read-only source feasibility; no GPU, model weights, capture, or timing was run.",
+  "remote_source": "/opt/data/wangmeiqi/rcm_exp047_20260826/rcm/rcm/tokenizers/wan2pt1.py",
+  "model_configuration": {
+    "dim": 96,
+    "z_dim": 16,
+    "dim_mult": [1, 2, 4, 4],
+    "num_res_blocks": 2,
+    "temporal_downsample": [false, true, true]
+  },
+  "f81_structure": {
+    "latent_frames": 21,
+    "decoder_causal_conv3d_modules": 33,
+    "decoder_conv2d_modules": 5,
+    "decoder_upsample_modules": 3,
+    "decoder_residual_blocks": 14,
+    "decoder_attention_blocks": 1,
+    "decoder_resample_blocks": 3,
+    "causal_conv3d_applications": 693,
+    "heavy_module_applications_lower_bound": 861,
+    "cumulative_output_cat_calls": 20,
+    "cumulative_cat_output_frame_units": 860,
+    "final_output_frames": 81,
+    "cumulative_cat_frame_write_ratio": 10.617283950617283
+  },
+  "capture_observations": {
+    "fixed_f81_shape": true,
+    "explicit_cpu_gpu_sync_inside_decode_found": false,
+    "python_cache_bookkeeping_is_executed_only_during_capture": true,
+    "static_input_copy_required_for_new_latents": true,
+    "long_lived_static_input_and_output_required": true,
+    "side_stream_warmup_required": true,
+    "cumulative_cat_data_movement_removed_by_cuda_graph": false
+  },
+  "interpretation": "The graph has a large launch surface, but CUDA Graph replay leaves convolution work and cumulative output-copy traffic unchanged. The registered 1.12x complete-VAE threshold is therefore informative rather than guaranteed."
+}

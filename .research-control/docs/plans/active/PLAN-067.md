@@ -22,6 +22,9 @@ bounded `C-033 / L-033 / EXP-055 / G-034` exact full-F81 VAE CUDA Graph Gate.
   while measured full-coverage Sage implies only `1.070935x` request.
 - Proposed action: CUDA Graph capture/replay of the unchanged 21-frame official
   VAE decode, with static input-copy and output-handoff costs included.
+- Read-only source feasibility: F81 has 693 CausalConv3d applications and at
+  least 861 heavy module applications, but cumulative output concatenation
+  writes `10.62x` final-frame units and remains outside graph savings.
 
 ## Allowed work
 
