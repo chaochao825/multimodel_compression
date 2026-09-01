@@ -1,0 +1,76 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-052",
+  "gate_id": "G-031",
+  "method": "teacher20",
+  "positive_prompt_cache": false,
+  "result": {
+    "advance": true,
+    "checkpoint_identity": "96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f",
+    "checkpoint_path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+    "load": {
+      "checkpoint_path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+      "load_seconds": 2.9771409910172224,
+      "missing_keys": 0,
+      "unexpected_keys": 0
+    },
+    "method": "teacher20",
+    "network_calls_equal": true,
+    "reload_policy": {
+      "cache_negative": false,
+      "negative_cache_hits": 0,
+      "negative_model_calls": 1,
+      "positive_cache_hits": 0,
+      "positive_model_calls": 1,
+      "resident": false
+    },
+    "reload_row": {
+      "cpu_transfer_seconds": 0.07911814330145717,
+      "denoiser_seconds": 5.098002234008163,
+      "denoiser_seconds_per_forward": 0.12745005585020408,
+      "network_forward_calls": 40,
+      "peak_allocated_mib": 26626.5419921875,
+      "peak_reserved_mib": 27124.0,
+      "request_seconds": 32.67208853689954,
+      "sampling_steps": 20,
+      "serialization_seconds": 0.0,
+      "text_seconds": 26.21670700982213,
+      "vae_seconds": 1.2779984441585839
+    },
+    "resident_policy": {
+      "cache_negative": true,
+      "negative_cache_hits": 1,
+      "negative_model_calls": 1,
+      "positive_cache_hits": 0,
+      "positive_model_calls": 1,
+      "resident": true
+    },
+    "resident_row": {
+      "cpu_transfer_seconds": 0.053408566396683455,
+      "denoiser_seconds": 4.85170522518456,
+      "denoiser_seconds_per_forward": 0.121292630629614,
+      "network_forward_calls": 40,
+      "peak_allocated_mib": 25042.8828125,
+      "peak_reserved_mib": 38810.0,
+      "request_seconds": 6.616287782322615,
+      "sampling_steps": 20,
+      "serialization_seconds": 0.7342654149979353,
+      "text_seconds": 0.03177554113790393,
+      "vae_seconds": 0.9450111710466444
+    },
+    "video_equal": true
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "f17-exact"
+}

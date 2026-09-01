@@ -1,0 +1,222 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-052",
+  "gate_id": "G-031",
+  "method": null,
+  "positive_prompt_cache": false,
+  "result": {
+    "advance": true,
+    "exact": true,
+    "minimum_median_saving_seconds": 15.207695015706122,
+    "profiles": [
+      {
+        "exact": true,
+        "exact_rows": [
+          {
+            "negative_equal": null,
+            "positive_equal": true,
+            "prompt_index": 0
+          },
+          {
+            "negative_equal": null,
+            "positive_equal": true,
+            "prompt_index": 1
+          },
+          {
+            "negative_equal": null,
+            "positive_equal": true,
+            "prompt_index": 2
+          },
+          {
+            "negative_equal": null,
+            "positive_equal": true,
+            "prompt_index": 3
+          }
+        ],
+        "median_reload_seconds": 15.250986494356766,
+        "median_resident_seconds": 0.04329147865064442,
+        "median_saving_seconds": 15.207695015706122,
+        "profile": "positive_only",
+        "reload_policy": {
+          "cache_negative": false,
+          "negative_cache_hits": 0,
+          "negative_model_calls": 0,
+          "positive_cache_hits": 0,
+          "positive_model_calls": 4,
+          "resident": false
+        },
+        "reload_rows": [
+          {
+            "peak_allocated_mib": 23710.9765625,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 0,
+            "seconds": 26.046281810849905
+          },
+          {
+            "peak_allocated_mib": 23714.9765625,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 1,
+            "seconds": 16.34194686682895
+          },
+          {
+            "peak_allocated_mib": 23714.9765625,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 2,
+            "seconds": 14.160026121884584
+          },
+          {
+            "peak_allocated_mib": 23714.9765625,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 3,
+            "seconds": 13.720425604842603
+          }
+        ],
+        "resident_policy": {
+          "cache_negative": false,
+          "negative_cache_hits": 0,
+          "negative_model_calls": 0,
+          "positive_cache_hits": 0,
+          "positive_model_calls": 4,
+          "resident": true
+        },
+        "resident_rows": [
+          {
+            "peak_allocated_mib": 11112.48486328125,
+            "peak_reserved_mib": 23678.0,
+            "prompt_index": 0,
+            "seconds": 0.05760678509250283
+          },
+          {
+            "peak_allocated_mib": 11116.48486328125,
+            "peak_reserved_mib": 23678.0,
+            "prompt_index": 1,
+            "seconds": 0.042150726076215506
+          },
+          {
+            "peak_allocated_mib": 11116.48486328125,
+            "peak_reserved_mib": 23678.0,
+            "prompt_index": 2,
+            "seconds": 0.04443223122507334
+          },
+          {
+            "peak_allocated_mib": 11116.78173828125,
+            "peak_reserved_mib": 23678.0,
+            "prompt_index": 3,
+            "seconds": 0.03970250580459833
+          }
+        ]
+      },
+      {
+        "exact": true,
+        "exact_rows": [
+          {
+            "negative_equal": true,
+            "positive_equal": true,
+            "prompt_index": 0
+          },
+          {
+            "negative_equal": true,
+            "positive_equal": true,
+            "prompt_index": 1
+          },
+          {
+            "negative_equal": true,
+            "positive_equal": true,
+            "prompt_index": 2
+          },
+          {
+            "negative_equal": true,
+            "positive_equal": true,
+            "prompt_index": 3
+          }
+        ],
+        "median_reload_seconds": 17.514340373221785,
+        "median_resident_seconds": 0.06475835805758834,
+        "median_saving_seconds": 17.449582015164196,
+        "profile": "native_cfg",
+        "reload_policy": {
+          "cache_negative": false,
+          "negative_cache_hits": 0,
+          "negative_model_calls": 4,
+          "positive_cache_hits": 0,
+          "positive_model_calls": 4,
+          "resident": false
+        },
+        "reload_rows": [
+          {
+            "peak_allocated_mib": 23714.953125,
+            "peak_reserved_mib": 23806.0,
+            "prompt_index": 0,
+            "seconds": 18.031357227358967
+          },
+          {
+            "peak_allocated_mib": 23722.953125,
+            "peak_reserved_mib": 23806.0,
+            "prompt_index": 1,
+            "seconds": 23.28744493983686
+          },
+          {
+            "peak_allocated_mib": 23722.953125,
+            "peak_reserved_mib": 23870.0,
+            "prompt_index": 2,
+            "seconds": 16.997323519084603
+          },
+          {
+            "peak_allocated_mib": 23722.953125,
+            "peak_reserved_mib": 23806.0,
+            "prompt_index": 3,
+            "seconds": 16.626480818726122
+          }
+        ],
+        "resident_policy": {
+          "cache_negative": true,
+          "negative_cache_hits": 4,
+          "negative_model_calls": 1,
+          "positive_cache_hits": 0,
+          "positive_model_calls": 4,
+          "resident": true
+        },
+        "resident_rows": [
+          {
+            "peak_allocated_mib": 11116.48486328125,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 0,
+            "seconds": 0.06383480643853545
+          },
+          {
+            "peak_allocated_mib": 11120.48486328125,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 1,
+            "seconds": 0.10253490693867207
+          },
+          {
+            "peak_allocated_mib": 11120.48486328125,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 2,
+            "seconds": 0.05382625898346305
+          },
+          {
+            "peak_allocated_mib": 11120.48486328125,
+            "peak_reserved_mib": 23742.0,
+            "prompt_index": 3,
+            "seconds": 0.06568190967664123
+          }
+        ]
+      }
+    ],
+    "required_saving_seconds": 5.5
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "text-screen"
+}

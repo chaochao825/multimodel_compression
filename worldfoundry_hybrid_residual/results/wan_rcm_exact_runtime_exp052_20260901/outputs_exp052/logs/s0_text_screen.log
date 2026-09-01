@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/run_wan_rcm_exact_runtime.py", line 692, in <module>
+    main()
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/run_wan_rcm_exact_runtime.py", line 651, in main
+    runtime, device, source_commit = setup_runtime(base_config, args.device)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/run_wan_rcm_exact_runtime.py", line 421, in setup_runtime
+    runtime = baseline.import_runtime(base_config)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/run_wan_rcm_baseline.py", line 226, in import_runtime
+    from imaginaire.lazy_config import instantiate
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/rcm/imaginaire/lazy_config/__init__.py", line 18, in <module>
+    from omegaconf import OmegaConf
+ModuleNotFoundError: No module named 'omegaconf'

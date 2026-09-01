@@ -9,13 +9,14 @@ negligible quality loss through a defensible combination of training,
 structured computation, and H200 system optimization, with claims separated by
 NFE reduction, per-step acceleration, and end-to-end wall-clock.
 
-## Latest primary falsifiable claim
+## Latest primary result
 
-C-026 tested whether the official unquantized four-step rCM Wan2.1-T2V-1.3B
-release establishes a useful single-H200 quality/latency incumbent against
-native 20-step UniPC on frozen F81 prompt-seed identities. EXP-047 closed as a
-valid speed boundary: endpoint quality and denoiser speed passed, while warm
-end-to-end speed missed the registered threshold. No successor claim is active.
+C-030 is supported. The released quality-passing rCM endpoint closes its H200
+end-to-end speed boundary under an exact persistent warm-service runtime. The
+runtime keeps UMT5 resident, reuses only the globally fixed negative embedding,
+and fully re-encodes every distinct positive prompt. EXP-052 preserved bitwise
+embeddings and decoded videos and reached `4.031x` median F81 warm end-to-end
+speedup versus an identically optimized teacher20.
 
 ## Scientific value
 
@@ -50,6 +51,14 @@ speedup. Its `2.181x` warm end-to-end result missed the `2.5x` guard because
 text encoding, VAE decode, and serialization dominate after NFE reduction.
 EXP-048 independently showed that this endpoint success does not induce a
 post-hoc rank-64 late-block state closure.
+
+RDR-035 therefore opened an exact runtime Gate before approximate kernels. The
+EXP-047 harness destroys the official global UMT5 encoder after every request;
+EXP-052 showed that a resident encoder and exact fixed-negative embedding reuse
+remove at least `15.208s/request` of repeated text work. Positive prompt
+embeddings remained uncached, all three methods used the same lifetime policy,
+and rCM4 reached `9.638s` versus resident teacher20 at `38.846s`. The measured
+runtime floor is now dominated by VAE decode, denoising, and serialization.
 
 ## Success envelope
 
@@ -91,9 +100,9 @@ post-hoc rank-64 late-block state closure.
 - C-024 is refuted; L-024 is the closed incumbent after EXP-045 while protected
   successor selection remained pending.
 - C-025 is refuted and L-025 is parked after the valid EXP-046 capacity null.
-- L-025 is parked after its capacity null. L-026 remains the decided mainline
-  incumbent after the valid EXP-047 speed-boundary result; no successor
-  experiment is active.
+- L-025 is parked after its capacity null. L-026 remains the immutable quality
+  incumbent after EXP-047; L-030 is the integrated exact-runtime incumbent
+  after the valid EXP-052 pass.
 - Exact dual-H200 CFG branch parallelism remains a valid independent system
   optimization; it is not part of C-022's algorithmic claim.
 

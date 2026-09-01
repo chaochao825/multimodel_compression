@@ -6,14 +6,19 @@ Updated: 2026-09-01
 
 - North star: faithful, materially faster Wan video generation through a
   scientifically defensible training-and-system co-design.
-- Latest primary claim: C-026 is refuted only on its conjunctive end-to-end
-  speed guard; the released unquantized rCM four-step endpoint passed quality,
-  diversity, completeness, and denoiser-speed guards.
-- Mainline: L-026 remains the decided measured incumbent; no experiment is
-  running and no successor candidate has been accepted.
-- EXP-047 / G-026 are complete with a valid `speed-boundary` result. PLAN-056
-  remains active only to hold the incumbent pending the researcher's successor
-  decision and authorizes no new resource use.
+- Latest primary result: C-030 is supported. Exact resident UMT5 lifetime and
+  fixed-negative embedding reuse close the rCM warm-service speed boundary
+  while every distinct positive prompt is fully re-encoded.
+- Mainline incumbent: L-030 is integrated at `9.638s` median F81 warm latency
+  and `4.031x` speedup versus resident teacher20. L-026 remains the immutable
+  released-rCM quality evidence inherited by this bitwise-exact runtime.
+- EXP-052 / G-031 are complete with a valid `pass`; PLAN-061 is completed. No
+  FP8 or approximate kernel was folded into this Gate.
+- PLAN-062 is the sole active plan and performs successor selection only. It
+  authorizes no new GPU run or approximation before one measured Gate is
+  presented for researcher acceptance.
+- EXP-047 / G-026 remain complete with a valid `speed-boundary` result.
+  PLAN-056 is completed and superseded only for successor selection by RDR-035.
 - PLAN-057 / EXP-048 / G-027 are complete with a valid `null/adverse` result.
   L-027 is parked, C-027 is refuted, and no side probe remains active. EXP-047
   remains the unchanged sole mainline.
@@ -23,6 +28,18 @@ Updated: 2026-09-01
   repurposed without a new accepted protocol.
 
 ## Latest belief-changing evidence
+
+- EXP-052's resident policy was bitwise exact at F17 and saved at least
+  `15.208s/request` in the four-distinct-prompt text screen. Positive prompt
+  cache hits remained zero and method network calls were unchanged.
+- Resident teacher20/native4/rcm4 F81 medians were `38.846s`, `12.975s`, and
+  `9.638s`. rCM therefore reached `4.031x` warm end-to-end and `10.076x`
+  denoiser speedup, passing every exactness, memory, completeness, and timing
+  guard.
+- The rCM bottleneck is now VAE `4.308s`, denoiser `3.205s`, and serialization
+  `1.796s`; text is `0.064s`. Prior `1.51x` local FP8 attention remains useful
+  but is secondary to this measured exact floor and cannot be evaluated against
+  the obsolete clear-after-request runtime.
 
 - EXP-047 completed all 24 F81 formal videos and the frozen eight-dimension
   VBench plus inter-seed diversity suite. rCM reached `0.996875` mean and
@@ -101,7 +118,7 @@ training, or trainable sparse attention.
 Fixed BCM/BCCB/Butterfly attention, local finite-jump width/rank growth,
 post-hoc whole-block rank-state growth, and rollout/kernel work for
 L-022/L-023/L-024/L-025/L-027 remain closed. Released-rCM deployment evidence
-continues only through L-026/EXP-047.
+continues through L-026/EXP-047 and the exact L-030/EXP-052 runtime.
 
 ## Closed primary Gate
 
@@ -110,7 +127,9 @@ official unquantized four-step rCM release on one H200. It freezes four prompts,
 two seeds, F81 generation, component timing, eight VBench dimensions, and
 inter-seed diversity. It closed as `speed-boundary`: quality, diversity,
 completeness, and denoiser speed passed, while `2.181x` warm end-to-end missed
-the `2.5x` guard. Physical-time long-video transport remains separate.
+the `2.5x` guard. EXP-052 subsequently closed that systems boundary at `4.031x`
+without changing generated values. Physical-time long-video transport remains
+separate.
 
 ## EXP-049 Boundary
 

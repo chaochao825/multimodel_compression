@@ -1,0 +1,128 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-052",
+  "gate_id": "G-031",
+  "method": "teacher20",
+  "positive_prompt_cache": false,
+  "result": {
+    "checkpoint_identity": "96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f",
+    "checkpoint_path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+    "load": {
+      "checkpoint_path": "/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors",
+      "load_seconds": 2.2598745399154723,
+      "missing_keys": 0,
+      "unexpected_keys": 0
+    },
+    "method": "teacher20",
+    "rows": [
+      {
+        "cpu_transfer_seconds": 0.23509777383878827,
+        "denoiser_seconds": 32.154931319877505,
+        "denoiser_seconds_per_forward": 0.8038732829969376,
+        "method": "teacher20",
+        "network_forward_calls": 40,
+        "peak_allocated_mib": 25218.7158203125,
+        "peak_reserved_mib": 38742.0,
+        "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+        "prompt_index": 0,
+        "request_seconds": 38.86868991097435,
+        "sampling_steps": 20,
+        "seed": 2026082701,
+        "serialization_seconds": 1.9580044271424413,
+        "status": "ok",
+        "text_seconds": 0.04181423643603921,
+        "vae_seconds": 4.478658600244671,
+        "video_file": "p00_teacher20_resident_seed2026082701.mp4"
+      },
+      {
+        "cpu_transfer_seconds": 0.235639784950763,
+        "denoiser_seconds": 33.977442532312125,
+        "denoiser_seconds_per_forward": 0.8494360633078031,
+        "method": "teacher20",
+        "network_forward_calls": 40,
+        "peak_allocated_mib": 25218.7001953125,
+        "peak_reserved_mib": 29974.0,
+        "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+        "prompt_index": 1,
+        "request_seconds": 40.10321728000417,
+        "sampling_steps": 20,
+        "seed": 2026082701,
+        "serialization_seconds": 1.5177093208767474,
+        "status": "ok",
+        "text_seconds": 0.06679097609594464,
+        "vae_seconds": 4.305462327320129,
+        "video_file": "p01_teacher20_resident_seed2026082701.mp4"
+      },
+      {
+        "cpu_transfer_seconds": 0.23892887774854898,
+        "denoiser_seconds": 32.31310766702518,
+        "denoiser_seconds_per_forward": 0.8078276916756295,
+        "method": "teacher20",
+        "network_forward_calls": 40,
+        "peak_allocated_mib": 25218.7001953125,
+        "peak_reserved_mib": 29974.0,
+        "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+        "prompt_index": 2,
+        "request_seconds": 38.82401899481192,
+        "sampling_steps": 20,
+        "seed": 2026082701,
+        "serialization_seconds": 1.7851032139733434,
+        "status": "ok",
+        "text_seconds": 0.0857829712331295,
+        "vae_seconds": 4.400906729046255,
+        "video_file": "p02_teacher20_resident_seed2026082701.mp4"
+      },
+      {
+        "cpu_transfer_seconds": 0.23662169696763158,
+        "denoiser_seconds": 32.27892160229385,
+        "denoiser_seconds_per_forward": 0.8069730400573463,
+        "method": "teacher20",
+        "network_forward_calls": 40,
+        "peak_allocated_mib": 25218.7001953125,
+        "peak_reserved_mib": 29974.0,
+        "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+        "prompt_index": 3,
+        "request_seconds": 38.703917160164565,
+        "sampling_steps": 20,
+        "seed": 2026082701,
+        "serialization_seconds": 1.765000166837126,
+        "status": "ok",
+        "text_seconds": 0.07017429685220122,
+        "vae_seconds": 4.353005744982511,
+        "video_file": "p03_teacher20_resident_seed2026082701.mp4"
+      }
+    ],
+    "summary": {
+      "median_cpu_transfer_seconds": 0.23613074095919728,
+      "median_denoiser_seconds": 32.296014634659514,
+      "median_denoiser_seconds_per_forward": 0.8074003658664879,
+      "median_peak_allocated_mib": 25218.7001953125,
+      "median_peak_reserved_mib": 29974.0,
+      "median_request_seconds": 38.84635445289314,
+      "median_serialization_seconds": 1.7750516904052347,
+      "median_text_seconds": 0.06848263647407293,
+      "median_vae_seconds": 4.376956237014383
+    },
+    "text_policy": {
+      "cache_negative": true,
+      "negative_cache_hits": 4,
+      "negative_model_calls": 1,
+      "positive_cache_hits": 0,
+      "positive_model_calls": 4,
+      "resident": true
+    }
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "f81-resident"
+}

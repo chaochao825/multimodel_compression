@@ -1,0 +1,76 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-052",
+  "gate_id": "G-031",
+  "method": "rcm4",
+  "positive_prompt_cache": false,
+  "result": {
+    "advance": true,
+    "checkpoint_identity": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+    "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "load": {
+      "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+      "load_seconds": 5.247995358891785,
+      "missing_keys": 0,
+      "unexpected_keys": 0
+    },
+    "method": "rcm4",
+    "network_calls_equal": true,
+    "reload_policy": {
+      "cache_negative": false,
+      "negative_cache_hits": 0,
+      "negative_model_calls": 0,
+      "positive_cache_hits": 0,
+      "positive_model_calls": 1,
+      "resident": false
+    },
+    "reload_row": {
+      "cpu_transfer_seconds": 0.05000987462699413,
+      "denoiser_seconds": 0.6114157591946423,
+      "denoiser_seconds_per_forward": 0.15285393979866058,
+      "network_forward_calls": 4,
+      "peak_allocated_mib": 26626.5419921875,
+      "peak_reserved_mib": 27124.0,
+      "request_seconds": 18.720077069941908,
+      "sampling_steps": 4,
+      "serialization_seconds": 0.0,
+      "text_seconds": 16.921910987235606,
+      "vae_seconds": 1.1365627641789615
+    },
+    "resident_policy": {
+      "cache_negative": false,
+      "negative_cache_hits": 0,
+      "negative_model_calls": 0,
+      "positive_cache_hits": 0,
+      "positive_model_calls": 1,
+      "resident": true
+    },
+    "resident_row": {
+      "cpu_transfer_seconds": 0.05032928800210357,
+      "denoiser_seconds": 0.48317652102559805,
+      "denoiser_seconds_per_forward": 0.12079413025639951,
+      "network_forward_calls": 4,
+      "peak_allocated_mib": 25038.078125,
+      "peak_reserved_mib": 38810.0,
+      "request_seconds": 2.2114864671602845,
+      "sampling_steps": 4,
+      "serialization_seconds": 0.6981219467706978,
+      "text_seconds": 0.033020432107150555,
+      "vae_seconds": 0.9467195770703256
+    },
+    "video_equal": true
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "f17-exact"
+}

@@ -1,6 +1,6 @@
 # PLAN-056: Measure the released rCM H200 Pareto
 
-- Status: active (Gate complete; successor decision pending)
+- Status: completed (superseded by accepted RDR-035 / PLAN-061)
 - Owner: researcher
 - Mainline: L-026
 - Completed experiment/Gate: EXP-047 / G-026 (`speed-boundary`)
@@ -30,6 +30,6 @@ GPU-isolation invalidation, storage/time exhaustion, or user interruption.
 EXP-047 closed validly on 2026-09-01. rCM passed quality, diversity,
 output-completeness, and denoiser-speed guards, but reached only `2.181x` warm
 end-to-end speedup against the registered `2.5x` threshold. L-026 remains the
-measured high-quality incumbent. This plan remains active only to preserve
-that incumbent while the researcher chooses a successor; it authorizes no new
+measured high-quality incumbent. RDR-035 accepted the exact resident-runtime
+successor on 2026-09-01. This plan is complete and authorizes no further
 experiment or resource use.

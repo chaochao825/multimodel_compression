@@ -1,0 +1,65 @@
+Megatron-core is not installed.
+[09-01 18:41:56|INFO|../rcm/rcm/networks/wan2pt1.py:918:enable_selective_checkpoint] Enable selective checkpoint with mm_only, for every 1 blocks. Total blocks: 30
+[09-01 18:42:01|INFO|../rcm/rcm/tokenizers/wan2pt1.py:592:_video_vae] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
+[09-01 18:42:01|INFO|../rcm/rcm/utils/umt5.py:495:__init__] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth
+[09-01 18:42:20|INFO|../rcm/rcm/utils/umt5.py:495:__init__] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+{
+  "advance": true,
+  "checkpoint_identity": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+  "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+  "load": {
+    "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "load_seconds": 5.247995358891785,
+    "missing_keys": 0,
+    "unexpected_keys": 0
+  },
+  "method": "rcm4",
+  "network_calls_equal": true,
+  "reload_policy": {
+    "cache_negative": false,
+    "negative_cache_hits": 0,
+    "negative_model_calls": 0,
+    "positive_cache_hits": 0,
+    "positive_model_calls": 1,
+    "resident": false
+  },
+  "reload_row": {
+    "cpu_transfer_seconds": 0.05000987462699413,
+    "denoiser_seconds": 0.6114157591946423,
+    "denoiser_seconds_per_forward": 0.15285393979866058,
+    "network_forward_calls": 4,
+    "peak_allocated_mib": 26626.5419921875,
+    "peak_reserved_mib": 27124.0,
+    "request_seconds": 18.720077069941908,
+    "sampling_steps": 4,
+    "serialization_seconds": 0.0,
+    "text_seconds": 16.921910987235606,
+    "vae_seconds": 1.1365627641789615
+  },
+  "resident_policy": {
+    "cache_negative": false,
+    "negative_cache_hits": 0,
+    "negative_model_calls": 0,
+    "positive_cache_hits": 0,
+    "positive_model_calls": 1,
+    "resident": true
+  },
+  "resident_row": {
+    "cpu_transfer_seconds": 0.05032928800210357,
+    "denoiser_seconds": 0.48317652102559805,
+    "denoiser_seconds_per_forward": 0.12079413025639951,
+    "network_forward_calls": 4,
+    "peak_allocated_mib": 25038.078125,
+    "peak_reserved_mib": 38810.0,
+    "request_seconds": 2.2114864671602845,
+    "sampling_steps": 4,
+    "serialization_seconds": 0.6981219467706978,
+    "text_seconds": 0.033020432107150555,
+    "vae_seconds": 0.9467195770703256
+  },
+  "video_equal": true
+}
