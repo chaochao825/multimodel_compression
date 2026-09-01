@@ -1,7 +1,7 @@
 # rCM on-policy 低精度 Dense Attention 判决
 
-日期：2026-09-01  
-实验：`EXP-054`  
+日期：2026-09-01
+实验：`EXP-054`
 判决：`coverage-null`
 
 ## 核心结论
