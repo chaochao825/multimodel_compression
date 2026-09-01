@@ -1,0 +1,18 @@
+{
+  "baseline_request_seconds": 9.637995031895116,
+  "baseline_components_seconds": {
+    "request": 9.637995031895116,
+    "text": 0.06442023487761617,
+    "denoiser": 3.20536530460231,
+    "vae": 4.308299851138145,
+    "transfer": 0.2537410487420857,
+    "serialization": 1.7960819059517235
+  },
+  "historical_self_attention_share_of_denoiser": 0.5388086760322437,
+  "eligible_self_attention_seconds": 1.7270786359724601,
+  "measured_sage_local_speedup": 1.586376845918112,
+  "measured_sage_full_coverage_request_speedup_ceiling": 1.0709347207832607,
+  "selected_successor": "exact_full_f81_vae_cuda_graph_replay",
+  "selection_reason": "VAE is the largest remaining exact component; CUDA Graph replay preserves the registered temporal schedule and cache contents while testing launch-bound redundancy.",
+  "decision_boundary": "This is an Amdahl and source-readiness selection, not a measured VAE speed or exactness result."
+}

@@ -1,6 +1,6 @@
 # PLAN-066: Select the next exact resident-rCM system successor
 
-- Status: active
+- Status: completed
 - Owner: researcher and Agent
 - Mainline: L-030
 - Side probes: none
@@ -42,3 +42,14 @@ low-precision attention candidates both closed as valid nulls.
 Stop after one decision surface and proposed successor. Do not open an
 experiment, modify model numerics, relax EXP-053/054 thresholds, or start a GPU
 job without a separately accepted RDR.
+
+## Outcome
+
+The component/source audit selected exact full-F81 VAE CUDA Graph replay as the
+single successor. VAE is 44.7% of the resident request and needs only `1.119x`
+local speed for a `1.05x` request; measured Sage at optimistic full coverage
+would yield only `1.070935x`, while train-free safe coverage was `0/120`.
+Transfer/serialization remains second because its exact single-request contract
+and overlap semantics are unresolved. The decision surface and bound data are
+in `WAN_RCM_SUCCESSOR_SELECTION_PLAN066_20260901.zh-CN.md`; RDR-038 is proposed
+and no GPU/model run was opened.

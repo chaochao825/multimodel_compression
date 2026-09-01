@@ -75,6 +75,15 @@ evaluation risk topology was stable (`r=0.9819`), so the result is an absolute
 fidelity/coverage null rather than evidence of random transfer collapse. The
 Gate stopped before candidate rollout; L-030 remains the incumbent.
 
+PLAN-066 subsequently compared the remaining exact-system and trainable
+successors on the same `9.637995s` baseline. VAE remains the largest component
+at 44.7% and needs only `1.119x` local speed to produce a `1.05x` request,
+whereas the measured Sage speed under optimistic full attention coverage would
+produce only `1.070935x`. RDR-038 therefore proposes an exact full-F81 VAE CUDA
+Graph replay Gate that preserves the official 21-frame schedule and cache
+semantics. The decision is pending; no candidate, experiment, or GPU run has
+been opened.
+
 ## Success envelope
 
 - Development feasibility: any successor must first establish a capacity
