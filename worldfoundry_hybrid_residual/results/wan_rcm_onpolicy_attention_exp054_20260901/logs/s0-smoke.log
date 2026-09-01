@@ -1,0 +1,46 @@
+Megatron-core is not installed.
+[09-01 20:17:15|INFO|../../opt/data/wangmeiqi/rcm_exp047_20260826/rcm/rcm/networks/wan2pt1.py:918:enable_selective_checkpoint] Enable selective checkpoint with mm_only, for every 1 blocks. Total blocks: 30
+[09-01 20:17:21|INFO|../../opt/data/wangmeiqi/rcm_exp047_20260826/rcm/rcm/tokenizers/wan2pt1.py:592:_video_vae] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
+[09-01 20:17:21|INFO|../../opt/data/wangmeiqi/rcm_exp047_20260826/rcm/rcm/utils/umt5.py:495:__init__] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth
+{
+  "advance": true,
+  "benchmark": {
+    "attention_speedup": 1.586376845918112,
+    "dtype": "torch.bfloat16",
+    "fa3_median_ms": 14.590047836303711,
+    "fa3_ms": [
+      14.333919525146484,
+      14.608160018920898,
+      14.587679862976074,
+      14.590047836303711,
+      14.694175720214844
+    ],
+    "sage_median_ms": 9.197088241577148,
+    "sage_ms": [
+      9.209664344787598,
+      9.197088241577148,
+      9.178239822387695,
+      9.186752319335938,
+      9.27888011932373
+    ],
+    "shape": [
+      1,
+      32760,
+      12,
+      128
+    ]
+  },
+  "benchmark_calls": 4,
+  "first_cell_error": {
+    "aggregate": 0.021560952067375183,
+    "identity": "s0_f81_backend",
+    "layer": 0,
+    "split": "engineering",
+    "step": 0,
+    "worst_head": 0.03147302567958832,
+    "worst_query_tile": 0.02531907521188259
+  },
+  "patch_latent_equal": true,
+  "patched_calls": 4,
+  "unpatched_calls": 4
+}

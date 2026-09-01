@@ -1,0 +1,5 @@
+attempt=00
+stage=preflight
+status=engineering-failure
+error=flash_attn_interface imported before torch; libc10.so was not loaded
+repair=import torch before flash_attn_interface, matching official runtime order

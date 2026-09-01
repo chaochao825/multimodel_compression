@@ -1,0 +1,13 @@
+{
+  "advance": false,
+  "attention_speedup": 1.586376845918112,
+  "coverage": 0.0,
+  "false_safe": [],
+  "false_safe_count": 0,
+  "passes_materiality": false,
+  "passes_transfer_and_count": false,
+  "projected_request_seconds": 9.637995031895116,
+  "projected_request_speedup": 1.0,
+  "selected_cell_count": 0,
+  "selected_cells": []
+}

@@ -1,0 +1,60 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-054",
+  "gate_id": "G-033",
+  "result": {
+    "advance": true,
+    "benchmark": {
+      "attention_speedup": 1.586376845918112,
+      "dtype": "torch.bfloat16",
+      "fa3_median_ms": 14.590047836303711,
+      "fa3_ms": [
+        14.333919525146484,
+        14.608160018920898,
+        14.587679862976074,
+        14.590047836303711,
+        14.694175720214844
+      ],
+      "sage_median_ms": 9.197088241577148,
+      "sage_ms": [
+        9.209664344787598,
+        9.197088241577148,
+        9.178239822387695,
+        9.186752319335938,
+        9.27888011932373
+      ],
+      "shape": [
+        1,
+        32760,
+        12,
+        128
+      ]
+    },
+    "benchmark_calls": 4,
+    "first_cell_error": {
+      "aggregate": 0.021560952067375183,
+      "identity": "s0_f81_backend",
+      "layer": 0,
+      "split": "engineering",
+      "step": 0,
+      "worst_head": 0.03147302567958832,
+      "worst_query_tile": 0.02531907521188259
+    },
+    "patch_latent_equal": true,
+    "patched_calls": 4,
+    "unpatched_calls": 4
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "s0-smoke"
+}

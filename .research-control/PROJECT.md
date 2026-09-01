@@ -67,6 +67,14 @@ prompts, reached only `1.1968x` complete-VAE speedup, and projected to
 timing. This preserves L-030 and shows that short-horizon output equality does
 not certify long-horizon decoder-cache closure.
 
+EXP-054 then tested the next permitted same-step operator on the released rCM
+trajectory. Installed Sage SM90 dense attention reached `1.5864x` over FA3
+BF16 on the real F81 shape, but the calibration-frozen whole-cell atlas selected
+`0/120` cells under the registered local error margins. Calibration and
+evaluation risk topology was stable (`r=0.9819`), so the result is an absolute
+fidelity/coverage null rather than evidence of random transfer collapse. The
+Gate stopped before candidate rollout; L-030 remains the incumbent.
+
 ## Success envelope
 
 - Development feasibility: any successor must first establish a capacity
@@ -110,6 +118,9 @@ not certify long-horizon decoder-cache closure.
 - L-025 is parked after its capacity null. L-026 remains the immutable quality
   incumbent after EXP-047; L-030 is the integrated exact-runtime incumbent
   after the valid EXP-052 pass.
+- L-031 and L-032 are parked after valid exact-VAE and static low-precision
+  attention nulls. Sage's local operator speed remains evidence, but neither
+  candidate changed the L-030 endpoint.
 - Exact dual-H200 CFG branch parallelism remains a valid independent system
   optimization; it is not part of C-022's algorithmic claim.
 

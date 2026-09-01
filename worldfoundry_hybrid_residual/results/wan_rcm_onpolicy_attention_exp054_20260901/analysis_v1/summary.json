@@ -1,0 +1,153 @@
+{
+  "best_calibration_cells": [
+    {
+      "aggregate_max": 0.008867667056620121,
+      "layer": 10,
+      "step": 0,
+      "threshold_ratio": 1.1084583820775151,
+      "worst_head_max": 0.011770371347665787,
+      "worst_query_tile_max": 0.009812857024371624
+    },
+    {
+      "aggregate_max": 0.009448437951505184,
+      "layer": 10,
+      "step": 2,
+      "threshold_ratio": 1.181054743938148,
+      "worst_head_max": 0.011866120621562004,
+      "worst_query_tile_max": 0.01149988453835249
+    },
+    {
+      "aggregate_max": 0.009584160521626472,
+      "layer": 10,
+      "step": 1,
+      "threshold_ratio": 1.198020065203309,
+      "worst_head_max": 0.011991050094366074,
+      "worst_query_tile_max": 0.011159530840814114
+    },
+    {
+      "aggregate_max": 0.009644582867622375,
+      "layer": 16,
+      "step": 0,
+      "threshold_ratio": 1.205572858452797,
+      "worst_head_max": 0.014158357866108418,
+      "worst_query_tile_max": 0.011034350842237473
+    },
+    {
+      "aggregate_max": 0.009797181934118271,
+      "layer": 10,
+      "step": 3,
+      "threshold_ratio": 1.2246477417647839,
+      "worst_head_max": 0.012110154144465923,
+      "worst_query_tile_max": 0.011430563405156136
+    },
+    {
+      "aggregate_max": 0.009837696328759193,
+      "layer": 13,
+      "step": 0,
+      "threshold_ratio": 1.2297120410948992,
+      "worst_head_max": 0.013403844088315964,
+      "worst_query_tile_max": 0.010946474969387054
+    },
+    {
+      "aggregate_max": 0.009897316806018353,
+      "layer": 13,
+      "step": 2,
+      "threshold_ratio": 1.237164600752294,
+      "worst_head_max": 0.014171157032251358,
+      "worst_query_tile_max": 0.01221678126603365
+    },
+    {
+      "aggregate_max": 0.010187451727688313,
+      "layer": 13,
+      "step": 3,
+      "threshold_ratio": 1.273431465961039,
+      "worst_head_max": 0.014458316378295422,
+      "worst_query_tile_max": 0.01250929944217205
+    },
+    {
+      "aggregate_max": 0.010187678039073944,
+      "layer": 13,
+      "step": 1,
+      "threshold_ratio": 1.273459754884243,
+      "worst_head_max": 0.014316215179860592,
+      "worst_query_tile_max": 0.012271750718355179
+    },
+    {
+      "aggregate_max": 0.01031163614243269,
+      "layer": 15,
+      "step": 0,
+      "threshold_ratio": 1.2889545178040862,
+      "worst_head_max": 0.015774376690387726,
+      "worst_query_tile_max": 0.011465607210993767
+    }
+  ],
+  "cell_count": 120,
+  "cell_score_pearson": 0.9818869639111302,
+  "record_count": 960,
+  "splits": {
+    "calibration": {
+      "metric_passing_cell_count": {
+        "aggregate": 0,
+        "worst_head": 13,
+        "worst_query_tile": 32
+      },
+      "metrics": {
+        "aggregate": {
+          "max": 0.1056985929608345,
+          "mean": 0.017610352865691917,
+          "median": 0.01632462814450264,
+          "min": 0.007117415312677622,
+          "p95": 0.03391500916332006
+        },
+        "worst_head": {
+          "max": 0.224234476685524,
+          "mean": 0.026432450061353543,
+          "median": 0.025268279016017914,
+          "min": 0.009495485574007034,
+          "p95": 0.04864099919795962
+        },
+        "worst_query_tile": {
+          "max": 0.2128736972808838,
+          "mean": 0.02515298420524535,
+          "median": 0.019040752202272415,
+          "min": 0.008090199902653694,
+          "p95": 0.0944644071161746
+        }
+      },
+      "passing_cell_count": 0,
+      "passing_cell_fraction": 0.0
+    },
+    "evaluation": {
+      "metric_passing_cell_count": {
+        "aggregate": 11,
+        "worst_head": 25,
+        "worst_query_tile": 60
+      },
+      "metrics": {
+        "aggregate": {
+          "max": 0.12279725819826126,
+          "mean": 0.017897148066549563,
+          "median": 0.016034352593123913,
+          "min": 0.007439312990754843,
+          "p95": 0.032508615590631874
+        },
+        "worst_head": {
+          "max": 0.2736893892288208,
+          "mean": 0.02761236114311032,
+          "median": 0.025049500167369843,
+          "min": 0.009623663499951363,
+          "p95": 0.04705301690846677
+        },
+        "worst_query_tile": {
+          "max": 0.21326443552970886,
+          "mean": 0.02559713206331556,
+          "median": 0.018756292760372162,
+          "min": 0.008496338501572609,
+          "p95": 0.09558306299149988
+        }
+      },
+      "passing_cell_count": 10,
+      "passing_cell_fraction": 0.08333333333333333
+    }
+  }
+}

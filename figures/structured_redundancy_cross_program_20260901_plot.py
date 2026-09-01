@@ -15,6 +15,19 @@ RESULT_ROOT = (
     / "results"
     / "wan_rcm_baseline_exp047_20260901"
 )
+RUNTIME_ROOT = (
+    ROOT
+    / "worldfoundry_hybrid_residual"
+    / "results"
+    / "wan_rcm_exact_runtime_exp052_20260901"
+)
+ATTENTION_ROOT = (
+    ROOT
+    / "worldfoundry_hybrid_residual"
+    / "results"
+    / "wan_rcm_onpolicy_attention_exp054_20260901"
+    / "analysis_v1"
+)
 FIGURE_ROOT = Path(__file__).resolve().parent
 
 
@@ -47,24 +60,21 @@ def quality_rows() -> list[dict]:
 
 
 def timing_rows() -> list[dict]:
+    payload = load_json(
+        RUNTIME_ROOT / "outputs_exp052" / "evaluation_v1" / "gate_summary.json"
+    )
+    method_rows = {row["method"]: row for row in payload["method_rows"]}
     rows = []
     for method in ("teacher20", "native4", "rcm4"):
-        payload = load_json(
-            RESULT_ROOT
-            / "timing"
-            / "outputs"
-            / "timing_f81"
-            / method
-            / "generation_manifest.json"
-        )
-        summary = payload["summary"]
+        summary = method_rows[method]
         known = {
             "text": summary["median_text_seconds"],
             "denoiser": summary["median_denoiser_seconds"],
             "vae": summary["median_vae_seconds"],
+            "transfer": summary["median_cpu_transfer_seconds"],
             "serialization": summary["median_serialization_seconds"],
         }
-        known["other"] = summary["median_warm_e2e_seconds"] - sum(known.values())
+        known["other"] = summary["median_request_seconds"] - sum(known.values())
         for component, seconds in known.items():
             rows.append(
                 {"method": method, "component": component, "seconds": seconds}
@@ -95,10 +105,30 @@ def understanding_rows() -> list[dict]:
     return rows
 
 
+def attention_rows() -> list[dict]:
+    rows = []
+    with (ATTENTION_ROOT / "cell_summary.csv").open(
+        encoding="utf-8", newline=""
+    ) as handle:
+        for raw in csv.DictReader(handle):
+            for split in ("calibration", "evaluation"):
+                rows.append(
+                    {
+                        "step": int(raw["step"]),
+                        "layer": int(raw["layer"]),
+                        "split": split,
+                        "threshold_ratio": float(raw[f"{split}_threshold_ratio"]),
+                        "passes": raw[f"{split}_passes"] == "True",
+                    }
+                )
+    return rows
+
+
 def main() -> None:
     quality = quality_rows()
     timing = timing_rows()
     understanding = understanding_rows()
+    attention = attention_rows()
     write_csv(
         FIGURE_ROOT / "structured_redundancy_wan_quality_20260901.csv",
         ["dimension", "method", "teacher_normalized"],
@@ -114,6 +144,11 @@ def main() -> None:
         ["method", "metric", "error_percent", "gate_percent", "error_to_gate"],
         understanding,
     )
+    write_csv(
+        FIGURE_ROOT / "structured_redundancy_wan_attention_exp054_20260901.csv",
+        ["step", "layer", "split", "threshold_ratio", "passes"],
+        attention,
+    )
 
     plt.rcParams.update(
         {
@@ -123,7 +158,8 @@ def main() -> None:
             "axes.spines.right": False,
         }
     )
-    fig, axes = plt.subplots(1, 3, figsize=(15.2, 4.6), constrained_layout=True)
+    fig, axes_grid = plt.subplots(2, 2, figsize=(11.8, 8.2), constrained_layout=True)
+    axes = axes_grid.ravel()
 
     dimensions = list(dict.fromkeys(row["dimension"] for row in quality))
     labels = [
@@ -163,11 +199,12 @@ def main() -> None:
 
     methods = ("teacher20", "native4", "rcm4")
     method_labels = ("Teacher 20", "Native 4", "rCM 4")
-    components = ("text", "denoiser", "vae", "serialization", "other")
+    components = ("text", "denoiser", "vae", "transfer", "serialization", "other")
     component_colors = {
         "text": "#56B4E9",
         "denoiser": "#0072B2",
         "vae": "#E69F00",
+        "transfer": "#009E73",
         "serialization": "#CC79A7",
         "other": "#999999",
     }
@@ -229,6 +266,31 @@ def main() -> None:
     axes[2].set_ylabel("Visual error / registered gate")
     axes[2].legend(frameon=False, fontsize=8, ncol=2)
     axes[2].text(-0.12, 1.04, "c", transform=axes[2].transAxes, fontweight="bold", fontsize=12)
+
+    layer_ids = np.arange(30)
+    attention_style = {
+        "calibration": ("Calibration", "#0072B2"),
+        "evaluation": ("Evaluation", "#D55E00"),
+    }
+    for split, (label, color) in attention_style.items():
+        layer_values = [
+            [
+                row["threshold_ratio"]
+                for row in attention
+                if row["split"] == split and row["layer"] == layer
+            ]
+            for layer in layer_ids
+        ]
+        minimum = np.asarray([min(values) for values in layer_values])
+        maximum = np.asarray([max(values) for values in layer_values])
+        axes[3].plot(layer_ids, minimum, color=color, label=f"{label} best step")
+        axes[3].fill_between(layer_ids, minimum, maximum, color=color, alpha=0.12)
+    axes[3].axhline(1.0, color="#009E73", linewidth=1.0, linestyle="--", label="Pass boundary")
+    axes[3].set_yscale("log")
+    axes[3].set_xlabel("Wan layer")
+    axes[3].set_ylabel("Cell error / registered threshold")
+    axes[3].legend(frameon=False, fontsize=8)
+    axes[3].text(-0.12, 1.04, "d", transform=axes[3].transAxes, fontweight="bold", fontsize=12)
 
     for suffix in ("png", "pdf"):
         fig.savefig(

@@ -1,6 +1,6 @@
 # 从结构化冗余到条件化计算：视频理解与 Wan 的联合判决
 
-日期：2026-09-01（补入 `EXP-052` exact resident H200 结果）
+日期：2026-09-01（补入 `EXP-054` rCM on-policy Attention 结果）
 
 ## 总结
 
@@ -22,6 +22,7 @@
 | 视频理解 | exact local/event support + mergeable far-field state | 表示容量 `BOUNDARY`，post-hoc joint state `NO-GO` | `7.86x` reader-state 缩减可基本保持任务准确率；reader-aware support 与 exact correction 有真实容量 |
 | Wan post-hoc state | 用低秩/结构化状态跨去噪步跳过模块 | 未达到 | 定位到 current-state observability，而非 rank 容量不足 |
 | Wan rCM + exact runtime | 训练原生 4-step flow map并兑现端到端速度 | **达到注册范围内的质量和速度预期** | 8 维质量 `0.9969`、多样性通过、denoiser `10.08x`、warm E2E `4.031x` |
+| Wan rCM + static low precision | 复用 rCM on-policy 低精度安全区 | `COVERAGE-NULL` | Sage 局部 `1.586x`；风险拓扑稳定，但安全覆盖 `0/120` |
 
 ## 起初理论哪些成立
 
@@ -163,6 +164,17 @@ FP8 的功劳。证据范围仍是四 prompt × 两 seed 的质量与四 prompt 
 历史 `1.51x` 局部 attention 加速即使覆盖全部 self-attention，乐观也只节省约
 `0.58s`，对应 rCM endpoint 约 `1.06x` 增量；它不再是决定性杠杆。
 
+EXP-054 在发布版 rCM 的真实四步轨迹上直接检验了这一剩余增量。安装的 Sage SM90
+dense attention 在 F81 shape 上达到 `1.586377x`，但冻结 calibration atlas 的安全
+覆盖是 `0/120`，而不是所需的 `87/120`。最好的 `step 0 × layer 10` 仍有
+`0.887%` aggregate error，超过 `0.8%` calibration 门槛。calibration/evaluation
+cell 风险相关系数为 `0.981887`，说明失败不是哪些层容易量化随 prompt 随机旋转，
+而是整 cell 输出误差没有足够安全余量。
+
+这个结果使 rCM 的性质更清楚：训练可以压缩有限时间端点映射，却不会自动让内部
+attention 变得低秩、低状态率或低精度安全。于是 NFE 压缩、内部表示压缩和数值算子
+压缩必须作为三个独立命题验证，不能从 rCM 的端点成功相互推导。
+
 ## 联合新认识
 
 1. **统计冗余不等于低秩，不等于廉价算子，也不等于端到端加速。** 每一步都需要
@@ -179,6 +191,9 @@ FP8 的功劳。证据范围仍是四 prompt × 两 seed 的质量与四 prompt 
    而是错误的服务生命周期测量。
 6. **优化会移动瓶颈。** 当 NFE 从 20 降到 4 且 CFG 调用减少后，系统研究必须从
    denoiser 内部转向 VAE、序列化和整条生成链。
+7. **风险拓扑稳定仍不等于存在可用安全区。** EXP-054 的 layer ranking 高度稳定，
+   但绝对误差使 calibration coverage 为零；这排除了靠更多 calibration prompt
+   自动解决问题的解释。
 
 ## 最终判决
 
@@ -189,7 +204,9 @@ FP8 的功劳。证据范围仍是四 prompt × 两 seed 的质量与四 prompt 
 Wan 的 post-hoc 结构化状态没有达到预期，但 rCM 已经同时达到质量、denoiser 和
 resident warm-E2E 预期，形成明确的 finite-time flow-map 正结果。当前问题已从
 “能否明显加速”转为“在 `9.638s` 基线上，VAE、serialization 与 same-step fused
-kernel 各还能兑现多少增量”，而不是再证明一个固定矩阵结构。
+kernel 各还能兑现多少增量”。EXP-054 进一步关闭了无需训练的静态整 cell Sage
+atlas，因此任何低精度重开都必须改变 checkpoint/backend 或显式训练量化策略，
+而不是继续放宽 post-hoc 阈值。
 
 因此最初方向并非完全失败，而是被重新定位为：
 

@@ -1,0 +1,16 @@
+Megatron-core is not installed.
+[09-01 20:18:55|INFO|../../opt/data/wangmeiqi/rcm_exp047_20260826/rcm/rcm/networks/wan2pt1.py:918:enable_selective_checkpoint] Enable selective checkpoint with mm_only, for every 1 blocks. Total blocks: 30
+[09-01 20:19:01|INFO|../../opt/data/wangmeiqi/rcm_exp047_20260826/rcm/rcm/tokenizers/wan2pt1.py:592:_video_vae] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
+[09-01 20:19:01|INFO|../../opt/data/wangmeiqi/rcm_exp047_20260826/rcm/rcm/utils/umt5.py:495:__init__] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth
+Traceback (most recent call last):
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/run_wan_rcm_attention_atlas.py", line 602, in <module>
+    main()
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/run_wan_rcm_attention_atlas.py", line 572, in main
+    result = run_s1(
+             ^^^^^^^
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/run_wan_rcm_attention_atlas.py", line 508, in run_s1
+    projected_seconds, projected_speedup = atlas_core.projected_request(
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/data/wangmeiqi/rcm_exp047_20260826/project/worldfoundry_hybrid_residual/scripts/rcm_attention_atlas_core.py", line 223, in projected_request
+    raise ValueError("projection inputs must be positive")
+ValueError: projection inputs must be positive

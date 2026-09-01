@@ -1,0 +1,100 @@
+{
+  "experiment_id": "EXP-054",
+  "gate_id": "G-033",
+  "base_config": "worldfoundry_hybrid_residual/configs/wan_rcm_baseline_exp047_v1.json",
+  "exact_runtime_config": "worldfoundry_hybrid_residual/configs/wan_rcm_exact_runtime_exp052_v1.json",
+  "remote_output_root": "/opt/data/wangmeiqi/rcm_exp047_20260826/outputs_exp054",
+  "operator": {
+    "name": "sage_sm90_smooth",
+    "tensor_layout": "NHD",
+    "smooth_k": true,
+    "pv_accum_dtype": "fp32+fp32",
+    "query_tile_size": 64
+  },
+  "thresholds": {
+    "calibration": {
+      "aggregate": 0.008,
+      "worst_head": 0.016,
+      "worst_query_tile": 0.016
+    },
+    "evaluation": {
+      "aggregate": 0.01,
+      "worst_head": 0.02,
+      "worst_query_tile": 0.02
+    }
+  },
+  "materiality": {
+    "minimum_selected_cells": 87,
+    "minimum_attention_speedup": 1.4,
+    "minimum_projected_request_speedup": 1.05,
+    "baseline_request_seconds": 9.637995031895116,
+    "baseline_denoiser_seconds": 3.20536530460231,
+    "historical_self_attention_share": 0.5388086760322437
+  },
+  "s0": {
+    "prompt": "A ceramic toy robot walks three steps across a wooden table while the camera remains fixed.",
+    "seed": 2026090100,
+    "attention_warmups": 2,
+    "attention_repeats": 5
+  },
+  "atlas_identities": [
+    {
+      "identity": "cal_glassblower_s2026090101",
+      "split": "calibration",
+      "seed": 2026090101,
+      "prompt": "A glassblower slowly rotates a glowing orange vessel, reshapes its rim with metal tools, and places it into a furnace while the camera stays beside the workbench."
+    },
+    {
+      "identity": "cal_horsewater_s2026090102",
+      "split": "calibration",
+      "seed": 2026090102,
+      "prompt": "A chestnut horse gallops through shallow river water, sending sheets of spray outward as the camera follows from a low side angle."
+    },
+    {
+      "identity": "cal_citytraffic_s2026090103",
+      "split": "calibration",
+      "seed": 2026090103,
+      "prompt": "An aerial camera glides above a busy city intersection at dusk while cars turn through changing lights and pedestrians cross in several directions."
+    },
+    {
+      "identity": "cal_origami_s2026090104",
+      "split": "calibration",
+      "seed": 2026090104,
+      "prompt": "Close-up hands unfold a blue paper crane and refold it into a small boat on a white desk under steady studio lighting."
+    },
+    {
+      "identity": "eval_hummingbird_s2026090201",
+      "split": "evaluation",
+      "seed": 2026090201,
+      "prompt": "A hummingbird hovers beside red trumpet flowers, darts backward, and returns to drink while its wings blur against a green garden."
+    },
+    {
+      "identity": "eval_potter_s2026090202",
+      "split": "evaluation",
+      "seed": 2026090202,
+      "prompt": "A potter centers wet clay on a spinning wheel, raises a tall cylinder, and pinches a narrow neck as water runs over both hands."
+    },
+    {
+      "identity": "eval_skier_s2026090203",
+      "split": "evaluation",
+      "seed": 2026090203,
+      "prompt": "A skier carves through a sequence of blue slalom gates on a steep sunlit slope while powder trails behind each turn."
+    },
+    {
+      "identity": "eval_trainrain_s2026090204",
+      "split": "evaluation",
+      "seed": 2026090204,
+      "prompt": "Raindrops stream across a train window as fields, utility poles, and distant houses slide past at changing depths under a gray sky."
+    }
+  ],
+  "final_prompts": [
+    "A dancer spins with two long silk ribbons in a sunlit hall, crossing and uncrossing the ribbons while the camera circles slowly.",
+    "Tiny clockwork parts move along a workshop conveyor and assemble into a walking brass beetle without any camera cut.",
+    "A sea turtle swims above a colorful coral reef, turns around a rock arch, and passes through shafts of moving sunlight.",
+    "A barista pours steamed milk into espresso, forming a layered rosette that expands smoothly across the cup."
+  ],
+  "final_seeds": [2026090301, 2026090302],
+  "max_gpu_hours": 4,
+  "max_artifact_gib": 10,
+  "max_repairs": 2
+}

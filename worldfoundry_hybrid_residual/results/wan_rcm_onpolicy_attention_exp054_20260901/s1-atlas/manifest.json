@@ -1,0 +1,39 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-054",
+  "gate_id": "G-033",
+  "recovered_from_complete_scalar_records": true,
+  "repair_index": 2,
+  "result": {
+    "advance": false,
+    "atlas": {
+      "advance": false,
+      "attention_speedup": 1.586376845918112,
+      "coverage": 0.0,
+      "false_safe": [],
+      "false_safe_count": 0,
+      "passes_materiality": false,
+      "passes_transfer_and_count": false,
+      "projected_request_seconds": 9.637995031895116,
+      "projected_request_speedup": 1.0,
+      "selected_cell_count": 0,
+      "selected_cells": []
+    },
+    "calibration_identity_count": 4,
+    "evaluation_identity_count": 4,
+    "record_count": 960
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "s1-atlas"
+}
