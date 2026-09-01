@@ -1,8 +1,9 @@
 # RDR-038: Propose exact full-F81 Wan VAE CUDA Graph replay
 
-- Status: proposed
-- Date: 2026-09-01
-- Decider: researcher acceptance pending
+- Status: accepted
+- Date: 2026-09-02
+- Decider: researcher explicitly authorized validation and large-scale
+  validation on the two idle H200 GPUs in the 2026-09-02 thread message
 - Supersedes: none
 
 ## Context
@@ -46,10 +47,9 @@ ceiling and currently has zero certified coverage.
    and implementation cost with a smaller current Amdahl return.
 4. Stop at L-030.
 
-## Proposed decision
+## Decision
 
-Accept option 1 as proposed `C-033 / L-033 / EXP-055 / G-034`. No execution is
-authorized until this RDR is explicitly accepted.
+Accept option 1 as `C-033 / L-033 / EXP-055 / G-034`.
 
 The experiment may add a separate harness around the frozen official rCM source
 but may not edit the source or checkpoint. Its action is exactly one

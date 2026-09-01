@@ -1,0 +1,177 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-055",
+  "gate_id": "G-034",
+  "result": {
+    "advance": true,
+    "bitwise_exact": true,
+    "capture_peak_reserved_mib": 32270.0,
+    "checkpoint_identity": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+    "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "eager_after_rows": [
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 0
+      },
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 1
+      },
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 2
+      }
+    ],
+    "latents": [
+      {
+        "network_forward_calls": 4
+      },
+      {
+        "network_forward_calls": 4
+      },
+      {
+        "network_forward_calls": 4
+      }
+    ],
+    "load": {
+      "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+      "load_seconds": 7.227583045139909,
+      "missing_keys": 0,
+      "unexpected_keys": 0
+    },
+    "outcome": "advance",
+    "replay_rows": [
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 0,
+        "peak_reserved_mib": 16964.0,
+        "position": 0,
+        "repeat_equal": true,
+        "seconds": 0.7952647705078125,
+        "seed": 2026082700
+      },
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 1,
+        "peak_reserved_mib": 17120.0,
+        "position": 1,
+        "repeat_equal": true,
+        "seconds": 0.8071047973632812,
+        "seed": 2026082703
+      },
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 2,
+        "peak_reserved_mib": 17120.0,
+        "position": 2,
+        "repeat_equal": true,
+        "seconds": 0.806561767578125,
+        "seed": 2026082704
+      },
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 1,
+        "peak_reserved_mib": 17120.0,
+        "position": 3,
+        "repeat_equal": true,
+        "seconds": 0.8075416870117188,
+        "seed": 2026082703
+      },
+      {
+        "comparison": {
+          "bitwise_equal": true,
+          "cpu_decoded_equal": true,
+          "cpu_raw_equal": true,
+          "device_equal": true,
+          "dtype_equal": true,
+          "finite": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0
+        },
+        "latent_index": 0,
+        "peak_reserved_mib": 17120.0,
+        "position": 4,
+        "repeat_equal": true,
+        "seconds": 0.8083917846679688,
+        "seed": 2026082700
+      }
+    ],
+    "stale_state_free": true
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "f17-screen"
+}

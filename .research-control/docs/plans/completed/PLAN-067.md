@@ -1,6 +1,6 @@
 # PLAN-067: Await the exact VAE CUDA Graph decision
 
-- Status: active
+- Status: completed
 - Owner: researcher and Agent
 - Mainline: L-030
 - Side probes: none
@@ -39,3 +39,10 @@ Stop at the protected researcher decision. If accepted, replace this waiting
 plan with one bounded execution plan tied to RDR-038; if rejected, return to a
 new candidate-selection decision without silently opening serialization or
 trainable quantization.
+
+## Outcome
+
+The researcher authorized validation and large-scale validation on the two
+idle H200 GPUs on 2026-09-02. RDR-038 was accepted without changing its action
+family, thresholds, one-H200 resource cap, or two-repair limit. PLAN-068 now
+owns the bounded EXP-055 execution.

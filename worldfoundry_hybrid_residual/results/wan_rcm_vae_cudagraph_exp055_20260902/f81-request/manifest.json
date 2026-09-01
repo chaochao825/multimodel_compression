@@ -1,0 +1,183 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "2",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-055",
+  "gate_id": "G-034",
+  "result": {
+    "advance": false,
+    "capture_latent": {
+      "network_forward_calls": 4
+    },
+    "capture_peak_reserved_mib": 42786.0,
+    "checkpoint_identity": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+    "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "load": {
+      "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+      "load_seconds": 8.723874310962856,
+      "missing_keys": 0,
+      "unexpected_keys": 0
+    },
+    "outcome": "speed-boundary",
+    "rows": [
+      {
+        "cpu_video_equal": true,
+        "eager": {
+          "cpu_transfer_seconds": 0.1958955661393702,
+          "denoiser_seconds": 3.192649973090738,
+          "denoiser_seconds_per_forward": 0.7981624932726845,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 25624.17578125,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 9.57700587483123,
+          "sampling_steps": 4,
+          "serialization_seconds": 1.924581962171942,
+          "text_seconds": 0.059469175059348345,
+          "vae_seconds": 4.204300083685666
+        },
+        "graph": {
+          "cpu_transfer_seconds": 0.23929929872974753,
+          "denoiser_seconds": 3.199220370966941,
+          "denoiser_seconds_per_forward": 0.7998050927417353,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 15799.1630859375,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 9.017864126246423,
+          "sampling_steps": 4,
+          "serialization_seconds": 1.756267781369388,
+          "text_seconds": 0.06954408902674913,
+          "vae_seconds": 3.753305105958134
+        },
+        "network_calls_equal": true,
+        "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+        "prompt_index": 0,
+        "seed": 2026082701
+      },
+      {
+        "cpu_video_equal": true,
+        "eager": {
+          "cpu_transfer_seconds": 0.3425423321314156,
+          "denoiser_seconds": 3.2259882083162665,
+          "denoiser_seconds_per_forward": 0.8064970520790666,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 25624.17578125,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 10.009926716331393,
+          "sampling_steps": 4,
+          "serialization_seconds": 1.8826228901743889,
+          "text_seconds": 0.12105166213586926,
+          "vae_seconds": 4.437428378965706
+        },
+        "graph": {
+          "cpu_transfer_seconds": 0.35450864396989346,
+          "denoiser_seconds": 3.2456116629764438,
+          "denoiser_seconds_per_forward": 0.8114029157441109,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 15799.1630859375,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 9.26444813190028,
+          "sampling_steps": 4,
+          "serialization_seconds": 1.8398091881535947,
+          "text_seconds": 0.09758114302530885,
+          "vae_seconds": 3.7262082588858902
+        },
+        "network_calls_equal": true,
+        "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+        "prompt_index": 1,
+        "seed": 2026082701
+      },
+      {
+        "cpu_video_equal": true,
+        "eager": {
+          "cpu_transfer_seconds": 0.3626523301936686,
+          "denoiser_seconds": 3.2444618702866137,
+          "denoiser_seconds_per_forward": 0.8111154675716534,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 25624.17578125,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 10.341052043717355,
+          "sampling_steps": 4,
+          "serialization_seconds": 2.09419631306082,
+          "text_seconds": 0.07639095606282353,
+          "vae_seconds": 4.563106807414442
+        },
+        "graph": {
+          "cpu_transfer_seconds": 0.35340010188519955,
+          "denoiser_seconds": 3.2543228403665125,
+          "denoiser_seconds_per_forward": 0.8135807100916281,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 15799.1630859375,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 9.465896632988006,
+          "sampling_steps": 4,
+          "serialization_seconds": 2.0497888228856027,
+          "text_seconds": 0.08040732983499765,
+          "vae_seconds": 3.7275953353382647
+        },
+        "network_calls_equal": true,
+        "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+        "prompt_index": 2,
+        "seed": 2026082701
+      },
+      {
+        "cpu_video_equal": true,
+        "eager": {
+          "cpu_transfer_seconds": 0.36310197226703167,
+          "denoiser_seconds": 3.2636857298202813,
+          "denoiser_seconds_per_forward": 0.8159214324550703,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 25624.17578125,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 10.294319488108158,
+          "sampling_steps": 4,
+          "serialization_seconds": 1.9063359540887177,
+          "text_seconds": 0.09416729910299182,
+          "vae_seconds": 4.666721906047314
+        },
+        "graph": {
+          "cpu_transfer_seconds": 0.353010191116482,
+          "denoiser_seconds": 3.24732570303604,
+          "denoiser_seconds_per_forward": 0.81183142575901,
+          "network_forward_calls": 4,
+          "peak_allocated_mib": 15799.1630859375,
+          "peak_reserved_mib": 45870.0,
+          "request_seconds": 9.387025413103402,
+          "sampling_steps": 4,
+          "serialization_seconds": 1.980939107015729,
+          "text_seconds": 0.07619304489344358,
+          "vae_seconds": 3.7291682669892907
+        },
+        "network_calls_equal": true,
+        "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+        "prompt_index": 3,
+        "seed": 2026082701
+      }
+    ],
+    "summary": {
+      "bitwise_exact": true,
+      "median_graph_request_seconds": 9.325736772501841,
+      "memory_ok": true,
+      "peak_reserved_mib": 45870.0,
+      "request_speedup_over_incumbent": 1.0334834948713123
+    },
+    "text_policy": {
+      "cache_negative": false,
+      "negative_cache_hits": 0,
+      "negative_model_calls": 0,
+      "positive_cache_hits": 0,
+      "positive_model_calls": 9,
+      "resident": true
+    }
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "f81-request"
+}
