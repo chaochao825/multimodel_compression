@@ -1,0 +1,9 @@
+{"event":"run_start","method":"teacher20","run_id":"EXP-047-f81-timing-teacher20","stage":"f81-timing","time_unix":1788251511.4403632}
+{"event":"checkpoint_verified","path":"/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors","run_id":"EXP-047-f81-timing-teacher20","sha256":"96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f","time_unix":1788251518.585747}
+{"event":"offline_model_cache_configured","path":"/opt/data/wangmeiqi/rcm_exp047_20260826/hf_home","run_id":"EXP-047-f81-timing-teacher20","time_unix":1788251518.5861197}
+{"event":"pipeline_loaded","run_id":"EXP-047-f81-timing-teacher20","seconds":2.9456346346996725,"time_unix":1788251528.661791}
+{"event":"warmup_complete","run_id":"EXP-047-f81-timing-teacher20","time_unix":1788251595.6749094,"warmup":0}
+{"denoiser_seconds":34.61075119441375,"event":"repeat_complete","repeat":0,"run_id":"EXP-047-f81-timing-teacher20","time_unix":1788251651.860574,"warm_e2e_seconds":56.126056066248566}
+{"denoiser_seconds":32.20173574099317,"event":"repeat_complete","repeat":1,"run_id":"EXP-047-f81-timing-teacher20","time_unix":1788251707.957598,"warm_e2e_seconds":56.021064025815576}
+{"denoiser_seconds":31.986105403862894,"event":"repeat_complete","repeat":2,"run_id":"EXP-047-f81-timing-teacher20","time_unix":1788251765.5037553,"warm_e2e_seconds":57.46631748601794}
+{"event":"run_complete","rows":3,"run_id":"EXP-047-f81-timing-teacher20","time_unix":1788251765.538569}

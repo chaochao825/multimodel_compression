@@ -1,0 +1,10 @@
+method,metric,error_percent,gate_percent,error_to_gate
+EXP-050 fixed-state residual support,mean,6.759,0.5,13.518
+EXP-050 fixed-state residual support,p95,12.566,1.0,12.566
+EXP-050 fixed-state residual support,worst,19.383,2.0,9.6915
+EXP-051 best independent,mean,4.019,0.5,8.038
+EXP-051 best independent,p95,7.651,1.0,7.651
+EXP-051 best independent,worst,10.536,2.0,5.268
+EXP-051 joint residual,mean,4.281,0.5,8.562
+EXP-051 joint residual,p95,13.642,1.0,13.642
+EXP-051 joint residual,worst,21.254,2.0,10.627

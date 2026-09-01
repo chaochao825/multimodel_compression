@@ -1,0 +1,9 @@
+{"event":"run_start","method":"native4","run_id":"EXP-047-f81-timing-native4","stage":"f81-timing","time_unix":1788251784.3585515}
+{"event":"checkpoint_verified","path":"/home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/diffusion_pytorch_model.safetensors","run_id":"EXP-047-f81-timing-native4","sha256":"96b6b242ca1c2f24e9d02cd6596066fab6d310e2d7538f33ae267cb18d957e8f","time_unix":1788251791.5272229}
+{"event":"offline_model_cache_configured","path":"/opt/data/wangmeiqi/rcm_exp047_20260826/hf_home","run_id":"EXP-047-f81-timing-native4","time_unix":1788251791.5291553}
+{"event":"pipeline_loaded","run_id":"EXP-047-f81-timing-native4","seconds":2.92227034131065,"time_unix":1788251801.2060397}
+{"event":"warmup_complete","run_id":"EXP-047-f81-timing-native4","time_unix":1788251838.2178996,"warmup":0}
+{"denoiser_seconds":6.354893022682518,"event":"repeat_complete","repeat":0,"run_id":"EXP-047-f81-timing-native4","time_unix":1788251866.066194,"warm_e2e_seconds":27.79148938227445}
+{"denoiser_seconds":6.3565267119556665,"event":"repeat_complete","repeat":1,"run_id":"EXP-047-f81-timing-native4","time_unix":1788251901.2778013,"warm_e2e_seconds":35.15028761001304}
+{"denoiser_seconds":6.359136039856821,"event":"repeat_complete","repeat":2,"run_id":"EXP-047-f81-timing-native4","time_unix":1788251928.8044746,"warm_e2e_seconds":27.476133948192}
+{"event":"run_complete","rows":3,"run_id":"EXP-047-f81-timing-native4","time_unix":1788251928.8278832}

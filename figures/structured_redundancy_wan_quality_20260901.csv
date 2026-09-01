@@ -1,0 +1,17 @@
+dimension,method,teacher_normalized
+aesthetic_quality,native4,0.8282770480078316
+aesthetic_quality,rcm4,0.9706451446803194
+background_consistency,native4,1.0094088684296554
+background_consistency,rcm4,0.9879873782771997
+dynamic_degree,native4,0.5
+dynamic_degree,rcm4,1.0
+imaging_quality,native4,0.7245148772538399
+imaging_quality,rcm4,0.9819538508115139
+motion_smoothness,native4,1.007786713144635
+motion_smoothness,rcm4,0.9939009866197077
+overall_consistency,native4,0.8072996738740406
+overall_consistency,rcm4,1.0455364442370667
+subject_consistency,native4,1.036638863408581
+subject_consistency,rcm4,1.0062320794148567
+temporal_flickering,native4,1.021452461050031
+temporal_flickering,rcm4,0.9887402539686427

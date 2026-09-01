@@ -1,0 +1,103 @@
+{
+    "dynamic_degree": [
+        0.8333333333333334,
+        [
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p00_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p02_s2026082701.mp4",
+                "video_results": false
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p03_s2026082701.mp4",
+                "video_results": false
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p03_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p01_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p01_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p01_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p00_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p00_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p02_s2026082702.mp4",
+                "video_results": false
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p03_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p01_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p01_s2026082701.mp4",
+                "video_results": false
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p00_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p00_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p02_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p02_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p03_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p02_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p00_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p02_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p01_s2026082701.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p03_s2026082702.mp4",
+                "video_results": true
+            },
+            {
+                "video_path": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p03_s2026082702.mp4",
+                "video_results": true
+            }
+        ]
+    ]
+}

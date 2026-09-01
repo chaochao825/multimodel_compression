@@ -1,0 +1,292 @@
+{
+  "diversity_gate": {
+    "native4": {
+      "minimum_prompt_ratio": 0.6761104838352466,
+      "passes_no_prompt_below_0_50": true,
+      "passes_three_of_four_0_70": true,
+      "prompts": [
+        {
+          "geometric_mean_ratio": 0.9656137329099503,
+          "metric_ratios": {
+            "frame_l1": 0.4342878187358596,
+            "frame_lpips": 0.6822531398474275,
+            "video_embedding_distance": 3.0386949899850895
+          },
+          "prompt_index": 0
+        },
+        {
+          "geometric_mean_ratio": 0.995198825769168,
+          "metric_ratios": {
+            "frame_l1": 0.6798488493198849,
+            "frame_lpips": 0.8557712611008854,
+            "video_embedding_distance": 1.6941798037815654
+          },
+          "prompt_index": 1
+        },
+        {
+          "geometric_mean_ratio": 0.7307473970096724,
+          "metric_ratios": {
+            "frame_l1": 0.6415180529848011,
+            "frame_lpips": 0.5330133332957124,
+            "video_embedding_distance": 1.1411819023844756
+          },
+          "prompt_index": 2
+        },
+        {
+          "geometric_mean_ratio": 0.6761104838352466,
+          "metric_ratios": {
+            "frame_l1": 0.5285553874118925,
+            "frame_lpips": 0.8382238743738174,
+            "video_embedding_distance": 0.6975935886518707
+          },
+          "prompt_index": 3
+        }
+      ],
+      "prompts_at_least_0_70": 3
+    },
+    "rcm4": {
+      "minimum_prompt_ratio": 1.113231867917671,
+      "passes_no_prompt_below_0_50": true,
+      "passes_three_of_four_0_70": true,
+      "prompts": [
+        {
+          "geometric_mean_ratio": 1.5721968087073837,
+          "metric_ratios": {
+            "frame_l1": 1.3068728274448231,
+            "frame_lpips": 1.2711950590905767,
+            "video_embedding_distance": 2.3392422904388
+          },
+          "prompt_index": 0
+        },
+        {
+          "geometric_mean_ratio": 1.1198564576476273,
+          "metric_ratios": {
+            "frame_l1": 1.1178304863009665,
+            "frame_lpips": 1.034431965537068,
+            "video_embedding_distance": 1.214532648531826
+          },
+          "prompt_index": 1
+        },
+        {
+          "geometric_mean_ratio": 1.113231867917671,
+          "metric_ratios": {
+            "frame_l1": 1.077894596399405,
+            "frame_lpips": 0.9084662260634678,
+            "video_embedding_distance": 1.4088728806858615
+          },
+          "prompt_index": 2
+        },
+        {
+          "geometric_mean_ratio": 1.361578923629705,
+          "metric_ratios": {
+            "frame_l1": 1.0295887012352836,
+            "frame_lpips": 1.1010287282983247,
+            "video_embedding_distance": 2.22672221443739
+          },
+          "prompt_index": 3
+        }
+      ],
+      "prompts_at_least_0_70": 4
+    }
+  },
+  "diversity_rows": [
+    {
+      "frame_l1": 0.2472203368390048,
+      "frame_lpips": 0.637231190999349,
+      "method": "teacher20",
+      "prompt_index": 0,
+      "video_embedding_distance": 0.07451391220092773
+    },
+    {
+      "frame_l1": 0.2874382557692351,
+      "frame_lpips": 0.7646715449698177,
+      "method": "teacher20",
+      "prompt_index": 1,
+      "video_embedding_distance": 0.17722362279891968
+    },
+    {
+      "frame_l1": 0.3168232047263487,
+      "frame_lpips": 0.9336561369307247,
+      "method": "teacher20",
+      "prompt_index": 2,
+      "video_embedding_distance": 0.2110743522644043
+    },
+    {
+      "frame_l1": 0.31271683065979566,
+      "frame_lpips": 0.6573184706546642,
+      "method": "teacher20",
+      "prompt_index": 3,
+      "video_embedding_distance": 0.11059403419494629
+    },
+    {
+      "frame_l1": 0.10736478083295586,
+      "frame_lpips": 0.43475298086802167,
+      "method": "native4",
+      "prompt_index": 0,
+      "video_embedding_distance": 0.22642505168914795
+    },
+    {
+      "frame_l1": 0.19541456743522925,
+      "frame_lpips": 0.6543839323667833,
+      "method": "native4",
+      "prompt_index": 1,
+      "video_embedding_distance": 0.3002486824989319
+    },
+    {
+      "frame_l1": 0.20324780543645224,
+      "frame_lpips": 0.49765116969744366,
+      "method": "native4",
+      "prompt_index": 2,
+      "video_embedding_distance": 0.24087423086166382
+    },
+    {
+      "frame_l1": 0.16528816557960746,
+      "frame_lpips": 0.550980035169625,
+      "method": "native4",
+      "prompt_index": 3,
+      "video_embedding_distance": 0.07714968919754028
+    },
+    {
+      "frame_l1": 0.3230855406066518,
+      "frame_lpips": 0.8100451414967761,
+      "method": "rcm4",
+      "prompt_index": 0,
+      "video_embedding_distance": 0.17430609464645386
+    },
+    {
+      "frame_l1": 0.3213072452280257,
+      "frame_lpips": 0.791000689253395,
+      "method": "rcm4",
+      "prompt_index": 1,
+      "video_embedding_distance": 0.2152438759803772
+    },
+    {
+      "frame_l1": 0.3415020203884737,
+      "frame_lpips": 0.8481950671584518,
+      "method": "rcm4",
+      "prompt_index": 2,
+      "video_embedding_distance": 0.29737693071365356
+    },
+    {
+      "frame_l1": 0.3219697155334331,
+      "frame_lpips": 0.7237265198319046,
+      "method": "rcm4",
+      "prompt_index": 3,
+      "video_embedding_distance": 0.24626219272613525
+    }
+  ],
+  "paired_diagnostics": [
+    {
+      "method": "native4",
+      "prompt_index": 0,
+      "psnr": 11.69476321920909,
+      "seed": 2026082701,
+      "ssim": 0.5162592441947372
+    },
+    {
+      "method": "native4",
+      "prompt_index": 0,
+      "psnr": 10.770299287024399,
+      "seed": 2026082702,
+      "ssim": 0.6064204930523296
+    },
+    {
+      "method": "native4",
+      "prompt_index": 1,
+      "psnr": 15.294247274706182,
+      "seed": 2026082701,
+      "ssim": 0.6236409029842894
+    },
+    {
+      "method": "native4",
+      "prompt_index": 1,
+      "psnr": 12.698272234674883,
+      "seed": 2026082702,
+      "ssim": 0.5104488414010884
+    },
+    {
+      "method": "native4",
+      "prompt_index": 2,
+      "psnr": 11.14983797354212,
+      "seed": 2026082701,
+      "ssim": 0.16854239908265478
+    },
+    {
+      "method": "native4",
+      "prompt_index": 2,
+      "psnr": 11.697839099690786,
+      "seed": 2026082702,
+      "ssim": 0.29353062790117146
+    },
+    {
+      "method": "native4",
+      "prompt_index": 3,
+      "psnr": 10.39803323020999,
+      "seed": 2026082701,
+      "ssim": 0.27476353961744426
+    },
+    {
+      "method": "native4",
+      "prompt_index": 3,
+      "psnr": 12.861655683394092,
+      "seed": 2026082702,
+      "ssim": 0.3786513168870667
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 0,
+      "psnr": 8.957622097375761,
+      "seed": 2026082701,
+      "ssim": 0.3711293926577509
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 0,
+      "psnr": 7.689007088023561,
+      "seed": 2026082702,
+      "ssim": 0.40995385010301333
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 1,
+      "psnr": 8.32174664780186,
+      "seed": 2026082701,
+      "ssim": 0.316394199559718
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 1,
+      "psnr": 9.998471896325697,
+      "seed": 2026082702,
+      "ssim": 0.33613684515894193
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 2,
+      "psnr": 11.228324118331246,
+      "seed": 2026082701,
+      "ssim": 0.257540351262799
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 2,
+      "psnr": 10.2644887598952,
+      "seed": 2026082702,
+      "ssim": 0.3493152849468184
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 3,
+      "psnr": 7.064568793176683,
+      "seed": 2026082701,
+      "ssim": 0.10739778534129814
+    },
+    {
+      "method": "rcm4",
+      "prompt_index": 3,
+      "psnr": 8.510491440130473,
+      "seed": 2026082702,
+      "ssim": 0.17953946524196202
+    }
+  ]
+}

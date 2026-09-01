@@ -201,6 +201,21 @@ def configure_offline_model_cache(config: dict[str, Any]) -> Path:
     return cache
 
 
+def install_flash_attention_output_compat(attention_module: Any) -> bool:
+    """Keep the official FA3 path while normalizing its output to one tensor."""
+    if not attention_module.FLASH_ATTN_3_AVAILABLE:
+        return False
+
+    flash_attn_func = attention_module.flash_attn_func
+
+    def output_only(*args: Any, **kwargs: Any) -> Any:
+        result = flash_attn_func(*args, **kwargs)
+        return result[0] if isinstance(result, tuple) else result
+
+    attention_module.flash_attn_func = output_only
+    return True
+
+
 def import_runtime(config: dict[str, Any]) -> dict[str, Any]:
     source_root = config["remote"]["rcm_root"]
     if source_root not in sys.path:
@@ -214,9 +229,12 @@ def import_runtime(config: dict[str, Any]) -> dict[str, Any]:
     from rcm.inference.wan2pt1_t2v_rcm_infer import dit_configs
     from rcm.samplers.unipc import FlowUniPCMultistepSampler
     from rcm.tokenizers.wan2pt1 import Wan2pt1VAEInterface
+    import rcm.utils.attention as attention_runtime
     from rcm.utils.model_utils import init_weights_on_device, load_state_dict
     from rcm.utils.umt5 import clear_umt5_memory, get_umt5_embedding
     from safetensors.torch import load_file
+
+    fa3_output_compat = install_flash_attention_output_compat(attention_runtime)
 
     return {
         "torch": torch,
@@ -232,6 +250,7 @@ def import_runtime(config: dict[str, Any]) -> dict[str, Any]:
         "clear_umt5": clear_umt5_memory,
         "get_umt5": get_umt5_embedding,
         "load_safetensors": load_file,
+        "fa3_output_compat": fa3_output_compat,
     }
 
 
@@ -571,8 +590,9 @@ def main() -> None:
         "source_commit": source_commit,
         "checkpoint_identity": checkpoint_sha256,
         "attention_backend_policy": (
-            "official rCM dense BF16 dispatcher; FA3 absent means common H200 "
-            "cuDNN/SDPA fallback for all methods"
+            "official rCM dense BF16 dispatcher with FA3 tensor-output compatibility"
+            if runtime["fa3_output_compat"]
+            else "official rCM dense BF16 dispatcher with cuDNN/SDPA fallback"
         ),
         "load": load_info,
         "rows": rows,

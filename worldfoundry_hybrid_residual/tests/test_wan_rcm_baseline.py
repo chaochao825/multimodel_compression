@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -121,6 +122,27 @@ class WanRcmBaselineTest(unittest.TestCase):
                 self.assertEqual(baseline.os.environ["HF_HOME"], str(cache))
                 self.assertEqual(baseline.os.environ["HF_HUB_OFFLINE"], "1")
                 self.assertEqual(baseline.os.environ["TRANSFORMERS_OFFLINE"], "1")
+
+    def test_flash_attention_tuple_output_is_normalized(self) -> None:
+        module = types.SimpleNamespace(
+            FLASH_ATTN_3_AVAILABLE=True,
+            flash_attn_func=lambda *_args, **_kwargs: ("output", "softmax_lse"),
+        )
+        installed = baseline.install_flash_attention_output_compat(module)
+        self.assertTrue(installed)
+        self.assertEqual(module.flash_attn_func("q", "k", "v"), "output")
+
+    def test_flash_attention_compat_is_inactive_without_fa3(self) -> None:
+        def original(*_args, **_kwargs):
+            return "output"
+
+        module = types.SimpleNamespace(
+            FLASH_ATTN_3_AVAILABLE=False,
+            flash_attn_func=original,
+        )
+        installed = baseline.install_flash_attention_output_compat(module)
+        self.assertFalse(installed)
+        self.assertIs(module.flash_attn_func, original)
 
     def test_config_identity_rejects_wrong_gate(self) -> None:
         bad = json.loads(json.dumps(self.config))

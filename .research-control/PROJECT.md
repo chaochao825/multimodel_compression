@@ -1,6 +1,6 @@
 # multimodel_compression_block_butterfly_20260802
 
-Updated: 2026-08-26
+Updated: 2026-09-01
 
 ## North star
 
@@ -9,11 +9,13 @@ negligible quality loss through a defensible combination of training,
 structured computation, and H200 system optimization, with claims separated by
 NFE reduction, per-step acceleration, and end-to-end wall-clock.
 
-## Primary falsifiable claim
+## Latest primary falsifiable claim
 
-C-026 tests whether the official unquantized four-step rCM Wan2.1-T2V-1.3B
+C-026 tested whether the official unquantized four-step rCM Wan2.1-T2V-1.3B
 release establishes a useful single-H200 quality/latency incumbent against
-native 20-step UniPC on frozen F81 prompt-seed identities.
+native 20-step UniPC on frozen F81 prompt-seed identities. EXP-047 closed as a
+valid speed boundary: endpoint quality and denoiser speed passed, while warm
+end-to-end speed missed the registered threshold. No successor claim is active.
 
 ## Scientific value
 
@@ -41,6 +43,13 @@ RDR-030 therefore selects a released full-observability few-step student before
 another state architecture. EXP-047 isolates NFE reduction with unquantized
 rCM, native 20-step, and native four-step controls; sparse attention,
 quantization, cache, and custom kernels remain disabled in this first Gate.
+
+EXP-047 subsequently established rCM as a high-quality component-local
+incumbent: `0.996875` mean teacher-normalized quality and `10.135x` denoiser
+speedup. Its `2.181x` warm end-to-end result missed the `2.5x` guard because
+text encoding, VAE decode, and serialization dominate after NFE reduction.
+EXP-048 independently showed that this endpoint success does not induce a
+post-hoc rank-64 late-block state closure.
 
 ## Success envelope
 
@@ -82,9 +91,9 @@ quantization, cache, and custom kernels remain disabled in this first Gate.
 - C-024 is refuted; L-024 is the closed incumbent after EXP-045 while protected
   successor selection remained pending.
 - C-025 is refuted and L-025 is parked after the valid EXP-046 capacity null.
-- L-025 is parked after its capacity null. L-026 is the active mainline under
-  accepted RDR-030; it measures the released rCM four-step H200 Pareto before
-  any training-native state architecture is selected.
+- L-025 is parked after its capacity null. L-026 remains the decided mainline
+  incumbent after the valid EXP-047 speed-boundary result; no successor
+  experiment is active.
 - Exact dual-H200 CFG branch parallelism remains a valid independent system
   optimization; it is not part of C-022's algorithmic claim.
 

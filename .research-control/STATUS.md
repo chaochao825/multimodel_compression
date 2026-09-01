@@ -1,15 +1,19 @@
 # Research status
 
-Updated: 2026-08-27
+Updated: 2026-09-01
 
 ## Current decision surface
 
 - North star: faithful, materially faster Wan video generation through a
   scientifically defensible training-and-system co-design.
-- Primary claim: C-026, the released unquantized rCM four-step H200
-  quality/latency baseline.
-- Mainline: L-026 is active under accepted RDR-030; L-025 remains parked.
-- Active plan: PLAN-056. EXP-047 / G-026 are active; PLAN-055 is complete.
+- Latest primary claim: C-026 is refuted only on its conjunctive end-to-end
+  speed guard; the released unquantized rCM four-step endpoint passed quality,
+  diversity, completeness, and denoiser-speed guards.
+- Mainline: L-026 remains the decided measured incumbent; no experiment is
+  running and no successor candidate has been accepted.
+- EXP-047 / G-026 are complete with a valid `speed-boundary` result. PLAN-056
+  remains active only to hold the incumbent pending the researcher's successor
+  decision and authorizes no new resource use.
 - PLAN-057 / EXP-048 / G-027 are complete with a valid `null/adverse` result.
   L-027 is parked, C-027 is refuted, and no side probe remains active. EXP-047
   remains the unchanged sole mainline.
@@ -19,6 +23,22 @@ Updated: 2026-08-27
   repurposed without a new accepted protocol.
 
 ## Latest belief-changing evidence
+
+- EXP-047 completed all 24 F81 formal videos and the frozen eight-dimension
+  VBench plus inter-seed diversity suite. rCM reached `0.996875` mean and
+  `0.970645` minimum teacher-normalized quality; all four prompt diversity
+  ratios exceeded `1.11`.
+- rCM denoiser timing was `3.177s` versus `32.202s` for teacher20 (`10.135x`),
+  but warm end-to-end was `25.729s` versus `56.126s` (`2.181x`), below the
+  registered `2.5x` guard. Text encoding, VAE, and serialization now dominate.
+- Native4 reached only `0.866922` mean and `0.500000` minimum quality. The
+  positive rCM result therefore comes from training the four-step finite-time
+  map, not from merely reducing the unchanged solver's NFE.
+- EXP-050/051 closed the video-understanding side probe. Residual-aware support
+  improved fixed-state risk by `59.414%`, but true joint support-state training
+  missed `0.5%/1%/2%` capacity and was `66.536%` worse than the best independent
+  arm. Query/task-conditioned structure remains plausible; the fixed width-32
+  post-hoc family is closed.
 
 - EXP-048 completed the frozen 2x2 teacher/rCM weight by native4/rCM4 trajectory
   cross over four calibration and four untouched selection F17 identities.
@@ -83,14 +103,14 @@ post-hoc whole-block rank-state growth, and rollout/kernel work for
 L-022/L-023/L-024/L-025/L-027 remain closed. Released-rCM deployment evidence
 continues only through L-026/EXP-047.
 
-## Active Gate
+## Closed primary Gate
 
-EXP-047 compares native 20-step UniPC, unchanged native four-step UniPC, and the
+EXP-047 compared native 20-step UniPC, unchanged native four-step UniPC, and the
 official unquantized four-step rCM release on one H200. It freezes four prompts,
 two seeds, F81 generation, component timing, eight VBench dimensions, and
-inter-seed diversity. A valid pass requires at least 3.5x denoiser and 2.5x
-end-to-end speedup while retaining the registered teacher-normalized quality
-and diversity guards. Physical-time long-video transport remains separate.
+inter-seed diversity. It closed as `speed-boundary`: quality, diversity,
+completeness, and denoiser speed passed, while `2.181x` warm end-to-end missed
+the `2.5x` guard. Physical-time long-video transport remains separate.
 
 ## EXP-049 Boundary
 

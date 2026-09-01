@@ -1,0 +1,106 @@
+{
+  "aggregate": {
+    "native4": {
+      "mean_teacher_normalized": 0.8669223131460768,
+      "minimum_teacher_normalized": 0.5,
+      "passes_mean_0_90": false,
+      "passes_minimum_0_80": false
+    },
+    "rcm4": {
+      "mean_teacher_normalized": 0.9968745172511634,
+      "minimum_teacher_normalized": 0.9706451446803194,
+      "passes_mean_0_90": true,
+      "passes_minimum_0_80": true
+    }
+  },
+  "dimensions": {
+    "aesthetic_quality": {
+      "means": {
+        "native4": 0.49138080701231956,
+        "rcm4": 0.5758416168391705,
+        "teacher20": 0.5932565778493881
+      },
+      "teacher_normalized": {
+        "native4": 0.8282770480078316,
+        "rcm4": 0.9706451446803194
+      }
+    },
+    "background_consistency": {
+      "means": {
+        "native4": 0.9387809753417968,
+        "rcm4": 0.9188583374023438,
+        "teacher20": 0.9300304412841797
+      },
+      "teacher_normalized": {
+        "native4": 1.0094088684296554,
+        "rcm4": 0.9879873782771997
+      }
+    },
+    "dynamic_degree": {
+      "means": {
+        "native4": 0.5,
+        "rcm4": 1.0,
+        "teacher20": 1.0
+      },
+      "teacher_normalized": {
+        "native4": 0.5,
+        "rcm4": 1.0
+      }
+    },
+    "imaging_quality": {
+      "means": {
+        "native4": 47.457649136766975,
+        "rcm4": 64.32058579244732,
+        "teacher20": 65.50265650395994
+      },
+      "teacher_normalized": {
+        "native4": 0.7245148772538399,
+        "rcm4": 0.9819538508115139
+      }
+    },
+    "motion_smoothness": {
+      "means": {
+        "native4": 0.9780690693958373,
+        "rcm4": 0.9645928055763404,
+        "teacher20": 0.9705119710736525
+      },
+      "teacher_normalized": {
+        "native4": 1.007786713144635,
+        "rcm4": 0.9939009866197077
+      }
+    },
+    "overall_consistency": {
+      "means": {
+        "native4": 0.20510236732661724,
+        "rcm4": 0.2656287457793951,
+        "teacher20": 0.25405976735055447
+      },
+      "teacher_normalized": {
+        "native4": 0.8072996738740406,
+        "rcm4": 1.0455364442370667
+      }
+    },
+    "subject_consistency": {
+      "means": {
+        "native4": 0.9069220113102346,
+        "rcm4": 0.8803200936410577,
+        "teacher20": 0.8748678477364592
+      },
+      "teacher_normalized": {
+        "native4": 1.036638863408581,
+        "rcm4": 1.0062320794148567
+      }
+    },
+    "temporal_flickering": {
+      "means": {
+        "native4": 0.9733570851531683,
+        "rcm4": 0.9421851415260165,
+        "teacher20": 0.9529147192543628
+      },
+      "teacher_normalized": {
+        "native4": 1.021452461050031,
+        "rcm4": 0.9887402539686427
+      }
+    }
+  }
+}

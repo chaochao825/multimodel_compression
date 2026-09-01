@@ -1,0 +1,196 @@
+{
+  "videos": [
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p00_s2026082701.mp4",
+      "method": "teacher20",
+      "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+      "prompt_index": 0,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p00_s2026082701/p00_teacher20_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p00_s2026082702.mp4",
+      "method": "teacher20",
+      "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+      "prompt_index": 0,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p00_s2026082702/p00_teacher20_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p01_s2026082701.mp4",
+      "method": "teacher20",
+      "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+      "prompt_index": 1,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p01_s2026082701/p01_teacher20_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p01_s2026082702.mp4",
+      "method": "teacher20",
+      "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+      "prompt_index": 1,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p01_s2026082702/p01_teacher20_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p02_s2026082701.mp4",
+      "method": "teacher20",
+      "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+      "prompt_index": 2,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p02_s2026082701/p02_teacher20_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p02_s2026082702.mp4",
+      "method": "teacher20",
+      "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+      "prompt_index": 2,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p02_s2026082702/p02_teacher20_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p03_s2026082701.mp4",
+      "method": "teacher20",
+      "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+      "prompt_index": 3,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p03_s2026082701/p03_teacher20_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/teacher20_p03_s2026082702.mp4",
+      "method": "teacher20",
+      "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+      "prompt_index": 3,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/teacher20/p03_s2026082702/p03_teacher20_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p00_s2026082701.mp4",
+      "method": "native4",
+      "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+      "prompt_index": 0,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p00_s2026082701/p00_native4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p00_s2026082702.mp4",
+      "method": "native4",
+      "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+      "prompt_index": 0,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p00_s2026082702/p00_native4_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p01_s2026082701.mp4",
+      "method": "native4",
+      "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+      "prompt_index": 1,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p01_s2026082701/p01_native4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p01_s2026082702.mp4",
+      "method": "native4",
+      "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+      "prompt_index": 1,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p01_s2026082702/p01_native4_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p02_s2026082701.mp4",
+      "method": "native4",
+      "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+      "prompt_index": 2,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p02_s2026082701/p02_native4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p02_s2026082702.mp4",
+      "method": "native4",
+      "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+      "prompt_index": 2,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p02_s2026082702/p02_native4_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p03_s2026082701.mp4",
+      "method": "native4",
+      "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+      "prompt_index": 3,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p03_s2026082701/p03_native4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/native4_p03_s2026082702.mp4",
+      "method": "native4",
+      "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+      "prompt_index": 3,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/native4/p03_s2026082702/p03_native4_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p00_s2026082701.mp4",
+      "method": "rcm4",
+      "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+      "prompt_index": 0,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p00_s2026082701/p00_rcm4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p00_s2026082702.mp4",
+      "method": "rcm4",
+      "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+      "prompt_index": 0,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p00_s2026082702/p00_rcm4_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p01_s2026082701.mp4",
+      "method": "rcm4",
+      "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+      "prompt_index": 1,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p01_s2026082701/p01_rcm4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p01_s2026082702.mp4",
+      "method": "rcm4",
+      "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+      "prompt_index": 1,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p01_s2026082702/p01_rcm4_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p02_s2026082701.mp4",
+      "method": "rcm4",
+      "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+      "prompt_index": 2,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p02_s2026082701/p02_rcm4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p02_s2026082702.mp4",
+      "method": "rcm4",
+      "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+      "prompt_index": 2,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p02_s2026082702/p02_rcm4_seed2026082702_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p03_s2026082701.mp4",
+      "method": "rcm4",
+      "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+      "prompt_index": 3,
+      "seed": 2026082701,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p03_s2026082701/p03_rcm4_seed2026082701_repeat00.mp4"
+    },
+    {
+      "evaluation_file": "/home/spco/spco/tmp/exp047-quality-20260901/evaluation_v1/vbench_input/rcm4_p03_s2026082702.mp4",
+      "method": "rcm4",
+      "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+      "prompt_index": 3,
+      "seed": 2026082702,
+      "source": "/home/spco/spco/tmp/exp047-quality-20260901/outputs/formal/rcm4/p03_s2026082702/p03_rcm4_seed2026082702_repeat00.mp4"
+    }
+  ]
+}
