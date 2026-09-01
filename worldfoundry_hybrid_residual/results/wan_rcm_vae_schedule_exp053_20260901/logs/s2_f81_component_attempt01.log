@@ -1,0 +1,282 @@
+-- GPU before --
+2026-09-01T19:39:28+08:00
+0, NVIDIA GeForce RTX 4090, GPU-cc83c0f3-fe19-63c1-f0a1-595459b5aa9a, 15 MiB, 24564 MiB, 0 %
+1, NVIDIA GeForce RTX 4090, GPU-835022fd-3109-e2e1-8452-2455a5f5b07b, 15 MiB, 24564 MiB, 0 %
+2, NVIDIA H200 NVL, GPU-63e6b34c-031a-a6b8-2d0c-784a9d963d0b, 10481 MiB, 143771 MiB, 40 %
+3, NVIDIA H200 NVL, GPU-4bffd208-6c43-9564-d8fd-76284154138e, 14 MiB, 143771 MiB, 0 %
+-- run --
+Megatron-core is not installed.
+[09-01 19:39:39|INFO|../rcm/rcm/networks/wan2pt1.py:918:enable_selective_checkpoint] Enable selective checkpoint with mm_only, for every 1 blocks. Total blocks: 30
+[09-01 19:39:44|INFO|../rcm/rcm/tokenizers/wan2pt1.py:592:_video_vae] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth
+[09-01 19:39:44|INFO|../rcm/rcm/utils/umt5.py:495:__init__] loading /home/wangmeiqi/codex_runs/base2_h200_fp8_20260723/wan_runtime/MonarchRT/wan_models/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth
+{
+  "advance": false,
+  "checkpoint_identity": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+  "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+  "load": {
+    "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "load_seconds": 5.752777943853289,
+    "missing_keys": 0,
+    "unexpected_keys": 0
+  },
+  "rows": [
+    {
+      "benchmark": {
+        "baseline_median_seconds": 4.1123154296875,
+        "baseline_rows": [
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 0,
+            "seconds": 4.1107236328125
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 1,
+            "seconds": 4.1123154296875
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 2,
+            "seconds": 4.117828125
+          }
+        ],
+        "candidates": [
+          {
+            "chunk_size": 4,
+            "exactness": {
+              "bitwise_equal": false,
+              "max_abs": 0.111328125,
+              "relative_l2": 0.002202356602735463
+            },
+            "median_seconds": 3.43319775390625,
+            "rows": [
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 0,
+                "seconds": 3.428709228515625
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 1,
+                "seconds": 3.43319775390625
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 2,
+                "seconds": 3.442365478515625
+              }
+            ],
+            "speedup": 1.1978090761036293
+          }
+        ],
+        "selected_chunk_size": null,
+        "selected_median_seconds": null,
+        "selected_speedup": null
+      },
+      "latent": {
+        "network_forward_calls": 4
+      },
+      "prompt": "A red fox sprints across a snowy clearing, leaps over a fallen log, lands cleanly, and keeps running while the camera tracks from the side.",
+      "prompt_index": 0,
+      "seed": 2026082701
+    },
+    {
+      "benchmark": {
+        "baseline_median_seconds": 4.1212529296875,
+        "baseline_rows": [
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 0,
+            "seconds": 4.12083154296875
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 1,
+            "seconds": 4.1287958984375
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 2,
+            "seconds": 4.1212529296875
+          }
+        ],
+        "candidates": [
+          {
+            "chunk_size": 4,
+            "exactness": {
+              "bitwise_equal": false,
+              "max_abs": 0.1640625,
+              "relative_l2": 0.002772145635753278
+            },
+            "median_seconds": 3.46698681640625,
+            "rows": [
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 0,
+                "seconds": 3.5532646484375
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 1,
+                "seconds": 3.46698681640625
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 2,
+                "seconds": 3.450504150390625
+              }
+            ],
+            "speedup": 1.188713181770745
+          }
+        ],
+        "selected_chunk_size": null,
+        "selected_median_seconds": null,
+        "selected_speedup": null
+      },
+      "latent": {
+        "network_forward_calls": 4
+      },
+      "prompt": "In a bright kitchen, a chef cracks an egg into a glass bowl, whisks it rapidly, and pours the mixture into a hot pan while utensils remain visible on the counter.",
+      "prompt_index": 1,
+      "seed": 2026082701
+    },
+    {
+      "benchmark": {
+        "baseline_median_seconds": 4.11670166015625,
+        "baseline_rows": [
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 0,
+            "seconds": 4.1252109375
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 1,
+            "seconds": 4.1161630859375
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 2,
+            "seconds": 4.11670166015625
+          }
+        ],
+        "candidates": [
+          {
+            "chunk_size": 4,
+            "exactness": {
+              "bitwise_equal": false,
+              "max_abs": 0.16015625,
+              "relative_l2": 0.0041289430445265295
+            },
+            "median_seconds": 3.44332763671875,
+            "rows": [
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 0,
+                "seconds": 3.443517333984375
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 1,
+                "seconds": 3.442552001953125
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 2,
+                "seconds": 3.44332763671875
+              }
+            ],
+            "speedup": 1.1955590912281522
+          }
+        ],
+        "selected_chunk_size": null,
+        "selected_median_seconds": null,
+        "selected_speedup": null
+      },
+      "latent": {
+        "network_forward_calls": 4
+      },
+      "prompt": "A low-flying drone moves forward through a narrow coastal canyon, banks smoothly around a rock pillar, and reveals the ocean as the camera continues without a cut.",
+      "prompt_index": 2,
+      "seed": 2026082701
+    },
+    {
+      "benchmark": {
+        "baseline_median_seconds": 4.12415283203125,
+        "baseline_rows": [
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 0,
+            "seconds": 4.1252646484375
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 1,
+            "seconds": 4.1214755859375
+          },
+          {
+            "peak_reserved_mib": 86128.0,
+            "repeat": 2,
+            "seconds": 4.12415283203125
+          }
+        ],
+        "candidates": [
+          {
+            "chunk_size": 4,
+            "exactness": {
+              "bitwise_equal": false,
+              "max_abs": 0.1396484375,
+              "relative_l2": 0.0024602669579530845
+            },
+            "median_seconds": 3.44322705078125,
+            "rows": [
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 0,
+                "seconds": 3.44322705078125
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 1,
+                "seconds": 3.44031298828125
+              },
+              {
+                "peak_reserved_mib": 86128.0,
+                "repeat": 2,
+                "seconds": 3.44596142578125
+              }
+            ],
+            "speedup": 1.197758025017694
+          }
+        ],
+        "selected_chunk_size": null,
+        "selected_median_seconds": null,
+        "selected_speedup": null
+      },
+      "latent": {
+        "network_forward_calls": 4
+      },
+      "prompt": "Macro footage of clear water pouring onto a bed of dark pebbles, forming splashes, bubbles, ripples, and fine droplets under steady natural light.",
+      "prompt_index": 3,
+      "seed": 2026082701
+    }
+  ],
+  "selected_chunk_size": 4,
+  "summary": {
+    "baseline_vae_median_seconds": 4.121042236328124,
+    "bitwise_exact": false,
+    "candidate_vae_median_seconds": 3.44327734375,
+    "min_projected_warm_speedup": 1.1,
+    "min_vae_speedup": 1.26,
+    "projected_incremental_warm_speedup": 1.098600845377292,
+    "projected_warm_seconds": 8.772972524506972,
+    "vae_speedup": 1.1968371481339881
+  }
+}
+-- GPU after --
+2026-09-01T19:42:46+08:00
+0, NVIDIA GeForce RTX 4090, GPU-cc83c0f3-fe19-63c1-f0a1-595459b5aa9a, 15 MiB, 24564 MiB, 0 %
+1, NVIDIA GeForce RTX 4090, GPU-835022fd-3109-e2e1-8452-2455a5f5b07b, 15 MiB, 24564 MiB, 0 %
+2, NVIDIA H200 NVL, GPU-63e6b34c-031a-a6b8-2d0c-784a9d963d0b, 10481 MiB, 143771 MiB, 32 %
+3, NVIDIA H200 NVL, GPU-4bffd208-6c43-9564-d8fd-76284154138e, 14 MiB, 143771 MiB, 0 %
+status=0

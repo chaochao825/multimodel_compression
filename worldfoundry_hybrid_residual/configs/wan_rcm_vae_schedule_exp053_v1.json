@@ -1,0 +1,19 @@
+{
+  "experiment_id": "EXP-053",
+  "gate_id": "G-032",
+  "base_config": "worldfoundry_hybrid_residual/configs/wan_rcm_baseline_exp047_v1.json",
+  "methods": ["rcm4"],
+  "screen_chunk_sizes": [1, 2, 4, 8],
+  "screen_repeats": 3,
+  "confirm_repeats": 3,
+  "timing_prompt_indices": [0, 1, 2, 3],
+  "timing_seed": 2026082701,
+  "incumbent_warm_seconds": 9.637995031895116,
+  "incumbent_vae_seconds": 4.308299851138145,
+  "min_vae_speedup": 1.26,
+  "min_projected_warm_speedup": 1.10,
+  "max_gpu_hours": 2,
+  "max_artifact_gib": 5,
+  "max_repairs": 2,
+  "remote_output_root": "/opt/data/wangmeiqi/rcm_exp047_20260826/outputs_exp053"
+}

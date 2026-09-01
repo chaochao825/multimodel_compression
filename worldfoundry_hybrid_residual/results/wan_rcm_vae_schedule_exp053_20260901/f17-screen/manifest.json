@@ -1,0 +1,166 @@
+{
+  "environment": {
+    "cuda_runtime": "12.8",
+    "cuda_visible_devices": "3",
+    "gpu_compute_capability": [
+      9,
+      0
+    ],
+    "gpu_name": "NVIDIA H200 NVL",
+    "gpu_total_memory_bytes": 150110011392,
+    "python": "3.11.15",
+    "torch": "2.9.1+cu128"
+  },
+  "experiment_id": "EXP-053",
+  "gate_id": "G-032",
+  "result": {
+    "advance": true,
+    "benchmark": {
+      "baseline_median_seconds": 0.89431640625,
+      "baseline_rows": [
+        {
+          "peak_reserved_mib": 86132.0,
+          "repeat": 0,
+          "seconds": 0.9253576049804687
+        },
+        {
+          "peak_reserved_mib": 86132.0,
+          "repeat": 1,
+          "seconds": 0.8912311401367188
+        },
+        {
+          "peak_reserved_mib": 86132.0,
+          "repeat": 2,
+          "seconds": 0.89431640625
+        }
+      ],
+      "candidates": [
+        {
+          "chunk_size": 1,
+          "exactness": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "median_seconds": 0.887906494140625,
+          "rows": [
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 0,
+              "seconds": 0.9257348022460937
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 1,
+              "seconds": 0.887906494140625
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 2,
+              "seconds": 0.8877577514648437
+            }
+          ],
+          "speedup": 1.0072191296624977
+        },
+        {
+          "chunk_size": 2,
+          "exactness": {
+            "bitwise_equal": false,
+            "max_abs": 0.0859375,
+            "relative_l2": 0.0018211315493846698
+          },
+          "median_seconds": 0.7925811767578125,
+          "rows": [
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 0,
+              "seconds": 0.8129834594726563
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 1,
+              "seconds": 0.792233642578125
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 2,
+              "seconds": 0.7925811767578125
+            }
+          ],
+          "speedup": 1.1283593813170691
+        },
+        {
+          "chunk_size": 4,
+          "exactness": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "median_seconds": 0.7535528564453124,
+          "rows": [
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 0,
+              "seconds": 0.7535528564453124
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 1,
+              "seconds": 0.7552529907226563
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 2,
+              "seconds": 0.7534277954101563
+            }
+          ],
+          "speedup": 1.186799835739065
+        },
+        {
+          "chunk_size": 8,
+          "exactness": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "relative_l2": 0.0
+          },
+          "median_seconds": 0.7535781860351562,
+          "rows": [
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 0,
+              "seconds": 0.7535781860351562
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 1,
+              "seconds": 0.7530565185546875
+            },
+            {
+              "peak_reserved_mib": 86132.0,
+              "repeat": 2,
+              "seconds": 0.7537359008789063
+            }
+          ],
+          "speedup": 1.1867599445192512
+        }
+      ],
+      "selected_chunk_size": 4,
+      "selected_median_seconds": 0.7535528564453124,
+      "selected_speedup": 1.186799835739065
+    },
+    "checkpoint_identity": "3baa20e8e64c7f1ee6e4a377f5a04b8e4d193e0a1a1241814879a004fd77370a",
+    "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+    "latent": {
+      "network_forward_calls": 4
+    },
+    "load": {
+      "checkpoint_path": "/opt/data/wangmeiqi/rcm_exp047_20260826/checkpoints/rCM_Wan2.1_T2V_1.3B_480p.pt",
+      "load_seconds": 5.759704486001283,
+      "missing_keys": 0,
+      "unexpected_keys": 0
+    },
+    "selected_chunk_size": 4
+  },
+  "source_commit": "ed3cb14dd936f92cdc9f9381af7369991509b41f",
+  "stage": "f17-screen"
+}

@@ -60,6 +60,13 @@ embeddings remained uncached, all three methods used the same lifetime policy,
 and rCM4 reached `9.638s` versus resident teacher20 at `38.846s`. The measured
 runtime floor is now dominated by VAE decode, denoising, and serialization.
 
+EXP-053 then tested whether the official BF16 VAE had an exact temporal-grouping
+schedule. Chunk 4 was bitwise equal on F17 but failed equality on all four F81
+prompts, reached only `1.1968x` complete-VAE speedup, and projected to
+`1.0986x` request speedup. The Gate closed as an exactness null before endpoint
+timing. This preserves L-030 and shows that short-horizon output equality does
+not certify long-horizon decoder-cache closure.
+
 ## Success envelope
 
 - Development feasibility: any successor must first establish a capacity
